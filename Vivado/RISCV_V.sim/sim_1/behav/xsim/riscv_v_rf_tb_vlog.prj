@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  -d "RISCV_V_USE_WORD=" -d "RISCV_V_USE_DWORD=" -d "RISCV_V_USE_QWORD=" -d "RISCV_V_USE_DQWORD=" \
+"../../../../../include/riscv_v_pkg.sv" \
+"../../../../../include/if/riscv_v_rf_if.sv" \
+"../../../../../src/riscv_v_check_params.sv" \
+"../../../../../src/riscv_v_rf.sv" \
+"../../../../../verif/riscv_v_base/riscv_v_base_pkg.sv" \
+"../../../../../verif/riscv_v_rf_agent/riscv_v_rf_agt_pkg.sv" \
+"../../../../../verif/tests/riscv_v_test_pkg.sv" \
+"../../../../../verif/tbench/riscv_v_rf_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

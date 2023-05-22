@@ -1,0 +1,1 @@
+-wto "bba4e8772d114479b32c82e4b59b9d6a" --incr --debug "typical" --relax --mt "2" -d "RISCV_V_USE_WORD=" -d "RISCV_V_USE_DWORD=" -d "RISCV_V_USE_QWORD=" -d "RISCV_V_USE_DQWORD=" -L "xil_defaultlib" -L "uvm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "riscv_v_rf_tb_behav" "xil_defaultlib.riscv_v_rf_tb" "xil_defaultlib.glbl" -log "elaborate.log" 

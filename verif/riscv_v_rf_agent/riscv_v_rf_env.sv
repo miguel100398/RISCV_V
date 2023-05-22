@@ -6,7 +6,10 @@
 `ifndef __RISCV_V_RF_ENV_SV__
 `define __RISCV_V_RF_ENV_SV__
 
-class riscv_v_rf_env extends uvm_env;
+class riscv_v_rf_env extends riscv_v_base_env#(
+                                                .agent_t (riscv_v_rf_agt),
+                                                .scbd_t  (riscv_v_rf_scbd)
+);
 
   `uvm_component_utils(riscv_v_rf_env)
     
@@ -14,6 +17,14 @@ class riscv_v_rf_env extends uvm_env;
   function new(string name = "riscv_v_rf_env", uvm_component parent = null);
     super.new(name, parent);
   endfunction : new
+
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+  endfunction : build_phase
+
+  function void connect_phase(uvm_phase phase);
+    super.connect_phase(phase);
+  endfunction : connect_phase
 
 endclass: riscv_v_rf_env
 

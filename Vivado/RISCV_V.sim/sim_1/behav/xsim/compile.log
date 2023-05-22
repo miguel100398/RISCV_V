@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/include/riscv_v_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/include/if/riscv_v_rf_if.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/src/riscv_v_check_params.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_v_check_params
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/src/riscv_v_rf.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_v_rf
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/verif/riscv_v_base/riscv_v_base_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/verif/riscv_v_rf_agent/riscv_v_rf_agt_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/verif/tests/riscv_v_test_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/verif/tbench/riscv_v_rf_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_v_rf_tb

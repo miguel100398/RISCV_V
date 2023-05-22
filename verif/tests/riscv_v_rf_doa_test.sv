@@ -8,8 +8,8 @@
 
 class riscv_v_rf_doa_test extends uvm_test;
 
-  riscv_v_rf_env      env;
-  riscv_v_rf_sequence seq;
+  riscv_v_rf_env          rf_env;
+  riscv_v_rf_rand_raw_seq seq_raw;
 
   `uvm_component_utils(riscv_v_rf_doa_test)
 
@@ -20,9 +20,17 @@ class riscv_v_rf_doa_test extends uvm_test;
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
 
-    env = riscv_v_rf_env::type_id::create("riscv_v_rf_env", this);
-    seq = riscv_v_rf_sequence::type_id::create("riscv_v_rf_sequence");
+    rf_env = riscv_v_rf_env::type_id::create("riscv_v_rf_env", this);
+    seq_raw = riscv_v_rf_rand_raw_seq::type_id::create("riscv_v_rf_rand_raw_seq");
   endfunction : build_phase
+
+  task run_phase(uvm_phase phase);
+    phase.raise_objection(this);
+    for (int i=0; i<100; i++) begin
+      seq_raw.start(rf_env.agt.sqr);
+    end
+    phase.drop_objection(this);
+  endtask : run_phase
 
 
 endclass: riscv_v_rf_doa_test

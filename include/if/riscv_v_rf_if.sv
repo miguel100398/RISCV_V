@@ -3,21 +3,56 @@
 //Date: 11/04/23
 //Description: RISC-V Vector extension register file interface
 
-interface riscv_v_rf_if #(
-    parameter int DATA_WIDTH            = 32,
-    parameter int NUM_REGS              = 32,
-    parameter int ADDR_WIDTH            = $clog2(NUM_REGS),
-    parameter int NUM_BYTES_REGISTER    = DATA_WIDTH/8
-)(
+interface riscv_v_rf_if 
+import riscv_v_pkg::*;
+(
     input logic clk  
 );
 
-    logic [ADDR_WIDTH-1:0]           wr_addr;
-    logic [ADDR_WIDTH-1:0]           rd_addr_A;
-    logic [ADDR_WIDTH-1:0]           rd_addr_B;  
-    logic [DATA_WIDTH-1:0]           data_in;
-    logic [NUM_BYTES_REGISTER-1:0]   wr_en;
-    logic [DATA_WIDTH-1:0]           data_out_A;
-    logic [DATA_WIDTH-1:0]           data_out_B;
+    riscv_v_rf_addr_t    wr_addr;
+    riscv_v_rf_addr_t    rd_addr_A;
+    riscv_v_rf_addr_t    rd_addr_B;  
+    riscv_v_data_t       data_in;
+    riscv_v_rf_wr_en_t   wr_en;
+    riscv_v_data_t       data_out_A;
+    riscv_v_data_t       data_out_B;
+
+    modport rf(
+        input  wr_addr,
+        input  rd_addr_A,
+        input  rd_addr_B,
+        input  data_in,
+        input  wr_en,
+        output data_out_A,
+        output data_out_B
+    );
+
+    modport system(
+        output wr_addr,
+        output rd_addr_A,
+        output rd_addr_B,
+        output data_in,
+        output wr_en,
+        input  data_out_A,
+        input  data_out_B
+    );
+
+    clocking cb_mon @(posedge clk);
+        input  wr_addr;
+        input  rd_addr_A;
+        input  rd_addr_B;
+        input  data_in;
+        input  wr_en;
+        input  data_out_A;
+        input  data_out_B;
+    endclocking
+
+    clocking cb_drv @(posedge clk);
+        output  wr_addr;
+        output  rd_addr_A;
+        output  rd_addr_B;
+        output  data_in;
+        output  wr_en;
+    endclocking
 
 endinterface: riscv_v_rf_if

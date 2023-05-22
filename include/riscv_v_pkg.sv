@@ -5,9 +5,77 @@
 
 package riscv_v_pkg;
 
-parameter real CLK_FREQ    = 50e6;
-parameter real CLK_PERIOD  = 1/CLK_FREQ;
+//Time constants
+parameter real CLK_FREQ                     = 50e6;
+parameter time CLK_PERIOD                   = 1/CLK_FREQ;
 
-parameter int BYTE_WIDTH = 8;
+//Common constants
+parameter int BYTE_WIDTH                    = 8;
+parameter int WORD_WIDTH                    = 16;
+parameter int DWORD_WIDTH                   = 32;
+parameter int QWORD_WIDTH                   = 64;
+parameter int DQWORD_WIDTH                  = 128;
+
+//RISCV_V_Constants
+parameter int RISCV_V_ELEN                  = 128;                                            //Maximum size in bits of a vector element that any operation can produce or consume
+parameter int RISCV_V_VLEN                  = RISCV_V_ELEN;                                   //Size of a single  vector register  
+parameter int RISCV_V_DATA_WIDTH            = RISCV_V_VLEN;                                   //Width of data in datapath
+parameter int RISCV_V_NUM_BYTES_DATA        = RISCV_V_DATA_WIDTH / BYTE_WIDTH;                //Number of bytes in Data bus
+parameter int RISCV_V_NUM_WORDS_DATA        = RISCV_V_DATA_WIDTH / WORD_WIDTH;                //Number of words in Data bus
+parameter int RISCV_V_NUM_DWORDS_DATA       = RISCV_V_DATA_WIDTH / DWORD_WIDTH;               //Number of dwords in Data bus
+parameter int RISCV_V_NUM_QWORDS_DATA       = RISCV_V_DATA_WIDTH / QWORD_WIDTH;               //Number of qwords in Data bus
+parameter int RISCV_V_NUM_DQWORDS_DATA      = RISCV_V_DATA_WIDTH / DQWORD_WIDTH;              //Number of dqwords in Data bus
+
+//Regfile Constants
+parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
+parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);                    //Width of addres of register file
+
+typedef enum logic {RF_PORT_A = 1'b0, RF_PORT_B = 1'b1} rf_port_e;
+
+//Common types
+typedef logic[BYTE_WIDTH-1:0]   Byte_t;
+typedef logic[WORD_WIDTH-1:0]   Word_t;
+typedef logic[DWORD_WIDTH-1:0]  Dword_t;
+typedef logic[QWORD_WIDTH-1:0]  Qword_t;
+typedef logic[DQWORD_WIDTH-1:0] Dqword_t;
+
+//RISCV_V types
+typedef logic  [RISCV_V_DATA_WIDTH-1:0]             riscv_v_bit_bus_t;
+typedef Byte_t [RISCV_V_NUM_BYTES_DATA-1:0]         riscv_v_byte_bus_t;
+`ifdef RISCV_V_USE_WORD
+    typedef Word_t [RISCV_V_NUM_WORDS_DATA-1:0]     riscv_v_word_bus_t;
+`endif //RISCV_V_USE_WORD
+`ifdef RISCV_V_USE_DWORD
+    typedef Dword_t [RISCV_V_NUM_DWORDS_DATA-1:0]   riscv_v_dword_bus_t;
+`endif //RISCV_V_USE_DWORD
+`ifdef RISCV_V_USE_QWORD
+    typedef Qword_t [RISCV_V_NUM_QWORDS_DATA-1:0]   riscv_v_qword_bus_t;   
+`endif //RISCV_V_USE_QWORD
+`ifdef RISCV_V_USE_DQWORD
+    typedef Dqword_t [RISCV_V_NUM_DQWORDS_DATA-1:0] riscv_v_dqword_bus_t;
+`endif //RISCV_V_USE_DQWORD
+
+typedef union packed{
+    riscv_v_bit_bus_t           Bit;
+    riscv_v_byte_bus_t          Byte;
+    `ifdef RISCV_V_USE_WORD
+        riscv_v_word_bus_t      Word;
+    `endif // RISCV_V_USE_WORD
+    `ifdef RISCV_V_USE_DWORD
+        riscv_v_dword_bus_t     Dword;
+    `endif // RISCV_V_USE_DWORD
+    `ifdef RISCV_V_USE_QWORD
+        riscv_v_qword_bus_t     Qword;
+    `endif // RISCV_V_USE_QWORD
+    `ifdef RISCV_V_USE_DQWORD
+        riscv_v_dqword_bus_t    Dqword;
+    `endif // RISCV_V_USE_DQWORD
+} riscv_v_data_t;
+
+//Regfile types
+typedef logic[RISCV_V_RF_ADDR_WIDTH-1:0]  riscv_v_rf_addr_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_rf_wr_en_t;
+typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
+
 
 endpackage: riscv_v_pkg

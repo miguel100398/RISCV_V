@@ -6,14 +6,71 @@
 `ifndef __RISCV_V_RF_MON_SV___
 `define __RISCV_V_RF_MON_SV___
 
-class riscv_v_rf_mon extends uvm_monitor;
-
+class riscv_v_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_rf_wr_seq_item),
+                                                .seq_item_out_t  (riscv_v_rf_rd_seq_item));
   `uvm_component_utils(riscv_v_rf_mon)
 
+  //Virtual interface
+  virtual riscv_v_rf_if vif;
   // new - constructor
   function new (string name = "riscv_v_rf_mon", uvm_component parent = null);
     super.new(name, parent);
   endfunction : new
+
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+  endfunction: build_phase
+
+  // run phase
+  virtual task run_phase(uvm_phase phase);
+    super.run_phase(phase);
+  endtask: run_phase 
+
+  virtual task mon_rtl_in();
+    riscv_v_rf_wr_seq_item wr_txn;
+    //Monitor write transaction
+    @(posedge vif.clk);
+
+    if (vif.cb_mon.wr_en) begin
+      `uvm_info("RF_MON", "Transaction captured in wr port", UVM_HIGH);
+      wr_txn = riscv_v_rf_wr_seq_item::type_id::create("wr_txn", this);
+      wr_txn.addr  = vif.cb_mon.wr_addr;
+      wr_txn.wr_en = vif.cb_mon.wr_en;
+      wr_txn.data  = vif.cb_mon.data_in;
+      rtl_in_ap.write(wr_txn);
+    end
+
+  endtask: mon_rtl_in
+
+  virtual task mon_rtl_out();
+    riscv_v_rf_rd_seq_item rd_txn_A;
+    riscv_v_rf_rd_seq_item rd_txn_B;
+    rd_txn_A = riscv_v_rf_rd_seq_item::type_id::create("rd_txn_A", this);
+    rd_txn_B = riscv_v_rf_rd_seq_item::type_id::create("rd_txn_B", this);
+    @(posedge vif.clk);
+
+    //Monitor rd_port_A
+    `uvm_info("RF_MON", "Transaction captured in rd port A", UVM_HIGH);
+    rd_txn_A.addr = vif.cb_mon.rd_addr_A;
+    rd_txn_A.data = vif.cb_mon.data_out_A;
+    rd_txn_A.port = RF_PORT_A;
+    rtl_out_ap.write(rd_txn_A);
+
+    //Monitor rd_port_B
+    `uvm_info("RF_MON", "Transaction captured in rd port B", UVM_HIGH);
+    rd_txn_B.addr = vif.cb_mon.rd_addr_B;
+    rd_txn_B.data = vif.cb_mon.data_out_B;
+    rd_txn_B.port = RF_PORT_B;
+    rtl_out_ap.write(rd_txn_B);
+
+  endtask: mon_rtl_out
+
+  //Get interface
+  virtual function void get_vif();
+    if (!uvm_config_db#(virtual riscv_v_rf_if)::get(this, "*", "riscv_v_rf_if", vif)) begin
+      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_rf_if");
+    end
+  endfunction: get_vif
 
 endclass: riscv_v_rf_mon
 

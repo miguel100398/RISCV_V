@@ -3,36 +3,32 @@
 //Date: 11/04/23
 //Description: RISC-V Vector extension register file
 
-module riscv_v_rf#(
-    parameter int DATA_WIDTH            = 32,
-    parameter int NUM_REGS              = 32,
+module riscv_v_rf
+import riscv_v_pkg::*;
+#(
     parameter bit RD_ASYNC              = 1'b1,
-    parameter bit REG_INPUTS            = 1'b0,
-    parameter int ADDR_WIDTH            = $clog2(NUM_REGS),
-    parameter int NUM_BYTES_REGISTER    = DATA_WIDTH/8
+    parameter bit REG_INPUTS            = 1'b0
 )(
-    input  logic                            clk,
-    input  logic [ADDR_WIDTH-1:0]           wr_addr,
-    input  logic [ADDR_WIDTH-1:0]           rd_addr_A,
-    input  logic [ADDR_WIDTH-1:0]           rd_addr_B,  
-    input  logic [DATA_WIDTH-1:0]           data_in,
-    input  logic [NUM_BYTES_REGISTER-1:0]   wr_en,
-    output logic [DATA_WIDTH-1:0]           data_out_A,
-    output logic [DATA_WIDTH-1:0]           data_out_B
+    input  logic                clk,
+    input  riscv_v_rf_addr_t    wr_addr,
+    input  riscv_v_rf_addr_t    rd_addr_A,
+    input  riscv_v_rf_addr_t    rd_addr_B,  
+    input  riscv_v_data_t       data_in,
+    input  riscv_v_rf_wr_en_t   wr_en,
+    output riscv_v_data_t       data_out_A,
+    output riscv_v_data_t       data_out_B
 );
 
-import  riscv_v_pkg::*;
-
     //Registers
-    logic[NUM_BYTES_REGISTER-1:0][BYTE_WIDTH-1:0] regs [NUM_REGS];
-    logic[NUM_BYTES_REGISTER-1:0][BYTE_WIDTH-1:0] regs_nxt [NUM_REGS];
+    riscv_v_rf_regs_t regs;
+    riscv_v_rf_regs_t regs_nxt;
 
     //Internal Inputs
-    logic [ADDR_WIDTH-1:0]           wr_addr_int;
-    logic [ADDR_WIDTH-1:0]           rd_addr_A_int;
-    logic [ADDR_WIDTH-1:0]           rd_addr_B_int;  
-    logic [DATA_WIDTH-1:0]           data_in_int;
-    logic [NUM_BYTES_REGISTER-1:0]   wr_en_int;
+    riscv_v_rf_addr_t    wr_addr_int;
+    riscv_v_rf_addr_t    rd_addr_A_int;
+    riscv_v_rf_addr_t    rd_addr_B_int;  
+    riscv_v_data_t       data_in_int;
+    riscv_v_rf_wr_en_t   wr_en_int;
 
 
     //Register or bypass inputs
@@ -93,8 +89,8 @@ import  riscv_v_pkg::*;
     //Write register
     always_comb begin
         regs_nxt = regs;
-        for (int byte_reg=0; byte_reg<NUM_BYTES_REGISTER; byte_reg++) begin
-            regs_nxt[wr_addr_int][byte_reg] = wr_en_int[byte_reg] ? data_in_int[byte_reg*BYTE_WIDTH +: BYTE_WIDTH] : regs[wr_addr_int][byte_reg];
+        for (int byte_reg=0; byte_reg<RISCV_V_NUM_BYTES_DATA; byte_reg++) begin
+            regs_nxt[wr_addr_int].Byte[byte_reg] = wr_en_int[byte_reg] ? data_in_int.Byte[byte_reg] : regs[wr_addr_int].Byte[byte_reg];
         end
     end
 
