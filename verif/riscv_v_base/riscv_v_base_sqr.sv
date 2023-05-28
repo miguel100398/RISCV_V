@@ -7,7 +7,7 @@
 `define __RISCV_V_BASE_SQR__
 
 virtual class riscv_v_base_sqr#(type seq_item_t = riscv_v_base_seq_item) extends uvm_sequencer#(seq_item_t);
-    `uvm_component_utils(riscv_v_base_sqr#(seq_item_t))
+    `uvm_component_param_utils(riscv_v_base_sqr#(seq_item_t))
 
     //Constructor
     function new(string name = "riscv_v_base_sqr", uvm_component parent = null);

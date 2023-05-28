@@ -16,7 +16,7 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
                                     type sequencer_t    = riscv_v_base_sqr#(
                                                                    .seq_item_t      (seq_item_in_t))) extends uvm_agent;
                                                                    
-    `uvm_component_utils(riscv_v_base_agt#(
+    `uvm_component_param_utils(riscv_v_base_agt#(
         .seq_item_in_t  (seq_item_in_t),
         .seq_item_out_t (seq_item_out_t),
         .driver_t       (driver_t),

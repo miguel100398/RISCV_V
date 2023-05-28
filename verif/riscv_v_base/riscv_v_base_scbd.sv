@@ -8,7 +8,7 @@
 
 virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
                                   type seq_item_out_t = seq_item_in_t          ) extends uvm_scoreboard;
-    `uvm_component_utils(riscv_v_base_scbd#(
+    `uvm_component_param_utils(riscv_v_base_scbd#(
         .seq_item_in_t (seq_item_in_t),
         .seq_item_out_t(seq_item_out_t)));
 

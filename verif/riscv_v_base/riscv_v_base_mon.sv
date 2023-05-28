@@ -8,7 +8,7 @@
 
 virtual class riscv_v_base_mon#(type seq_item_in_t          = riscv_v_base_seq_item,
                                 type seq_item_out_t         = seq_item_in_t) extends uvm_monitor;
-    `uvm_component_utils(riscv_v_base_mon#(
+    `uvm_component_param_utils(riscv_v_base_mon#(
         .seq_item_in_t  (seq_item_in_t),
         .seq_item_out_t (seq_item_out_t)));
 

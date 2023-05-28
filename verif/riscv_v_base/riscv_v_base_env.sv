@@ -8,7 +8,7 @@
 
 virtual class riscv_v_base_env#( type agent_t = riscv_v_base_agt,
                                  type scbd_t  = riscv_v_base_scbd) extends uvm_env;
-    `uvm_component_utils(riscv_v_base_env#(
+    `uvm_component_param_utils(riscv_v_base_env#(
         .agent_t (agent_t),
         .scbd_t  (scbd_t)
     ));
