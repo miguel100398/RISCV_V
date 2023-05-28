@@ -43,8 +43,8 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
 
   //Get interface
   virtual function void get_vif();
-    if (!uvm_config_db#(virtual riscv_v_rf_if)::get(this, "*", "riscv_v_rf_if", vif)) begin
-      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_rf_if");
+    if (!uvm_config_db#(virtual riscv_v_rf_if)::get(this, "*", "riscv_v_rf_vif", vif)) begin
+      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_rf_vif");
     end
   endfunction: get_vif
 
