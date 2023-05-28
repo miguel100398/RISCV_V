@@ -6,12 +6,16 @@
 `ifndef __RISCV_V_BASE_ENV__
 `define __RISCV_V_BASE_ENV__
 
-virtual class riscv_v_base_env#( type agent_t = riscv_v_base_agt,
-                                 type scbd_t  = riscv_v_base_scbd) extends uvm_env;
+virtual class riscv_v_base_env#( type agent_p = riscv_v_base_agt,
+                                 type scbd_p  = riscv_v_base_scbd) extends uvm_env;
     `uvm_component_param_utils(riscv_v_base_env#(
         .agent_t (agent_t),
         .scbd_t  (scbd_t)
     ));
+
+    //VIVADO workaround
+    typedef agent_p agent_t;
+    typedef scbd_p scbd_t;
 
     agent_t agt;
     scbd_t  scbd;

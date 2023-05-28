@@ -9,9 +9,9 @@
 class riscv_v_rf_agt extends riscv_v_base_agt#(
                                                 .seq_item_in_t  (riscv_v_rf_wr_seq_item),
                                                 .seq_item_out_t (riscv_v_rf_rd_seq_item),
-                                                .driver_t       (riscv_v_rf_drv),
-                                                .monitor_t      (riscv_v_rf_mon),
-                                                .sequencer_t    (riscv_v_rf_sqr)
+                                                .driver_p       (riscv_v_rf_drv),
+                                                .monitor_p      (riscv_v_rf_mon),
+                                                .sequencer_p    (riscv_v_rf_sqr)
 );
   
   // UVM automation macros for general components
