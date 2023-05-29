@@ -8,12 +8,12 @@
 
 virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
                                     type seq_item_out_t = seq_item_in_t,
-                                    type driver_p       = riscv_v_base_drv#(
+                                    type driver_t       = riscv_v_base_drv#(
                                                                    .seq_item_t (seq_item_in_t)),
-                                    type monitor_p      = riscv_v_base_mon#(
+                                    type monitor_t      = riscv_v_base_mon#(
                                                                    .seq_item_in_t   (seq_item_in_t), 
                                                                    .seq_item_out_t  (seq_item_out_t)),
-                                    type sequencer_p    = riscv_v_base_sqr#(
+                                    type sequencer_t    = riscv_v_base_sqr#(
                                                                    .seq_item_t      (seq_item_in_t))) extends uvm_agent;
                                                                    
     `uvm_component_param_utils(riscv_v_base_agt#(
@@ -23,11 +23,6 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
         .monitor_t      (monitor_t),
         .sequencer_t     (sequencer_t)
     ));
-
-    //VIVADO workaround
-    typedef driver_p driver_t;
-    typedef monitor_p monitor_t;
-    typedef sequencer_p sequencer_t;
 
     //Agent components
     driver_t    drv;

@@ -7,8 +7,8 @@
 `define __RISCV_V_RF_ENV_SV__
 
 class riscv_v_rf_env extends riscv_v_base_env#(
-                                                .agent_p (riscv_v_rf_agt),
-                                                .scbd_p  (riscv_v_rf_scbd)
+                                                .agent_t (riscv_v_rf_agt),
+                                                .scbd_t  (riscv_v_rf_scbd)
 );
 
   `uvm_component_utils(riscv_v_rf_env)
