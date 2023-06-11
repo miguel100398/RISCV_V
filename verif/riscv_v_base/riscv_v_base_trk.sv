@@ -15,9 +15,16 @@ virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
         .seq_item_out_t(seq_item_out_t),
         .file_name(file_name)));
 
+    typedef riscv_v_base_trk#(
+        .seq_item_in_t (seq_item_in_t),
+        .seq_item_out_t(seq_item_out_t),
+        .file_name(file_name)) this_type_t;
 
-    uvm_tlm_analysis_fifo#(seq_item_in_t)  rtl_in_af;
-    uvm_tlm_analysis_fifo#(seq_item_out_t) rtl_out_af;
+    `uvm_analysis_imp_decl(_port_in)
+    `uvm_analysis_imp_decl(_port_out)
+
+    uvm_analysis_imp_port_in  #(seq_item_in_t,  this_type_t) analysis_imp_in;  
+    uvm_analysis_imp_port_out #(seq_item_out_t, this_type_t) analysis_imp_out;
 
     seq_item_in_t in_txn;
     seq_item_out_t out_txn;
@@ -38,20 +45,7 @@ virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
-        fork
-            begin : fork_trk_in
-                forever begin
-                    rtl_in_af.get(in_txn);
-                    trk_in();
-                end
-            end 
-            begin : fork_trk_out 
-                forever begin
-                    rtl_out_af.get(out_txn);
-                    trk_out();
-                end
-            end
-        join_none
+        super.run_phase(phase);
     endtask: run_phase
 
     function void check_phase(uvm_phase phase);
@@ -60,9 +54,19 @@ virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: check_phase
     
     virtual function void build_ports();
-        rtl_in_af  = new({get_name(), "_rtl_in_af"}, this);
-        rtl_out_af = new({get_name(), "_rtl_out_af"}, this);
+        analysis_imp_in  = new({get_name(), "_rtl_in_aimp"}, this);
+        analysis_imp_out = new({get_name(), "_rtl_out_aimp"}, this);
     endfunction: build_ports
+
+    virtual function void write_port_in(seq_item_in_t txn);
+        in_txn = txn;
+        trk_in();
+    endfunction: write_port_in
+
+    virtual function void write_port_out(seq_item_out_t txn);
+        out_txn = txn;
+        trk_out();
+    endfunction: write_port_out
 
     virtual function string print_field(string message, int size, bit left_delimiter = 0, bit right_delimiter = 0);
         string print = "";

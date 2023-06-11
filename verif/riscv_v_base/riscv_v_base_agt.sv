@@ -76,8 +76,8 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: connect_active_components
 
     virtual function void connect_passive_components();
-        mon.rtl_in_ap.connect(trk.rtl_in_af.analysis_export);
-        mon.rtl_out_ap.connect(trk.rtl_out_af.analysis_export);
+        mon.rtl_in_ap.connect(trk.analysis_imp_in);
+        mon.rtl_out_ap.connect(trk.analysis_imp_out);
     endfunction: connect_passive_components
 
 endclass: riscv_v_base_agt

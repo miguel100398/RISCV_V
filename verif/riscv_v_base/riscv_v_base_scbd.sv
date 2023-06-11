@@ -6,9 +6,6 @@
 `ifndef __RISCV_V_BASE_SCBD__
 `define __RISCV_V_BASE_SCBD__
 
-`uvm_analysis_imp_decl(_port_in)
-    `uvm_analysis_imp_decl(_port_out)
-
 virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
                                   type seq_item_out_t = seq_item_in_t          ) extends uvm_scoreboard;
     `uvm_component_param_utils(riscv_v_base_scbd#(
@@ -19,7 +16,8 @@ virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
         .seq_item_in_t (seq_item_in_t),
         .seq_item_out_t(seq_item_out_t)) this_type_t;
     
-    
+    `uvm_analysis_imp_decl(_port_in)
+    `uvm_analysis_imp_decl(_port_out)
 
     uvm_analysis_imp_port_in  #(seq_item_in_t,  this_type_t) analysis_imp_in;  
     uvm_analysis_imp_port_out #(seq_item_out_t, this_type_t) analysis_imp_out; 
@@ -54,8 +52,8 @@ virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
         analysis_imp_out = new({get_name(), "_imp_out"}, this);
     endfunction: build_ports
 
-    virtual function void write_port_in(seq_item_in_t trans);
-        calc_in(trans);
+    virtual function void write_port_in(seq_item_in_t txn);
+        calc_in(txn);
     endfunction: write_port_in
 
     virtual function void write_port_out(seq_item_out_t txn);
