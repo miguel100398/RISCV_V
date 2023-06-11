@@ -44,8 +44,7 @@ module riscv_v_rf_tb;
         .data_out_A (vif.data_out_A),
         .data_out_B (vif.data_out_B)
     );
-    
- 
+
     initial begin
         //Set interface to DB
         uvm_config_db#(virtual riscv_v_rf_if)::set(uvm_root::get(),"*","riscv_v_rf_vif",vif);

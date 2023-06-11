@@ -11,6 +11,7 @@ class riscv_v_rf_agt extends riscv_v_base_agt#(
                                                 .seq_item_out_t (riscv_v_rf_rd_seq_item),
                                                 .driver_t       (riscv_v_rf_drv),
                                                 .monitor_t      (riscv_v_rf_mon),
+                                                .tracker_t      (riscv_v_rf_trk),
                                                 .sequencer_t    (riscv_v_rf_sqr)
 );
   

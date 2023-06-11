@@ -13,6 +13,10 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
                                     type monitor_t      = riscv_v_base_mon#(
                                                                    .seq_item_in_t   (seq_item_in_t), 
                                                                    .seq_item_out_t  (seq_item_out_t)),
+                                    type tracker_t      = riscv_v_base_trk#(
+                                                                   .seq_item_in_t   (seq_item_in_t), 
+                                                                   .seq_item_out_t  (seq_item_out_t),
+                                                                   .file_name("base_trkr.txt")),
                                     type sequencer_t    = riscv_v_base_sqr#(
                                                                    .seq_item_t      (seq_item_in_t))) extends uvm_agent;
                                                                    
@@ -21,6 +25,7 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
         .seq_item_out_t (seq_item_out_t),
         .driver_t       (driver_t),
         .monitor_t      (monitor_t),
+        .tracker_t      (tracker_t),
         .sequencer_t     (sequencer_t)
     ));
 
@@ -28,6 +33,7 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
     driver_t    drv;
     monitor_t   mon;
     sequencer_t sqr;
+    tracker_t   trk;
     
     //Constructor
     function new(string name = "riscv_v_base_agt", uvm_component parent = null);
@@ -56,12 +62,13 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: connect_phase
 
     virtual function void build_active_components();
-        drv = driver_t::type_id::create("driver", this);
-        sqr = sequencer_t::type_id::create("sequencer", this);
+        drv = driver_t::type_id::create({get_name(), "_driver"}, this);
+        sqr = sequencer_t::type_id::create({get_name(), "_sequencer"}, this);
     endfunction: build_active_components
 
     virtual function void build_passive_components();
-        mon = monitor_t::type_id::create("monitor", this);
+        mon = monitor_t::type_id::create({get_name(), "_monitor"}, this);
+        trk = tracker_t::type_id::create({get_name(), "_tracker"}, this);
     endfunction: build_passive_components
 
     virtual function void connect_active_components();
@@ -69,7 +76,8 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: connect_active_components
 
     virtual function void connect_passive_components();
-        return;
+        mon.rtl_in_ap.connect(trk.rtl_in_af.analysis_export);
+        mon.rtl_out_ap.connect(trk.rtl_out_af.analysis_export);
     endfunction: connect_passive_components
 
 endclass: riscv_v_base_agt

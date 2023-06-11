@@ -24,6 +24,9 @@ class riscv_v_rf_seq_item extends riscv_v_base_seq_item;
     `uvm_field_int(rd_addr_B,UVM_ALL_ON)
     `uvm_field_int(data_in,UVM_ALL_ON)
     `uvm_field_int(wr_en,UVM_ALL_ON)
+    `uvm_field_int(data_out_A,UVM_ALL_ON)
+    `uvm_field_int(data_out_B,UVM_ALL_ON)
+    `uvm_field_int(reset_wr_en,UVM_ALL_ON)
   `uvm_object_utils_end  
 
   //Constructor

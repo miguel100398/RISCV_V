@@ -24,12 +24,17 @@ virtual class riscv_v_base_drv#(type seq_item_t = riscv_v_base_seq_item)  extend
 
     //Run phase
     virtual task run_phase(uvm_phase phase);
+        drive_initial();
         forever begin
             seq_item_port.get_next_item(req);
             drive();
             seq_item_port.item_done();
         end
     endtask: run_phase
+
+
+    //Set reset status
+    pure virtual task drive_initial();
 
     //Drive stimulus
     pure virtual task drive();

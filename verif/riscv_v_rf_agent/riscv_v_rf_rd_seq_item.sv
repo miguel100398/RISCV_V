@@ -15,6 +15,7 @@ class riscv_v_rf_rd_seq_item extends riscv_v_base_seq_item;
     `uvm_object_utils_begin(riscv_v_rf_rd_seq_item)
         `uvm_field_int(addr, UVM_ALL_ON)
         `uvm_field_int(data, UVM_ALL_ON)
+        `uvm_field_enum(rf_port_e, port, UVM_ALL_ON)
     `uvm_object_utils_end
 
     //Constructor

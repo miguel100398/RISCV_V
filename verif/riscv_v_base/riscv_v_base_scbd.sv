@@ -6,14 +6,23 @@
 `ifndef __RISCV_V_BASE_SCBD__
 `define __RISCV_V_BASE_SCBD__
 
+`uvm_analysis_imp_decl(_port_in)
+    `uvm_analysis_imp_decl(_port_out)
+
 virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
                                   type seq_item_out_t = seq_item_in_t          ) extends uvm_scoreboard;
     `uvm_component_param_utils(riscv_v_base_scbd#(
         .seq_item_in_t (seq_item_in_t),
         .seq_item_out_t(seq_item_out_t)));
 
-    uvm_tlm_analysis_fifo#(seq_item_in_t)  rtl_in_af;
-    uvm_tlm_analysis_fifo#(seq_item_out_t) rtl_out_af;
+    typedef riscv_v_base_scbd#(
+        .seq_item_in_t (seq_item_in_t),
+        .seq_item_out_t(seq_item_out_t)) this_type_t;
+    
+    
+
+    uvm_analysis_imp_port_in  #(seq_item_in_t,  this_type_t) analysis_imp_in;  
+    uvm_analysis_imp_port_out #(seq_item_out_t, this_type_t) analysis_imp_out; 
 
     seq_item_in_t in_txn;
     seq_item_out_t out_txn;
@@ -37,26 +46,21 @@ virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
-        fork
-            begin : fork_scbd_in
-                forever begin
-                    rtl_in_af.get(in_txn);
-                    calc_in(in_txn);
-                end
-            end 
-            begin : fork_scbd_out 
-                forever begin
-                    rtl_out_af.get(out_txn);
-                    calc_out(out_txn);
-                end
-            end
-        join_none
+        super.run_phase(phase);
     endtask: run_phase
 
     virtual function void build_ports();
-        rtl_in_af  = new("rtl_in_af", this);
-        rtl_out_af = new("rtl_out_af", this);
+        analysis_imp_in  = new({get_name(), "_imp_in"}, this);
+        analysis_imp_out = new({get_name(), "_imp_out"}, this);
     endfunction: build_ports
+
+    virtual function void write_port_in(seq_item_in_t trans);
+        calc_in(trans);
+    endfunction: write_port_in
+
+    virtual function void write_port_out(seq_item_out_t txn);
+        calc_out(txn);
+    endfunction: write_port_out
 
     pure virtual function void calc_in(seq_item_in_t txn);
     pure virtual function void calc_out(seq_item_out_t txn);
@@ -73,6 +77,7 @@ virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: fail
 
     virtual function void check_phase(uvm_phase phase);
+        super.check_phase(phase);
         if (num_fail == 0) begin
             `uvm_info("RF_SCBD", $sformatf("0 errors found in RF ScoreBoard, num_vectors: %0d, num_pass: %0d, num_fail: %0d", num_vectors, num_pass, num_fail), UVM_NONE);
         end else begin

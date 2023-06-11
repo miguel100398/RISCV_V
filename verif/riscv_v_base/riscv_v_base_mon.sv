@@ -40,14 +40,14 @@ virtual class riscv_v_base_mon#(type seq_item_in_t          = riscv_v_base_seq_i
     virtual task run_phase(uvm_phase phase);
         super.run_phase(phase);
         fork
-            begin : fork_monitor_rtl_in
-                forever begin
-                    mon_rtl_in();
-                end
-            end 
-            begin : fork_monitor_rtl_out 
+            begin : fork_monitor_rtl_out
                 forever begin
                     mon_rtl_out();
+                end
+            end 
+            begin : fork_monitor_rtl_in 
+                forever begin
+                    mon_rtl_in();
                 end
             end
         join_none
@@ -55,8 +55,8 @@ virtual class riscv_v_base_mon#(type seq_item_in_t          = riscv_v_base_seq_i
 
     //Build ports
     virtual function void build_ports();
-        rtl_out_ap = new("rtl_out_ap", this);
-        rtl_in_ap  = new("rtl_in_ap", this);
+        rtl_out_ap = new({get_name(), "_rtl_out_ap"}, this);
+        rtl_in_ap  = new({get_name(), "_rtl_in_ap"}, this);
     endfunction: build_ports
     //Monitor rtl in
     pure virtual task mon_rtl_in();

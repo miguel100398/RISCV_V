@@ -32,13 +32,13 @@ virtual class riscv_v_base_env#( type agent_t = riscv_v_base_agt,
     endfunction: connect_phase
 
     virtual function void build_components();
-        agt  = agent_t::type_id::create("agent", this);
-        scbd = scbd_t::type_id::create("scbd", this);
+        agt  = agent_t::type_id::create({get_name(), "_agent"}, this);
+        scbd = scbd_t::type_id::create({get_name(), "_scbd"}, this);
     endfunction: build_components
 
     virtual function void connect_components();
-        agt.mon.rtl_in_ap.connect(scbd.rtl_in_af.analysis_export);
-        agt.mon.rtl_out_ap.connect(scbd.rtl_out_af.analysis_export);
+        agt.mon.rtl_in_ap.connect(scbd.analysis_imp_in);
+        agt.mon.rtl_out_ap.connect(scbd.analysis_imp_out);
     endfunction: connect_components
 
 endclass: riscv_v_base_env

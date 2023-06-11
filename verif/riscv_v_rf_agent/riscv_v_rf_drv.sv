@@ -25,18 +25,26 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
     super.run_phase(phase);
   endtask: run_phase
 
+  virtual task drive_initial();
+    vif.wr_addr      <= '0;
+    vif.rd_addr_A    <= '0;
+    vif.rd_addr_B    <= '0;
+    vif.data_in      <= '0;
+    vif.wr_en        <= '0;
+  endtask: drive_initial
+
   // drive 
   virtual task drive();
     `uvm_info(get_name(), "Sending new rf transaction", UVM_LOW)
     req.print();
-    @(posedge vif.clk);
+    @(vif.cb_drv);
     vif.cb_drv.wr_addr      <= req.wr_addr;
     vif.cb_drv.rd_addr_A    <= req.rd_addr_A;
     vif.cb_drv.rd_addr_B    <= req.rd_addr_B;
     vif.cb_drv.data_in      <= req.data_in;
     vif.cb_drv.wr_en        <= req.wr_en;
     if (req.reset_wr_en) begin
-      @(posedge vif.clk);
+      @(vif.cb_drv);
     end
 
   endtask : drive
