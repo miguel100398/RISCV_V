@@ -11,6 +11,8 @@ import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
 `include "uvm_macros.svh"
+`include "riscv_v_reg.sv"
+`include "riscv_v_rf_trk_item.sv"
 `include "riscv_v_rf_seq_item.sv"
 `include "riscv_v_rf_wr_seq_item.sv"
 `include "riscv_v_rf_rd_seq_item.sv"
@@ -24,6 +26,7 @@ import riscv_v_base_pkg::*;
 `include "riscv_v_rf_drv.sv"
 `include "riscv_v_rf_mon.sv"
 `include "riscv_v_rf_scbd.sv"
+`include "riscv_v_rf_trk.sv"
 `include "riscv_v_rf_agt.sv"
 `include "riscv_v_rf_env.sv"
 

@@ -15,6 +15,7 @@ import riscv_v_pkg::*;
 `include "riscv_v_base_drv.sv"
 `include "riscv_v_base_mon.sv"
 `include "riscv_v_base_scbd.sv"
+`include "riscv_v_base_trk.sv"
 `include "riscv_v_base_agt.sv"
 `include "riscv_v_base_env.sv"
 
