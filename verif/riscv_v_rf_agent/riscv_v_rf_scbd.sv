@@ -49,24 +49,24 @@ class riscv_v_rf_scbd extends riscv_v_base_scbd#(
   endfunction: reset_regs;
 
   // write wr_port 
-  virtual function void calc_in(riscv_v_rf_wr_seq_item txn);
+  virtual function void calc_in();
     //Write register
-    regs[txn.addr].write_reg(txn.data, txn.wr_en);
-    `uvm_info(get_name(), $sformatf("Register write, Addr: %0h, Data: %0s", txn.addr, regs[txn.addr].printBits), UVM_MEDIUM);
+    regs[txn_in.addr].write_reg(txn_in.data, txn_in.wr_en);
+    `uvm_info(get_name(), $sformatf("Register write, Addr: %0h, Data: %0s", txn_in.addr, regs[txn_in.addr].printBits), UVM_MEDIUM);
   endfunction : calc_in
 
   // write rd_port
-  virtual function void calc_out(riscv_v_rf_rd_seq_item txn);
+  virtual function void calc_out();
     reg_t read_reg;
     read_reg = new();
-    read_reg.write_reg(txn.data, '1);
-    `uvm_info(get_name(), $sformatf("Register Read, Port: %0s, Addr: %0h, Data: %0s", txn.port, txn.addr, read_reg.printBits), UVM_MEDIUM);
+    read_reg.write_reg(txn_out.data, '1);
+    `uvm_info(get_name(), $sformatf("Register Read, Port: %0s, Addr: %0h, Data: %0s", txn_out.port, txn_out.addr, read_reg.printBits), UVM_MEDIUM);
     //Compare register
-    if (regs[txn.addr].compare(read_reg)) begin
+    if (regs[txn_out.addr].compare(read_reg)) begin
       `uvm_info(get_name(), $sformatf("Compare match!"), UVM_LOW);  
       pass();
     end else begin
-      `uvm_error(get_name(), $sformatf("Compare mismatch, actual: %0s, expected: %0s", read_reg.printBits, regs[txn.addr].printBits));
+      `uvm_error(get_name(), $sformatf("Compare mismatch, actual: %0s, expected: %0s", read_reg.printBits, regs[txn_out.addr].printBits));
       fail();
     end
   endfunction : calc_out

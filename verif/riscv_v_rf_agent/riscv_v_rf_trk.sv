@@ -35,20 +35,20 @@ class riscv_v_rf_trk extends riscv_v_base_trk#(
     endfunction: build_phase
 
     virtual function void trk_in();
-        txn.addr  = in_txn.addr;
+        txn.addr  = txn_in.addr;
         txn.wr    = 1'b1;
         txn.port  = RF_WR_PORT;
-        txn.wr_en = in_txn.wr_en;
-        txn.data  = in_txn.data; 
+        txn.wr_en = txn_in.wr_en;
+        txn.data  = txn_in.data; 
         print_data();
     endfunction: trk_in
 
     virtual function void trk_out();
-        txn.addr  = out_txn.addr;
+        txn.addr  = txn_out.addr;
         txn.wr    = 1'b0;
-        txn.port  = out_txn.port;
+        txn.port  = txn_out.port;
         txn.wr_en = 'x;
-        txn.data  = out_txn.data;
+        txn.data  = txn_out.data;
         print_data();
     endfunction: trk_out
 

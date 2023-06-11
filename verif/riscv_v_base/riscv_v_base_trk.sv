@@ -8,28 +8,15 @@
 
 virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
                                  type seq_item_out_t = seq_item_in_t,          
-                                 string file_name    = "")              extends uvm_component;
+                                 string file_name    = "")              extends riscv_v_base_subscriber_2ports#(
+                                                                                                                .seq_item_in_t(seq_item_in_t),
+                                                                                                                .seq_item_out_t(seq_item_out_t));
 
     `uvm_component_param_utils(riscv_v_base_trk#(
         .seq_item_in_t (seq_item_in_t),
         .seq_item_out_t(seq_item_out_t),
         .file_name(file_name)));
 
-    typedef riscv_v_base_trk#(
-        .seq_item_in_t (seq_item_in_t),
-        .seq_item_out_t(seq_item_out_t),
-        .file_name(file_name)) this_type_t;
-
-    `uvm_analysis_imp_decl(_port_in)
-    `uvm_analysis_imp_decl(_port_out)
-
-    uvm_analysis_imp_port_in  #(seq_item_in_t,  this_type_t) analysis_imp_in;  
-    uvm_analysis_imp_port_out #(seq_item_out_t, this_type_t) analysis_imp_out;
-
-    seq_item_in_t in_txn;
-    seq_item_out_t out_txn;
-
-    uvm_table_printer printer;
     integer file;
 
     //Constructor
@@ -38,8 +25,7 @@ virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
     endfunction: new
 
     function void build_phase(uvm_phase phase);
-        printer = new();
-        build_ports();
+        super.build_phase(phase);
         open_file();
         print_header();
     endfunction: build_phase
@@ -52,21 +38,14 @@ virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
         super.check_phase(phase);
         close_file();
     endfunction: check_phase
-    
-    virtual function void build_ports();
-        analysis_imp_in  = new({get_name(), "_rtl_in_aimp"}, this);
-        analysis_imp_out = new({get_name(), "_rtl_out_aimp"}, this);
-    endfunction: build_ports
 
-    virtual function void write_port_in(seq_item_in_t txn);
-        in_txn = txn;
+    virtual function void port_in_handler();
         trk_in();
-    endfunction: write_port_in
+    endfunction: port_in_handler
 
-    virtual function void write_port_out(seq_item_out_t txn);
-        out_txn = txn;
+    virtual function void port_out_handler();
         trk_out();
-    endfunction: write_port_out
+    endfunction: port_out_handler
 
     virtual function string print_field(string message, int size, bit left_delimiter = 0, bit right_delimiter = 0);
         string print = "";

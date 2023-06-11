@@ -10,6 +10,7 @@ import riscv_v_pkg::*;
 
 `include "uvm_macros.svh"
 `include "riscv_v_base_seq_item.sv"
+`include "riscv_v_base_subscriber_2ports.sv"
 `include "riscv_v_base_sqr.sv"
 `include "riscv_v_base_seq.sv"
 `include "riscv_v_base_drv.sv"
