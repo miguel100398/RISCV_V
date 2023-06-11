@@ -64,6 +64,31 @@ virtual class riscv_v_base_trk #(type seq_item_in_t  = riscv_v_base_seq_item,
         rtl_out_af = new({get_name(), "_rtl_out_af"}, this);
     endfunction: build_ports
 
+    virtual function string print_field(string message, int size, bit left_delimiter = 0, bit right_delimiter = 0);
+        string print = "";
+        
+        if (left_delimiter) begin
+            print = "|";    
+        end
+        
+        print = {print, message};
+
+        repeat(size - message.len()) begin
+            print = {print, " "};
+        end
+
+        if (right_delimiter) begin
+            print = {print, "|"};    
+        end
+
+        return print;
+    endfunction: print_field
+
+    virtual function string concat_field(string concat, string message, int size, bit left_delimiter = 0, bit right_delimiter = 0);
+        string print = concat;
+        return {print, print_field(message, size, left_delimiter, right_delimiter)};
+    endfunction: concat_field
+
     virtual function void open_file();
         file = $fopen(file_name);
     endfunction: open_file

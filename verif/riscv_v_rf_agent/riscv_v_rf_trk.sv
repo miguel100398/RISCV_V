@@ -16,6 +16,15 @@ class riscv_v_rf_trk extends riscv_v_base_trk#(
 
     riscv_v_rf_trk_item txn;
 
+    int time_size  = 25;
+    int addr_size  = 10;
+    int rd_wr_size = 10;
+    int port_size  = 20;
+    int wr_en_size = 15;
+    int data_size  = 40;
+
+    int header_size = time_size + addr_size + rd_wr_size + port_size + wr_en_size + data_size + 5;
+
     function new (string name = "riscv_v_rf_trk", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
@@ -45,29 +54,40 @@ class riscv_v_rf_trk extends riscv_v_base_trk#(
 
     virtual function void print_header();
         string print;
-        print = $sformatf("| \t\tTime\t\t|");
-        print = {print, $sformatf(" Addr\t\t|")};
-        print = {print, $sformatf(" RD/WR\t\t|")};
-        print = {print, $sformatf(" Port\t\t\t|")};
-        print = {print, $sformatf(" wr_en\t\t\t|")};
-        print = {print, $sformatf(" data\t\t\t\t\t\t|\n")};
-        print = {print, "|"};
-        repeat(159) begin
-            print = {print, "_"};
+        string footer;
+
+        print = concat_field(print, "           Time", time_size, 1, 1);
+        print = concat_field(print, " Addr",           addr_size, 0, 1);
+        print = concat_field(print, " RD/WR",          rd_wr_size, 0, 1);
+        print = concat_field(print, " Port",           port_size, 0, 1);
+        print = concat_field(print, " wr_en",          wr_en_size, 0, 1);
+        print = concat_field(print, " data",           data_size, 0, 1);
+        print = {print, "\n"};
+
+        repeat(header_size) begin
+            footer = {footer, "_"};
         end
-        print = {print, "|\n"};
+
+        print = concat_field(print, footer, header_size, 1, 1);
+
+        print = {print, "\n"};
+
         $fwrite(file, print);
     endfunction: print_header
 
     virtual function void print_data();
         string print;
         string RD_or_WR = (txn.wr) ? "WR" :  "RD";
-        print = $sformatf("| %t\t\t|", $time);
-        print = {print, $sformatf(" 0x%0h\t\t|", txn.addr)};
-        print = {print, $sformatf(" %s\t\t|", RD_or_WR)};
-        print = {print, $sformatf(" %s\t\t|", txn.port.name())};
-        print = {print, $sformatf(" 0x%0h\t\t|", txn.wr_en)};
-        print = {print, $sformatf(" 0x%0h\t\t|\n", txn.data)};
+
+        print = concat_field(print, $sformatf(" %t", $time),            time_size,  1, 1);
+        print = concat_field(print, $sformatf(" 0x%0h", txn.addr),      addr_size,  0, 1);
+        print = concat_field(print, $sformatf(" %s", RD_or_WR),         rd_wr_size, 0, 1);
+        print = concat_field(print, $sformatf(" %s", txn.port.name()),  port_size,  0, 1);
+        print = concat_field(print, $sformatf(" 0x%0h", txn.wr_en),     wr_en_size, 0, 1);
+        print = concat_field(print, $sformatf(" 0x%0h", txn.data),      data_size,  0, 1);
+
+        print = {print, "\n"};
+
         $fwrite(file, print);
     endfunction: print_data
 
