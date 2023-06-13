@@ -35,7 +35,9 @@ class riscv_v_rf_seq extends riscv_v_rf_base_seq;
             req.wr_en     == wr_en;
             req.data_in   == data_in;
         }
-    );
+    ) else begin
+      `uvm_fatal(get_name(), "Can't randomize riscv_v_rf_seq_item")
+    end
     req.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();

@@ -30,7 +30,12 @@ parameter int RISCV_V_NUM_DQWORDS_DATA      = RISCV_V_DATA_WIDTH / DQWORD_WIDTH;
 parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
 parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);                    //Width of addres of register file
 
-typedef enum logic {RF_PORT_A = 1'b0, RF_PORT_B = 1'b1} rf_port_e;
+typedef enum logic[1:0] {RF_RD_PORT_A = 2'b00, RF_RD_PORT_B = 2'b01, RF_WR_PORT = 2'b10} rf_port_e;
+
+//Operation size enum
+typedef enum logic[2:0] {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128} riscv_v_osize_e;
+//ALU Enum
+typedef enum logic {LOGIC_ALU} riscv_v_alu_e;
 
 //Common types
 typedef logic[BYTE_WIDTH-1:0]   Byte_t;
@@ -72,10 +77,30 @@ typedef union packed{
     `endif // RISCV_V_USE_DQWORD
 } riscv_v_data_t;
 
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_merge_data_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_valid_data_t;
+
+typedef struct packed{
+    riscv_v_data_t       data;
+    riscv_v_merge_data_t merge;
+    riscv_v_valid_data_t valid;
+} riscv_v_alu_data_t;
+
+typedef struct packed{
+    riscv_v_data_t       data;
+    riscv_v_valid_data_t valid;
+} riscv_v_wb_data_t;
+
 //Regfile types
 typedef logic[RISCV_V_RF_ADDR_WIDTH-1:0]  riscv_v_rf_addr_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_rf_wr_en_t;
 typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
+
+//ALU Types
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0] riscv_v_src_byte_vector_t;
+
+//Opcode types
+typedef enum logic[1:0] {BW_AND, BW_AND_REDUCT, NOP} riscv_v_opcode_e;
 
 
 endpackage: riscv_v_pkg

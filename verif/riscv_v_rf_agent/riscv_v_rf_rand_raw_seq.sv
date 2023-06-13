@@ -20,7 +20,7 @@ class riscv_v_rf_rand_raw_seq extends riscv_v_rf_base_seq;
   virtual task body();
     
     //randomize addr
-    std::randomize(addr);
+    assert (std::randomize(addr));
 
     //Send wr req
     req = riscv_v_rf_seq_item::type_id::create("rf_wr_req");

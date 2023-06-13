@@ -43,7 +43,7 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
     //Build phase
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-
+        `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
         if (get_is_active == UVM_ACTIVE) begin
             build_active_components();
         end
@@ -55,6 +55,7 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
     //Connect phase
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        `uvm_info(get_name(), $sformatf("%s: connect", get_name()), UVM_NONE)
         if (get_is_active() == UVM_ACTIVE) begin
             connect_active_components();
         end

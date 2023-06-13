@@ -26,11 +26,13 @@ virtual class riscv_v_base_env#( type agent_t = riscv_v_base_agt,
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
         build_components();
     endfunction: build_phase
 
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        `uvm_info(get_name(), $sformatf("%s: connect", get_name()), UVM_NONE)
         connect_components();
     endfunction: connect_phase
 

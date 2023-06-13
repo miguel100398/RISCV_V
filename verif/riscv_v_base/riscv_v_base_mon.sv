@@ -25,6 +25,7 @@ virtual class riscv_v_base_mon#(type seq_item_in_t          = riscv_v_base_seq_i
     //Build phase
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
         //Get vif
         get_vif();
         //Build ports

@@ -45,6 +45,7 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
     vif.cb_drv.wr_en        <= req.wr_en;
     if (req.reset_wr_en) begin
       @(vif.cb_drv);
+      vif.cb_drv.wr_en      <= '0;
     end
 
   endtask : drive

@@ -56,9 +56,9 @@ virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
     virtual function void check_phase(uvm_phase phase);
         super.check_phase(phase);
         if (num_fail == 0) begin
-            `uvm_info("RF_SCBD", $sformatf("0 errors found in RF ScoreBoard, num_vectors: %0d, num_pass: %0d, num_fail: %0d", num_vectors, num_pass, num_fail), UVM_NONE);
+            `uvm_info(get_name(), $sformatf("0 errors found in %s ScoreBoard, num_vectors: %0d, num_pass: %0d, num_fail: %0d", get_name(), num_vectors, num_pass, num_fail), UVM_NONE);
         end else begin
-            `uvm_error("RF_SCBD", $sformatf("Errors found in RF ScoreBoard, num_vectors: %0d, num_pass: %0d, num_fail: %0d", num_vectors, num_pass, num_fail));
+            `uvm_error(get_name(), $sformatf("Errors found in %s ScoreBoard, num_vectors: %0d, num_pass: %0d, num_fail: %0d", get_name(), num_vectors, num_pass, num_fail));
         end
     endfunction: check_phase
 

@@ -15,8 +15,6 @@ class riscv_v_rf_cov extends riscv_v_base_cov#(
     int num_wr_sampled = 0;
     int num_rd_sampled = 0;
 
-    int num_cb_wr_data = 10;
-
     //Cover groups
     covergroup cg_wr_rf;
         //Wr address cover point
@@ -25,42 +23,185 @@ class riscv_v_rf_cov extends riscv_v_base_cov#(
             bins cb_wr_addr[] = {[0:$]};
         }
         //Wr en cover point
-        cp_wr_en  : coverpoint txn_in.wr_en {
-            //1 bin per each wr_en byte
-            bins cb_wr_en[] = {[0:$]};
+        cp_wr_en_0  : coverpoint txn_in.wr_en[0] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_1  : coverpoint txn_in.wr_en[1] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_2  : coverpoint txn_in.wr_en[2] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_3  : coverpoint txn_in.wr_en[3] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_4  : coverpoint txn_in.wr_en[4] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_5  : coverpoint txn_in.wr_en[5] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_6  : coverpoint txn_in.wr_en[6] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_7  : coverpoint txn_in.wr_en[7] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_8  : coverpoint txn_in.wr_en[8] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_9  : coverpoint txn_in.wr_en[9] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_10  : coverpoint txn_in.wr_en[10] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_11  : coverpoint txn_in.wr_en[11] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_12  : coverpoint txn_in.wr_en[12] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_13  : coverpoint txn_in.wr_en[13] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_14  : coverpoint txn_in.wr_en[14] {
+            bins cb_wr_en = {1};
+        }
+        cp_wr_en_15  : coverpoint txn_in.wr_en[15] {
+            bins cb_wr_en = {1};
         }
         //Wr data cover point
-        cp_wr_data : coverpoint txn_in.data {
+        cp_wr_data_0 : coverpoint txn_in.data.Bit[0 +: 16] {
             //Bins for wr_data
-            bins cb_wr_data[num_cb_wr_data] = {[0:$]};
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_1 : coverpoint txn_in.data.Bit[16 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_2 : coverpoint txn_in.data.Bit[32 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_3 : coverpoint txn_in.data.Bit[48 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_4 : coverpoint txn_in.data.Bit[64 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_5 : coverpoint txn_in.data.Bit[80 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_6 : coverpoint txn_in.data.Bit[96 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_wr_data_7 : coverpoint txn_in.data.Bit[112 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
         }
         //Cross cover point between address and wr_en
-        cp_addr_x_wr_en : cross cp_wr_addr, cp_wr_en;
+        cp_addr_x_wr_en_0  : cross cp_wr_addr, cp_wr_en_0;
+        cp_addr_x_wr_en_1  : cross cp_wr_addr, cp_wr_en_1;
+        cp_addr_x_wr_en_2  : cross cp_wr_addr, cp_wr_en_2;
+        cp_addr_x_wr_en_3  : cross cp_wr_addr, cp_wr_en_3;
+        cp_addr_x_wr_en_4  : cross cp_wr_addr, cp_wr_en_4;
+        cp_addr_x_wr_en_5  : cross cp_wr_addr, cp_wr_en_5;
+        cp_addr_x_wr_en_6  : cross cp_wr_addr, cp_wr_en_6;
+        cp_addr_x_wr_en_7  : cross cp_wr_addr, cp_wr_en_7;
+        cp_addr_x_wr_en_8  : cross cp_wr_addr, cp_wr_en_8;
+        cp_addr_x_wr_en_9  : cross cp_wr_addr, cp_wr_en_9;
+        cp_addr_x_wr_en_10 : cross cp_wr_addr, cp_wr_en_10;
+        cp_addr_x_wr_en_11 : cross cp_wr_addr, cp_wr_en_11;
+        cp_addr_x_wr_en_12 : cross cp_wr_addr, cp_wr_en_12;
+        cp_addr_x_wr_en_13 : cross cp_wr_addr, cp_wr_en_13;
+        cp_addr_x_wr_en_14 : cross cp_wr_addr, cp_wr_en_14;
+        cp_addr_x_wr_en_15 : cross cp_wr_addr, cp_wr_en_15;
     endgroup: cg_wr_rf
 
     covergroup cg_rd_a_rf;
-        //Wr address cover point
+        //RD address cover point
         cp_rf_addr : coverpoint  txn_out.addr {
             //1 bin per each value
             bins cb_rd_addr[] = {[0:$]};
         }
-        //Wr data cover point
-        cp_rd_data : coverpoint txn_out.data {
+        //RD data cover point
+        cp_rd_data_0 : coverpoint txn_out.data.Bit[0 +: 16] {
             //Bins for wr_data
-            bins cb_rd_data[num_cb_wr_data] = {[0:$]};
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_1 : coverpoint txn_out.data.Bit[16 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_2 : coverpoint txn_out.data.Bit[32 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_3 : coverpoint txn_out.data.Bit[48 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_4 : coverpoint txn_out.data.Bit[64 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_5 : coverpoint txn_out.data.Bit[80 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_6 : coverpoint txn_out.data.Bit[96 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_7 : coverpoint txn_out.data.Bit[112 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
         }
     endgroup: cg_rd_a_rf
 
     covergroup cg_rd_b_rf;
-        //Wr address cover point
+        //RD address cover point
         cp_rf_addr : coverpoint  txn_out.addr {
             //1 bin per each value
             bins cb_rd_addr[] = {[0:$]};
         }
-        //Wr data cover point
-        cp_rd_data : coverpoint txn_out.data {
+        //RD data cover point
+        cp_rd_data_0 : coverpoint txn_out.data.Bit[0 +: 16] {
             //Bins for wr_data
-            bins cb_rd_data[num_cb_wr_data] = {[0:$]};
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_1 : coverpoint txn_out.data.Bit[16 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_2 : coverpoint txn_out.data.Bit[32 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_3 : coverpoint txn_out.data.Bit[48 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_4 : coverpoint txn_out.data.Bit[64 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_5 : coverpoint txn_out.data.Bit[80 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_6 : coverpoint txn_out.data.Bit[96 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
+        }
+        cp_rd_data_7 : coverpoint txn_out.data.Bit[112 +: 16] {
+            //Bins for wr_data
+            bins cb_wr_data[1] = {[0:$]};
         }
     endgroup: cg_rd_b_rf
 

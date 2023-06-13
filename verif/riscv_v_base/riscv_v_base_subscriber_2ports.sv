@@ -32,6 +32,7 @@ virtual class riscv_v_base_subscriber_2ports #(type seq_item_in_t  = riscv_v_bas
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
         build_ports();
     endfunction: build_phase
 

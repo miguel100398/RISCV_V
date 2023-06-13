@@ -38,7 +38,7 @@ class riscv_v_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_rf_wr_
     //2 Keys needed, rd proccess will be executed before
     rd_sem.get(wr_sem_keys);
     if (vif.cb_mon.wr_en) begin
-      `uvm_info("RF_MON", "Transaction captured in wr port", UVM_HIGH);
+      `uvm_info(get_name(), "Transaction captured in wr port", UVM_HIGH);
       wr_txn = riscv_v_rf_wr_seq_item::type_id::create("wr_txn", this);
       wr_txn.addr  = vif.cb_mon.wr_addr;
       wr_txn.wr_en = vif.cb_mon.wr_en;
@@ -58,14 +58,14 @@ class riscv_v_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_rf_wr_
     @(vif.cb_mon);
     rd_sem.get(rd_sem_keys);
     //Monitor rd_port_A
-    `uvm_info("RF_MON", "Transaction captured in rd port A", UVM_HIGH);
+    `uvm_info(get_name(), "Transaction captured in rd port A", UVM_HIGH);
     rd_txn_A.addr = vif.cb_mon.rd_addr_A;
     rd_txn_A.data = vif.cb_mon.data_out_A;
     rd_txn_A.port = RF_RD_PORT_A;
     rtl_out_ap.write(rd_txn_A);
 
     //Monitor rd_port_B
-    `uvm_info("RF_MON", "Transaction captured in rd port B", UVM_HIGH);
+    `uvm_info(get_name(), "Transaction captured in rd port B", UVM_HIGH);
     rd_txn_B.addr = vif.cb_mon.rd_addr_B;
     rd_txn_B.data = vif.cb_mon.data_out_B;
     rd_txn_B.port = RF_RD_PORT_B;

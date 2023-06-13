@@ -18,6 +18,7 @@ virtual class riscv_v_base_drv#(type seq_item_t = riscv_v_base_seq_item)  extend
     //Build phase
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
         //Get vif
         get_vif();
     endfunction: build_phase
@@ -28,7 +29,7 @@ virtual class riscv_v_base_drv#(type seq_item_t = riscv_v_base_seq_item)  extend
         forever begin
             seq_item_port.get_next_item(req);
             drive();
-            seq_item_port.item_done();
+           seq_item_port.item_done();
         end
     endtask: run_phase
 
