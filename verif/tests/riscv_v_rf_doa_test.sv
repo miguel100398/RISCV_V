@@ -6,7 +6,7 @@
 `ifndef __RISCV_V_RF_DOA_TEST_SV__
 `define __RISCV_V_RF_DOA_TEST_SV__
 
-class riscv_v_rf_doa_test extends uvm_test;
+class riscv_v_rf_doa_test extends riscv_v_base_test;
 
   riscv_v_rf_env          rf_env;
   riscv_v_rf_rand_raw_seq seq_raw;

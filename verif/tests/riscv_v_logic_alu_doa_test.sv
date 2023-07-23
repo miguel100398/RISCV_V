@@ -6,7 +6,7 @@
 `ifndef __RISCV_V_LOGIC_ALU_DOA_TEST_SV__
 `define __RISCV_V_LOGIC_ALU_DOA_TEST_SV__
 
-class riscv_v_logic_alu_doa_test extends uvm_test;
+class riscv_v_logic_alu_doa_test extends riscv_v_base_test;
 
   riscv_v_alu_env          alu_env;
   riscv_v_logic_alu_seq    seq;

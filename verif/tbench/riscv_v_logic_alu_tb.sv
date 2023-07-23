@@ -45,7 +45,7 @@ module riscv_v_logic_alu_tb;
     end
 
     initial begin
-        run_test("riscv_v_logic_alu_doa_test");
+        run_test();
     end
     
 

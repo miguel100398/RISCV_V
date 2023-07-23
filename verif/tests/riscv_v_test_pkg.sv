@@ -10,6 +10,7 @@ package riscv_v_test_pkg;
     import riscv_v_alu_agt_pkg::*;
 
     `include "uvm_macros.svh"
+    `include "riscv_v_base_test.sv"
     `include "riscv_v_rf_doa_test.sv"
     `include "riscv_v_logic_alu_doa_test.sv"
 
