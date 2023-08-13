@@ -37,6 +37,11 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         logic_vif.is_and    <= 1'b0;
         logic_vif.srca      <= '0;
         logic_vif.srcb      <= '0;
+        `ifdef RISCV_V_INST
+            logic_vif.opcode    <= NOP;
+            logic_vif.osize     <= OSIZE_8;
+            logic_vif.len       <= '0;
+        `endif// RISCV_V_INST 
     endtask: drive_initial_logic
 
     virtual task drive();
@@ -56,6 +61,11 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         logic_vif.cb_drv.is_and    <= logic_txn.is_and;
         logic_vif.cb_drv.srca      <= logic_txn.srca;
         logic_vif.cb_drv.srcb      <= logic_txn.srcb;
+        `ifdef RISCV_V_INST
+            logic_vif.cb_drv.opcode    <= logic_txn.opcode;
+            logic_vif.cb_drv.osize     <= logic_txn.osize;
+            logic_vif.cb_drv.len       <= logic_txn.len;
+        `endif //RISCV_V_INST
     endtask: drive_logic
 
     //Get interfaces

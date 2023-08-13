@@ -11,10 +11,12 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     rand riscv_v_alu_data_t srcb;
     rand riscv_v_osize_e    osize;
     rand riscv_v_opcode_e   opcode;
+    rand riscv_v_src_len_t  len;
 
     `uvm_object_utils_begin(riscv_v_alu_in_seq_item)
         `uvm_field_enum(riscv_v_opcode_e, opcode,   UVM_ALL_ON)
         `uvm_field_enum(riscv_v_osize_e,  osize,   UVM_ALL_ON)
+        `uvm_field_int(len,         UVM_ALL_ON)
         `uvm_field_int(srca.data,   UVM_ALL_ON)
         `uvm_field_int(srca.merge,  UVM_ALL_ON)
         `uvm_field_int(srca.valid,  UVM_ALL_ON)
@@ -113,7 +115,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
 
     //Constraint osize
     //constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
-    constraint osize_c {osize == OSIZE_8;}
+    constraint osize_c {osize == OSIZE_128;}
     
 /*
     constraint src_valid_osize {

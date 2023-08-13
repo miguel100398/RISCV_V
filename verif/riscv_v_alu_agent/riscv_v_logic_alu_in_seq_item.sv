@@ -35,7 +35,7 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
 
     constraint logic_opcode_c {
         //{opcode inside {BW_AND, BW_AND_REDUCT}};
-        {opcode inside {BW_AND_REDUCT}};
+        {opcode inside {BW_AND}};
     }
 
 

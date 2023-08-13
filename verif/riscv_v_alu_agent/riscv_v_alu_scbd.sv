@@ -97,7 +97,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    logic_exp_result.data.Byte[i] = &logic_in_txn.srca.data.Byte[i];
+                    logic_exp_result.data.Byte[0] = &logic_in_txn.srca.data.Byte[i];
                 end
             end
             OSIZE_16: begin

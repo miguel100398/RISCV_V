@@ -50,8 +50,15 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             logic_in_txn = riscv_v_logic_alu_in_seq_item::type_id::create("logic_in_txn", this);
             logic_in_txn.srca   = logic_vif.cb_mon.srca;
             logic_in_txn.srcb   = logic_vif.cb_mon.srcb;
-            logic_in_txn.osize  = get_osize(logic_vif.cb_mon.srca.merge); 
-            logic_in_txn.opcode = get_logic_opcode(); 
+            `ifdef RISCV_V_INST
+                logic_in_txn.osize  = logic_vif.cb_mon.osize;
+                logic_in_txn.opcode = logic_vif.cb_mon.opcode;
+                logic_in_txn.len    = logic_vif.cb_mon.len;
+            `else 
+                logic_in_txn.osize  = get_osize(logic_vif.cb_mon.srca.merge); 
+                logic_in_txn.opcode = get_logic_opcode();
+                logic_in_txn.len    = get_len(logic_in_txn.osize);
+            `endif// RISCV_V_INST 
             rtl_in_ap.write(logic_in_txn);
         end
         //Set keys to process result
@@ -104,6 +111,22 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             return NOP;
         end
     endfunction: get_logic_opcode
+
+    virtual function riscv_v_src_len_t get_len(riscv_v_osize_e osize);
+        int num_srcb_valid = 0;
+        //Number valid bits in srcb
+        for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+            num_srcb_valid += logic_vif.cb_mon.srcb.valid[i];
+        end
+        case (osize)
+            OSIZE_8: return num_srcb_valid;
+            OSIZE_16: return num_srcb_valid/2;
+            OSIZE_32: return num_srcb_valid/4;
+            OSIZE_64: return num_srcb_valid/8;
+            OSIZE_128: return num_srcb_valid/16;
+            default: return 0;
+        endcase
+    endfunction: get_len
 
     virtual function bit is_logic_op();
         return logic_vif.cb_mon.is_and;
