@@ -28,56 +28,141 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         super.new(name);
     endfunction: new
 
-    constraint src_valid_c {srca.valid == srcb.valid;}
-    constraint src_merge_c {srca.merge == srcb.merge;}
+    function void post_randomize();
+        constraint_valid();
+        constraint_merge();
+    endfunction: post_randomize
+
+    virtual function void constraint_valid();
+        case(osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
+                    std::randomize(srca.valid[i]);
+                    srcb.valid[i] = srca.valid[i];
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                    std::randomize(srca.valid[i*2]);
+                    srca.valid[i*2 +: 2] = {2{srca.valid[i*2]}};
+                    srcb.valid[i*2 +: 2] = {2{srca.valid[i*2]}};
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                    std::randomize(srca.valid[i*4]);
+                    srca.valid[i*4 +: 4] = {4{srca.valid[i*4]}};
+                    srcb.valid[i*4 +: 4] = {4{srca.valid[i*4]}};
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                    std::randomize(srca.valid[i*8]);
+                    srca.valid[i*8 +: 8] = {8{srca.valid[i*8]}};
+                    srcb.valid[i*8 +: 8] = {8{srca.valid[i*8]}};
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                    std::randomize(srca.valid[i*16]);
+                    srca.valid[i*16 +: 16] = {16{srca.valid[i*16]}};
+                    srcb.valid[i*16 +: 16] = {16{srca.valid[i*16]}};
+                end
+            end
+            default: begin
+                `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
+            end
+        endcase
+    endfunction: constraint_valid
+
+    virtual function void constraint_merge();
+        case(osize)
+            OSIZE_8: begin
+                srca.merge = '0;
+                srcb.merge = '0;
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                    srca.merge[i*2 +: 2] = 2'b01;
+                    srcb.merge[i*2 +: 2] = 2'b01;
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                    srca.merge[i*4 +: 4] = 4'b0111;
+                    srcb.merge[i*4 +: 4] = 4'b0111;
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                    srca.merge[i*8 +: 8] = 8'b01111111;
+                    srcb.merge[i*8 +: 8] = 8'b01111111;
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                    srca.merge[i*16 +: 16] = 16'b0111111111111111;
+                    srcb.merge[i*16 +: 16] = 16'b0111111111111111;
+                end
+            end
+            default: begin
+                `uvm_fatal(get_name(), $sformatf("Invalid Osize: %s", osize.name()))
+            end
+        endcase
+    endfunction: constraint_merge
 
     //Constraint osize
-    constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
-
-    /*
+    //constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
+    constraint osize_c {osize == OSIZE_8;}
+    
+/*
     constraint src_valid_osize {
-        if (osize == OSIZE_16){
+        if (osize == OSIZE_8){
+            {srca.valid == srcb.valid};
+        }
+        else if (osize == OSIZE_16){
             //srca
-            {{2{srca.valid[0]}}  == srca.valid[0  +: 2]};
-            {{2{srca.valid[2]}}  == srca.valid[2  +: 2]};
-            {{2{srca.valid[4]}}  == srca.valid[4  +: 2]};
-            {{2{srca.valid[6]}}  == srca.valid[6  +: 2]};
-            {{2{srca.valid[8]}}  == srca.valid[8  +: 2]};
-            {{2{srca.valid[10]}} == srca.valid[10 +: 2]};
-            {{2{srca.valid[12]}} == srca.valid[12 +: 2]};
-            {{2{srca.valid[14]}} == srca.valid[14 +: 2]};
+            {srca.valid[1]  == srca.valid[0]};
+            {srca.valid[3]  == srca.valid[2]};
+            {srca.valid[5]  == srca.valid[4]};
+            {srca.valid[7]  == srca.valid[6]};
+            {srca.valid[9]  == srca.valid[8]};
+            {srca.valid[11] == srca.valid[10]};
+            {srca.valid[13] == srca.valid[12]};
+            {srca.valid[15] == srca.valid[14]};
             //srcb
-            {{2{srcb.valid[0]}}  == srcb.valid[0  +: 2]};
-            {{2{srcb.valid[2]}}  == srcb.valid[2  +: 2]};
-            {{2{srcb.valid[4]}}  == srcb.valid[4  +: 2]};
-            {{2{srcb.valid[6]}}  == srcb.valid[6  +: 2]};
-            {{2{srcb.valid[7]}}  == srcb.valid[8  +: 2]};
-            {{2{srcb.valid[10]}} == srcb.valid[10 +: 2]};
-            {{2{srcb.valid[12]}} == srcb.valid[12 +: 2]};
-            {{2{srcb.valid[14]}} == srcb.valid[14 +: 2]};
+            {srcb.valid[1]  == srca.valid[0]};
+            {srcb.valid[3]  == srca.valid[2]};
+            {srcb.valid[5]  == srca.valid[4]};
+            {srcb.valid[7]  == srca.valid[6]};
+            {srcb.valid[9]  == srca.valid[8]};
+            {srcb.valid[11] == srca.valid[10]};
+            {srcb.valid[13] == srca.valid[12]};
+            {srcb.valid[15] == srca.valid[14]}; 
         } else if (osize == OSIZE_32){
             //srca
-            {{4{srca.valid[0]}}  == srca.valid[0  +: 4]};
-            {{4{srca.valid[4]}}  == srca.valid[4  +: 4]};
-            {{4{srca.valid[8]}}  == srca.valid[8  +: 4]};
-            {{4{srca.valid[12]}} == srca.valid[12 +: 4]};
+            {srca.valid[0  +: 4] == ({4{srca.valid[0]}})};
+            {srca.valid[4  +: 4] == ({4{srca.valid[4]}})};
+            {srca.valid[8  +: 4] == ({4{srca.valid[8]}})};
+            {srca.valid[12 +: 4] == ({4{srca.valid[12]}})};
             //srcb
-            {{4{srcb.valid[0]}}  == srcb.valid[0  +: 4]};
-            {{4{srcb.valid[4]}}  == srcb.valid[4  +: 4]};
-            {{4{srcb.valid[8]}}  == srcb.valid[8  +: 4]};
-            {{4{srcb.valid[12]}} == srcb.valid[12 +: 4]};
+            {srcb.valid[0  +: 4] == ({4{srca.valid[0]}})};
+            {srcb.valid[4  +: 4] == ({4{srca.valid[4]}})};
+            {srcb.valid[8  +: 4] == ({4{srca.valid[8]}})};
+            {srcb.valid[12 +: 4] == ({4{srca.valid[12]}})};
+
         } else if (osize == OSIZE_64){
             //srca
-            {{8{srca.valid[0]}}  == srca.valid[0 +: 8]};
-            {{8{srca.valid[8]}}  == srca.valid[8 +: 8]};
+            {srca.valid[0 +: 8] == ({8{srca.valid[0]}})};
+            {srca.valid[8 +: 8] == ({8{srca.valid[8]}})};
             //srcb
-            {{8{srcb.valid[0]}}  == srcb.valid[0 +: 8]};
-            {{8{srcb.valid[8]}}  == srcb.valid[8 +: 8]};
+            {srcb.valid[0 +: 8] == ({8{srcb.valid[0]}})};
+            {srcb.valid[8 +: 8] == ({8{srcb.valid[8]}})};
         } else if (osize == OSIZE_128){
             //srca
-            {{16{srca.valid[0]}} == srca.valid[0 +: 16]};
+            {srca.valid[0 +: 16] == ({16{srca.valid[0]}})};
             //srcb
-            {{16{srcb.valid[0]}} == srcb.valid[0 +: 16]};
+            {srcb.valid[0 +: 16] == ({16{srcb.valid[0]}})};
         }
     }
 
@@ -129,7 +214,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             {srcb.merge[0 +: 16] == 16'b0111111111111111};
         }
     }
-    */
+*/
 
 endclass: riscv_v_alu_in_seq_item
 

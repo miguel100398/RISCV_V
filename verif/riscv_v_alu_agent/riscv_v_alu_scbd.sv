@@ -23,6 +23,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     virtual function void calc_in();
         //Cast transaction
+        calc_valid();
         if ($cast(logic_in_txn, txn_in)) begin
             calc_logic();
         end else begin
@@ -38,7 +39,11 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     endfunction: calc_out
 
     virtual function void calc_logic();
-        logic_exp_result = '0;
+        case(logic_in_txn.opcode)
+            BW_AND: calc_bw_and();
+            BW_AND_REDUCT: calc_bw_and_reduct();
+            default:    `uvm_fatal(get_name(), "Invalid Logic ALU op")
+        endcase
     endfunction: calc_logic
 
     virtual function void compare_logic();
@@ -52,6 +57,72 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             fail();
         end
     endfunction: compare_logic
+
+    virtual function void calc_valid();
+        logic_exp_result.valid = txn_in.srca.valid;
+    endfunction: calc_valid
+
+    virtual function void calc_bw_and();
+        case(logic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
+                    logic_exp_result.data.Byte[i] = (logic_in_txn.srca.data.Byte[i] & logic_in_txn.srcb.data.Byte[i]);
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                    logic_exp_result.data.Word[i] = (logic_in_txn.srca.data.Word[i] & logic_in_txn.srcb.data.Word[i]);
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                    logic_exp_result.data.Dword[i] = (logic_in_txn.srca.data.Dword[i] & logic_in_txn.srcb.data.Dword[i]);
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                    logic_exp_result.data.Qword[i] = (logic_in_txn.srca.data.Qword[i] & logic_in_txn.srcb.data.Qword[i]);
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                    logic_exp_result.data.Dqword[i] = (logic_in_txn.srca.data.Dqword[i] & logic_in_txn.srcb.data.Dqword[i]);
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_bw_and
+
+    virtual function void calc_bw_and_reduct();
+        case(logic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
+                    logic_exp_result.data.Byte[i] = &logic_in_txn.srca.data.Byte[i];
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                    logic_exp_result.data.Word[i] = &logic_in_txn.srca.data.Word[i];
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                    logic_exp_result.data.Dword[i] = &logic_in_txn.srca.data.Dword[i];
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                    logic_exp_result.data.Qword[i] = &logic_in_txn.srca.data.Qword[i];
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                    logic_exp_result.data.Dqword[i] = &logic_in_txn.srca.data.Dqword[i];
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_bw_and_reduct
 
 endclass: riscv_v_alu_scbd
 

@@ -20,27 +20,22 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         super.new(name);
     endfunction: new
 
+    constraint solve_opcode_before_and    {solve opcode before is_and;}
+    constraint solve_opcode_before_reduct {solve opcode before is_reduct;}
+
     //Constraint control signals depending on opcode
     //is_and
     constraint is_and_c {
-        //Is_and
-        if (opcode inside {BW_AND, BW_AND_REDUCT}) {
-            {is_and == 1'b1};
-         } else {
-            {is_and == 1'b0};
-        }
+        {is_and == (opcode inside {BW_AND, BW_AND_REDUCT})};
     }
-    //s_reduct
-    constraint is_reduct_c {
-        if (opcode inside {BW_AND_REDUCT}) {
-            {is_reduct == 1'b1};
-        } else {
-            {is_reduct == 1'b0};
-        }
+
+    constraint is_reduct_c{
+        {is_reduct == (opcode inside {BW_AND_REDUCT})};
     }
 
     constraint logic_opcode_c {
-        {opcode inside {BW_AND, BW_AND_REDUCT}};
+        //{opcode inside {BW_AND, BW_AND_REDUCT}};
+        {opcode inside {BW_AND_REDUCT}};
     }
 
 
