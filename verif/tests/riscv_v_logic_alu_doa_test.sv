@@ -26,7 +26,7 @@ class riscv_v_logic_alu_doa_test extends riscv_v_base_test;
 
   task run_phase(uvm_phase phase);
     phase.raise_objection(this);
-    for (int i=0; i<25; i++) begin
+    for (int i=0; i<100; i++) begin
       seq.start(alu_env.agt.sqr);
     end
     phase.drop_objection(this);

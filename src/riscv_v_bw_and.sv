@@ -19,6 +19,11 @@ import riscv_v_pkg::*;
 localparam NUM_BW_BLOCKS = RISCV_V_NUM_BYTES_DATA;
 
 logic is_reduct_n;
+logic is_greater_osize8;
+logic is_greater_osize16;
+logic is_greater_osize32;
+logic is_greater_osize64;
+logic [4:1] is_greater_osize_vector;
 
 //Srca A gated with is_and
 riscv_v_src_byte_vector_t srca_gated;
@@ -31,16 +36,25 @@ riscv_v_src_byte_vector_t result_bw;
 
 assign is_reduct_n = ~is_reduct;
 
+assign is_greater_osize8  = ~osize_vector[0];
+assign is_greater_osize16 = ~osize_vector[1] & ~osize_vector[0];
+assign is_greater_osize32 = |osize_vector[4:3];
+assign is_greater_osize64 = osize_vector[4];
+
+assign is_greater_osize_vector = {is_greater_osize64, is_greater_osize32, is_greater_osize16, is_greater_osize8};
+
 generate
         //Gate (is_and & srcA)
         for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_is_and_srcA_gating
             assign srca_gated[i] = srca.data.Byte[i] & {BYTE_WIDTH{is_and}};
         end
         //Srca input to BW block
-        for (genvar block=NUM_BW_BLOCKS-1; block>=0; block--) begin : gen_srca_bw
+        //Input to Most significant Block is only srca
+        assign srca_bw[NUM_BW_BLOCKS-1] = srca_gated[NUM_BW_BLOCKS-1];
+        for (genvar block=NUM_BW_BLOCKS-2; block>=0; block--) begin : gen_srca_bw
             always_comb begin
                 //Fisrt input is srca
-                srca_bw[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n}};        //Select this source if op is not reduct
+                srca_bw[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(NUM_BW_BLOCKS-block)]}};        //Select this source if op is not reduct or osize is greater than
                 for (int reduct_input=0; reduct_input < $clog2(NUM_BW_BLOCKS-block); reduct_input++) begin
                     srca_bw[block] |= result_bw[block+(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
                 end

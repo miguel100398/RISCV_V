@@ -36,7 +36,8 @@ module riscv_v_logic_alu_tb;
         .is_and(logic_vif.is_and),
         .srca(logic_vif.srca),
         .srcb(logic_vif.srcb),
-        .result(logic_vif.result)
+        .result(logic_vif.result),
+        .osize_vector(logic_vif.osize_vector)
     );
 
     initial begin

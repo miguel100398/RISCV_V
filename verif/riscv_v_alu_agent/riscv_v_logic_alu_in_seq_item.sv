@@ -34,8 +34,8 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     }
 
     constraint logic_opcode_c {
-        //{opcode inside {BW_AND, BW_AND_REDUCT}};
-        {opcode inside {BW_AND}};
+        {opcode inside {BW_AND, BW_AND_REDUCT}};
+        //{opcode inside {BW_AND_REDUCT}};
     }
 
     virtual function void constraint_valid();
@@ -43,11 +43,37 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         if (opcode inside {BW_AND_REDUCT}) begin
             srca.valid = '0;
             case (osize)
-                OSIZE_8:   srca.valid[0]    = (len > 0);
-                OSIZE_16:  srca.valid[1:0]  = {2{(len > 0)}};
-                OSIZE_32:  srca.valid[3:0]  = {4{(len > 0)}};
-                OSIZE_64:  srca.valid[7:0]  = {8{(len > 0)}};
-                OSIZE_128: srca.valid[15:0] = {16{(len > 0)}};
+                OSIZE_8:   begin 
+                    srca.valid[0]    = (len > 0);
+                    for (int i=0; i<len; i++) begin
+                        srcb.valid[i] = 1'b1;
+                    end
+                end
+                OSIZE_16: begin
+                    srca.valid[1:0]  = {2{(len > 0)}};
+                    for (int i=0; i<len; i++) begin
+                        srcb.valid[i*2 +: 2] = 2'b11;
+                    end
+                end
+                OSIZE_32: begin
+                    srca.valid[3:0]  = {4{(len > 0)}};
+                    for (int i=0; i<len; i++) begin
+                        srcb.valid[i*4 +: 4] = 4'b1111;
+                    end
+                end
+                OSIZE_64: begin
+                    srca.valid[7:0]  = {8{(len > 0)}};
+                    for (int i=0; i<len; i++) begin
+                        srcb.valid[i*8 +: 8] = 8'b1111_1111;
+                    end
+                end
+                OSIZE_128: begin
+                    srca.valid[15:0] = {16{(len > 0)}};
+                    for (int i=0; i<len; i++) begin
+                        srcb.valid[i*16 +: 16] = 16'b1111_1111_1111_1111;
+                    end
+
+                end
                 default: srca.valid = '0;
             endcase
         end

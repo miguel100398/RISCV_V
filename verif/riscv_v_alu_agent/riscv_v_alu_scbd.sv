@@ -103,31 +103,31 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             OSIZE_8: begin
                 logic_exp_result.data.Byte[0] = logic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1] & logic_in_txn.srcb.data.Byte[0];
                 for (int i=1; i<logic_in_txn.len; i++) begin
-                    logic_exp_result.data.Byte[0] &= &logic_in_txn.srcb.data.Byte[i];
+                    logic_exp_result.data.Byte[0] &= logic_in_txn.srcb.data.Byte[i];
                 end
             end
             OSIZE_16: begin
                 logic_exp_result.data.Word[0] = logic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1] & logic_in_txn.srcb.data.Word[0];
                 for (int i=1; i<logic_in_txn.len; i++) begin
-                    logic_exp_result.data.Word[0] &= &logic_in_txn.srcb.data.Word[i];
+                    logic_exp_result.data.Word[0] &= logic_in_txn.srcb.data.Word[i];
                 end
             end
             OSIZE_32: begin
                 logic_exp_result.data.Dword[0] = logic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] & logic_in_txn.srcb.data.Dword[0];
                 for (int i=1; i<logic_in_txn.len; i++) begin
-                    logic_exp_result.data.Dword[0] &= &logic_in_txn.srcb.data.Dword[i];
+                    logic_exp_result.data.Dword[0] &= logic_in_txn.srcb.data.Dword[i];
                 end
             end
             OSIZE_64: begin
                 logic_exp_result.data.Qword[0] = logic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] & logic_in_txn.srcb.data.Qword[0];
                 for (int i=1; i<logic_in_txn.len; i++) begin
-                    logic_exp_result.data.Qword[0] &= &logic_in_txn.srcb.data.Qword[i];
+                    logic_exp_result.data.Qword[0] &= logic_in_txn.srcb.data.Qword[i];
                 end
             end
             OSIZE_128: begin
                 logic_exp_result.data.Dqword[0] = logic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] & logic_in_txn.srcb.data.Dqword[0];
                 for (int i=1; i<logic_in_txn.len; i++) begin
-                    logic_exp_result.data.Dqword[0] &= &logic_in_txn.srcb.data.Dqword[i];
+                    logic_exp_result.data.Dqword[0] &= logic_in_txn.srcb.data.Dqword[i];
                 end
             end
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))

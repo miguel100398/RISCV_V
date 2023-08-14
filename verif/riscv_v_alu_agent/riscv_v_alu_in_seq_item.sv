@@ -152,8 +152,8 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     endfunction: constraint_merge
 
     //Constraint osize
-    //constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
-    constraint osize_c {osize == OSIZE_128;}
+    constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
+    //constraint osize_c {osize == OSIZE_8;}
 
     constraint osize_vector_c {
         {osize_vector[0] == (osize==OSIZE_8)};
