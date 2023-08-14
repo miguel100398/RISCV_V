@@ -34,6 +34,8 @@ typedef enum logic[1:0] {RF_RD_PORT_A = 2'b00, RF_RD_PORT_B = 2'b01, RF_WR_PORT 
 
 //Operation size enum
 typedef enum logic[2:0] {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128} riscv_v_osize_e;
+parameter int RISCV_V_NUM_VALID_OSIZES = 5;
+typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 //ALU Enum
 typedef enum logic {LOGIC_ALU} riscv_v_alu_e;
 
@@ -98,6 +100,7 @@ typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
 
 //ALU Types
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0] riscv_v_src_byte_vector_t;
+typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0] riscv_v_src_len_t;
 
 //Opcode types
 typedef enum logic[1:0] {BW_AND, BW_AND_REDUCT, NOP} riscv_v_opcode_e;

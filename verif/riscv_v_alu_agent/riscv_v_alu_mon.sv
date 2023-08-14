@@ -48,8 +48,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         if (is_logic_op()) begin
             `uvm_info(get_name(), "Transaction captured in logic_alu in port", UVM_HIGH);
             logic_in_txn = riscv_v_logic_alu_in_seq_item::type_id::create("logic_in_txn", this);
-            logic_in_txn.srca   = logic_vif.cb_mon.srca;
-            logic_in_txn.srcb   = logic_vif.cb_mon.srcb;
+            logic_in_txn.srca         = logic_vif.cb_mon.srca;
+            logic_in_txn.srcb         = logic_vif.cb_mon.srcb;
+            logic_in_txn.osize_vector = logic_vif.cb_mon.osize_vector;
             `ifdef RISCV_V_INST
                 logic_in_txn.osize  = logic_vif.cb_mon.osize;
                 logic_in_txn.opcode = logic_vif.cb_mon.opcode;

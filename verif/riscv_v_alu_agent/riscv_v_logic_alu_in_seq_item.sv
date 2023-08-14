@@ -38,6 +38,21 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         {opcode inside {BW_AND}};
     }
 
+    virtual function void constraint_valid();
+        super.constraint_valid();
+        if (opcode inside {BW_AND_REDUCT}) begin
+            srca.valid = '0;
+            case (osize)
+                OSIZE_8:   srca.valid[0]    = (len > 0);
+                OSIZE_16:  srca.valid[1:0]  = {2{(len > 0)}};
+                OSIZE_32:  srca.valid[3:0]  = {4{(len > 0)}};
+                OSIZE_64:  srca.valid[7:0]  = {8{(len > 0)}};
+                OSIZE_128: srca.valid[15:0] = {16{(len > 0)}};
+                default: srca.valid = '0;
+            endcase
+        end
+    endfunction: constraint_valid
+
 
 endclass: riscv_v_logic_alu_in_seq_item
 

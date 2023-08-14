@@ -12,17 +12,19 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     rand riscv_v_osize_e    osize;
     rand riscv_v_opcode_e   opcode;
     rand riscv_v_src_len_t  len;
+    rand osize_vector_t     osize_vector;
 
     `uvm_object_utils_begin(riscv_v_alu_in_seq_item)
         `uvm_field_enum(riscv_v_opcode_e, opcode,   UVM_ALL_ON)
         `uvm_field_enum(riscv_v_osize_e,  osize,   UVM_ALL_ON)
-        `uvm_field_int(len,         UVM_ALL_ON)
-        `uvm_field_int(srca.data,   UVM_ALL_ON)
-        `uvm_field_int(srca.merge,  UVM_ALL_ON)
-        `uvm_field_int(srca.valid,  UVM_ALL_ON)
-        `uvm_field_int(srcb.data,   UVM_ALL_ON)
-        `uvm_field_int(srcb.merge,  UVM_ALL_ON)
-        `uvm_field_int(srcb.valid,  UVM_ALL_ON)
+        `uvm_field_int(len,             UVM_ALL_ON)
+        `uvm_field_int(osize_vector,    UVM_ALL_ON)
+        `uvm_field_int(srca.data,       UVM_ALL_ON)
+        `uvm_field_int(srca.merge,      UVM_ALL_ON)
+        `uvm_field_int(srca.valid,      UVM_ALL_ON)
+        `uvm_field_int(srcb.data,       UVM_ALL_ON)
+        `uvm_field_int(srcb.merge,      UVM_ALL_ON)
+        `uvm_field_int(srcb.valid,      UVM_ALL_ON)
     `uvm_object_utils_end
 
     //Constructor 
@@ -31,21 +33,54 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     endfunction: new
 
     function void post_randomize();
+        constraint_len();
         constraint_valid();
         constraint_merge();
     endfunction: post_randomize
+
+    virtual function void constraint_len();
+        case(osize)
+            OSIZE_8: begin
+                std::randomize(len) with {
+                    len <= (RISCV_V_NUM_BYTES_DATA);
+                };
+            end
+            OSIZE_16: begin
+                std::randomize(len) with {
+                    len <= (RISCV_V_NUM_BYTES_DATA/2);
+                };
+            end
+            OSIZE_32: begin
+                std::randomize(len) with {
+                    len <= (RISCV_V_NUM_BYTES_DATA/4);
+                };
+            end
+            OSIZE_64: begin
+                std::randomize(len) with {
+                    len <= (RISCV_V_NUM_BYTES_DATA/8);
+                };
+            end
+            OSIZE_128: begin
+                std::randomize(len) with {
+                    len <= (RISCV_V_NUM_BYTES_DATA/16);
+                };
+            end
+        endcase
+    endfunction: constraint_len
 
     virtual function void constraint_valid();
         case(osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
                     std::randomize(srca.valid[i]);
+                    srca.valid[i] &= (len > i);
                     srcb.valid[i] = srca.valid[i];
                 end
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
                     std::randomize(srca.valid[i*2]);
+                    srca.valid[i*2]      &= (len > i);
                     srca.valid[i*2 +: 2] = {2{srca.valid[i*2]}};
                     srcb.valid[i*2 +: 2] = {2{srca.valid[i*2]}};
                 end
@@ -53,6 +88,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
                     std::randomize(srca.valid[i*4]);
+                    srca.valid[i*4]      &= (len > i);
                     srca.valid[i*4 +: 4] = {4{srca.valid[i*4]}};
                     srcb.valid[i*4 +: 4] = {4{srca.valid[i*4]}};
                 end
@@ -60,6 +96,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
                     std::randomize(srca.valid[i*8]);
+                    srca.valid[i*8]      &= (len > i);
                     srca.valid[i*8 +: 8] = {8{srca.valid[i*8]}};
                     srcb.valid[i*8 +: 8] = {8{srca.valid[i*8]}};
                 end
@@ -67,6 +104,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
                     std::randomize(srca.valid[i*16]);
+                    srca.valid[i*16]       &= (len > i);
                     srca.valid[i*16 +: 16] = {16{srca.valid[i*16]}};
                     srcb.valid[i*16 +: 16] = {16{srca.valid[i*16]}};
                 end
@@ -116,6 +154,14 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     //Constraint osize
     //constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
     constraint osize_c {osize == OSIZE_128;}
+
+    constraint osize_vector_c {
+        {osize_vector[0] == (osize==OSIZE_8)};
+        {osize_vector[1] == (osize==OSIZE_16)};
+        {osize_vector[2] == (osize==OSIZE_32)};
+        {osize_vector[3] == (osize==OSIZE_64)};
+        {osize_vector[4] == (osize==OSIZE_128)};
+    };
     
 /*
     constraint src_valid_osize {
