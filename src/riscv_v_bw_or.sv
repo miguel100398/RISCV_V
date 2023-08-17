@@ -1,14 +1,14 @@
-//File: riscv_v_bw_and.sv
+//File: riscv_v_bw_or.sv
 //Author: Miguel Bucio
 //Date: 13/08/23
 //Description: RISC-V Vector extension Bitwise and
 
-module riscv_v_bw_and
+module riscv_v_bw_or
 import riscv_v_pkg::*;
 (
     input  logic              is_reduct,
     input  logic              is_reduct_n,
-    input  logic              is_and,
+    input  logic              is_or,
     input  osize_vector_t     osize_vector,
     input  logic [4:1]        is_greater_osize_vector,
     //Input sources
@@ -20,7 +20,7 @@ import riscv_v_pkg::*;
 
 localparam NUM_BW_BLOCKS = RISCV_V_NUM_BYTES_DATA;
 
-//Srca A gated with is_and
+//Srca A gated with is_or
 riscv_v_src_byte_vector_t srca_gated;
 //Src A input to BW block
 riscv_v_src_byte_vector_t srca_bw;
@@ -30,9 +30,9 @@ riscv_v_src_byte_vector_t srcb_bw;
 riscv_v_src_byte_vector_t result_bw;
 
 generate
-        //Gate (is_and & srcA)
-        for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_is_and_srcA_gating
-            assign srca_gated[i] = srca.data.Byte[i] & {BYTE_WIDTH{is_and}};
+        //Gate (is_or & srcA)
+        for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_is_or_srcA_gating
+            assign srca_gated[i] = srca.data.Byte[i] & {BYTE_WIDTH{is_or}};
         end
         //Srca input to BW block
         //Input to Most significant Block is only srca
@@ -47,18 +47,18 @@ generate
             end
         end
         //Srcb input to BW block
-        //Second input is srcb | ~srcb.valid
-        //If srcb is not valid set input to all 1 to do not affect result in reduct operations
+        //Second input is srcb & ~srcb.valid
+        //If srcb is not valid set input to all 0 to do not affect result in reduct operations
         //In bitwise operations invalid bytes will be discarded with srca.valid in the register file
         for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_srcb_bw
-            assign srcb_bw[i] = srcb.data.Byte[i] | {BYTE_WIDTH{~srcb.valid[i]}};
+            assign srcb_bw[i] = srcb.data.Byte[i] & {BYTE_WIDTH{srcb.valid[i]}};
         end
 
-        //Biwtise AND blocks
-        for (genvar block=0; block<NUM_BW_BLOCKS; block++) begin : gen_bitwise_and
-            riscv_v_bitwise_and #(
+        //Biwtise OR blocks
+        for (genvar block=0; block<NUM_BW_BLOCKS; block++) begin : gen_bitwise_or
+            riscv_v_bitwise_or #(
                 .DATA_WIDTH(BYTE_WIDTH)
-            )bitwise_and(
+            )bitwise_or(
                 .A(srca_bw[block]),
                 .B(srcb_bw[block]),
                 .S(result_bw[block])
@@ -66,10 +66,10 @@ generate
         end
 
         //Final result
-        for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_and_result
+        for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_or_result
             assign result[i] = result_bw[i];
         end
 
 endgenerate
 
-endmodule: riscv_v_bw_and
+endmodule: riscv_v_bw_or

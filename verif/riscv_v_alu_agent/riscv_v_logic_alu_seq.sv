@@ -42,6 +42,7 @@ class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_logic_alu_in_seq_i
         rst_txn.srca      = '0;
         rst_txn.srcb      = '0;
         rst_txn.is_and    = 1'b0;
+        rst_txn.is_or     = 1'b0;
         rst_txn.is_reduct = 1'b0;
         wait_for_grant();
         send_request(rst_txn);

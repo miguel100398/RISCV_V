@@ -34,6 +34,7 @@ module riscv_v_logic_alu_tb;
     riscv_v_logic_ALU dut(
         .is_reduct(logic_vif.is_reduct),
         .is_and(logic_vif.is_and),
+        .is_or(logic_vif.is_or),
         .srca(logic_vif.srca),
         .srcb(logic_vif.srcb),
         .result(logic_vif.result),

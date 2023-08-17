@@ -9,10 +9,12 @@
 class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     rand logic is_reduct;
     rand logic is_and;
+    rand logic is_or;
 
     `uvm_object_utils_begin(riscv_v_logic_alu_in_seq_item)
         `uvm_field_int(is_reduct,  UVM_ALL_ON)
         `uvm_field_int(is_and,     UVM_ALL_ON)
+         `uvm_field_int(is_or,     UVM_ALL_ON)
     `uvm_object_utils_end
 
     //Constructor 
@@ -21,6 +23,7 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     endfunction: new
 
     constraint solve_opcode_before_and    {solve opcode before is_and;}
+    constraint solve_opcode_before_or     {solve opcode before is_or;}
     constraint solve_opcode_before_reduct {solve opcode before is_reduct;}
 
     //Constraint control signals depending on opcode
@@ -29,18 +32,23 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         {is_and == (opcode inside {BW_AND, BW_AND_REDUCT})};
     }
 
+    constraint is_or_c{
+        {is_or == (opcode inside {BW_OR, BW_OR_REDUCT})};
+    }
+
     constraint is_reduct_c{
-        {is_reduct == (opcode inside {BW_AND_REDUCT})};
+        {is_reduct == (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT})};
     }
 
     constraint logic_opcode_c {
-        {opcode inside {BW_AND, BW_AND_REDUCT}};
-        //{opcode inside {BW_AND_REDUCT}};
+        //{opcode inside {BW_AND, BW_AND_REDUCT, BW_OR, BW_OR_REDUCT}};
+        {opcode inside {BW_OR_REDUCT}};
+        //{opcode inside {BW_AND, BW_AND_REDUCT}};
     }
 
     virtual function void constraint_valid();
         super.constraint_valid();
-        if (opcode inside {BW_AND_REDUCT}) begin
+        if (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT, BW_XOR_REDUCT}) begin
             srca.valid = '0;
             case (osize)
                 OSIZE_8:   begin 

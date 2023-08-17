@@ -104,13 +104,13 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     endfunction: get_osize
 
     virtual function riscv_v_opcode_e get_logic_opcode();
-        if (logic_vif.cb_mon.is_and && logic_vif.cb_mon.is_reduct) begin
-            return BW_AND_REDUCT;
-        end else if (logic_vif.cb_mon.is_and) begin
-            return BW_AND;
-        end else begin
-            return NOP;
-        end
+        unique case(2'b11)
+            {logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_and}  : return BW_AND_REDUCT;
+            {~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_and}  : return BW_AND;
+            {logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_or}   : return BW_OR_REDUCT;
+            {~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_or}   : return BW_OR;
+            default                                                 : return NOP;
+        endcase
     endfunction: get_logic_opcode
 
     virtual function riscv_v_src_len_t get_len(riscv_v_osize_e osize);
@@ -130,7 +130,10 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     endfunction: get_len
 
     virtual function bit is_logic_op();
-        return logic_vif.cb_mon.is_and;
+        bit is_logic = 0;
+        is_logic |= logic_vif.cb_mon.is_and;
+        is_logic |= logic_vif.cb_mon.is_or;
+        return is_logic;
     endfunction: is_logic_op
 
     //Get interface
