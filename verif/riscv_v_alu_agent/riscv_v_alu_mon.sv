@@ -104,11 +104,16 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     endfunction: get_osize
 
     virtual function riscv_v_opcode_e get_logic_opcode();
-        unique case(2'b11)
-            {logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_and}  : return BW_AND_REDUCT;
-            {~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_and}  : return BW_AND;
-            {logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_or}   : return BW_OR_REDUCT;
-            {~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_or}   : return BW_OR;
+        unique case(3'b11)
+            {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_and}       : return BW_AND_REDUCT;
+            {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_and}       : return BW_AND;
+            {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_or}        : return BW_OR_REDUCT;
+            {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_or}        : return BW_OR;
+            {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_xor}       : return BW_XOR_REDUCT;
+            {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_xor}       : return BW_XOR;
+            {logic_vif.cb_mon.is_shift, logic_vif.cb_mon.is_left,    1'b1}                          : return SLL;
+            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   ~logic_vif.cb_mon.is_arith}    : return SRL;
+            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   logic_vif.cb_mon.is_arith}     : return SRA;
             default                                                 : return NOP;
         endcase
     endfunction: get_logic_opcode
@@ -133,6 +138,8 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         bit is_logic = 0;
         is_logic |= logic_vif.cb_mon.is_and;
         is_logic |= logic_vif.cb_mon.is_or;
+        is_logic |= logic_vif.cb_mon.is_xor;
+        is_logic |= logic_vif.cb_mon.is_shift;
         return is_logic;
     endfunction: is_logic_op
 

@@ -10,6 +10,10 @@ import riscv_v_pkg::*;
     input  logic              is_reduct,
     input  logic              is_and,
     input  logic              is_or,
+    input  logic              is_xor,
+    input  logic              is_shift,
+    input  logic              is_left,
+    input  logic              is_arith,
     input  osize_vector_t     osize_vector,
     //Input sources
     input  riscv_v_alu_data_t srca,
@@ -27,6 +31,7 @@ import riscv_v_pkg::*;
     //Bitwise results
     riscv_v_src_byte_vector_t and_result;
     riscv_v_src_byte_vector_t or_result;
+    riscv_v_src_byte_vector_t xor_result;
 
     assign is_reduct_n = ~is_reduct;
 
@@ -59,9 +64,20 @@ import riscv_v_pkg::*;
         .result(or_result)
     );
 
+    riscv_v_bw_xor bw_xor(
+        .is_reduct(is_reduct),
+        .is_reduct_n(is_reduct_n),
+        .is_xor(is_xor),
+        .osize_vector(osize_vector),
+        .is_greater_osize_vector(is_greater_osize_vector),
+        .srca(srca),
+        .srcb(srcb),
+        .result(xor_result)
+    );
+
 
     //Final Mux result
-    assign result.data  = and_result | or_result;
+    assign result.data  = and_result | or_result | xor_result;
     assign result.valid = srca.valid;
 
 endmodule: riscv_v_logic_ALU

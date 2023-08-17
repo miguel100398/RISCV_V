@@ -44,6 +44,11 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             BW_AND_REDUCT: calc_bw_and_reduct();
             BW_OR: calc_bw_or();
             BW_OR_REDUCT: calc_bw_or_reduct();
+            BW_XOR: calc_bw_or();
+            BW_XOR_REDUCT: calc_bw_or_reduct();
+            SLL: calc_sll();
+            SRL: calc_srl();
+            SRA: calc_sra();
             default:    `uvm_fatal(get_name(), "Invalid Logic ALU op")
         endcase
     endfunction: calc_logic
