@@ -22,6 +22,8 @@ localparam NUM_BW_BLOCKS = RISCV_V_NUM_BYTES_DATA;
 
 //Srca A gated with is_or
 riscv_v_src_byte_vector_t srca_gated;
+//Srca B gated with is_or
+riscv_v_src_byte_vector_t srcb_gated;
 //Src A input to BW block
 riscv_v_src_byte_vector_t srca_bw;
 //Src B input to BW block
@@ -30,9 +32,10 @@ riscv_v_src_byte_vector_t srcb_bw;
 riscv_v_src_byte_vector_t result_bw;
 
 generate
-        //Gate (is_or & srcA)
-        for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_is_or_srcA_gating
+        //Gate (is_or & srcA), (is_or & srcB)
+        for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_is_or_gating
             assign srca_gated[i] = srca.data.Byte[i] & {BYTE_WIDTH{is_or}};
+            assign srcb_gated[i] = srcb.data.Byte[i] & {BYTE_WIDTH{is_or}};
         end
         //Srca input to BW block
         //Input to Most significant Block is only srca
@@ -51,7 +54,7 @@ generate
         //If srcb is not valid set input to all 0 to do not affect result in reduct operations
         //In bitwise operations invalid bytes will be discarded with srca.valid in the register file
         for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_srcb_bw
-            assign srcb_bw[i] = srcb.data.Byte[i] & {BYTE_WIDTH{srcb.valid[i]}};
+            assign srcb_bw[i] = srcb_gated[i] & {BYTE_WIDTH{srcb.valid[i]}};
         end
 
         //Biwtise OR blocks

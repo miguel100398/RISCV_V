@@ -26,12 +26,18 @@ import riscv_v_pkg::*;
     logic is_greater_osize16;
     logic is_greater_osize32;
     logic is_greater_osize64;
+    logic is_less_osize128;
+    logic is_less_osize64;
+    logic is_less_osize32;
+    logic is_less_osize16;
     logic [4:1] is_greater_osize_vector;
+    logic [3:0] is_less_osize_vector;
 
     //Bitwise results
     riscv_v_src_byte_vector_t and_result;
     riscv_v_src_byte_vector_t or_result;
     riscv_v_src_byte_vector_t xor_result;
+    riscv_v_src_byte_vector_t shifter_result;
 
     assign is_reduct_n = ~is_reduct;
 
@@ -40,7 +46,13 @@ import riscv_v_pkg::*;
     assign is_greater_osize32 = |osize_vector[4:3];
     assign is_greater_osize64 = osize_vector[4];
 
+    assign is_less_osize128   = ~is_greater_osize64;
+    assign is_less_osize64    = ~is_greater_osize32;
+    assign is_less_osize32    = ~is_greater_osize16;
+    assign is_less_osize16    = ~is_greater_osize8;
+
     assign is_greater_osize_vector = {is_greater_osize64, is_greater_osize32, is_greater_osize16, is_greater_osize8};   
+    assign is_less_osize_vector    = {is_less_osize128,   is_less_osize64,    is_less_osize32,    is_less_osize16};
 
     riscv_v_bw_and bw_and(
         .is_reduct(is_reduct),
@@ -75,9 +87,22 @@ import riscv_v_pkg::*;
         .result(xor_result)
     );
 
+    riscv_v_shifter shifter(
+        .is_shift(is_shift),
+        .is_left(is_left),
+        .is_arith(is_arith),
+        .osize_vector(osize_vector),
+        .is_less_osize_vector(is_less_osize_vector),
+        .is_greater_osize_vector(is_greater_osize_vector),
+        .srca(srca),
+        .srcb(srcb),
+        .result(shifter_result)
+    );
+
+
 
     //Final Mux result
-    assign result.data  = and_result | or_result | xor_result;
+    assign result.data  = and_result | or_result | xor_result | shifter_result;
     assign result.valid = srca.valid;
 
 endmodule: riscv_v_logic_ALU
