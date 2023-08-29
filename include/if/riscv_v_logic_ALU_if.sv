@@ -12,6 +12,11 @@ import riscv_v_pkg::*;
     //Control signals
     logic              is_reduct;
     logic              is_and;
+    logic              is_or;
+    logic              is_xor;
+    logic              is_shift;
+    logic              is_left;
+    logic              is_arith;
     osize_vector_t     osize_vector;
     //Input sources
     riscv_v_alu_data_t srca;
@@ -27,6 +32,11 @@ import riscv_v_pkg::*;
     modport alu(
         input  is_reduct,
         input  is_and,
+        input  is_or,
+        input  is_xor,
+        input  is_shift,
+        input  is_left,
+        input  is_arith,
         input  osize_vector,
         input  srca,
         input  srcb,
@@ -41,6 +51,11 @@ import riscv_v_pkg::*;
     modport system(
         output is_reduct,
         output is_and,
+        output is_or,
+        output is_xor,
+        output is_shift,
+        output is_left,
+        output is_arith,
         output osize_vector,
         output srca,
         output srcb,
@@ -55,6 +70,11 @@ import riscv_v_pkg::*;
     clocking cb_mon @(posedge clk);
         input  is_reduct;
         input  is_and;
+        input  is_or;
+        input  is_xor;
+        input  is_shift;
+        input  is_left;
+        input  is_arith;
         input  osize_vector;
         input  srca;
         input  srcb;
@@ -69,6 +89,11 @@ import riscv_v_pkg::*;
     clocking cb_drv @(posedge clk);
         output is_reduct;
         output is_and;
+        output is_or;
+        output is_xor;
+        output is_shift;
+        output is_left;
+        output is_arith;
         output osize_vector;
         output srca;
         output srcb;

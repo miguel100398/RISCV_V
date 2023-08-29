@@ -30,6 +30,11 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         super.new(name);
     endfunction: new
 
+    function void post_randomize();
+        super.post_randomize();
+        constraint_control();
+    endfunction: post_randomize
+
     constraint solve_opcode_before_and    {solve opcode before is_and;}
     constraint solve_opcode_before_or     {solve opcode before is_or;}
     constraint solve_opcode_before_xor    {solve opcode before is_xor;}
@@ -38,8 +43,19 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     constraint solve_opcode_before_arith  {solve opcode before is_arith;}
     constraint solve_opcode_before_reduct {solve opcode before is_reduct;}
 
+    virtual function void constraint_control();
+        is_and    = (opcode inside {BW_AND, BW_AND_REDUCT});
+        is_or     = (opcode inside {BW_OR, BW_OR_REDUCT});
+        is_xor    = (opcode inside {BW_XOR, BW_XOR_REDUCT});
+        is_shift  = (opcode inside {SLL, SRL, SRA});
+        is_left   = (opcode inside {SLL});
+        is_arith  = (opcode inside {SRA});
+        is_reduct = (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT, BW_XOR_REDUCT});
+    endfunction: constraint_control
+
     //Constraint control signals depending on opcode
     //is_and
+    /*
     constraint is_and_c {
         {is_and == (opcode inside {BW_AND, BW_AND_REDUCT})};
     }
@@ -61,12 +77,13 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     }
 
     constraint is_arith_c{
-        {is_arith == (opcode inside {SRA})}
+        {is_arith == (opcode inside {SRA})};
     }
 
     constraint is_reduct_c{
         {is_reduct == (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT, BW_XOR_REDUCT})};
     }
+    */
 
     constraint logic_opcode_c {
         //{opcode inside {BW_AND, BW_AND_REDUCT, BW_OR, BW_OR_REDUCT, BW_XOR, BW_XOR_REDUCT, SLL, SRL, SRA}};

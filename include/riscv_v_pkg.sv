@@ -103,7 +103,46 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0] riscv_v_src_byte_vect
 typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0] riscv_v_src_len_t;
 
 //Opcode types
-typedef enum logic[1:0] {BW_AND, BW_AND_REDUCT, NOP} riscv_v_opcode_e;
+typedef enum logic[3:0] {BW_AND, BW_AND_REDUCT, 
+                         BW_OR,  BW_OR_REDUCT,
+                         BW_XOR, BW_XOR_REDUCT,
+                         SLL, SRL, SRA, 
+                         NOP} riscv_v_opcode_e;
+
+/////////////////////////////////////////MACROS/////////////////////////////////////////
+//Zero extend signal to size
+//`define RISCV_V_ZX(signal, size)\
+ //   {{size-$bits(signal)}{1'b0},signal}
+`define RISCV_V_ZX(signal, size)\
+    {{(size-$bits(signal)){1'b0}}, signal}
+
+//Sign extend signal to size
+`define RISCV_V_SX(signal, size)\
+    {{(size-$bits(signal)){signal[$bits(signal)-1]}},signal}
+
+function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_zeroes_osize(int src);
+    automatic int count = 0;
+    for (int i=0; i<32; i++) begin
+        if (src[i] == 1'b1) begin
+            break;
+        end 
+        count++;
+    end
+    count = (count > RISCV_V_NUM_VALID_OSIZES-2) ? RISCV_V_NUM_VALID_OSIZES-2 : count;
+    return count[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0];
+endfunction: f_count_trailing_zeroes_osize
+
+function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_ones_osize(int src);
+    automatic int count = 0;
+    for (int i=0; i<32; i++) begin
+        if (src[i] == 1'b0) begin
+            break;
+        end 
+        count++;
+    end
+    count = (count > RISCV_V_NUM_VALID_OSIZES-2) ? RISCV_V_NUM_VALID_OSIZES-2 : count;
+    return count[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0];
+endfunction: f_count_trailing_ones_osize
 
 
 endpackage: riscv_v_pkg
