@@ -22,16 +22,8 @@ import riscv_v_pkg::*;
     output riscv_v_wb_data_t  result
 );
     logic is_reduct_n;
-    logic is_greater_osize8;
-    logic is_greater_osize16;
-    logic is_greater_osize32;
-    logic is_greater_osize64;
-    logic is_less_osize128;
-    logic is_less_osize64;
-    logic is_less_osize32;
-    logic is_less_osize16;
-    logic [4:1] is_greater_osize_vector;
-    logic [3:0] is_less_osize_vector;
+    osize_vector_t is_greater_osize_vector;
+    osize_vector_t is_less_osize_vector;
 
     //Bitwise results
     riscv_v_src_byte_vector_t and_result;
@@ -41,18 +33,28 @@ import riscv_v_pkg::*;
 
     assign is_reduct_n = ~is_reduct;
 
-    assign is_greater_osize8  = ~osize_vector[0];
-    assign is_greater_osize16 = ~osize_vector[1] & ~osize_vector[0];
-    assign is_greater_osize32 = |osize_vector[4:3];
-    assign is_greater_osize64 = osize_vector[4];
+    //Generate is_greater_osize
+    generate
+        //Bit 0 is always 1 since all osizes are greater than osize0
+        assign is_greater_osize_vector[0] = 1'b1;
+        //Lower half
+        for (genvar idx=1; idx <= (RISCV_V_NUM_VALID_OSIZES/2); idx++) begin
+            assign is_greater_osize_vector[idx] = ~(|osize_vector[0 +: idx]);
+        end
+        //Upper half
+        for (genvar idx=(RISCV_V_NUM_VALID_OSIZES/2)+1; idx < RISCV_V_NUM_VALID_OSIZES; idx++) begin
+            assign is_greater_osize_vector[idx] = |osize_vector[RISCV_V_NUM_VALID_OSIZES-1 -: RISCV_V_NUM_VALID_OSIZES-idx];
+        end
+    endgenerate
 
-    assign is_less_osize128   = ~is_greater_osize64;
-    assign is_less_osize64    = ~is_greater_osize32;
-    assign is_less_osize32    = ~is_greater_osize16;
-    assign is_less_osize16    = ~is_greater_osize8;
-
-    assign is_greater_osize_vector = {is_greater_osize64, is_greater_osize32, is_greater_osize16, is_greater_osize8};   
-    assign is_less_osize_vector    = {is_less_osize128,   is_less_osize64,    is_less_osize32,    is_less_osize16};
+    //Generate is_less_osize
+    generate
+        for (genvar idx=0; idx < RISCV_V_NUM_VALID_OSIZES-1; idx++) begin
+            assign is_less_osize_vector[idx] = ~is_greater_osize_vector[idx+1];
+        end
+        //MSB is always 1 since all osizes are less than MAX_OSIZE+1
+        assign is_less_osize_vector[RISCV_V_NUM_VALID_OSIZES-1] = 1'b1;
+    endgenerate
 
     riscv_v_bw_and bw_and(
         .is_reduct(is_reduct),

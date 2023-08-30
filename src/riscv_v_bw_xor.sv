@@ -10,7 +10,7 @@ import riscv_v_pkg::*;
     input  logic              is_reduct_n,
     input  logic              is_xor,
     input  osize_vector_t     osize_vector,
-    input  logic [4:1]        is_greater_osize_vector,
+    input  osize_vector_t     is_greater_osize_vector,
     //Input sources
     input  riscv_v_alu_data_t srca,
     input  riscv_v_alu_data_t srcb,

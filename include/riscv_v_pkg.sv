@@ -36,6 +36,8 @@ typedef enum logic[1:0] {RF_RD_PORT_A = 2'b00, RF_RD_PORT_B = 2'b01, RF_WR_PORT 
 typedef enum logic[2:0] {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128} riscv_v_osize_e;
 parameter int RISCV_V_NUM_VALID_OSIZES = 5;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
+typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
+typedef logic [RISCV_V_NUM_VALID_OSIZES-2:0] osize_is_less_vector_t;
 //ALU Enum
 typedef enum logic {LOGIC_ALU} riscv_v_alu_e;
 
