@@ -87,7 +87,7 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
 
     constraint logic_opcode_c {
         //{opcode inside {BW_AND, BW_AND_REDUCT, BW_OR, BW_OR_REDUCT, BW_XOR, BW_XOR_REDUCT, SLL, SRL, SRA}};
-        {opcode inside {SLL}};
+        {opcode inside {SRA}};
     }
 
     virtual function void constraint_valid();

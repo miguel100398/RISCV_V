@@ -212,27 +212,27 @@
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    logic_exp_result.data.Byte[i] = (logic_in_txn.srca.data.Byte[i] << logic_in_txn.srcb.data.Byte[i][$clog2(BYTE_WIDTH):0]);
+                    logic_exp_result.data.Byte[i] = (logic_in_txn.srca.data.Byte[i] << logic_in_txn.srcb.data.Byte[i][$clog2(BYTE_WIDTH)-1:0]);
                 end
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    logic_exp_result.data.Word[i] = (logic_in_txn.srca.data.Word[i] << logic_in_txn.srcb.data.Word[i][$clog2(WORD_WIDTH):0]);
+                    logic_exp_result.data.Word[i] = (logic_in_txn.srca.data.Word[i] << logic_in_txn.srcb.data.Word[i][$clog2(WORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Dword[i] = (logic_in_txn.srca.data.Dword[i] << logic_in_txn.srcb.data.Dword[i][$clog2(DWORD_WIDTH):0]);
+                    logic_exp_result.data.Dword[i] = (logic_in_txn.srca.data.Dword[i] << logic_in_txn.srcb.data.Dword[i][$clog2(DWORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Qword[i] = (logic_in_txn.srca.data.Qword[i] << logic_in_txn.srcb.data.Qword[i][$clog2(QWORD_WIDTH):0]);
+                    logic_exp_result.data.Qword[i] = (logic_in_txn.srca.data.Qword[i] << logic_in_txn.srcb.data.Qword[i][$clog2(QWORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Dqword[i] = (logic_in_txn.srca.data.Dqword[i] << logic_in_txn.srcb.data.Dqword[i][$clog2(DQWORD_WIDTH):0]);
+                    logic_exp_result.data.Dqword[i] = (logic_in_txn.srca.data.Dqword[i] << logic_in_txn.srcb.data.Dqword[i][$clog2(DQWORD_WIDTH)-1:0]);
                 end
             end
         endcase
@@ -243,27 +243,27 @@
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    logic_exp_result.data.Byte[i] = (logic_in_txn.srca.data.Byte[i] >> logic_in_txn.srcb.data.Byte[i][$clog2(BYTE_WIDTH):0]);
+                    logic_exp_result.data.Byte[i] = (logic_in_txn.srca.data.Byte[i] >> logic_in_txn.srcb.data.Byte[i][$clog2(BYTE_WIDTH)-1:0]);
                 end
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    logic_exp_result.data.Word[i] = (logic_in_txn.srca.data.Word[i] >> logic_in_txn.srcb.data.Word[i][$clog2(WORD_WIDTH):0]);
+                    logic_exp_result.data.Word[i] = (logic_in_txn.srca.data.Word[i] >> logic_in_txn.srcb.data.Word[i][$clog2(WORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Dword[i] = (logic_in_txn.srca.data.Dword[i] >> logic_in_txn.srcb.data.Dword[i][$clog2(DWORD_WIDTH):0]);
+                    logic_exp_result.data.Dword[i] = (logic_in_txn.srca.data.Dword[i] >> logic_in_txn.srcb.data.Dword[i][$clog2(DWORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Qword[i] = (logic_in_txn.srca.data.Qword[i] >> logic_in_txn.srcb.data.Qword[i][$clog2(QWORD_WIDTH):0]);
+                    logic_exp_result.data.Qword[i] = (logic_in_txn.srca.data.Qword[i] >> logic_in_txn.srcb.data.Qword[i][$clog2(QWORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Dqword[i] = (logic_in_txn.srca.data.Dqword[i] >> logic_in_txn.srcb.data.Dqword[i][$clog2(DQWORD_WIDTH):0]);
+                    logic_exp_result.data.Dqword[i] = (logic_in_txn.srca.data.Dqword[i] >> logic_in_txn.srcb.data.Dqword[i][$clog2(DQWORD_WIDTH)-1:0]);
                 end
             end
         endcase
@@ -274,27 +274,27 @@
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    logic_exp_result.data.Byte[i] = (logic_in_txn.srca.data.Byte[i] >>> logic_in_txn.srcb.data.Byte[i][$clog2(BYTE_WIDTH):0]);
+                    logic_exp_result.data.Byte[i] = ($signed(logic_in_txn.srca.data.Byte[i]) >>> logic_in_txn.srcb.data.Byte[i][$clog2(BYTE_WIDTH)-1:0]);
                 end
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    logic_exp_result.data.Word[i] = (logic_in_txn.srca.data.Word[i] >>> logic_in_txn.srcb.data.Word[i][$clog2(WORD_WIDTH):0]);
+                    logic_exp_result.data.Word[i] = ($signed(logic_in_txn.srca.data.Word[i]) >>> logic_in_txn.srcb.data.Word[i][$clog2(WORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Dword[i] = (logic_in_txn.srca.data.Dword[i] >>> logic_in_txn.srcb.data.Dword[i][$clog2(DWORD_WIDTH):0]);
+                    logic_exp_result.data.Dword[i] = ($signed(logic_in_txn.srca.data.Dword[i]) >>> logic_in_txn.srcb.data.Dword[i][$clog2(DWORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Qword[i] = (logic_in_txn.srca.data.Qword[i] >>> logic_in_txn.srcb.data.Qword[i][$clog2(QWORD_WIDTH):0]);
+                    logic_exp_result.data.Qword[i] = ($signed(logic_in_txn.srca.data.Qword[i]) >>> logic_in_txn.srcb.data.Qword[i][$clog2(QWORD_WIDTH)-1:0]);
                 end
             end
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    logic_exp_result.data.Dqword[i] = (logic_in_txn.srca.data.Dqword[i] >>> logic_in_txn.srcb.data.Dqword[i][$clog2(DQWORD_WIDTH):0]);
+                    logic_exp_result.data.Dqword[i] = ($signed(logic_in_txn.srca.data.Dqword[i]) >>> logic_in_txn.srcb.data.Dqword[i][$clog2(DQWORD_WIDTH)-1:0]);
                 end
             end
         endcase

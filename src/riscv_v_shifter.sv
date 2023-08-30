@@ -20,7 +20,7 @@ import riscv_v_pkg::*;
 );
 localparam NUM_SHIFT_BLOCKS     = RISCV_V_NUM_BYTES_DATA;
 localparam BLOCK_SELECTOR_WIDTH = $clog2(BYTE_WIDTH);
-localparam BYTE_SELECTOR_WIDTH  = $clog2(NUM_SHIFT_BLOCKS)+1;
+localparam BYTE_SELECTOR_WIDTH  = $clog2(NUM_SHIFT_BLOCKS);
 localparam SELECTOR_WIDTH       = BLOCK_SELECTOR_WIDTH+BYTE_SELECTOR_WIDTH;
 
 typedef logic[SELECTOR_WIDTH-1:0] byte_selector_t;
@@ -134,18 +134,69 @@ generate
     //First stage
     for (genvar mux_idx=0; mux_idx < NUM_SHIFT_BLOCKS; mux_idx++) begin : gen_mux_first_stage 
         if (mux_idx < (NUM_SHIFT_BLOCKS-1)) begin
-            assign mux_shift_block[0][mux_idx] = (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH]) ? srca_shift_selected[mux_idx+1] & {BYTE_WIDTH{is_greater_osize_vector[1] & selected_merge[mux_idx]}}  : srca_shift_selected[mux_idx];
+            //assign mux_shift_block[0][mux_idx] = (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH]) ? srca_shift_selected[mux_idx+1] & {BYTE_WIDTH{is_greater_osize_vector[1] & selected_merge[mux_idx]}}  : srca_shift_selected[mux_idx];
+            //assign mux_shift_block[0][mux_idx] = (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) ? srca_shift_selected[mux_idx+1] & {BYTE_WIDTH{ & selected_merge[mux_idx]}} : srca_shift_selected[mux_idx];
+            always_comb begin
+                if (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) begin
+                    if (selected_merge[mux_idx]) begin
+                        mux_shift_block[0][mux_idx] = srca_shift_selected[mux_idx+1];
+                    end  else if (is_arith) begin
+                        mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srca_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}};
+                    end else begin
+                        mux_shift_block[0][mux_idx] = {BYTE_WIDTH{1'b0}};
+                    end
+                end else begin
+                    mux_shift_block[0][mux_idx]     =  srca_shift_selected[mux_idx];
+                end
+            end
         end else begin
-            assign mux_shift_block[0][mux_idx] = (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH]) ? {BYTE_WIDTH{1'b0}}                                                                                   : srca_shift_selected[mux_idx];
+            //assign mux_shift_block[0][mux_idx] = (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH]) ? {BYTE_WIDTH{1'b0}}                                                                                   : srca_shift_selected[mux_idx];
+            //assign mux_shift_block[0][mux_idx] = (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) ? {BYTE_WIDTH{1'b0}}                                                        : srca_shift_selected[mux_idx];
+            always_comb begin
+                if (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) begin
+                    if (is_arith) begin
+                        mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srca_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}};
+                    end else begin
+                        mux_shift_block[0][mux_idx] = {BYTE_WIDTH{1'b0}};
+                    end
+                end else begin
+                    mux_shift_block[0][mux_idx] = srca_shift_selected[mux_idx];
+                end
+            end
         end
     end
     
     for (genvar mux_stage=1; mux_stage < BYTE_SELECTOR_WIDTH; mux_stage++) begin : gen_mux_stage 
         for (genvar mux_idx=0; mux_idx < NUM_SHIFT_BLOCKS; mux_idx++) begin : gen_mux_idx 
             if (mux_idx < (NUM_SHIFT_BLOCKS-(2**mux_stage))) begin
-                assign mux_shift_block[mux_stage][mux_idx] = (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage]) ? mux_shift_block[mux_stage-1][mux_idx+(2**mux_stage)] & {BYTE_WIDTH{(is_greater_osize_vector[mux_stage+1] & (&selected_merge[mux_idx +: (2**mux_stage)])) }} : mux_shift_block[mux_stage-1][mux_idx];
+                //assign mux_shift_block[mux_stage][mux_idx] = (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage]) ? mux_shift_block[mux_stage-1][mux_idx+(2**mux_stage)] & {BYTE_WIDTH{(is_greater_osize_vector[mux_stage+1] & (&selected_merge[mux_idx +: (2**mux_stage)])) }} : mux_shift_block[mux_stage-1][mux_idx];
+                //assign mux_shift_block[mux_stage][mux_idx] = (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage+1]) ? mux_shift_block[mux_stage-1][mux_idx+(2**mux_stage)] & {BYTE_WIDTH{(&selected_merge[mux_idx +: (2**mux_stage)])}} : mux_shift_block[mux_stage-1][mux_idx];
+                always_comb begin
+                    if (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage+1]) begin
+                        if (&selected_merge[mux_idx +: (2**mux_stage)]) begin
+                            mux_shift_block[mux_stage][mux_idx] = mux_shift_block[mux_stage-1][mux_idx+(2**mux_stage)];
+                        end else if (is_arith) begin
+                            mux_shift_block[mux_stage][mux_idx] = {BYTE_WIDTH{mux_shift_block[mux_stage-1][(((mux_idx/(2**mux_stage))+1)*(2**mux_stage))-1][BYTE_WIDTH-1]}};
+                        end else begin
+                            mux_shift_block[mux_stage][mux_idx] = {BYTE_WIDTH{1'b0}};
+                        end
+                    end else begin
+                        mux_shift_block[mux_stage][mux_idx] = mux_shift_block[mux_stage-1][mux_idx];
+                    end
+                end
             end else begin
-                assign mux_shift_block[mux_stage][mux_idx] = (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage]) ? {BYTE_WIDTH{1'b0}}                                                                                                                   : mux_shift_block[mux_stage-1][mux_idx];
+                //assign mux_shift_block[mux_stage][mux_idx] = (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage]) ? {BYTE_WIDTH{1'b0}} 
+                always_comb begin
+                    if (mux_byte_selector[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage+1]) begin
+                        if (is_arith) begin
+                            mux_shift_block[mux_stage][mux_idx] = {BYTE_WIDTH{mux_shift_block[mux_stage-1][(((mux_idx/(2**mux_stage))+1)*(2**mux_stage))-1][BYTE_WIDTH-1]}};
+                        end else begin
+                            mux_shift_block[mux_stage][mux_idx] = {BYTE_WIDTH{1'b0}};
+                        end
+                    end else begin
+                        mux_shift_block[mux_stage][mux_idx] = mux_shift_block[mux_stage-1][mux_idx];
+                    end
+                end
             end
         end
     end
