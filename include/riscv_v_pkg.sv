@@ -109,16 +109,7 @@ typedef enum logic[3:0] {BW_AND, BW_AND_REDUCT,
                          SLL, SRL, SRA, 
                          NOP} riscv_v_opcode_e;
 
-/////////////////////////////////////////MACROS/////////////////////////////////////////
-//Zero extend signal to size
-//`define RISCV_V_ZX(signal, size)\
- //   {{size-$bits(signal)}{1'b0},signal}
-`define RISCV_V_ZX(signal, size)\
-    {{(size-$bits(signal)){1'b0}}, signal}
-
-//Sign extend signal to size
-`define RISCV_V_SX(signal, size)\
-    {{(size-$bits(signal)){signal[$bits(signal)-1]}},signal}
+//////////////////////Functions/////////////////////////////////////////////////////////////////
 
 function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_zeroes_osize(int src);
     automatic int count = 0;
@@ -143,6 +134,18 @@ function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_ones_osize
     count = (count > RISCV_V_NUM_VALID_OSIZES-2) ? RISCV_V_NUM_VALID_OSIZES-2 : count;
     return count[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0];
 endfunction: f_count_trailing_ones_osize
+
+
+/////////////////////////////////////////MACROS/////////////////////////////////////////
+//Zero extend signal to size
+//`define RISCV_V_ZX(signal, size)\
+ //   {{size-$bits(signal)}{1'b0},signal}
+`define RISCV_V_ZX(signal, size)\
+    {{(size-$bits(signal)){1'b0}}, signal}
+
+//Sign extend signal to size
+`define RISCV_V_SX(signal, size)\
+    {{(size-$bits(signal)){signal[$bits(signal)-1]}},signal}
 
 
 endpackage: riscv_v_pkg
