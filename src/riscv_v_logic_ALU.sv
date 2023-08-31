@@ -15,6 +15,8 @@ import riscv_v_pkg::*;
     input  logic              is_left,
     input  logic              is_arith,
     input  osize_vector_t     osize_vector,
+    input  osize_vector_t     is_greater_osize_vector,
+    input  osize_vector_t     is_less_osize_vector,
     //Input sources
     input  riscv_v_alu_data_t srca,
     input  riscv_v_alu_data_t srcb,
@@ -22,8 +24,6 @@ import riscv_v_pkg::*;
     output riscv_v_wb_data_t  result
 );
     logic is_reduct_n;
-    osize_vector_t is_greater_osize_vector;
-    osize_vector_t is_less_osize_vector;
 
     //Bitwise results
     riscv_v_src_byte_vector_t and_result;
@@ -32,29 +32,6 @@ import riscv_v_pkg::*;
     riscv_v_src_byte_vector_t shifter_result;
 
     assign is_reduct_n = ~is_reduct;
-
-    //Generate is_greater_osize
-    generate
-        //Bit 0 is always 1 since all osizes are greater than osize0
-        assign is_greater_osize_vector[0] = 1'b1;
-        //Lower half
-        for (genvar idx=1; idx <= (RISCV_V_NUM_VALID_OSIZES/2); idx++) begin
-            assign is_greater_osize_vector[idx] = ~(|osize_vector[0 +: idx]);
-        end
-        //Upper half
-        for (genvar idx=(RISCV_V_NUM_VALID_OSIZES/2)+1; idx < RISCV_V_NUM_VALID_OSIZES; idx++) begin
-            assign is_greater_osize_vector[idx] = |osize_vector[RISCV_V_NUM_VALID_OSIZES-1 -: RISCV_V_NUM_VALID_OSIZES-idx];
-        end
-    endgenerate
-
-    //Generate is_less_osize
-    generate
-        for (genvar idx=0; idx < RISCV_V_NUM_VALID_OSIZES-1; idx++) begin
-            assign is_less_osize_vector[idx] = ~is_greater_osize_vector[idx+1];
-        end
-        //MSB is always 1 since all osizes are less than MAX_OSIZE+1
-        assign is_less_osize_vector[RISCV_V_NUM_VALID_OSIZES-1] = 1'b1;
-    endgenerate
 
     riscv_v_bw_and bw_and(
         .is_reduct(is_reduct),

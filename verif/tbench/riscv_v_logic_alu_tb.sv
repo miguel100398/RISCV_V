@@ -29,6 +29,9 @@ module riscv_v_logic_alu_tb;
     riscv_v_logic_ALU_if logic_vif(
         .clk(clk)
     );
+    riscv_v_arithmetic_ALU_if arithmetic_vif(
+        .clk(clk)
+    );
 
     //Dut
     riscv_v_logic_ALU dut(
@@ -42,12 +45,15 @@ module riscv_v_logic_alu_tb;
         .srca(logic_vif.srca),
         .srcb(logic_vif.srcb),
         .result(logic_vif.result),
-        .osize_vector(logic_vif.osize_vector)
+        .osize_vector(logic_vif.osize_vector),
+        .is_greater_osize_vector(logic_vif.is_greater_osize_vector),
+        .is_less_osize_vector(logic_vif.is_less_osize_vector)
     );
 
     initial begin
         //Set interface to DB
         uvm_config_db#(virtual riscv_v_logic_ALU_if)::set(uvm_root::get(),"*","riscv_v_logic_alu_vif",logic_vif);
+        uvm_config_db#(virtual riscv_v_arithmetic_ALU_if)::set(uvm_root::get(),"*","riscv_v_arithmetic_alu_vif",arithmetic_vif);
     end
 
     initial begin

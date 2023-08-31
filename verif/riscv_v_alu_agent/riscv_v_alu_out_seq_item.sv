@@ -8,11 +8,17 @@
 
 class riscv_v_alu_out_seq_item extends riscv_v_base_seq_item;
     riscv_v_wb_data_t result;
-    riscv_v_alu_e     ALU;    
+    riscv_v_alu_e     ALU;   
+    riscv_v_zf_t      zf;
+    riscv_v_of_t      of;
+    riscv_v_cf_t      cf; 
 
     `uvm_object_utils_begin(riscv_v_alu_out_seq_item)
         `uvm_field_int(result.data,  UVM_ALL_ON)
         `uvm_field_int(result.valid, UVM_ALL_ON)
+        `uvm_field_int(zf,           UVM_ALL_ON)
+        `uvm_field_int(of,           UVM_ALL_ON)
+        `uvm_field_int(cf,           UVM_ALL_ON)
     `uvm_object_utils_end
 
 

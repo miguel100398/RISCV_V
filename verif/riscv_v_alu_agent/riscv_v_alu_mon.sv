@@ -18,6 +18,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
 
     //Virtual interfaces
     virtual riscv_v_logic_ALU_if logic_vif;
+    virtual riscv_v_arithmetic_ALU_if arithmetic_vif;
 
     function new(string name = "riscv_v_alu_mon", uvm_component parent = null);
         super.new(name, parent);
@@ -26,7 +27,8 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         //Create semaphores
-        in_sem[LOGIC_ALU] = new(in_sem_keys);
+        in_sem[LOGIC_ALU]      = new(in_sem_keys);
+        in_sem[ARITHMETIC_ALU] = new(in_sem_keys);
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
@@ -38,6 +40,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             begin
                 forever mon_in_logic();
             end
+            begin
+                forever mon_in_arithmetic();
+            end
         join
     endtask: mon_rtl_in
 
@@ -48,9 +53,11 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         if (is_logic_op()) begin
             `uvm_info(get_name(), "Transaction captured in logic_alu in port", UVM_HIGH);
             logic_in_txn = riscv_v_logic_alu_in_seq_item::type_id::create("logic_in_txn", this);
-            logic_in_txn.srca         = logic_vif.cb_mon.srca;
-            logic_in_txn.srcb         = logic_vif.cb_mon.srcb;
-            logic_in_txn.osize_vector = logic_vif.cb_mon.osize_vector;
+            logic_in_txn.srca                    = logic_vif.cb_mon.srca;
+            logic_in_txn.srcb                    = logic_vif.cb_mon.srcb;
+            logic_in_txn.osize_vector            = logic_vif.cb_mon.osize_vector;
+            logic_in_txn.is_greater_osize_vector = logic_vif.cb_mon.is_greater_osize_vector;
+            logic_in_txn.is_less_osize_vector    = logic_vif.cb_mon.is_less_osize_vector;
             `ifdef RISCV_V_INST
                 logic_in_txn.osize  = logic_vif.cb_mon.osize;
                 logic_in_txn.opcode = logic_vif.cb_mon.opcode;
@@ -66,10 +73,41 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         in_sem[LOGIC_ALU].put(out_sem_keys);
     endtask: mon_in_logic 
 
+    virtual task mon_in_arithmetic();
+        riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn;
+        @(arithmetic_vif.cb_mon);
+        in_sem[ARITHMETIC_ALU].get(in_sem_keys);
+        if (is_arithmetic_op()) begin
+            `uvm_info(get_name(), "Transaction captured in arithmetic_alu in port", UVM_HIGH);
+            arithmetic_in_txn = riscv_v_arithmetic_alu_in_seq_item::type_id::create("arithmetic_in_txn", this);
+            arithmetic_in_txn.srca                    = arithmetic_vif.cb_mon.srca;
+            arithmetic_in_txn.srcb                    = arithmetic_vif.cb_mon.srcb;
+            arithmetic_in_txn.osize_vector            = arithmetic_vif.cb_mon.osize_vector;
+            arithmetic_in_txn.is_greater_osize_vector = arithmetic_vif.cb_mon.is_greater_osize_vector;
+            arithmetic_in_txn.is_less_osize_vector    = arithmetic_vif.cb_mon.is_less_osize_vector;
+            `ifdef RISCV_V_INST
+                arithmetic_in_txn.osize  = arithmetic_vif.cb_mon.osize;
+                arithmetic_in_txn.opcode = arithmetic_vif.cb_mon.opcode;
+                arithmetic_in_txn.len    = arithmetic_vif.cb_mon.len;
+            `else 
+                arithmetic_in_txn.osize  = get_osize(arithmetic_vif.cb_mon.srca.merge); 
+                arithmetic_in_txn.opcode = get_arithmetic_opcode();
+                arithmetic_in_txn.len    = get_len(arithmetic_in_txn.osize);
+            `endif// RISCV_V_INST 
+            rtl_in_ap.write(arithmetic_in_txn);
+        end
+        //Set keys to process result
+        in_sem[ARITHMETIC_ALU].put(out_sem_keys);
+        
+    endtask: mon_in_arithmetic
+
     virtual task mon_rtl_out();
         fork
             begin
                 forever mon_out_logic();
+            end
+            begin
+                forever mon_out_arithmetic();
             end
         join
     endtask: mon_rtl_out
@@ -89,6 +127,24 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         in_sem[LOGIC_ALU].put(in_sem_keys);
     endtask: mon_out_logic
 
+    virtual task mon_out_arithmetic();
+        riscv_v_alu_out_seq_item arithmetic_out_txn;
+        @(arithmetic_vif.cb_mon);
+        //Input transaction is processed before result
+        in_sem[ARITHMETIC_ALU].get(out_sem_keys);
+        if (is_arithmetic_op()) begin
+            `uvm_info(get_name(), "Transaction captured in arithmetic_alu out port", UVM_HIGH);
+            arithmetic_out_txn = riscv_v_alu_out_seq_item::type_id::create("arithmetic_out_txn", this);
+            arithmetic_out_txn.result = arithmetic_vif.cb_mon.result;
+            arithmetic_out_txn.zf     = arithmetic_vif.cb_mon.zf;
+            arithmetic_out_txn.of     = arithmetic_vif.cb_mon.of;
+            arithmetic_out_txn.cf     = arithmetic_vif.cb_mon.cf;
+            arithmetic_out_txn.ALU    = ARITHMETIC_ALU;
+            rtl_out_ap.write(arithmetic_out_txn);
+        end
+        in_sem[ARITHMETIC_ALU].put(in_sem_keys);
+    endtask: mon_out_arithmetic
+
     virtual function riscv_v_osize_e get_osize(riscv_v_merge_data_t merge);
         if (!merge[0]) begin
             return OSIZE_8;
@@ -104,7 +160,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     endfunction: get_osize
 
     virtual function riscv_v_opcode_e get_logic_opcode();
-        unique case(3'b11)
+        unique case(3'b111)
             {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_and}       : return BW_AND_REDUCT;
             {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_and}       : return BW_AND;
             {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_or}        : return BW_OR_REDUCT;
@@ -114,9 +170,64 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             {logic_vif.cb_mon.is_shift, logic_vif.cb_mon.is_left,    1'b1}                          : return SLL;
             {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   ~logic_vif.cb_mon.is_arith}    : return SRL;
             {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   logic_vif.cb_mon.is_arith}     : return SRA;
-            default                                                 : return NOP;
+            default                                                                                 : return NOP;
         endcase
     endfunction: get_logic_opcode
+
+    virtual function riscv_v_opcode_e get_arithmetic_opcode();
+        if (arithmetic_vif.cb_mon.is_max) begin
+            if (arithmetic_vif.cb_mon.is_signed) begin
+                if (arithmetic_vif.cb_mon.is_reduct) begin
+                    return MAXS_REDUCT;
+                end else begin
+                    return MAXS;
+                end
+            end else begin
+                if (arithmetic_vif.cb_mon.is_reduct) begin
+                    return MAXU_REDUCT;
+                end else begin
+                    return MAXU;
+                end
+            end
+            
+        end else if (arithmetic_vif.cb_mon.is_min) begin
+            if (arithmetic_vif.cb_mon.is_signed) begin
+                if (arithmetic_vif.cb_mon.is_reduct) begin
+                    return MINU_REDUCT;
+                end else begin
+                    return MINU;
+                end
+            end else begin
+                if (arithmetic_vif.cb_mon.is_reduct) begin
+                    return MINS_REDUCT;
+                end else begin
+                    return MINS;
+                end
+            end
+        end else if (arithmetic_vif.cb_mon.is_zero_ext) begin
+            return ZERO_EXT;
+        end else if (arithmetic_vif.cb_mon.is_sign_ext) begin
+            return SIGN_EXT;
+        end else if (arithmetic_vif.cb_mon.is_add) begin
+            if (arithmetic_vif.cb_mon.use_carry) begin
+                return ADDC;
+            end else if (arithmetic_vif.cb_mon.is_reduct) begin
+                return ADD_REDUCT;
+            end else begin
+                return ADD;
+            end
+        end else if (arithmetic_vif.cb_mon.is_sub) begin
+            if (arithmetic_vif.cb_mon.use_carry) begin
+                return SUBB;
+            end else if (arithmetic_vif.cb_mon.is_reduct) begin
+                return SUB_REDUCT;
+            end else begin
+                return SUB;
+            end
+        end else begin
+            return NOP;
+        end
+    endfunction: get_arithmetic_opcode
 
     virtual function riscv_v_src_len_t get_len(riscv_v_osize_e osize);
         int num_srcb_valid = 0;
@@ -143,10 +254,24 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         return is_logic;
     endfunction: is_logic_op
 
+    virtual function bit is_arithmetic_op();
+        bit is_arithmetic = 0;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_add;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_sub;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_zero_ext;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_sign_ext;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_max;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_min;
+        return is_arithmetic;
+    endfunction: is_arithmetic_op
+
     //Get interface
     virtual function void get_vif();
         if (!uvm_config_db#(virtual riscv_v_logic_ALU_if)::get(this, "*", "riscv_v_logic_alu_vif", logic_vif)) begin
             `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_logic_alu_vif");
+        end
+        if (!uvm_config_db#(virtual riscv_v_arithmetic_ALU_if)::get(this, "*", "riscv_v_arithmetic_alu_vif", arithmetic_vif)) begin
+            `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_arithmetic_alu_vif");
         end
     endfunction: get_vif
 

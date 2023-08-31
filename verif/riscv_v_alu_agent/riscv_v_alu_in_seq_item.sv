@@ -7,24 +7,28 @@
 `define __RISCV_V_ALU_IN_SEQ_ITEM__ 
 
 class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
-    rand riscv_v_alu_data_t srca;
-    rand riscv_v_alu_data_t srcb;
-    rand riscv_v_osize_e    osize;
-    rand riscv_v_opcode_e   opcode;
-    rand riscv_v_src_len_t  len;
-    rand osize_vector_t     osize_vector;
+    rand riscv_v_alu_data_t         srca;
+    rand riscv_v_alu_data_t         srcb;
+    rand riscv_v_osize_e            osize;
+    rand riscv_v_opcode_e           opcode;
+    rand riscv_v_src_len_t          len;
+    rand osize_vector_t             osize_vector;
+    rand osize_vector_t             is_greater_osize_vector;
+    rand osize_vector_t             is_less_osize_vector;
 
     `uvm_object_utils_begin(riscv_v_alu_in_seq_item)
         `uvm_field_enum(riscv_v_opcode_e, opcode,   UVM_ALL_ON)
-        `uvm_field_enum(riscv_v_osize_e,  osize,   UVM_ALL_ON)
-        `uvm_field_int(len,             UVM_ALL_ON)
-        `uvm_field_int(osize_vector,    UVM_ALL_ON)
-        `uvm_field_int(srca.data,       UVM_ALL_ON)
-        `uvm_field_int(srca.merge,      UVM_ALL_ON)
-        `uvm_field_int(srca.valid,      UVM_ALL_ON)
-        `uvm_field_int(srcb.data,       UVM_ALL_ON)
-        `uvm_field_int(srcb.merge,      UVM_ALL_ON)
-        `uvm_field_int(srcb.valid,      UVM_ALL_ON)
+        `uvm_field_enum(riscv_v_osize_e,  osize,    UVM_ALL_ON)
+        `uvm_field_int(len,                         UVM_ALL_ON)
+        `uvm_field_int(osize_vector,                UVM_ALL_ON)
+        `uvm_field_int(is_greater_osize_vector,     UVM_ALL_ON)
+        `uvm_field_int(is_less_osize_vector,        UVM_ALL_ON)
+        `uvm_field_int(srca.data,                   UVM_ALL_ON)
+        `uvm_field_int(srca.merge,                  UVM_ALL_ON)
+        `uvm_field_int(srca.valid,                  UVM_ALL_ON)
+        `uvm_field_int(srcb.data,                   UVM_ALL_ON)
+        `uvm_field_int(srcb.merge,                  UVM_ALL_ON)
+        `uvm_field_int(srcb.valid,                  UVM_ALL_ON)
     `uvm_object_utils_end
 
     //Constructor 
@@ -36,6 +40,8 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         constraint_len();
         constraint_valid();
         constraint_merge();
+        constraint_is_greater_osize_vector();
+        constraint_is_less_osize_vector();
     endfunction: post_randomize
 
     virtual function void constraint_len();
@@ -150,6 +156,32 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             end
         endcase
     endfunction: constraint_merge
+
+    virtual function void constraint_is_greater_osize_vector();
+        //Bit 0 is always 1 since all osizes are greater than osize0
+        is_greater_osize_vector[0] = 1'b1;
+        /*
+        //Lower half
+        for (int idx=1; idx <= (RISCV_V_NUM_VALID_OSIZES/2); idx++) begin
+            is_greater_osize_vector[idx] = ~(|osize_vector[0 +: idx]);
+        end
+        //Upper half
+        for (int idx=(RISCV_V_NUM_VALID_OSIZES/2)+1; idx < RISCV_V_NUM_VALID_OSIZES; idx++) begin
+            is_greater_osize_vector[idx] = |osize_vector[RISCV_V_NUM_VALID_OSIZES-1 -: RISCV_V_NUM_VALID_OSIZES-idx];
+        end
+        */
+        for (int idx=1; idx <= (RISCV_V_NUM_VALID_OSIZES); idx++) begin
+            is_greater_osize_vector[idx] = (osize_vector >= (2**(idx)));
+        end
+    endfunction: constraint_is_greater_osize_vector
+
+    virtual function void constraint_is_less_osize_vector();
+        for (int idx=0; idx < RISCV_V_NUM_VALID_OSIZES-1; idx++) begin
+            is_less_osize_vector[idx] = ~is_greater_osize_vector[idx+1];
+        end
+        //MSB is always 1 since all osizes are less than MAX_OSIZE+1
+        is_less_osize_vector[RISCV_V_NUM_VALID_OSIZES-1] = 1'b1;
+    endfunction: constraint_is_less_osize_vector
 
     //Constraint osize
     constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}

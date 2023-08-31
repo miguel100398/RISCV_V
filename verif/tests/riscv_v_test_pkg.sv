@@ -13,5 +13,6 @@ package riscv_v_test_pkg;
     `include "riscv_v_base_test.sv"
     `include "riscv_v_rf_doa_test.sv"
     `include "riscv_v_logic_alu_doa_test.sv"
+    `include "riscv_v_arithmetic_alu_doa_test.sv"
 
 endpackage: riscv_v_test_pkg

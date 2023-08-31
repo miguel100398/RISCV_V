@@ -39,7 +39,7 @@ typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-2:0] osize_is_less_vector_t;
 //ALU Enum
-typedef enum logic {LOGIC_ALU} riscv_v_alu_e;
+typedef enum logic {LOGIC_ALU, ARITHMETIC_ALU} riscv_v_alu_e;
 
 //Common types
 typedef logic[BYTE_WIDTH-1:0]   Byte_t;
@@ -83,6 +83,10 @@ typedef union packed{
 
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_merge_data_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_valid_data_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_carry_in_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_zf_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_of_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_cf_t;
 
 typedef struct packed{
     riscv_v_data_t       data;
@@ -105,10 +109,15 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0] riscv_v_src_byte_vect
 typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0] riscv_v_src_len_t;
 
 //Opcode types
-typedef enum logic[3:0] {BW_AND, BW_AND_REDUCT, 
+typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT, 
                          BW_OR,  BW_OR_REDUCT,
                          BW_XOR, BW_XOR_REDUCT,
-                         SLL, SRL, SRA, 
+                         SLL, SRL, SRA,
+                         ADDC, ADD, ADD_REDUCT,
+                         SUBB, SUB, SUB_REDUCT,
+                         SIGN_EXT, ZERO_EXT,
+                         MINS, MINS_REDUCT, MINU, MINU_REDUCT,
+                         MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, 
                          NOP} riscv_v_opcode_e;
 
 //////////////////////Functions/////////////////////////////////////////////////////////////////
