@@ -48,14 +48,14 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         is_sign_ext = (opcode inside {SIGN_EXT});
         is_max      = (opcode inside {MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT});
         is_min      = (opcode inside {MINS, MINS_REDUCT, MINU, MINU_REDUCT});
-        is_signed   = (opcode inside {MAXS, MAXS_REDUCT, MINS, MINS_REDUCT});
+        is_signed   = (opcode inside {ADD, ADDC, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, MAXS, MAXS_REDUCT, MINS, MINS_REDUCT});
         use_carry   = (opcode inside {ADDC, SUBB});
         is_reduct   = (opcode inside {ADD_REDUCT, SUB_REDUCT, MAXS_REDUCT, MAXU_REDUCT, MINS_REDUCT, MINU_REDUCT});
     endfunction: constraint_control
 
     constraint logic_opcode_c {
         //{opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, SIGN_EXT, ZERO_EXT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT}};
-        {opcode inside {ADD_REDUCT}};
+        {opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT}};
     }
 
     virtual function void constraint_valid();

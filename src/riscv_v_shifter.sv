@@ -98,14 +98,8 @@ generate
     end
 
     //Select merge
-    for (genvar block=0; block < NUM_SHIFT_BLOCKS-1; block++) begin
-        always_comb begin
-            if (is_left) begin
-                selected_merge[block] = srca_merge_swizzle[block+1];
-            end else begin
-                selected_merge[block] = srca.merge[block];
-            end
-        end
+    for (genvar block=0; block < NUM_SHIFT_BLOCKS-1; block++) begin : gen_selected_merge
+        assign selected_merge[block] = (is_left) ? srca_merge_swizzle[block+1] : srca.merge[block];
     end
     assign selected_merge[NUM_SHIFT_BLOCKS-1] = 1'b0;
 

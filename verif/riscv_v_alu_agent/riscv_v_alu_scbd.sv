@@ -103,12 +103,12 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         bit comp = 1;
         comp &= arithmetic_exp_result.valid == txn_out.result.valid;
         for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
-            if (logic_exp_result.valid[i]) begin
+            if (arithmetic_exp_result.valid[i]) begin
                 comp &= arithmetic_exp_result.data.Byte[i] == txn_out.result.data.Byte[i];
-                //comp &= zf_exp[i]                     == txn_out.zf[i];
-                //comp &= of_exp[i]                     == txn_out.of[i];
-                //comp &= cf_exp[i]                     == txn_out.cf[i];
             end
+        end
+        if (~arithmetic_in_txn.is_reduct) begin
+            comp &= compare_flags(arithmetic_in_txn.osize, arithmetic_exp_result.valid);
         end
         if (comp) begin
             pass();
@@ -117,6 +117,59 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             fail();
         end
     endfunction: compare_arithmetic
+
+    virtual function bit compare_flags(riscv_v_osize_e osize, riscv_v_valid_data_t valid);
+        bit comp = 1;
+        case (osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    if (valid[i]) begin
+                        comp &= zf_exp[i] == txn_out.zf[i];
+                        comp &= cf_exp[i] == txn_out.cf[i];
+                        comp &= of_exp[i] == txn_out.of[i];
+                    end
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    if (valid[(i*2)+1]) begin
+                        comp &= zf_exp[(i*2)+1] == txn_out.zf[(i*2)+1];
+                        comp &= cf_exp[(i*2)+1] == txn_out.cf[(i*2)+1];
+                        comp &= of_exp[(i*2)+1] == txn_out.of[(i*2)+1];
+                    end
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    if (valid[(i*4)+3]) begin
+                        comp &= zf_exp[(i*4)+3] == txn_out.zf[(i*4)+3];
+                        comp &= cf_exp[(i*4)+3] == txn_out.cf[(i*4)+3];
+                        comp &= of_exp[(i*4)+3] == txn_out.of[(i*4)+3];
+                    end
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    if (valid[(i*8)+7]) begin
+                        comp &= zf_exp[(i*8)+7] == txn_out.zf[(i*8)+7];
+                        comp &= cf_exp[(i*8)+7] == txn_out.cf[(i*8)+7];
+                        comp &= of_exp[(i*8)+7] == txn_out.of[(i*8)+7];
+                    end
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    if (valid[(i*16)+15]) begin
+                        comp &= zf_exp[(i*16)+15] == txn_out.zf[(i*16)+15];
+                        comp &= cf_exp[(i*16)+15] == txn_out.cf[(i*16)+15];
+                        comp &= of_exp[(i*16)+15] == txn_out.of[(i*16)+15];
+                    end
+                end
+            end
+            default: `uvm_fatal(get_name(), "Invalid osize in compare_flags()")
+        endcase
+        return comp;
+    endfunction: compare_flags
 
     virtual function void calc_valid();
         logic_exp_result.valid = txn_in.srca.valid;

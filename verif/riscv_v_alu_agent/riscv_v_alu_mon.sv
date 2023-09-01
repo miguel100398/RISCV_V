@@ -82,6 +82,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             arithmetic_in_txn = riscv_v_arithmetic_alu_in_seq_item::type_id::create("arithmetic_in_txn", this);
             arithmetic_in_txn.srca                    = arithmetic_vif.cb_mon.srca;
             arithmetic_in_txn.srcb                    = arithmetic_vif.cb_mon.srcb;
+            arithmetic_in_txn.carry_in                = arithmetic_vif.carry_in;
             arithmetic_in_txn.osize_vector            = arithmetic_vif.cb_mon.osize_vector;
             arithmetic_in_txn.is_greater_osize_vector = arithmetic_vif.cb_mon.is_greater_osize_vector;
             arithmetic_in_txn.is_less_osize_vector    = arithmetic_vif.cb_mon.is_less_osize_vector;

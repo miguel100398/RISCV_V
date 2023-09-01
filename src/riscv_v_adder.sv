@@ -45,6 +45,14 @@ riscv_v_carry_in_t        cout_adder;
 riscv_v_src_byte_vector_t result_adder;
 //Merge carry in
 riscv_v_carry_in_t        merge_carry_in;
+//Sub Carry in
+riscv_v_carry_in_t        sub_carry_in;
+//Use carry in
+riscv_v_carry_in_t        use_carry_in;
+//zero flag previous osize
+riscv_v_zf_t              zf_prev_osize;
+//zero flag by osize
+riscv_v_zf_t              zf_osize[RISCV_V_NUM_VALID_OSIZES];
 
 assign valid_adder = is_add || is_sub;
 
@@ -84,11 +92,15 @@ generate
     //Merge carry in
     //First merge_carry_in is 0
     assign merge_carry_in[0] = 1'b0;
+    assign sub_carry_in[0]   = is_sub;
+    assign use_carry_in[0]   = use_carry & carry_in[0];
     for (genvar block=1; block < NUM_ADD_BLOCKS; block++) begin : gen_merge_cin 
         assign merge_carry_in[block] = cout_adder[block-1] & srca.merge[block-1];
+        assign sub_carry_in[block]   = is_sub    & srcb.valid[block] & ~srca.merge[block-1] ;
+        assign use_carry_in[block]   = use_carry & carry_in[block]   & ~srca.merge[block-1];
     end 
 
-    assign cin_adder = merge_carry_in;
+    assign cin_adder = (merge_carry_in | sub_carry_in) ^ use_carry_in;
 
     //Adder blocks
     for (genvar block=0; block<NUM_ADD_BLOCKS; block++) begin : gen_adder
@@ -111,9 +123,33 @@ generate
 
     //Flags
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_flags
-        assign zf[block] = (result_adder[block] == 0);
-        assign cf[block] = (cout_adder[block]);
-        assign of[block] = cout_adder[block] ^ (prev_cout_adder[block] & is_signed);
+        assign zf_prev_osize[block] = (result_adder[block] == 0);
+        assign cf[block]            = (cout_adder[block]);
+        assign of[block]            = cout_adder[block] ^ (prev_cout_adder[block] & is_signed);
+    end
+
+    //Flags per osize
+    for (genvar osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_zf_osize 
+        always_comb begin
+            zf_osize[osize_idx] = '0;
+            if (osize_idx==0) begin
+                for (int zf_idx=0; zf_idx < NUM_ADD_BLOCKS; zf_idx++) begin
+                    zf_osize[osize_idx][zf_idx] = zf_prev_osize[zf_idx] & osize_vector[osize_idx];
+                end
+            end else begin
+                for (int zf_idx=(2**osize_idx)-1; zf_idx < NUM_ADD_BLOCKS; zf_idx=zf_idx+(2**osize_idx)) begin
+                    zf_osize[osize_idx][zf_idx] = (&zf_prev_osize[zf_idx -: (2**osize_idx)]) & osize_vector[osize_idx];
+                end
+            end
+        end
+    end
+
+    //Final flags
+    always_comb begin
+        zf = '0;
+        for (int osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
+            zf |= zf_osize[osize_idx];
+        end
     end
 
 endgenerate
