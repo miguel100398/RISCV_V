@@ -111,7 +111,7 @@ generate
     assign use_carry_in[0]   = use_carry & carry_in[0];
     for (genvar block=1; block < NUM_ADD_BLOCKS; block++) begin : gen_merge_cin 
         assign merge_carry_in[block] = cout_adder[block-1] & srca.merge[block-1];
-        assign sub_carry_in[block]   = is_sub    & srcb.valid[block] & ~srca.merge[block-1] ;
+        assign sub_carry_in[block]   = is_sub    & srcb.valid[block] & ~srca.merge[block-1];
         assign use_carry_in[block]   = use_carry & carry_in[block]   & ~srca.merge[block-1];
     end 
 
