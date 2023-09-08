@@ -488,9 +488,9 @@
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 if (signed'(arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1]) < signed'(arithmetic_in_txn.srcb.data.Byte[0])) begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srca.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srcb.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srcb.data.Byte[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Byte[0]) < signed'(arithmetic_in_txn.srcb.data.Byte[i])) begin
@@ -502,9 +502,9 @@
             end
             OSIZE_16: begin
                 if (signed'(arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) < signed'(arithmetic_in_txn.srcb.data.Word[0])) begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srca.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srcb.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srcb.data.Word[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Word[0]) < signed'(arithmetic_in_txn.srcb.data.Word[i])) begin
@@ -516,9 +516,9 @@
             end
             OSIZE_32: begin
                 if (signed'(arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) < signed'(arithmetic_in_txn.srcb.data.Dword[0])) begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srcb.data.Dword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Dword[0]) < signed'(arithmetic_in_txn.srcb.data.Dword[i])) begin
@@ -530,9 +530,9 @@
             end
             OSIZE_64: begin
                 if (signed'(arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1]) < signed'(arithmetic_in_txn.srcb.data.Qword[0])) begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srca.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srcb.data.Qword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Qword[0]) < signed'(arithmetic_in_txn.srcb.data.Qword[i])) begin
@@ -544,9 +544,9 @@
             end
             OSIZE_128: begin
                 if (signed'(arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1]) < signed'(arithmetic_in_txn.srcb.data.Dqword[0])) begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srcb.data.Dqword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Dqword[0]) < signed'(arithmetic_in_txn.srcb.data.Dqword[i])) begin
@@ -617,9 +617,9 @@
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1]) < unsigned'(arithmetic_in_txn.srcb.data.Byte[0])) begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srca.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srcb.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srcb.data.Byte[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Byte[0]) < unsigned'(arithmetic_in_txn.srcb.data.Byte[i])) begin
@@ -631,9 +631,9 @@
             end
             OSIZE_16: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) < unsigned'(arithmetic_in_txn.srcb.data.Word[0])) begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srca.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srcb.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srcb.data.Word[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Word[0]) < unsigned'(arithmetic_in_txn.srcb.data.Word[i])) begin
@@ -645,9 +645,9 @@
             end
             OSIZE_32: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) < unsigned'(arithmetic_in_txn.srcb.data.Dword[0])) begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srcb.data.Dword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Dword[0]) < unsigned'(arithmetic_in_txn.srcb.data.Dword[i])) begin
@@ -659,9 +659,9 @@
             end
             OSIZE_64: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1]) < unsigned'(arithmetic_in_txn.srcb.data.Qword[0])) begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srca.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srcb.data.Qword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Qword[0]) < unsigned'(arithmetic_in_txn.srcb.data.Qword[i])) begin
@@ -673,9 +673,9 @@
             end
             OSIZE_128: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1]) < unsigned'(arithmetic_in_txn.srcb.data.Dqword[0])) begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srcb.data.Dqword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Dqword[0]) < unsigned'(arithmetic_in_txn.srcb.data.Dqword[i])) begin
@@ -746,9 +746,9 @@
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 if (signed'(arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1]) > signed'(arithmetic_in_txn.srcb.data.Byte[0])) begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srca.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srcb.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srcb.data.Byte[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Byte[0]) > signed'(arithmetic_in_txn.srcb.data.Byte[i])) begin
@@ -760,9 +760,9 @@
             end
             OSIZE_16: begin
                 if (signed'(arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) > signed'(arithmetic_in_txn.srcb.data.Word[0])) begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srca.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srcb.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srcb.data.Word[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Word[0]) > signed'(arithmetic_in_txn.srcb.data.Word[i])) begin
@@ -774,9 +774,9 @@
             end
             OSIZE_32: begin
                 if (signed'(arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) > signed'(arithmetic_in_txn.srcb.data.Dword[0])) begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srcb.data.Dword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Dword[0]) > signed'(arithmetic_in_txn.srcb.data.Dword[i])) begin
@@ -788,9 +788,9 @@
             end
             OSIZE_64: begin
                 if (signed'(arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1]) > signed'(arithmetic_in_txn.srcb.data.Qword[0])) begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srca.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srcb.data.Qword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Qword[0]) > signed'(arithmetic_in_txn.srcb.data.Qword[i])) begin
@@ -802,9 +802,9 @@
             end
             OSIZE_128: begin
                 if (signed'(arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1]) > signed'(arithmetic_in_txn.srcb.data.Dqword[0])) begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srcb.data.Dqword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (signed'(arithmetic_exp_result.data.Dqword[0]) > signed'(arithmetic_in_txn.srcb.data.Dqword[i])) begin
@@ -875,9 +875,9 @@
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1]) > unsigned'(arithmetic_in_txn.srcb.data.Byte[0])) begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srca.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Byte[RISCV_V_NUM_BYTES_DATA-1] = arithmetic_in_txn.srcb.data.Byte[0];
+                    arithmetic_exp_result.data.Byte[0] = arithmetic_in_txn.srcb.data.Byte[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Byte[0]) > unsigned'(arithmetic_in_txn.srcb.data.Byte[i])) begin
@@ -889,9 +889,9 @@
             end
             OSIZE_16: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) > unsigned'(arithmetic_in_txn.srcb.data.Word[0])) begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srca.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Word[RISCV_V_NUM_WORDS_DATA-1] = arithmetic_in_txn.srcb.data.Word[0];
+                    arithmetic_exp_result.data.Word[0] = arithmetic_in_txn.srcb.data.Word[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Word[0]) > unsigned'(arithmetic_in_txn.srcb.data.Word[i])) begin
@@ -903,9 +903,9 @@
             end
             OSIZE_32: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) > unsigned'(arithmetic_in_txn.srcb.data.Dword[0])) begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dword[RISCV_V_NUM_DWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dword[0];
+                    arithmetic_exp_result.data.Dword[0] = arithmetic_in_txn.srcb.data.Dword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Dword[0]) > unsigned'(arithmetic_in_txn.srcb.data.Dword[i])) begin
@@ -917,9 +917,9 @@
             end
             OSIZE_64: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1]) > unsigned'(arithmetic_in_txn.srcb.data.Qword[0])) begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srca.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Qword[RISCV_V_NUM_QWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Qword[0];
+                    arithmetic_exp_result.data.Qword[0] = arithmetic_in_txn.srcb.data.Qword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Qword[0]) > unsigned'(arithmetic_in_txn.srcb.data.Qword[i])) begin
@@ -931,9 +931,9 @@
             end
             OSIZE_128: begin
                 if (unsigned'(arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1]) > unsigned'(arithmetic_in_txn.srcb.data.Dqword[0])) begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srca.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1];
                 end else begin
-                    arithmetic_exp_result.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1] = arithmetic_in_txn.srcb.data.Dqword[0];
+                    arithmetic_exp_result.data.Dqword[0] = arithmetic_in_txn.srcb.data.Dqword[0];
                 end
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     if (unsigned'(arithmetic_exp_result.data.Dqword[0]) > unsigned'(arithmetic_in_txn.srcb.data.Dqword[i])) begin

@@ -55,7 +55,7 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
 
     constraint logic_opcode_c {
         //{opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, SIGN_EXT, ZERO_EXT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT}};
-        {opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT}};
+        {opcode inside {MINS_REDUCT, MINU_REDUCT, MAXS_REDUCT, MAXU_REDUCT}};
     }
 
     virtual function void constraint_valid();

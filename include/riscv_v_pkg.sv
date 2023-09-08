@@ -87,6 +87,8 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_carry_in_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_zf_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_of_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_cf_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_sign_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_less_than_t;
 
 typedef struct packed{
     riscv_v_data_t       data;

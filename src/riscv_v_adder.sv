@@ -6,10 +6,14 @@
 module riscv_v_adder
 import riscv_v_pkg::*;
 (
+    input  logic                       valid_adder,
     input  logic                       is_reduct,
     input  logic                       is_reduct_n,
     input  logic                       is_add,
     input  logic                       is_sub,
+    input  logic                       is_max,
+    input  logic                       is_arithmetic,
+    input  logic                       is_compare,
     input  logic                       is_signed,
     input  logic                       use_carry,
     input  osize_vector_t              osize_vector,
@@ -25,7 +29,6 @@ import riscv_v_pkg::*;
 
 localparam NUM_ADD_BLOCKS = RISCV_V_NUM_BYTES_DATA;
 
-logic valid_adder;
 //Srca and srcb gated with is_add or is_sub
 riscv_v_src_byte_vector_t srca_gated;
 riscv_v_src_byte_vector_t srcb_gated;
@@ -52,9 +55,21 @@ riscv_v_carry_in_t        use_carry_in;
 //zero flag previous osize
 riscv_v_zf_t              zf_prev_osize;
 //zero flag by osize
-riscv_v_zf_t              zf_osize[RISCV_V_NUM_VALID_OSIZES];
-
-assign valid_adder = is_add || is_sub;
+riscv_v_zf_t              zf_osize  [RISCV_V_NUM_VALID_OSIZES-1:0];
+//Signed Overflow
+riscv_v_of_t              signed_of;
+//Unsigned Overflow
+riscv_v_of_t              unsigned_of;
+//Sign
+riscv_v_sign_t            sign_result;
+//Less than vector
+riscv_v_less_than_t       is_less_than_signed;
+riscv_v_less_than_t       is_less_than_unsigned;
+riscv_v_less_than_t       is_less_than_prev_osize;
+riscv_v_less_than_t       is_less_than_osize    [RISCV_V_NUM_VALID_OSIZES-1:0];
+riscv_v_less_than_t       is_less_than;
+//Select between A and B in is_max or is_min
+riscv_v_src_byte_vector_t result_compare;
 
 generate
     //Gate sources
@@ -76,7 +91,7 @@ generate
             //Fisrt input is srca
             srca_adder[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(NUM_ADD_BLOCKS-block)]}};        //Select this source if op is not reduct or osize is greater than
             for (int reduct_input=0; reduct_input < $clog2(NUM_ADD_BLOCKS-block); reduct_input++) begin
-                srca_adder[block] |= result_adder[block+(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
+                srca_adder[block] |= result[block+(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
             end
         end
     end
@@ -116,16 +131,28 @@ generate
         );
     end
 
+    //Compare result
+    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_result_compare
+        assign result_compare[block] = ((is_max ^ is_less_than[block]) | ~srcb.valid[block]) ? srca_adder[block] : srcb_gated[block];
+    end
+
     //Final result
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_adder_result
-        assign result[block] = result_adder[block];
+        assign result[block] = result_adder[block]   & {BYTE_WIDTH{is_arithmetic}}
+                             | result_compare[block] & {BYTE_WIDTH{is_compare}};
     end
 
     //Flags
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_flags
-        assign zf_prev_osize[block] = (result_adder[block] == 0);
-        assign cf[block]            = (cout_adder[block]);
-        assign of[block]            = cout_adder[block] ^ (prev_cout_adder[block] & is_signed);
+        assign zf_prev_osize[block]           = (result_adder[block] == 0);
+        assign cf[block]                      = (cout_adder[block]);
+        assign signed_of[block]               = (cout_adder[block] ^ prev_cout_adder[block]) & is_signed;
+        assign unsigned_of[block]             = (cout_adder[block] ^ is_sub)                 & ~is_signed;
+        assign of[block]                      = signed_of[block] | unsigned_of[block];
+        assign sign_result[block]             = result_adder[block][BYTE_WIDTH-1];
+        assign is_less_than_signed[block]     = (sign_result[block] ^ signed_of[block])      & is_signed;
+        assign is_less_than_unsigned[block]   = unsigned_of[block];
+        assign is_less_than_prev_osize[block] = is_less_than_signed[block] | is_less_than_unsigned[block];
     end
 
     //Flags per osize
@@ -144,11 +171,24 @@ generate
         end
     end
 
+    for (genvar osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_is_less_than_osize 
+        localparam NUM_BLOCKS_OSIZE = NUM_ADD_BLOCKS/(2**osize_idx);
+        localparam NUM_BITS_OSIZE   = 2**osize_idx;
+        always_comb begin
+            is_less_than_osize[osize_idx] = '0;
+            for (int lt_idx=0; lt_idx < NUM_BLOCKS_OSIZE; lt_idx++) begin
+                is_less_than_osize[osize_idx][lt_idx*NUM_BITS_OSIZE +: NUM_BITS_OSIZE] = {NUM_BITS_OSIZE{(is_less_than_prev_osize[((lt_idx+1)*NUM_BITS_OSIZE)-1] &  osize_vector[osize_idx])}};
+            end
+        end
+    end
+
     //Final flags
     always_comb begin
-        zf = '0;
+        zf           = '0;
+        is_less_than = '0;
         for (int osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-            zf |= zf_osize[osize_idx];
+            zf           |= zf_osize[osize_idx];
+            is_less_than |= is_less_than_osize[osize_idx];
         end
     end
 

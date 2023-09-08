@@ -30,8 +30,10 @@ import riscv_v_pkg::*;
     output riscv_v_cf_t       cf
 );
 
-    logic adder_result_valid;
+    logic valid_adder;
     logic is_reduct_n;
+    logic is_arithmetic;
+    logic is_compare;
 
     //Results
     riscv_v_src_byte_vector_t adder_result;
@@ -45,14 +47,22 @@ import riscv_v_pkg::*;
     riscv_v_of_t              of_qual;
     riscv_v_cf_t              cf_qual;
 
-    assign adder_result_valid = (is_add || is_sub) && (~is_max || ~is_min);
+    assign adder_result_valid = 1'b1;
     assign is_reduct_n = ~is_reduct;
 
+    assign is_compare    = is_min || is_max;
+    assign is_arithmetic = (is_add || is_sub) & ~is_compare; 
+    assign valid_adder   = is_arithmetic || is_compare;
+
     riscv_v_adder adder(
+        .valid_adder                (valid_adder),
         .is_reduct                  (is_reduct),
         .is_reduct_n                (is_reduct_n),
         .is_add                     (is_add),
         .is_sub                     (is_sub),
+        .is_max                     (is_max),
+        .is_arithmetic              (is_arithmetic),
+        .is_compare                 (is_compare),
         .is_signed                  (is_signed),
         .use_carry                  (use_carry),
         .osize_vector               (osize_vector),
@@ -68,10 +78,10 @@ import riscv_v_pkg::*;
 
 
     //Qualify adder result
-    assign adder_result_qual = adder_result      & {RISCV_V_DATA_WIDTH{adder_result_valid}};
-    assign zf_qual           = zf_adder          & {RISCV_V_NUM_BYTES_DATA{adder_result_valid}};
-    assign of_qual           = of_adder          & {RISCV_V_NUM_BYTES_DATA{adder_result_valid}};
-    assign cf_qual           = cf_adder          & {RISCV_V_NUM_BYTES_DATA{adder_result_valid}};
+    assign adder_result_qual = adder_result      & {RISCV_V_DATA_WIDTH{valid_adder}};
+    assign zf_qual           = zf_adder          & {RISCV_V_NUM_BYTES_DATA{is_arithmetic}};
+    assign of_qual           = of_adder          & {RISCV_V_NUM_BYTES_DATA{is_arithmetic}};
+    assign cf_qual           = cf_adder          & {RISCV_V_NUM_BYTES_DATA{is_arithmetic}};
 
     //Final Mux result
     assign result.data = adder_result_qual;
