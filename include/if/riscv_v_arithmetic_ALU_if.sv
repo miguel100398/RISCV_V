@@ -13,10 +13,12 @@ import riscv_v_pkg::*;
     logic                     is_reduct;
     logic                     is_add;
     logic                     is_sub;
+    logic                     is_mul;
     logic                     is_zero_ext;
     logic                     is_sign_ext;
     logic                     is_max;
     logic                     is_min;
+    logic                     is_high;
     logic                     is_signed;
     logic                     use_carry;
     osize_vector_t            osize_vector;
@@ -41,11 +43,13 @@ import riscv_v_pkg::*;
         input  is_reduct,
         input  is_add,
         input  is_sub,
+        input  is_mul,
         input  is_zero_ext,
         input  is_sign_ext,
         input  is_max,
         input  is_min,
         input  is_signed,
+        input  is_high,
         input  use_carry,
         input  osize_vector,
         input  is_greater_osize_vector,
@@ -68,11 +72,13 @@ import riscv_v_pkg::*;
         output is_reduct,
         output is_add,
         output is_sub,
+        output is_mul,
         output is_zero_ext,
         output is_sign_ext,
         output is_max,
         output is_min,
         output is_signed,
+        output is_high,
         output use_carry,
         output osize_vector,
         output is_greater_osize_vector,
@@ -95,11 +101,13 @@ import riscv_v_pkg::*;
         input  is_reduct;
         input  is_add;
         input  is_sub;
+        input  is_mul;
         input  is_zero_ext;
         input  is_sign_ext;
         input  is_max;
         input  is_min;
         input  is_signed;
+        input  is_high;
         input  use_carry;
         input  osize_vector;
         input  is_greater_osize_vector;
@@ -122,10 +130,12 @@ import riscv_v_pkg::*;
         output is_reduct;
         output is_add;
         output is_sub;
+        output is_mul;
         output is_zero_ext;
         output is_sign_ext;
         output is_max;
         output is_min;
+        output is_high;
         output is_signed;
         output use_carry;
         output osize_vector;

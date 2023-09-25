@@ -225,6 +225,20 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             end else begin
                 return SUB;
             end
+        end else if (arithmetic_vif.cb_mon.is_mul) begin
+            if (arithmetic_vif.cb_mon.is_signed) begin
+                if (arithmetic_vif.cb_mon.is_high) begin
+                    return MULHS;
+                end else begin
+                    return MULLS;
+                end
+            end else begin
+                if (arithmetic_vif.cb_mon.is_high) begin
+                    return MULHU;
+                end else begin
+                    return MULLU;
+                end
+            end
         end else begin
             return NOP;
         end
@@ -259,6 +273,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         bit is_arithmetic = 0;
         is_arithmetic |= arithmetic_vif.cb_mon.is_add;
         is_arithmetic |= arithmetic_vif.cb_mon.is_sub;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_mul;
         is_arithmetic |= arithmetic_vif.cb_mon.is_zero_ext;
         is_arithmetic |= arithmetic_vif.cb_mon.is_sign_ext;
         is_arithmetic |= arithmetic_vif.cb_mon.is_max;

@@ -10,10 +10,12 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     rand logic is_reduct;
     rand logic is_add;
     rand logic is_sub;
+    rand logic is_mul;
     rand logic is_zero_ext;
     rand logic is_sign_ext;
     rand logic is_max;
     rand logic is_min;
+    rand logic is_high;
     rand logic is_signed;
     rand logic use_carry;
     rand riscv_v_carry_in_t carry_in;
@@ -22,10 +24,12 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         `uvm_field_int(is_reduct,       UVM_ALL_ON)
         `uvm_field_int(is_add,          UVM_ALL_ON)
         `uvm_field_int(is_sub,          UVM_ALL_ON)
+        `uvm_field_int(is_mul,          UVM_ALL_ON)
         `uvm_field_int(is_zero_ext,     UVM_ALL_ON)
         `uvm_field_int(is_sign_ext,     UVM_ALL_ON)
         `uvm_field_int(is_max,          UVM_ALL_ON)
         `uvm_field_int(is_min,          UVM_ALL_ON)
+        `uvm_field_int(is_high,          UVM_ALL_ON)
         `uvm_field_int(is_signed,       UVM_ALL_ON)
         `uvm_field_int(use_carry,       UVM_ALL_ON)
         `uvm_field_int(carry_in,        UVM_ALL_ON)
@@ -44,18 +48,21 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     virtual function void constraint_control();
         is_add      = (opcode inside {ADDC, ADD, ADD_REDUCT});
         is_sub      = (opcode inside {SUBB, SUB, SUB_REDUCT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT});
+        is_mul      = (opcode inside {MULLS, MULHS, MULLU, MULHU});
         is_zero_ext = (opcode inside {ZERO_EXT});
         is_sign_ext = (opcode inside {SIGN_EXT});
         is_max      = (opcode inside {MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT});
         is_min      = (opcode inside {MINS, MINS_REDUCT, MINU, MINU_REDUCT});
-        is_signed   = (opcode inside {ADD, ADDC, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, MAXS, MAXS_REDUCT, MINS, MINS_REDUCT});
+        is_high     = (opcode inside {MULHS, MULHU});
+        is_signed   = (opcode inside {ADD, ADDC, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, MAXS, MAXS_REDUCT, MINS, MINS_REDUCT, MULLS, MULHS});
         use_carry   = (opcode inside {ADDC, SUBB});
         is_reduct   = (opcode inside {ADD_REDUCT, SUB_REDUCT, MAXS_REDUCT, MAXU_REDUCT, MINS_REDUCT, MINU_REDUCT});
     endfunction: constraint_control
 
     constraint logic_opcode_c {
-        //{opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, SIGN_EXT, ZERO_EXT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT}};
-        {opcode inside {MINS_REDUCT, MINU_REDUCT, MAXS_REDUCT, MAXU_REDUCT}};
+        //{opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, SIGN_EXT, ZERO_EXT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, MULLU, MULLS, MULHU, MULHS}};
+        {opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, MULLU, MULLS, MULHU, MULHS}};
+        //{opcode inside {MULLU, MULLS, MULHU, MULHS}};
     }
 
     virtual function void constraint_valid();

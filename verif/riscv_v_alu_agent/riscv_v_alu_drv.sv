@@ -59,11 +59,13 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.is_reduct               <= 1'b0;
         arithmetic_vif.is_add                  <= 1'b0;
         arithmetic_vif.is_sub                  <= 1'b0;
+        arithmetic_vif.is_mul                  <= 1'b0;
         arithmetic_vif.is_zero_ext             <= 1'b0;
         arithmetic_vif.is_sign_ext             <= 1'b0;
         arithmetic_vif.is_max                  <= 1'b0;
         arithmetic_vif.is_min                  <= 1'b0;
         arithmetic_vif.is_signed               <= 1'b0;
+        arithmetic_vif.is_high                 <= 1'b0;
         arithmetic_vif.use_carry               <= 1'b0;
         arithmetic_vif.srca                    <= '0;
         arithmetic_vif.srcb                    <= '0;
@@ -119,11 +121,13 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.cb_drv.is_reduct        <= arithmetic_txn.is_reduct;
         arithmetic_vif.cb_drv.is_add           <= arithmetic_txn.is_add;
         arithmetic_vif.cb_drv.is_sub           <= arithmetic_txn.is_sub;
+        arithmetic_vif.cb_drv.is_mul           <= arithmetic_txn.is_mul;
         arithmetic_vif.cb_drv.is_zero_ext      <= arithmetic_txn.is_zero_ext;
         arithmetic_vif.cb_drv.is_sign_ext      <= arithmetic_txn.is_sign_ext;
         arithmetic_vif.cb_drv.is_max           <= arithmetic_txn.is_max;
         arithmetic_vif.cb_drv.is_min           <= arithmetic_txn.is_min;
         arithmetic_vif.cb_drv.is_signed        <= arithmetic_txn.is_signed;
+        arithmetic_vif.cb_drv.is_high          <= arithmetic_txn.is_high;
         arithmetic_vif.cb_drv.use_carry        <= arithmetic_txn.use_carry;
         arithmetic_vif.cb_drv.srca             <= arithmetic_txn.srca;
         arithmetic_vif.cb_drv.srcb             <= arithmetic_txn.srcb;

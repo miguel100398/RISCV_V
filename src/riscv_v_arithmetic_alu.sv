@@ -10,10 +10,12 @@ import riscv_v_pkg::*;
     input  logic              is_reduct,
     input  logic              is_add,
     input  logic              is_sub,
+    input  logic              is_mul,
     input  logic              is_zero_ext,
     input  logic              is_sign_ext,
     input  logic              is_max,
     input  logic              is_min,
+    input  logic              is_high,
     input  logic              is_signed,
     input  logic              use_carry,
     input  osize_vector_t     osize_vector,
@@ -38,6 +40,7 @@ import riscv_v_pkg::*;
     //Results
     riscv_v_src_byte_vector_t adder_result;
     riscv_v_src_byte_vector_t adder_result_qual;
+    riscv_v_src_byte_vector_t mul_result;
 
     riscv_v_zf_t              zf_adder;
     riscv_v_zf_t              of_adder;
@@ -76,6 +79,16 @@ import riscv_v_pkg::*;
         .cf                         (cf_adder)
     );
 
+    riscv_v_mul multiplier(
+        .is_mul(is_mul),
+        .is_high(is_high),
+        .is_signed(is_signed),
+        .osize_vector(osize_vector),
+        .srca(srca),
+        .srcb(srcb),
+        .result(mul_result)
+    );
+
 
     //Qualify adder result
     assign adder_result_qual = adder_result      & {RISCV_V_DATA_WIDTH{valid_adder}};
@@ -84,7 +97,7 @@ import riscv_v_pkg::*;
     assign cf_qual           = cf_adder          & {RISCV_V_NUM_BYTES_DATA{is_arithmetic}};
 
     //Final Mux result
-    assign result.data = adder_result_qual;
+    assign result.data = adder_result_qual | mul_result;
     assign zf          = zf_qual;
     assign of          = of_qual;
     assign cf          = cf_qual;

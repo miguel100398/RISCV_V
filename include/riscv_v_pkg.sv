@@ -15,6 +15,7 @@ parameter int WORD_WIDTH                    = 16;
 parameter int DWORD_WIDTH                   = 32;
 parameter int QWORD_WIDTH                   = 64;
 parameter int DQWORD_WIDTH                  = 128;
+parameter int QQWORD_WIDTH                  = 256;
 
 //RISCV_V_Constants
 parameter int RISCV_V_ELEN                  = 128;                                            //Maximum size in bits of a vector element that any operation can produce or consume
@@ -25,6 +26,7 @@ parameter int RISCV_V_NUM_WORDS_DATA        = RISCV_V_DATA_WIDTH / WORD_WIDTH;  
 parameter int RISCV_V_NUM_DWORDS_DATA       = RISCV_V_DATA_WIDTH / DWORD_WIDTH;               //Number of dwords in Data bus
 parameter int RISCV_V_NUM_QWORDS_DATA       = RISCV_V_DATA_WIDTH / QWORD_WIDTH;               //Number of qwords in Data bus
 parameter int RISCV_V_NUM_DQWORDS_DATA      = RISCV_V_DATA_WIDTH / DQWORD_WIDTH;              //Number of dqwords in Data bus
+parameter int RISCV_V_NUM_QQWORDS_DATA      = RISCV_V_DATA_WIDTH / QQWORD_WIDTH;              //Number of dqwords in Data bus
 
 //Regfile Constants
 parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
@@ -47,6 +49,10 @@ typedef logic[WORD_WIDTH-1:0]   Word_t;
 typedef logic[DWORD_WIDTH-1:0]  Dword_t;
 typedef logic[QWORD_WIDTH-1:0]  Qword_t;
 typedef logic[DQWORD_WIDTH-1:0] Dqword_t;
+typedef logic[QQWORD_WIDTH-1:0] Qqword_t;
+
+//Multiplier types
+typedef enum logic[1:0] {VEDIC_LA_LB = 2'b00, VEDIC_LA_HB = 2'b01, VEDIC_HA_LB = 2'b10, VEDIC_HA_HB = 2'b11}  vedic_mul_idx_t;
 
 //RISCV_V types
 typedef logic  [RISCV_V_DATA_WIDTH-1:0]             riscv_v_bit_bus_t;
@@ -89,6 +95,7 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_of_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_cf_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_sign_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_less_than_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_complement_t;
 
 typedef struct packed{
     riscv_v_data_t       data;
@@ -120,11 +127,12 @@ typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT,
                          SIGN_EXT, ZERO_EXT,
                          MINS, MINS_REDUCT, MINU, MINU_REDUCT,
                          MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, 
+                         MULLS, MULHS, MULLU, MULHU, 
                          NOP} riscv_v_opcode_e;
 
 //////////////////////Functions/////////////////////////////////////////////////////////////////
 
-function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_zeroes_osize(int src);
+function automatic logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_zeroes_osize(int src);
     automatic int count = 0;
     for (int i=0; i<32; i++) begin
         if (src[i] == 1'b1) begin
@@ -136,7 +144,7 @@ function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_zeroes_osi
     return count[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0];
 endfunction: f_count_trailing_zeroes_osize
 
-function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_ones_osize(int src);
+function automatic logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_ones_osize(int src);
     automatic int count = 0;
     for (int i=0; i<32; i++) begin
         if (src[i] == 1'b0) begin
@@ -148,11 +156,59 @@ function logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_ones_osize
     return count[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0];
 endfunction: f_count_trailing_ones_osize
 
+function automatic int f_vedic_mul_get_prev_results(int mul_level, int min_mul_level, vedic_mul_idx_t mul_idx,  bit get_mid_prev_results);
+    if (mul_level < min_mul_level) begin
+        return 1;
+    end
+    if ((mul_idx inside {VEDIC_LA_HB, VEDIC_HA_LB}) &&  ~get_mid_prev_results) begin
+        return 1;
+    end
+    if (mul_level == min_mul_level) begin
+        return (get_mid_prev_results) ? 4 : 2;
+    end
+    if (get_mid_prev_results) begin
+        return (f_vedic_mul_get_prev_results(mul_level-1, min_mul_level, mul_idx, get_mid_prev_results) * 4) + 4;
+    end else begin
+        return (f_vedic_mul_get_prev_results(mul_level-1, min_mul_level, mul_idx, get_mid_prev_results) * 2) + 2;
+    end
+endfunction: f_vedic_mul_get_prev_results
+
+function automatic bit f_vedic_mul_valid_prev_result(int mul_level, int min_mul_level, vedic_mul_idx_t mul_idx, bit get_mid_prev_results);
+    if (mul_level < min_mul_level) begin
+        return 1'b0;
+    end
+    if ((mul_idx inside {VEDIC_LA_HB, VEDIC_HA_LB}) &&  ~get_mid_prev_results) begin
+        return 1'b0;
+    end
+    return 1'b1;
+endfunction: f_vedic_mul_valid_prev_result
+
+function automatic int f_vedic_mul_num_prev_results_level_diff(int mul_level, int result_level, bit get_mid_prev_results);
+    int diff_mul_result_level;
+
+    diff_mul_result_level = mul_level - result_level;
+    if (get_mid_prev_results) begin
+        return (4**diff_mul_result_level);
+    end else begin
+        return (2**diff_mul_result_level);
+    end
+endfunction: f_vedic_mul_num_prev_results_level_diff
+
+function automatic int f_vedic_mul_start_prev_idx(int osize);
+    int osize_width;
+    int num_results = 0;
+    for (int i=1; i <= osize; i++) begin
+        osize_width  = (BYTE_WIDTH*(2**(i-1)));
+        num_results  += (RISCV_V_DATA_WIDTH/osize_width);
+    end
+
+    return num_results;
+
+endfunction: f_vedic_mul_start_prev_idx
+
 
 /////////////////////////////////////////MACROS/////////////////////////////////////////
 //Zero extend signal to size
-//`define RISCV_V_ZX(signal, size)\
- //   {{size-$bits(signal)}{1'b0},signal}
 `define RISCV_V_ZX(signal, size)\
     {{(size-$bits(signal)){1'b0}}, signal}
 

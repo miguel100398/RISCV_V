@@ -44,10 +44,12 @@ class riscv_v_arithmetic_alu_seq extends riscv_v_base_seq#(riscv_v_arithmetic_al
         rst_txn.is_reduct               = 1'b0;
         rst_txn.is_add                  = 1'b0;
         rst_txn.is_sub                  = 1'b0;
+        rst_txn.is_mul                  = 1'b0;
         rst_txn.is_zero_ext             = 1'b0;
         rst_txn.is_sign_ext             = 1'b0;
         rst_txn.is_max                  = 1'b0;
         rst_txn.is_min                  = 1'b0;
+        rst_txn.is_high                 = 1'b0;
         rst_txn.is_signed               = 1'b0;
         rst_txn.use_carry               = 1'b0;
         rst_txn.carry_in                = '0;

@@ -73,13 +73,13 @@ riscv_v_src_byte_vector_t result_compare;
 
 generate
     //Gate sources
-    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin
+    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin  : gen_gate_sources
         assign srca_gated[block] = srca.data.Byte[block] & {BYTE_WIDTH{valid_adder}};
         assign srcb_gated[block] = srcb.data.Byte[block] & {BYTE_WIDTH{valid_adder}};
     end
 
     //Xor srcb with is_sub
-    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin
+    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_xor_is_sub
         assign srcb_xor_sub[block] = srcb_gated[block] ^ {BYTE_WIDTH{is_sub}};
     end
 
@@ -119,9 +119,10 @@ generate
 
     //Adder blocks
     for (genvar block=0; block<NUM_ADD_BLOCKS; block++) begin : gen_adder
-        ripple_carry_adder #(
-            .WIDTH(BYTE_WIDTH)
-        )adder(
+        adder_nbit #(
+            .WIDTH(BYTE_WIDTH),
+            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
+        ) adder (
             .A(srca_adder[block]),
             .B(srcb_adder[block]),
             .cin(cin_adder[block]),

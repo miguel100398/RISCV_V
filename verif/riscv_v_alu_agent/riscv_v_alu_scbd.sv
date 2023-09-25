@@ -79,6 +79,10 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             MAXS_REDUCT:    calc_maxs_reduct();
             MAXU:           calc_maxu();
             MAXU_REDUCT:    calc_maxu_reduct();
+            MULLU:          calc_mullu();
+            MULLS:          calc_mulls();
+            MULHU:          calc_mulhu();
+            MULHS:          calc_mulhs();
             default:        `uvm_fatal(get_name(), "Invalid arithmetic ALU op")
         endcase
     endfunction: calc_arithmetic

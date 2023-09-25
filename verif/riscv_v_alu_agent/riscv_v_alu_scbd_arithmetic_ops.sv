@@ -946,3 +946,167 @@
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase
     endfunction: calc_maxu_reduct
+
+    virtual function void calc_mullu();
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    logic [(2*BYTE_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Byte[i]) * unsigned'(arithmetic_in_txn.srcb.data.Byte[i]);
+                    arithmetic_exp_result.data.Byte[i] = tmp_rslt[0 +: BYTE_WIDTH];
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    logic [(2*WORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Word[i]) * unsigned'(arithmetic_in_txn.srcb.data.Word[i]);
+                    arithmetic_exp_result.data.Word[i] = tmp_rslt[0 +: WORD_WIDTH];
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    logic [(2*DWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Dword[i]) * unsigned'(arithmetic_in_txn.srcb.data.Dword[i]);
+                    arithmetic_exp_result.data.Dword[i] = tmp_rslt[0 +: DWORD_WIDTH];
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    logic [(2*QWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Qword[i]) * unsigned'(arithmetic_in_txn.srcb.data.Qword[i]);
+                    arithmetic_exp_result.data.Qword[i] = tmp_rslt[0 +: QWORD_WIDTH];
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    logic [(2*DQWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Dqword[i]) * unsigned'(arithmetic_in_txn.srcb.data.Dqword[i]);
+                    arithmetic_exp_result.data.Dqword[i] = tmp_rslt[0 +: DQWORD_WIDTH];
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase 
+    endfunction: calc_mullu
+
+    virtual function void calc_mulls();
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    logic [(2*BYTE_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Byte[i]) * signed'(arithmetic_in_txn.srcb.data.Byte[i]);
+                    arithmetic_exp_result.data.Byte[i] = tmp_rslt[0 +: BYTE_WIDTH];
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    logic [(2*WORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Word[i]) * signed'(arithmetic_in_txn.srcb.data.Word[i]);
+                    arithmetic_exp_result.data.Word[i] = tmp_rslt[0 +: WORD_WIDTH];
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    logic [(2*DWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Dword[i]) * signed'(arithmetic_in_txn.srcb.data.Dword[i]);
+                    arithmetic_exp_result.data.Dword[i] = tmp_rslt[0 +: DWORD_WIDTH];
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    logic [(2*QWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Qword[i]) * signed'(arithmetic_in_txn.srcb.data.Qword[i]);
+                    arithmetic_exp_result.data.Qword[i] = tmp_rslt[0 +: QWORD_WIDTH];
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    logic [(2*DQWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Dqword[i]) * signed'(arithmetic_in_txn.srcb.data.Dqword[i]);
+                    arithmetic_exp_result.data.Dqword[i] = tmp_rslt[0 +: DQWORD_WIDTH];
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase 
+    endfunction: calc_mulls
+
+    virtual function void calc_mulhu();
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    logic [(2*BYTE_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Byte[i]) * unsigned'(arithmetic_in_txn.srcb.data.Byte[i]);
+                    arithmetic_exp_result.data.Byte[i] = tmp_rslt[BYTE_WIDTH +: BYTE_WIDTH];
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    logic [(2*WORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Word[i]) * unsigned'(arithmetic_in_txn.srcb.data.Word[i]);
+                    arithmetic_exp_result.data.Word[i] = tmp_rslt[WORD_WIDTH +: WORD_WIDTH];
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    logic [(2*DWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Dword[i]) * unsigned'(arithmetic_in_txn.srcb.data.Dword[i]);
+                    arithmetic_exp_result.data.Dword[i] = tmp_rslt[DWORD_WIDTH +: DWORD_WIDTH];
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    logic [(2*QWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Qword[i]) * unsigned'(arithmetic_in_txn.srcb.data.Qword[i]);
+                    arithmetic_exp_result.data.Qword[i] = tmp_rslt[QWORD_WIDTH +: QWORD_WIDTH];
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    logic [(2*DQWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = unsigned'(arithmetic_in_txn.srca.data.Dqword[i]) * unsigned'(arithmetic_in_txn.srcb.data.Dqword[i]);
+                    arithmetic_exp_result.data.Dqword[i] = tmp_rslt[DQWORD_WIDTH +: DQWORD_WIDTH];
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase 
+    endfunction: calc_mulhu
+
+    virtual function void calc_mulhs();
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    logic [(2*BYTE_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Byte[i]) * signed'(arithmetic_in_txn.srcb.data.Byte[i]);
+                    arithmetic_exp_result.data.Byte[i] = tmp_rslt[BYTE_WIDTH +: BYTE_WIDTH];
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    logic [(2*WORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Word[i]) * signed'(arithmetic_in_txn.srcb.data.Word[i]);
+                    arithmetic_exp_result.data.Word[i] = tmp_rslt[WORD_WIDTH +: WORD_WIDTH];
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    logic [(2*DWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Dword[i]) * signed'(arithmetic_in_txn.srcb.data.Dword[i]);
+                    arithmetic_exp_result.data.Dword[i] = tmp_rslt[DWORD_WIDTH +: DWORD_WIDTH];
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    logic [(2*QWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Qword[i]) * signed'(arithmetic_in_txn.srcb.data.Qword[i]);
+                    arithmetic_exp_result.data.Qword[i] = tmp_rslt[QWORD_WIDTH +: QWORD_WIDTH];
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    logic [(2*DQWORD_WIDTH)-1:0]  tmp_rslt;
+                    tmp_rslt = signed'(arithmetic_in_txn.srca.data.Dqword[i]) * signed'(arithmetic_in_txn.srcb.data.Dqword[i]);
+                    arithmetic_exp_result.data.Dqword[i] = tmp_rslt[DQWORD_WIDTH +: DQWORD_WIDTH];
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase 
+    endfunction: calc_mulhs
