@@ -54,6 +54,7 @@ class riscv_v_arithmetic_alu_seq extends riscv_v_base_seq#(riscv_v_arithmetic_al
         rst_txn.use_carry               = 1'b0;
         rst_txn.carry_in                = '0;
         rst_txn.dst_osize_vector        = '0;
+        rst_txn.src_osize_vector        = '0;
         rst_txn.is_greater_osize_vector = '0;
         rst_txn.is_less_osize_vector    = '0;
         wait_for_grant();

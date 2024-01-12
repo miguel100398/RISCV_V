@@ -71,6 +71,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.srcb                    <= '0;
         arithmetic_vif.carry_in                <= '0;
         arithmetic_vif.dst_osize_vector        <= '0;
+        arithmetic_vif.src_osize_vector        <= '0;
         arithmetic_vif.is_greater_osize_vector <= '0;
         arithmetic_vif.is_less_osize_vector    <= '0;
         `ifdef RISCV_V_INST
@@ -133,6 +134,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.cb_drv.srcb             <= arithmetic_txn.srcb;
         arithmetic_vif.cb_drv.carry_in         <= arithmetic_txn.carry_in;
         arithmetic_vif.cb_drv.dst_osize_vector <= arithmetic_txn.dst_osize_vector;
+        arithmetic_vif.cb_drv.src_osize_vector <= arithmetic_txn.src_osize_vector;
         arithmetic_vif.is_greater_osize_vector <= arithmetic_txn.is_greater_osize_vector;
         arithmetic_vif.is_less_osize_vector    <= arithmetic_txn.is_less_osize_vector;
         `ifdef RISCV_V_INST

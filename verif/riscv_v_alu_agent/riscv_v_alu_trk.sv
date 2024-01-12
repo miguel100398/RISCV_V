@@ -28,7 +28,7 @@ class riscv_v_alu_trk extends riscv_v_base_trk#(
     int result_size       = 35;
     int num_headers       = 12;
 
-    int header_size = time_size + alu_size + opcode_size + osize_size + osize_vector_size + len_size + src_data_size + src_data_size + src_valid_size + src_valid_size + src_merge_size + src_merge_size + result_size + num_headers;
+    int header_size = time_size + alu_size + opcode_size + osize_size + osize_vector_size + osize_vector_size + len_size + src_data_size + src_data_size + src_valid_size + src_valid_size + src_merge_size + src_merge_size + result_size + num_headers;
     
 
     function new(string name = "riscv_v_alu_trk", uvm_component parent = null);
@@ -68,6 +68,7 @@ class riscv_v_alu_trk extends riscv_v_base_trk#(
         print = concat_field(print, " opcode",              opcode_size,       0, 1);
         print = concat_field(print, " osize",               osize_size,        0, 1);
         print = concat_field(print, " dst_osize_vector",    osize_vector_size, 0, 1);
+        print = concat_field(print, " src_osize_vector",    osize_vector_size, 0, 1);
         print = concat_field(print, " len",                 len_size,          0, 1);
         print = concat_field(print, " srca data",           src_data_size,     0, 1);
         print = concat_field(print, " srca valid",          src_valid_size,    0, 1);
@@ -96,6 +97,7 @@ class riscv_v_alu_trk extends riscv_v_base_trk#(
         print = concat_field(print, $sformatf(" %s", txn_in.opcode.name()),             opcode_size,         0, 1);
         print = concat_field(print, $sformatf(" %s", txn_in.osize.name()),              osize_size,          0, 1);
         print = concat_field(print, $sformatf(" %0d", txn_in.dst_osize_vector),         osize_vector_size,   0, 1);
+        print = concat_field(print, $sformatf(" %0d", txn_in.src_osize_vector),         osize_vector_size,   0, 1);
         print = concat_field(print, $sformatf(" %0d", txn_in.len),                      len_size,            0, 1);
         print = concat_field(print, $sformatf(" 0x%0h", txn_in.srca.data),              src_data_size,       0, 1);
         print = concat_field(print, $sformatf(" 0x%0h", txn_in.srca.valid),             src_valid_size,      0, 1);

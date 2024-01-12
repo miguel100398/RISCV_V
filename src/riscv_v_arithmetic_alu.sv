@@ -19,6 +19,7 @@ import riscv_v_pkg::*;
     input  logic              is_signed,
     input  logic              use_carry,
     input  osize_vector_t     dst_osize_vector,
+    input  osize_vector_t     src_osize_vector,
     input  osize_vector_t     is_greater_osize_vector,
     input  osize_vector_t     is_less_osize_vector,
     //Input sources

@@ -13,6 +13,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     rand riscv_v_opcode_e           opcode;
     rand riscv_v_src_len_t          len;
     rand osize_vector_t             dst_osize_vector;
+    rand osize_vector_t             src_osize_vector;
     rand osize_vector_t             is_greater_osize_vector;
     rand osize_vector_t             is_less_osize_vector;
 
@@ -21,6 +22,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         `uvm_field_enum(riscv_v_osize_e,  osize,    UVM_ALL_ON)
         `uvm_field_int(len,                         UVM_ALL_ON)
         `uvm_field_int(dst_osize_vector,            UVM_ALL_ON)
+        `uvm_field_int(src_osize_vector,            UVM_ALL_ON)
         `uvm_field_int(is_greater_osize_vector,     UVM_ALL_ON)
         `uvm_field_int(is_less_osize_vector,        UVM_ALL_ON)
         `uvm_field_int(srca.data,                   UVM_ALL_ON)
@@ -42,6 +44,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         constraint_merge();
         constraint_is_greater_osize_vector();
         constraint_is_less_osize_vector();
+        constraint_src_osize_vector();
     endfunction: post_randomize
 
     virtual function void constraint_len();
@@ -183,6 +186,30 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         is_less_osize_vector[RISCV_V_NUM_VALID_OSIZES-1] = 1'b1;
     endfunction: constraint_is_less_osize_vector
 
+    virtual function void constraint_src_osize_vector();
+        src_osize_vector = dst_osize_vector;
+
+        if (opcode inside {SIGN_EXT, ZERO_EXT}) begin
+            int shift_cnt;
+            int max_shift_cnt;
+            case (osize)
+                OSIZE_8:   max_shift_cnt = 0;
+                OSIZE_16:  max_shift_cnt = 1;
+                OSIZE_32:  max_shift_cnt = 2;
+                OSIZE_64:  max_shift_cnt = 3;
+                OSIZE_128: max_shift_cnt = 4;
+                default:   `uvm_fatal(get_name(), "Invalid OSIZE")
+            endcase
+            assert(std::randomize(shift_cnt) with {
+                shift_cnt >= 0;
+                shift_cnt <= max_shift_cnt;
+            }) else `uvm_fatal(get_name(), "can't randomize shift_cnt for src_osize_vector")
+
+            src_osize_vector = 1 << shift_cnt;
+        end
+
+    endfunction: constraint_src_osize_vector
+
     //Constraint osize
     constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
     //constraint osize_c { osize inside {OSIZE_64};}
@@ -194,8 +221,23 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         {dst_osize_vector[3] == (osize==OSIZE_64)};
         {dst_osize_vector[4] == (osize==OSIZE_128)};
     };
-    
 /*
+    constraint dst_osize_vector_one_hot_c {
+        $countones(dst_osize_vector) == 1;
+    };
+
+    constraint src_osize_vector_c {
+        if (opcode inside {SIGN_EXT, ZERO_EXT}){
+            src_osize_vector <= dst_osize_vector;
+        } else {
+            src_osize_vector == dst_osize_vector;
+        }
+    };
+
+    constraint src_osize_vector_one_hot_c {
+        $countones(src_osize_vector) == 1;
+    };
+
     constraint src_valid_osize {
         if (osize == OSIZE_8){
             {srca.valid == srcb.valid};

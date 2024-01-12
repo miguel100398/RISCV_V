@@ -84,6 +84,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             arithmetic_in_txn.srcb                    = arithmetic_vif.cb_mon.srcb;
             arithmetic_in_txn.carry_in                = arithmetic_vif.carry_in;
             arithmetic_in_txn.dst_osize_vector        = arithmetic_vif.cb_mon.dst_osize_vector;
+            arithmetic_in_txn.src_osize_vector        = arithmetic_vif.cb_mon.src_osize_vector;
             arithmetic_in_txn.is_greater_osize_vector = arithmetic_vif.cb_mon.is_greater_osize_vector;
             arithmetic_in_txn.is_less_osize_vector    = arithmetic_vif.cb_mon.is_less_osize_vector;
             `ifdef RISCV_V_INST

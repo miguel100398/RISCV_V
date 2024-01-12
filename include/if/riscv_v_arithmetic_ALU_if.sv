@@ -22,6 +22,7 @@ import riscv_v_pkg::*;
     logic                     is_signed;
     logic                     use_carry;
     osize_vector_t            dst_osize_vector;
+    osize_vector_t            src_osize_vector;
     osize_vector_t            is_greater_osize_vector;
     osize_vector_t            is_less_osize_vector;
     //Input sources
@@ -52,6 +53,7 @@ import riscv_v_pkg::*;
         input  is_high,
         input  use_carry,
         input  dst_osize_vector,
+        input  src_osize_vector,
         input  is_greater_osize_vector,
         input  is_less_osize_vector,
         input  srca,
@@ -81,6 +83,7 @@ import riscv_v_pkg::*;
         output is_high,
         output use_carry,
         output dst_osize_vector,
+        output src_osize_vector,
         output is_greater_osize_vector,
         output is_less_osize_vector,
         output srca,
@@ -110,6 +113,7 @@ import riscv_v_pkg::*;
         input  is_high;
         input  use_carry;
         input  dst_osize_vector;
+        input  src_osize_vector;
         input  is_greater_osize_vector;
         input  is_less_osize_vector;
         input  srca;
@@ -139,6 +143,7 @@ import riscv_v_pkg::*;
         output is_signed;
         output use_carry;
         output dst_osize_vector;
+        output src_osize_vector;
         output is_greater_osize_vector;
         output is_less_osize_vector;
         output srca;
