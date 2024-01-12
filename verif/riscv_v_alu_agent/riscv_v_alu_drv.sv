@@ -45,7 +45,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         logic_vif.is_arith                  <= 1'b0;
         logic_vif.srca                      <= '0;
         logic_vif.srcb                      <= '0;
-        logic_vif.osize_vector              <= '0;
+        logic_vif.dst_osize_vector          <= '0;
         logic_vif.is_greater_osize_vector   <= '0;
         logic_vif.is_less_osize_vector      <= '0;
         `ifdef RISCV_V_INST
@@ -70,7 +70,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.srca                    <= '0;
         arithmetic_vif.srcb                    <= '0;
         arithmetic_vif.carry_in                <= '0;
-        arithmetic_vif.osize_vector            <= '0;
+        arithmetic_vif.dst_osize_vector        <= '0;
         arithmetic_vif.is_greater_osize_vector <= '0;
         arithmetic_vif.is_less_osize_vector    <= '0;
         `ifdef RISCV_V_INST
@@ -104,7 +104,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         logic_vif.cb_drv.is_arith         <= logic_txn.is_arith;
         logic_vif.cb_drv.srca             <= logic_txn.srca;
         logic_vif.cb_drv.srcb             <= logic_txn.srcb;
-        logic_vif.osize_vector            <= logic_txn.osize_vector;
+        logic_vif.dst_osize_vector        <= logic_txn.dst_osize_vector;
         logic_vif.is_greater_osize_vector <= logic_txn.is_greater_osize_vector;
         logic_vif.is_less_osize_vector    <= logic_txn.is_less_osize_vector;
         `ifdef RISCV_V_INST
@@ -132,7 +132,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.cb_drv.srca             <= arithmetic_txn.srca;
         arithmetic_vif.cb_drv.srcb             <= arithmetic_txn.srcb;
         arithmetic_vif.cb_drv.carry_in         <= arithmetic_txn.carry_in;
-        arithmetic_vif.cb_drv.osize_vector     <= arithmetic_txn.osize_vector;
+        arithmetic_vif.cb_drv.dst_osize_vector <= arithmetic_txn.dst_osize_vector;
         arithmetic_vif.is_greater_osize_vector <= arithmetic_txn.is_greater_osize_vector;
         arithmetic_vif.is_less_osize_vector    <= arithmetic_txn.is_less_osize_vector;
         `ifdef RISCV_V_INST

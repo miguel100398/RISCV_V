@@ -16,9 +16,9 @@ module adder_nbit#(
 );
 
 initial begin 
-    if (!(ADDER_TYPE inside{"RIPPLE_CARRY_ADDER", "BEHAVIORAL_ADDER"})) begin
+    if ((ADDER_TYPE != "RIPPLE_CARRY_ADDER") && (ADDER_TYPE != "BEHAVIORAL_ADDER")) begin
         $fatal("Invalid adder type: %s", ADDER_TYPE);
-    end
+    end 
 end 
 
 //Generate adder

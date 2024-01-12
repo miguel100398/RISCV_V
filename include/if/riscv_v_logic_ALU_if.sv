@@ -17,7 +17,7 @@ import riscv_v_pkg::*;
     logic                     is_shift;
     logic                     is_left;
     logic                     is_arith;
-    osize_vector_t            osize_vector;
+    osize_vector_t            dst_osize_vector;
     osize_vector_t            is_greater_osize_vector;
     osize_vector_t            is_less_osize_vector;
     //Input sources
@@ -39,7 +39,7 @@ import riscv_v_pkg::*;
         input  is_shift,
         input  is_left,
         input  is_arith,
-        input  osize_vector,
+        input  dst_osize_vector,
         input  is_greater_osize_vector,
         input  is_less_osize_vector,
         input  srca,
@@ -60,7 +60,7 @@ import riscv_v_pkg::*;
         output is_shift,
         output is_left,
         output is_arith,
-        output osize_vector,
+        output dst_osize_vector,
         output is_greater_osize_vector,
         output is_less_osize_vector,
         output srca,
@@ -81,7 +81,7 @@ import riscv_v_pkg::*;
         input  is_shift;
         input  is_left;
         input  is_arith;
-        input  osize_vector;
+        input  dst_osize_vector;
         input  is_greater_osize_vector;
         input  is_less_osize_vector;
         input  srca;
@@ -102,7 +102,7 @@ import riscv_v_pkg::*;
         output is_shift;
         output is_left;
         output is_arith;
-        output osize_vector;
+        output dst_osize_vector;
         output is_greater_osize_vector;
         output is_less_osize_vector;
         output srca;

@@ -45,7 +45,7 @@ module riscv_v_logic_alu_tb;
         .srca(logic_vif.srca),
         .srcb(logic_vif.srcb),
         .result(logic_vif.result),
-        .osize_vector(logic_vif.osize_vector),
+        .dst_osize_vector(logic_vif.dst_osize_vector),
         .is_greater_osize_vector(logic_vif.is_greater_osize_vector),
         .is_less_osize_vector(logic_vif.is_less_osize_vector)
     );

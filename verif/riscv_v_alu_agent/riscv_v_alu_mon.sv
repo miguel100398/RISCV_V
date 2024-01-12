@@ -55,7 +55,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             logic_in_txn = riscv_v_logic_alu_in_seq_item::type_id::create("logic_in_txn", this);
             logic_in_txn.srca                    = logic_vif.cb_mon.srca;
             logic_in_txn.srcb                    = logic_vif.cb_mon.srcb;
-            logic_in_txn.osize_vector            = logic_vif.cb_mon.osize_vector;
+            logic_in_txn.dst_osize_vector        = logic_vif.cb_mon.dst_osize_vector;
             logic_in_txn.is_greater_osize_vector = logic_vif.cb_mon.is_greater_osize_vector;
             logic_in_txn.is_less_osize_vector    = logic_vif.cb_mon.is_less_osize_vector;
             `ifdef RISCV_V_INST
@@ -83,7 +83,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             arithmetic_in_txn.srca                    = arithmetic_vif.cb_mon.srca;
             arithmetic_in_txn.srcb                    = arithmetic_vif.cb_mon.srcb;
             arithmetic_in_txn.carry_in                = arithmetic_vif.carry_in;
-            arithmetic_in_txn.osize_vector            = arithmetic_vif.cb_mon.osize_vector;
+            arithmetic_in_txn.dst_osize_vector        = arithmetic_vif.cb_mon.dst_osize_vector;
             arithmetic_in_txn.is_greater_osize_vector = arithmetic_vif.cb_mon.is_greater_osize_vector;
             arithmetic_in_txn.is_less_osize_vector    = arithmetic_vif.cb_mon.is_less_osize_vector;
             `ifdef RISCV_V_INST

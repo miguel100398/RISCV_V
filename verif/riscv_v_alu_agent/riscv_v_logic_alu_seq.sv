@@ -48,7 +48,7 @@ class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_logic_alu_in_seq_i
         rst_txn.is_left                 = 1'b0;
         rst_txn.is_arith                = 1'b0;
         rst_txn.is_reduct               = 1'b0;
-        rst_txn.osize_vector            = '0;
+        rst_txn.dst_osize_vector        = '0;
         rst_txn.is_greater_osize_vector = '0;
         rst_txn.is_less_osize_vector    = '0;
         wait_for_grant();

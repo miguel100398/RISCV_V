@@ -18,9 +18,7 @@ cd $TEST
 if {[file exist xsim.dir]} {
     file delete -force -- xsim.dir
 }
-file mkdir  xsim.dir
-file copy ../xsim.dir/xil_defaultlib xsim.dir
-file copy ../xsim.dir/${TB}_behav xsim.dir
+file link -symbolic xsim.dir ../xsim.dir
 #xsim ${TB}_behav -key {Behavioral:sim_1:Functional:$tb} -testplusarg UVM_TESTNAME=$TEST -wdb waves -cov_db_dir cov -xsimdir ../xsim.dir  
 xsim ${TB}_behav -key {Behavioral:sim_1:Functional:$tb} -testplusarg UVM_TESTNAME=$TEST -wdb waves -cov_db_dir cov 
 

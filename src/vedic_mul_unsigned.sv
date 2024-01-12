@@ -131,7 +131,7 @@ generate
         assign cin_low_adder  = 1'b0;
         adder_nbit #(
             .WIDTH(WIDTH),
-            .ADDER_TYPE("BEHAVIORAL_ADDER")
+            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
         ) low_adder(
             .A      (srcA_low_adder),
             .B      (srcB_low_adder),
@@ -146,7 +146,7 @@ generate
         assign cin_mid_adder  = 1'b0;
         adder_nbit #(
             .WIDTH(WIDTH),
-            .ADDER_TYPE("BEHAVIORAL_ADDER")
+            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
         ) mid_adder(
             .A      (srcA_mid_adder),
             .B      (srcB_mid_adder),
@@ -161,7 +161,7 @@ generate
         assign cin_high_adder  = 1'b0;
         adder_nbit #(
             .WIDTH(WIDTH),
-            .ADDER_TYPE("BEHAVIORAL_ADDER")
+            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
         ) high_adder(
             .A      (srcA_high_adder),
             .B      (srcB_high_adder),

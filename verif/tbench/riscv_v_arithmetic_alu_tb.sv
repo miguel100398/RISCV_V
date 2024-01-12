@@ -53,7 +53,7 @@ module riscv_v_arithmetic_alu_tb;
         .zf(arithmetic_vif.zf),
         .of(arithmetic_vif.of),
         .cf(arithmetic_vif.cf),
-        .osize_vector(arithmetic_vif.osize_vector),
+        .dst_osize_vector(arithmetic_vif.dst_osize_vector),
         .is_greater_osize_vector(arithmetic_vif.is_greater_osize_vector),
         .is_less_osize_vector(arithmetic_vif.is_less_osize_vector)
     );

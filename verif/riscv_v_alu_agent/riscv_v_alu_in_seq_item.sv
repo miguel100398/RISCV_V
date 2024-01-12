@@ -12,7 +12,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     rand riscv_v_osize_e            osize;
     rand riscv_v_opcode_e           opcode;
     rand riscv_v_src_len_t          len;
-    rand osize_vector_t             osize_vector;
+    rand osize_vector_t             dst_osize_vector;
     rand osize_vector_t             is_greater_osize_vector;
     rand osize_vector_t             is_less_osize_vector;
 
@@ -20,7 +20,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         `uvm_field_enum(riscv_v_opcode_e, opcode,   UVM_ALL_ON)
         `uvm_field_enum(riscv_v_osize_e,  osize,    UVM_ALL_ON)
         `uvm_field_int(len,                         UVM_ALL_ON)
-        `uvm_field_int(osize_vector,                UVM_ALL_ON)
+        `uvm_field_int(dst_osize_vector,            UVM_ALL_ON)
         `uvm_field_int(is_greater_osize_vector,     UVM_ALL_ON)
         `uvm_field_int(is_less_osize_vector,        UVM_ALL_ON)
         `uvm_field_int(srca.data,                   UVM_ALL_ON)
@@ -171,7 +171,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         end
         */
         for (int idx=1; idx <= (RISCV_V_NUM_VALID_OSIZES); idx++) begin
-            is_greater_osize_vector[idx] = (osize_vector >= (2**(idx)));
+            is_greater_osize_vector[idx] = (dst_osize_vector >= (2**(idx)));
         end
     endfunction: constraint_is_greater_osize_vector
 
@@ -187,12 +187,12 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
     //constraint osize_c { osize inside {OSIZE_64};}
 
-    constraint osize_vector_c {
-        {osize_vector[0] == (osize==OSIZE_8)};
-        {osize_vector[1] == (osize==OSIZE_16)};
-        {osize_vector[2] == (osize==OSIZE_32)};
-        {osize_vector[3] == (osize==OSIZE_64)};
-        {osize_vector[4] == (osize==OSIZE_128)};
+    constraint dst_osize_vector_c {
+        {dst_osize_vector[0] == (osize==OSIZE_8)};
+        {dst_osize_vector[1] == (osize==OSIZE_16)};
+        {dst_osize_vector[2] == (osize==OSIZE_32)};
+        {dst_osize_vector[3] == (osize==OSIZE_64)};
+        {dst_osize_vector[4] == (osize==OSIZE_128)};
     };
     
 /*
