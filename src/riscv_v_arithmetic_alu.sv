@@ -42,6 +42,7 @@ import riscv_v_pkg::*;
     riscv_v_src_byte_vector_t adder_result;
     riscv_v_src_byte_vector_t adder_result_qual;
     riscv_v_src_byte_vector_t mul_result;
+    riscv_v_src_byte_vector_t extend_result;
 
     riscv_v_zf_t              zf_adder;
     riscv_v_zf_t              of_adder;
@@ -90,6 +91,15 @@ import riscv_v_pkg::*;
         .result(mul_result)
     );
 
+    riscv_v_extend extend(
+        .is_zero_ext(is_zero_ext),
+        .is_sign_ext(is_sign_ext),
+        .src_osize_vector(src_osize_vector),
+        .dst_osize_vector(dst_osize_vector),
+        .srca(srca),
+        .result(extend_result)
+    );
+
 
     //Qualify adder result
     assign adder_result_qual = adder_result      & {RISCV_V_DATA_WIDTH{valid_adder}};
@@ -98,7 +108,7 @@ import riscv_v_pkg::*;
     assign cf_qual           = cf_adder          & {RISCV_V_NUM_BYTES_DATA{is_arithmetic}};
 
     //Final Mux result
-    assign result.data = adder_result_qual | mul_result;
+    assign result.data = adder_result_qual | mul_result | extend_result;
     assign zf          = zf_qual;
     assign of          = of_qual;
     assign cf          = cf_qual;

@@ -35,7 +35,7 @@ parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);      
 typedef enum logic[1:0] {RF_RD_PORT_A = 2'b00, RF_RD_PORT_B = 2'b01, RF_WR_PORT = 2'b10} rf_port_e;
 
 //Operation size enum
-typedef enum logic[2:0] {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128} riscv_v_osize_e;
+typedef enum logic[2:0] {OSIZE_8 = 3'd0, OSIZE_16 = 3'd1, OSIZE_32 = 3'd2, OSIZE_64 = 3'd3, OSIZE_128 = 3'd4} riscv_v_osize_e;
 parameter int RISCV_V_NUM_VALID_OSIZES = 5;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
@@ -114,8 +114,13 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_rf_wr_en_t;
 typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
 
 //ALU Types
-typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0] riscv_v_src_byte_vector_t;
-typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0] riscv_v_src_len_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0]  riscv_v_src_byte_vector_t;
+typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0]             riscv_v_src_len_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0]                   riscv_v_num_byte_vector_t;
+typedef logic[RISCV_V_NUM_WORDS_DATA-1:0]                   riscv_v_num_word_vector_t;
+typedef logic[RISCV_V_NUM_DWORDS_DATA-1:0]                  riscv_v_num_dword_vector_t;
+typedef logic[RISCV_V_NUM_QWORDS_DATA-1:0]                  riscv_v_num_qword_vector_t;
+typedef logic[RISCV_V_NUM_DQWORDS_DATA-1:0]                 riscv_v_num_dqword_vector_t;
 
 //Opcode types
 typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT, 
@@ -205,16 +210,6 @@ function automatic int f_vedic_mul_start_prev_idx(int osize);
     return num_results;
 
 endfunction: f_vedic_mul_start_prev_idx
-
-
-/////////////////////////////////////////MACROS/////////////////////////////////////////
-//Zero extend signal to size
-`define RISCV_V_ZX(signal, size)\
-    {{(size-$bits(signal)){1'b0}}, signal}
-
-//Sign extend signal to size
-`define RISCV_V_SX(signal, size)\
-    {{(size-$bits(signal)){signal[$bits(signal)-1]}},signal}
 
 
 endpackage: riscv_v_pkg

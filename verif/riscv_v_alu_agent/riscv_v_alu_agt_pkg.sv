@@ -11,6 +11,7 @@ import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
 `include "uvm_macros.svh"
+`include "riscv_v_macros.svh"
 `include "riscv_v_alu_out_seq_item.sv"
 `include "riscv_v_alu_in_seq_item.sv"
 `include "riscv_v_logic_alu_in_seq_item.sv"

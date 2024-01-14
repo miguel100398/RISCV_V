@@ -39,13 +39,35 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     endfunction: new
 
     function void post_randomize();
+        constraint_osize();
+        constraint_dst_osize_vector();
+        constraint_src_osize_vector();
         constraint_len();
         constraint_valid();
         constraint_merge();
         constraint_is_greater_osize_vector();
-        constraint_is_less_osize_vector();
-        constraint_src_osize_vector();
+        constraint_is_less_osize_vector();   
     endfunction: post_randomize
+
+    virtual function void constraint_osize();
+        if (~(opcode inside {SIGN_EXT, ZERO_EXT})) begin
+            assert (std::randomize(osize) with {
+                osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};
+            }) else `uvm_fatal(get_name(), "Can't randomize osize")
+        end else begin
+            assert (std::randomize(osize) with {
+                osize inside {OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};
+            }) else `uvm_fatal(get_name(), "Can't randomize osize sign/zero extend")
+        end
+    endfunction: constraint_osize
+
+    virtual function void constraint_dst_osize_vector();
+        dst_osize_vector[0] = (osize==OSIZE_8);
+        dst_osize_vector[1] = (osize==OSIZE_16);
+        dst_osize_vector[2] = (osize==OSIZE_32);
+        dst_osize_vector[3] = (osize==OSIZE_64);
+        dst_osize_vector[4] = (osize==OSIZE_128);
+    endfunction: constraint_dst_osize_vector
 
     virtual function void constraint_len();
         case(osize)
@@ -125,39 +147,140 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
     endfunction: constraint_valid
 
     virtual function void constraint_merge();
-        case(osize)
+        logic           is_extend;
+        riscv_v_osize_e src_osize;
+
+        is_extend = (opcode inside {SIGN_EXT, ZERO_EXT});
+
+        src_osize = riscv_v_osize_e'($clog2(src_osize_vector));
+
+        if (~is_extend) begin
+            case(osize)
+                OSIZE_8: begin
+                    for (int i=0; i < RISCV_V_ELEN/BYTE_WIDTH; i++) begin
+                        srca.merge[i] = 1'b0;
+                        srcb.merge[i] = 1'b0;
+                    end
+                end
+                OSIZE_16: begin
+                    for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                        srca.merge[i*2 +: 2] =  2'b01;
+                        srcb.merge[i*2 +: 2] =  2'b01;
+                    end
+                end
+                OSIZE_32: begin
+                    for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                        srca.merge[i*4 +: 4] =  4'b0111;
+                        srcb.merge[i*4 +: 4] =  4'b0111;
+                    end
+                end
+                OSIZE_64: begin
+                    for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                        srca.merge[i*8 +: 8] =  8'b01111111;
+                        srcb.merge[i*8 +: 8] =  8'b01111111;
+                    end
+                end
+                OSIZE_128: begin
+                    for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                        srca.merge[i*16 +: 16] = 16'b0111111111111111;
+                        srcb.merge[i*16 +: 16] = 16'b0111111111111111;
+                    end
+                end
+                default: begin
+                    `uvm_fatal(get_name(), $sformatf("Invalid Osize: %s", osize.name()))
+                end
+            endcase
+        end else begin
+            case(osize)
             OSIZE_8: begin
-                srca.merge = '0;
-                srcb.merge = '0;
+                `uvm_fatal(get_name(), "Invalid OSIZE_8 for extend op")
             end
             OSIZE_16: begin
-                for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    srca.merge[i*2 +: 2] = 2'b01;
-                    srcb.merge[i*2 +: 2] = 2'b01;
-                end
+                case (src_osize)
+                    OSIZE_8: begin
+                        for (int i=0; i < RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                            srca.merge[i*2 +: 2] =  2'b01;
+                            srcb.merge[i*2 +: 2] =  2'b01;
+                        end
+                    end
+                    default:  `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                endcase
             end
             OSIZE_32: begin
-                for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    srca.merge[i*4 +: 4] = 4'b0111;
-                    srcb.merge[i*4 +: 4] = 4'b0111;
-                end
+                case (src_osize)
+                    OSIZE_8: begin
+                        for (int i=0; i < RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                            srca.merge[i*4 +: 4] =  4'b0001;
+                            srcb.merge[i*4 +: 4] =  4'b0001;
+                        end
+                    end
+                    OSIZE_16: begin
+                        for (int i=0; i < RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                            srca.merge[i*4 +: 4] =  4'b0011;
+                            srcb.merge[i*4 +: 4] =  4'b0011;
+                        end
+                    end
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                endcase
             end
             OSIZE_64: begin
-                for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    srca.merge[i*8 +: 8] = 8'b01111111;
-                    srcb.merge[i*8 +: 8] = 8'b01111111;
-                end
+                case (src_osize)
+                    OSIZE_8: begin
+                        for (int i=0; i < RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                            srca.merge[i*8 +: 8] =  8'b00000001;
+                            srcb.merge[i*8 +: 8] =  8'b00000001;
+                        end
+                    end
+                    OSIZE_16: begin
+                        for (int i=0; i < RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                            srca.merge[i*8 +: 8] =  8'b00000011;
+                            srcb.merge[i*8 +: 8] =  8'b00000011;
+                        end
+                    end
+                    OSIZE_32: begin
+                        for (int i=0; i < RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                            srca.merge[i*8 +: 8] =  8'b00001111;
+                            srcb.merge[i*8 +: 8] =  8'b00001111;
+                        end
+                    end
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                endcase
             end
             OSIZE_128: begin
-                for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    srca.merge[i*16 +: 16] = 16'b0111111111111111;
-                    srcb.merge[i*16 +: 16] = 16'b0111111111111111;
-                end
+                case (src_osize)
+                    OSIZE_8: begin
+                        for (int i=0; i < RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                            srca.merge[i*16 +: 16] = 16'b0000000000000001;
+                            srcb.merge[i*16 +: 16] = 16'b0000000000000001;
+                        end
+                    end
+                    OSIZE_16: begin
+                        for (int i=0; i < RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                            srca.merge[i*16 +: 16] = 16'b0000000000000011;
+                            srcb.merge[i*16 +: 16] = 16'b0000000000000011;
+                        end
+                    end
+                    OSIZE_32: begin
+                        for (int i=0; i < RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                            srca.merge[i*16 +: 16] = 16'b0000000000001111;
+                            srcb.merge[i*16 +: 16] = 16'b0000000000001111;
+                        end
+                    end
+                    OSIZE_64: begin
+                        for (int i=0; i < RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                            srca.merge[i*16 +: 16] = 16'b0000000011111111;
+                            srcb.merge[i*16 +: 16] = 16'b0000000011111111;
+                        end
+                    end
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                endcase
             end
             default: begin
-                `uvm_fatal(get_name(), $sformatf("Invalid Osize: %s", osize.name()))
+                `uvm_fatal(get_name(), $sformatf("Invalid Osize: %0s", osize.name()))
             end
-        endcase
+            endcase
+        end
+
     endfunction: constraint_merge
 
     virtual function void constraint_is_greater_osize_vector();
@@ -193,12 +316,12 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             int shift_cnt;
             int max_shift_cnt;
             case (osize)
-                OSIZE_8:   max_shift_cnt = 0;
-                OSIZE_16:  max_shift_cnt = 1;
-                OSIZE_32:  max_shift_cnt = 2;
-                OSIZE_64:  max_shift_cnt = 3;
-                OSIZE_128: max_shift_cnt = 4;
-                default:   `uvm_fatal(get_name(), "Invalid OSIZE")
+            //  OSIZE_8 Invalid for sign/zero extend
+                OSIZE_16:  max_shift_cnt = 0;
+                OSIZE_32:  max_shift_cnt = 1;
+                OSIZE_64:  max_shift_cnt = 2;
+                OSIZE_128: max_shift_cnt = 3;
+                default:   `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
             endcase
             assert(std::randomize(shift_cnt) with {
                 shift_cnt >= 0;
@@ -210,8 +333,16 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
 
     endfunction: constraint_src_osize_vector
 
+/*
     //Constraint osize
-    constraint osize_c { osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};}
+    constraint osize_c { 
+        if (~(opcode inside {SIGN_EXT, ZERO_EXT})){
+            osize inside {OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};
+        } else {
+            osize inside {OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};
+        }
+    };
+        
     //constraint osize_c { osize inside {OSIZE_64};}
 
     constraint dst_osize_vector_c {
@@ -221,14 +352,14 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         {dst_osize_vector[3] == (osize==OSIZE_64)};
         {dst_osize_vector[4] == (osize==OSIZE_128)};
     };
-/*
+
     constraint dst_osize_vector_one_hot_c {
         $countones(dst_osize_vector) == 1;
     };
 
     constraint src_osize_vector_c {
         if (opcode inside {SIGN_EXT, ZERO_EXT}){
-            src_osize_vector <= dst_osize_vector;
+            src_osize_vector <  dst_osize_vector;
         } else {
             src_osize_vector == dst_osize_vector;
         }
