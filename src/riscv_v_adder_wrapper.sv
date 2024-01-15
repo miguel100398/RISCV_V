@@ -4,7 +4,7 @@
 //Description: RISC-V Vector adder
 
 module riscv_v_adder_wrapper
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic[1:0]                  sel_half,
     input  logic                       valid_adder,

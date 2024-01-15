@@ -11,14 +11,17 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
                                                  .seq_item_out_t(riscv_v_alu_out_seq_item) );
     `uvm_component_utils(riscv_v_alu_scbd)
 
-    riscv_v_logic_alu_in_seq_item      logic_in_txn;
-    riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn;
-    riscv_v_mask_alu_in_seq_item       mask_in_txn;
+    riscv_v_logic_alu_in_seq_item       logic_in_txn;
+    riscv_v_arithmetic_alu_in_seq_item  arithmetic_in_txn;
+    riscv_v_mask_alu_in_seq_item        mask_in_txn;
+    riscv_v_permutation_alu_in_seq_item permutation_in_txn;
 
     //Expected results
     riscv_v_wb_data_t  logic_exp_result;
     riscv_v_wb_data_t  arithmetic_exp_result;
     riscv_v_mask_reg_t mask_exp_result;
+    riscv_v_wb_data_t  permutation_exp_vec_result;
+    riscv_data_t       permutation_exp_int_result;
     riscv_v_zf_t       zf_exp;
     riscv_v_of_t       of_exp;
     riscv_v_cf_t       cf_exp;
@@ -36,6 +39,8 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             calc_arithmetic();
         end else if ($cast(mask_in_txn, txn_in)) begin
             calc_mask();
+        end else if ($cast(permutation_in_txn, txn_in)) begin 
+            calc_permutation();
         end else begin
             `uvm_fatal(get_name(), "Can't cast alu_seq_in to valid specific_alu_seq_in")
         end
@@ -46,6 +51,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             LOGIC_ALU: compare_logic();
             ARITHMETIC_ALU: compare_arithmetic();
             MASK_ALU: compare_mask();
+            PERMUTATION_ALU: compare_permutation();
             default:   `uvm_fatal(get_name(), "Invalid ALU found in txn_out")
         endcase
     endfunction: calc_out
@@ -113,6 +119,14 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         endcase
     endfunction: calc_mask
 
+    virtual function void calc_permutation();
+        case(permutation_in_txn.opcode)
+            I2V: calc_i2v();
+            V2I: calc_v2i();
+            default: `uvm_fatal(get_name(), "Invalid permutation ALU op")
+        endcase
+    endfunction: calc_permutation
+
     virtual function void compare_logic();
         bit comp = 1;
         comp &= logic_exp_result.valid == txn_out.result.valid;
@@ -153,7 +167,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         bit comp = 1;
 
         if (!$cast(mask_txn_out, txn_out)) begin
-            `uvm_fatal(get_name(), "Cant cast txn_out to mask_txn_out")
+            `uvm_fatal(get_name(), "Can't cast txn_out to mask_txn_out")
         end
 
         for (int i=0; i < RISCV_V_NUM_ELEMENTS_REG; i++) begin
@@ -167,6 +181,26 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             fail();
         end
     endfunction: compare_mask
+
+    virtual function void compare_permutation();
+        riscv_v_permutation_alu_out_seq_item permutation_txn_out;
+        bit comp = 1;
+        if (!$cast(permutation_txn_out, txn_out)) begin
+            `uvm_fatal(get_name(), "Can't cast txn_out to permutation_txn_out")
+        end
+
+        comp &= (permutation_exp_int_result       == permutation_txn_out.integer_data_out);
+        comp &= (permutation_exp_vec_result.data  == permutation_txn_out.vector_data_out.data);
+        comp &= (permutation_exp_vec_result.valid == permutation_txn_out.vector_data_out.valid);
+
+        if (comp) begin
+            pass();
+        end else begin
+            `uvm_error(get_name(), $sformatf("Compare mismatch, actual_int.data: 0x%0h, actual_vec.data: 0x%0h, actual_vec.valid: 0x%0h, exp_int.data: 0x%0h, exp_vec.data: 0x%0h, exp_vec.valid: 0x%0h", permutation_txn_out.integer_data_out, permutation_txn_out.vector_data_out.data, permutation_txn_out.vector_data_out.valid, permutation_exp_int_result, permutation_exp_vec_result.data, permutation_exp_vec_result.valid))
+            fail();
+        end
+
+    endfunction: compare_permutation
 
     virtual function bit compare_flags(riscv_v_osize_e osize, riscv_v_valid_data_t valid);
         bit comp = 1;
@@ -229,6 +263,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     `include "riscv_v_alu_scbd_logic_ops.sv"
     `include "riscv_v_alu_scbd_arithmetic_ops.sv"
     `include "riscv_v_alu_scbd_mask_ops.sv"
+    `include "riscv_v_alu_scbd_permutation_ops.sv"
 
 endclass: riscv_v_alu_scbd
 

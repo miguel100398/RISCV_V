@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extensionBit wise and 8 bits
 
 module riscv_v_bitwise_or
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 #(
     parameter int DATA_WIDTH = 8
 )(

@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extension register file
 
 module riscv_v_rf
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 #(
     parameter bit RD_ASYNC              = 1'b1,
     parameter bit REG_INPUTS            = 1'b0

@@ -4,18 +4,12 @@
 //Description: RISC-V Vector extension package
 
 package riscv_v_pkg;
+import riscv_pkg::*;
 
 //Time constants
 parameter real CLK_FREQ                     = 50e6;
 parameter time CLK_PERIOD                   = 1/CLK_FREQ;
 
-//Common constants
-parameter int BYTE_WIDTH                    = 8;
-parameter int WORD_WIDTH                    = 16;
-parameter int DWORD_WIDTH                   = 32;
-parameter int QWORD_WIDTH                   = 64;
-parameter int DQWORD_WIDTH                  = 128;
-parameter int QQWORD_WIDTH                  = 256;
 
 //RISCV_V_Constants
 parameter int RISCV_V_ELEN                  = 128;                                            //Maximum size in bits of a vector element that any operation can produce or consume
@@ -33,8 +27,6 @@ parameter int RISCV_V_NUM_QQWORDS_DATA      = RISCV_V_DATA_WIDTH / QQWORD_WIDTH;
 parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
 parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);                    //Width of addres of register file
 
-typedef enum logic[1:0] {RF_RD_PORT_A = 2'b00, RF_RD_PORT_B = 2'b01, RF_WR_PORT = 2'b10} rf_port_e;
-
 //Operation size enum
 typedef enum logic[2:0] {OSIZE_8 = 3'd0, OSIZE_16 = 3'd1, OSIZE_32 = 3'd2, OSIZE_64 = 3'd3, OSIZE_128 = 3'd4} riscv_v_osize_e;
 parameter int RISCV_V_NUM_VALID_OSIZES = 5;
@@ -42,15 +34,7 @@ typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-2:0] osize_is_less_vector_t;
 //ALU Enum
-typedef enum logic[1:0] {LOGIC_ALU, ARITHMETIC_ALU, MASK_ALU} riscv_v_alu_e;
-
-//Common types
-typedef logic[BYTE_WIDTH-1:0]   Byte_t;
-typedef logic[WORD_WIDTH-1:0]   Word_t;
-typedef logic[DWORD_WIDTH-1:0]  Dword_t;
-typedef logic[QWORD_WIDTH-1:0]  Qword_t;
-typedef logic[DQWORD_WIDTH-1:0] Dqword_t;
-typedef logic[QQWORD_WIDTH-1:0] Qqword_t;
+typedef enum logic[1:0] {LOGIC_ALU, ARITHMETIC_ALU, MASK_ALU, PERMUTATION_ALU} riscv_v_alu_e;
 
 //Multiplier types
 typedef enum logic[1:0] {VEDIC_LA_LB = 2'b00, VEDIC_LA_HB = 2'b01, VEDIC_HA_LB = 2'b10, VEDIC_HA_HB = 2'b11}  vedic_mul_idx_t;
@@ -139,6 +123,7 @@ typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT,
                          MULLS, MULHS, MULLU, MULHU, 
                          SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU,
                          MAND, MNAND, MANDN, MXOR, MOR, MNOR, MORN, MXNOR,
+                         I2V, V2I,
                          NOP} riscv_v_opcode_e;
 
 //////////////////////Functions/////////////////////////////////////////////////////////////////

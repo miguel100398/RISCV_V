@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extension sign/zero extend
 
 module riscv_v_extend
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic                        is_zero_ext,
     input  logic                        is_sign_ext,

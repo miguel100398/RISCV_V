@@ -20,6 +20,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     virtual riscv_v_logic_ALU_if logic_vif;
     virtual riscv_v_arithmetic_ALU_if arithmetic_vif;
     virtual riscv_v_mask_ALU_if mask_vif;
+    virtual riscv_v_permutation_ALU_if permutation_vif;
 
     function new(string name = "riscv_v_alu_mon", uvm_component parent = null);
         super.new(name, parent);
@@ -28,9 +29,10 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         //Create semaphores
-        in_sem[LOGIC_ALU]      = new(in_sem_keys);
-        in_sem[ARITHMETIC_ALU] = new(in_sem_keys);
-        in_sem[MASK_ALU]       = new(in_sem_keys);
+        in_sem[LOGIC_ALU]       = new(in_sem_keys);
+        in_sem[ARITHMETIC_ALU]  = new(in_sem_keys);
+        in_sem[MASK_ALU]        = new(in_sem_keys);
+        in_sem[PERMUTATION_ALU] = new(in_sem_keys);
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
@@ -47,6 +49,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             end
             begin
                 forever mon_in_mask();
+            end
+            begin
+                forever mon_in_permutation();
             end
         join
     endtask: mon_rtl_in
@@ -122,10 +127,31 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             `else 
                 mask_in_txn.opcode          = get_mask_opcode();
             `endif //RISCV_V_INST  
+            rtl_in_ap.write(mask_in_txn);
         end
         //Set Keys to process result
         in_sem[MASK_ALU].put(out_sem_keys);
     endtask: mon_in_mask
+
+    virtual task mon_in_permutation();
+        riscv_v_permutation_alu_in_seq_item permutation_in_txn;
+        @(permutation_vif.cb_mon);
+        in_sem[PERMUTATION_ALU].get(in_sem_keys);
+        if (is_permutation_op()) begin
+            `uvm_info(get_name(), "Transaction captured in permutation_alu in port", UVM_HIGH);
+            permutation_in_txn = riscv_v_permutation_alu_in_seq_item::type_id::create("permutation_in_txn", this);
+            permutation_in_txn.integer_data_in      = permutation_vif.integer_data_in;
+            permutation_in_txn.vector_data_in       = permutation_vif.vector_data_in;
+            `ifdef RISCV_V_INST
+                permutation_in_txn.opcode           = permutation_vif.cb_mon.opcode;
+            `else 
+                permutation_in_txn.opcode           = get_permutation_opcode();
+            `endif
+            rtl_in_ap.write(permutation_in_txn);
+        end
+        //Set Keys to process result
+        in_sem[PERMUTATION_ALU].put(out_sem_keys);
+    endtask: mon_in_permutation
 
     virtual task mon_rtl_out();
         fork
@@ -137,6 +163,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             end
             begin
                 forever mon_out_mask();
+            end
+            begin
+                forever mon_out_permutation();
             end
         join
     endtask: mon_rtl_out
@@ -183,9 +212,27 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             `uvm_info(get_name(), "Transaction captured in mask_alu out port", UVM_HIGH);
             mask_out_txn = riscv_v_mask_alu_out_seq_item::type_id::create("mask_out_txn", this);
             mask_out_txn.result_mask = mask_vif.cb_mon.result;
+            mask_out_txn.ALU         = MASK_ALU;
+            rtl_out_ap.write(mask_out_txn);
         end
         in_sem[MASK_ALU].put(in_sem_keys);
     endtask: mon_out_mask
+
+    virtual task mon_out_permutation();
+        riscv_v_permutation_alu_out_seq_item permutation_out_txn;
+        @(permutation_vif.cb_mon);
+        //Input transaction is processed before result
+        in_sem[PERMUTATION_ALU].get(out_sem_keys);
+        if (is_permutation_op()) begin
+            `uvm_info(get_name(), "Transaction captured in permutation_alu out port", UVM_HIGH);
+            permutation_out_txn = riscv_v_permutation_alu_out_seq_item::type_id::create("riscv_v_permutation_alu_out_seq_item", this);
+            permutation_out_txn.integer_data_out = permutation_vif.cb_mon.integer_data_out;
+            permutation_out_txn.vector_data_out  = permutation_vif.cb_mon.vector_data_out;
+            permutation_out_txn.ALU              = PERMUTATION_ALU;
+            rtl_out_ap.write(permutation_out_txn);
+        end
+        in_sem[PERMUTATION_ALU].put(in_sem_keys);
+    endtask: mon_out_permutation
 
     virtual function riscv_v_osize_e get_osize(riscv_v_merge_data_t merge);
         if (!merge[0]) begin
@@ -311,17 +358,25 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
 
     virtual function riscv_v_opcode_e get_mask_opcode();
         unique case(3'b111)
-        {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_and} : return MAND;
-        {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_and} : return MNAND;
-        {~mask_vif.cb_mon.is_negate_result,     mask_vif.cb_mon.is_negate_srca,     mask_vif.cb_mon.is_and} : return MANDN;
-        {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_or}  : return MOR;
-        {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_or}  : return MNOR;
-        {~mask_vif.cb_mon.is_negate_result,     mask_vif.cb_mon.is_negate_srca,     mask_vif.cb_mon.is_or}  : return MORN;
-        {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_xor} : return MXOR;
-        {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_xor} : return MXNOR;
-        default : return NOP;
+            {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_and} : return MAND;
+            {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_and} : return MNAND;
+            {~mask_vif.cb_mon.is_negate_result,     mask_vif.cb_mon.is_negate_srca,     mask_vif.cb_mon.is_and} : return MANDN;
+            {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_or}  : return MOR;
+            {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_or}  : return MNOR;
+            {~mask_vif.cb_mon.is_negate_result,     mask_vif.cb_mon.is_negate_srca,     mask_vif.cb_mon.is_or}  : return MORN;
+            {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_xor} : return MXOR;
+            {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_xor} : return MXNOR;
+            default : return NOP;
         endcase
     endfunction: get_mask_opcode
+
+    virtual function riscv_v_opcode_e get_permutation_opcode();
+        unique case(1'b1)
+            permutation_vif.cb_mon.is_i2v   : return I2V;
+            permutation_vif.cb_mon.is_v2i   : return V2I;
+            default : return NOP;
+        endcase
+    endfunction: get_permutation_opcode
 
     virtual function riscv_v_src_len_t get_len(riscv_v_osize_e osize);
         int num_srcb_valid = 0;
@@ -370,6 +425,13 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         return is_mask;
     endfunction: is_mask_op
 
+    virtual function bit is_permutation_op();
+        bit is_permutation = 0;
+        is_permutation |= permutation_vif.cb_mon.is_i2v;
+        is_permutation |= permutation_vif.cb_mon.is_v2i;
+        return is_permutation;
+    endfunction: is_permutation_op
+
     //Get interface
     virtual function void get_vif();
         if (!uvm_config_db#(virtual riscv_v_logic_ALU_if)::get(this, "*", "riscv_v_logic_alu_vif", logic_vif)) begin
@@ -380,6 +442,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         end
         if (!uvm_config_db#(virtual riscv_v_mask_ALU_if)::get(this, "*", "riscv_v_mask_alu_vif", mask_vif)) begin
             `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_mask_alu_vif");
+        end
+        if (!uvm_config_db#(virtual riscv_v_permutation_ALU_if)::get(this, "*", "riscv_v_permutation_alu_vif", permutation_vif)) begin
+            `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_permutation_alu_vif");
         end
     endfunction: get_vif
 

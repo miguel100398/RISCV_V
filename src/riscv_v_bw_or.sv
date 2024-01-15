@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extension Bitwise and
 
 module riscv_v_bw_or
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic              is_reduct,
     input  logic              is_reduct_n,

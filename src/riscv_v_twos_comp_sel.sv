@@ -4,7 +4,7 @@
 //Description: riscv v twos complement
 
 module riscv_v_twos_comp_sel 
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 #(
     parameter BLOCK_WIDTH              = BYTE_WIDTH
 )

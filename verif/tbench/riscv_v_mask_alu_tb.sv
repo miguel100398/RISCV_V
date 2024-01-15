@@ -35,6 +35,9 @@ module riscv_v_mask_alu_tb;
     riscv_v_mask_ALU_if mask_vif(
         .clk(clk)
     );
+    riscv_v_permutation_ALU_if permutation_vif(
+        .clk(clk)
+    );
 
     //Dut
     riscv_v_mask_ALU dut(
@@ -44,6 +47,8 @@ module riscv_v_mask_alu_tb;
         .is_xor(mask_vif.is_xor),
         .is_negate_srca(mask_vif.is_negate_srca),
         .is_negate_result(mask_vif.is_negate_result),
+        .srca(mask_vif.srca),
+        .srcb(mask_vif.srcb),
         .result(mask_vif.result)
     );
 
@@ -52,6 +57,7 @@ module riscv_v_mask_alu_tb;
         uvm_config_db#(virtual riscv_v_logic_ALU_if)::set(uvm_root::get(),"*","riscv_v_logic_alu_vif",logic_vif);
         uvm_config_db#(virtual riscv_v_arithmetic_ALU_if)::set(uvm_root::get(),"*","riscv_v_arithmetic_alu_vif",arithmetic_vif);
         uvm_config_db#(virtual riscv_v_mask_ALU_if)::set(uvm_root::get(),"*","riscv_v_mask_alu_vif",mask_vif);
+        uvm_config_db#(virtual riscv_v_permutation_ALU_if)::set(uvm_root::get(),"*","riscv_v_permutation_alu_vif",permutation_vif);
     end
 
     initial begin

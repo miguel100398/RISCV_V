@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extension shifter
 
 module riscv_v_shifter_wrapper
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic[1:0]         sel_half,
     input  logic              is_shift,

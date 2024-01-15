@@ -4,7 +4,7 @@
 //Description: riscv-v Vector extension multiplier (Using vedic multiplier)
 
 module riscv_v_mul
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic                        is_mul,
     input  logic                        is_high,

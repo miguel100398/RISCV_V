@@ -7,6 +7,7 @@ package riscv_v_alu_agt_pkg;
 
 
 import uvm_pkg::*;
+import riscv_pkg::*;
 import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
@@ -14,14 +15,17 @@ import riscv_v_base_pkg::*;
 `include "riscv_v_macros.svh"
 `include "riscv_v_alu_out_seq_item.sv"
 `include "riscv_v_mask_alu_out_seq_item.sv"
+`include "riscv_v_permutation_alu_out_seq_item.sv"
 `include "riscv_v_alu_in_seq_item.sv"
 `include "riscv_v_logic_alu_in_seq_item.sv"
 `include "riscv_v_arithmetic_alu_in_seq_item.sv"
 `include "riscv_v_mask_alu_in_seq_item.sv"
+`include "riscv_v_permutation_alu_in_seq_item.sv"
 `include "riscv_v_alu_sqr.sv"
 `include "riscv_v_logic_alu_seq.sv"
 `include "riscv_v_arithmetic_alu_seq.sv"
 `include "riscv_v_mask_alu_seq.sv"
+`include "riscv_v_permutation_alu_seq.sv"
 `include "riscv_v_alu_drv.sv"
 `include "riscv_v_alu_mon.sv"
 `include "riscv_v_alu_scbd.sv"

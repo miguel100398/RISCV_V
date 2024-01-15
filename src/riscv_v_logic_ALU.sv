@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extension logical ALU
 
 module riscv_v_logic_ALU
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     //Control signals
     input  logic              is_reduct,

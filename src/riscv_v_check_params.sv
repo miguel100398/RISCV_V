@@ -4,7 +4,7 @@
 //Description: RISC-V Vector Check Parameters module
 
 module riscv_v_check_params;
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 
 //Check data width is greater or equal than 8
 if (RISCV_V_DATA_WIDTH < BYTE_WIDTH) begin

@@ -7,6 +7,7 @@ package riscv_v_rf_agt_pkg;
 
 
 import uvm_pkg::*;
+import riscv_pkg::*;
 import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 

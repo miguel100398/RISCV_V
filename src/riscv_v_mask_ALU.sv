@@ -4,7 +4,7 @@
 //Description: RISC-V Vector extension mask ALU
 
 module riscv_v_mask_ALU 
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     //Control signals
     input  logic                is_mask,

@@ -4,7 +4,7 @@
 //Description: Signed/Unsigned vedic multiplier
 
 module vedic_mul
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 #(
     parameter                   WIDTH                   = 2,
     parameter vedic_mul_idx_t   MUL_IDX                 = VEDIC_LA_LB,

@@ -13,11 +13,13 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
     virtual riscv_v_logic_ALU_if logic_vif;
     virtual riscv_v_arithmetic_ALU_if arithmetic_vif;
     virtual riscv_v_mask_ALU_if mask_vif;
+    virtual riscv_v_permutation_ALU_if permutation_vif;
 
     //Transactions
     riscv_v_logic_alu_in_seq_item logic_txn;
     riscv_v_arithmetic_alu_in_seq_item arithmetic_txn;
     riscv_v_mask_alu_in_seq_item mask_txn;
+    riscv_v_permutation_alu_in_seq_item permutation_txn;
 
     //Constructor
     function new(string name = "riscv_v_alu_drv", uvm_component parent = null);
@@ -36,6 +38,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         drive_initial_logic();
         drive_initial_arithmetic();
         drive_initial_mask();
+        drive_initial_permutation();
     endtask: drive_initial
 
     virtual task drive_initial_logic();
@@ -103,6 +106,16 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `endif //RISCV_V_INST
     endtask: drive_initial_mask
 
+    virtual task drive_initial_permutation();
+        permutation_vif.is_i2v              <= 1'b0;
+        permutation_vif.is_v2i              <= 1'b0;
+        permutation_vif.integer_data_in     <= '0;
+        permutation_vif.vector_data_in      <= '0;
+        `ifdef RISCV_V_INST 
+            permutation_vif.opcode          <= NOP;
+        `endif //RISCV_V_INST
+    endtask: drive_initial_permutation
+
     virtual task drive();
         //Cast transaction
         if ($cast(logic_txn, req)) begin
@@ -111,6 +124,8 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
             drive_arithmetic();
         end else if ($cast(mask_txn, req)) begin
             drive_mask();
+        end else if ($cast(permutation_txn, req))  begin  
+            drive_permutation();
         end else begin
             `uvm_fatal(get_name(), "Invalid alu_seq_item type, can't cas't to any  ALU seq_item type")
         end
@@ -184,7 +199,23 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         mask_vif.cb_drv.is_negate_result    <= mask_txn.is_negate_result;
         mask_vif.cb_drv.srca                <= mask_txn.srca_mask;
         mask_vif.cb_drv.srcb                <= mask_txn.srcb_mask;
+        `ifdef RISCV_V_INST  
+            mask_vif.cb_drv.opcode          <= mask_txn.opcode;
+        `endif //RISCV_V_INST
     endtask: drive_mask
+
+    virtual task drive_permutation();
+        `uvm_info(get_name(), "Sending new permutation ALU transaction", UVM_LOW)
+        permutation_txn.print();
+        @(permutation_vif.cb_drv);
+        permutation_vif.cb_drv.is_i2v           <= permutation_txn.is_i2v;
+        permutation_vif.cb_drv.is_v2i           <= permutation_txn.is_v2i;
+        permutation_vif.cb_drv.integer_data_in  <= permutation_txn.integer_data_in;
+        permutation_vif.cb_drv.vector_data_in   <= permutation_txn.vector_data_in;
+        `ifdef RISCV_V_INST
+            permutation_vif.cb_drv.opcode       <= permutation_txn.opcode;
+        `endif //RISCV_V_INST
+    endtask: drive_permutation
 
     //Get interfaces
   virtual function void get_vif();
@@ -196,6 +227,9 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
     end
     if (!uvm_config_db#(virtual riscv_v_mask_ALU_if)::get(this, "*", "riscv_v_mask_alu_vif", mask_vif)) begin
       `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_mask_alu_vif");
+    end
+    if (!uvm_config_db#(virtual riscv_v_permutation_ALU_if)::get(this, "*", "riscv_v_permutation_alu_vif", permutation_vif)) begin
+      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_permutation_alu_vif");
     end
   endfunction: get_vif
 

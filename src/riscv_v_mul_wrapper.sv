@@ -4,7 +4,7 @@
 //Description: riscv-v Vector extension multiplier (Using vedic multiplier) wrapper with clock to generate timing analysis
 
 module riscv_v_mul_wrapper
-import riscv_v_pkg::*;
+import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic                        is_mul_in,
     input  logic                        is_high_in,
