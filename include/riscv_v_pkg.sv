@@ -21,6 +21,7 @@ parameter int QQWORD_WIDTH                  = 256;
 parameter int RISCV_V_ELEN                  = 128;                                            //Maximum size in bits of a vector element that any operation can produce or consume
 parameter int RISCV_V_VLEN                  = RISCV_V_ELEN;                                   //Size of a single  vector register  
 parameter int RISCV_V_DATA_WIDTH            = RISCV_V_VLEN;                                   //Width of data in datapath
+parameter int RISCV_V_NUM_ELEMENTS_REG      = RISCV_V_DATA_WIDTH / BYTE_WIDTH;                //Number of elements in each vector register
 parameter int RISCV_V_NUM_BYTES_DATA        = RISCV_V_DATA_WIDTH / BYTE_WIDTH;                //Number of bytes in Data bus
 parameter int RISCV_V_NUM_WORDS_DATA        = RISCV_V_DATA_WIDTH / WORD_WIDTH;                //Number of words in Data bus
 parameter int RISCV_V_NUM_DWORDS_DATA       = RISCV_V_DATA_WIDTH / DWORD_WIDTH;               //Number of dwords in Data bus
@@ -41,7 +42,7 @@ typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-2:0] osize_is_less_vector_t;
 //ALU Enum
-typedef enum logic {LOGIC_ALU, ARITHMETIC_ALU} riscv_v_alu_e;
+typedef enum logic[1:0] {LOGIC_ALU, ARITHMETIC_ALU, MASK_ALU} riscv_v_alu_e;
 
 //Common types
 typedef logic[BYTE_WIDTH-1:0]   Byte_t;
@@ -122,6 +123,9 @@ typedef logic[RISCV_V_NUM_DWORDS_DATA-1:0]                  riscv_v_num_dword_ve
 typedef logic[RISCV_V_NUM_QWORDS_DATA-1:0]                  riscv_v_num_qword_vector_t;
 typedef logic[RISCV_V_NUM_DQWORDS_DATA-1:0]                 riscv_v_num_dqword_vector_t;
 
+//Mask Types
+typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_reg_t;
+
 //Opcode types
 typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT, 
                          BW_OR,  BW_OR_REDUCT,
@@ -134,6 +138,7 @@ typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT,
                          MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, 
                          MULLS, MULHS, MULLU, MULHU, 
                          SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU,
+                         MAND, MNAND, MANDN, MXOR, MOR, MNOR, MORN, MXNOR,
                          NOP} riscv_v_opcode_e;
 
 //////////////////////Functions/////////////////////////////////////////////////////////////////

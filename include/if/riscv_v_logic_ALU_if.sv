@@ -14,6 +14,7 @@ import riscv_v_pkg::*;
     logic                     is_and;
     logic                     is_or;
     logic                     is_xor;
+    logic                     is_mask;
     logic                     is_shift;
     logic                     is_left;
     logic                     is_arith;
@@ -36,6 +37,7 @@ import riscv_v_pkg::*;
         input  is_and,
         input  is_or,
         input  is_xor,
+        input  is_mask,
         input  is_shift,
         input  is_left,
         input  is_arith,
@@ -57,6 +59,7 @@ import riscv_v_pkg::*;
         output is_and,
         output is_or,
         output is_xor,
+        output is_mask,
         output is_shift,
         output is_left,
         output is_arith,
@@ -78,6 +81,7 @@ import riscv_v_pkg::*;
         input  is_and;
         input  is_or;
         input  is_xor;
+        input  is_mask;
         input  is_shift;
         input  is_left;
         input  is_arith;
@@ -99,6 +103,7 @@ import riscv_v_pkg::*;
         output is_and;
         output is_or;
         output is_xor;
+        output is_mask;
         output is_shift;
         output is_left;
         output is_arith;

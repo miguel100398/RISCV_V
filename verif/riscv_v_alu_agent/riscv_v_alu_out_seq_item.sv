@@ -1,4 +1,4 @@
-//File: riscv_v_alu_seq_item
+//File: riscv_v_alu_out_seq_item
 //Author: Miguel Bucio
 //Date: 12/06/23
 //Description: RISC-V Vector extension ALU out sequence item

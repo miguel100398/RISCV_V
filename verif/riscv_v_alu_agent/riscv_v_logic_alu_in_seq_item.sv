@@ -1,4 +1,4 @@
-//File: riscv_v_logic_alu_seq_item
+//File: riscv_v_logic_alu_in_seq_item
 //Author: Miguel Bucio
 //Date: 11/06/23
 //Description: RISC-V Vector extension logic ALU in sequence item
@@ -11,6 +11,7 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     rand logic is_and;
     rand logic is_or;
     rand logic is_xor;
+    rand logic is_mask;
     rand logic is_shift;
     rand logic is_left;
     rand logic is_arith;
@@ -20,6 +21,7 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         `uvm_field_int(is_and,     UVM_ALL_ON)
         `uvm_field_int(is_or,      UVM_ALL_ON)
         `uvm_field_int(is_xor,     UVM_ALL_ON)
+        `uvm_field_int(is_mask,    UVM_ALL_ON)
         `uvm_field_int(is_shift,   UVM_ALL_ON)
         `uvm_field_int(is_left,    UVM_ALL_ON)
         `uvm_field_int(is_arith,   UVM_ALL_ON)
@@ -51,6 +53,7 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         is_left   = (opcode inside {SLL});
         is_arith  = (opcode inside {SRA});
         is_reduct = (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT, BW_XOR_REDUCT});
+        is_mask   = 1'b0;
     endfunction: constraint_control
 
     //Constraint control signals depending on opcode

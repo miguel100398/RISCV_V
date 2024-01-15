@@ -9,6 +9,7 @@ import riscv_v_pkg::*;
     input  logic              is_reduct,
     input  logic              is_reduct_n,
     input  logic              is_or,
+    input  logic              is_mask,
     input  osize_vector_t     osize_vector,
     input  osize_vector_t     is_greater_osize_vector,
     //Input sources
@@ -34,8 +35,8 @@ riscv_v_src_byte_vector_t result_bw;
 generate
         //Gate (is_or & srcA), (is_or & srcB)
         for (genvar i=0; i<NUM_BW_BLOCKS; i++) begin : gen_is_or_gating
-            assign srca_gated[i] = srca.data.Byte[i] & {BYTE_WIDTH{is_or}};
-            assign srcb_gated[i] = srcb.data.Byte[i] & {BYTE_WIDTH{is_or}};
+            assign srca_gated[i] = srca.data.Byte[i] & {BYTE_WIDTH{(is_or & ~is_mask)}};
+            assign srcb_gated[i] = srcb.data.Byte[i] & {BYTE_WIDTH{(is_or & ~is_mask)}};
         end
         //Srca input to BW block
         //Input to Most significant Block is only srca

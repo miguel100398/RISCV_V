@@ -19,6 +19,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
     //Virtual interfaces
     virtual riscv_v_logic_ALU_if logic_vif;
     virtual riscv_v_arithmetic_ALU_if arithmetic_vif;
+    virtual riscv_v_mask_ALU_if mask_vif;
 
     function new(string name = "riscv_v_alu_mon", uvm_component parent = null);
         super.new(name, parent);
@@ -29,6 +30,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         //Create semaphores
         in_sem[LOGIC_ALU]      = new(in_sem_keys);
         in_sem[ARITHMETIC_ALU] = new(in_sem_keys);
+        in_sem[MASK_ALU]       = new(in_sem_keys);
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
@@ -42,6 +44,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             end
             begin
                 forever mon_in_arithmetic();
+            end
+            begin
+                forever mon_in_mask();
             end
         join
     endtask: mon_rtl_in
@@ -103,6 +108,25 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         
     endtask: mon_in_arithmetic
 
+    virtual task mon_in_mask();
+        riscv_v_mask_alu_in_seq_item mask_in_txn;
+        @(mask_vif.cb_mon);
+        in_sem[MASK_ALU].get(in_sem_keys);
+        if (is_mask_op()) begin
+            `uvm_info(get_name(), "Transaction captured in mask_alu in port", UVM_HIGH);
+            mask_in_txn = riscv_v_mask_alu_in_seq_item::type_id::create("mask_in_txn", this);
+            mask_in_txn.srca_mask           = mask_vif.cb_mon.srca;
+            mask_in_txn.srcb_mask           = mask_vif.cb_mon.srcb;
+            `ifdef RISCV_V_INST 
+                mask_in_txn.opcode          = mask_vif.cb_mon.opcode;
+            `else 
+                mask_in_txn.opcode          = get_mask_opcode();
+            `endif //RISCV_V_INST  
+        end
+        //Set Keys to process result
+        in_sem[MASK_ALU].put(out_sem_keys);
+    endtask: mon_in_mask
+
     virtual task mon_rtl_out();
         fork
             begin
@@ -110,6 +134,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             end
             begin
                 forever mon_out_arithmetic();
+            end
+            begin
+                forever mon_out_mask();
             end
         join
     endtask: mon_rtl_out
@@ -147,6 +174,19 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         in_sem[ARITHMETIC_ALU].put(in_sem_keys);
     endtask: mon_out_arithmetic
 
+    virtual task mon_out_mask();
+        riscv_v_mask_alu_out_seq_item mask_out_txn;
+        @(arithmetic_vif.cb_mon);
+        //Input trasnaction is processsed before result
+        in_sem[MASK_ALU].get(out_sem_keys);
+        if (is_mask_op()) begin
+            `uvm_info(get_name(), "Transaction captured in mask_alu out port", UVM_HIGH);
+            mask_out_txn = riscv_v_mask_alu_out_seq_item::type_id::create("mask_out_txn", this);
+            mask_out_txn.result_mask = mask_vif.cb_mon.result;
+        end
+        in_sem[MASK_ALU].put(in_sem_keys);
+    endtask: mon_out_mask
+
     virtual function riscv_v_osize_e get_osize(riscv_v_merge_data_t merge);
         if (!merge[0]) begin
             return OSIZE_8;
@@ -163,16 +203,16 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
 
     virtual function riscv_v_opcode_e get_logic_opcode();
         unique case(3'b111)
-            {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_and}       : return BW_AND_REDUCT;
-            {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_and}       : return BW_AND;
-            {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_or}        : return BW_OR_REDUCT;
-            {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_or}        : return BW_OR;
-            {1'b1,                      logic_vif.cb_mon.is_reduct,  logic_vif.cb_mon.is_xor}       : return BW_XOR_REDUCT;
-            {1'b1,                      ~logic_vif.cb_mon.is_reduct, logic_vif.cb_mon.is_xor}       : return BW_XOR;
-            {logic_vif.cb_mon.is_shift, logic_vif.cb_mon.is_left,    1'b1}                          : return SLL;
-            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   ~logic_vif.cb_mon.is_arith}    : return SRL;
-            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   logic_vif.cb_mon.is_arith}     : return SRA;
-            default                                                                                 : return NOP;
+            {1'b1,                      logic_vif.cb_mon.is_reduct,  (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask)} : return BW_AND_REDUCT;
+            {1'b1,                      ~logic_vif.cb_mon.is_reduct, (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask)} : return BW_AND;
+            {1'b1,                      logic_vif.cb_mon.is_reduct,  (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask)} : return BW_OR_REDUCT;
+            {1'b1,                      ~logic_vif.cb_mon.is_reduct, (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask)} : return BW_OR;
+            {1'b1,                      logic_vif.cb_mon.is_reduct,  (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask)} : return BW_XOR_REDUCT;
+            {1'b1,                      ~logic_vif.cb_mon.is_reduct, (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask)} : return BW_XOR;
+            {logic_vif.cb_mon.is_shift, logic_vif.cb_mon.is_left,    1'b1}                                                  : return SLL;
+            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   ~logic_vif.cb_mon.is_arith}                            : return SRL;
+            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   logic_vif.cb_mon.is_arith}                             : return SRA;
+            default                                                                                                         : return NOP;
         endcase
     endfunction: get_logic_opcode
 
@@ -269,6 +309,20 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         end
     endfunction: get_arithmetic_opcode
 
+    virtual function riscv_v_opcode_e get_mask_opcode();
+        unique case(3'b111)
+        {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_and} : return MAND;
+        {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_and} : return MNAND;
+        {~mask_vif.cb_mon.is_negate_result,     mask_vif.cb_mon.is_negate_srca,     mask_vif.cb_mon.is_and} : return MANDN;
+        {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_or}  : return MOR;
+        {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_or}  : return MNOR;
+        {~mask_vif.cb_mon.is_negate_result,     mask_vif.cb_mon.is_negate_srca,     mask_vif.cb_mon.is_or}  : return MORN;
+        {~mask_vif.cb_mon.is_negate_result,     ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_xor} : return MXOR;
+        {mask_vif.cb_mon.is_negate_result,      ~mask_vif.cb_mon.is_negate_srca,    mask_vif.cb_mon.is_xor} : return MXNOR;
+        default : return NOP;
+        endcase
+    endfunction: get_mask_opcode
+
     virtual function riscv_v_src_len_t get_len(riscv_v_osize_e osize);
         int num_srcb_valid = 0;
         //Number valid bits in srcb
@@ -287,9 +341,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
 
     virtual function bit is_logic_op();
         bit is_logic = 0;
-        is_logic |= logic_vif.cb_mon.is_and;
-        is_logic |= logic_vif.cb_mon.is_or;
-        is_logic |= logic_vif.cb_mon.is_xor;
+        is_logic |= (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask);
+        is_logic |= (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask);
+        is_logic |= (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask);
         is_logic |= logic_vif.cb_mon.is_shift;
         return is_logic;
     endfunction: is_logic_op
@@ -310,6 +364,12 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         return is_arithmetic;
     endfunction: is_arithmetic_op
 
+    virtual function bit is_mask_op();
+        bit is_mask = 0;
+        is_mask |= mask_vif.cb_mon.is_mask;
+        return is_mask;
+    endfunction: is_mask_op
+
     //Get interface
     virtual function void get_vif();
         if (!uvm_config_db#(virtual riscv_v_logic_ALU_if)::get(this, "*", "riscv_v_logic_alu_vif", logic_vif)) begin
@@ -317,6 +377,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         end
         if (!uvm_config_db#(virtual riscv_v_arithmetic_ALU_if)::get(this, "*", "riscv_v_arithmetic_alu_vif", arithmetic_vif)) begin
             `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_arithmetic_alu_vif");
+        end
+        if (!uvm_config_db#(virtual riscv_v_mask_ALU_if)::get(this, "*", "riscv_v_mask_alu_vif", mask_vif)) begin
+            `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_mask_alu_vif");
         end
     endfunction: get_vif
 

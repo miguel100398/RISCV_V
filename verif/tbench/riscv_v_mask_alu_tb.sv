@@ -1,11 +1,11 @@
-//File: riscv_v_logic_alu_tb
+//File: riscv_v_mask_alu_tb
 //Author: Miguel Bucio
-//Date: 11/04/23
-//Description: RISC-V Vector extension Logical ALU testbench
+//Date: 15/01/24
+//Description: RISC-V Vector extension Mask ALU testbench
 
 `timescale 1ns/1ps
 
-module riscv_v_logic_alu_tb;
+module riscv_v_mask_alu_tb;
     import riscv_v_pkg::*;
     import uvm_pkg::*;
     import riscv_v_base_pkg::*;
@@ -37,21 +37,14 @@ module riscv_v_logic_alu_tb;
     );
 
     //Dut
-    riscv_v_logic_ALU dut(
-        .is_reduct(logic_vif.is_reduct),
-        .is_and(logic_vif.is_and),
-        .is_or(logic_vif.is_or),
-        .is_xor(logic_vif.is_xor),
-        .is_mask(logic_vif.is_mask),
-        .is_shift(logic_vif.is_shift),
-        .is_left(logic_vif.is_left),
-        .is_arith(logic_vif.is_arith),
-        .srca(logic_vif.srca),
-        .srcb(logic_vif.srcb),
-        .result(logic_vif.result),
-        .dst_osize_vector(logic_vif.dst_osize_vector),
-        .is_greater_osize_vector(logic_vif.is_greater_osize_vector),
-        .is_less_osize_vector(logic_vif.is_less_osize_vector)
+    riscv_v_mask_ALU dut(
+        .is_mask(mask_vif.is_mask),
+        .is_and(mask_vif.is_and),
+        .is_or(mask_vif.is_or),
+        .is_xor(mask_vif.is_xor),
+        .is_negate_srca(mask_vif.is_negate_srca),
+        .is_negate_result(mask_vif.is_negate_result),
+        .result(mask_vif.result)
     );
 
     initial begin
@@ -62,8 +55,7 @@ module riscv_v_logic_alu_tb;
     end
 
     initial begin
-        run_test("riscv_v_logic_alu_doa_test");
+        run_test("riscv_v_mask_alu_doa_test");
     end
-    
 
-endmodule: riscv_v_logic_alu_tb
+endmodule: riscv_v_mask_alu_tb

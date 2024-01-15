@@ -12,10 +12,12 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
     //Virtual interfaces
     virtual riscv_v_logic_ALU_if logic_vif;
     virtual riscv_v_arithmetic_ALU_if arithmetic_vif;
+    virtual riscv_v_mask_ALU_if mask_vif;
 
     //Transactions
     riscv_v_logic_alu_in_seq_item logic_txn;
     riscv_v_arithmetic_alu_in_seq_item arithmetic_txn;
+    riscv_v_mask_alu_in_seq_item mask_txn;
 
     //Constructor
     function new(string name = "riscv_v_alu_drv", uvm_component parent = null);
@@ -33,11 +35,13 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
     virtual task drive_initial();
         drive_initial_logic();
         drive_initial_arithmetic();
+        drive_initial_mask();
     endtask: drive_initial
 
     virtual task drive_initial_logic();
         logic_vif.is_reduct                 <= 1'b0;
         logic_vif.is_and                    <= 1'b0;
+        logic_vif.is_mask                   <= 1'b0;
         logic_vif.is_or                     <= 1'b0;
         logic_vif.is_xor                    <= 1'b0;
         logic_vif.is_shift                  <= 1'b0;
@@ -85,12 +89,28 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `endif// RISCV_V_INST 
     endtask: drive_initial_arithmetic
 
+    virtual task drive_initial_mask();
+        mask_vif.is_mask            <= 1'b0;
+        mask_vif.is_and             <= 1'b0;
+        mask_vif.is_or              <= 1'b0;
+        mask_vif.is_xor             <= 1'b0;
+        mask_vif.is_negate_srca     <= 1'b0;
+        mask_vif.is_negate_result   <= 1'b0;
+        mask_vif.srca               <= '0;
+        mask_vif.srcb               <= '0;
+        `ifdef RISCV_V_INST 
+            mask_vif.opcode         <= NOP;
+        `endif //RISCV_V_INST
+    endtask: drive_initial_mask
+
     virtual task drive();
         //Cast transaction
         if ($cast(logic_txn, req)) begin
             drive_logic();
         end else if ($cast(arithmetic_txn, req))begin
             drive_arithmetic();
+        end else if ($cast(mask_txn, req)) begin
+            drive_mask();
         end else begin
             `uvm_fatal(get_name(), "Invalid alu_seq_item type, can't cas't to any  ALU seq_item type")
         end
@@ -102,6 +122,7 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         @(logic_vif.cb_drv);
         logic_vif.cb_drv.is_reduct        <= logic_txn.is_reduct;
         logic_vif.cb_drv.is_and           <= logic_txn.is_and;
+        logic_vif.cb_drv.is_mask          <= logic_txn.is_mask;
         logic_vif.cb_drv.is_or            <= logic_txn.is_or;
         logic_vif.cb_drv.is_xor           <= logic_txn.is_xor;
         logic_vif.cb_drv.is_shift         <= logic_txn.is_shift;
@@ -151,6 +172,20 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `endif //RISCV_V_INST
     endtask: drive_arithmetic
 
+    virtual task drive_mask();
+        `uvm_info(get_name(), "Sending new mask ALU transaction", UVM_LOW)
+        mask_txn.print();
+        @(mask_vif.cb_drv);
+        mask_vif.cb_drv.is_mask             <= mask_txn.is_mask;
+        mask_vif.cb_drv.is_and              <= mask_txn.is_and;
+        mask_vif.cb_drv.is_or               <= mask_txn.is_or;
+        mask_vif.cb_drv.is_xor              <= mask_txn.is_xor;
+        mask_vif.cb_drv.is_negate_srca      <= mask_txn.is_negate_srca;
+        mask_vif.cb_drv.is_negate_result    <= mask_txn.is_negate_result;
+        mask_vif.cb_drv.srca                <= mask_txn.srca_mask;
+        mask_vif.cb_drv.srcb                <= mask_txn.srcb_mask;
+    endtask: drive_mask
+
     //Get interfaces
   virtual function void get_vif();
     if (!uvm_config_db#(virtual riscv_v_logic_ALU_if)::get(this, "*", "riscv_v_logic_alu_vif", logic_vif)) begin
@@ -158,6 +193,9 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
     end
     if (!uvm_config_db#(virtual riscv_v_arithmetic_ALU_if)::get(this, "*", "riscv_v_arithmetic_alu_vif", arithmetic_vif)) begin
       `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_arithmetic_alu_vif");
+    end
+    if (!uvm_config_db#(virtual riscv_v_mask_ALU_if)::get(this, "*", "riscv_v_mask_alu_vif", mask_vif)) begin
+      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_mask_alu_vif");
     end
   endfunction: get_vif
 

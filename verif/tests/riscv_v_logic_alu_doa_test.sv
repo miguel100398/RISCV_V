@@ -1,7 +1,7 @@
 //File: riscv_v_logic_alu_doa_test
 //Author: Miguel Bucio
 //Date: 11/04/23
-//Description: RISC-V Vector extension register file DOA test
+//Description: RISC-V Vector logic ALU file DOA test
 
 `ifndef __RISCV_V_LOGIC_ALU_DOA_TEST_SV__
 `define __RISCV_V_LOGIC_ALU_DOA_TEST_SV__

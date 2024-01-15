@@ -13,14 +13,15 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     riscv_v_logic_alu_in_seq_item      logic_in_txn;
     riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn;
-    riscv_v_alu_out_seq_item           logic_out_txn;
+    riscv_v_mask_alu_in_seq_item       mask_in_txn;
 
     //Expected results
-    riscv_v_wb_data_t logic_exp_result;
-    riscv_v_wb_data_t arithmetic_exp_result;
-    riscv_v_zf_t      zf_exp;
-    riscv_v_of_t      of_exp;
-    riscv_v_cf_t      cf_exp;
+    riscv_v_wb_data_t  logic_exp_result;
+    riscv_v_wb_data_t  arithmetic_exp_result;
+    riscv_v_mask_reg_t mask_exp_result;
+    riscv_v_zf_t       zf_exp;
+    riscv_v_of_t       of_exp;
+    riscv_v_cf_t       cf_exp;
 
     function new(string name = "riscv_v_alu_scbd", uvm_component parent = null);
         super.new(name, parent);
@@ -33,6 +34,8 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             calc_logic();
         end else if ($cast(arithmetic_in_txn, txn_in))begin
             calc_arithmetic();
+        end else if ($cast(mask_in_txn, txn_in)) begin
+            calc_mask();
         end else begin
             `uvm_fatal(get_name(), "Can't cast alu_seq_in to valid specific_alu_seq_in")
         end
@@ -42,6 +45,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         case(txn_out.ALU) 
             LOGIC_ALU: compare_logic();
             ARITHMETIC_ALU: compare_arithmetic();
+            MASK_ALU: compare_mask();
             default:   `uvm_fatal(get_name(), "Invalid ALU found in txn_out")
         endcase
     endfunction: calc_out
@@ -95,6 +99,20 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         endcase
     endfunction: calc_arithmetic
 
+    virtual function void calc_mask();
+        case(mask_in_txn.opcode)
+            MAND:   calc_mand();
+            MNAND:  calc_mnand();
+            MANDN:  calc_mandn();
+            MOR:    calc_mor();
+            MNOR:   calc_mnor();
+            MORN:   calc_morn();
+            MXOR:   calc_mxor();
+            MXNOR:  calc_mxnor();
+            default: `uvm_fatal(get_name(), "Invalid mask ALU op")
+        endcase
+    endfunction: calc_mask
+
     virtual function void compare_logic();
         bit comp = 1;
         comp &= logic_exp_result.valid == txn_out.result.valid;
@@ -129,6 +147,26 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             fail();
         end
     endfunction: compare_arithmetic
+
+    virtual function void compare_mask();
+        riscv_v_mask_alu_out_seq_item mask_txn_out;
+        bit comp = 1;
+
+        if (!$cast(mask_txn_out, txn_out)) begin
+            `uvm_fatal(get_name(), "Cant cast txn_out to mask_txn_out")
+        end
+
+        for (int i=0; i < RISCV_V_NUM_ELEMENTS_REG; i++) begin
+            comp &= mask_exp_result[i]  == mask_txn_out.result_mask[i];
+        end
+
+        if (comp) begin
+            pass();
+        end else begin
+            `uvm_error(get_name(), $sformatf("Compare mismatch, actual.data: 0x%0h, exp.data: 0x%0h", mask_txn_out.result_mask, mask_exp_result))
+            fail();
+        end
+    endfunction: compare_mask
 
     virtual function bit compare_flags(riscv_v_osize_e osize, riscv_v_valid_data_t valid);
         bit comp = 1;
@@ -190,6 +228,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     `include "riscv_v_alu_scbd_logic_ops.sv"
     `include "riscv_v_alu_scbd_arithmetic_ops.sv"
+    `include "riscv_v_alu_scbd_mask_ops.sv"
 
 endclass: riscv_v_alu_scbd
 
