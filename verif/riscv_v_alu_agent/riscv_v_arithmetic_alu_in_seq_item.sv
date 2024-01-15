@@ -13,6 +13,10 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     rand logic is_mul;
     rand logic is_zero_ext;
     rand logic is_sign_ext;
+    rand logic is_set_equal;
+    rand logic is_set_nequal;
+    rand logic is_set_less;
+    rand logic is_set_greater;
     rand logic is_max;
     rand logic is_min;
     rand logic is_high;
@@ -27,9 +31,13 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         `uvm_field_int(is_mul,          UVM_ALL_ON)
         `uvm_field_int(is_zero_ext,     UVM_ALL_ON)
         `uvm_field_int(is_sign_ext,     UVM_ALL_ON)
+        `uvm_field_int(is_set_equal,    UVM_ALL_ON)
+        `uvm_field_int(is_set_nequal,   UVM_ALL_ON)
+        `uvm_field_int(is_set_greater,  UVM_ALL_ON)
+        `uvm_field_int(is_sign_ext,     UVM_ALL_ON)
         `uvm_field_int(is_max,          UVM_ALL_ON)
         `uvm_field_int(is_min,          UVM_ALL_ON)
-        `uvm_field_int(is_high,          UVM_ALL_ON)
+        `uvm_field_int(is_high,         UVM_ALL_ON)
         `uvm_field_int(is_signed,       UVM_ALL_ON)
         `uvm_field_int(use_carry,       UVM_ALL_ON)
         `uvm_field_int(carry_in,        UVM_ALL_ON)
@@ -46,21 +54,25 @@ class riscv_v_arithmetic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     endfunction: post_randomize
 
     virtual function void constraint_control();
-        is_add      = (opcode inside {ADDC, ADD, ADD_REDUCT});
-        is_sub      = (opcode inside {SUBB, SUB, SUB_REDUCT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT});
-        is_mul      = (opcode inside {MULLS, MULHS, MULLU, MULHU});
-        is_zero_ext = (opcode inside {ZERO_EXT});
-        is_sign_ext = (opcode inside {SIGN_EXT});
-        is_max      = (opcode inside {MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT});
-        is_min      = (opcode inside {MINS, MINS_REDUCT, MINU, MINU_REDUCT});
-        is_high     = (opcode inside {MULHS, MULHU});
-        is_signed   = (opcode inside {ADD, ADDC, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, MAXS, MAXS_REDUCT, MINS, MINS_REDUCT, MULLS, MULHS});
-        use_carry   = (opcode inside {ADDC, SUBB});
-        is_reduct   = (opcode inside {ADD_REDUCT, SUB_REDUCT, MAXS_REDUCT, MAXU_REDUCT, MINS_REDUCT, MINU_REDUCT});
+        is_add         = (opcode inside {ADDC, ADD, ADD_REDUCT});
+        is_sub         = (opcode inside {SUBB, SUB, SUB_REDUCT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU});
+        is_mul         = (opcode inside {MULLS, MULHS, MULLU, MULHU});
+        is_zero_ext    = (opcode inside {ZERO_EXT});
+        is_sign_ext    = (opcode inside {SIGN_EXT});
+        is_set_equal   = (opcode inside {SEQ, SLE, SLEU});
+        is_set_nequal  = (opcode inside {SNE});
+        is_set_less    = (opcode inside {SLE, SLEU, SLT, SLTU});
+        is_set_greater = (opcode inside {SGT, SGTU});
+        is_max         = (opcode inside {MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT});
+        is_min         = (opcode inside {MINS, MINS_REDUCT, MINU, MINU_REDUCT});
+        is_high        = (opcode inside {MULHS, MULHU});
+        is_signed      = (opcode inside {ADD, ADDC, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, MAXS, MAXS_REDUCT, MINS, MINS_REDUCT, MULLS, MULHS, SLE, SLT, SGT});
+        use_carry      = (opcode inside {ADDC, SUBB});
+        is_reduct      = (opcode inside {ADD_REDUCT, SUB_REDUCT, MAXS_REDUCT, MAXU_REDUCT, MINS_REDUCT, MINU_REDUCT});
     endfunction: constraint_control
 
     constraint arithmetic_opcode_c {
-        {opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, SIGN_EXT, ZERO_EXT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, MULLU, MULLS, MULHU, MULHS}};
+        {opcode inside {ADDC, ADD, ADD_REDUCT, SUBB, SUB, SUB_REDUCT, SIGN_EXT, ZERO_EXT, MINS, MINS_REDUCT, MINU, MINU_REDUCT, MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, MULLU, MULLS, MULHU, MULHS, SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU}};
     }
 
     virtual function void constraint_valid();

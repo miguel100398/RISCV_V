@@ -16,6 +16,10 @@ import riscv_v_pkg::*;
     logic                     is_mul;
     logic                     is_zero_ext;
     logic                     is_sign_ext;
+    logic                     is_set_equal;
+    logic                     is_set_nequal;
+    logic                     is_set_less;
+    logic                     is_set_greater;
     logic                     is_max;
     logic                     is_min;
     logic                     is_high;
@@ -47,6 +51,10 @@ import riscv_v_pkg::*;
         input  is_mul,
         input  is_zero_ext,
         input  is_sign_ext,
+        input  is_set_equal,
+        input  is_set_nequal,
+        input  is_set_less,
+        input  is_set_greater,
         input  is_max,
         input  is_min,
         input  is_signed,
@@ -77,6 +85,10 @@ import riscv_v_pkg::*;
         output is_mul,
         output is_zero_ext,
         output is_sign_ext,
+        output is_set_equal,
+        output is_set_nequal,
+        output is_set_less,
+        output is_set_greater,
         output is_max,
         output is_min,
         output is_signed,
@@ -107,6 +119,10 @@ import riscv_v_pkg::*;
         input  is_mul;
         input  is_zero_ext;
         input  is_sign_ext;
+        input  is_set_equal;
+        input  is_set_nequal;
+        input  is_set_less;
+        input  is_set_greater;
         input  is_max;
         input  is_min;
         input  is_signed;
@@ -137,6 +153,10 @@ import riscv_v_pkg::*;
         output is_mul;
         output is_zero_ext;
         output is_sign_ext;
+        output is_set_equal;
+        output is_set_nequal;
+        output is_set_less;
+        output is_set_greater;
         output is_max;
         output is_min;
         output is_high;

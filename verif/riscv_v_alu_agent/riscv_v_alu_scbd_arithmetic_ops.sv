@@ -1206,3 +1206,267 @@
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase 
     endfunction: calc_mulhs
+
+    virtual function void calc_seq();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (arithmetic_in_txn.srca.data.Byte[i] == arithmetic_in_txn.srcb.data.Byte[i]);
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (arithmetic_in_txn.srca.data.Word[i] == arithmetic_in_txn.srcb.data.Word[i]);
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (arithmetic_in_txn.srca.data.Dword[i] == arithmetic_in_txn.srcb.data.Dword[i]);
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (arithmetic_in_txn.srca.data.Qword[i] == arithmetic_in_txn.srcb.data.Qword[i]);
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (arithmetic_in_txn.srca.data.Dqword[i] == arithmetic_in_txn.srcb.data.Dqword[i]);
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_seq
+
+    virtual function void calc_sne();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (arithmetic_in_txn.srca.data.Byte[i] != arithmetic_in_txn.srcb.data.Byte[i]);
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (arithmetic_in_txn.srca.data.Word[i] != arithmetic_in_txn.srcb.data.Word[i]);
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (arithmetic_in_txn.srca.data.Dword[i] != arithmetic_in_txn.srcb.data.Dword[i]);
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (arithmetic_in_txn.srca.data.Qword[i] != arithmetic_in_txn.srcb.data.Qword[i]);
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (arithmetic_in_txn.srca.data.Dqword[i] != arithmetic_in_txn.srcb.data.Dqword[i]);
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_sne
+
+    virtual function void calc_sle();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (signed'(arithmetic_in_txn.srca.data.Byte[i]) <= signed'(arithmetic_in_txn.srcb.data.Byte[i]));
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (signed'(arithmetic_in_txn.srca.data.Word[i]) <= signed'(arithmetic_in_txn.srcb.data.Word[i]));
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Dword[i]) <= signed'(arithmetic_in_txn.srcb.data.Dword[i]));
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Qword[i]) <= signed'(arithmetic_in_txn.srcb.data.Qword[i]));
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Dqword[i]) <= signed'(arithmetic_in_txn.srcb.data.Dqword[i]));
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_sle
+
+    virtual function void calc_sleu();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Byte[i]) <= unsigned'(arithmetic_in_txn.srcb.data.Byte[i]));
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Word[i]) <= unsigned'(arithmetic_in_txn.srcb.data.Word[i]));
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Dword[i]) <= unsigned'(arithmetic_in_txn.srcb.data.Dword[i]));
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Qword[i]) <= unsigned'(arithmetic_in_txn.srcb.data.Qword[i]));
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Dqword[i]) <= unsigned'(arithmetic_in_txn.srcb.data.Dqword[i]));
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_sleu
+
+    virtual function void calc_slt();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (signed'(arithmetic_in_txn.srca.data.Byte[i]) < signed'(arithmetic_in_txn.srcb.data.Byte[i]));
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (signed'(arithmetic_in_txn.srca.data.Word[i]) < signed'(arithmetic_in_txn.srcb.data.Word[i]));
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Dword[i]) < signed'(arithmetic_in_txn.srcb.data.Dword[i]));
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Qword[i]) < signed'(arithmetic_in_txn.srcb.data.Qword[i]));
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Dqword[i]) < signed'(arithmetic_in_txn.srcb.data.Dqword[i]));
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_slt
+
+    virtual function void calc_sltu();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Byte[i]) < unsigned'(arithmetic_in_txn.srcb.data.Byte[i]));
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Word[i]) < unsigned'(arithmetic_in_txn.srcb.data.Word[i]));
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Dword[i]) < unsigned'(arithmetic_in_txn.srcb.data.Dword[i]));
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Qword[i]) < unsigned'(arithmetic_in_txn.srcb.data.Qword[i]));
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Dqword[i]) < unsigned'(arithmetic_in_txn.srcb.data.Dqword[i]));
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_sltu
+
+    virtual function void calc_sgt();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (signed'(arithmetic_in_txn.srca.data.Byte[i]) > signed'(arithmetic_in_txn.srcb.data.Byte[i]));
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (signed'(arithmetic_in_txn.srca.data.Word[i]) > signed'(arithmetic_in_txn.srcb.data.Word[i]));
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Dword[i]) > signed'(arithmetic_in_txn.srcb.data.Dword[i]));
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Qword[i]) > signed'(arithmetic_in_txn.srcb.data.Qword[i]));
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (signed'(arithmetic_in_txn.srca.data.Dqword[i]) > signed'(arithmetic_in_txn.srcb.data.Dqword[i]));
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_sgt
+
+    virtual function void calc_sgtu();
+        {zf_exp, of_exp, cf_exp} = 3'b000;
+        arithmetic_exp_result.data = '0;
+        case(arithmetic_in_txn.osize)
+            OSIZE_8: begin
+                for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
+                    arithmetic_exp_result.data.Byte[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Byte[i]) > unsigned'(arithmetic_in_txn.srcb.data.Byte[i]));
+                end
+            end
+            OSIZE_16: begin
+                for (int i=0; i<RISCV_V_NUM_WORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Word[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Word[i]) > unsigned'(arithmetic_in_txn.srcb.data.Word[i]));
+                end
+            end
+            OSIZE_32: begin
+                for (int i=0; i<RISCV_V_NUM_DWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Dword[i]) > unsigned'(arithmetic_in_txn.srcb.data.Dword[i]));
+                end
+            end
+            OSIZE_64: begin
+                for (int i=0; i<RISCV_V_NUM_QWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Qword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Qword[i]) > unsigned'(arithmetic_in_txn.srcb.data.Qword[i]));
+                end
+            end
+            OSIZE_128: begin
+                for (int i=0; i<RISCV_V_NUM_DQWORDS_DATA; i++) begin
+                    arithmetic_exp_result.data.Dqword[i][0]  = (unsigned'(arithmetic_in_txn.srca.data.Dqword[i]) > unsigned'(arithmetic_in_txn.srcb.data.Dqword[i]));
+                end
+            end
+            default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
+        endcase
+    endfunction: calc_sgtu

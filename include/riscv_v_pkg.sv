@@ -133,6 +133,7 @@ typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT,
                          MINS, MINS_REDUCT, MINU, MINU_REDUCT,
                          MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, 
                          MULLS, MULHS, MULLU, MULHU, 
+                         SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU,
                          NOP} riscv_v_opcode_e;
 
 //////////////////////Functions/////////////////////////////////////////////////////////////////

@@ -62,6 +62,10 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.is_mul                  <= 1'b0;
         arithmetic_vif.is_zero_ext             <= 1'b0;
         arithmetic_vif.is_sign_ext             <= 1'b0;
+        arithmetic_vif.is_set_equal            <= 1'b0;
+        arithmetic_vif.is_set_nequal           <= 1'b0;
+        arithmetic_vif.is_set_less             <= 1'b0;
+        arithmetic_vif.is_set_greater          <= 1'b0;
         arithmetic_vif.is_max                  <= 1'b0;
         arithmetic_vif.is_min                  <= 1'b0;
         arithmetic_vif.is_signed               <= 1'b0;
@@ -124,7 +128,10 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         arithmetic_vif.cb_drv.is_sub           <= arithmetic_txn.is_sub;
         arithmetic_vif.cb_drv.is_mul           <= arithmetic_txn.is_mul;
         arithmetic_vif.cb_drv.is_zero_ext      <= arithmetic_txn.is_zero_ext;
-        arithmetic_vif.cb_drv.is_sign_ext      <= arithmetic_txn.is_sign_ext;
+        arithmetic_vif.cb_drv.is_set_equal     <= arithmetic_txn.is_set_equal;
+        arithmetic_vif.cb_drv.is_set_nequal    <= arithmetic_txn.is_set_nequal;
+        arithmetic_vif.cb_drv.is_set_less      <= arithmetic_txn.is_set_less;
+        arithmetic_vif.cb_drv.is_set_greater   <= arithmetic_txn.is_set_greater;
         arithmetic_vif.cb_drv.is_max           <= arithmetic_txn.is_max;
         arithmetic_vif.cb_drv.is_min           <= arithmetic_txn.is_min;
         arithmetic_vif.cb_drv.is_signed        <= arithmetic_txn.is_signed;

@@ -240,6 +240,30 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
                     return MULLU;
                 end
             end
+        end else if (arithmetic_vif.cb_mon.is_set_equal) begin
+            if (arithmetic_vif.cb_mon.is_set_less) begin
+                if (arithmetic_vif.cb_mon.is_signed) begin
+                    return SLE;
+                end else begin
+                    return SLEU;
+                end
+            end else  begin
+                return SEQ;
+            end
+        end else if (arithmetic_vif.cb_mon.is_set_nequal) begin
+            return SNE;
+        end else if (arithmetic_vif.cb_mon.is_set_less) begin
+            if (arithmetic_vif.cb_mon.is_signed) begin
+                return SLT;
+            end else begin
+                return SLTU;
+            end
+        end else if (arithmetic_vif.cb_mon.is_set_greater) begin
+            if (arithmetic_vif.cb_mon.is_signed) begin
+                return SGT;
+            end else begin
+                return SGTU;
+            end
         end else begin
             return NOP;
         end
@@ -279,6 +303,10 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         is_arithmetic |= arithmetic_vif.cb_mon.is_sign_ext;
         is_arithmetic |= arithmetic_vif.cb_mon.is_max;
         is_arithmetic |= arithmetic_vif.cb_mon.is_min;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_set_equal;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_set_nequal;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_set_less;
+        is_arithmetic |= arithmetic_vif.cb_mon.is_set_greater;
         return is_arithmetic;
     endfunction: is_arithmetic_op
 

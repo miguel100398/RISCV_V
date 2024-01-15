@@ -83,6 +83,14 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             MULLS:          calc_mulls();
             MULHU:          calc_mulhu();
             MULHS:          calc_mulhs();
+            SEQ:            calc_seq();
+            SNE:            calc_sne();
+            SLE:            calc_sle();
+            SLEU:           calc_sleu();
+            SLT:            calc_slt();
+            SLTU:           calc_sltu();
+            SGT:            calc_sgt();
+            SGTU:           calc_sgtu();
             default:        `uvm_fatal(get_name(), "Invalid arithmetic ALU op")
         endcase
     endfunction: calc_arithmetic

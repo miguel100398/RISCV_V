@@ -13,6 +13,10 @@ import riscv_v_pkg::*;
     input  logic              is_mul,
     input  logic              is_zero_ext,
     input  logic              is_sign_ext,
+    input  logic              is_set_equal,
+    input  logic              is_set_nequal,
+    input  logic              is_set_less,
+    input  logic              is_set_greater,
     input  logic              is_max,
     input  logic              is_min,
     input  logic              is_high,
@@ -36,6 +40,7 @@ import riscv_v_pkg::*;
     logic valid_adder;
     logic is_reduct_n;
     logic is_arithmetic;
+    logic is_min_max;
     logic is_compare;
 
     //Results
@@ -55,9 +60,10 @@ import riscv_v_pkg::*;
     assign adder_result_valid = 1'b1;
     assign is_reduct_n = ~is_reduct;
 
-    assign is_compare    = is_min || is_max;
-    assign is_arithmetic = (is_add || is_sub) & ~is_compare; 
-    assign valid_adder   = is_arithmetic || is_compare;
+    assign is_min_max    = is_min || is_max;
+    assign is_compare    = is_set_equal || is_set_nequal || is_set_less || is_set_greater;
+    assign is_arithmetic = (is_add || is_sub) & ~is_min_max & ~is_compare; 
+    assign valid_adder   = is_arithmetic || is_min_max || is_compare;
 
     riscv_v_adder adder(
         .valid_adder                (valid_adder),
@@ -66,8 +72,12 @@ import riscv_v_pkg::*;
         .is_add                     (is_add),
         .is_sub                     (is_sub),
         .is_max                     (is_max),
+        .is_set_equal               (is_set_equal),
+        .is_set_nequal              (is_set_nequal),
+        .is_set_less                (is_set_less),
+        .is_set_greater             (is_set_greater),
         .is_arithmetic              (is_arithmetic),
-        .is_compare                 (is_compare),
+        .is_min_max                 (is_min_max),
         .is_signed                  (is_signed),
         .use_carry                  (use_carry),
         .osize_vector               (dst_osize_vector),
@@ -99,7 +109,6 @@ import riscv_v_pkg::*;
         .srca(srca),
         .result(extend_result)
     );
-
 
     //Qualify adder result
     assign adder_result_qual = adder_result      & {RISCV_V_DATA_WIDTH{valid_adder}};
