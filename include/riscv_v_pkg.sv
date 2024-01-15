@@ -24,8 +24,94 @@ parameter int RISCV_V_NUM_DQWORDS_DATA      = RISCV_V_DATA_WIDTH / DQWORD_WIDTH;
 parameter int RISCV_V_NUM_QQWORDS_DATA      = RISCV_V_DATA_WIDTH / QQWORD_WIDTH;              //Number of dqwords in Data bus
 
 //Regfile Constants
+parameter bit RISCV_V_RF_RD_ASYNC           = 1'b1;
+parameter bit RISCV_V_RF_REG_INPUTS         = 1'b0;
 parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
 parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);                    //Width of addres of register file
+//Mask Regfile Constants
+parameter bit RISCV_V_MASK_RF_RD_ASYNC      = 1'b1;
+parameter bit RISCV_V_MASK_RF_REG_INPUTS    = 1'b0;
+parameter int RISCV_V_MASK_RF_NUM_REGS      = 8;                                              //Number of mask registers in mask register file
+parameter int RISCV_V_MASK_RF_ADDR_WIDTH    = $clog2(RISCV_V_MASK_RF_NUM_REGS);
+
+parameter int RISCV_V_MAX_LMUL = 8;
+parameter int RISCV_V_MAX_VLEN = RISCV_V_NUM_ELEMENTS_REG * RISCV_V_MAX_LMUL;
+
+//CSR
+typedef enum logic [2:0] {VSEW_8 = 3'b000, VSEW_16 = 3'b001, VSEW_32 = 3'b010, VSEW_64 = 3'b011, VSEW_128 = 3'b100} riscv_v_vsew_t;
+typedef enum logic [2:0] {LMUL_1 = 3'b000, LMUL_2  = 3'b001, LMUL_4  = 3'b010, LMUL_8  = 3'b011} riscv_v_vlmul_t;
+typedef enum logic {UNDISTURBED = 1'b0, AGNOSTIC = 1'b1} riscv_v_agnostic_e;
+typedef logic[$clog2(RISCV_V_MAX_VLEN)-1:0] riscv_v_vlen_t;
+typedef logic[$clog2(RISCV_V_MAX_VLEN)-1:0] riscv_v_field_vstart_t;
+typedef enum logic [1:0] {RNU = 2'b00, RNE = 2'b01, RDN = 2'b10, ROD = 2'b11} riscv_v_fixed_point_rounding_e;
+
+typedef struct packed {
+    riscv_csr_status_e VS;        //vsstatus[10:9] vector context status field, Only valid when hypervisor extension is present
+    logic [8:0]  reserved;
+} riscv_v_vsstatus_t;
+
+typedef struct packed {
+    logic               vill;        // The vill bit is used to encode that a previous vset{i}vl{i} instruction attempted to write an unsupported value to vtype.
+    riscv_v_agnostic_e  vma;         // Vector mask agnostic
+    riscv_v_agnostic_e  vta;         // Vector tail agnostic 
+    riscv_v_vsew_t      vsew;        // The value in vsew sets the dynamic selected element width (SEW).
+    riscv_v_vlmul_t     vlmul;       // The vector length multiplier, LMUL, when greater than 1, represents the default number of vector registers that are combined to form a vector register group
+} riscv_v_vtype_t;
+
+typedef struct packed {
+    riscv_v_vlen_t len;
+} riscv_v_vl_t;
+
+typedef struct packed {
+    riscv_v_vlen_t len;
+} riscv_v_vlenb_t;
+
+typedef struct packed {
+    riscv_v_field_vstart_t index;
+} riscv_v_vstart_t;
+
+typedef struct packed {
+    riscv_v_fixed_point_rounding_e rounding_mode;
+} riscv_v_vxrm_t;
+
+typedef struct packed {
+    logic saturate;
+} riscv_v_vxsat_t;
+
+typedef struct packed {
+    riscv_v_fixed_point_rounding_e rounding_mode;
+    logic                          saturate;
+} riscv_v_vcsr_t;
+
+
+parameter riscv_v_vsstatus_t RISCV_V_VSSTATUS_RST_VAL = '{
+    VS       : OFF,
+    reserved : 'x
+};
+
+parameter riscv_v_vtype_t RISCV_V_VTYPE_RST_VAL  = '{
+    vill  : 1'b0,
+    vma   : AGNOSTIC,
+    vta   : AGNOSTIC,
+    vsew  : VSEW_8,
+    vlmul : LMUL_1
+};
+
+parameter riscv_v_vl_t RISCV_V_VL_RST_VAL = '{
+    len : RISCV_V_NUM_ELEMENTS_REG
+};
+
+parameter riscv_v_vstart_t RISCV_V_VSTART_RST_VAL = '{
+    index : '0
+};
+
+parameter riscv_v_vxrm_t RISCV_V_VXRM_RST_VAL = '{
+    rounding_mode : RNU
+};
+
+parameter riscv_v_vxsat_t RISCV_V_VXSAT_RST_VAL = '{
+    saturate : 1'b0
+};
 
 //Operation size enum
 typedef enum logic[2:0] {OSIZE_8 = 3'd0, OSIZE_16 = 3'd1, OSIZE_32 = 3'd2, OSIZE_64 = 3'd3, OSIZE_128 = 3'd4} riscv_v_osize_e;
@@ -97,6 +183,10 @@ typedef struct packed{
 typedef logic[RISCV_V_RF_ADDR_WIDTH-1:0]  riscv_v_rf_addr_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_rf_wr_en_t;
 typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
+//Mask Types
+typedef logic[RISCV_V_MASK_RF_ADDR_WIDTH-1:0] riscv_v_mask_rf_addr_t;
+typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_reg_t;
+typedef riscv_v_mask_reg_t riscv_v_mask_regs_t [RISCV_V_MASK_RF_NUM_REGS];
 
 //ALU Types
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0]  riscv_v_src_byte_vector_t;
@@ -106,9 +196,6 @@ typedef logic[RISCV_V_NUM_WORDS_DATA-1:0]                   riscv_v_num_word_vec
 typedef logic[RISCV_V_NUM_DWORDS_DATA-1:0]                  riscv_v_num_dword_vector_t;
 typedef logic[RISCV_V_NUM_QWORDS_DATA-1:0]                  riscv_v_num_qword_vector_t;
 typedef logic[RISCV_V_NUM_DQWORDS_DATA-1:0]                 riscv_v_num_dqword_vector_t;
-
-//Mask Types
-typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_reg_t;
 
 //Opcode types
 typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT, 

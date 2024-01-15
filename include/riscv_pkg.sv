@@ -230,6 +230,19 @@ typedef union packed{
 
 typedef logic [RISCV_RAM_ADDR_WIDTH-1:0] riscv_ram_addr_t;
 
+//CSR
+typedef enum logic [1:0] {OFF = 2'b00, ON = 2'b01, DIRTY = 2'b10, RSVD = 2'b11} riscv_csr_status_e;   //FIXME: Check if this values are correct
+
+typedef struct packed {
+    riscv_csr_status_e VS;         //mstatus[10:9] Vector Status Attempts to execute any vector instruction, or to access the vector CSRs, raise an illegal-instruction exception when mstatus.VS is set to Off.
+    logic [8:0]  reserved;         //mstatus[8:0] Reserved for other riscv functionalities
+} riscv_mstatus_t;
+
+parameter mstatus_t riscv_mstatus_rst_val  = '{
+    VS       : ON,
+    reserved : 'x
+};
+
 //PC
 parameter int RISCV_PC_WIDTH           = 32;
 typedef logic [RISCV_PC_WIDTH-1:0] riscv_pc_t;
