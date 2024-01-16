@@ -14,8 +14,8 @@ class riscv_v_mask_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     rand logic              is_xor;
     rand logic              is_negate_srca;
     rand logic              is_negate_result;
-    rand riscv_v_mask_reg_t srca_mask;
-    rand riscv_v_mask_reg_t srcb_mask;
+    rand riscv_v_mask_t     srca_mask;
+    rand riscv_v_mask_t     srcb_mask;
 
     `uvm_object_utils_begin(riscv_v_mask_alu_in_seq_item)
         `uvm_field_int(is_mask,             UVM_ALL_ON)

@@ -19,7 +19,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     //Expected results
     riscv_v_wb_data_t  logic_exp_result;
     riscv_v_wb_data_t  arithmetic_exp_result;
-    riscv_v_mask_reg_t mask_exp_result;
+    riscv_v_mask_t     mask_exp_result;
     riscv_v_wb_data_t  permutation_exp_vec_result;
     riscv_data_t       permutation_exp_int_result;
     riscv_v_zf_t       zf_exp;
