@@ -118,4 +118,50 @@ assign vcsr.rounding_mode = vxrm.rounding_mode;
 assign vcsr.saturate      = vxsat.saturate;
 assign vcsr_data_out      = vcsr;
 
+////////////////////////////////////////////////Assertions/////////////////////////////////////////////
+
+vstart_supported: assert property ( @(posedge clk)
+    vstart.index == 0
+) else $fatal("Vstart different than 0 is not supported yet");
+
+vlen_supported: assert property ( @(posedge clk)
+    vl.len <= RISCV_V_NUM_ELEMENTS_REG
+) else $fatal($sformatf("Vlen different than %0d is not supported yet", RISCV_V_NUM_ELEMENTS_REG));
+
+vlmul_suppoorted: assert property ( @(posedge clk)
+    vtype.vlmul == LMUL_1
+) else $fatal("vlmul different than 1 is not supported yet");
+
+vsstatus_x: assert property ( @(posedge clk)
+    !$isunknown(vsstatus)
+) else $error($sformatf("vsstatus is unknown: 0x%0h", vsstatus));
+
+vtype_x: assert property ( @(posedge clk)
+    !$isunknown(vtype)
+) else $error($sformatf("vtype is unknown: 0x%0h", vtype));
+
+vl_x: assert property ( @(posedge clk)
+    !$isunknown(vl)
+) else $error($sformatf("vl is unknown: 0x%0h", vl));
+
+vlenb_x: assert property ( @(posedge clk)
+    !$isunknown(vlenb)
+) else $error($sformatf("vlenb is unknown: 0x%0h", vlenb));
+
+vstart_x: assert property ( @(posedge clk)
+    !$isunknown(vstart)
+) else $error($sformatf("vstart is unknown: 0x%0h", vstart));
+
+vxrm_x: assert property ( @(posedge clk)
+    !$isunknown(vxrm)
+) else $error($sformatf("vxrm is unknown: 0x%0h", vxrm));
+
+vxsat_x: assert property ( @(posedge clk)
+    !$isunknown(vxsat)
+) else $error($sformatf("vxsat is unknown: 0x%0h", vxsat));
+
+vcsr_x: assert property ( @(posedge clk)
+    !$isunknown(vcsr)
+) else $error($sformatf("vcsr is unknown: 0x%0h", vcsr));
+
 endmodule: riscv_v_csr

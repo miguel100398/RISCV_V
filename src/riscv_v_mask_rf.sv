@@ -9,12 +9,12 @@ import riscv_v_pkg::*, riscv_pkg::*;
     parameter bit RD_ASYNC   = 1'b1,
     parameter bit REG_INPUTS = 1'b0
 )(
-    input  logic        clk,
-    input  riscv_v_mask_rf_addr_t wr_addr,
-    input  riscv_v_mask_rf_addr_t rd_addr,
-    input  riscv_v_mask_reg_t     data_in,
-    input  logic                  wr_en,
-    output riscv_v_mask_reg_t     data_out
+    input  logic                    clk,
+    input  riscv_v_mask_rf_addr_t   wr_addr,
+    input  riscv_v_mask_rf_addr_t   rd_addr,
+    input  riscv_v_mask_t           data_in,
+    input  logic                    wr_en,
+    output riscv_v_mask_t           data_out
 );
 
     //Registers
@@ -23,7 +23,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
     //Internal inputs
     riscv_v_mask_rf_addr_t wr_addr_int;
     riscv_v_mask_rf_addr_t rd_addr_int;
-    riscv_v_mask_reg_t     data_in_int;
+    riscv_v_mask_t         data_in_int;
     logic                  wr_en_int;
 
     //Register or bypass inputs

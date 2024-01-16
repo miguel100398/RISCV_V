@@ -13,28 +13,28 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic                is_xor,
     input  logic                is_negate_srca,
     input  logic                is_negate_result,
-    input  riscv_v_mask_reg_t   srca,
-    input  riscv_v_mask_reg_t   srcb,
-    output riscv_v_mask_reg_t   result
+    input  riscv_v_mask_t       srca,
+    input  riscv_v_mask_t       srcb,
+    output riscv_v_mask_t       result
 );
 
 //Select between srca and ~srca with a xor gate
-riscv_v_mask_reg_t srca_sel;
+riscv_v_mask_t srca_sel;
 //Srca gated with is_and
-riscv_v_mask_reg_t srca_and_gated;
+riscv_v_mask_t srca_and_gated;
 //Srca/b gated with is_or
-riscv_v_mask_reg_t srca_or_gated;
-riscv_v_mask_reg_t srcb_or_gated;
+riscv_v_mask_t srca_or_gated;
+riscv_v_mask_t srcb_or_gated;
 //Srca/b gated with is_xor
-riscv_v_mask_reg_t srca_xor_gated;
-riscv_v_mask_reg_t srcb_xor_gated;
+riscv_v_mask_t srca_xor_gated;
+riscv_v_mask_t srcb_xor_gated;
 //Operations
-riscv_v_mask_reg_t and_result;
-riscv_v_mask_reg_t or_result;
-riscv_v_mask_reg_t xor_result;
+riscv_v_mask_t and_result;
+riscv_v_mask_t or_result;
+riscv_v_mask_t xor_result;
 //Select between result and ~result with a xor gate
-riscv_v_mask_reg_t result_op;
-riscv_v_mask_reg_t result_sel;
+riscv_v_mask_t result_op;
+riscv_v_mask_t result_sel;
 
 assign srca_sel = srca ^ {RISCV_V_NUM_ELEMENTS_REG{is_negate_srca}};
 

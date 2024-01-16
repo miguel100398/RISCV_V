@@ -23,6 +23,19 @@ parameter int RISCV_V_NUM_QWORDS_DATA       = RISCV_V_DATA_WIDTH / QWORD_WIDTH; 
 parameter int RISCV_V_NUM_DQWORDS_DATA      = RISCV_V_DATA_WIDTH / DQWORD_WIDTH;              //Number of dqwords in Data bus
 parameter int RISCV_V_NUM_QQWORDS_DATA      = RISCV_V_DATA_WIDTH / QQWORD_WIDTH;              //Number of dqwords in Data bus
 
+//PIPE STAGES
+typedef enum {RISCV_V_IF, RISCV_V_ID, RISCV_V_EXE, RISCV_V_MEM, RISCV_V_WB} PIPE_STAGES_E;
+parameter RISCV_V_IF_2_ID_LATENCY   = 1;
+parameter RISCV_V_ID_2_EXE_LATENCY  = 1;
+parameter RISCV_V_EXE_2_MEM_LATENCY = 1;
+parameter RISCV_V_MEM_2_WB_LATENCY  = 1;
+parameter RISCV_V_IF_2_EXE_LATENCY  = RISCV_V_IF_2_ID_LATENCY + RISCV_V_ID_2_EXE_LATENCY;
+parameter RISCV_V_IF_2_MEM_LATENCY  = RISCV_V_IF_2_ID_LATENCY + RISCV_V_ID_2_EXE_LATENCY + RISCV_V_EXE_2_MEM_LATENCY;
+parameter RISCV_V_IF_2_WB_LATENCY   = RISCV_V_IF_2_ID_LATENCY + RISCV_V_ID_2_EXE_LATENCY + RISCV_V_EXE_2_MEM_LATENCY + RISCV_V_MEM_2_WB_LATENCY;
+parameter RISCV_V_ID_2_MEM_LATENCY  =                           RISCV_V_ID_2_EXE_LATENCY + RISCV_V_EXE_2_MEM_LATENCY;
+parameter RISCV_V_ID_2_WB_LATENCY   =                           RISCV_V_ID_2_EXE_LATENCY + RISCV_V_EXE_2_MEM_LATENCY + RISCV_V_MEM_2_WB_LATENCY;
+parameter RISCV_V_EXE_2_WB_LATENCY  =                                                      RISCV_V_EXE_2_MEM_LATENCY + RISCV_V_MEM_2_WB_LATENCY;
+
 //Regfile Constants
 parameter bit RISCV_V_RF_RD_ASYNC           = 1'b1;
 parameter bit RISCV_V_RF_REG_INPUTS         = 1'b0;
@@ -44,6 +57,8 @@ typedef enum logic {UNDISTURBED = 1'b0, AGNOSTIC = 1'b1} riscv_v_agnostic_e;
 typedef logic[$clog2(RISCV_V_MAX_VLEN)-1:0] riscv_v_vlen_t;
 typedef logic[$clog2(RISCV_V_MAX_VLEN)-1:0] riscv_v_field_vstart_t;
 typedef enum logic [1:0] {RNU = 2'b00, RNE = 2'b01, RDN = 2'b10, ROD = 2'b11} riscv_v_fixed_point_rounding_e;
+
+
 
 typedef struct packed {
     riscv_csr_status_e VS;        //vsstatus[10:9] vector context status field, Only valid when hypervisor extension is present
@@ -83,10 +98,19 @@ typedef struct packed {
     logic                          saturate;
 } riscv_v_vcsr_t;
 
+parameter int RISCV_V_VSSTATUS_WIDTH = $bits(riscv_v_vsstatus_t);
+parameter int RISCV_V_VTYPE_WIDTH    = $bits(riscv_v_vtype_t);
+parameter int RISCV_V_VL_WIDTH       = $bits(riscv_v_vl_t);
+parameter int RISCV_V_VLENB_WIDTH    = $bits(riscv_v_vlenb_t);
+parameter int RISCV_V_VSTART_WIDTH   = $bits(riscv_v_vstart_t);
+parameter int RISCV_V_VXRM_WIDTH     = $bits(riscv_v_vxrm_t);
+parameter int RISCV_V_VXSAT_WIDTH    = $bits(riscv_v_vxsat_t);
+parameter int RISCV_V_VCSR_WIDTH     = $bits(riscv_v_vcsr_t);
+
 
 parameter riscv_v_vsstatus_t RISCV_V_VSSTATUS_RST_VAL = '{
     VS       : OFF,
-    reserved : 'x
+    reserved : '0
 };
 
 parameter riscv_v_vtype_t RISCV_V_VTYPE_RST_VAL  = '{
@@ -185,8 +209,8 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_rf_wr_en_t;
 typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
 //Mask Types
 typedef logic[RISCV_V_MASK_RF_ADDR_WIDTH-1:0] riscv_v_mask_rf_addr_t;
-typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_reg_t;
-typedef riscv_v_mask_reg_t riscv_v_mask_regs_t [RISCV_V_MASK_RF_NUM_REGS];
+typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_t;
+typedef riscv_v_mask_t riscv_v_mask_regs_t [RISCV_V_MASK_RF_NUM_REGS];
 
 //ALU Types
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0]  riscv_v_src_byte_vector_t;
