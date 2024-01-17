@@ -105,6 +105,7 @@ parameter int RISCV_LS_SIZE_END                 = 0;
 //Instruction 
 parameter int RISCV_INSTR_WIDTH                 = 32;                                             //Width of instructions
 parameter int RISCV_INSTR_FUNCT7_WIDTH          = 7;
+parameter int RISCV_INSTR_FUNCT6_WIDTH          = 6;
 parameter int RISCV_INSTR_FUNCT3_WIDTH          = 3;
 parameter int RISCV_INSTR_RS_WIDTH              = 5;
 parameter int RISCV_INSTR_RD_WIDTH              = 5;
@@ -116,8 +117,10 @@ parameter int RISCV_INSTR_IMM_12_10_5_WIDTH     = 7;
 parameter int RISCV_INSTR_IMM_4_1_11_WIDTH      = 5;
 parameter int RISCV_INSTR_IMM_31_12_WIDTH       = 20;
 parameter int RISCV_INSTR_IMM_JUMP_WIDTH        = 20;
+parameter int RISCV_INSTR_MASK_WIDTH            = 1;
 
 typedef logic [RISCV_INSTR_FUNCT7_WIDTH-1:0]        riscv_instr_funct7_t;
+typedef logic [RISCV_INSTR_FUNCT6_WIDTH-1:0]        riscv_instr_funct6_t;
 typedef logic [RISCV_INSTR_FUNCT3_WIDTH-1:0]        riscv_instr_funct3_t;
 typedef logic [RISCV_INSTR_RS_WIDTH-1:0]            riscv_instr_rs_t;
 typedef logic [RISCV_INSTR_RD_WIDTH-1:0]            riscv_instr_rd_t;
@@ -129,6 +132,7 @@ typedef logic [RISCV_INSTR_IMM_12_10_5_WIDTH-1:0]   riscv_instr_imm_12_10_5_t;
 typedef logic [RISCV_INSTR_IMM_4_1_11_WIDTH-1:0]    riscv_instr_imm_4_1_11_t;
 typedef logic [RISCV_INSTR_IMM_31_12_WIDTH-1:0]     riscv_instr_imm_31_12_t;
 typedef logic [RISCV_INSTR_IMM_JUMP_WIDTH-1:0]      riscv_instr_imm_jump_t;
+typedef logic [RISCV_INSTR_MASK_WIDTH-1:0]          riscv_instr_mask_t;
 
 typedef struct packed {
         riscv_instr_funct7_t    funct7;
@@ -177,6 +181,16 @@ typedef struct packed {
         riscv_instr_op_t        op;
     } riscv_j_type_instruction_t;
 
+    typedef struct packed {
+        riscv_instr_funct6_t  funct6;
+        riscv_instr_mask_t    vm;
+        riscv_instr_rs_t      vs2;
+        riscv_instr_rs_t      vs1;
+        riscv_instr_funct3_t  funct3;
+        riscv_instr_rd_t      vd;
+        riscv_instr_op_t      op;
+    } riscv_v_type_instruction_t;
+
     typedef union packed {
         riscv_r_type_instruction_t      R;
         riscv_i_type_instruction_t      I;
@@ -184,6 +198,7 @@ typedef struct packed {
         riscv_b_type_instruction_t      B;
         riscv_u_type_instruction_t      U;
         riscv_j_type_instruction_t      J;
+        riscv_v_type_instruction_t      V;
         logic [RISCV_INSTR_WIDTH-1:0]   raw;
     } riscv_instruction_t;
 
