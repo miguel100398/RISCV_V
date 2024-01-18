@@ -9,7 +9,17 @@ import riscv_pkg::*, riscv_v_pkg::*;
     //Clocks and resets
     input  logic                clk,
     input  logic                rst,
+    //Sources
+    input  riscv_v_alu_data_t   srca_exe,
+    input  riscv_v_alu_data_t   srcb_exe,
+    input  riscv_data_t         src_int_exe,
+    input  riscv_v_mask_t       mask_exe,
     //Control signals
+    input  osize_vector_t       dst_osize_vector_exe,
+    input  osize_vector_t       src_osize_vector_exe,
+    input  osize_vector_t       is_greater_osize_vector_exe,
+    input  osize_vector_t       is_less_osize_vector_exe,
+    input  riscv_v_src_len_t    len_exe,
     input  logic                is_i2v_exe,
     input  logic                is_v2i_exe,
     input  logic                is_and_exe,
@@ -35,8 +45,33 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                is_min_exe,
     input  logic                is_high_exe,
     input  logic                is_signed_exe,
-    input  logic                use_carry_exe
+    input  logic                use_carry_exe,
+    //Result
+    output riscv_data_t         int_result_exe,
+    output riscv_v_wb_data_t    vec_result_exe,
+    output riscv_v_mask_t       mask_result_exe
 );
+
+    riscv_v_alu_data_t  srca_shuffled_exe;
+    riscv_v_shuffler_sel_vector_t shuffler_sel_exe;
+
+    //Results
+    riscv_v_wb_data_t   logic_result;
+    riscv_v_wb_data_t   arithmetic_result;
+    riscv_v_wb_data_t   permutation_result;
+
+    assign vec_result_exe = logic_result
+                          | arithmetic_result
+                          | permutation_result;
+    
+    assign shuffler_sel_exe = '{default:'0};
+
+    //Shuffler
+    riscv_v_shuffler v_shuffler(
+        .src(srca_exe),
+        .sel(shuffler_sel_exe),
+        .result(srca_shuffled_exe)
+    );
 
     //Logical ALU
     riscv_v_logic_ALU logic_ALU(
@@ -48,11 +83,11 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_shift(is_shift_exe),
         .is_left(is_left_exe),
         .is_arith(is_arith_exe),
-        .dst_osize_vector(),
-        .is_greater_osize_vector(),
-        .is_less_osize_vector(),
-        .srca(),
-        .srcb(),
+        .dst_osize_vector(dst_osize_vector_exe),
+        .is_greater_osize_vector(is_greater_osize_vector_exe),
+        .is_less_osize_vector(is_less_osize_vector_exe),
+        .srca(srca_shuffled_exe),
+        .srcb(srcb_exe),
         .result()
     );
 
@@ -73,17 +108,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_high(is_high_exe),
         .is_signed(is_signed_exe),
         .use_carry(use_carry_exe),
-        .dst_osize_vector(),
-        .src_osize_vector(),
-        .is_greater_osize_vector(),
-        .is_less_osize_vector(),
-        .srca(),
-        .srcb(),
-        .carry_in(),
-        .result(),
-        .zf(),
-        .of(),
-        .cf()
+        .dst_osize_vector(dst_osize_vector_exe),
+        .src_osize_vector(src_osize_vector_exe),
+        .is_greater_osize_vector(is_greater_osize_vector_exe),
+        .is_less_osize_vector(is_less_osize_vector_exe),
+        .srca(srca_shuffled_exe),
+        .srcb(srcb_exe),
+        .carry_in(mask_exe),
+        .result()
     );
 
     //Mask  ALU
@@ -94,18 +126,18 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_xor(is_xor_exe),
         .is_negate_srca(is_negate_srca_exe),
         .is_negate_result(is_negate_result_exe),
-        .srca(),
-        .srcb(),
-        .result()
+        .srca(srca_shuffled),
+        .srcb(srcb_exe),
+        .result(mask_result_exe)
     );
     
     //Permutation ALU
     riscv_v_permutation_ALU permutation_ALU(
         .is_i2v(is_i2v_exe),
         .is_v2i(is_v2i_exe),
-        .integer_data_in(),
-        .vector_data_in(),
-        .integer_data_out(),
+        .integer_data_in(int_data_exe),
+        .vector_data_in(srca_shuffled_exe),
+        .integer_data_out(int_result_exe),
         .vector_data_out()
     );
 

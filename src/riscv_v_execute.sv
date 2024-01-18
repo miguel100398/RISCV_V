@@ -54,10 +54,29 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_vstart_t                   vstart   
 );
 
+riscv_v_data_t srca_byp;
+riscv_v_data_t srcb_byp;
+
+riscv_v_alu_data_t  srca_alu;
+riscv_v_alu_data_t  srcb_alu;
+osize_vector_t      dst_osize_vector;
+osize_vector_t      src_osize_vector;
+osize_vector_t      is_greater_osize_vector;
+osize_vector_t      is_less_osize_vector;
+riscv_v_src_len_t   len;
+
 //Execution ALUS
 riscv_v_exe_alu exe_alu(
     .clk(clk),
     .rst(rst),
+    .srca_exe(srca_alu),
+    .srcb_exe(srcb_alu),
+    .src_int_exe(int_data_exe),
+    .dst_osize_vector_exe(dst_osize_vector),
+    .src_osize_vector_exe(src_osize_vector),
+    .is_greater_osize_vector_exe(is_greater_osize_vector),
+    .is_less_osize_vector_exe(is_less_osize_vector),
+    .len_exe(len),
     .is_i2v_exe(is_i2v_exe),
     .is_v2i_exe(is_v2i_exe),
     .is_and_exe(is_and_exe),
@@ -83,7 +102,36 @@ riscv_v_exe_alu exe_alu(
     .is_min_exe(is_min_exe),
     .is_high_exe(is_high_exe),
     .is_signed_exe(is_signed_exe),
-    .use_carry_exe(use_carry_exe)
+    .use_carry_exe(use_carry_exe),
+    .int_result_exe(int_data_result_exe),
+    .vec_result_exe(alu_result_exe),
+    .mask_result_exe(mask_result_exe)
 );
+
+riscv_v_decode_element decode_element(
+    .srca(srca_byp),
+    .srcb(srcb_byp),
+    .vtype(vtype),
+    .vl(vl),
+    .vstart(vstart),
+    .srca_alu(srca_alu),
+    .srcb_alu(srcb_alu),
+    .dst_osize_vector(dst_osize_vector),
+    .src_osize_vector(src_osize_vector),
+    .is_greater_osize_vector(is_greater_osize_vector),
+    .is_less_osize_vector(is_less_osize_vector),
+    .len(len)
+);
+
+//Bypass unit
+riscv_v_bypass v_bypass(
+    .integer_data(int_data_exe),
+    .srca(srca_exe),
+    .srcb(srcb_exe),
+    .is_scalar_int(is_scalar_int_op_exe),
+    .srca_byp(srca_byp),
+    .srcb_byp(srcb_byp)
+);
+
 
 endmodule: riscv_v_execute

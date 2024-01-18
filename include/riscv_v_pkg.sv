@@ -283,6 +283,12 @@ typedef logic[RISCV_V_NUM_DWORDS_DATA-1:0]                  riscv_v_num_dword_ve
 typedef logic[RISCV_V_NUM_QWORDS_DATA-1:0]                  riscv_v_num_qword_vector_t;
 typedef logic[RISCV_V_NUM_DQWORDS_DATA-1:0]                 riscv_v_num_dqword_vector_t;
 
+//Shuffler types
+parameter int RISCV_V_SHUFFLER_SEL_WIDTH = $clog2(RISCV_V_NUM_ELEMENTS_REG);
+typedef logic[RISCV_V_SHUFFLER_SEL_WIDTH-1:0] riscv_v_shuffler_sel_t;
+typedef riscv_v_shuffler_sel_t riscv_v_shuffler_sel_vector_t [RISCV_V_NUM_ELEMENTS_REG-1:0];
+
+
 //Opcode types
 typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT, 
                          BW_OR,  BW_OR_REDUCT,
