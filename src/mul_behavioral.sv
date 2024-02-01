@@ -52,7 +52,7 @@ twos_comp_sel #(
 twos_comp_sel #(
     .WIDTH(WIDTH)
 )twos_comp_srcB(
-    .in(srcb_gated),
+    .in(srcb),
     .complement(srcb_comp),
     .out(srcb_mul)
 );

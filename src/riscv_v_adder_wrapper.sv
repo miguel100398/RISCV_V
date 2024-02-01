@@ -19,7 +19,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic                       use_carry,
     input  osize_vector_t              osize_vector,
     input  osize_vector_t              is_greater_osize_vector,
-    input  riscv_v_alu_data_t          srca_in,
+    input  riscv_v_alu_data_t          srca,
     input  riscv_v_alu_data_t          srcb,
     input  riscv_v_carry_in_t          carry_in,
     output logic[31:0]                 result_out,

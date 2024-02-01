@@ -49,9 +49,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                       is_signed_exe,
     input  logic                       use_carry_exe,
     //CSR interface
-    riscv_v_vtype_t                    vtype,
-    riscv_v_vl_t                       vl,
-    riscv_v_vstart_t                   vstart   
+    input  riscv_v_vtype_t             vtype,
+    input  riscv_v_vl_t                vl,
+    input  riscv_v_vstart_t            vstart   
 );
 
 riscv_v_data_t srca_byp;

@@ -57,7 +57,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
     riscv_v_of_t              of_qual;
     riscv_v_cf_t              cf_qual;
 
-    assign adder_result_valid = 1'b1;
     assign is_reduct_n = ~is_reduct;
 
     assign is_min_max    = is_min || is_max;

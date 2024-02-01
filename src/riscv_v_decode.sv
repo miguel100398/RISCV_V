@@ -121,7 +121,7 @@ riscv_v_vtype_t              csr_wr_data_vtype_wb;
 riscv_v_vl_t                 csr_wr_data_vl_wb;
 riscv_v_vstart_t             csr_wr_data_vstart_wb;
 riscv_v_vxrm_t               csr_wr_data_vxrm_wb;
-riscv_v_vxsat_t              csr_wr_data_vxsat_w;
+riscv_v_vxsat_t              csr_wr_data_vxsat_wb;
 
 //Control unit
 riscv_v_ctrl v_ctrl(

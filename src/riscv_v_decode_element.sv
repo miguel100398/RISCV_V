@@ -38,6 +38,9 @@ assign dst_osize_vector[2] = (dst_osize == OSIZE_32);
 assign dst_osize_vector[3] = (dst_osize == OSIZE_64);
 assign dst_osize_vector[4] = (dst_osize == OSIZE_128);
 
+//FIXME
+assign src_osize_vector = dst_osize_vector;
+
 assign len = vl.len;
 
 //Is greater osize vector
@@ -113,6 +116,6 @@ always_comb begin
 end
 
 assign srcb_alu.merge = srca_alu.merge;
-assign srcb_alu.valid = srcb_alu.valid;
+assign srcb_alu.valid = srca_alu.valid;
 
 endmodule: riscv_v_decode_element
