@@ -4,8 +4,9 @@
 //Description: Parametrizable adder
 
 module adder_nbit#(
-    parameter int    WIDTH      = 8,
-    parameter string ADDER_TYPE = "BEHAVIORAL_ADDER"
+    parameter int    WIDTH         = 8,
+    parameter bit BEHAVIORAL       = 1'b1,
+    parameter bit RIPPLE_CARRY     = 1'b0
 ) (
     input  logic [WIDTH-1:0] A,
     input  logic [WIDTH-1:0] B,
@@ -15,15 +16,17 @@ module adder_nbit#(
     output logic             cout         //cout[N]
 );
 
-initial begin 
-    if ((ADDER_TYPE != "RIPPLE_CARRY_ADDER") && (ADDER_TYPE != "BEHAVIORAL_ADDER")) begin
-        $fatal("Invalid adder type: %s", ADDER_TYPE);
-    end 
-end 
+`ifndef SYNTHESIS
+    initial begin 
+        if (!$onehot({BEHAVIORAL, RIPPLE_CARRY})) begin
+            $fatal("Invalid adder type {BEHAVIORAL, RIPPLE_CARRY}: %0b", {BEHAVIORAL, RIPPLE_CARRY});
+        end 
+    end
+`endif //SYNTHESIS 
 
 //Generate adder
 generate 
-    if (ADDER_TYPE == "RIPPLE_CARRY_ADDER") begin : get_ripple_carry_adder 
+    if (RIPPLE_CARRY) begin : get_ripple_carry_adder 
         ripple_carry_adder #(
             .WIDTH(WIDTH)
         ) adder (
@@ -34,7 +37,18 @@ generate
             .prev_cout(prev_cout),
             .cout(cout)
         );
-    end else if (ADDER_TYPE == "BEHAVIORAL_ADDER") begin : gen_behavioral_adder 
+    end else if (BEHAVIORAL) begin : gen_behavioral_adder 
+        behavioral_adder #(
+            .WIDTH(WIDTH)
+        ) adder (
+            .A(A),
+            .B(B),
+            .cin(cin),
+            .S(S),
+            .prev_cout(prev_cout),
+            .cout(cout)
+        );
+    end else begin : gen_default_adder
         behavioral_adder #(
             .WIDTH(WIDTH)
         ) adder (

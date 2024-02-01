@@ -72,6 +72,7 @@ riscv_v_exe_alu exe_alu(
     .srca_exe(srca_alu),
     .srcb_exe(srcb_alu),
     .src_int_exe(int_data_exe),
+    .mask_exe(mask_exe),
     .dst_osize_vector_exe(dst_osize_vector),
     .src_osize_vector_exe(src_osize_vector),
     .is_greater_osize_vector_exe(is_greater_osize_vector),

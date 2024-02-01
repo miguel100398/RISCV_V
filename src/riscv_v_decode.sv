@@ -20,7 +20,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_data_t                 int_rf_rd_data_exe,
     input  riscv_data_t                 int_rf_wr_data_exe,
     output riscv_v_data_t               rf_rd_data_srca_exe,
-    output riscv_v_data_t               rd_rd_data_srcb_exe,
+    output riscv_v_data_t               rf_rd_data_srcb_exe,
     output riscv_v_mask_t               mask_rf_rd_data_exe,
     input  riscv_v_wb_data_t            alu_result_exe,
     input  riscv_v_mask_t               mask_alu_result_exe,
@@ -71,7 +71,10 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_v_vstart_t             vstart,
     output riscv_v_vxrm_t               vxrm,
     output riscv_v_vxsat_t              vxsat,
-    output riscv_v_vcsr_t               vcsr
+    output riscv_v_vcsr_t               vcsr,
+    //Interface to synthesis
+    input  riscv_v_rf_addr_t            syn_addr,
+    output riscv_v_data_t               syn_data
 );
 
 //Control signals
@@ -280,7 +283,10 @@ riscv_v_rf #(
     .data_in(rf_wr_data_wb),
     .wr_en(rf_wr_en_wb),
     .data_out_A(rf_rd_data_srca_id),
-    .data_out_B(rf_rd_data_srcb_id)
+    .data_out_B(rf_rd_data_srcb_id),
+    //Interface to synthesis
+    .syn_addr(syn_addr),
+    .syn_data(syn_data)
 );
 
 //Mask register File

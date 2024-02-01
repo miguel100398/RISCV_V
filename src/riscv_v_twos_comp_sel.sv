@@ -72,8 +72,9 @@ generate
         assign in_xor[block_idx]      = in[block_idx] ^ {BLOCK_WIDTH{complement_ext[block_idx]}};
 
         adder_nbit#(
-            .ADDER_TYPE("BEHAVIORAL_ADDER"),
-            .WIDTH(BLOCK_WIDTH)
+            .WIDTH(BLOCK_WIDTH),
+	    .RIPPLE_CARRY(1'b0),
+            .BEHAVIORAL(1'b1)
         ) adder (
             .A(in_xor[block_idx]),
             .B('0),

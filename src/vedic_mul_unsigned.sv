@@ -131,7 +131,8 @@ generate
         assign cin_low_adder  = 1'b0;
         adder_nbit #(
             .WIDTH(WIDTH),
-            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
+            .RIPPLE_CARRY(1'b1),
+            .BEHAVIORAL(1'b0)
         ) low_adder(
             .A      (srcA_low_adder),
             .B      (srcB_low_adder),
@@ -146,7 +147,8 @@ generate
         assign cin_mid_adder  = 1'b0;
         adder_nbit #(
             .WIDTH(WIDTH),
-            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
+            .RIPPLE_CARRY(1'b1),
+            .BEHAVIORAL(1'b0)
         ) mid_adder(
             .A      (srcA_mid_adder),
             .B      (srcB_mid_adder),
@@ -161,7 +163,8 @@ generate
         assign cin_high_adder  = 1'b0;
         adder_nbit #(
             .WIDTH(WIDTH),
-            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
+            .RIPPLE_CARRY(1'b1),
+            .BEHAVIORAL(1'b0)
         ) high_adder(
             .A      (srcA_high_adder),
             .B      (srcB_high_adder),
@@ -278,10 +281,12 @@ generate
 endgenerate
 
 //Check Parameter
-initial begin
-    if (WIDTH%2) begin
-        $fatal("WIDTH should be a power of 2, WIDTH:%0d", WIDTH);
+`ifndef SYNTHESIS
+    initial begin
+        if (WIDTH%2) begin
+            $fatal("WIDTH should be a power of 2, WIDTH:%0d", WIDTH);
+        end
     end
-end
+`endif //SYNTHESIS
 
 endmodule: vedic_mul_unsigned
