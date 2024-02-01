@@ -23,14 +23,17 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                        ext_wr_vl_id,
     input  logic                        ext_wr_vstart_id,
     input  logic                        ext_wr_vxrm_id,
-    input  logic                        ext_wr_vxsat_id
+    input  logic                        ext_wr_vxsat_id,
+    //Interface to synthesis
+    input  riscv_v_rf_addr_t            syn_addr,
+    output riscv_v_data_t               syn_data                 
 );
 
     //DECODE/EXE signals
     riscv_data_t                 int_rf_rd_data_exe;
     riscv_data_t                 int_rf_wr_data_exe;
     riscv_v_data_t               rf_rd_data_srca_exe;
-    riscv_v_data_t               rd_rd_data_srcb_exe;
+    riscv_v_data_t               rf_rd_data_srcb_exe;
     riscv_v_mask_t               mask_rf_rd_data_exe;
     riscv_v_wb_data_t            alu_result_exe;
     riscv_v_mask_t               mask_alu_result_exe;
@@ -80,6 +83,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .clk(clk),
         .rst(rst),
         .clear_pipe(clear_pipe),
+        .instruction_id(instruction_id),
         //Integer Register File Interface
         .int_rf_rd_data_id(int_rf_rd_data_id),
         .int_rf_wr_data_wb(int_rf_wr_data_wb),
@@ -88,7 +92,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .int_rf_rd_data_exe(int_rf_rd_data_exe),
         .int_rf_wr_data_exe(int_rf_wr_data_exe),
         .rf_rd_data_srca_exe(rf_rd_data_srca_exe),
-        .rd_rd_data_srcb_exe(rd_rd_data_srcb_exe),
+        .rf_rd_data_srcb_exe(rf_rd_data_srcb_exe),
         .mask_rf_rd_data_exe(mask_rf_rd_data_exe),
         .alu_result_exe(alu_result_exe),
         .mask_alu_result_exe(mask_alu_result_exe),
@@ -139,7 +143,10 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .vstart(vstart),
         .vxrm(vxrm),
         .vxsat(vxsat),
-        .vcsr(vcsr)
+        .vcsr(vcsr),
+        //Interface to synthesis
+        .syn_addr(syn_addr),
+        .syn_data(syn_data)
     );
 
     //Execute stage

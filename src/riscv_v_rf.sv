@@ -16,7 +16,10 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  riscv_v_data_t       data_in,
     input  riscv_v_rf_wr_en_t   wr_en,
     output riscv_v_data_t       data_out_A,
-    output riscv_v_data_t       data_out_B
+    output riscv_v_data_t       data_out_B,
+    //Interface to synthesis
+    input  riscv_v_rf_addr_t    syn_addr,
+    output riscv_v_data_t       syn_data
 );
 
     //Registers
@@ -29,6 +32,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
     riscv_v_rf_addr_t    rd_addr_B_int;  
     riscv_v_data_t       data_in_int;
     riscv_v_rf_wr_en_t   wr_en_int;
+
+    assign syn_data = regs[syn_addr];
 
 
     //Register or bypass inputs

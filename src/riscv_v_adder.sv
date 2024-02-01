@@ -142,7 +142,8 @@ generate
     for (genvar block=0; block<NUM_ADD_BLOCKS; block++) begin : gen_adder
         adder_nbit #(
             .WIDTH(BYTE_WIDTH),
-            .ADDER_TYPE("RIPPLE_CARRY_ADDER")
+            .RIPPLE_CARRY(1'b1),
+	    .BEHAVIORAL(1'b0)
         ) adder (
             .A(srca_adder[block]),
             .B(srcb_adder[block]),

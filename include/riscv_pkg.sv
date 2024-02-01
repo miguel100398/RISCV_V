@@ -7,12 +7,14 @@
 
 package riscv_pkg;
 
-`ifndef RISCV_REGRESSION 
-    parameter string RISCV_ROM_FILE = "sort_final_project.mem";
-`else 
-    parameter string RISCV_ROM_FILE = "../../../../../../assembly_code/sort_final_project.mem";        //Relative path only to be used with vivado and running regression, if using different tool the path could need to be changed
-
-`endif //RISCV_REGRESSION
+`define SYNTHESIS
+    `ifndef SYNTHESIS
+        `ifndef RISCV_REGRESSION 
+            parameter string RISCV_ROM_FILE = "sort_final_project.mem";
+        `else 
+            parameter string RISCV_ROM_FILE = "../../../../../../assembly_code/sort_final_project.mem";        //Relative path only to be used with vivado and running regression, if using different tool the path could need to be changed
+    `endif //RISCV_REGRESSION
+`endif //SYNTHESIS
 
 //Time constants
 parameter real CLK_FREQ                     = 50e6;

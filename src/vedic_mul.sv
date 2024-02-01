@@ -126,10 +126,12 @@ riscv_v_twos_comp_sel #(
 
 
 //Check Parameter
-initial begin
-    if (WIDTH%2) begin
-        $fatal("WIDTH should be a power of 2, WIDTH:%0d", WIDTH);
+`ifndef SYNTHESIS
+    initial begin
+        if (WIDTH%2) begin
+            $fatal("WIDTH should be a power of 2, WIDTH:%0d", WIDTH);
+        end
     end
-end
+`endif //SYNTHESIS
 
 endmodule: vedic_mul
