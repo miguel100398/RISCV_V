@@ -36,9 +36,9 @@ class riscv_v_reg #(type data_t  = riscv_v_data_t,
     /* Write data to registesr
     Default value is 0
     */
-    virtual function void write_reg(data_t write_val = '0, wr_en_t = '0);
+    virtual function void write_reg(data_t write_val = '0, wr_en_t wr_en= '0);
         for (int byte_idx = 0; byte_idx < NUM_BYTES; byte_idx++) begin
-            if (wr_en_t[byte_idx] == 1'b1) begin
+            if (wr_en[byte_idx] == 1'b1) begin
                 data.Byte[byte_idx] = write_val.Byte[byte_idx];
             end
         end

@@ -66,5 +66,10 @@ import riscv_v_pkg::*, riscv_pkg::*;
         `endif //RISCV_V_INST
     endclocking
 
+    clocking cb_bfm @(posedge clk);
+        output integer_data_out;
+        output vector_data_out;
+    endclocking
+
 
 endinterface: riscv_v_permutation_ALU_if

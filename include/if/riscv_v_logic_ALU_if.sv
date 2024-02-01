@@ -119,4 +119,8 @@ import riscv_v_pkg::*;
         `endif //RISCV_V_INST 
     endclocking
 
+    clocking cb_bfm @(posedge clk);
+        output result;
+    endclocking
+
 endinterface: riscv_v_logic_ALU_if  

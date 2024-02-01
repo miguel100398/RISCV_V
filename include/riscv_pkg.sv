@@ -253,7 +253,7 @@ typedef struct packed {
     logic [8:0]  reserved;         //mstatus[8:0] Reserved for other riscv functionalities
 } riscv_mstatus_t;
 
-parameter mstatus_t riscv_mstatus_rst_val  = '{
+parameter riscv_mstatus_t riscv_mstatus_rst_val  = '{
     VS       : ON,
     reserved : 'x
 };

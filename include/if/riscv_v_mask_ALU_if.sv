@@ -16,9 +16,9 @@ import riscv_v_pkg::*;
     logic               is_xor;
     logic               is_negate_srca;
     logic               is_negate_result;
-    riscv_v_mask_reg_t  srca;
-    riscv_v_mask_reg_t  srcb;
-    riscv_v_mask_reg_t  result;
+    riscv_v_mask_t      srca;
+    riscv_v_mask_t      srcb;
+    riscv_v_mask_t      result;
     `ifdef RISCV_V_INST 
         riscv_v_opcode_e opcode;
     `endif //RISCV_V_INST
@@ -81,5 +81,9 @@ import riscv_v_pkg::*;
             output opcode;
         `endif 
     endclocking 
+
+    clocking cb_bfm @(posedge clk);
+        output result;
+    endclocking
 
 endinterface: riscv_v_mask_ALU_if

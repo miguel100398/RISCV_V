@@ -6,11 +6,18 @@
 package riscv_v_base_pkg;
 
 import uvm_pkg::*;
+import base_pkg::*;
 import riscv_v_pkg::*;
 
 `include "uvm_macros.svh"
-`include "riscv_v_base_seq_item.sv"
+
+typedef base_cfg_obj     riscv_v_base_cfg_obj;
+typedef base_bfm_cfg_obj riscv_v_base_bfm_cfg_obj;
+typedef base_seq_item    riscv_v_base_seq_item;
+typedef base_model       riscv_v_base_model; 
+
 `include "riscv_v_base_subscriber_2ports.sv"
+`include "riscv_v_base_seq_item.sv"
 `include "riscv_v_base_sqr.sv"
 `include "riscv_v_base_seq.sv"
 `include "riscv_v_base_drv.sv"
@@ -20,5 +27,6 @@ import riscv_v_pkg::*;
 `include "riscv_v_base_cov.sv"
 `include "riscv_v_base_agt.sv"
 `include "riscv_v_base_env.sv"
+`include "riscv_v_base_bfm.sv"
 
 endpackage: riscv_v_base_pkg

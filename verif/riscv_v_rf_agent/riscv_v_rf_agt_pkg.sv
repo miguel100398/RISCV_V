@@ -14,10 +14,12 @@ import riscv_v_base_pkg::*;
 `include "uvm_macros.svh"
 `include "riscv_v_reg.sv"
 `include "riscv_v_rf_trk_item.sv"
-`include "riscv_v_rf_seq_item.sv"
 `include "riscv_v_rf_wr_seq_item.sv"
 `include "riscv_v_rf_rd_seq_item.sv"
-`include "riscv_v_rf_sqr.sv"
+`include "riscv_v_rf_seq_item.sv"
+typedef riscv_v_base_sqr#(
+    .seq_item_t(riscv_v_rf_seq_item)
+) riscv_v_rf_sqr;
 `include "riscv_v_rf_base_seq.sv"
 `include "riscv_v_rf_seq.sv"
 `include "riscv_v_rf_rand_seq.sv"

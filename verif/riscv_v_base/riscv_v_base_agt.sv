@@ -1,10 +1,10 @@
 //File: riscv_v_base_agt.sv
 //Author: Miguel Bucio
 //Date: 21/05/23
-//Description: RISC-V Vector Base Agent
+//Description: RISC Vector Base Agent
 
-`ifndef __RISCV_V_BASE_AGT__
-`define __RISCV_V_BASE_AGT__
+`ifndef __RISCV_V_BASE_AGT_SV__
+`define __RISCV_V_BASE_AGT_SV__ 
 
 virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
                                     type seq_item_out_t = seq_item_in_t,
@@ -16,72 +16,39 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
                                     type tracker_t      = riscv_v_base_trk#(
                                                                    .seq_item_in_t   (seq_item_in_t), 
                                                                    .seq_item_out_t  (seq_item_out_t),
-                                                                   .file_name("base_trkr.txt")),
+                                                                   .file_name("riscv_v_base_trkr.txt")),
                                     type sequencer_t    = riscv_v_base_sqr#(
-                                                                   .seq_item_t      (seq_item_in_t))) extends uvm_agent;
-                                                                   
+                                                                   .seq_item_t      (seq_item_in_t)),
+                                    type bfm_t          = riscv_v_base_bfm#(
+                                                                   .seq_item_in_t   (seq_item_in_t),
+                                                                   .seq_item_out_t  (seq_item_out_t),
+                                                                   .sequencer_t     (sequencer_t)
+                                    )) extends base_agt#(
+                                        .seq_item_in_t(seq_item_in_t),
+                                        .seq_item_out_t(seq_item_out_t),
+                                        .driver_t(driver_t),
+                                        .monitor_t(monitor_t),
+                                        .tracker_t(tracker_t),
+                                        .sequencer_t(sequencer_t),
+                                        .bfm_t(bfm_t)
+                                    );
+
     `uvm_component_param_utils(riscv_v_base_agt#(
-        .seq_item_in_t  (seq_item_in_t),
-        .seq_item_out_t (seq_item_out_t),
-        .driver_t       (driver_t),
-        .monitor_t      (monitor_t),
-        .tracker_t      (tracker_t),
-        .sequencer_t     (sequencer_t)
+            .seq_item_in_t  (seq_item_in_t),
+            .seq_item_out_t (seq_item_out_t),
+            .driver_t       (driver_t),
+            .monitor_t      (monitor_t),
+            .tracker_t      (tracker_t),
+            .sequencer_t    (sequencer_t),
+            .bfm_t          (bfm_t)
     ));
 
-    //Agent components
-    driver_t    drv;
-    monitor_t   mon;
-    sequencer_t sqr;
-    tracker_t   trk;
-    
     //Constructor
-    function new(string name = "riscv_v_base_agt", uvm_component parent = null);
+    function new(string name = "base_agt", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
 
-    //Build phase
-    virtual function void build_phase(uvm_phase phase);
-        super.build_phase(phase);
-        `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
-        if (get_is_active == UVM_ACTIVE) begin
-            build_active_components();
-        end
-
-        build_passive_components();
-
-    endfunction: build_phase
-
-    //Connect phase
-    virtual function void connect_phase(uvm_phase phase);
-        super.connect_phase(phase);
-        `uvm_info(get_name(), $sformatf("%s: connect", get_name()), UVM_NONE)
-        if (get_is_active() == UVM_ACTIVE) begin
-            connect_active_components();
-        end
-        connect_passive_components();
-    endfunction: connect_phase
-
-    virtual function void build_active_components();
-        drv = driver_t::type_id::create({get_name(), "_driver"}, this);
-        sqr = sequencer_t::type_id::create({get_name(), "_sequencer"}, this);
-    endfunction: build_active_components
-
-    virtual function void build_passive_components();
-        mon = monitor_t::type_id::create({get_name(), "_monitor"}, this);
-        trk = tracker_t::type_id::create({get_name(), "_tracker"}, this);
-    endfunction: build_passive_components
-
-    virtual function void connect_active_components();
-        drv.seq_item_port.connect(sqr.seq_item_export);
-    endfunction: connect_active_components
-
-    virtual function void connect_passive_components();
-        mon.rtl_in_ap.connect(trk.analysis_imp_in);
-        mon.rtl_out_ap.connect(trk.analysis_imp_out);
-    endfunction: connect_passive_components
 
 endclass: riscv_v_base_agt
 
-
-`endif //__RISCV_V_BASE_AGT__
+`endif //__RISCV_V_BASE_AGT_SV__

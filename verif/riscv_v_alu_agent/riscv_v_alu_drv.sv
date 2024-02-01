@@ -21,6 +21,11 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
     riscv_v_mask_alu_in_seq_item mask_txn;
     riscv_v_permutation_alu_in_seq_item permutation_txn;
 
+    riscv_v_alu_out_seq_item logic_txn_bfm;
+    riscv_v_alu_out_seq_item arithmetic_txn_bfm;
+    riscv_v_mask_alu_out_seq_item mask_txn_bfm;
+    riscv_v_permutation_alu_out_seq_item permutation_txn_bfm;
+
     //Constructor
     function new(string name = "riscv_v_alu_drv", uvm_component parent = null);
         super.new(name, parent);
@@ -34,14 +39,21 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         super.run_phase(phase);
     endtask: run_phase
 
-    virtual task drive_initial();
-        drive_initial_logic();
-        drive_initial_arithmetic();
-        drive_initial_mask();
-        drive_initial_permutation();
-    endtask: drive_initial
+    virtual task drive_initial_agt();
+        drive_initial_logic_agt();
+        drive_initial_arithmetic_agt();
+        drive_initial_mask_agt();
+        drive_initial_permutation_agt();
+    endtask: drive_initial_agt
 
-    virtual task drive_initial_logic();
+    virtual task drive_initial_bfm();
+        drive_initial_logic_bfm();
+        drive_initial_arithmetic_bfm();
+        drive_initial_mask_bfm();
+        drive_initial_permutation_bfm();
+    endtask: drive_initial_bfm
+
+    virtual task drive_initial_logic_agt();
         logic_vif.is_reduct                 <= 1'b0;
         logic_vif.is_and                    <= 1'b0;
         logic_vif.is_mask                   <= 1'b0;
@@ -60,9 +72,13 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
             logic_vif.osize                 <= OSIZE_8;
             logic_vif.len                   <= '0;
         `endif// RISCV_V_INST 
-    endtask: drive_initial_logic
+    endtask: drive_initial_logic_agt
 
-    virtual task drive_initial_arithmetic();
+    virtual task drive_initial_logic_bfm();
+        logic_vif.result                    <= '0;
+    endtask: drive_initial_logic_bfm
+
+    virtual task drive_initial_arithmetic_agt();
         arithmetic_vif.is_reduct               <= 1'b0;
         arithmetic_vif.is_add                  <= 1'b0;
         arithmetic_vif.is_sub                  <= 1'b0;
@@ -90,9 +106,16 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
             logic_vif.osize                    <= OSIZE_8;
             logic_vif.len                      <= '0;
         `endif// RISCV_V_INST 
-    endtask: drive_initial_arithmetic
+    endtask: drive_initial_arithmetic_agt
 
-    virtual task drive_initial_mask();
+    virtual task drive_initial_arithmetic_bfm();
+        arithmetic_vif.result                  <= '0;
+        arithmetic_vif.cf                      <= '0;
+        arithmetic_vif.zf                      <= '0;
+        arithmetic_vif.of                      <= '0;
+    endtask: drive_initial_arithmetic_bfm
+
+    virtual task drive_initial_mask_agt();
         mask_vif.is_mask            <= 1'b0;
         mask_vif.is_and             <= 1'b0;
         mask_vif.is_or              <= 1'b0;
@@ -104,9 +127,13 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `ifdef RISCV_V_INST 
             mask_vif.opcode         <= NOP;
         `endif //RISCV_V_INST
-    endtask: drive_initial_mask
+    endtask: drive_initial_mask_agt
 
-    virtual task drive_initial_permutation();
+    virtual task drive_initial_mask_bfm();
+        mask_vif.result            <= '0;
+    endtask: drive_initial_mask_bfm
+
+    virtual task drive_initial_permutation_agt();
         permutation_vif.is_i2v              <= 1'b0;
         permutation_vif.is_v2i              <= 1'b0;
         permutation_vif.integer_data_in     <= '0;
@@ -114,24 +141,44 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `ifdef RISCV_V_INST 
             permutation_vif.opcode          <= NOP;
         `endif //RISCV_V_INST
-    endtask: drive_initial_permutation
+    endtask: drive_initial_permutation_agt
 
-    virtual task drive();
+    virtual task drive_initial_permutation_bfm();
+        permutation_vif.vector_data_out      <= '0;
+        permutation_vif.integer_data_out     <= '0;
+    endtask: drive_initial_permutation_bfm
+
+    virtual task drive_agt();
         //Cast transaction
-        if ($cast(logic_txn, req)) begin
-            drive_logic();
-        end else if ($cast(arithmetic_txn, req))begin
-            drive_arithmetic();
-        end else if ($cast(mask_txn, req)) begin
-            drive_mask();
-        end else if ($cast(permutation_txn, req))  begin  
-            drive_permutation();
+        if ($cast(logic_txn, req.in)) begin
+            drive_logic_agt();
+        end else if ($cast(arithmetic_txn, req.in))begin
+            drive_arithmetic_agt();
+        end else if ($cast(mask_txn, req.in)) begin
+            drive_mask_agt();
+        end else if ($cast(permutation_txn, req.in))  begin  
+            drive_permutation_agt();
         end else begin
             `uvm_fatal(get_name(), "Invalid alu_seq_item type, can't cas't to any  ALU seq_item type")
         end
-    endtask: drive
+    endtask: drive_agt
 
-    virtual task drive_logic();
+    virtual task drive_bfm();
+        //Cast transaction
+        if ($cast(logic_txn_bfm, req.out)) begin
+            drive_logic_bfm();
+        end else if ($cast(arithmetic_txn_bfm, req.out))begin
+            drive_arithmetic_bfm();
+        end else if ($cast(mask_txn_bfm, req.out)) begin
+            drive_mask_bfm();
+        end else if ($cast(permutation_txn_bfm, req.out))  begin  
+            drive_permutation_bfm();
+        end else begin
+            `uvm_fatal(get_name(), "Invalid alu_seq_item type, can't cas't to any  ALU seq_item type")
+        end
+    endtask: drive_bfm
+
+    virtual task drive_logic_agt();
         `uvm_info(get_name(), "Sending new logic ALU transaction", UVM_LOW)
         logic_txn.print();
         @(logic_vif.cb_drv);
@@ -153,9 +200,17 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
             logic_vif.cb_drv.osize        <= logic_txn.osize;
             logic_vif.cb_drv.len          <= logic_txn.len;
         `endif //RISCV_V_INST
-    endtask: drive_logic
+    endtask: drive_logic_agt
 
-    virtual task drive_arithmetic();
+    virtual task drive_logic_bfm();
+        `uvm_info(get_name(), "Sending new logic ALU transaction", UVM_LOW)
+        logic_txn_bfm.print();
+        @(logic_vif.cb_bfm);
+        logic_vif.cb_bfm.resuslt          <= logic_txn_bfm.result;
+
+    endtask: drive_logic_bfm
+
+    virtual task drive_arithmetic_agt();
         `uvm_info(get_name(), "Sending new arithmetic ALU transaction", UVM_LOW)
         arithmetic_txn.print();
         @(arithmetic_vif.cb_drv);
@@ -185,9 +240,20 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
             arithmetic_vif.cb_drv.osize        <= arithmetic_txn.osize;
             arithmetic_vif.cb_drv.len          <= arithmetic_txn.len;
         `endif //RISCV_V_INST
-    endtask: drive_arithmetic
+    endtask: drive_arithmetic_agt
 
-    virtual task drive_mask();
+    virtual task drive_arithmetic_bfm();
+        `uvm_info(get_name(), "Sending new arithmetic ALU transaction", UVM_LOW)
+        arithmetic_txn_bfm.print();
+        @(arithmetic_vif.cb_bfm);
+        arithmetic_vif.cb_bfm.result          <= arithmetic_txn_bfm.result;
+        arithmetic_vif.cb_bfm.zf              <= arithmetic_txn_bfm.zf;
+        arithmetic_vif.cb_bfm.of              <= arithmetic_txn_bfm.of;
+        arithmetic_vif.cb_bfm.cf              <= arithmetic_txn_bfm.cf;
+
+    endtask: drive_arithmetic_bfm
+
+    virtual task drive_mask_agt();
         `uvm_info(get_name(), "Sending new mask ALU transaction", UVM_LOW)
         mask_txn.print();
         @(mask_vif.cb_drv);
@@ -202,9 +268,17 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `ifdef RISCV_V_INST  
             mask_vif.cb_drv.opcode          <= mask_txn.opcode;
         `endif //RISCV_V_INST
-    endtask: drive_mask
+    endtask: drive_mask_agt
 
-    virtual task drive_permutation();
+    virtual task drive_mask_bfm();
+        `uvm_info(get_name(), "Sending new mask ALU transaction", UVM_LOW)
+        mask_txn_bfm.print();
+        @(mask_vif.cb_bfm);
+        mask_vif.cb_bfm.result              <=  mask_txn_bfm.result;
+
+    endtask: drive_mask_bfm
+
+    virtual task drive_permutation_agt();
         `uvm_info(get_name(), "Sending new permutation ALU transaction", UVM_LOW)
         permutation_txn.print();
         @(permutation_vif.cb_drv);
@@ -215,7 +289,16 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_in_seq_i
         `ifdef RISCV_V_INST
             permutation_vif.cb_drv.opcode       <= permutation_txn.opcode;
         `endif //RISCV_V_INST
-    endtask: drive_permutation
+    endtask: drive_permutation_agt
+
+    virtual task drive_permutation_bfm();
+        `uvm_info(get_name(), "Sending new permutation ALU transaction", UVM_LOW)
+        permutation_txn_bfm.print();
+        @(permutation_vif.cb_bfm);
+        permutation_vif.cb_bfm.vector_data_out      <= permutation_txn_bfm.vector_data_out;
+        permutation_vif.cb_bfm.integer_data_out     <= permutation_txn_bfm.integer_data_out;
+
+    endtask: drive_permutation_bfm
 
     //Get interfaces
   virtual function void get_vif();

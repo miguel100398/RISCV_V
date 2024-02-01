@@ -1,20 +1,20 @@
-//File: riscv_v_rf_trk.sv
+//File: riscv_rf_trk.sv
 //Author: Miguel Bucio
-//Date: 10/06/23
-//Description: RISC-V Vector RF tracker
+//Date: 28/01/24
+//Description: RISC-V RF tracker
 
-`ifndef __RISCV_V_RF_TRK__
-`define __RISCV_V_RF_TRK__
+`ifndef __RISCV_RF_TRK__
+`define __RISCV_RF_TRK__
 
-class riscv_v_rf_trk extends riscv_v_base_trk#(
-                                                .seq_item_in_t(riscv_v_rf_wr_seq_item),
-                                                .seq_item_out_t(riscv_v_rf_rd_seq_item),
-                                                .file_name("riscv_v_rf_trk.txt")
+class riscv_rf_trk extends riscv_base_trk#(
+                                                .seq_item_in_t(riscv_rf_wr_seq_item),
+                                                .seq_item_out_t(riscv_rf_rd_seq_item),
+                                                .file_name("riscv_rf_trk.txt")
 );
 
-    `uvm_component_utils(riscv_v_rf_trk)
+    `uvm_component_utils(riscv_rf_trk)
 
-    riscv_v_rf_trk_item txn;
+    riscv_rf_trk_item txn;
 
     int time_size  = 25;
     int addr_size  = 10;
@@ -25,7 +25,7 @@ class riscv_v_rf_trk extends riscv_v_base_trk#(
 
     int header_size = time_size + addr_size + rd_wr_size + port_size + wr_en_size + data_size + 5;
 
-    function new (string name = "riscv_v_rf_trk", uvm_component parent = null);
+    function new (string name = "riscv_rf_trk", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
 
@@ -92,6 +92,6 @@ class riscv_v_rf_trk extends riscv_v_base_trk#(
     endfunction: print_data
 
 
-endclass: riscv_v_rf_trk
+endclass: riscv_rf_trk
 
-`endif //__RISCV_V_RF_TRK__
+`endif //__RISCV_RF_TRK__

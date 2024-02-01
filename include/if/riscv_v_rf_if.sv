@@ -55,4 +55,9 @@ import riscv_v_pkg::*;
         output  wr_en;
     endclocking
 
+    clocking cb_bfm @(posedge clk);
+        output data_out_A;
+        output data_out_B;
+    endclocking
+
 endinterface: riscv_v_rf_if

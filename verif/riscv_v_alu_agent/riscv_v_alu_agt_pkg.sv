@@ -11,6 +11,8 @@ import riscv_pkg::*;
 import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
+
+
 `include "uvm_macros.svh"
 `include "riscv_v_macros.svh"
 `include "riscv_v_alu_out_seq_item.sv"
@@ -21,7 +23,13 @@ import riscv_v_base_pkg::*;
 `include "riscv_v_arithmetic_alu_in_seq_item.sv"
 `include "riscv_v_mask_alu_in_seq_item.sv"
 `include "riscv_v_permutation_alu_in_seq_item.sv"
-`include "riscv_v_alu_sqr.sv"
+typedef riscv_v_base_seq_item#(
+    .in_seq_item_t(riscv_v_alu_in_seq_item),
+    .out_seq_item_t(riscv_v_alu_out_seq_item)
+) riscv_v_alu_seq_item;
+typedef riscv_v_base_sqr#(
+    .seq_item_t(riscv_v_alu_seq_item)
+) riscv_v_alu_sqr;
 `include "riscv_v_logic_alu_seq.sv"
 `include "riscv_v_arithmetic_alu_seq.sv"
 `include "riscv_v_mask_alu_seq.sv"

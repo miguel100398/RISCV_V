@@ -1,19 +1,19 @@
-//File: riscv_v_rf_drv
+//File: riscv_rf_drv
 //Author: Miguel Bucio
-//Date: 11/04/23
-//Description: RISC-V Vector extension register file driver
+//Date: 28/01/23
+//Description: RISC-V register file driver
 
 `ifndef __RISCV_V_RF_DRV_SV__
 `define __RISCV_V_RF_DRV_SV__
 
-class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item));
-  `uvm_component_utils(riscv_v_rf_drv)
+class riscv_rf_drv extends riscv_base_drv#(.seq_item_t (riscv_rf_seq_item));
+  `uvm_component_utils(riscv_rf_drv)
 
   //Virtual interface
-  virtual riscv_v_rf_if vif;
+  virtual riscv_rf_if vif;
 
   // Constructor
-  function new (string name = "riscv_v_rf_drv", uvm_component parent = null);
+  function new (string name = "riscv_rf_drv", uvm_component parent = null);
     super.new(name, parent);
   endfunction : new
 
@@ -36,12 +36,12 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
   virtual task drive_initial_bfm();
     vif.data_out_A   <= '0;
     vif.data_out_B   <= '0;
-  endtask: drive_initial_bfm
+  endtask: drive_initial_bfm 
 
   // drive 
   virtual task drive_agt();
     `uvm_info(get_name(), "Sending new rf transaction", UVM_LOW)
-    req.print();
+    req.in.print();
     @(vif.cb_drv);
     vif.cb_drv.wr_addr      <= req.in.wr_addr;
     vif.cb_drv.rd_addr_A    <= req.in.rd_addr_A;
@@ -55,8 +55,8 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
 
   endtask : drive_agt
 
-   // drive 
   virtual task drive_bfm();
+  
     `uvm_info(get_name(), "Sending new rf transaction", UVM_LOW)
     req.out.print();
     req.out2.print();
@@ -68,12 +68,12 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
 
   //Get interface
   virtual function void get_vif();
-    if (!uvm_config_db#(virtual riscv_v_rf_if)::get(this, "*", "riscv_v_rf_vif", vif)) begin
-      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_v_rf_vif");
+    if (!uvm_config_db#(virtual riscv_rf_if)::get(this, "*", "riscv_rf_vif", vif)) begin
+      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_rf_vif");
     end
   endfunction: get_vif
 
-endclass: riscv_v_rf_drv
+endclass: riscv_rf_drv
 
 
-`endif //__RISCV_V_RF_DRV_SV__
+`endif //__RISCV_RF_DRV_SV__

@@ -7,11 +7,13 @@
 `define __RISCV_V_RF_SEQ__ 
 
 class riscv_v_rf_seq extends riscv_v_rf_base_seq;
-    rand riscv_v_rf_addr_t  wr_addr   = '0;
-    rand riscv_v_rf_addr_t  rd_addr_A = '0;
-    rand riscv_v_rf_addr_t  rd_addr_B = '0;
-    rand riscv_v_data_t     data_in   = '0;
-    rand riscv_v_rf_wr_en_t wr_en     = '0;
+    rand riscv_v_rf_addr_t  wr_addr    = '0;
+    rand riscv_v_rf_addr_t  rd_addr_A  = '0;
+    rand riscv_v_rf_addr_t  rd_addr_B  = '0;
+    rand riscv_v_data_t     data_in    = '0;
+    rand riscv_v_rf_wr_en_t wr_en      = '0;
+    rand riscv_v_data_t     data_out_A = '0;
+    rand riscv_v_data_t     data_out_B = '0;
 
 
     `uvm_object_utils(riscv_v_rf_seq)
@@ -29,16 +31,18 @@ class riscv_v_rf_seq extends riscv_v_rf_base_seq;
     //Send random transaction
     assert(
         req.randomize() with{
-            req.wr_addr   == wr_addr;
-            req.rd_addr_A == rd_addr_A;
-            req.rd_addr_B == rd_addr_B;
-            req.wr_en     == wr_en;
-            req.data_in   == data_in;
+            req.in.wr_addr     == wr_addr;
+            req.in.rd_addr_A   == rd_addr_A;
+            req.in.rd_addr_B   == rd_addr_B;
+            req.in.wr_en       == wr_en;
+            req.in.data_in     == data_in;
+            req.out.data       == data_out_A;
+            req.out2.data      == data_out_B;
         }
     ) else begin
       `uvm_fatal(get_name(), "Can't randomize riscv_v_rf_seq_item")
     end
-    req.reset_wr_en = reset_wr_en;
+    req.in.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();
 
