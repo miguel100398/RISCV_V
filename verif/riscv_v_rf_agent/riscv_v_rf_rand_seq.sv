@@ -22,7 +22,7 @@ class riscv_v_rf_rand_seq extends riscv_v_rf_base_seq;
     assert(
         req.randomize()
     );
-    req.reset_wr_en = reset_wr_en;
+    req.in.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();
 

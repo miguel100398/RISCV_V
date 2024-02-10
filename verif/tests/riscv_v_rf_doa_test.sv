@@ -6,9 +6,8 @@
 `ifndef __RISCV_V_RF_DOA_TEST_SV__
 `define __RISCV_V_RF_DOA_TEST_SV__
 
-class riscv_v_rf_doa_test extends riscv_v_base_test;
+class riscv_v_rf_doa_test extends riscv_rf_base_test;
 
-  riscv_v_rf_env          rf_env;
   riscv_v_rf_rand_raw_seq seq_raw;
 
   `uvm_component_utils(riscv_v_rf_doa_test)
@@ -20,7 +19,6 @@ class riscv_v_rf_doa_test extends riscv_v_base_test;
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
 
-    rf_env = riscv_v_rf_env::type_id::create("riscv_v_rf_env", this);
     seq_raw = riscv_v_rf_rand_raw_seq::type_id::create("riscv_v_rf_rand_raw_seq");
   endfunction : build_phase
 

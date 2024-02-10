@@ -10,12 +10,12 @@ class base_bfm_cfg_obj extends base_cfg_obj;
 
     `uvm_object_utils(base_bfm_cfg_obj)
 
-    function new(string name = "base_bfm_cfg_obj");
-        super.new(name);
-    endfunction: new 
-
     int num_txn = 100;
     bit bfm_en  = 1'b0;
+
+    function new(string name = "base_bfm_cfg_obj");
+        super.new(name);
+    endfunction: new
 
 endclass: base_bfm_cfg_obj
 

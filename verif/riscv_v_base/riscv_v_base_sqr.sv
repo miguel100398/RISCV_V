@@ -6,7 +6,7 @@
 `ifndef __RISCV_V_BASE_SQR__
 `define __RISCV_V_BASE_SQR__
 
-virtual class riscv_v_base_sqr#(type seq_item_t = riscv_v_base_seq_item) extends base_sqr#(seq_item_t);
+class riscv_v_base_sqr#(type seq_item_t = riscv_v_base_seq_item) extends base_sqr#(seq_item_t);
     `uvm_component_param_utils(riscv_v_base_sqr#(seq_item_t))
 
     //Constructor

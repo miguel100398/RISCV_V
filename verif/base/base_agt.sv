@@ -22,7 +22,8 @@ virtual class base_agt #(           type seq_item_in_t  = base_seq_item,
                                     type bfm_t          = base_bfm#(
                                                                    .seq_item_in_t   (seq_item_in_t),
                                                                    .seq_item_out_t  (seq_item_out_t),
-                                                                   .sequencer_t     (sequencer_t)
+                                                                   .sequencer_t     (sequencer_t),
+                                                                   .cfg_obj_t       (base_bfm_cfg_obj)
                                     )) extends uvm_agent;
                                                                    
     `uvm_component_param_utils(base_agt#(
@@ -99,7 +100,7 @@ virtual class base_agt #(           type seq_item_in_t  = base_seq_item,
     virtual function void connect_active_components();
         if (USE_BFM) begin
             drv.seq_item_port.connect(bfm.sqr.seq_item_export);
-            mon.rtl_out_ap.connect(bfm.analysis_export);
+            mon.rtl_out_ap.connect(bfm.analysis_imp_out);
         end else begin
             drv.seq_item_port.connect(sqr.seq_item_export);
         end

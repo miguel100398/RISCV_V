@@ -51,7 +51,7 @@ module riscv_v_rf_tb;
     end
 
     initial begin
-        run_test();
+        run_test("riscv_v_rf_doa_test");
     end
     
 

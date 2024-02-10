@@ -206,7 +206,8 @@ typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-2:0] osize_is_less_vector_t;
 //ALU Enum
-typedef enum logic[1:0] {LOGIC_ALU, ARITHMETIC_ALU, MASK_ALU, PERMUTATION_ALU} riscv_v_alu_e;
+localparam int RISCV_V_NUM_ALUS = 4;
+typedef enum logic[$clog2(RISCV_V_NUM_ALUS)-1:0] {LOGIC_ALU, ARITHMETIC_ALU, MASK_ALU, PERMUTATION_ALU} riscv_v_alu_e;
 
 //Multiplier types
 typedef enum logic[1:0] {VEDIC_LA_LB = 2'b00, VEDIC_LA_HB = 2'b01, VEDIC_HA_LB = 2'b10, VEDIC_HA_HB = 2'b11}  vedic_mul_idx_t;

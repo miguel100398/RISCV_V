@@ -7,10 +7,10 @@
 `define __RISCV_V_RF_WR_SEQ_ITEM__ 
 
 class riscv_v_rf_wr_seq_item extends riscv_v_base_seq_item;
-    riscv_v_rf_addr_t   addr;
-    riscv_v_rf_wr_en_t  wr_en;
-    riscv_v_data_t      data;
-    bit                 reset_wr_en = 1'b1;   //Wait one clock to set wr_en to 0 after sending transaction, set bit to 0 to send back2back transactions
+    rand riscv_v_rf_addr_t   addr;
+    rand riscv_v_rf_wr_en_t  wr_en;
+    rand riscv_v_data_t      data;
+    rand bit                 reset_wr_en = 1'b1;   //Wait one clock to set wr_en to 0 after sending transaction, set bit to 0 to send back2back transactions
 
 
     `uvm_object_utils_begin(riscv_v_rf_wr_seq_item)

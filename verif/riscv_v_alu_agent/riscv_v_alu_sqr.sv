@@ -6,7 +6,7 @@
 `ifndef __RISCV_V_ALU_SQR_SV__
 `define __RISCV_V_ALU_SQR_SV__ 
 
-class riscv_v_alu_sqr extends riscv_v_base_sqr#(riscv_v_alu_in_seq_item);
+class riscv_v_alu_sqr extends riscv_v_base_sqr#(riscv_v_alu_seq_item);
   `uvm_component_utils(riscv_v_alu_sqr) 
 
   //constructor

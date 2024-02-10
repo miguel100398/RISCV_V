@@ -6,7 +6,7 @@
 `ifndef __RISCV_RF_SEQ_ITEM__
 `define __RISCV_RF_SEQ_ITEM__
 
-virtual class riscv_rf_seq_item extends uvm_sequence_item#(
+virtual class riscv_rf_seq_item extends riscv_base_in_out_seq_item#(
     .in_seq_item_t(riscv_rf_wr_seq_item),
     .out_seq_item_t(riscv_rf_rd_seq_item)
 );

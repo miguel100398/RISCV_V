@@ -6,8 +6,9 @@
 `ifndef __RISCV_V_LOGIC_ALU_SEQ__
 `define __RISCV_V_LOGIC_ALU_SEQ__ 
 
-class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_logic_alu_in_seq_item);
-    rand riscv_v_logic_alu_in_seq_item txn;
+class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_alu_seq_item);
+    rand riscv_v_logic_alu_in_seq_item logic_txn;
+    riscv_v_alu_seq_item txn;
     
     bit reset_alu = 0;
     bit is_rand = 0;
@@ -17,7 +18,8 @@ class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_logic_alu_in_seq_i
   //Constructor
   function new(string name = "riscv_v_logic_alu_seq");
     super.new(name);
-    txn = riscv_v_logic_alu_in_seq_item::type_id::create("riscv_v_logic_alu_in_seq_item");
+    logic_txn = riscv_v_logic_alu_in_seq_item::type_id::create("riscv_v_logic_alu_in_seq_item");
+    txn = riscv_v_alu_seq_item::type_id::create("riscv_v_logic_alu_seq_item");
   endfunction: new
 
   function void post_randomize();
@@ -25,34 +27,38 @@ class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_logic_alu_in_seq_i
   endfunction: post_randomize
 
   virtual task body();
-    riscv_v_logic_alu_in_seq_item rst_txn;
+    riscv_v_logic_alu_in_seq_item rst_txn_tmp;
+    riscv_v_alu_seq_item          rst_txn;
 
     if (!is_rand) begin
-        assert (std::randomize(txn)) else begin
+        assert (std::randomize(logic_txn)) else begin
           `uvm_fatal(get_name(), "Can't randomize riscv_v_logic_alu_in_seq_item")
         end
     end
 
     wait_for_grant();
+    txn.in = logic_txn;
     send_request(txn);
     wait_for_item_done();
 
     if (reset_alu) begin
-        rst_txn = riscv_v_logic_alu_in_seq_item::type_id::create("riscv_v_logic_alu_in_seq_item");
-        rst_txn.srca                    = '0;
-        rst_txn.srcb                    = '0;
-        rst_txn.is_and                  = 1'b0;
-        rst_txn.is_or                   = 1'b0;
-        rst_txn.is_xor                  = 1'b0;
-        rst_txn.is_mask                 = 1'b0;
-        rst_txn.is_shift                = 1'b0;
-        rst_txn.is_left                 = 1'b0;
-        rst_txn.is_arith                = 1'b0;
-        rst_txn.is_reduct               = 1'b0;
-        rst_txn.dst_osize_vector        = '0;
-        rst_txn.is_greater_osize_vector = '0;
-        rst_txn.is_less_osize_vector    = '0;
+        rst_txn_tmp = riscv_v_logic_alu_in_seq_item::type_id::create("riscv_v_logic_alu_in_seq_item");
+        rst_txn     = riscv_v_alu_seq_item::type_id::create("riscv_v_logic_alu_rst_txn");
+        rst_txn_tmp.srca                    = '0;
+        rst_txn_tmp.srcb                    = '0;
+        rst_txn_tmp.is_and                  = 1'b0;
+        rst_txn_tmp.is_or                   = 1'b0;
+        rst_txn_tmp.is_xor                  = 1'b0;
+        rst_txn_tmp.is_mask                 = 1'b0;
+        rst_txn_tmp.is_shift                = 1'b0;
+        rst_txn_tmp.is_left                 = 1'b0;
+        rst_txn_tmp.is_arith                = 1'b0;
+        rst_txn_tmp.is_reduct               = 1'b0;
+        rst_txn_tmp.dst_osize_vector        = '0;
+        rst_txn_tmp.is_greater_osize_vector = '0;
+        rst_txn_tmp.is_less_osize_vector    = '0;
         wait_for_grant();
+        rst_txn.in = rst_txn_tmp;
         send_request(rst_txn);
         wait_for_item_done();
     end

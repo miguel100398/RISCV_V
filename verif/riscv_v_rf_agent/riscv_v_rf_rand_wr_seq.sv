@@ -21,12 +21,12 @@ class riscv_v_rf_rand_wr_seq extends riscv_v_rf_base_seq;
     //Send wr transaction with at least 1 wr_en byte
     assert(
         req.randomize() with{
-            req.rd_addr_A == '0;
-            req.rd_addr_B == '0;
-            req.wr_en     !=  0;
+            req.out.addr  == '0;
+            req.out2.addr == '0;
+            req.in.wr_en  !=  0;
         }
     );
-    req.reset_wr_en = reset_wr_en;
+    req.in.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();
 

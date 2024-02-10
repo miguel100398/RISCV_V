@@ -6,7 +6,9 @@
 `ifndef __BASE_CFG_OBJ_SV__
 `define __BASE_CFG_OBJ_SV__ 
 
-virtual class base_cfg_obj extends  uvm_object;
+class base_cfg_obj extends  uvm_object;
+
+    `uvm_object_utils(base_cfg_obj)
 
     function new(string name = "base_cfg_obj");
         super.new(name);

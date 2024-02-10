@@ -29,15 +29,19 @@ virtual class base_mon#(type seq_item_in_t          = base_seq_item,
         super.build_phase(phase);
         `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
 
-        if (!(uvm_config_db #(string)::get(this, "", "interface_name", interface_name))) begin
-            `uvm_fatal(get_name(), "interface_name configuration not found in uvm_db");
-        end
+        check_interface_name();
 
         //Get vif
         get_vif();
         //Build ports
         build_ports();
     endfunction: build_phase
+
+    virtual function void check_interface_name();
+        if (!(uvm_config_db #(string)::get(this, "", "interface_name", interface_name))) begin
+            `uvm_fatal(get_name(), "interface_name configuration not found in uvm_db");
+        end
+    endfunction: check_interface_name
  
     //Connect phase
     virtual function void connect_phase(uvm_phase phase);

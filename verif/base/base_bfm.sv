@@ -10,7 +10,9 @@ virtual class base_bfm #( type seq_item_in_t  = base_seq_item,
                           type seq_item_out_t = base_seq_item,
                           type sequencer_t    = base_sqr#(
                                                             .seq_item_t(seq_item_in_t)),
-                          type cfg_obj_t      = base_bfm_cfg_obj                                  
+                          type cfg_obj_t      = base_bfm_cfg_obj,
+                          type seq_t          = base_seq#(
+                                                            .seq_item_t(seq_item_in_t))                                  
                           ) extends base_subscriber_2ports#(
                               .seq_item_in_t(seq_item_in_t),
                               .seq_item_out_t(seq_item_out_t)
@@ -20,7 +22,8 @@ virtual class base_bfm #( type seq_item_in_t  = base_seq_item,
     .seq_item_in_t (seq_item_in_t),
     .seq_item_out_t(seq_item_out_t),
     .sequencer_t   (sequencer_t),
-    .cfg_obj_t     (cfg_obj_t)
+    .cfg_obj_t     (cfg_obj_t),
+    .seq_t         (seq_t)
 ));
 
 localparam update_bfm_sem_keys = 1;
@@ -28,6 +31,7 @@ localparam update_bfm_sem_keys = 1;
 cfg_obj_t      cfg;
 sequencer_t    sqr;
 semaphore      update_bfm_sem;
+seq_t          seq;
 
 bit driving_rst = 0;
 
@@ -61,7 +65,7 @@ virtual function void build_phase(uvm_phase phase);
         cfg = cfg_obj_t::type_id::create({get_name(), "_cfg"});
     end
 
-
+    seq = seq_t::type_id::create("testeo");
     sqr = sequencer_t::type_id::create({get_name(), "_sequencer"}, this);
     update_bfm_sem = new(0);
 endfunction: build_phase 

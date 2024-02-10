@@ -21,10 +21,10 @@ class riscv_v_rf_rand_rd_seq extends riscv_v_rf_base_seq;
     //Send rd transaction
     assert(
         req.randomize() with{
-            req.wr_en     == '0;
+            req.in.wr_en     == '0;
         }
     );
-    req.reset_wr_en = reset_wr_en;
+    req.in.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();
 

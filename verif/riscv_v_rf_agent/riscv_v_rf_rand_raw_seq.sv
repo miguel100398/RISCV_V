@@ -8,6 +8,7 @@
 
 class riscv_v_rf_rand_raw_seq extends riscv_v_rf_base_seq;
     rand riscv_v_rf_addr_t addr;
+    riscv_v_rf_wr_en_t     wr_en;
 
 
     `uvm_object_utils(riscv_v_rf_rand_raw_seq)
@@ -27,14 +28,24 @@ class riscv_v_rf_rand_raw_seq extends riscv_v_rf_base_seq;
     wait_for_grant();
     //Send random transaction
     assert(
-        req.randomize() with{
-            req.wr_addr   == addr;
-            req.rd_addr_A == '0;
-            req.rd_addr_B == '0;
-            req.wr_en     !=  0;
+        req.in.randomize()
+    )
+    assert(
+        std::randomize(wr_en) with{
+            wr_en  !=  0;
         }
     );
-    req.reset_wr_en = 1'b0;
+    req.in.wr_en  = wr_en;
+    req.in.addr   = addr;
+    assert(
+        req.out.randomize()
+    );
+    req.out.addr  = '0;
+    assert(
+        req.out2.randomize()
+    );
+    req.out2.addr = '0;
+    req.in.reset_wr_en = 1'b0;
     send_request(req);
     wait_for_item_done();
 
@@ -43,13 +54,18 @@ class riscv_v_rf_rand_raw_seq extends riscv_v_rf_base_seq;
     wait_for_grant();
     //Send random transaction
     assert(
-        req.randomize() with{
-            req.rd_addr_A == addr;
-            req.rd_addr_B == addr;
-            req.wr_en     == '0;
-        }
+        req.in.randomize()
     );
-    req.reset_wr_en = reset_wr_en;
+    req.in.wr_en  = '0;
+    assert(
+        req.out.randomize()
+    );
+    req.out.addr  = addr;
+    assert(
+        req.out2.randomize()
+    );
+    req.out2.addr = addr;
+    req.in.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();
 

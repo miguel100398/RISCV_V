@@ -31,11 +31,11 @@ class riscv_v_rf_seq extends riscv_v_rf_base_seq;
     //Send random transaction
     assert(
         req.randomize() with{
-            req.in.wr_addr     == wr_addr;
-            req.in.rd_addr_A   == rd_addr_A;
-            req.in.rd_addr_B   == rd_addr_B;
+            req.in.addr        == wr_addr;
+            req.out.addr       == rd_addr_A;
+            req.out2.addr      == rd_addr_B;
             req.in.wr_en       == wr_en;
-            req.in.data_in     == data_in;
+            req.in.data        == data_in;
             req.out.data       == data_out_A;
             req.out2.data      == data_out_B;
         }

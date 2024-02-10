@@ -9,6 +9,7 @@ import uvm_pkg::*;
 
 `include "uvm_macros.svh"
 `include "base_seq_item.sv"
+`include "base_in_out_seq_item.sv"
 `include "base_subscriber_2ports.sv"
 `include "base_cfg_obj.sv"
 `include "base_bfm_cfg_obj.sv"

@@ -11,6 +11,7 @@ import riscv_pkg::*;
 import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
+typedef riscv_v_base_bfm_cfg_obj riscv_v_rf_bfm_cfg_obj;
 `include "uvm_macros.svh"
 `include "riscv_v_reg.sv"
 `include "riscv_v_rf_trk_item.sv"
@@ -31,6 +32,7 @@ typedef riscv_v_base_sqr#(
 `include "riscv_v_rf_scbd.sv"
 `include "riscv_v_rf_trk.sv"
 `include "riscv_v_rf_cov.sv"
+`include "riscv_v_rf_bfm.sv"
 `include "riscv_v_rf_agt.sv"
 `include "riscv_v_rf_env.sv"
 

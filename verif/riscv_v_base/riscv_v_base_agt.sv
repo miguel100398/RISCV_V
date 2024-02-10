@@ -22,7 +22,9 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
                                     type bfm_t          = riscv_v_base_bfm#(
                                                                    .seq_item_in_t   (seq_item_in_t),
                                                                    .seq_item_out_t  (seq_item_out_t),
-                                                                   .sequencer_t     (sequencer_t)
+                                                                   .sequencer_t     (sequencer_t),
+                                                                   .cfg_obj_t       (riscv_v_base_bfm_cfg_obj),
+                                                                   .seq_t           (riscv_v_base_seq)
                                     )) extends base_agt#(
                                         .seq_item_in_t(seq_item_in_t),
                                         .seq_item_out_t(seq_item_out_t),

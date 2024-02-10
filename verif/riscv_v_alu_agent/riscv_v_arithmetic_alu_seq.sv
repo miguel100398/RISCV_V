@@ -6,8 +6,9 @@
 `ifndef __RISCV_V_ARITHMETIC_ALU_SEQ__
 `define __RISCV_V_ARITHMETIC_ALU_SEQ__ 
 
-class riscv_v_arithmetic_alu_seq extends riscv_v_base_seq#(riscv_v_arithmetic_alu_in_seq_item);
-    rand riscv_v_arithmetic_alu_in_seq_item txn;
+class riscv_v_arithmetic_alu_seq extends riscv_v_base_seq#(riscv_v_alu_seq_item);
+    rand riscv_v_arithmetic_alu_in_seq_item arith_txn;
+    riscv_v_alu_seq_item txn;
     
     bit reset_alu = 0;
     bit is_rand = 0;
@@ -17,7 +18,8 @@ class riscv_v_arithmetic_alu_seq extends riscv_v_base_seq#(riscv_v_arithmetic_al
   //Constructor
   function new(string name = "riscv_v_arithmetic_alu_seq");
     super.new(name);
-    txn = riscv_v_arithmetic_alu_in_seq_item::type_id::create("riscv_v_arithmetic_alu_in_seq_item");
+    arith_txn = riscv_v_arithmetic_alu_in_seq_item::type_id::create("riscv_v_arithmetic_alu_in_seq_item");
+    txn       = riscv_v_alu_seq_item::type_id::create("riscv_v_arithmetic_alu_seq_item");
   endfunction: new
 
   function void post_randomize();
@@ -25,42 +27,46 @@ class riscv_v_arithmetic_alu_seq extends riscv_v_base_seq#(riscv_v_arithmetic_al
   endfunction: post_randomize
 
   virtual task body();
-    riscv_v_arithmetic_alu_in_seq_item rst_txn;
+    riscv_v_arithmetic_alu_in_seq_item rst_txn_tmp;
+    riscv_v_alu_seq_item               rst_txn;
 
     if (!is_rand) begin
-        assert (std::randomize(txn)) else begin
+        assert (std::randomize(arith_txn)) else begin
           `uvm_fatal(get_name(), "Can't randomize riscv_v_arithmetic_alu_in_seq_item")
         end
     end
 
     wait_for_grant();
+    txn.in = arith_txn;
     send_request(txn);
     wait_for_item_done();
 
     if (reset_alu) begin
-        rst_txn = riscv_v_arithmetic_alu_in_seq_item::type_id::create("riscv_v_arithmetic_alu_in_seq_item");
-        rst_txn.srca                    = '0;
-        rst_txn.srcb                    = '0;
-        rst_txn.is_reduct               = 1'b0;
-        rst_txn.is_add                  = 1'b0;
-        rst_txn.is_sub                  = 1'b0;
-        rst_txn.is_mul                  = 1'b0;
-        rst_txn.is_zero_ext             = 1'b0;
-        rst_txn.is_sign_ext             = 1'b0;
-        rst_txn.is_set_equal            = 1'b0;
-        rst_txn.is_set_nequal           = 1'b0;
-        rst_txn.is_set_less             = 1'b0;
-        rst_txn.is_set_greater          = 1'b0;
-        rst_txn.is_max                  = 1'b0;
-        rst_txn.is_min                  = 1'b0;
-        rst_txn.is_high                 = 1'b0;
-        rst_txn.is_signed               = 1'b0;
-        rst_txn.use_carry               = 1'b0;
-        rst_txn.carry_in                = '0;
-        rst_txn.dst_osize_vector        = '0;
-        rst_txn.src_osize_vector        = '0;
-        rst_txn.is_greater_osize_vector = '0;
-        rst_txn.is_less_osize_vector    = '0;
+        rst_txn_tmp = riscv_v_arithmetic_alu_in_seq_item::type_id::create("riscv_v_arithmetic_alu_in_seq_item");
+        rst_txn     = riscv_v_alu_seq_item::type_id::create("riscv_v_arithmetic_rst_txn");
+        rst_txn_tmp.srca                    = '0;
+        rst_txn_tmp.srcb                    = '0;
+        rst_txn_tmp.is_reduct               = 1'b0;
+        rst_txn_tmp.is_add                  = 1'b0;
+        rst_txn_tmp.is_sub                  = 1'b0;
+        rst_txn_tmp.is_mul                  = 1'b0;
+        rst_txn_tmp.is_zero_ext             = 1'b0;
+        rst_txn_tmp.is_sign_ext             = 1'b0;
+        rst_txn_tmp.is_set_equal            = 1'b0;
+        rst_txn_tmp.is_set_nequal           = 1'b0;
+        rst_txn_tmp.is_set_less             = 1'b0;
+        rst_txn_tmp.is_set_greater          = 1'b0;
+        rst_txn_tmp.is_max                  = 1'b0;
+        rst_txn_tmp.is_min                  = 1'b0;
+        rst_txn_tmp.is_high                 = 1'b0;
+        rst_txn_tmp.is_signed               = 1'b0;
+        rst_txn_tmp.use_carry               = 1'b0;
+        rst_txn_tmp.carry_in                = '0;
+        rst_txn_tmp.dst_osize_vector        = '0;
+        rst_txn_tmp.src_osize_vector        = '0;
+        rst_txn_tmp.is_greater_osize_vector = '0;
+        rst_txn_tmp.is_less_osize_vector    = '0;
+        rst_txn.in = rst_txn_tmp;
         wait_for_grant();
         send_request(rst_txn);
         wait_for_item_done();

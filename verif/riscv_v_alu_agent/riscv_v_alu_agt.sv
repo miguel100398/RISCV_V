@@ -12,7 +12,8 @@ class riscv_v_alu_agt extends riscv_v_base_agt#(
                                                 .driver_t       (riscv_v_alu_drv),
                                                 .monitor_t      (riscv_v_alu_mon),
                                                 .tracker_t      (riscv_v_alu_trk),
-                                                .sequencer_t    (riscv_v_alu_sqr)
+                                                .sequencer_t    (riscv_v_alu_sqr),
+                                                .bfm_t          (riscv_v_alu_bfm)
 );
   
   // UVM automation macros for general components

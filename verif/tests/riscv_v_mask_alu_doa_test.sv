@@ -6,9 +6,8 @@
 `ifndef __RISCV_V_MASK_ALU_DOA_TEST_SV__
 `define __RISCV_V_MASK_ALU_DOA_TEST_SV__
 
-class riscv_v_mask_alu_doa_test extends riscv_v_base_test;
+class riscv_v_mask_alu_doa_test extends riscv_alu_base_test;
 
-  riscv_v_alu_env          alu_env;
   riscv_v_mask_alu_seq    seq;
 
   `uvm_component_utils(riscv_v_mask_alu_doa_test)
@@ -20,7 +19,6 @@ class riscv_v_mask_alu_doa_test extends riscv_v_base_test;
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
 
-    alu_env = riscv_v_alu_env::type_id::create("riscv_v_alu_env", this);
     seq     = riscv_v_mask_alu_seq::type_id::create("riscv_v_mask_alu_seq");
   endfunction : build_phase
 

@@ -6,7 +6,13 @@
 `ifndef __RISCV_V_BASE_SEQ__
 `define __RISCV_V_BASE_SEQ__
 
-virtual class riscv_v_base_seq#(type seq_item_t = riscv_v_base_seq_item) extends base_seq#(seq_item_t);
+class riscv_v_base_seq#(type seq_item_t = riscv_v_base_seq_item) extends base_seq#(seq_item_t);
+
+    `uvm_object_param_utils(
+        riscv_v_base_seq#(
+            .seq_item_t(seq_item_t)
+        )
+    )
 
     //Constructor
     function new(string name = "riscv_v_base_seq");

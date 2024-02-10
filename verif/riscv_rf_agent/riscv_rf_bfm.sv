@@ -6,21 +6,16 @@
 `ifndef __RISCV_RF_BFM_SV__
 `define __RISCV_RF_BFM_SV__ 
 
-class riscv_rf_bfm extend rf_bfm#(
+class riscv_rf_bfm extends rf_bfm#(
     .RF_MODEL_T(rf_model),
     .seq_item_in_t(riscv_rf_wr_seq_item),
     .seq_item_out_t(riscv_rf_rd_seq_item),
     .sequencer_t(riscv_rf_sqr),
-    .cfg_obj_t(riscv_rf_bfm_cfg_obj)
+    .cfg_obj_t(riscv_rf_bfm_cfg_obj),
+    .seq_t(riscv_rf_seq)
 );
 
-    `uvm_component_param_utils(riscv_rf_bfm#(
-        .RF_MODEL_T(RF_MODEL_T),
-        .seq_item_in_t(seq_item_in_t),
-        .seq_item_out_t(seq_item_out_t),
-        .sequencer_t(sequencer_t),
-        .cfg_obj_t(cfg_obj_t)
-    ));
+    `uvm_component_utils(riscv_rf_bfm);
 
 
     riscv_data_t srca;

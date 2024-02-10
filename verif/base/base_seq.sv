@@ -6,7 +6,13 @@
 `ifndef __BASE_SEQ__
 `define __BASE_SEQ__
 
-virtual class base_seq#(type seq_item_t = base_seq_item) extends uvm_sequence#(seq_item_t);
+class base_seq#(type seq_item_t = base_seq_item) extends uvm_sequence#(seq_item_t);
+
+    `uvm_object_param_utils(
+        base_seq#(
+            .seq_item_t(seq_item_t)
+        )
+    )
 
     bit is_randomized = 1'b0;
     bit randomize_seq = 1'b1;

@@ -43,10 +43,10 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
     `uvm_info(get_name(), "Sending new rf transaction", UVM_LOW)
     req.print();
     @(vif.cb_drv);
-    vif.cb_drv.wr_addr      <= req.in.wr_addr;
-    vif.cb_drv.rd_addr_A    <= req.in.rd_addr_A;
-    vif.cb_drv.rd_addr_B    <= req.in.rd_addr_B;
-    vif.cb_drv.data_in      <= req.in.data_in;
+    vif.cb_drv.wr_addr      <= req.in.addr;
+    vif.cb_drv.rd_addr_A    <= req.out.addr;
+    vif.cb_drv.rd_addr_B    <= req.out2.addr;
+    vif.cb_drv.data_in      <= req.in.data;
     vif.cb_drv.wr_en        <= req.in.wr_en;
     if (req.in.reset_wr_en) begin
       @(vif.cb_drv);
