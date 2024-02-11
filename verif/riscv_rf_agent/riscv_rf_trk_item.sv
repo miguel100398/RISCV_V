@@ -6,11 +6,12 @@
 `ifndef __RISCV_RF_TRK_ITEM__
 `define __RISCV_RF_TRK_ITEM__ 
 
-class riscv_rf_trk_item extends riscv_base_seq_item;
+class riscv_rf_trk_item extends riscv_v_base_seq_item;
     riscv_rf_addr_t   addr;
     logic             wr_en;
     riscv_data_t      data;
     rf_port_e         port;
+    logic             wr;
 
     `uvm_object_utils_begin(riscv_rf_trk_item)
         `uvm_field_int(addr, UVM_ALL_ON)

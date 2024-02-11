@@ -26,6 +26,11 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  osize_vector_t     src_osize_vector,
     input  osize_vector_t     is_greater_osize_vector,
     input  osize_vector_t     is_less_osize_vector,
+    `ifdef RISCV_V_INST 
+        input riscv_v_osize_e   osize,
+        input riscv_v_opcode_e  opcode,
+        input riscv_v_src_len_t len,
+    `endif //RISCV_V_INST
     //Input sources
     input  riscv_v_alu_data_t srca,
     input  riscv_v_alu_data_t srcb,

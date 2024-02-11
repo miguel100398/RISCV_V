@@ -103,6 +103,7 @@ parameter bit RISCV_V_RF_RD_ASYNC           = 1'b1;
 parameter bit RISCV_V_RF_REG_INPUTS         = 1'b0;
 parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
 parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);                    //Width of addres of register file
+parameter bit RISCV_V_RF_PROTECT_REG_ZERO   = 1'b0;
 //Mask Regfile Constants
 parameter bit RISCV_V_MASK_RF_RD_ASYNC      = 1'b1;
 parameter bit RISCV_V_MASK_RF_REG_INPUTS    = 1'b0;

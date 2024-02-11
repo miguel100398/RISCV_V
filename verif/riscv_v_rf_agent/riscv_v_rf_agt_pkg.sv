@@ -8,6 +8,7 @@ package riscv_v_rf_agt_pkg;
 
 import uvm_pkg::*;
 import riscv_pkg::*;
+import base_pkg::*;
 import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
@@ -29,6 +30,7 @@ typedef riscv_v_base_sqr#(
 `include "riscv_v_rf_rand_raw_seq.sv"
 `include "riscv_v_rf_drv.sv"
 `include "riscv_v_rf_mon.sv"
+`include "riscv_v_rf_model.sv"
 `include "riscv_v_rf_scbd.sv"
 `include "riscv_v_rf_trk.sv"
 `include "riscv_v_rf_cov.sv"

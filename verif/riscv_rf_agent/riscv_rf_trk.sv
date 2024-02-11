@@ -6,7 +6,7 @@
 `ifndef __RISCV_RF_TRK__
 `define __RISCV_RF_TRK__
 
-class riscv_rf_trk extends riscv_base_trk#(
+class riscv_rf_trk extends riscv_v_base_trk#(
                                                 .seq_item_in_t(riscv_rf_wr_seq_item),
                                                 .seq_item_out_t(riscv_rf_rd_seq_item),
                                                 .file_name("riscv_rf_trk.txt")

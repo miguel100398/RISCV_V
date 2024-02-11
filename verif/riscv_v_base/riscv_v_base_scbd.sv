@@ -7,13 +7,16 @@
 `define __RISCV_V_BASE_SCBD__
 
 virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
-                                  type seq_item_out_t = seq_item_in_t          ) extends base_scbd#(
+                                  type seq_item_out_t = seq_item_in_t,
+                                  type model_t        = riscv_v_base_model          ) extends base_scbd#(
                                                                                                     .seq_item_in_t(seq_item_in_t),
-                                                                                                    .seq_item_out_t(seq_item_out_t));
+                                                                                                    .seq_item_out_t(seq_item_out_t),
+                                                                                                    .model_t(model_t));
                                   
     `uvm_component_param_utils(riscv_v_base_scbd#(
         .seq_item_in_t (seq_item_in_t),
-        .seq_item_out_t(seq_item_out_t)));
+        .seq_item_out_t(seq_item_out_t),
+        .model_t(model_t)));
 
     //Constructor
     function new(string name = "riscv_v_base_scbd", uvm_component parent = null);

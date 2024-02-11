@@ -7,13 +7,15 @@
 `define __BASE_SCBD__
 
 virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
-                          type seq_item_out_t = seq_item_in_t          ) extends base_subscriber_2ports#(
+                          type seq_item_out_t = seq_item_in_t,
+                          type model_t        = base_model          ) extends base_subscriber_2ports#(
                                                                                                                         .seq_item_in_t(seq_item_in_t),
                                                                                                                         .seq_item_out_t(seq_item_out_t));
                                   
     `uvm_component_param_utils(base_scbd#(
         .seq_item_in_t (seq_item_in_t),
-        .seq_item_out_t(seq_item_out_t)));
+        .seq_item_out_t(seq_item_out_t),
+        .model_t(base_model)));
 
     //Number of analyzed vectors
     int num_vectors = 0;
@@ -25,6 +27,9 @@ virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
     //Stop simulation when error is detected
     int stop_at_error = 1;
 
+    //Model to predict Results
+    model_t model;
+
     //Constructor
     function new(string name = "base_scbd", uvm_component parent = null);
         super.new(name, parent);
@@ -32,9 +37,11 @@ virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        model = model_t::type_id::create({get_name(), "_model"}, this);
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
+        model.rst();
         super.run_phase(phase);
     endtask: run_phase
 

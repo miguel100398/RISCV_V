@@ -8,7 +8,8 @@
 
 class riscv_v_alu_scbd extends riscv_v_base_scbd#(
                                                  .seq_item_in_t(riscv_v_alu_in_seq_item),
-                                                 .seq_item_out_t(riscv_v_alu_out_seq_item) );
+                                                 .seq_item_out_t(riscv_v_alu_out_seq_item),
+                                                 .model_t(riscv_v_alu_model) );
     `uvm_component_utils(riscv_v_alu_scbd)
 
     riscv_v_logic_alu_in_seq_item       logic_in_txn;

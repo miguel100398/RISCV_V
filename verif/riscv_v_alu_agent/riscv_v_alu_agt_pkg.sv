@@ -40,6 +40,7 @@ typedef riscv_v_base_sqr#(
 `include "riscv_v_alu_seq.sv"
 `include "riscv_v_alu_drv.sv"
 `include "riscv_v_alu_mon.sv"
+`include "riscv_v_alu_model.sv"
 `include "riscv_v_alu_scbd.sv"
 `include "riscv_v_alu_trk.sv"
 `include "riscv_v_alu_cov.sv"

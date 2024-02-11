@@ -11,6 +11,9 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic                is_v2i,
     input  riscv_data_t         integer_data_in,
     input  riscv_v_alu_data_t   vector_data_in,
+    `ifdef RISCV_V_INST 
+        input riscv_v_opcode_e  opcode,
+    `endif //RISCV_V_INST
     output riscv_data_t         integer_data_out,
     output riscv_v_wb_data_t    vector_data_out   
 );

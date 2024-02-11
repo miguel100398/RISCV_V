@@ -6,7 +6,7 @@
 `ifndef __RISCV_RF_BASE_SEQ_SV__
 `define __RISCV_RF_BASE_SEQ_SV__
 
-virtual class riscv_rf_base_seq extends riscv_base_seq#(riscv_rf_seq_item);
+virtual class riscv_rf_base_seq extends riscv_v_base_seq#(riscv_rf_seq_item);
 
   bit reset_wr_en = 1'b1;
   

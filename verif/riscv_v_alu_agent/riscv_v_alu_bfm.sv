@@ -11,7 +11,8 @@ class riscv_v_alu_bfm extends riscv_v_base_bfm#(
     .seq_item_out_t(riscv_v_alu_out_seq_item),
     .sequencer_t(riscv_v_alu_sqr),
     .cfg_obj_t(riscv_v_alu_bfm_cfg_obj),
-    .seq_t(riscv_v_alu_seq)
+    .seq_t(riscv_v_alu_seq),
+    .model_t(riscv_v_alu_model)
 );
 
 `uvm_component_utils(riscv_v_alu_bfm)

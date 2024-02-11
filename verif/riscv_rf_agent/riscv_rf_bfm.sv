@@ -7,7 +7,11 @@
 `define __RISCV_RF_BFM_SV__ 
 
 class riscv_rf_bfm extends rf_bfm#(
-    .RF_MODEL_T(rf_model),
+    .model_t(rf_model#(
+        .data_t(riscv_data_t),
+        .NUM_REGS(RISCV_RF_NUM_REGS),
+        .PROTECT_REG_ZERO(RISCV_RF_PROTECT_REG_ZERO)
+    )),
     .seq_item_in_t(riscv_rf_wr_seq_item),
     .seq_item_out_t(riscv_rf_rd_seq_item),
     .sequencer_t(riscv_rf_sqr),
@@ -31,34 +35,32 @@ class riscv_rf_bfm extends rf_bfm#(
 
     virtual function void update_wr_rf();
 
-        //Read data
-        if (txn_in.port == RF_RD_PORT_A) begin
-            srca = rf.read_data(txn_in.addr);
-        end else if (txn_in.port == RF_RD_PORT_B)begin
-            srcb = rf.read_data(txn_in.addr);
+         //Write data
+        if (txn_in.wr_en) begin
+            rf.write_data(txn_in.addr, txn_in.data);
         end
 
-    endfunction: update_rf
+    endfunction: update_wr_rf
 
     virtual function void update_rd_rf();
 
-        //Write data
-        if (txn_in.wr_en) begin
-            rf.write_data(txn_in.data);
+       //Read data
+        if (txn_out.port == RF_RD_PORT_A) begin
+            srca = rf.read_data(txn_out.addr);
+        end else if (txn_out.port == RF_RD_PORT_B)begin
+            srcb = rf.read_data(txn_out.addr);
         end
 
     endfunction: update_rd_rf
 
     virtual function void rst_seq();
         seq.rd_data_A  = 'x;
-        seq.rd_data_B = 'x;
-        seq.rd_addr_B = 'x;
-        seq.data_in   = 'x;
-        seq.wr_en     = 1'b0;
+        seq.rd_data_B  = 'x;
     endfunction: rst_seq
 
     virtual function void bfm_seq();
-        seq.
+        seq.rd_data_A  = srca;
+        seq.rd_data_B  = srcb;
     endfunction: bfm_seq
 
 

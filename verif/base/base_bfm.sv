@@ -12,7 +12,8 @@ virtual class base_bfm #( type seq_item_in_t  = base_seq_item,
                                                             .seq_item_t(seq_item_in_t)),
                           type cfg_obj_t      = base_bfm_cfg_obj,
                           type seq_t          = base_seq#(
-                                                            .seq_item_t(seq_item_in_t))                                  
+                                                            .seq_item_t(seq_item_in_t)),
+                          type model_t        = base_model                                  
                           ) extends base_subscriber_2ports#(
                               .seq_item_in_t(seq_item_in_t),
                               .seq_item_out_t(seq_item_out_t)
@@ -23,7 +24,8 @@ virtual class base_bfm #( type seq_item_in_t  = base_seq_item,
     .seq_item_out_t(seq_item_out_t),
     .sequencer_t   (sequencer_t),
     .cfg_obj_t     (cfg_obj_t),
-    .seq_t         (seq_t)
+    .seq_t         (seq_t),
+    .model_t       (model_t)
 ));
 
 localparam update_bfm_sem_keys = 1;
@@ -39,6 +41,8 @@ bit driving_rst = 0;
 bit get_cfg_from_db    = 1'b1;
 bit use_custom_db_name = 1'b0;
 string custom_db_name  = "";
+
+model_t model;
 
 function new(string name = "base_bfm", uvm_component parent = null);
     super.new(name, parent);
@@ -65,14 +69,15 @@ virtual function void build_phase(uvm_phase phase);
         cfg = cfg_obj_t::type_id::create({get_name(), "_cfg"});
     end
 
-    seq = seq_t::type_id::create("testeo");
-    sqr = sequencer_t::type_id::create({get_name(), "_sequencer"}, this);
+    seq   = seq_t::type_id::create("testeo");
+    sqr   = sequencer_t::type_id::create({get_name(), "_sequencer"}, this);
+    model = model_t::type_id::create({get_name(), "_model"}, this);
     update_bfm_sem = new(0);
 endfunction: build_phase 
 
 virtual function void write (seq_item_in_t t);
     txn_in = t;
-    port_out_handler();
+    port_in_handler();
 endfunction: write 
 
 virtual function void start_bfm();

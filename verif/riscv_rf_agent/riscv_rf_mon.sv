@@ -6,9 +6,9 @@
 `ifndef __RISCV_RF_MON_SV___
 `define __RISCV_RF_MON_SV___
 
-class riscv_rf_mon extends riscv_base_mon#( .seq_item_in_t   (riscv_rf_wr_seq_item),
+class riscv_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_rf_wr_seq_item),
                                             .seq_item_out_t  (riscv_rf_rd_seq_item));
-  `uvm_component_utils(riscv_v_rf_mon)
+  `uvm_component_utils(riscv_rf_mon)
 
   localparam int rd_sem_keys = 1;
   localparam int wr_sem_keys = 2;
@@ -77,8 +77,8 @@ class riscv_rf_mon extends riscv_base_mon#( .seq_item_in_t   (riscv_rf_wr_seq_it
 
   //Get interface
   virtual function void get_vif();
-    if (!uvm_config_db#(virtual riscv_rf_if)::get(this, "*", "riscv_rf_vif", vif)) begin
-      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_rf_vif");
+    if (!uvm_config_db#(virtual riscv_rf_if)::get(this, "*", interface_name, vif)) begin
+      `uvm_fatal(get_name(), $sformatf("NO_VIF", "virtual interface must be set for: %s", interface_name));
     end
   endfunction: get_vif
 

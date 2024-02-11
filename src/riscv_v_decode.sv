@@ -10,6 +10,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                        clk,
     input  logic                        rst,
     input  logic                        clear_pipe,
+    input  logic                        riscv_stall,
+    output logic                        riscv_v_stall,
     //RISCV Integer Interface
     input  riscv_instruction_t          instruction_id,
     //Integer Register File Interface

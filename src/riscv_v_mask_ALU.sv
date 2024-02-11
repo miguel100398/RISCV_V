@@ -15,6 +15,9 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic                is_negate_result,
     input  riscv_v_mask_t       srca,
     input  riscv_v_mask_t       srcb,
+    `ifdef RISCV_V_INST 
+        input riscv_v_opcode_e  opcode,
+    `endif //RISCV_V_INST
     output riscv_v_mask_t       result
 );
 

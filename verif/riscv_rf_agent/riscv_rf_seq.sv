@@ -6,7 +6,9 @@
 `ifndef __RISCV_RF_SEQ__
 `define __RISCV_RF_SEQ__ 
 
-class riscv_rf_seq extends riscv_rf_base_seq;
+class riscv_rf_seq extends riscv_v_base_seq#(
+  .seq_item_t(riscv_rf_seq_item)
+);
     rand riscv_rf_addr_t  wr_addr   = '0;
     rand riscv_rf_addr_t  rd_addr_A = '0;
     rand riscv_rf_addr_t  rd_addr_B = '0;
@@ -14,6 +16,7 @@ class riscv_rf_seq extends riscv_rf_base_seq;
     rand riscv_data_t     rd_data_A = '0;
     rand riscv_data_t     rd_data_B = '0;
     rand logic            wr_en     = '0;
+         logic            reset_wr_en;
 
 
     `uvm_object_utils(riscv_rf_seq)
@@ -30,18 +33,17 @@ class riscv_rf_seq extends riscv_rf_base_seq;
     wait_for_grant();
     //Send random transaction
     assert(
-        req.randomize() with{
-            req.in.wr_addr   == wr_addr;
-            req.in.rd_addr_A == rd_addr_A;
-            req.in.rd_addr_B == rd_addr_B;
-            req.in.wr_en     == wr_en;
-            req.in.data_in   == data_in;
-            req.out.data     == rd_data_A;
-            req.out2.data    == rd_data_B;
-        }
+        req.randomize()
     ) else begin
       `uvm_fatal(get_name(), "Can't randomize riscv_rf_seq_item")
     end
+    req.in.addr      = wr_addr;
+    req.out.addr     = rd_addr_A;
+    req.out2.addr    = rd_addr_B;
+    req.in.wr_en     = wr_en;
+    req.in.data      = data_in;
+    req.out.data     = rd_data_A;
+    req.out2.data    = rd_data_B;
     req.in.reset_wr_en = reset_wr_en;
     send_request(req);
     wait_for_item_done();

@@ -10,6 +10,10 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                       clk,
     input  logic                       rst,
     //Decode interface
+    `ifdef RISCV_V_INST 
+        input riscv_v_osize_e   osize_exe,
+        input riscv_v_opcode_e  opcode_exe,
+    `endif //RISCV_V_INST
     input  riscv_data_t                int_data_exe,
     output riscv_data_t                int_data_result_exe,
     input  riscv_v_data_t              srca_exe,
@@ -63,12 +67,17 @@ osize_vector_t      dst_osize_vector;
 osize_vector_t      src_osize_vector;
 osize_vector_t      is_greater_osize_vector;
 osize_vector_t      is_less_osize_vector;
-riscv_v_src_len_t   len;
+riscv_v_src_len_t   len_exe;
 
 //Execution ALUS
 riscv_v_exe_alu exe_alu(
     .clk(clk),
     .rst(rst),
+    `ifdef RISCV_V_INST 
+        .osize_exe(osize_exe),
+        .opcode_exe(opcode_exe),
+        .len_exe(len_exe),
+    `endif //RISCV_V_INST
     .srca_exe(srca_alu),
     .srcb_exe(srcb_alu),
     .src_int_exe(int_data_exe),
@@ -77,7 +86,6 @@ riscv_v_exe_alu exe_alu(
     .src_osize_vector_exe(src_osize_vector),
     .is_greater_osize_vector_exe(is_greater_osize_vector),
     .is_less_osize_vector_exe(is_less_osize_vector),
-    .len_exe(len),
     .is_i2v_exe(is_i2v_exe),
     .is_v2i_exe(is_v2i_exe),
     .is_and_exe(is_and_exe),
@@ -121,7 +129,7 @@ riscv_v_decode_element decode_element(
     .src_osize_vector(src_osize_vector),
     .is_greater_osize_vector(is_greater_osize_vector),
     .is_less_osize_vector(is_less_osize_vector),
-    .len(len)
+    .len(len_exe)
 );
 
 //Bypass unit

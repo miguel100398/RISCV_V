@@ -7,40 +7,43 @@
 `define __RF_BFM_SV__ 
 
 virtual class rf_bfm#(
-    type RF_MODEL_T     = rf_model,
+    type model_t        = rf_model,
     type seq_item_in_t  = base_seq_item,
     type seq_item_out_t = base_seq_item,
     type sequencer_t    = base_sqr#(
                                     .seq_item_t(seq_item_in_t)),
-    type cfg_obj_t      = base_bfm_cfg_obj  
+    type cfg_obj_t      = base_bfm_cfg_obj,
+    type seq_t          = base_seq  
 ) extends base_bfm #(
     .seq_item_in_t(seq_item_in_t),
     .seq_item_out_t(seq_item_out_t),
     .sequencer_t(sequencer_t),
-    .cfg_obj_t(cfg_obj_t)
+    .cfg_obj_t(cfg_obj_t),
+    .seq_t(seq_t),
+    .model_t(model_t)
 );
 
     localparam NUM_RD_PORTS = 2;
     int num_reads = 0;
 
     `uvm_component_param_utils(rf_bfm#(
-        .RF_MODEL_T(RF_MODEL_T),
+        .model_t(model_t),
         .seq_item_in_t(seq_item_in_t),
         .seq_item_out_t(seq_item_out_t),
         .sequencer_t(sequencer_t),
-        .cfg_obj_t(cfg_obj_t)
+        .cfg_obj_t(cfg_obj_t),
+        .seq_t(seq_t)
     ));
 
-    RF_MODEL_T rf;
+    model_t rf;
 
-
-    function new (string name = "rf_bfm", uvm_component = null);
+    function new (string name = "rf_bfm", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        rf = RF_MODEL_T::type_id::create({get_name(), "rf_model"}, this);
+        rf = model;
     endfunction: build_phase
 
     virtual function void port_in_handler();
@@ -61,9 +64,9 @@ virtual class rf_bfm#(
         end
     endfunction: port_out_handler
 
-    virtual function rst_bfm();
+    virtual function void rst_bfm();
         rf.rst();
-    endtask: rst_bfm
+    endfunction: rst_bfm
 
     pure virtual function void update_wr_rf();
     pure virtual function void update_rd_rf();

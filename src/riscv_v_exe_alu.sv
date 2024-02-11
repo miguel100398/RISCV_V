@@ -9,6 +9,11 @@ import riscv_pkg::*, riscv_v_pkg::*;
     //Clocks and resets
     input  logic                clk,
     input  logic                rst,
+    `ifdef RISCV_V_INST 
+        input riscv_v_osize_e      osize_exe,
+        input riscv_v_opcode_e     opcode_exe,
+        input riscv_v_src_len_t    len_exe,
+    `endif //RISCV_V_INST
     //Sources
     input  riscv_v_alu_data_t   srca_exe,
     input  riscv_v_alu_data_t   srcb_exe,
@@ -19,7 +24,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  osize_vector_t       src_osize_vector_exe,
     input  osize_vector_t       is_greater_osize_vector_exe,
     input  osize_vector_t       is_less_osize_vector_exe,
-    input  riscv_v_src_len_t    len_exe,
+    
     input  logic                is_i2v_exe,
     input  logic                is_v2i_exe,
     input  logic                is_and_exe,
@@ -88,6 +93,11 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_less_osize_vector(is_less_osize_vector_exe),
         .srca(srca_shuffled_exe),
         .srcb(srcb_exe),
+        `ifdef RISCV_V_INST
+            .osize(osize_exe),
+            .opcode(opcode_exe),
+            .len(len_exe),
+        `endif //RISCV_V_INST
         .result(logic_result)
     );
 
@@ -115,6 +125,11 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .srca(srca_shuffled_exe),
         .srcb(srcb_exe),
         .carry_in(mask_exe),
+        `ifdef RISCV_V_INST
+            .osize(osize_exe),
+            .opcode(opcode_exe),
+            .len(len_exe),
+        `endif //RISCV_V_INST
         .result(arithmetic_result)
     );
 
@@ -128,6 +143,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_negate_result(is_negate_result_exe),
         .srca(srca_shuffled_exe.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0]),
         .srcb(srcb_exe.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0]),
+        `ifdef RISCV_V_INST
+            .opcode(opcode_exe),
+        `endif //RISCV_V_INST
         .result(mask_result_exe)
     );
     
@@ -137,6 +155,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_v2i(is_v2i_exe),
         .integer_data_in(src_int_exe),
         .vector_data_in(srca_shuffled_exe),
+        `ifdef RISCV_V_INST
+            .opcode(opcode_exe),
+        `endif //RISCV_V_INST
         .integer_data_out(int_result_exe),
         .vector_data_out(permutation_result)
     );

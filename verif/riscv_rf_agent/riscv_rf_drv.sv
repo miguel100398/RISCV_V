@@ -3,10 +3,10 @@
 //Date: 28/01/23
 //Description: RISC-V register file driver
 
-`ifndef __RISCV_V_RF_DRV_SV__
-`define __RISCV_V_RF_DRV_SV__
+`ifndef __RISCV_RF_DRV_SV__
+`define __RISCV_RF_DRV_SV__
 
-class riscv_rf_drv extends riscv_base_drv#(.seq_item_t (riscv_rf_seq_item));
+class riscv_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_rf_seq_item));
   `uvm_component_utils(riscv_rf_drv)
 
   //Virtual interface
@@ -43,10 +43,10 @@ class riscv_rf_drv extends riscv_base_drv#(.seq_item_t (riscv_rf_seq_item));
     `uvm_info(get_name(), "Sending new rf transaction", UVM_LOW)
     req.in.print();
     @(vif.cb_drv);
-    vif.cb_drv.wr_addr      <= req.in.wr_addr;
-    vif.cb_drv.rd_addr_A    <= req.in.rd_addr_A;
-    vif.cb_drv.rd_addr_B    <= req.in.rd_addr_B;
-    vif.cb_drv.data_in      <= req.in.data_in;
+    vif.cb_drv.wr_addr      <= req.in.addr;
+    vif.cb_drv.rd_addr_A    <= req.out.addr;
+    vif.cb_drv.rd_addr_B    <= req.out2.addr;
+    vif.cb_drv.data_in      <= req.in.data;
     vif.cb_drv.wr_en        <= req.in.wr_en;
     if (req.in.reset_wr_en) begin
       @(vif.cb_drv);
@@ -68,12 +68,12 @@ class riscv_rf_drv extends riscv_base_drv#(.seq_item_t (riscv_rf_seq_item));
 
   //Get interface
   virtual function void get_vif();
-    if (!uvm_config_db#(virtual riscv_rf_if)::get(this, "*", "riscv_rf_vif", vif)) begin
-      `uvm_fatal("NO_VIF", "virtual interface must be set for: riscv_rf_vif");
+    if (!uvm_config_db#(virtual riscv_rf_if)::get(this, "*", interface_name, vif)) begin
+      `uvm_fatal(get_name(), $sformatf("NO_VIF", "virtual interface must be set for: %s", interface_name));
     end
   endfunction: get_vif
 
 endclass: riscv_rf_drv
 
 
-`endif //__RISCV_RF_DRV_SV__
+`endif //__RISCV_DRV_SV__
