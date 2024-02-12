@@ -33,6 +33,15 @@ class riscv_rf_agt extends riscv_v_base_agt#(
     super.connect_phase(phase);
   endfunction : connect_phase
 
+  virtual function void connect_active_components();
+
+    super.connect_active_components();
+    if (USE_BFM) begin
+      mon.rtl_in_ap.connect(bfm.analysis_imp_in);
+    end
+
+  endfunction: connect_active_components
+
 endclass: riscv_rf_agt
 
 `endif //__RISCV_RF_AGT_SV__

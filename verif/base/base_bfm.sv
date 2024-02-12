@@ -75,11 +75,6 @@ virtual function void build_phase(uvm_phase phase);
     update_bfm_sem = new(0);
 endfunction: build_phase 
 
-virtual function void write (seq_item_in_t t);
-    txn_in = t;
-    port_in_handler();
-endfunction: write 
-
 virtual function void start_bfm();
     cfg.bfm_en = 1'b1;
 endfunction: start_bfm

@@ -60,7 +60,7 @@ class riscv_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_rf_seq_item));
     `uvm_info(get_name(), "Sending new rf transaction", UVM_LOW)
     req.out.print();
     req.out2.print();
-    @(vif.cb_bfm);
+    //@(vif.cb_bfm);
     vif.cb_bfm.data_out_A <= req.out.data;
     vif.cb_bfm.data_out_B <= req.out2.data;
 

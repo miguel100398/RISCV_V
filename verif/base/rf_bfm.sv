@@ -49,6 +49,7 @@ virtual class rf_bfm#(
     virtual function void port_in_handler();
 
         //Update Functions
+        $display("here1");
         update_wr_rf();
 
         //update_bfm_sem.put(update_bfm_sem_keys);
@@ -56,6 +57,7 @@ virtual class rf_bfm#(
 
     virtual function void port_out_handler();
         //Update  functions
+        $display("here2");
         update_rd_rf();
         num_reads++;
         if (num_reads == NUM_RD_PORTS) begin

@@ -37,7 +37,7 @@ import riscv_pkg::*;
         input  data_out_B
     );
 
-    clocking cb_mon @(posedge clk);
+    clocking cb_mon @(negedge clk);
         input  wr_addr;
         input  rd_addr_A;
         input  rd_addr_B;
@@ -55,7 +55,7 @@ import riscv_pkg::*;
         output  wr_en;
     endclocking
 
-    clocking cb_bfm @(posedge clk);
+    clocking cb_bfm @(negedge clk);
         output data_out_A;
         output data_out_B;
     endclocking
