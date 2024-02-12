@@ -6,21 +6,15 @@
 package riscv_v_test_pkg;
     import riscv_v_pkg::*;
     import uvm_pkg::*;
-    import riscv_rf_agt_pkg::*;
-    import riscv_v_rf_agt_pkg::*;
+    
     import riscv_v_alu_agt_pkg::*;
 
     
     `include "uvm_macros.svh"
-    `include "riscv_v_base_test.sv"
-    `include "riscv_v_rf_base_test.sv"
-    `include "riscv_v_rf_doa_test.sv"
-    `include "riscv_v_alu_base_test.sv"
-    `include "riscv_v_logic_alu_doa_test.sv"
-    `include "riscv_v_arithmetic_alu_doa_test.sv"
-    `include "riscv_v_mask_alu_doa_test.sv"
-    `include "riscv_v_permutation_alu_doa_test.sv"
-    `include "riscv_v_cpu_base_test.sv"
-    `include "riscv_v_cpu_doa_test.sv"
+    import riscv_v_base_test_pkg::*;
+    import riscv_v_rf_test_pkg::*;
+    import riscv_v_base_alu_test_pkg::*;
+    import riscv_v_alu_test_pkg::*;
+    import riscv_v_cpu_test_pkg::*;
 
 endpackage: riscv_v_test_pkg
