@@ -42,13 +42,16 @@ class riscv_v_cpu_base_test extends riscv_v_base_test;
         uvm_config_db #(uvm_active_passive_enum)::set(this, "int_rf_env.*", "is_active",    UVM_ACTIVE);
         uvm_config_db #(bit)::set(this,                     "int_rf_env.*", "USE_BFM",      1'b1);
         uvm_config_db #(bit)::set(this,                     "int_rf_env.*", "bfm_mode",     1'b1);
+        uvm_config_db #(bit)::set(this,                     "int_rf_env*",  "USE_SCBD",     1'b0);
         uvm_config_db #(int_rf_cfg_t)::set(this,            "int_rf_env.*", "int_rf_env_agent_bfm_cfg",  int_rf_cfg);
         uvm_config_db #(uvm_active_passive_enum)::set(this, "vec_rf_env.*", "is_active",    UVM_PASSIVE);
         uvm_config_db #(bit)::set(this,                     "vec_rf_env.*", "USE_BFM",      1'b0);
         uvm_config_db #(bit)::set(this,                     "vec_rf_env.*", "bfm_mode",     1'b0);
+        uvm_config_db #(bit)::set(this,                     "vec_rf_env*",  "USE_SCBD",     1'b1);
         uvm_config_db #(uvm_active_passive_enum)::set(this, "alu_env.*", "is_active",       UVM_PASSIVE);
         uvm_config_db #(bit)::set(this,                     "alu_env.*", "USE_BFM",         1'b0);
         uvm_config_db #(bit)::set(this,                     "alu_env.*", "bfm_mode",        1'b0);
+        uvm_config_db #(bit)::set(this,                     "alu_env*",  "USE_SCBD",        1'b1);
         //Set interfaces names
         uvm_config_db #(string)::set(this, "int_rf_env.*", "interface_name",  "riscv_v_int_rf_vif");
         uvm_config_db #(string)::set(this, "vec_rf_env.*", "interface_name",  "riscv_v_vec_rf_vif");

@@ -26,6 +26,7 @@ virtual class riscv_rf_base_test extends riscv_v_base_test;
 
         uvm_config_db #(uvm_active_passive_enum)::set(this, "riscv_v_rf_env.*", "is_active",       UVM_ACTIVE);
         uvm_config_db #(bit)::set(this,                     "riscv_v_rf_env.*", "USE_BFM",         1'b0);
+        uvm_config_db #(bit)::set(this,                     "riscv_v_rf_env*",  "USE_SCBD",        1'b1);
         uvm_config_db #(string)::set(this,                  "riscv_v_rf_env.*", "interface_name",  "riscv_v_rf_vif");
         uvm_config_db #(bit)::set(this,                     "riscv_v_rf_env.*", "bfm_mode",        1'b0);
 

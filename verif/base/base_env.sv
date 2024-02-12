@@ -19,6 +19,8 @@ virtual class base_env#( type agent_t = base_agt,
     scbd_t  scbd;
     cov_t   cov;
 
+    bit     USE_SCBD = 1'b1;
+
     //Constructor
     function new(string name = "base_env", uvm_component parent = null);
         super.new(name, parent);
@@ -27,6 +29,12 @@ virtual class base_env#( type agent_t = base_agt,
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         `uvm_info(get_name(), $sformatf("%s: build", get_name()), UVM_NONE)
+
+        if (!(uvm_config_db #(bit)::get(this, "", "USE_SCBD", USE_SCBD))) begin
+            USE_SCBD = 1'b1;
+            `uvm_warning(get_name(), "USE_SCBD is not configured, default valuse is 1'b1")
+        end
+
         build_components();
     endfunction: build_phase
 
@@ -39,7 +47,9 @@ virtual class base_env#( type agent_t = base_agt,
     virtual function void build_components();
         agt  = agent_t::type_id::create({get_name(), "_agent"}, this);
         cov  = cov_t::type_id::create({get_name(), "_cov"}, this);
-        build_scbd();
+        if (USE_SCBD) begin
+            build_scbd();
+        end
     endfunction: build_components
 
     virtual function void build_scbd();
@@ -48,7 +58,9 @@ virtual class base_env#( type agent_t = base_agt,
 
     virtual function void connect_components();
         //SCBD
-        connect_scbd();
+        if (USE_SCBD) begin 
+            connect_scbd();
+        end
         //COV
         agt.mon.rtl_in_ap.connect(cov.analysis_imp_in);
         agt.mon.rtl_out_ap.connect(cov.analysis_imp_out);

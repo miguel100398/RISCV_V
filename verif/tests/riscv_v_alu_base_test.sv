@@ -28,6 +28,7 @@ virtual class riscv_alu_base_test extends riscv_v_base_test;
         uvm_config_db #(uvm_active_passive_enum)::set(this, "alu_env.*", "is_active",       UVM_ACTIVE);
         uvm_config_db #(bit)::set(this,                     "alu_env.*", "USE_BFM",         1'b0);
         uvm_config_db #(bit)::set(this,                     "alu_env.*", "bfm_mode",        1'b0);
+        uvm_config_db #(bit)::set(this,                     "alu_env*",  "USE_SCBD",        1'b0);
         //Set interfaces names
         interfaces_names[LOGIC_ALU]       = "riscv_v_logic_alu_vif";
         interfaces_names[ARITHMETIC_ALU]  = "riscv_v_arithmetic_alu_vif";
