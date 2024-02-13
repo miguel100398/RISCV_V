@@ -100,7 +100,7 @@ virtual class base_agt #(           type seq_item_in_t  = base_seq_item,
     virtual function void connect_active_components();
         if (USE_BFM) begin
             drv.seq_item_port.connect(bfm.sqr.seq_item_export);
-            mon.rtl_out_ap.connect(bfm.analysis_imp_out);
+            mon.rtl_in_ap.connect(bfm.analysis_imp_in);
         end else begin
             drv.seq_item_port.connect(sqr.seq_item_export);
         end

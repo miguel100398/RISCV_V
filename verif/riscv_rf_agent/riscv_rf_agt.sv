@@ -37,7 +37,7 @@ class riscv_rf_agt extends riscv_v_base_agt#(
 
     super.connect_active_components();
     if (USE_BFM) begin
-      mon.rtl_in_ap.connect(bfm.analysis_imp_in);
+      mon.rtl_out_ap.connect(bfm.analysis_imp_out);
     end
 
   endfunction: connect_active_components

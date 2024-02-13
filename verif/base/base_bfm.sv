@@ -86,13 +86,21 @@ endfunction: stop_bfm
 virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
     wait(cfg.bfm_en);
-    phase.raise_objection(this);
-    drive_rst();
-    repeat(cfg.num_txn) begin
-        wait(cfg.bfm_en);
-        drive_bfm();
+    if (cfg.run_forever) begin
+        drive_rst();
+        forever begin
+            wait(cfg.bfm_en);
+            drive_bfm();
+        end
+    end else begin 
+        phase.raise_objection(this);
+        drive_rst();
+        repeat(cfg.num_txn) begin
+            wait(cfg.bfm_en);
+            drive_bfm();
+        end
+        phase.drop_objection(this);
     end
-    phase.drop_objection(this);
 endtask: run_phase
 
 virtual task drive_rst();

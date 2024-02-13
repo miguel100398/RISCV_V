@@ -12,6 +12,7 @@ class base_bfm_cfg_obj extends base_cfg_obj;
 
     int num_txn = 100;
     bit bfm_en  = 1'b0;
+    bit run_forever = 1'b0;
 
     function new(string name = "base_bfm_cfg_obj");
         super.new(name);
