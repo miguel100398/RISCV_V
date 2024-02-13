@@ -116,7 +116,6 @@ virtual task drive_bfm();
     update_bfm_sem.get(update_bfm_sem_keys);
     assert (seq.randomize()) else `uvm_fatal(get_name(), "Can't randomize sequence")
     bfm_seq();
-
     seq.start(sqr);
 
 endtask: drive_bfm

@@ -18,8 +18,15 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
 
     int time_size         = 25;
     int instruction_size  = 25;
+    `ifdef RISCV_V_INST
+        int opcode_size   = 25;
 
-    int header_size = time_size + instruction_size + 1;
+        int header_size = time_size + instruction_size + opcode_size + 2;
+    `else 
+        int header_size = time_size + instruction_size + 1;
+    `endif //RISCV_V_INST
+
+    
 
     function new (string name = "riscv_v_if_trk", uvm_component parent = null);
         super.new(name, parent);
@@ -36,6 +43,9 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
 
     virtual function void trk_out();
         txn.instruction  = txn_out.instruction;
+        `ifdef RISCV_V_INST
+            txn.opcode   = txn_out.opcode;
+        `endif //RISCV_V_INST
         print_data();
     endfunction: trk_out
 
@@ -45,6 +55,9 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
 
         print = concat_field(print, "           Time", time_size,        1, 1);
         print = concat_field(print, " Instruction",    instruction_size, 0, 1);
+        `ifdef RISCV_V_INST
+             print = concat_field(print, " opcode",    opcode_size,      0, 1);
+        `endif //RISCV_V_INST
         print = {print, "\n"};
 
         repeat(header_size) begin
@@ -63,6 +76,9 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
 
         print = concat_field(print, $sformatf(" %t", $time),                   time_size,         1, 1);
         print = concat_field(print, $sformatf(" 0x%0h", txn.instruction),      instruction_size,  0, 1);
+        `ifdef RISCV_V_INST
+            print = concat_field(print, $sformatf(" 0x%0h", txn.opcode),       opcode_size,       0, 1);
+        `endif //RISCV_V_INST
 
         print = {print, "\n"};
 

@@ -54,6 +54,9 @@ class riscv_v_if_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_if_in_
 
     `uvm_info(get_name(), "Transaction captured in Instruction Fetch port_out", UVM_HIGH);
     out_txn.instruction = vif.cb_mon.instruction;
+    `ifdef RISCV_V_INST
+      out_txn.opcode    = vif.cb_mon.opcode;
+    `endif //RISCV_V_INST
 
     rtl_out_ap.write(out_txn);
 

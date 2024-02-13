@@ -32,6 +32,9 @@ class riscv_v_if_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_if_seq_item)
 
   virtual task drive_initial_bfm();
     vif.instruction   <= '0;
+    `ifdef RISCV_V_INST 
+      vif.opcode      <= NOP;
+    `endif //RISCV_V_INST
   endtask: drive_initial_bfm 
 
   // drive 
@@ -47,8 +50,11 @@ class riscv_v_if_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_if_seq_item)
   
     `uvm_info(get_name(), "Sending new Instruction Fetch transaction", UVM_LOW)
     req.out.print();
-    @(vif.cb_bfm);
+    //@(vif.cb_bfm);
     vif.cb_bfm.instruction <= req.out.instruction;
+    `ifdef RISCV_V_INST
+      vif.cb_bfm.opcode    <= req.out.opcode;
+    `endif //RISCV_V_INST
 
   endtask: drive_bfm
 

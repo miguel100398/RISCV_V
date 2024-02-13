@@ -13,11 +13,15 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_vstart_t         vstart, 
     output riscv_v_alu_data_t       srca_alu,
     output riscv_v_alu_data_t       srcb_alu,
+    `ifdef RISCV_V_INST
+        output riscv_v_src_len_t    len,
+        output riscv_v_osize_e      osize,
+    `endif //RISCV_V_INST
     output osize_vector_t           dst_osize_vector,
     output osize_vector_t           src_osize_vector,
     output osize_vector_t           is_greater_osize_vector,
-    output osize_vector_t           is_less_osize_vector,
-    output riscv_v_src_len_t        len
+    output osize_vector_t           is_less_osize_vector
+    
 );
 
 //Osize
@@ -40,8 +44,6 @@ assign dst_osize_vector[4] = (dst_osize == OSIZE_128);
 
 //FIXME
 assign src_osize_vector = dst_osize_vector;
-
-assign len = vl.len;
 
 //Is greater osize vector
 assign is_greater_osize_vector[0] = 1'b1; //Bit 0 is always 1 since all osizes are greater than osize0
@@ -117,5 +119,10 @@ end
 
 assign srcb_alu.merge = srca_alu.merge;
 assign srcb_alu.valid = srca_alu.valid;
+
+`ifdef RISCV_V_INST 
+    assign len   = vl.len;
+    assign osize = riscv_v_osize_e'(vtype.vsew);
+`endif //RISCV_V_INST
 
 endmodule: riscv_v_decode_element

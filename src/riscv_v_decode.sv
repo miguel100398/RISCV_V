@@ -125,6 +125,12 @@ riscv_v_vstart_t             csr_wr_data_vstart_wb;
 riscv_v_vxrm_t               csr_wr_data_vxrm_wb;
 riscv_v_vxsat_t              csr_wr_data_vxsat_wb;
 
+
+assign riscv_v_stall = 1'b0;
+assign stall         = riscv_v_stall || riscv_stall;
+
+assign flush         = clear_pipe;
+
 //Control unit
 riscv_v_ctrl v_ctrl(
     //Clocks and resets

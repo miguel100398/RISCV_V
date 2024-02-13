@@ -24,7 +24,6 @@ import riscv_v_base_pkg::*;
 typedef riscv_v_base_sqr#(
     .seq_item_t(riscv_v_if_seq_item)
 ) riscv_v_if_sqr;
-`include "riscv_v_if_base_seq.sv"
 `include "riscv_v_if_seq.sv"
 `include "riscv_v_if_drv.sv"
 `include "riscv_v_if_mon.sv"

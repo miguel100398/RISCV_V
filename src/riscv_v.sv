@@ -15,7 +15,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
     //RISCV Integer Interface
     input  riscv_instruction_t          instruction_id,
     `ifdef RISCV_V_INST 
-        input riscv_v_osize_e   osize_id,
         input riscv_v_opcode_e  opcode_id,
     `endif //RISCV_V_INST
     //Integer Register File interface
@@ -83,6 +82,16 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_vxrm_t               vxrm;
     riscv_v_vxsat_t              vxsat;
     riscv_v_vcsr_t               vcsr;
+
+    `ifdef RISCV_V_INST
+
+        riscv_v_opcode_e opcode_exe;
+        logic stall_inst;
+        assign stall_inst = riscv_stall || riscv_v_stall;
+
+        riscv_v_stage#(.DATA_T(riscv_v_opcode_e),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) riscv_v_opcode_inst_stage (.clk(clk), .rst(rst), .en(~stall_inst), .flush(clear_pipe), .rst_val('x), .flush_val('x), .data_in(opcode_id),  .data_out(opcode_exe));
+
+    `endif //RISCV_V_INST
 
     //Decode stage
     riscv_v_decode v_decode(
@@ -163,7 +172,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .rst(rst),
         //Decode interface
         `ifdef RISCV_V_INST
-            .osize_exe(osize_exe),
             .opcode_exe(opcode_exe),
         `endif //RISCV_V_INST
         .int_data_exe(int_rf_rd_data_exe),
@@ -214,15 +222,5 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .clk(clk),
         .rst(rst)
     );
-
-    `ifdef RISCV_V_INST
-
-        logic stall_inst;
-        assign stall_inst = riscv_stall || riscv_v_stall;
-
-        riscv_v_stage#(.DATA_T(riscv_v_osize_e),   .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) riscv_v_osize_inst_stage  (.clk(clk), .rst(rst), .en(~stall_inst), .flush(clear_pipe), .rst_val('x), .flush_val('x), .data_in(osize_id),   .data_out(osize_exe));
-        riscv_v_stage#(.DATA_T(riscv_v_opcode_e),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) riscv_v_opcode_inst_stage (.clk(clk), .rst(rst), .en(~stall_inst), .flush(clear_pipe), .rst_val('x), .flush_val('x), .data_in(opcode_id),  .data_out(opcode_exe));
-
-    `endif //RISCV_V_INST
 
 endmodule: riscv_v 

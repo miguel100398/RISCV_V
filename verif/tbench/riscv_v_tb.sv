@@ -75,10 +75,13 @@ module riscv_v_tb;
         .riscv_v_stall(riscv_v_stall),
         //RISCV Integer Interface
         .instruction_id(riscv_instruction_id),
+        `ifdef RISCV_V_INST
+            .opcode_id(riscv_v_if_vif.opcode),
+        `endif //RISCV_V_INST
         //Integer Register File interface
         .int_rf_rd_data_id(int_rf_vif.data_out_A),
-        //.int_rf_wr_data_wb(int_rf_vif.data_in),
-        //.int_rf_wr_en_wb(int_rf_vif.wr_en),
+        .int_rf_wr_data_wb(int_rf_vif.data_in),
+        .int_rf_wr_en_wb(int_rf_vif.wr_en),
         //CSR External interface
         .ext_data_in_exe('0),
         .ext_wr_vsstatus_id(1'b0),
@@ -90,7 +93,7 @@ module riscv_v_tb;
         .syn_addr('0)
     );
 
-    assign riscv_instruction_id = riscv_v_if_vif.instruction;
+    
 
     assign stall = riscv_stall || riscv_v_stall;
     //Assign Temporar  signals FIXME: Drive these signals by a BFM or model
@@ -102,20 +105,14 @@ module riscv_v_tb;
     riscv_v_stage#(.DATA_T(riscv_instruction_t), .NUM_STAGES(RISCV_V_ID_2_WB_LATENCY)) riscv_v_instr_stage (.clk(clk), .rst(1'b0), .en(1'b1), .flush(1'b0), .rst_val('x), .flush_val('x), .data_in(riscv_instruction_id), .data_out(riscv_instruction_wb));
 
     //Integer register file signals
-    //assign int_rf_vif.wr_addr   = riscv_instruction_wb.R.rd;
-    //assign int_rf_vif.rd_addr_A = riscv_instruction_id.R.rs1;
-    //assign int_rf_vif.rd_addr_B = riscv_instruction_id.R.rs2;
+    assign int_rf_vif.wr_addr   = riscv_instruction_wb.R.rd;
+    assign int_rf_vif.rd_addr_A = riscv_instruction_id.R.rs1;
+    assign int_rf_vif.rd_addr_B = riscv_instruction_id.R.rs2;
 
-    assign int_rf_vif.rd_addr_A = 1;
-    assign int_rf_vif.rd_addr_B = 10;
-    assign int_rf_vif.wr_en = 1'b1;
-    initial begin
-        for (int i = 0; i < 32; i++) begin
-            int_rf_vif.data_in = i;
-            int_rf_vif.wr_addr = i;
-            @(posedge clk);
-        end
-    end
+
+    //Instruction Fetch signals
+    assign riscv_instruction_id = riscv_v_if_vif.instruction;
+    assign riscv_v_if_vif.rst   = rst;
 
     //Vector register file signals
     assign vec_rf_vif.wr_addr    = dut.v_decode.v_rf.wr_addr;
@@ -211,6 +208,7 @@ module riscv_v_tb;
         repeat (5) begin 
             @(posedge clk);
         end
+        @(negedge clk);
         rst = 1'b0;
     end
 

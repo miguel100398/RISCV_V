@@ -11,6 +11,9 @@ class riscv_v_if_seq extends riscv_v_base_seq#(
 );
     rand riscv_instruction_t instruction;
     rand logic               rst;
+    `ifdef RISCV_V_INST
+      rand riscv_v_opcode_e  opcode;
+    `endif //RISCV_V_INST
 
     `uvm_object_utils(riscv_v_if_seq)
 
@@ -32,6 +35,9 @@ class riscv_v_if_seq extends riscv_v_base_seq#(
     end
     req.out.instruction      = instruction;
     req.in.rst               = rst;
+    `ifdef RISCV_V_INST 
+      req.out.opcode         = opcode;
+    `endif //RISCV_V_INST
     send_request(req);
     wait_for_item_done();
 
