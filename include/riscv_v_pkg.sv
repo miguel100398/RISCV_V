@@ -689,4 +689,112 @@ function automatic logic f_use_carry(riscv_instr_funct6_t funct6, logic funct3_i
     return use_carry;
 endfunction: f_use_carry 
 
+function automatic riscv_instr_funct6_t f_riscv_v_opcode_to_funct6(riscv_v_opcode_e opcode);
+    case (opcode)
+        BW_AND          : return RISCV_V_FUNCT6_VAND;
+        BW_AND_REDUCT   : return RISCV_V_FUNCT6_VREDAND;
+        BW_OR           : return RISCV_V_FUNCT6_VOR;
+        BW_OR_REDUCT    : return RISCV_V_FUNCT6_VREDOR;
+        BW_XOR          : return RISCV_V_FUNCT6_VXOR;
+        BW_XOR_REDUCT   : return RISCV_V_FUNCT6_VREDXOR;
+        SLL             : return RISCV_V_FUNCT6_VSLL;
+        SRL             : return RISCV_V_FUNCT6_VSRL;
+        SRA             : return RISCV_V_FUNCT6_VSRA;
+        ADDC            : return RISCV_V_FUNCT6_VADC;
+        ADD             : return RISCV_V_FUNCT6_VADD;
+        ADD_REDUCT      : return RISCV_V_FUNCT6_VREDSUM;
+        SUBB            : return RISCV_V_FUNCT6_VSBC;
+        SUB             : return RISCV_V_FUNCT6_VSUB;
+        SUB_REDUCT      : return RISCV_V_FUNCT6_VRSUB;
+        SIGN_EXT        : return RISCV_V_FUNCT6_VXUNARY0;
+        ZERO_EXT        : return RISCV_V_FUNCT6_VXUNARY0;
+        MINS            : return RISCV_V_FUNCT6_VMIN;
+        MINS_REDUCT     : return RISCV_V_FUNCT6_VREDMIN;
+        MINU            : return RISCV_V_FUNCT6_VMINU;
+        MINU_REDUCT     : return RISCV_V_FUNCT6_VREDMINU;
+        MAXS            : return RISCV_V_FUNCT6_VMAX;
+        MAXS_REDUCT     : return RISCV_V_FUNCT6_VREDMAX;
+        MAXU            : return RISCV_V_FUNCT6_VMAXU;
+        MAXU_REDUCT     : return RISCV_V_FUNCT6_VREDMAXU;
+        MULLS           : return RISCV_V_FUNCT6_VMUL;
+        MULHS           : return RISCV_V_FUNCT6_VMULH;
+        MULLU           : return RISCV_V_FUNCT6_VMUL;
+        MULHU           : return RISCV_V_FUNCT6_VMULHU;
+        SEQ             : return RISCV_V_FUNCT6_VMSEQ;
+        SNE             : return RISCV_V_FUNCT6_VMSNE;
+        SLE             : return RISCV_V_FUNCT6_VMSLE;
+        SLEU            : return RISCV_V_FUNCT6_VMSLEU;
+        SLT             : return RISCV_V_FUNCT6_VMSLT;
+        SLTU            : return RISCV_V_FUNCT6_VMSLTU;
+        SGT             : return RISCV_V_FUNCT6_VMSGT;
+        SGTU            : return RISCV_V_FUNCT6_VMSGTU;
+        MAND            : return RISCV_V_FUNCT6_VMAND;
+        MNAND           : return RISCV_V_FUNCT6_VMNAND;
+        MANDN           : return RISCV_V_FUNCT6_VMANDN;
+        MXOR            : return RISCV_V_FUNCT6_VMXOR;
+        MOR             : return RISCV_V_FUNCT6_VMOR;
+        MNOR            : return RISCV_V_FUNCT6_VMNOR;
+        MORN            : return RISCV_V_FUNCT6_VMORN;
+        MXNOR           : return RISCV_V_FUNCT6_VMXNOR;
+        I2V             : return RISCV_V_FUNCT6_VMV;
+        V2I             : return RISCV_V_FUNCT6_VMV;
+        NOP             : return '0;
+        default         : begin
+            $fatal("opcode not supported yet, opcode: %0s", opcode.name());
+            return 'x;
+        end
+    endcase
+endfunction: f_riscv_v_opcode_to_funct6
+
+function automatic riscv_v_opcode_e f_riscv_v_get_opcode(riscv_instruction_t instr);
+        bit found = 0;
+        riscv_v_opcode_e op;
+
+
+        unique case(instr.V.funct6)
+            //VADD VREDSUM VFADD
+            RISCV_V_FUNCT6_VADD : begin
+                //VADD
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op    = ADD;
+                    found = 1;
+                //VREDSUM
+                end else if (instr.V.funct3 inside{OPMVV, OPMVX}) begin
+                    op    = ADD_REDUCT;
+                    found = 1;
+                end
+                //VFADD Not supported
+            end
+            //VAND, VAADD, VFSGNJN
+            RISCV_V_FUNCT6_VAND : begin
+                //VAND
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op    = BW_AND;
+                    found = 1;
+                end
+                //VADD Not supported
+                //VFSGNJN Not supported
+            end
+            //VOR, VASUBU, VFSGNJX
+            RISCV_V_FUNCT6_VOR : begin
+                //VAND
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op    = BW_OR;
+                    found = 1;
+                end
+                //VASUBU Not supported
+                //VFSGNJX Not supported
+            end
+        endcase
+
+        if (~found) begin
+            riscv_v_funct3_e funct3_enum;
+            funct3_enum = riscv_v_funct3_e'(instr.V.funct3);
+            $fatal($sformatf("Not supported op, funct6: 0x%0h, funct3: %s", instr.V.funct6, funct3_enum.name()));
+            return  NOP;
+        end
+
+        return op;
+endfunction: f_riscv_v_get_opcode  
+
 endpackage: riscv_v_pkg

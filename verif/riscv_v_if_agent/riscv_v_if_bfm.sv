@@ -22,12 +22,15 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
         riscv_v_opcode_e    opcode;
     `endif //RISCV_V_INST
 
+    int rf_rst_idx = 0;
+
     function new(string name = "riscv_v_if_bfm", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        cfg.rf_rst_complete = ~cfg.use_rf_rst_seq;
     endfunction: build_phase
 
     virtual function void port_in_handler();
@@ -37,10 +40,22 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
                 return;
             end
         end else begin
-            instruction = model.get_instruction(cfg.use_file, cfg.use_specific_instr, cfg.use_specific_mode, cfg.specific_instr, cfg.specific_mode);
-            `ifdef RISCV_V_INST 
-                opcode = get_opcode(instruction);
-            `endif //RISCV_V_INST  
+            if (cfg.rf_rst_complete) begin
+                instruction = model.get_instruction(cfg.use_file, cfg.use_specific_instr, cfg.use_specific_mode, cfg.specific_instr, cfg.specific_mode);
+                `ifdef RISCV_V_INST 
+                    opcode = f_riscv_v_get_opcode(instruction);
+                `endif //RISCV_V_INST
+            end else begin
+                instruction.V.funct6 = f_riscv_v_opcode_to_funct6(cfg.rf_rst_seq[rf_rst_idx]);
+                instruction.V.vm     = 1'b0;
+                instruction.V.vs2    = 5'b0;
+                instruction.V.vs1    = $random();   //Immediate value
+                instruction.V.funct3 = OPMVX;
+                instruction.V.vd     = rf_rst_idx[4:0];
+                instruction.V.op     = RISCV_V_TYPE_OP_CODE;
+                rf_rst_idx++;
+                cfg.rf_rst_complete = (rf_rst_idx == RISCV_V_RF_NUM_REGS);
+            end  
         end
         update_bfm_sem.put(update_bfm_sem_keys);
     endfunction: port_in_handler
@@ -48,6 +63,8 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
     virtual function void rst_bfm();
         model.rst();
         instruction = '0;
+        cfg.rf_rst_complete = cfg.use_rf_rst_seq;
+        rf_rst_idx          = 0;
         `ifdef RISCV_V_INST 
             opcode = NOP;
         `endif //RISCV_V_INST
@@ -65,37 +82,7 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
         `ifdef RISCV_V_INST
             seq.opcode   = opcode;
         `endif //RISCV_V_INST
-    endfunction: bfm_seq
-
-    virtual function riscv_v_opcode_e get_opcode(riscv_instruction_t instr);
-        bit found = 0;
-        riscv_v_opcode_e op;
-
-
-        unique case(instr.V.funct6)
-            //VADD VREDSUM VFADD
-            RISCV_V_FUNCT6_VADD : begin
-                //VADD
-                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
-                    op    = ADD;
-                    found = 1;
-                //VREDSUM
-                end else if (instr.V.funct3 inside{OPMVV, OPMVX}) begin
-                    op    = ADD_REDUCT;
-                    found = 1;
-                end
-                //VFADD Not supported
-            end
-        endcase
-
-        if (~found) begin
-            riscv_v_funct3_e funct3_enum;
-            funct3_enum = riscv_v_funct3_e'(instr.V.funct3);
-            `uvm_fatal(get_name(), $sformatf("Not supported op, funct6: 0x%0h, funct3: %s", instr.V.funct6, funct3_enum.name()))
-        end
-
-        return op;
-    endfunction: get_opcode  
+    endfunction: bfm_seq 
 
 
 endclass: riscv_v_if_bfm
