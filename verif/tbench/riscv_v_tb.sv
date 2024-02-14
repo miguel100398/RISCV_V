@@ -65,6 +65,10 @@ module riscv_v_tb;
         .clk(clk)
     );
 
+    riscv_v_ext_csr_if riscv_v_ext_csr_vif(
+        .clk(clk)
+    );
+
     //Dut
     riscv_v dut(
         //Clocks and resets
@@ -83,13 +87,13 @@ module riscv_v_tb;
         .int_rf_wr_data_wb(int_rf_vif.data_in),
         .int_rf_wr_en_wb(int_rf_vif.wr_en),
         //CSR External interface
-        .ext_data_in_exe('0),
-        .ext_wr_vsstatus_id(1'b0),
-        .ext_wr_vtype_id(1'b0),
-        .ext_wr_vl_id(1'b0),
-        .ext_wr_vstart_id(1'b0),
-        .ext_wr_vxrm_id(1'b0),
-        .ext_wr_vxsat_id(1'b0),
+        .ext_data_in_exe(riscv_v_ext_csr_vif.ext_csr_data),
+        .ext_wr_vsstatus_id(riscv_v_ext_csr_vif.ext_wr_vsstatus),
+        .ext_wr_vtype_id(riscv_v_ext_csr_vif.ext_wr_vtype),
+        .ext_wr_vl_id(riscv_v_ext_csr_vif.ext_wr_vl),
+        .ext_wr_vstart_id(riscv_v_ext_csr_vif.ext_wr_vstart),
+        .ext_wr_vxrm_id(riscv_v_ext_csr_vif.ext_wr_vxrm),
+        .ext_wr_vxsat_id(riscv_v_ext_csr_vif.ext_wr_vxsat),
         .syn_addr('0)
     );
 
@@ -113,6 +117,9 @@ module riscv_v_tb;
     //Instruction Fetch signals
     assign riscv_instruction_id = riscv_v_if_vif.instruction;
     assign riscv_v_if_vif.rst   = rst;
+
+    //External CSR interface signals
+    assign riscv_v_ext_csr_vif.rst = rst;
 
     //Vector register file signals
     assign vec_rf_vif.wr_addr    = dut.v_decode.v_rf.wr_addr;
@@ -221,6 +228,7 @@ module riscv_v_tb;
         uvm_config_db#(virtual riscv_v_mask_ALU_if)::set(uvm_root::get(),"*","riscv_v_vec_mask_alu_vif",vec_mask_alu_vif);
         uvm_config_db#(virtual riscv_v_permutation_ALU_if)::set(uvm_root::get(),"*","riscv_v_vec_permutation_alu_vif",vec_permutation_alu_vif);
         uvm_config_db#(virtual riscv_v_if_if)::set(uvm_root::get(),"*","riscv_v_if_vif",riscv_v_if_vif);
+        uvm_config_db#(virtual riscv_v_ext_csr_if)::set(uvm_root::get(),"*","riscv_v_ext_csr_vif",riscv_v_ext_csr_vif);
     end
 
     initial begin

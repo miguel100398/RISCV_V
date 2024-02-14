@@ -26,5 +26,7 @@ import uvm_pkg::*;
 `include "base_model.sv"
 `include "rf_model.sv"
 `include "rf_bfm.sv"
+`include "base_rotator.sv"
+`include "rotator.sv"
 
 endpackage: base_pkg

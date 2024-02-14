@@ -18,6 +18,10 @@ class base_bfm_cfg_obj extends base_cfg_obj;
         super.new(name);
     endfunction: new
 
+    virtual function bit check_cfg();
+        return 1'b1;
+    endfunction: check_cfg
+
 endclass: base_bfm_cfg_obj
 
 `endif //__BASE_BFM_CFG_OBJ_SV__

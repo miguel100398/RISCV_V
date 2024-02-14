@@ -114,6 +114,9 @@ parameter int RISCV_V_MAX_LMUL = 8;
 parameter int RISCV_V_MAX_VLEN = RISCV_V_NUM_ELEMENTS_REG * RISCV_V_MAX_LMUL;
 
 //CSR
+parameter int RISCV_V_NUM_CSR = 8;
+parameter int RISCV_V_NUM_RO_CSR = 2;
+parameter int RISCV_V_NUM_RW_CSR = RISCV_V_NUM_CSR-RISCV_V_NUM_RO_CSR;
 typedef enum logic [2:0] {VSEW_8 = 3'b000, VSEW_16 = 3'b001, VSEW_32 = 3'b010, VSEW_64 = 3'b011, VSEW_128 = 3'b100} riscv_v_vsew_t;
 typedef enum logic [2:0] {LMUL_1 = 3'b000, LMUL_2  = 3'b001, LMUL_4  = 3'b010, LMUL_8  = 3'b011} riscv_v_vlmul_t;
 typedef enum logic {UNDISTURBED = 1'b0, AGNOSTIC = 1'b1} riscv_v_agnostic_e;
@@ -121,6 +124,7 @@ typedef logic[$clog2(RISCV_V_MAX_VLEN)-1:0] riscv_v_vlen_t;
 typedef logic[$clog2(RISCV_V_MAX_VLEN)-1:0] riscv_v_field_vstart_t;
 typedef enum logic [1:0] {RNU = 2'b00, RNE = 2'b01, RDN = 2'b10, ROD = 2'b11} riscv_v_fixed_point_rounding_e;
 
+typedef enum logic[$clog2(RISCV_V_NUM_CSR)-1:0] {VCSR_E, VXSAT_E, VXRM_E, VSTART_E, VLENB_E, VL_E, VTYPE_E, VSSTATUS_E} riscv_v_csr_e;
 
 
 typedef struct packed {

@@ -64,6 +64,10 @@ virtual function void build_phase(uvm_phase phase);
         if (!(uvm_config_db #(cfg_obj_t)::get(this, "", db_name, cfg))) begin
             `uvm_fatal(get_name(), $sformatf("configuration object not found in uvm_db with name %s", db_name));
         end
+
+        if (!cfg.check_cfg()) begin
+            `uvm_fatal(get_name(), $sformatf("Error in cfg configuration"));
+        end
         
     end else begin
         cfg = cfg_obj_t::type_id::create({get_name(), "_cfg"});

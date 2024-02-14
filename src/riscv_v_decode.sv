@@ -131,6 +131,14 @@ assign stall         = riscv_v_stall || riscv_stall;
 
 assign flush         = clear_pipe;
 
+//FIXME: Drive CSR signals
+assign vec_wr_vsstatus_id = 1'b0;
+assign vec_wr_vtype_id    = 1'b0;
+assign vec_wr_vl_id       = 1'b0;
+assign vec_wr_vstart_id   = 1'b0;
+assign vec_wr_vxrm_id     = 1'b0;
+assign vec_wr_vxsat_id    = 1'b0;
+
 //Control unit
 riscv_v_ctrl v_ctrl(
     //Clocks and resets
