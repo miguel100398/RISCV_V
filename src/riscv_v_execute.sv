@@ -14,12 +14,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
         input riscv_v_opcode_e  opcode_exe,
     `endif //RISCV_V_INST
     input  riscv_data_t                int_data_exe,
+    input  riscv_v_imm_t               imm_exe,
     output riscv_data_t                int_data_result_exe,
     input  riscv_v_data_t              srca_exe,
     input  riscv_v_data_t              srcb_exe,
     input  riscv_v_mask_t              mask_exe,
     output riscv_v_wb_data_t           alu_result_exe,
     output riscv_v_mask_t              mask_result_exe,
+    input  logic                       is_scalar_op_exe,
     input  logic                       is_vector_vector_op_exe,
     input  logic                       is_vector_scalar_op_exe,
     input  logic                       is_scalar_imm_op_exe,
@@ -142,9 +144,15 @@ riscv_v_decode_element decode_element(
 //Bypass unit
 riscv_v_bypass v_bypass(
     .integer_data(int_data_exe),
+    .imm(imm_exe),
     .srca(srca_exe),
     .srcb(srcb_exe),
+    .osize_vector(src_osize_vector),
     .is_scalar_int(is_scalar_int_op_exe),
+    .is_scalar_imm(is_scalar_imm_op_exe),
+    .is_scalar_vec(is_vector_scalar_op_exe),
+    .is_scalar_fp(is_scalar_fp_op_exe),
+    .is_scalar(is_scalar_op_exe),
     .srca_byp(srca_byp),
     .srcb_byp(srcb_byp)
 );

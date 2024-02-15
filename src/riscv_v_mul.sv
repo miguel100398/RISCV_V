@@ -178,9 +178,7 @@ generate
         localparam RESULT_WIDTH   = (2*OSIZE_WIDTH);
         localparam NUM_RESULTS    = (RISCV_V_DATA_WIDTH/OSIZE_WIDTH);
         localparam JUMP_SIZE      = (BYTE_WIDTH/OSIZE_WIDTH);
-        for (genvar result_idx = 0; result_idx < NUM_RESULTS; result_idx++) begin : gen_select_result
-            assign mul_result_osize[osize_idx] = mul_result;
-        end
+        assign mul_result_osize[osize_idx] = mul_result;
     end
 endgenerate
 

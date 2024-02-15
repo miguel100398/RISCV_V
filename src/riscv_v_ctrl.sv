@@ -10,6 +10,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                clk,
     input  logic                rst,
     input  logic                clear_pipe,
+    input  logic                riscv_stall,
     output logic                stall,
     output logic                flush,
     //Instruction
@@ -19,6 +20,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_instr_rs_t     vs2_id,
     output riscv_instr_rs_t     vd_id,
     //EXE Interface
+    output riscv_v_imm_t        imm_exe,
+    output logic                is_scalar_op_exe,
     output logic                is_vector_vector_op_exe,
     output logic                is_vector_scalar_op_exe,
     output logic                is_scalar_imm_op_exe,
@@ -60,7 +63,8 @@ riscv_instr_funct6_t riscv_v_funct6_id;
 riscv_v_type_instruction_t riscv_vector_instr_id;
 
 //Control signals
-logic is_vector_op_id;                 //Is vector extension op
+logic is_vector_op_id;              //Is vector extension op
+logic is_scalar_op_id;              //One source is scalar
 logic is_vector_vector_op_id;       //Is vector operation with 2 vector sources
 logic is_vector_scalar_op_id;       //Is vector operation with 1 vector source and 1 scalar source
 logic is_scalar_imm_op_id;          //Scalar source comes from immediate
@@ -105,7 +109,13 @@ logic is_high_id;
 logic is_signed_id;
 logic use_carry_id;
 
-assign stall = 1'b0;
+riscv_v_imm_t imm_id;
+
+logic riscv_v_stall;
+
+assign riscv_v_stall = 1'b0;
+
+assign stall = riscv_v_stall || riscv_stall;
 
 assign en_stage  = ~stall;
 assign flush     = clear_pipe;
@@ -117,6 +127,7 @@ assign riscv_v_funct6_id     = riscv_vector_instr_id.funct6;
 assign vs1_id                = riscv_vector_instr_id.vs1;
 assign vs2_id                = riscv_vector_instr_id.vs2;
 assign vd_id                 = riscv_vector_instr_id.vd;
+assign imm_id                = riscv_vector_instr_id.vs1;
 
 //Control signals
 assign is_vector_op_id        = f_is_vector_op(riscv_v_op_code_id);
@@ -125,6 +136,7 @@ assign is_vector_op_id        = f_is_vector_op(riscv_v_op_code_id);
 assign is_vector_vector_op_id = f_is_vector_vector_op(riscv_v_funct3_id) && is_vector_op_id;
 assign is_vector_scalar_op_id = f_is_vector_scalar_op(riscv_v_funct3_id) && is_vector_op_id;
 //Scalar source
+assign is_scalar_op_id        = f_is_scalar_op(riscv_v_funct3_id)        && is_vector_op_id;
 assign is_scalar_imm_op_id    = f_is_scalar_imm_op(riscv_v_funct3_id)    && is_vector_op_id;
 assign is_scalar_int_op_id    = f_is_scalar_int_op(riscv_v_funct3_id)    && is_vector_op_id;
 assign is_scalar_fp_op_id     = f_is_scalar_fp_op (riscv_v_funct3_id)    && is_vector_op_id;
@@ -169,38 +181,39 @@ assign is_signed_id         = f_is_signed       (riscv_v_funct6_id, funct3_is_OP
 assign use_carry_id         = f_use_carry       (riscv_v_funct6_id, funct3_is_OPI_id, funct3_is_OPIVV_OPIVX_id)                                                                     && is_vector_op_id;
 
 //Stage signals
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_vector_vector  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_vector_vector_op_id),   .data_out(is_vector_vector_op_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_vector_scalar  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_vector_scalar_op_id),   .data_out(is_vector_scalar_op_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar_imm     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_imm_op_id),      .data_out(is_scalar_imm_op_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar_int     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_int_op_id),      .data_out(is_scalar_int_op_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar_fp      (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_fp_op_id),       .data_out(is_scalar_fp_op_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_i2v            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_i2v_id),                .data_out(is_i2v_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_v2i            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_v2i_id),                .data_out(is_v2i_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_and            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_and_id),                .data_out(is_and_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_or             (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_or_id),                 .data_out(is_or_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_xor            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_xor_id),                .data_out(is_xor_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_srca    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_srca_id),        .data_out(is_negate_srca_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_result  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_result_id),      .data_out(is_negate_result_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mask           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mask_id),               .data_out(is_mask_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_shift          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_shift_id),              .data_out(is_shift_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_left           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_left_id),               .data_out(is_left_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_arith          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_arith_id),              .data_out(is_arith_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_reduct         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_reduct_id),             .data_out(is_reduct_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_add            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_add_id),                .data_out(is_add_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_sub            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_sub_id),                .data_out(is_sub_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mul            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mul_id),                .data_out(is_mul_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_zero_ext       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_zero_ext_id),           .data_out(is_zero_ext_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_sign_ext       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_sign_ext_id),           .data_out(is_sign_ext_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_equal      (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_equal_id),          .data_out(is_set_equal_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_nequal     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_nequal_id),         .data_out(is_set_nequal_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_less       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_less_id),           .data_out(is_set_less_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_greater    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_greater_id),        .data_out(is_set_greater_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_max            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_max_id),                .data_out(is_max_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_min            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_min_id),                .data_out(is_min_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_high           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_high_id),               .data_out(is_high_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_signed         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_signed_id),             .data_out(is_signed_exe));
-riscv_v_stage#(.DATA_T(logic),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_use_carry         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(use_carry_id),             .data_out(use_carry_exe));
-
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_vector_vector  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_vector_vector_op_id),   .data_out(is_vector_vector_op_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_op_id),          .data_out(is_scalar_op_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_vector_scalar  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_vector_scalar_op_id),   .data_out(is_vector_scalar_op_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar_imm     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_imm_op_id),      .data_out(is_scalar_imm_op_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar_int     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_int_op_id),      .data_out(is_scalar_int_op_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_scalar_fp      (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_scalar_fp_op_id),       .data_out(is_scalar_fp_op_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_i2v            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_i2v_id),                .data_out(is_i2v_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_v2i            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_v2i_id),                .data_out(is_v2i_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_and            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_and_id),                .data_out(is_and_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_or             (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_or_id),                 .data_out(is_or_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_xor            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_xor_id),                .data_out(is_xor_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_srca    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_srca_id),        .data_out(is_negate_srca_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_result  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_result_id),      .data_out(is_negate_result_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mask           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mask_id),               .data_out(is_mask_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_shift          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_shift_id),              .data_out(is_shift_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_left           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_left_id),               .data_out(is_left_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_arith          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_arith_id),              .data_out(is_arith_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_reduct         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_reduct_id),             .data_out(is_reduct_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_add            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_add_id),                .data_out(is_add_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_sub            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_sub_id),                .data_out(is_sub_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mul            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mul_id),                .data_out(is_mul_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_zero_ext       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_zero_ext_id),           .data_out(is_zero_ext_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_sign_ext       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_sign_ext_id),           .data_out(is_sign_ext_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_equal      (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_equal_id),          .data_out(is_set_equal_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_nequal     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_nequal_id),         .data_out(is_set_nequal_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_less       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_less_id),           .data_out(is_set_less_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_greater    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_greater_id),        .data_out(is_set_greater_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_max            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_max_id),                .data_out(is_max_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_min            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_min_id),                .data_out(is_min_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_high           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_high_id),               .data_out(is_high_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_signed         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_signed_id),             .data_out(is_signed_exe));
+riscv_v_stage#(.DATA_T(logic),          .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_use_carry         (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(use_carry_id),             .data_out(use_carry_exe));
+riscv_v_stage#(.DATA_T(riscv_v_imm_t),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_imm               (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('x), .flush_val('x), .data_in(imm_id),                   .data_out(imm_exe));
 
 ////////////////////////////////////Assertions//////////////////////////////////////////////////
 scalar_fp_supported: assert property ( @(posedge clk)

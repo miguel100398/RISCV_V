@@ -148,7 +148,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         `endif //RISCV_V_INST
         .result(mask_result_exe)
     );
-    
+
     //Permutation ALU
     riscv_v_permutation_ALU permutation_ALU(
         .is_i2v(is_i2v_exe),

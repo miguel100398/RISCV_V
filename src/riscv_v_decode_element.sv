@@ -64,7 +64,7 @@ endgenerate
 //Len comparators
 generate
     for (genvar len_idx = 0; len_idx < RISCV_V_NUM_ELEMENTS_REG; len_idx++) begin
-        assign len_greater_than[len_idx] = (len > len_idx);
+        assign len_greater_than[len_idx] = (vl.len > len_idx);
     end
 endgenerate
 

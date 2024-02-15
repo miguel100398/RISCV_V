@@ -42,6 +42,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_mask_t               mask_rf_rd_data_exe;
     riscv_v_wb_data_t            alu_result_exe;
     riscv_v_mask_t               mask_alu_result_exe;
+    logic                        is_scalar_op_exe;
     logic                        is_vector_vector_op_exe;
     logic                        is_vector_scalar_op_exe;
     logic                        is_scalar_imm_op_exe;
@@ -73,6 +74,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     logic                        is_high_exe;
     logic                        is_signed_exe;
     logic                        use_carry_exe;
+    riscv_v_imm_t                imm_exe;
     //CSR
     riscv_v_vsstatus_t           vsstatus;
     riscv_v_vtype_t              vtype;
@@ -106,6 +108,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .int_rf_wr_data_wb(int_rf_wr_data_wb),
         .int_rf_wr_en_wb(int_rf_wr_en_wb),
         //EXE Interface
+        .imm_exe(imm_exe),
         .int_rf_rd_data_exe(int_rf_rd_data_exe),
         .int_rf_wr_data_exe(int_rf_wr_data_exe),
         .rf_rd_data_srca_exe(rf_rd_data_srca_exe),
@@ -113,6 +116,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .mask_rf_rd_data_exe(mask_rf_rd_data_exe),
         .alu_result_exe(alu_result_exe),
         .mask_alu_result_exe(mask_alu_result_exe),
+        .is_scalar_op_exe(is_scalar_op_exe),
         .is_vector_vector_op_exe(is_vector_vector_op_exe),
         .is_vector_scalar_op_exe(is_vector_scalar_op_exe),
         .is_scalar_imm_op_exe(is_scalar_imm_op_exe),
@@ -175,12 +179,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
             .opcode_exe(opcode_exe),
         `endif //RISCV_V_INST
         .int_data_exe(int_rf_rd_data_exe),
+        .imm_exe(imm_exe),
         .int_data_result_exe(int_rf_wr_data_exe),
         .srca_exe(rf_rd_data_srca_exe),
         .srcb_exe(rf_rd_data_srcb_exe),
         .mask_exe(mask_rf_rd_data_exe),
         .alu_result_exe(alu_result_exe),
         .mask_result_exe(mask_alu_result_exe),
+        .is_scalar_op_exe(is_scalar_op_exe),
         .is_vector_vector_op_exe(is_vector_vector_op_exe),
         .is_vector_scalar_op_exe(is_vector_scalar_op_exe),
         .is_scalar_imm_op_exe(is_scalar_imm_op_exe),

@@ -260,6 +260,9 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_sign_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_less_than_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_complement_t;
 
+parameter RISCV_V_IMM_WIDTH = 5;
+typedef logic[RISCV_V_IMM_WIDTH-1:0]      riscv_v_imm_t;
+
 typedef struct packed{
     riscv_v_data_t       data;
     riscv_v_merge_data_t merge;
@@ -390,6 +393,10 @@ endfunction: f_vedic_mul_start_prev_idx
 function automatic logic f_is_vector_op(riscv_instr_op_t opcode);
     return opcode == RISCV_V_TYPE_OP_CODE;
 endfunction: f_is_vector_op
+
+function automatic logic f_is_scalar_op(riscv_v_funct3_e funct3);
+    return f_is_vector_scalar_op(funct3) || f_is_scalar_imm_op(funct3) || f_is_scalar_int_op(funct3) || f_is_scalar_fp_op(funct3);
+endfunction: f_is_scalar_op
 
 function automatic logic f_is_vector_vector_op(riscv_v_funct3_e funct3);
     return ~(funct3[2] && ~(&funct3[1:0]));

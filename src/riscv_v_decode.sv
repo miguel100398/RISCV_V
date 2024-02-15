@@ -19,6 +19,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_data_t                 int_rf_wr_data_wb,
     output logic                        int_rf_wr_en_wb,
     //EXE interface
+    output riscv_v_imm_t                imm_exe,
     output riscv_data_t                 int_rf_rd_data_exe,
     input  riscv_data_t                 int_rf_wr_data_exe,
     output riscv_v_data_t               rf_rd_data_srca_exe,
@@ -26,6 +27,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_v_mask_t               mask_rf_rd_data_exe,
     input  riscv_v_wb_data_t            alu_result_exe,
     input  riscv_v_mask_t               mask_alu_result_exe,
+    output logic                        is_scalar_op_exe,
     output logic                        is_vector_vector_op_exe,
     output logic                        is_vector_scalar_op_exe,
     output logic                        is_scalar_imm_op_exe,
@@ -126,11 +128,6 @@ riscv_v_vxrm_t               csr_wr_data_vxrm_wb;
 riscv_v_vxsat_t              csr_wr_data_vxsat_wb;
 
 
-assign riscv_v_stall = 1'b0;
-assign stall         = riscv_v_stall || riscv_stall;
-
-assign flush         = clear_pipe;
-
 //FIXME: Drive CSR signals
 assign vec_wr_vsstatus_id = 1'b0;
 assign vec_wr_vtype_id    = 1'b0;
@@ -138,6 +135,7 @@ assign vec_wr_vl_id       = 1'b0;
 assign vec_wr_vstart_id   = 1'b0;
 assign vec_wr_vxrm_id     = 1'b0;
 assign vec_wr_vxsat_id    = 1'b0;
+assign int_rf_wr_en_id    = 1'b0;
 
 //Control unit
 riscv_v_ctrl v_ctrl(
@@ -145,12 +143,15 @@ riscv_v_ctrl v_ctrl(
     .clk(clk),
     .rst(rst),
     .clear_pipe(clear_pipe),
+    .riscv_stall(riscv_stall),
     .stall(stall),
     .flush(flush),
     .instruction_id(instruction_id),
+    .imm_exe(imm_exe),
     .vs1_id(rf_rd_addr_srca_id),
     .vs2_id(rf_rd_addr_srcb_id),
     .vd_id(rf_wr_addr_id),
+    .is_scalar_op_exe(is_scalar_op_exe),
     .is_vector_vector_op_exe(is_vector_vector_op_exe),
     .is_vector_scalar_op_exe(is_vector_scalar_op_exe),
     .is_scalar_imm_op_exe(is_scalar_imm_op_exe),

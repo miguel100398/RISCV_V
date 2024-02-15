@@ -105,14 +105,15 @@ generate
     end
 
     //Srca input to BW block
-    //Input to Least significant Block is only srca
-    assign srca_adder[0] = srca_gated[0];
-    for (genvar block=1; block < NUM_ADD_BLOCKS; block++) begin : gen_srca_adder
+    //Input to Most significant Block is only srca
+    assign srca_adder[NUM_ADD_BLOCKS-1] = srca_gated[NUM_ADD_BLOCKS-1];
+    for (genvar block=NUM_ADD_BLOCKS-2; block>=0; block--) begin : gen_srca_adder
          always_comb begin
             //Fisrt input is srca
+            //COMBO LOOOP GENERATED HERE
             srca_adder[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(NUM_ADD_BLOCKS-block)]}};        //Select this source if op is not reduct or osize is greater than
             for (int reduct_input=0; reduct_input < $clog2(NUM_ADD_BLOCKS-block); reduct_input++) begin
-                srca_adder[block] |= result_adder[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
+                srca_adder[block] |= result[block+(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
             end
         end
     end
@@ -183,7 +184,6 @@ generate
                              | result_set_nequal[block]  & {BYTE_WIDTH{is_set_nequal}}
                              | result_set_less[block]    & {BYTE_WIDTH{is_set_less}}
                              | result_set_greater[block] & {BYTE_WIDTH{is_set_greater}};
-
     end
 
     //Flags
