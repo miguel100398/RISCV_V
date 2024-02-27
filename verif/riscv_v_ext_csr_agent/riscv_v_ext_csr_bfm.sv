@@ -126,7 +126,7 @@ class riscv_v_ext_csr_bfm extends riscv_v_base_bfm#(
         ext_csr_data    = `RISCV_V_ZX(cfg.vstart_wr_data, $bits(ext_csr_data));
     endfunction: write_vstart
 
-    virtual function write_vxrm();
+    virtual function void write_vxrm();
         ext_wr_vsstatus = 1'b0;
         ext_wr_vtype    = 1'b0;
         ext_wr_vl       = 1'b0;
@@ -136,7 +136,7 @@ class riscv_v_ext_csr_bfm extends riscv_v_base_bfm#(
         ext_csr_data    = `RISCV_V_ZX(cfg.vxrm_wr_data, $bits(ext_csr_data));
     endfunction: write_vxrm
 
-    virtual function write_vxsat();
+    virtual function void write_vxsat();
         ext_wr_vsstatus = 1'b0;
         ext_wr_vtype    = 1'b0;
         ext_wr_vl       = 1'b0;

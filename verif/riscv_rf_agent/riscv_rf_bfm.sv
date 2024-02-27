@@ -63,6 +63,14 @@ class riscv_rf_bfm extends rf_bfm#(
         seq.rd_data_B  = srcb;
     endfunction: bfm_seq
 
+    virtual function void rst_bfm();
+        if (cfg.init_rand_rf) begin
+            rf.rst_rand();
+        end else begin
+            rf.rst();
+        end
+    endfunction: rst_bfm
+
 
 endclass: riscv_rf_bfm
 

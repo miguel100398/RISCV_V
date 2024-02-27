@@ -12,9 +12,9 @@ import base_pkg::*;
 import riscv_v_pkg::*;
 import riscv_v_base_pkg::*;
 
-typedef riscv_v_base_bfm_cfg_obj riscv_rf_bfm_cfg_obj;
 
 `include "uvm_macros.svh"
+`include "riscv_rf_bfm_cfg_obj.sv"
 `include "riscv_rf_trk_item.sv"
 `include "riscv_rf_wr_seq_item.sv"
 `include "riscv_rf_rd_seq_item.sv"

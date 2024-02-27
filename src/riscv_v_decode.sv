@@ -128,6 +128,8 @@ riscv_v_vxrm_t               csr_wr_data_vxrm_wb;
 riscv_v_vxsat_t              csr_wr_data_vxsat_wb;
 
 
+assign riscv_v_stall = stall;
+
 //FIXME: Drive CSR signals
 assign vec_wr_vsstatus_id = 1'b0;
 assign vec_wr_vtype_id    = 1'b0;

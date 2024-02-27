@@ -139,6 +139,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     virtual function void base_bfm_cfg();
         //Integer register File
         int_rf_cfg.run_forever      = 1'b1;
+        int_rf_cfg.init_rand_rf     = 1'b1;
         //Instruction Fetch
         if_cfg.num_txn              = 100;
         if_cfg.use_file             = 1'b0;
