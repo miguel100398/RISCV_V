@@ -48,6 +48,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
     logic is_min_max;
     logic is_compare;
 
+    logic valid_result;
+
     //Results
     riscv_v_src_byte_vector_t adder_result;
     riscv_v_src_byte_vector_t adder_result_qual;
@@ -68,6 +70,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
     assign is_compare    = is_set_equal || is_set_nequal || is_set_less || is_set_greater;
     assign is_arithmetic = (is_add || is_sub) & ~is_min_max & ~is_compare; 
     assign valid_adder   = is_arithmetic || is_min_max || is_compare;
+
+    assign valid_result  = valid_adder || is_mul || is_zero_ext || is_sign_ext;
 
     riscv_v_adder adder(
         .valid_adder                (valid_adder),
@@ -126,6 +130,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
     assign of          = of_qual;
     assign cf          = cf_qual;
 
-    assign result.valid = srca.valid;
+    assign result.valid = srca.valid & {$bits(srca.valid){valid_result}};
 
 endmodule: riscv_v_arithmetic_ALU

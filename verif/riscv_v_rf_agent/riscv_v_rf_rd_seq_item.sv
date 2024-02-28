@@ -10,6 +10,10 @@ class riscv_v_rf_rd_seq_item extends riscv_v_base_seq_item;
     rand riscv_v_rf_addr_t   addr;
     rand riscv_v_data_t      data;
     rand rf_port_e           port;
+    //Needed for Bypass
+    riscv_v_rf_wr_en_t       wr_en;
+    riscv_v_data_t           wr_data;
+    riscv_v_rf_addr_t        wr_addr;
 
 
     `uvm_object_utils_begin(riscv_v_rf_rd_seq_item)

@@ -44,7 +44,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_mask_t               mask_alu_result_exe;
     logic                        is_scalar_op_exe;
     logic                        is_vector_vector_op_exe;
-    logic                        is_vector_scalar_op_exe;
+    logic                        is_scalar_vector_op_exe;
     logic                        is_scalar_imm_op_exe;
     logic                        is_scalar_int_op_exe;
     logic                        is_scalar_fp_op_exe;
@@ -84,6 +84,15 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_vxrm_t               vxrm;
     riscv_v_vxsat_t              vxsat;
     riscv_v_vcsr_t               vcsr;
+    //Bypass 
+    riscv_v_rf_wr_en_t   rf_wr_en_mem;
+    riscv_v_rf_wr_en_t   rf_wr_en_wb;
+    riscv_instr_rs_t     rf_rd_addr_srca_exe;
+    riscv_instr_rs_t     rf_rd_addr_srcb_exe;
+    riscv_instr_rd_t     rf_wr_addr_mem;
+    riscv_instr_rd_t     rf_wr_addr_wb;
+    riscv_v_data_t       rf_wr_data_mem;
+    riscv_v_data_t       rf_wr_data_wb;
 
     `ifdef RISCV_V_INST
 
@@ -108,6 +117,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .int_rf_wr_data_wb(int_rf_wr_data_wb),
         .int_rf_wr_en_wb(int_rf_wr_en_wb),
         //EXE Interface
+        .rf_wr_en_mem(rf_wr_en_mem),
+        .rf_wr_en_wb(rf_wr_en_wb),
+        .rf_rd_addr_srca_exe(rf_rd_addr_srca_exe),
+        .rf_rd_addr_srcb_exe(rf_rd_addr_srcb_exe),
+        .rf_wr_addr_mem(rf_wr_addr_mem),
+        .rf_wr_addr_wb(rf_wr_addr_wb),
+        .rf_wr_data_mem(rf_wr_data_mem),
+        .rf_wr_data_wb(rf_wr_data_wb),
         .imm_exe(imm_exe),
         .int_rf_rd_data_exe(int_rf_rd_data_exe),
         .int_rf_wr_data_exe(int_rf_wr_data_exe),
@@ -118,7 +135,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .mask_alu_result_exe(mask_alu_result_exe),
         .is_scalar_op_exe(is_scalar_op_exe),
         .is_vector_vector_op_exe(is_vector_vector_op_exe),
-        .is_vector_scalar_op_exe(is_vector_scalar_op_exe),
+        .is_scalar_vector_op_exe(is_scalar_vector_op_exe),
         .is_scalar_imm_op_exe(is_scalar_imm_op_exe),
         .is_scalar_int_op_exe(is_scalar_int_op_exe),
         .is_scalar_fp_op_exe(is_scalar_fp_op_exe),
@@ -186,9 +203,19 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .mask_exe(mask_rf_rd_data_exe),
         .alu_result_exe(alu_result_exe),
         .mask_result_exe(mask_alu_result_exe),
+        //Bypass
+        .rf_wr_en_mem(rf_wr_en_mem),
+        .rf_wr_en_wb(rf_wr_en_wb),
+        .rf_rd_addr_srca_exe(rf_rd_addr_srca_exe),
+        .rf_rd_addr_srcb_exe(rf_rd_addr_srcb_exe),
+        .rf_wr_addr_mem(rf_wr_addr_mem),
+        .rf_wr_addr_wb(rf_wr_addr_wb),
+        .rf_wr_data_mem(rf_wr_data_mem),
+        .rf_wr_data_wb(rf_wr_data_wb),
+        //Control
         .is_scalar_op_exe(is_scalar_op_exe),
         .is_vector_vector_op_exe(is_vector_vector_op_exe),
-        .is_vector_scalar_op_exe(is_vector_scalar_op_exe),
+        .is_scalar_vector_op_exe(is_scalar_vector_op_exe),
         .is_scalar_imm_op_exe(is_scalar_imm_op_exe),
         .is_scalar_int_op_exe(is_scalar_int_op_exe),
         .is_scalar_fp_op_exe(is_scalar_fp_op_exe),

@@ -12,6 +12,11 @@ import riscv_v_pkg::*;
 import base_pkg::*;
 import riscv_v_base_pkg::*;
 
+typedef struct packed {
+  riscv_v_opcode_e opcode;
+  riscv_instr_rs_t imm;
+} rf_rst_arr_t;
+
 
 `include "uvm_macros.svh"
 `include "riscv_instr.sv"

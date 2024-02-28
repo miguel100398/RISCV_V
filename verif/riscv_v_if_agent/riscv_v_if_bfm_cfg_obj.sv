@@ -21,19 +21,25 @@ class riscv_v_if_bfm_cfg_obj extends riscv_v_base_bfm_cfg_obj;
     bit rf_rst_complete = 1'b0;
 
     //Register File reset sequence
-    riscv_v_opcode_e rf_rst_seq[RISCV_V_RF_NUM_REGS];
+    rf_rst_arr_t rf_rst_seq[RISCV_V_RF_NUM_REGS-1:0];
 
     function new(string name = "riscv_v_if_bfm_cfg_obj");
-        riscv_v_opcode_e rf_rst_seq_tmp[RISCV_V_RF_NUM_REGS-1];
         super.new(name);
 
-        rf_rst_seq_tmp = '{
-            (RISCV_V_RF_NUM_REGS-1){BW_OR}
+        rf_rst_seq[0] = '{
+            opcode : BW_AND, 
+            imm    : 0
         };
 
-        rf_rst_seq = {
-            rf_rst_seq_tmp, BW_AND
-        };
+        for (int idx = 1; idx < RISCV_V_RF_NUM_REGS; idx++) begin
+            
+            rf_rst_seq[idx] = '{
+                opcode : BW_OR, 
+                imm    : $random()
+            };
+
+        end
+
 
     endfunction: new
     

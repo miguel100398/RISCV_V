@@ -52,16 +52,32 @@ class riscv_v_rf_scbd extends riscv_v_base_scbd#(
   // write wr_port 
   virtual function void calc_in();
     //Write register
-    regs[txn_in.addr].write_reg(txn_in.data, txn_in.wr_en);
-    `uvm_info(get_name(), $sformatf("Register write, Addr: %0h, Data: %0s", txn_in.addr, regs[txn_in.addr].printBits), UVM_MEDIUM);
+    if (|txn_in.wr_en) begin
+      regs[txn_in.addr].write_reg(txn_in.data, txn_in.wr_en);
+      `uvm_info(get_name(), $sformatf("Register write, Addr: %0h, Data: %0s", txn_in.addr, regs[txn_in.addr].printBits), UVM_MEDIUM);
+    end
   endfunction : calc_in
 
   // write rd_port
   virtual function void calc_out();
+    riscv_v_data_t tmp_reg_data;
     reg_t read_reg;
     read_reg = new();
+
+    if (RISCV_V_RF_USE_BYPASS) begin
+      if (|txn_out.wr_en) begin
+        $display("using bypass, wr_addr: %0d, wr_data: %0d, wr_en: 0x%0h", txn_out.wr_addr, txn_out.wr_data, txn_out.wr_en);
+        regs[txn_out.wr_addr].write_reg(txn_out.wr_data, txn_out.wr_en);
+      end
+    end 
+
+    $display("temp_reg_data: 0x%0h", tmp_reg_data);
+
     read_reg.write_reg(txn_out.data, '1);
-    `uvm_info(get_name(), $sformatf("Register Read, Port: %0s, Addr: %0h, Data: %0s", txn_out.port, txn_out.addr, read_reg.printBits), UVM_MEDIUM);
+
+    $display("Read reg: %0s", read_reg.printBits);
+
+    `uvm_info(get_name(), $sformatf("Register Read, Port: %0s, Addr: %0h, Data: %0s", txn_out.port.name(), txn_out.addr, read_reg.printBits), UVM_MEDIUM);
     //Compare register
     if (regs[txn_out.addr].compare(read_reg)) begin
       `uvm_info(get_name(), $sformatf("Compare match!"), UVM_LOW);  

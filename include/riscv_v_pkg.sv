@@ -101,6 +101,7 @@ parameter RISCV_V_EXE_2_WB_LATENCY  =                                           
 //Regfile Constants
 parameter bit RISCV_V_RF_RD_ASYNC           = 1'b1;
 parameter bit RISCV_V_RF_REG_INPUTS         = 1'b0;
+parameter bit RISCV_V_RF_USE_BYPASS         = 1'b1;
 parameter int RISCV_V_RF_NUM_REGS           = 32;                                             //Number of registers in Register file
 parameter int RISCV_V_RF_ADDR_WIDTH         = $clog2(RISCV_V_RF_NUM_REGS);                    //Width of addres of register file
 parameter bit RISCV_V_RF_PROTECT_REG_ZERO   = 1'b0;
@@ -395,23 +396,28 @@ function automatic logic f_is_vector_op(riscv_instr_op_t opcode);
 endfunction: f_is_vector_op
 
 function automatic logic f_is_scalar_op(riscv_v_funct3_e funct3);
-    return f_is_vector_scalar_op(funct3) || f_is_scalar_imm_op(funct3) || f_is_scalar_int_op(funct3) || f_is_scalar_fp_op(funct3);
+    return f_is_scalar_vector_op(funct3) || f_is_scalar_imm_op(funct3) || f_is_scalar_int_op(funct3) || f_is_scalar_fp_op(funct3);
 endfunction: f_is_scalar_op
 
 function automatic logic f_is_vector_vector_op(riscv_v_funct3_e funct3);
-    return ~(funct3[2] && ~(&funct3[1:0]));
+    return (~funct3[2] && ~(&funct3[1:0]));
 endfunction: f_is_vector_vector_op
 
-function automatic logic f_is_vector_scalar_op(riscv_v_funct3_e funct3);
-    return (funct3[2] || (&funct3[1:0]));
-endfunction: f_is_vector_scalar_op
+function automatic logic f_is_scalar_vector_op(riscv_v_funct3_e funct3);
+    //FIXME: is scalar_vector only set for reduction operations if needed
+    //Actual implementation: ALU takes data from element 0 for reduct operations
+    //Possible implementation: Duplicate data in  bypass module and ALU won't need to mux the data to get it from element 0
+    return 1'b0;//(funct3[2] || (&funct3[1:0]));
+endfunction: f_is_scalar_vector_op
 
 function  automatic logic f_is_scalar_imm_op(riscv_v_funct3_e funct3);
     return funct3 == OPIVI;
 endfunction: f_is_scalar_imm_op
 
 function automatic logic f_is_scalar_int_op(riscv_v_funct3_e funct3);
-    return (funct3[2] && ~(funct3[1:0] == 2'b01));
+    return funct3 == OPIVX ||
+           funct3 == OPMVX ||
+           funct3 == OPCFG;
 endfunction: f_is_scalar_int_op
 
 function automatic logic f_is_scalar_fp_op(riscv_v_funct3_e funct3);

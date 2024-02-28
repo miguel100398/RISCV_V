@@ -24,7 +24,7 @@ generate
 
     for (genvar idx = 1; idx <= NUM_STAGES; idx++) begin : gen_stage_data
 
-        always_ff @(posedge clk) begin
+        always_ff @(posedge clk or posedge rst) begin
             if (rst) begin
                 internal_data[idx] <= rst_val;
             end else if (flush) begin

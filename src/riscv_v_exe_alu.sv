@@ -100,7 +100,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         `endif //RISCV_V_INST
         .result(logic_result)
     );
-
+    
     //Arithmetic ALU
     riscv_v_arithmetic_ALU arithmetic_ALU(
         .is_reduct(is_reduct_exe),

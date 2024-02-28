@@ -7,7 +7,8 @@ module riscv_v_rf
 import riscv_v_pkg::*, riscv_pkg::*;
 #(
     parameter bit RD_ASYNC              = 1'b1,
-    parameter bit REG_INPUTS            = 1'b0
+    parameter bit REG_INPUTS            = 1'b0,
+    parameter bit USE_BYPASS            = 1'b1
 )(
     input  logic                clk,
     input  riscv_v_rf_addr_t    wr_addr,
@@ -65,7 +66,25 @@ import riscv_v_pkg::*, riscv_pkg::*;
     generate
         if (RD_ASYNC) begin : GEN_READ_SRCA_ASYNC
             
-            assign data_out_A = regs[rd_addr_A_int];
+            if (USE_BYPASS) begin : GEN_READ_SRCA_BYPASS
+
+                logic wr_addr_match_srca;
+
+                assign wr_addr_match_srca = (wr_addr_int == rd_addr_A_int);
+
+                always_comb begin
+                    for (int idx = 0; idx < RISCV_V_NUM_BYTES_DATA; idx++) begin
+                        if (wr_en_int[idx] && wr_addr_match_srca) begin
+                            data_out_A.Byte[idx] = data_in.Byte[idx];
+                        end else begin
+                            data_out_A.Byte[idx] = regs[rd_addr_A_int].Byte[idx];
+                        end
+                    end
+                end
+                
+            end begin : GEN_READ_SRCA_NO_BYPASS
+                assign data_out_A = regs[rd_addr_A_int];
+            end
 
         end else begin : GEN_READ_SRCA_SYNC
 
@@ -80,7 +99,25 @@ import riscv_v_pkg::*, riscv_pkg::*;
     generate
         if (RD_ASYNC) begin : GEN_READ_SRCB_ASYNC
             
-            assign data_out_B = regs[rd_addr_B_int];
+            if (USE_BYPASS) begin : GEN_READ_SRCB_BYPASS
+
+                logic wr_addr_match_srcb;
+
+                assign wr_addr_match_srcb = (wr_addr_int == rd_addr_B_int);
+
+                always_comb begin
+                    for (int idx = 0; idx < RISCV_V_NUM_BYTES_DATA; idx++) begin
+                        if (wr_en_int[idx] && wr_addr_match_srcb) begin
+                            data_out_B.Byte[idx] = data_in.Byte[idx];
+                        end else begin
+                            data_out_B.Byte[idx] = regs[rd_addr_B_int].Byte[idx];
+                        end
+                    end
+                end
+                
+            end begin : GEN_READ_SRCB_NO_BYPASS
+                assign data_out_B = regs[rd_addr_B_int];
+            end
 
         end else begin : GEN_READ_SRCB_SYNC
 

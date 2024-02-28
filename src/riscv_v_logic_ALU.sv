@@ -31,11 +31,15 @@ import riscv_v_pkg::*, riscv_pkg::*;
 );
     logic is_reduct_n;
 
+    logic valid_result;
+
     //Bitwise results
     riscv_v_src_byte_vector_t and_result;
     riscv_v_src_byte_vector_t or_result;
     riscv_v_src_byte_vector_t xor_result;
     riscv_v_src_byte_vector_t shifter_result;
+
+    assign valid_result = is_and || is_or || is_xor || is_mask || is_shift;
 
     assign is_reduct_n = ~is_reduct;
 
@@ -91,6 +95,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
 
     //Final Mux result
     assign result.data  = and_result | or_result | xor_result | shifter_result;
-    assign result.valid = srca.valid;
+    assign result.valid = srca.valid & {$bits(srca.valid){valid_result}};
 
 endmodule: riscv_v_logic_ALU

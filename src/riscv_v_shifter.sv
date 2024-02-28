@@ -27,6 +27,7 @@ typedef logic[SELECTOR_WIDTH-1:0] byte_selector_t;
 
 //Srca A gated with is_shift
 riscv_v_src_byte_vector_t srca_gated;
+riscv_v_src_byte_vector_t srcb_gated;
 //Srca A swizzle
 riscv_v_src_byte_vector_t    srca_swizzle;
 riscv_v_src_byte_vector_t    srcb_swizzle;
@@ -49,12 +50,13 @@ generate
     //Gate srca with is_shift
     for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srca_gated
         assign srca_gated[block] = srca.data.Byte[block] & {BYTE_WIDTH{is_shift}};
+        assign srcb_gated[block] = srcb.data.Byte[block] & {BYTE_WIDTH{is_shift}};
     end
     //Swizzle srca A
     for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srca_swizzle
         assign srca_swizzle[block]       = srca_gated[NUM_SHIFT_BLOCKS-1-block];
         assign srca_merge_swizzle[block] = srca.merge[NUM_SHIFT_BLOCKS-1-block];
-        assign srcb_swizzle[block]       = srcb.data.Byte[NUM_SHIFT_BLOCKS-1-block];
+        assign srcb_swizzle[block]       = srcb_gated[NUM_SHIFT_BLOCKS-1-block];
     end
     //Select between srca and srca swizzle
     assign srca_shift_selected = (is_left) ? srca_swizzle : srca_gated;
@@ -80,16 +82,16 @@ generate
             end else begin
                 //Block 0 is always srcb[0]
                 if (block == 0) begin
-                    mux_byte_selector[block]  = srcb.data.Byte[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH];
+                    mux_byte_selector[block]  = srcb_gated[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH];
                 end else begin
                     //First input, same block
-                    mux_byte_selector[block]  = srcb.data.Byte[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{is_less_osize_vector[f_count_trailing_zeroes_osize(block)]}};
+                    mux_byte_selector[block]  = srcb_gated[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{is_less_osize_vector[f_count_trailing_zeroes_osize(block)]}};
                     //Select Block Zero
-                    mux_byte_selector[block] |= srcb.data.Byte[0][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]     & {SELECTOR_WIDTH{is_greater_osize_vector[$clog2(block+1)]}};
+                    mux_byte_selector[block] |= srcb_gated[0][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]     & {SELECTOR_WIDTH{is_greater_osize_vector[$clog2(block+1)]}};
                     //Select osize specific entry
                     for (int osize_idx=1; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
                         if (block % (2**osize_idx)) begin
-                            mux_byte_selector[block] |= srcb.data.Byte[block-(block % (2**osize_idx))][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
+                            mux_byte_selector[block] |= srcb_gated[block-(block % (2**osize_idx))][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
                         end
                     end
                 end

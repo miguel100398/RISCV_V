@@ -46,13 +46,16 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
                     opcode = f_riscv_v_get_opcode(instruction);
                 `endif //RISCV_V_INST
             end else begin
-                instruction.V.funct6 = f_riscv_v_opcode_to_funct6(cfg.rf_rst_seq[rf_rst_idx]);
+                instruction.V.funct6 = f_riscv_v_opcode_to_funct6(cfg.rf_rst_seq[rf_rst_idx].opcode);
                 instruction.V.vm     = 1'b0;
                 instruction.V.vs2    = 5'b0;
-                instruction.V.vs1    = $random();   //Immediate value
-                instruction.V.funct3 = OPMVX;
+                instruction.V.vs1    = cfg.rf_rst_seq[rf_rst_idx].imm;   //Immediate value
+                instruction.V.funct3 = OPIVI;
                 instruction.V.vd     = rf_rst_idx[4:0];
                 instruction.V.op     = RISCV_V_TYPE_OP_CODE;
+                `ifdef RISCV_V_INST
+                    opcode = f_riscv_v_get_opcode(instruction);
+                `endif //RISCV_V_INST
                 rf_rst_idx++;
                 cfg.rf_rst_complete = (rf_rst_idx == RISCV_V_RF_NUM_REGS);
             end  
@@ -63,7 +66,7 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
     virtual function void rst_bfm();
         model.rst();
         instruction = '0;
-        cfg.rf_rst_complete = cfg.use_rf_rst_seq;
+        cfg.rf_rst_complete = ~cfg.use_rf_rst_seq;
         rf_rst_idx          = 0;
         `ifdef RISCV_V_INST 
             opcode = NOP;

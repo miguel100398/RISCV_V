@@ -12,6 +12,9 @@ class riscv_v_ext_csr_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_ext_csr
   //Virtual interface
   virtual riscv_v_ext_csr_if vif;
 
+  //Delay data, control signals are received in id but data in exe
+  riscv_data_t ext_csr_data_delay[RISCV_V_ID_2_EXE_LATENCY-1:0];
+
   // Constructor
   function new (string name = "riscv_v_ext_csr_drv", uvm_component parent = null);
     super.new(name, parent);
@@ -38,6 +41,7 @@ class riscv_v_ext_csr_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_ext_csr
     vif.ext_wr_vstart       = 1'b0;
     vif.ext_wr_vxrm         = 1'b0;
     vif.ext_wr_vxsat        = 1'b0;
+    ext_csr_data_delay      =  '{default:0};
   endtask: drive_initial_bfm 
 
   // drive 
@@ -54,13 +58,19 @@ class riscv_v_ext_csr_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_ext_csr
     `uvm_info(get_name(), "Sending new External CSR transaction", UVM_LOW)
     req.out.print();
     //@(vif.cb_bfm);
-    vif.cb_bfm.ext_csr_data       <= req.out.ext_csr_data;
+    vif.cb_bfm.ext_csr_data       <= ext_csr_data_delay[RISCV_V_ID_2_EXE_LATENCY-1];
     vif.cb_bfm.ext_wr_vsstatus    <= req.out.ext_wr_vsstatus;
     vif.cb_bfm.ext_wr_vtype       <= req.out.ext_wr_vtype;
     vif.cb_bfm.ext_wr_vl          <= req.out.ext_wr_vl;
     vif.cb_bfm.ext_wr_vstart      <= req.out.ext_wr_vstart;
     vif.cb_bfm.ext_wr_vxrm        <= req.out.ext_wr_vxrm;
     vif.cb_bfm.ext_wr_vxsat       <= req.out.ext_wr_vxsat;
+
+    ext_csr_data_delay[0] = req.out.ext_csr_data;
+
+    for (int idx = 1; idx < RISCV_V_ID_2_EXE_LATENCY; idx++) begin
+      ext_csr_data_delay[idx] = ext_csr_data_delay[idx-1];
+    end
 
   endtask: drive_bfm
 

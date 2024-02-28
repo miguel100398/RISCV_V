@@ -17,7 +17,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
     output riscv_data_t         integer_data_out,
     output riscv_v_wb_data_t    vector_data_out   
 );
-
  
 //Integer to vector
 always_comb begin
