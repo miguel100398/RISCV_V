@@ -23,6 +23,9 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     typedef riscv_v_ext_csr_bfm         ext_csr_bfm_t;
     typedef riscv_v_ext_csr_bfm_cfg_obj ext_csr_cfg_t;
     typedef riscv_v_ext_csr_rotator     ext_csr_rotator_t;
+    typedef riscv_v_env                 vec_env_t;
+    typedef riscv_v_bfm                 vec_bfm_t;
+    typedef riscv_v_bfm_cfg_obj         vec_cfg_t;               
 
     int_rf_env_t        int_rf_env;
     int_rf_bfm_t        int_rf_bfm;
@@ -38,6 +41,9 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     ext_csr_bfm_t       ext_csr_bfm;
     ext_csr_cfg_t       ext_csr_cfg;
     ext_csr_rotator_t   ext_csr_rotator;
+    vec_env_t           vec_env;
+    vec_bfm_t           vec_bfm;
+    vec_cfg_t           vec_cfg;
     riscv_v_alu_interfaces_names_t interfaces_names;
 
     function new(string name = "riscv_v_cpu_base_test", uvm_component parent=null);
@@ -52,10 +58,12 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         alu_env         = alu_env_t::type_id::create("alu_env", this);
         if_env          = if_env_t::type_id::create("if_env", this);
         ext_csr_env     = ext_csr_env_t::type_id::create("ext_csr_env", this);
+        vec_env         = vec_env_t::type_id::create("vec_env", this);
 
         int_rf_cfg      = int_rf_cfg_t::type_id::create("int_rf_bfm_cfg");
         if_cfg          = if_cfg_t::type_id::create("if_bfm_cfg");
         ext_csr_cfg     = ext_csr_cfg_t::type_id::create("ext_csr_bfm_cfg");
+        vec_cfg         = vec_cfg_t::type_id::create("vec_cfg");
 
         ext_csr_rotator = ext_csr_rotator_t::type_id::create("ext_csr_rotator", this);
 
@@ -87,6 +95,12 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         uvm_config_db #(bit)::set(this,                     "ext_csr_env.*",    "bfm_mode",                     1'b1);
         uvm_config_db #(bit)::set(this,                     "ext_csr_env*",     "USE_SCBD",                     1'b0);
         uvm_config_db #(ext_csr_cfg_t)::set(this,           "ext_csr_env.*",    "ext_csr_env_agent_bfm_cfg",    ext_csr_cfg);
+        //VEC
+        uvm_config_db #(uvm_active_passive_enum)::set(this, "vec_env.*",        "is_active",                    UVM_PASSIVE);
+        uvm_config_db #(bit)::set(this,                     "vec_env.*",        "USE_BFM",                      1'b0);
+        uvm_config_db #(bit)::set(this,                     "vec_env.*",        "bfm_mode",                     1'b0);
+        uvm_config_db #(bit)::set(this,                     "vec_env*",         "USE_SCBD",                     1'b1);
+        uvm_config_db #(vec_cfg_t)::set(this,               "vec_env.*",        "vec_env_agent_bfm_cfg",        vec_cfg);
         //ALU Interfaces names
         interfaces_names[LOGIC_ALU]       = "riscv_v_vec_logic_alu_vif";
         interfaces_names[ARITHMETIC_ALU]  = "riscv_v_vec_arithmetic_alu_vif";
@@ -101,6 +115,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         uvm_config_db #(string)::set(this, "alu_env.*",         "permutation_vif_name",  interfaces_names[PERMUTATION_ALU]);
         uvm_config_db #(string)::set(this, "if_env.*",          "interface_name",  "riscv_v_if_vif");
         uvm_config_db #(string)::set(this, "ext_csr_env.*",     "interface_name",  "riscv_v_ext_csr_vif");
+        uvm_config_db #(string)::set(this, "vec_env.*",         "interface_name",  "riscv_v_vif");
 
         configure_bfm();
 

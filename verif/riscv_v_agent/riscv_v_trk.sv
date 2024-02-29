@@ -1,34 +1,27 @@
-//File: riscv_v_if_trk.sv
+//File: riscv_v_trk.sv
 //Author: Miguel Bucio
 //Date: 28/01/24
 //Description: RISC-V RF tracker
 
-`ifndef __RISCV_V_IF_TRK__
-`define __RISCV_V_IF_TRK__
+`ifndef __RISCV_V_TRK__
+`define __RISCV_V_TRK__
 
-class riscv_v_if_trk extends riscv_v_base_trk#(
-                                                .seq_item_in_t(riscv_v_if_in_seq_item),
-                                                .seq_item_out_t(riscv_v_if_out_seq_item),
-                                                .file_name("riscv_v_if_trk.txt")
+class riscv_v_trk extends riscv_v_base_trk#(
+                                                .seq_item_in_t(riscv_v_in_seq_item),
+                                                .seq_item_out_t(riscv_v_out_seq_item),
+                                                .file_name("riscv_v_trk.txt")
 );
 
-    `uvm_component_utils(riscv_v_if_trk)
+    `uvm_component_utils(riscv_v_trk)
 
-    riscv_v_if_trk_item txn;
+    riscv_v_trk_item txn;
 
     int time_size         = 25;
-    int instruction_size  = 25;
-    `ifdef RISCV_V_INST
-        int opcode_size   = 25;
-
-        int header_size = time_size + instruction_size + opcode_size + 2;
-    `else 
-        int header_size = time_size + instruction_size + 1;
-    `endif //RISCV_V_INST
+    int header_size = time_size + 0;
 
     
 
-    function new (string name = "riscv_v_if_trk", uvm_component parent = null);
+    function new (string name = "riscv_v_trk", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
 
@@ -42,10 +35,7 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
     endfunction: trk_in
 
     virtual function void trk_out();
-        txn.instruction  = txn_out.instruction;
-        `ifdef RISCV_V_INST
-            txn.opcode   = txn_out.opcode;
-        `endif //RISCV_V_INST
+
         print_data();
     endfunction: trk_out
 
@@ -54,10 +44,7 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
         string footer;
 
         print = concat_field(print, "           Time", time_size,        1, 1);
-        print = concat_field(print, " Instruction",    instruction_size, 0, 1);
-        `ifdef RISCV_V_INST
-             print = concat_field(print, " opcode",    opcode_size,      0, 1);
-        `endif //RISCV_V_INST
+
         print = {print, "\n"};
 
         repeat(header_size) begin
@@ -75,10 +62,6 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
         string print;
 
         print = concat_field(print, $sformatf(" %t", $time),                   time_size,         1, 1);
-        print = concat_field(print, $sformatf(" 0x%0h", txn.instruction),      instruction_size,  0, 1);
-        `ifdef RISCV_V_INST
-            print = concat_field(print, $sformatf(" 0x%0h", txn.opcode),       opcode_size,       0, 1);
-        `endif //RISCV_V_INST
 
         print = {print, "\n"};
 
@@ -86,6 +69,6 @@ class riscv_v_if_trk extends riscv_v_base_trk#(
     endfunction: print_data
 
 
-endclass: riscv_v_if_trk
+endclass: riscv_v_trk
 
-`endif //__RISCV_V_IF_TRK__
+`endif //__RISCV_V_TRK__

@@ -12,6 +12,8 @@ package riscv_v_cpu_base_test_pkg;
     import riscv_v_alu_agt_pkg::*;
     import riscv_v_if_agt_pkg::*;
     import riscv_v_ext_csr_agt_pkg::*;
+    import riscv_v_csr_agt_pkg::*;
+    import riscv_v_agt_pkg::*;
 
     `include "uvm_macros.svh"
     import riscv_v_base_test_pkg::*;
