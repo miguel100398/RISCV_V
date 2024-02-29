@@ -69,6 +69,14 @@ module riscv_v_tb;
         .clk(clk)
     );
 
+    riscv_v_if riscv_v_vif(
+        .clk(clk)
+    );
+
+    riscv_v_csr_if riscv_v_csr_vif(
+        .clk(clk)
+    );
+
     //Dut
     riscv_v dut(
         //Clocks and resets
@@ -108,11 +116,59 @@ module riscv_v_tb;
     //Stage signals
     riscv_v_stage#(.DATA_T(riscv_instruction_t), .NUM_STAGES(RISCV_V_ID_2_WB_LATENCY)) riscv_v_instr_stage (.clk(clk), .rst(1'b0), .en(1'b1), .flush(1'b0), .rst_val('x), .flush_val('x), .data_in(riscv_instruction_id), .data_out(riscv_instruction_wb));
 
+    //RISCV-V signals
+    assign riscv_v_vif.rst                          = rst;
+    assign riscv_v_vif.clear_pipe                   = clear_pipe;
+    assign riscv_v_vif.riscv_stall                  = riscv_stall;
+    assign riscv_v_vif.riscv_v_stall                = riscv_v_stall;
+    assign riscv_v_vif.instruction_id               = riscv_instruction_id;
+    `ifdef RISCV_V_INST
+        assign riscv_v_vif.opcode_id                = riscv_v_if_vif.opcode;
+    `endif //RISCV_V_INST
+    assign riscv_v_vif.int_rf_rd_data_id            = int_rf_vif.data_out_A;
+    assign riscv_v_vif.int_rf_wr_data_wb            = int_rf_vif.data_in;
+    assign riscv_v_vif.int_rf_wr_en_wb              = int_rf_vif.wr_en;
+    assign riscv_v_vif.ext_data_in_exe              = riscv_v_ext_csr_vif.ext_csr_data;
+    assign riscv_v_vif.ext_wr_vsstatus_id           = riscv_v_ext_csr_vif.ext_wr_vsstatus;
+    assign riscv_v_vif.ext_wr_vtype_id              = riscv_v_ext_csr_vif.ext_wr_vtype;
+    assign riscv_v_vif.ext_wr_vl_id                 = riscv_v_ext_csr_vif.ext_wr_vl;
+    assign riscv_v_vif.ext_wr_vstart_id             = riscv_v_ext_csr_vif.ext_wr_vstart;
+    assign riscv_v_vif.ext_wr_vxrm_id               = riscv_v_ext_csr_vif.ext_wr_vxrm;
+    assign riscv_v_vif.ext_wr_vxsat_id              = riscv_v_ext_csr_vif.ext_wr_vxsat;
+    assign riscv_v_vif.v_rf_if.wr_addr              = vec_rf_vif.wr_addr;
+    assign riscv_v_vif.v_rf_if.rd_addr_A            = vec_rf_vif.rd_addr_A;
+    assign riscv_v_vif.v_rf_if.rd_addr_B            = vec_rf_vif.rd_addr_B;
+    assign riscv_v_vif.v_rf_if.data_in              = vec_rf_vif.data_in;
+    assign riscv_v_vif.v_rf_if.wr_en                = vec_rf_vif.wr_en;
+    assign riscv_v_vif.v_rf_if.data_out_A           = vec_rf_vif.data_out_A;
+    assign riscv_v_vif.v_rf_if.data_out_B           = vec_rf_vif.data_out_B;
+    assign riscv_v_vif.v_csr_if.rst                 = riscv_v_csr_vif.rst;
+    assign riscv_v_vif.v_csr_if.vsstatus_data_in    = riscv_v_csr_vif.vsstatus_data_in;
+    assign riscv_v_vif.v_csr_if.vsstatus_wr_en      = riscv_v_csr_vif.vsstatus_wr_en;
+    assign riscv_v_vif.v_csr_if.vsstatus_data_out   = riscv_v_csr_vif.vsstatus_data_out;
+    assign riscv_v_vif.v_csr_if.vtype_data_in       = riscv_v_csr_vif.vtype_data_in;
+    assign riscv_v_vif.v_csr_if.vtype_wr_en         = riscv_v_csr_vif.vtype_wr_en;
+    assign riscv_v_vif.v_csr_if.vtype_data_out      = riscv_v_csr_vif.vtype_data_out;
+    assign riscv_v_vif.v_csr_if.vl_data_in          = riscv_v_csr_vif.vl_data_in;
+    assign riscv_v_vif.v_csr_if.vl_wr_en            = riscv_v_csr_vif.vl_wr_en;
+    assign riscv_v_vif.v_csr_if.vl_data_out         = riscv_v_csr_vif.vl_data_out;
+    assign riscv_v_vif.v_csr_if.vlenb_data_out      = riscv_v_csr_vif.vlenb_data_out;
+    assign riscv_v_vif.v_csr_if.vstart_data_in      = riscv_v_csr_vif.vstart_data_in;
+    assign riscv_v_vif.v_csr_if.vstart_wr_en        = riscv_v_csr_vif.vstart_wr_en;
+    assign riscv_v_vif.v_csr_if.vstart_data_out     = riscv_v_csr_vif.vstart_data_out;
+    assign riscv_v_vif.v_csr_if.vxrm_data_in        = riscv_v_csr_vif.vxrm_data_in;
+    assign riscv_v_vif.v_csr_if.vxrm_wr_en          = riscv_v_csr_vif.vxrm_wr_en;
+    assign riscv_v_vif.v_csr_if.vxrm_data_out       = riscv_v_csr_vif.vxrm_data_out;
+    assign riscv_v_vif.v_csr_if.vxsat_data_in       = riscv_v_csr_vif.vxsat_data_in;
+    assign riscv_v_vif.v_csr_if.vxsat_wr_en         = riscv_v_csr_vif.vxsat_wr_en;
+    assign riscv_v_vif.v_csr_if.vxsat_data_out      = riscv_v_csr_vif.vxsat_data_out;
+    assign riscv_v_vif.v_csr_if.vcsr_data_out       = riscv_v_csr_vif.vcsr_data_out;
+     
+    
     //Integer register file signals
     assign int_rf_vif.wr_addr   = riscv_instruction_wb.R.rd;
     assign int_rf_vif.rd_addr_A = riscv_instruction_id.R.rs1;
     assign int_rf_vif.rd_addr_B = riscv_instruction_id.R.rs2;
-
 
     //Instruction Fetch signals
     assign riscv_instruction_id = riscv_v_if_vif.instruction;
@@ -129,6 +185,30 @@ module riscv_v_tb;
     assign vec_rf_vif.wr_en      = dut.v_decode.v_rf.wr_en;
     assign vec_rf_vif.data_out_A = dut.v_decode.v_rf.data_out_A;
     assign vec_rf_vif.data_out_B = dut.v_decode.v_rf.data_out_B;
+
+    //Vector CSR signals
+    assign riscv_v_csr_vif.rst                  = dut.v_decode.v_csr.rst;
+    assign riscv_v_csr_vif.vsstatus_data_in     = dut.v_decode.v_csr.vsstatus_data_in;
+    assign riscv_v_csr_vif.vsstatus_wr_en       = dut.v_decode.v_csr.vsstatus_wr_en;
+    assign riscv_v_csr_vif.vsstatus_data_out    = dut.v_decode.v_csr.vsstatus_data_out;
+    assign riscv_v_csr_vif.vtype_data_in        = dut.v_decode.v_csr.vtype_data_in;
+    assign riscv_v_csr_vif.vtype_wr_en          = dut.v_decode.v_csr.vtype_wr_en;
+    assign riscv_v_csr_vif.vtype_data_out       = dut.v_decode.v_csr.vtype_data_out;
+    assign riscv_v_csr_vif.vl_data_in           = dut.v_decode.v_csr.vl_data_in;
+    assign riscv_v_csr_vif.vl_wr_en             = dut.v_decode.v_csr.vl_wr_en;
+    assign riscv_v_csr_vif.vl_data_out          = dut.v_decode.v_csr.vl_data_out;
+    assign riscv_v_csr_vif.vlenb_data_out       = dut.v_decode.v_csr.vlenb_data_out;
+    assign riscv_v_csr_vif.vstart_data_in       = dut.v_decode.v_csr.vstart_data_in;
+    assign riscv_v_csr_vif.vstart_wr_en         = dut.v_decode.v_csr.vstart_wr_en;
+    assign riscv_v_csr_vif.vstart_data_out      = dut.v_decode.v_csr.vstart_data_out;
+    assign riscv_v_csr_vif.vxrm_data_in         = dut.v_decode.v_csr.vxrm_data_in;
+    assign riscv_v_csr_vif.vxrm_wr_en           = dut.v_decode.v_csr.vxrm_wr_en;
+    assign riscv_v_csr_vif.vxrm_data_out        = dut.v_decode.v_csr.vxrm_data_out;
+    assign riscv_v_csr_vif.vxsat_data_in        = dut.v_decode.v_csr.vxsat_data_in;
+    assign riscv_v_csr_vif.vxsat_wr_en          = dut.v_decode.v_csr.vxsat_wr_en;
+    assign riscv_v_csr_vif.vxsat_data_out       = dut.v_decode.v_csr.vxsat_data_out;
+    assign riscv_v_csr_vif.vcsr_data_out        = dut.v_decode.v_csr.vcsr_data_out;
+
 
     //Arithmetic ALU signals
     assign vec_arithmetic_alu_vif.is_reduct                 = dut.v_execute.exe_alu.arithmetic_ALU.is_reduct;
@@ -229,6 +309,7 @@ module riscv_v_tb;
         uvm_config_db#(virtual riscv_v_permutation_ALU_if)::set(uvm_root::get(),"*","riscv_v_vec_permutation_alu_vif",vec_permutation_alu_vif);
         uvm_config_db#(virtual riscv_v_if_if)::set(uvm_root::get(),"*","riscv_v_if_vif",riscv_v_if_vif);
         uvm_config_db#(virtual riscv_v_ext_csr_if)::set(uvm_root::get(),"*","riscv_v_ext_csr_vif",riscv_v_ext_csr_vif);
+        uvm_config_db#(virtual riscv_v_if)::set(uvm_root::get(), "*", "riscv_v_vif", riscv_v_vif);
     end
 
     initial begin
