@@ -670,7 +670,7 @@ function automatic logic f_is_high(riscv_instr_funct6_t funct6,  logic funct3_is
     is_high |= (funct6 == RISCV_V_FUNCT6_VMULHU) && funct3_is_OPM;
 
     return is_high;
-endfunction: f_is_high;
+endfunction: f_is_high
 
 function automatic logic f_is_signed(riscv_instr_funct6_t funct6, logic funct3_is_OPI, logic funct3_is_OPMVV, logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPIVX_OPIVI, logic funct3_is_OPM);
     logic is_signed = 1'b0;

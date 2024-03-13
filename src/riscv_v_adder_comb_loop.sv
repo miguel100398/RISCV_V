@@ -1,9 +1,9 @@
-//File: riscv_v_adder.sv
+//File: riscv_v_adder_comb_loop.sv
 //Author: Miguel Bucio
 //Date: 31/08/23
 //Description: RISC-V Vector adder
 
-module riscv_v_adder
+module riscv_v_adder_comb_loop
 import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic                       valid_adder,
@@ -261,4 +261,4 @@ generate
 
 endgenerate
 
-endmodule: riscv_v_adder
+endmodule: riscv_v_adder_comb_loop
