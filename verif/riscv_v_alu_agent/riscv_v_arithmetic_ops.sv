@@ -147,6 +147,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
 
                 zf_exp[1] = (arithmetic_exp_result.data.Word[0] == 0);
             end
+            */
             OSIZE_32: begin
 
                 {cf_exp[3], arithmetic_exp_result.data.Dword[0]} = ((arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Dword[0]));
@@ -194,7 +195,6 @@ class riscv_v_arithmetic_ops extends uvm_component;
 
                 zf_exp[15] = (arithmetic_exp_result.data.Dqword[0] == 0);
             end
-            */
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase
     endfunction: calc_add_reduct
