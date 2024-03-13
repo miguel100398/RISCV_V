@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: 128 Bit multiplier behavioral
+`timescale 1ns/1ps
 
 module mul128_behavioral(
     input  logic [127:0] srca,

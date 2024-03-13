@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 16/04/23
 //Description: RISC-V Vector Check Parameters module
+`timescale 1ns/1ps
 
 module riscv_v_check_params;
 import riscv_v_pkg::*, riscv_pkg::*;

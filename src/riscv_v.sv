@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 15/01/24
 //Description: RISC-V Vector extension Top module
+`timescale 1ns/1ps
 
 module riscv_v 
 import riscv_pkg::*, riscv_v_pkg::*;

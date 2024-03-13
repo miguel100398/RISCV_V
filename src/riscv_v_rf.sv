@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 11/04/23
 //Description: RISC-V Vector extension register file
+`timescale 1ns/1ps
 
 module riscv_v_rf
 import riscv_v_pkg::*, riscv_pkg::*;

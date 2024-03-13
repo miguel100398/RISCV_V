@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 15/01/24
 //Description: RISC-V Vector Bypass unit
+`timescale 1ns/1ps
 
 module riscv_v_bypass
 import riscv_pkg::*, riscv_v_pkg::*;

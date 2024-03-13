@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 13/08/23
 //Description: RISC-V Vector extension shifter
+`timescale 1ns/1ps
 
 module riscv_v_shifter
 import riscv_v_pkg::*, riscv_pkg::*;

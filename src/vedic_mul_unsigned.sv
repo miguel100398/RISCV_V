@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: Unsigned vedic multiplier
+`timescale 1ns/1ps
 
 module vedic_mul_unsigned
 import riscv_v_pkg::*, riscv_pkg::*;

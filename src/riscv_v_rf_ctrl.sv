@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 15/01/24
 //Description: RISC-V Vector Register File Control
+`timescale 1ns/1ps
 
 module riscv_v_rf_ctrl 
 import riscv_pkg::*, riscv_v_pkg::*;

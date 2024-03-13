@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 17/01/24
 //Description: RISC-V Vector extension Shuffler
+`timescale 1ns/1ps
 
 module riscv_v_shuffler
 import riscv_pkg::*, riscv_v_pkg::*;

@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: N Bit multiplier behavioral
+`timescale 1ns/1ps
 
 module mul_behavioral#(
     parameter WIDTH = 8 

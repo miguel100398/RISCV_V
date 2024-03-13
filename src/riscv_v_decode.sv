@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 15/01/24
 //Description: RISC-V Vector extension Decode Stage
+`timescale 1ns/1ps
 
 module riscv_v_decode 
 import riscv_pkg::*, riscv_v_pkg::*;

@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 17/08/23
 //Description: RISC-V Vector extension Bitwise and
+`timescale 1ns/1ps
 
 module riscv_v_bw_xor
 import riscv_v_pkg::*, riscv_pkg::*;

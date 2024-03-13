@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: vectorial multiplier behavioral
+`timescale 1ns/1ps
 
 module mulvec_behavioral(
     input  logic         clk,

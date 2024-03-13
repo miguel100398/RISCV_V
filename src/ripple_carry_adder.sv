@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 31/08/23
 //Description: ripple carry adder 
+`timescale 1ns/1ps
 
 module ripple_carry_adder#(
     parameter WIDTH = 8

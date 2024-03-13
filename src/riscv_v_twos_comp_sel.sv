@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: riscv v twos complement
+`timescale 1ns/1ps
 
 module riscv_v_twos_comp_sel 
 import riscv_v_pkg::*, riscv_pkg::*;

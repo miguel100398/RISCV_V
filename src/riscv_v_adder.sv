@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 31/08/23
 //Description: RISC-V Vector adder
+`timescale 1ns/1ps
 
 module riscv_v_adder
 import riscv_v_pkg::*, riscv_pkg::*;

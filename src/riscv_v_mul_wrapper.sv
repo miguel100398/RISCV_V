@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: riscv-v Vector extension multiplier (Using vedic multiplier) wrapper with clock to generate timing analysis
+`timescale 1ns/1ps
 
 module riscv_v_mul_wrapper
 import riscv_v_pkg::*, riscv_pkg::*;

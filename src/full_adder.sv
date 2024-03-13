@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 31/08/23
 //Description: RISC-V Vector 1 bit full adder 
+`timescale 1ns/1ps
 
 module full_adder(
     input  logic A,

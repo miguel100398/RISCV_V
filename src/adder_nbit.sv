@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 31/08/23
 //Description: Parametrizable adder
+`timescale 1ns/1ps
 
 module adder_nbit#(
     parameter int    WIDTH         = 8,

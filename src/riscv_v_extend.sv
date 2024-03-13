@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 12/01/24
 //Description: RISC-V Vector extension sign/zero extend
+`timescale 1ns/1ps
 
 module riscv_v_extend
 import riscv_v_pkg::*, riscv_pkg::*;

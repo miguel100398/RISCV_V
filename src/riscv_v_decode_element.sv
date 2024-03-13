@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 17/01/24
 //Description: RISC-V Vector Decode element
+`timescale 1ns/1ps
 
 module riscv_v_decode_element
 import riscv_pkg::*, riscv_v_pkg::*;

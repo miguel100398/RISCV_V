@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 16/01/24
 //Description: RISC-V Vector Control unit
+`timescale 1ns/1ps
 
 module riscv_v_ctrl 
 import riscv_pkg::*, riscv_v_pkg::*;

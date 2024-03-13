@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 20/09/23
 //Description: Multiplier 2 bits
+`timescale 1ns/1ps
 
 module multiplier_2bit(
     input  logic[1:0] A,

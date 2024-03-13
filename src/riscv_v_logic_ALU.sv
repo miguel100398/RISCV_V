@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 11/06/23
 //Description: RISC-V Vector extension logical ALU
+`timescale 1ns/1ps
 
 module riscv_v_logic_ALU
 import riscv_v_pkg::*, riscv_pkg::*;

@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 11/06/23
 //Description: RISC-V Vector extensionBit wise and 8 bits
+`timescale 1ns/1ps
 
 module riscv_v_bitwise_and
 import riscv_v_pkg::*, riscv_pkg::*;

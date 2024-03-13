@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 16/09/23
 //Description: behavioral adder 
+`timescale 1ns/1ps
 
 module behavioral_adder#(
     parameter WIDTH = 8

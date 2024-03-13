@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 16/09/23
 //Description: twos complements with selector
+`timescale 1ns/1ps
 
 module twos_comp_sel#(
     parameter int WIDTH = 0

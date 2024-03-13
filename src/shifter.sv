@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 17/08/23
 //Description: RISC-V Vector extension shifter
+`timescale 1ns/1ps
 
 module shifter #(
     parameter int WIDTH = 8,

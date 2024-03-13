@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 31/08/23
 //Description: RISC-V Vector extension arithmetic ALU
+`timescale 1ns/1ps
 
 module riscv_v_arithmetic_ALU
 import riscv_v_pkg::*, riscv_pkg::*;

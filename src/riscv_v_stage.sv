@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 15/01/24
 //Description: RISC-V Vector extension stage module to flop signals 
+`timescale 1ns/1ps
 
 module riscv_v_stage#(
     parameter type DATA_T     = logic,
