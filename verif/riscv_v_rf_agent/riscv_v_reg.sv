@@ -164,7 +164,7 @@ class riscv_v_reg #(type data_t  = riscv_v_data_t,
         bit res;
         //Cast
         if (!$cast(_rhs, rhs)) begin
-            $fatal(get_name(), $sformatf("Can't cast rhs to %s in riscv_v_reg do_compare", $typename(this_type_t)));
+            `uvm_fatal(get_name(), $sformatf("Can't cast rhs to %s in riscv_v_reg do_compare", $typename(this_type_t)));
         end
 
         res = super.do_compare(_rhs, comparer) &&
@@ -178,7 +178,7 @@ class riscv_v_reg #(type data_t  = riscv_v_data_t,
     virtual function void do_copy(uvm_object rhs);
         this_type_t _rhs;
         if (!$cast(_rhs, rhs)) begin
-            $fatal(get_name(), $sformatf("Can't cast rhs to %s in riscv_v_reg do_copy", $typename(this_type_t)));
+            `uvm_fatal(get_name(), $sformatf("Can't cast rhs to %s in riscv_v_reg do_copy", $typename(this_type_t)));
         end
         super.do_copy(_rhs);
 
