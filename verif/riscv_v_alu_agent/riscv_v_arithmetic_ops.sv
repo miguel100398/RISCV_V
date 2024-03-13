@@ -132,9 +132,9 @@ class riscv_v_arithmetic_ops extends uvm_component;
             end
             OSIZE_16: begin
 
-                //{cf_exp[1], arithmetic_exp_result.data.Word[0]} = ((arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Word[0]));
-                //of_exp[1] = (~arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]) ||
-                //            (arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]);
+                {cf_exp[1], arithmetic_exp_result.data.Word[0]} = ((arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Word[0]));
+                of_exp[1] = (~arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]) ||
+                            (arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]);
 
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     //logic [WORD_WIDTH-1:0] tmp_result;
