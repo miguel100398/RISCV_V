@@ -20,7 +20,8 @@ module twos_comp_sel#(
 
     //adder 
     adder_nbit#(
-        .ADDER_TYPE("BEHAVIORAL_ADDER"),
+        .BEHAVIORAL(1'b1),
+        .RIPPLE_CARRY(1'b0),
         .WIDTH(WIDTH)
     ) adder (
         .A(in_xor),
