@@ -71,7 +71,7 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
         `ifdef RISCV_V_INST 
             opcode = NOP;
         `endif //RISCV_V_INST
-    endfunction: rst_bfm;
+    endfunction: rst_bfm
 
     virtual function void rst_seq();
         seq.instruction  = '0;
