@@ -237,9 +237,9 @@ typedef Byte_t [RISCV_V_NUM_BYTES_DATA-1:0]         riscv_v_byte_bus_t;
 typedef union packed{
     riscv_v_bit_bus_t           Bit;
     riscv_v_byte_bus_t          Byte;
-    `ifdef RISCV_V_USE_WORD
+    //`ifdef RISCV_V_USE_WORD
         riscv_v_word_bus_t      Word;
-    `endif // RISCV_V_USE_WORD
+    //`endif // RISCV_V_USE_WORD
     `ifdef RISCV_V_USE_DWORD
         riscv_v_dword_bus_t     Dword;
     `endif // RISCV_V_USE_DWORD
