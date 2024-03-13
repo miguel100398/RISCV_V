@@ -138,9 +138,9 @@ class riscv_v_arithmetic_ops extends uvm_component;
 
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [WORD_WIDTH-1:0] tmp_result;
-                    {cf_exp[1], tmp_result} = ((arithmetic_exp_result.data.Word[0]) + (arithmetic_in_txn.srcb.data.Word[i]));
-                    //of_exp[1] |= (~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & tmp_result[WORD_WIDTH-1]) ||
-                    //             (arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & tmp_result[WORD_WIDTH-1]);
+                    //{cf_exp[1], tmp_result} = ((arithmetic_exp_result.data.Word[0]) + (arithmetic_in_txn.srcb.data.Word[i]));
+                    of_exp[1] |= (~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & tmp_result[WORD_WIDTH-1]) ||
+                                 (arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & tmp_result[WORD_WIDTH-1]);
                     //arithmetic_exp_result.data.Word[0] = tmp_result;
                 end  
 
