@@ -15,7 +15,7 @@ virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
     `uvm_component_param_utils(base_scbd#(
         .seq_item_in_t (seq_item_in_t),
         .seq_item_out_t(seq_item_out_t),
-        .model_t(base_model)));
+        .model_t(base_model)))
 
     //Number of analyzed vectors
     int num_vectors = 0;

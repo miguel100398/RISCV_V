@@ -16,7 +16,7 @@ class rotator#(
             .object_t(object_t),
             .MAX_NUM_ENTRIES(MAX_NUM_ENTRIES)
         )
-    );
+    )
 
     object_t array[MAX_NUM_ENTRIES];
 

@@ -33,7 +33,7 @@ virtual class rf_bfm#(
         .sequencer_t(sequencer_t),
         .cfg_obj_t(cfg_obj_t),
         .seq_t(seq_t)
-    ));
+    ))
 
     model_t rf;
 

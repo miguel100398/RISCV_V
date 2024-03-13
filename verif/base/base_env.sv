@@ -13,7 +13,7 @@ virtual class base_env#( type agent_t = base_agt,
         .agent_t (agent_t),
         .scbd_t  (scbd_t),
         .cov_t   (cov_t)
-    ));
+    ))
 
     agent_t agt;
     scbd_t  scbd;

@@ -8,7 +8,7 @@
 
 virtual class base_drv#(type seq_item_t = base_seq_item)  extends uvm_driver#(seq_item_t);
     `uvm_component_param_utils(base_drv#(
-        .seq_item_t(seq_item_t)));
+        .seq_item_t(seq_item_t)))
 
     string interface_name = "";
     bit    bfm_mode       = 1'b0;

@@ -10,7 +10,7 @@ virtual class base_mon#(type seq_item_in_t          = base_seq_item,
                         type seq_item_out_t         = seq_item_in_t) extends uvm_monitor;
     `uvm_component_param_utils(base_mon#(
         .seq_item_in_t  (seq_item_in_t),
-        .seq_item_out_t (seq_item_out_t)));
+        .seq_item_out_t (seq_item_out_t)))
 
     string interface_name = "";
 

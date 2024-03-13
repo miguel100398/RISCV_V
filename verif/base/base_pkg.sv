@@ -8,6 +8,7 @@ package base_pkg;
 import uvm_pkg::*;
 
 `include "uvm_macros.svh"
+`include "base_model.sv"
 `include "base_seq_item.sv"
 `include "base_in_out_seq_item.sv"
 `include "base_subscriber_2ports.sv"
@@ -15,6 +16,7 @@ import uvm_pkg::*;
 `include "base_bfm_cfg_obj.sv"
 `include "base_sqr.sv"
 `include "base_seq.sv"
+`include "base_bfm.sv"
 `include "base_drv.sv"
 `include "base_mon.sv"
 `include "base_scbd.sv"
@@ -22,8 +24,6 @@ import uvm_pkg::*;
 `include "base_cov.sv"
 `include "base_agt.sv"
 `include "base_env.sv"
-`include "base_bfm.sv"
-`include "base_model.sv"
 `include "rf_model.sv"
 `include "rf_bfm.sv"
 `include "base_rotator.sv"

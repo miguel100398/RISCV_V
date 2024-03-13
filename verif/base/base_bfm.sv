@@ -26,7 +26,7 @@ virtual class base_bfm #( type seq_item_in_t  = base_seq_item,
     .cfg_obj_t     (cfg_obj_t),
     .seq_t         (seq_t),
     .model_t       (model_t)
-));
+))
 
 localparam update_bfm_sem_keys = 1;
 

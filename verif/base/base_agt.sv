@@ -34,7 +34,7 @@ virtual class base_agt #(           type seq_item_in_t  = base_seq_item,
         .tracker_t      (tracker_t),
         .sequencer_t    (sequencer_t),
         .bfm_t          (bfm_t)
-    ));
+    ))
 
     //Agent components
     driver_t    drv;

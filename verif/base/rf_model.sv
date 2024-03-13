@@ -14,7 +14,7 @@ class rf_model#(type    data_t           = logic[31:0],
     .data_t(data_t),
     .NUM_REGS(NUM_REGS),
     .PROTECT_REG_ZERO(PROTECT_REG_ZERO)
-));
+))
 
 data_t rst_val = 'x;
 

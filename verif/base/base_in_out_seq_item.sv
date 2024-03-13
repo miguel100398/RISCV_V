@@ -11,6 +11,12 @@ virtual  class base_in_out_seq_item#(
     type out_seq_item_t = in_seq_item_t
 ) extends uvm_sequence_item;
 
+    `uvm_object_param_utils(
+        base_in_out_seq_item#(
+            .in_seq_item_t(in_seq_item_t),
+            .out_seq_item_t(out_seq_item_t)
+        )
+    )
 
     rand in_seq_item_t  in;
     rand out_seq_item_t out;
