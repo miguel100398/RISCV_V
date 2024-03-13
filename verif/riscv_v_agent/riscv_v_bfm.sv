@@ -15,7 +15,7 @@ class riscv_v_bfm extends riscv_v_base_bfm#(
     .seq_t(riscv_v_seq)
 );
 
-    `uvm_component_utils(riscv_v_bfm);
+    `uvm_component_utils(riscv_v_bfm)
 
     function new(string name = "riscv_v_bfm", uvm_component parent = null);
         super.new(name, parent);
