@@ -11,7 +11,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         super.new(name, parent);
     endfunction: new
 
-    virtual function void calc_addc(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_addc(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -58,7 +58,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_addc
 
-    virtual function void calc_add(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_add(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -105,7 +105,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_add
 
-    virtual function void calc_add_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_add_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data    = '0;
@@ -194,7 +194,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_add_reduct
 
-    virtual function void calc_subb(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_subb(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -241,7 +241,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_subb 
 
-    virtual function void calc_sub(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sub(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -288,7 +288,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sub
 
-    virtual function void calc_sub_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sub_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -375,7 +375,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sub_reduct
 
-    virtual function void calc_sign_ext(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sign_ext(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -455,7 +455,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sign_ext
 
-    virtual function void calc_zero_ext(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_zero_ext(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -535,7 +535,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_zero_ext
 
-    virtual function void calc_mins(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_mins(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -587,7 +587,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_mins
 
-    virtual function void calc_mins_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_mins_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -664,7 +664,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_mins_reduct
 
-    virtual function void calc_minu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_minu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -716,7 +716,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_minu
 
-    virtual function void calc_minu_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_minu_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -793,7 +793,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_minu_reduct
 
-    virtual function void calc_maxs(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_maxs(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -845,7 +845,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_maxs
 
-    virtual function void calc_maxs_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_maxs_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -922,7 +922,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_maxs_reduct
 
-    virtual function void calc_maxu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_maxu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -974,7 +974,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_maxu
 
-    virtual function void calc_maxu_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_maxu_reduct(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
@@ -1051,7 +1051,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_maxu_reduct
 
-    virtual function void calc_mullu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_mullu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1092,7 +1092,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase 
     endfunction: calc_mullu
 
-    virtual function void calc_mulls(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_mulls(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1133,7 +1133,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase 
     endfunction: calc_mulls
 
-    virtual function void calc_mulhu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_mulhu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1174,7 +1174,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase 
     endfunction: calc_mulhu
 
-    virtual function void calc_mulhs(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_mulhs(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1215,7 +1215,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase 
     endfunction: calc_mulhs
 
-    virtual function void calc_seq(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_seq(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1248,7 +1248,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_seq
 
-    virtual function void calc_sne(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sne(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1281,7 +1281,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sne
 
-    virtual function void calc_sle(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sle(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1314,7 +1314,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sle
 
-    virtual function void calc_sleu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sleu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1347,7 +1347,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sleu
 
-    virtual function void calc_slt(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_slt(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1380,7 +1380,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_slt
 
-    virtual function void calc_sltu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sltu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1413,7 +1413,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sltu
 
-    virtual function void calc_sgt(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sgt(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
@@ -1446,7 +1446,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_sgt
 
-    virtual function void calc_sgtu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_tm of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
+    virtual function void calc_sgtu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         arithmetic_exp_result.data = '0;
         case(arithmetic_in_txn.osize)
