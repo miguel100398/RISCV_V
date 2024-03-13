@@ -144,8 +144,8 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     virtual function void calc_permutation();
         case(permutation_in_txn.opcode)
         /*
-            I2V: permutation_ops.calc_i2v(permutation_in_txn, permutation_exp_vec_result);
-            V2I: permutation_ops.calc_v2i(permutation_in_txn, permutation_exp_int_result);
+            I2V: permutation_ops.calc_i2v(permutation_in_txn, permutation_exp_vec_result, permutation_exp_int_result);
+            V2I: permutation_ops.calc_v2i(permutation_in_txn, permutation_exp_vec_result, permutation_exp_int_result);
             **/
             default: `uvm_fatal(get_name(), "Invalid permutation ALU op")
         endcase
