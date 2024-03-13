@@ -59,4 +59,4 @@ class riscv_v_mask_ops extends uvm_component;
         end
     endfunction: calc_mxnor
 
-endfunction: riscv_v_mask_ops
+endclass: riscv_v_mask_ops
