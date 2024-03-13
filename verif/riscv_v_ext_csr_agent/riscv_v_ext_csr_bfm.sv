@@ -64,7 +64,7 @@ class riscv_v_ext_csr_bfm extends riscv_v_base_bfm#(
         ext_wr_vstart   = 1'b0;
         ext_wr_vxrm     = 1'b0;
         ext_wr_vxsat    = 1'b0;
-    endfunction: rst_bfm;
+    endfunction: rst_bfm
 
     virtual function void rst_seq();
         seq.ext_csr_data    = '0;
