@@ -17,10 +17,10 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     riscv_v_mask_alu_in_seq_item        mask_in_txn;
     riscv_v_permutation_alu_in_seq_item permutation_in_txn;
 
-    riscv_v_arithmetic_ops     arithmetic_ops;
-    riscv_v_logic_ops          logic_ops;
-    riscv_v_mask_ops           mask_ops;
-    riscv_v_permutation_ops    permutation_ops;
+    //riscv_v_arithmetic_ops     arithmetic_ops;
+    //riscv_v_logic_ops          logic_ops;
+    //riscv_v_mask_ops           mask_ops;
+    //riscv_v_permutation_ops    permutation_ops;
 
     //Expected results
     riscv_v_wb_data_t  logic_exp_result;
@@ -39,10 +39,10 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     virtual function build_phase(uvm_phase phase);
         super.build_phase(phase);
 
-        arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
-        logic_ops       = riscv_v_logic_ops::type_id::create("logic_ops", this);
-        mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
-        permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
+        //arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
+        //logic_ops       = riscv_v_logic_ops::type_id::create("logic_ops", this);
+        //mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
+        //permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
 
     endfunction: build_phase
 
@@ -74,6 +74,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     virtual function void calc_logic();
         case(logic_in_txn.opcode)
+        /*
             BW_AND:         logic_ops.calc_bw_and(logic_in_txn,         logic_exp_result);
             BW_AND_REDUCT:  logic_ops.calc_bw_and_reduct(logic_in_txn,  logic_exp_result);
             BW_OR:          logic_ops.calc_bw_or(logic_in_txn,          logic_exp_result);
@@ -83,12 +84,14 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             SLL:            logic_ops.calc_sll(logic_in_txn,            logic_exp_result);
             SRL:            logic_ops.calc_srl(logic_in_txn,            logic_exp_result);
             SRA:            logic_ops.calc_sra(logic_in_txn,            logic_exp_result);
+            */
             default:        `uvm_fatal(get_name(), "Invalid Logic ALU op")
         endcase
     endfunction: calc_logic
 
     virtual function void calc_arithmetic();
         case(arithmetic_in_txn.opcode)
+        /*
             ADDC:           arithmetic_ops.calc_addc(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             ADD:            arithmetic_ops.calc_add(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             ADD_REDUCT:     arithmetic_ops.calc_add_reduct(arithmetic_in_txn,   zf_exp, of_exp, cf_exp, arithmetic_exp_result);
@@ -117,12 +120,14 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             SLTU:           arithmetic_ops.calc_sltu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             SGT:            arithmetic_ops.calc_sgt(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             SGTU:           arithmetic_ops.calc_sgtu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            */
             default:        `uvm_fatal(get_name(), "Invalid arithmetic ALU op")
         endcase
     endfunction: calc_arithmetic
 
     virtual function void calc_mask();
         case(mask_in_txn.opcode)
+        /*
             MAND:   mask_ops.calc_mand(mask_in_txn,     mask_exp_result);
             MNAND:  mask_ops.calc_mnand(mask_in_txn,    mask_exp_result);
             MANDN:  mask_ops.calc_mandn(mask_in_txn,    mask_exp_result);
@@ -131,14 +136,17 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             MORN:   mask_ops.calc_morn(mask_in_txn,     mask_exp_result);
             MXOR:   mask_ops.calc_mxor(mask_in_txn,     mask_exp_result);
             MXNOR:  mask_ops.calc_mxnor(mask_in_txn,    mask_exp_result);
+            */
             default: `uvm_fatal(get_name(), "Invalid mask ALU op")
         endcase
     endfunction: calc_mask
 
     virtual function void calc_permutation();
         case(permutation_in_txn.opcode)
+        /*
             I2V: permutation_ops.calc_i2v(permutation_in_txn, permutation_exp_vec_result);
             V2I: permutation_ops.calc_v2i(permutation_in_txn, permutation_exp_int_result);
+            **/
             default: `uvm_fatal(get_name(), "Invalid permutation ALU op")
         endcase
     endfunction: calc_permutation
