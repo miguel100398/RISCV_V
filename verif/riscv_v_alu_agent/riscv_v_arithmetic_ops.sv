@@ -60,7 +60,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase
     endfunction: calc_addc
-
+/*
     virtual function void calc_add(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
@@ -197,7 +197,6 @@ class riscv_v_arithmetic_ops extends uvm_component;
         endcase
     endfunction: calc_add_reduct
 
-    /*
     virtual function void calc_subb(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
