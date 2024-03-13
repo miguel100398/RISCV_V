@@ -47,7 +47,7 @@ class riscv_v_rf_scbd extends riscv_v_base_scbd#(
     for (int reg_idx = 0; reg_idx < RISCV_V_RF_NUM_REGS; reg_idx++) begin
       regs[reg_idx].reset_reg('X);  
     end
-  endfunction: reset_regs;
+  endfunction: reset_regs
 
   // write wr_port 
   virtual function void calc_in();
