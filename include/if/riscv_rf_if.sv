@@ -10,13 +10,13 @@ import riscv_pkg::*;
     input logic clk  
 );
 
-    wire[RISCV_RF_ADDR_WIDTH-1:0]    wr_addr;
-    wire[RISCV_RF_ADDR_WIDTH-1:0]    rd_addr_A;
-    wire[RISCV_RF_ADDR_WIDTH-1:0]    rd_addr_B;  
-    riscv_data_t                     data_in;
-    logic                            wr_en;
-    riscv_data_t                     data_out_A;
-    riscv_data_t                     data_out_B;
+    riscv_rf_addr_t    wr_addr;
+    riscv_rf_addr_t    rd_addr_A;
+    riscv_rf_addr_t    rd_addr_B;  
+    riscv_data_t       data_in;
+    logic              wr_en;
+    riscv_data_t       data_out_A;
+    riscv_data_t       data_out_B;
 
     modport rf(
         input  wr_addr,
