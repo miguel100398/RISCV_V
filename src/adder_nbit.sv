@@ -20,7 +20,7 @@ module adder_nbit#(
 `ifndef SYNTHESIS
     initial begin 
         if (!$onehot({BEHAVIORAL, RIPPLE_CARRY})) begin
-            $fatal("Invalid adder type {BEHAVIORAL, RIPPLE_CARRY}: %0b", {BEHAVIORAL, RIPPLE_CARRY});
+            $fatal(1, "Invalid adder type {BEHAVIORAL, RIPPLE_CARRY}: %0b", {BEHAVIORAL, RIPPLE_CARRY});
         end 
     end
 `endif //SYNTHESIS 

@@ -134,27 +134,27 @@ riscv_v_stage#(.DATA_T(riscv_v_vxsat_t),    .NUM_STAGES(RISCV_V_EXE_2_WB_LATENCY
 ///////////////////////////////////Asserts/////////////////////////////////////////
 wr_vsstatus_id: assert property ( @(posedge clk)
     ~(ext_wr_vsstatus_id && vec_wr_vsstatus_id)
-) else $fatal("Trying to write vsstatus from external and vec at the same time ID");
+) else $fatal(1, "Trying to write vsstatus from external and vec at the same time ID");
 
 wr_vtype_id: assert property ( @(posedge clk)
     ~(ext_wr_vtype_id && vec_wr_vtype_id)
-) else $fatal("Trying to write vtype from external and vec at the same time ID");
+) else $fatal(1, "Trying to write vtype from external and vec at the same time ID");
 
 wr_vl_id: assert property ( @(posedge clk)
     ~(ext_wr_vl_id && vec_wr_vl_id)
-) else $fatal("Trying to write vl from external and vec at the same time ID");
+) else $fatal(1, "Trying to write vl from external and vec at the same time ID");
 
 wr_vstart_id: assert property ( @(posedge clk)
     ~(ext_wr_vstart_id && vec_wr_vstart_id)
-) else $fatal("Trying to write vstart from external and vec at the same time ID");
+) else $fatal(1, "Trying to write vstart from external and vec at the same time ID");
 
 wr_vxrm_id: assert property ( @(posedge clk)
     ~(ext_wr_vxrm_id && vec_wr_vxrm_id)
-) else $fatal("Trying to write vxrm from external and vec at the same time ID");
+) else $fatal(1, "Trying to write vxrm from external and vec at the same time ID");
 
 wr_vxsat_id: assert property ( @(posedge clk)
     ~(ext_wr_vxsat_id && vec_wr_vxsat_id)
-) else $fatal("Trying to write vxsat from external and vec at the same time ID");
+) else $fatal(1, "Trying to write vxsat from external and vec at the same time ID");
 
 
 

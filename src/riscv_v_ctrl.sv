@@ -223,38 +223,38 @@ riscv_v_stage#(.DATA_T(riscv_instr_rs_t),   .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY
 ////////////////////////////////////Assertions//////////////////////////////////////////////////
 scalar_fp_supported: assert property ( @(posedge clk)
     !is_scalar_fp_op_id
-) else $fatal("Scalar operation with floation point source is not supported yet");
+) else $fatal(1, "Scalar operation with floation point source is not supported yet");
 
 vector_scalar_op_mutex: assert property ( @(posedge clk)
     !(is_vector_vector_op_id && is_scalar_op_id)
-) else $fatal("Vector and scalar op asserted at the same time");
+) else $fatal(1, "Vector and scalar op asserted at the same time");
 
 vector_vector_without_vector_op: assert property ( @(posedge clk)
     !(is_vector_vector_op_id && ~is_vector_op_id)
-) else $fatal("vector_vector_op  asserted without vector_op");
+) else $fatal(1, "vector_vector_op  asserted without vector_op");
 
 vector_scalar_without_vector_op: assert property ( @(posedge clk)
     !(is_scalar_op_id && ~is_vector_op_id)
-) else $fatal("vector_scalar_op  asserted without vector_op");
+) else $fatal(1, "vector_scalar_op  asserted without vector_op");
 
 scalar_vec_withour_scalar_op: assert property ( @(posedge clk)
     !(is_scalar_vector_op_id && ~is_scalar_op_id)
-) else $fatal("scalar_vec op asserted without scalar_op");
+) else $fatal(1, "scalar_vec op asserted without scalar_op");
 
 scalar_imm_without_scalar_op: assert property ( @(posedge clk)
     !(is_scalar_imm_op_id && ~is_scalar_op_id)
-) else $fatal("scalar_imm op asserted without scalar_op");
+) else $fatal(1, "scalar_imm op asserted without scalar_op");
 
 scalar_int_without_scalar_op: assert property ( @(posedge clk)
     !(is_scalar_int_op_id && ~is_scalar_op_id)
-) else $fatal("scalar_int op asserted without scalar_op");
+) else $fatal(1, "scalar_int op asserted without scalar_op");
 
 scalar_fp_without_scalar_op: assert property ( @(posedge clk)
     !(is_scalar_fp_op_id && ~is_scalar_op_id)
-) else $fatal("scalar_fp op asserted without scalar_op");
+) else $fatal(1, "scalar_fp op asserted without scalar_op");
 
 scalar_src_mutex: assert property ( @(posedge clk)
     $onehot0({is_scalar_vector_op_id, is_scalar_imm_op_id, is_scalar_int_op_id, is_scalar_fp_op_id})
-) else $fatal($sformatf("scalar source is not mutex {vec,imm,int,fp}: %0b", {is_scalar_vector_op_id, is_scalar_imm_op_id, is_scalar_int_op_id, is_scalar_fp_op_id}));
+) else $fatal(1, $sformatf("scalar source is not mutex {vec,imm,int,fp}: %0b", {is_scalar_vector_op_id, is_scalar_imm_op_id, is_scalar_int_op_id, is_scalar_fp_op_id}));
 
 endmodule: riscv_v_ctrl
