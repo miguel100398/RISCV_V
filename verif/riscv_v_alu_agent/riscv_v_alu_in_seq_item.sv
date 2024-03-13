@@ -103,16 +103,20 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
         case(osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    assert (std::randomize(srca.valid[i]))
+                    riscv_v_valid_data_t valid_tmp;
+                    assert (std::randomize(valid_tmp))
                     else `uvm_fatal(get_name(), "Can't randomize srca.valid")
+                    srca.valid[i] = valid_tmp;
                     srca.valid[i] &= (len > i);
                     srcb.valid[i] = srca.valid[i];
                 end
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    assert (std::randomize(srca.valid[i*2]))
+                    riscv_v_valid_data_t valid_tmp;
+                    assert (std::randomize(valid_tmp)
                     else `uvm_fatal(get_name(), "Can't randomize srca.valid")
+                    srca.valid[i*2]      = valid_tmp;
                     srca.valid[i*2]      &= (len > i);
                     srca.valid[i*2 +: 2] = {2{srca.valid[i*2]}};
                     srcb.valid[i*2 +: 2] = {2{srca.valid[i*2]}};
@@ -120,8 +124,10 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             end
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    assert (std::randomize(srca.valid[i*4]))
+                    riscv_v_valid_data_t valid_tmp;
+                    assert (std::randomize(valid_tmp))
                     else `uvm_fatal(get_name(), "Can't randomize srca.valid")
+                    srca.valid[i*4]      = valid_tmp;
                     srca.valid[i*4]      &= (len > i);
                     srca.valid[i*4 +: 4] = {4{srca.valid[i*4]}};
                     srcb.valid[i*4 +: 4] = {4{srca.valid[i*4]}};
@@ -129,8 +135,10 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             end
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    assert (std::randomize(srca.valid[i*8]))
+                    riscv_v_valid_data_t valid_tmp;
+                    assert (std::randomize(valid_tmp))
                     else `uvm_fatal(get_name(), "Can't randomize srca.valid")
+                    srca.valid[i*8]      = valid_tmp;
                     srca.valid[i*8]      &= (len > i);
                     srca.valid[i*8 +: 8] = {8{srca.valid[i*8]}};
                     srcb.valid[i*8 +: 8] = {8{srca.valid[i*8]}};
@@ -138,8 +146,10 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             end
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    assert (std::randomize(srca.valid[i*16]))
+                    riscv_v_valid_data_t valid_tmp;
+                    assert (std::randomize(valid_tmp))
                     else `uvm_fatal(get_name(), "Can't randomize srca.valid")
+                    srca.valid[i*16]       = valid_tmp;
                     srca.valid[i*16]       &= (len > i);
                     srca.valid[i*16 +: 16] = {16{srca.valid[i*16]}};
                     srcb.valid[i*16 +: 16] = {16{srca.valid[i*16]}};
