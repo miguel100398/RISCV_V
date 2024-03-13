@@ -14,7 +14,7 @@ virtual class riscv_v_base_mon#(type seq_item_in_t          = riscv_v_base_seq_i
 
     `uvm_component_param_utils(riscv_v_base_mon#(
         .seq_item_in_t  (seq_item_in_t),
-        .seq_item_out_t (seq_item_out_t)));
+        .seq_item_out_t (seq_item_out_t)))
 
     //Constructor
     function new(string name = "riscv_v_base_mon", uvm_component parent = null);

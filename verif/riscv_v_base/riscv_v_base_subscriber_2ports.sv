@@ -15,7 +15,7 @@ virtual class riscv_v_base_subscriber_2ports #(type seq_item_in_t  = riscv_v_bas
 
 `uvm_component_param_utils(riscv_v_base_subscriber_2ports#(
         .seq_item_in_t (seq_item_in_t),
-        .seq_item_out_t(seq_item_out_t)));
+        .seq_item_out_t(seq_item_out_t)))
 
 
 endclass: riscv_v_base_subscriber_2ports

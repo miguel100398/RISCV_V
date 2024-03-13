@@ -17,7 +17,7 @@ virtual class riscv_v_base_env#( type agent_t = riscv_v_base_agt,
         .agent_t (agent_t),
         .scbd_t  (scbd_t),
         .cov_t   (cov_t)
-    ));
+    ))
 
     //Constructor
     function new(string name = "riscv_v_base_env", uvm_component parent = null);

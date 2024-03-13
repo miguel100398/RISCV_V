@@ -13,7 +13,7 @@ virtual class riscv_v_base_cov#( type seq_item_in_t  = riscv_v_base_seq_item,
 
     `uvm_component_param_utils(riscv_v_base_cov#(
         .seq_item_in_t (seq_item_in_t),
-        .seq_item_out_t(seq_item_out_t)));
+        .seq_item_out_t(seq_item_out_t)))
 
     function new (string name = "riscv_v_base_cov", uvm_component parent = null);
         super.new(name, parent);

@@ -16,7 +16,7 @@ virtual class riscv_v_base_scbd#( type seq_item_in_t  = riscv_v_base_seq_item,
     `uvm_component_param_utils(riscv_v_base_scbd#(
         .seq_item_in_t (seq_item_in_t),
         .seq_item_out_t(seq_item_out_t),
-        .model_t(model_t)));
+        .model_t(model_t)))
 
     //Constructor
     function new(string name = "riscv_v_base_scbd", uvm_component parent = null);

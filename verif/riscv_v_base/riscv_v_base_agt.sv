@@ -43,7 +43,7 @@ virtual class riscv_v_base_agt #(   type seq_item_in_t  = riscv_v_base_seq_item,
             .tracker_t      (tracker_t),
             .sequencer_t    (sequencer_t),
             .bfm_t          (bfm_t)
-    ));
+    ))
 
     //Constructor
     function new(string name = "base_agt", uvm_component parent = null);

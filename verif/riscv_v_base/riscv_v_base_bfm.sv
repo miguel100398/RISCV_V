@@ -27,7 +27,7 @@ virtual class riscv_v_base_bfm #( type seq_item_in_t  = riscv_v_base_seq_item,
       .cfg_obj_t     (cfg_obj_t),
       .seq_t         (seq_t),
       .model_t       (model_t)
-  ));
+  ))
 
   function new (string name = "riscv_v_base_bfm", uvm_component parent = null);
     super.new(name, parent);
