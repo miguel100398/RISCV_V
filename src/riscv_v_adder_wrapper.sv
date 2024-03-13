@@ -48,7 +48,6 @@ riscv_v_adder adder(
     .is_sub(is_sub),
     .is_max(is_max),
     .is_arithmetic(is_arithmetic),
-    .is_compare(is_compare),
     .is_signed(is_signed),
     .use_carry(use_carry),
     .osize_vector(osize_vector),
