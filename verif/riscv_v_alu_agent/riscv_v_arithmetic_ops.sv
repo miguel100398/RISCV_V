@@ -194,6 +194,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
 
                 zf_exp[15] = (arithmetic_exp_result.data.Dqword[0] == 0);
             end
+            */
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase
     endfunction: calc_add_reduct
