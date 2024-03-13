@@ -17,6 +17,11 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     riscv_v_mask_alu_in_seq_item        mask_in_txn;
     riscv_v_permutation_alu_in_seq_item permutation_in_txn;
 
+    riscv_v_arithmetic_ops     arithmetic_ops;
+    riscv_v_logic_ops          logic_ops;
+    riscv_v_mask_ops           mask_ops;
+    riscv_v_permutation_ops    permutation_ops;
+
     //Expected results
     riscv_v_wb_data_t  logic_exp_result;
     riscv_v_wb_data_t  arithmetic_exp_result;
@@ -30,6 +35,16 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     function new(string name = "riscv_v_alu_scbd", uvm_component parent = null);
         super.new(name, parent);
     endfunction: new
+
+    virtual function build_phase(uvm_phase phase);
+        super.build_phase(phase);
+
+        arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
+        logic_ops       = riscv_v_logic_ops::type_id::create("logic_ops", this);
+        mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
+        permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
+
+    endfunction: build_phase
 
     virtual function void calc_in();
         //Cast transaction
@@ -59,71 +74,71 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     virtual function void calc_logic();
         case(logic_in_txn.opcode)
-            BW_AND:         calc_bw_and();
-            BW_AND_REDUCT:  calc_bw_and_reduct();
-            BW_OR:          calc_bw_or();
-            BW_OR_REDUCT:   calc_bw_or_reduct();
-            BW_XOR:         calc_bw_xor();
-            BW_XOR_REDUCT:  calc_bw_xor_reduct();
-            SLL:            calc_sll();
-            SRL:            calc_srl();
-            SRA:            calc_sra();
+            BW_AND:         logic_ops.calc_bw_and(logic_in_txn,         logic_exp_result);
+            BW_AND_REDUCT:  logic_ops.calc_bw_and_reduct(logic_in_txn,  logic_exp_result);
+            BW_OR:          logic_ops.calc_bw_or(logic_in_txn,          logic_exp_result);
+            BW_OR_REDUCT:   logic_ops.calc_bw_or_reduct(logic_in_txn,   logic_exp_result);
+            BW_XOR:         logic_ops.calc_bw_xor(logic_in_txn,         logic_exp_result);
+            BW_XOR_REDUCT:  logic_ops.calc_bw_xor_reduct(logic_in_txn,  logic_exp_result);
+            SLL:            logic_ops.calc_sll(logic_in_txn,            logic_exp_result);
+            SRL:            logic_ops.calc_srl(logic_in_txn,            logic_exp_result);
+            SRA:            logic_ops.calc_sra(logic_in_txn,            logic_exp_result);
             default:        `uvm_fatal(get_name(), "Invalid Logic ALU op")
         endcase
     endfunction: calc_logic
 
     virtual function void calc_arithmetic();
         case(arithmetic_in_txn.opcode)
-            ADDC:           calc_addc();
-            ADD:            calc_add();
-            ADD_REDUCT:     calc_add_reduct();
-            SUBB:           calc_subb();
-            SUB:            calc_sub();
-            SUB_REDUCT:     calc_sub_reduct();
-            SIGN_EXT:       calc_sign_ext();
-            ZERO_EXT:       calc_zero_ext();
-            MINS:           calc_mins();
-            MINS_REDUCT:    calc_mins_reduct();
-            MINU:           calc_minu();
-            MINU_REDUCT:    calc_minu_reduct();
-            MAXS:           calc_maxs();
-            MAXS_REDUCT:    calc_maxs_reduct();
-            MAXU:           calc_maxu();
-            MAXU_REDUCT:    calc_maxu_reduct();
-            MULLU:          calc_mullu();
-            MULLS:          calc_mulls();
-            MULHU:          calc_mulhu();
-            MULHS:          calc_mulhs();
-            SEQ:            calc_seq();
-            SNE:            calc_sne();
-            SLE:            calc_sle();
-            SLEU:           calc_sleu();
-            SLT:            calc_slt();
-            SLTU:           calc_sltu();
-            SGT:            calc_sgt();
-            SGTU:           calc_sgtu();
+            ADDC:           arithmetic_ops.calc_addc(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            ADD:            arithmetic_ops.calc_add(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            ADD_REDUCT:     arithmetic_ops.calc_add_reduct(arithmetic_in_txn,   zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SUBB:           arithmetic_ops.calc_subb(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SUB:            arithmetic_ops.calc_sub(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SUB_REDUCT:     arithmetic_ops.calc_sub_reduct(arithmetic_in_txn,   zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SIGN_EXT:       arithmetic_ops.calc_sign_ext(arithmetic_in_txn,     zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            ZERO_EXT:       arithmetic_ops.calc_zero_ext(arithmetic_in_txn,     zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MINS:           arithmetic_ops.calc_mins(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MINS_REDUCT:    arithmetic_ops.calc_mins_reduct(arithmetic_in_txn,  zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MINU:           arithmetic_ops.calc_minu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MINU_REDUCT:    arithmetic_ops.calc_minu_reduct(arithmetic_in_txn,  zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MAXS:           arithmetic_ops.calc_maxs(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MAXS_REDUCT:    arithmetic_ops.calc_maxs_reduct(arithmetic_in_txn,  zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MAXU:           arithmetic_ops.calc_maxu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MAXU_REDUCT:    arithmetic_ops.calc_maxu_reduct(arithmetic_in_txn,  zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MULLU:          arithmetic_ops.calc_mullu(arithmetic_in_txn,        zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MULLS:          arithmetic_ops.calc_mulls(arithmetic_in_txn,        zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MULHU:          arithmetic_ops.calc_mulhu(arithmetic_in_txn,        zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            MULHS:          arithmetic_ops.calc_mulhs(arithmetic_in_txn,        zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SEQ:            arithmetic_ops.calc_seq(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SNE:            arithmetic_ops.calc_sne(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SLE:            arithmetic_ops.calc_sle(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SLEU:           arithmetic_ops.calc_sleu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SLT:            arithmetic_ops.calc_slt(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SLTU:           arithmetic_ops.calc_sltu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SGT:            arithmetic_ops.calc_sgt(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
+            SGTU:           arithmetic_ops.calc_sgtu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             default:        `uvm_fatal(get_name(), "Invalid arithmetic ALU op")
         endcase
     endfunction: calc_arithmetic
 
     virtual function void calc_mask();
         case(mask_in_txn.opcode)
-            MAND:   calc_mand();
-            MNAND:  calc_mnand();
-            MANDN:  calc_mandn();
-            MOR:    calc_mor();
-            MNOR:   calc_mnor();
-            MORN:   calc_morn();
-            MXOR:   calc_mxor();
-            MXNOR:  calc_mxnor();
+            MAND:   mask_ops.calc_mand(mask_in_txn,     mask_exp_result);
+            MNAND:  mask_ops.calc_mnand(mask_in_txn,    mask_exp_result);
+            MANDN:  mask_ops.calc_mandn(mask_in_txn,    mask_exp_result);
+            MOR:    mask_ops.calc_mor(mask_in_txn,      mask_exp_result);
+            MNOR:   mask_ops.calc_mnor(mask_in_txn,     mask_exp_result);
+            MORN:   mask_ops.calc_morn(mask_in_txn,     mask_exp_result);
+            MXOR:   mask_ops.calc_mxor(mask_in_txn,     mask_exp_result);
+            MXNOR:  mask_ops.calc_mxnor(mask_in_txn,    mask_exp_result);
             default: `uvm_fatal(get_name(), "Invalid mask ALU op")
         endcase
     endfunction: calc_mask
 
     virtual function void calc_permutation();
         case(permutation_in_txn.opcode)
-            I2V: calc_i2v();
-            V2I: calc_v2i();
+            I2V: permutation_ops.calc_i2v(permutation_in_txn, permutation_exp_vec_result);
+            V2I: permutation_ops.calc_v2i(permutation_in_txn, permutation_exp_int_result);
             default: `uvm_fatal(get_name(), "Invalid permutation ALU op")
         endcase
     endfunction: calc_permutation
@@ -260,11 +275,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         logic_exp_result.valid = txn_in.srca.valid;
         arithmetic_exp_result.valid = txn_in.srca.valid;
     endfunction: calc_valid
-
-    `include "riscv_v_alu_scbd_logic_ops.sv"
-    `include "riscv_v_alu_scbd_arithmetic_ops.sv"
-    `include "riscv_v_alu_scbd_mask_ops.sv"
-    `include "riscv_v_alu_scbd_permutation_ops.sv"
 
 endclass: riscv_v_alu_scbd
 

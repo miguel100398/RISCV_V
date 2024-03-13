@@ -1,9 +1,17 @@
-//File: riscv_v_alu_scbd_logic_ops.sv
+//File: riscv_v_logic_ops.sv
 //Author: Miguel Bucio
 //Date: 17/08/23
 //Description: RISC-V Vector ALU Scoreboard
 
-    virtual function void calc_bw_and();
+class riscv_v_logic_ops extends uvm_component;
+
+    `uvm_component_utils(riscv_v_logic_ops)
+
+    function new(string name = "riscv_v_logic_ops", uvm_component parent = null);
+        super.new(name, parent);
+    endfunction: new
+
+    virtual function void calc_bw_and(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
@@ -34,7 +42,7 @@
         endcase
     endfunction: calc_bw_and
 
-    virtual function void calc_bw_and_reduct();
+    virtual function void calc_bw_and_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -71,7 +79,7 @@
         endcase
     endfunction: calc_bw_and_reduct
 
-    virtual function void calc_bw_or();
+    virtual function void calc_bw_or(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
@@ -102,7 +110,7 @@
         endcase
     endfunction: calc_bw_or
 
-    virtual function void calc_bw_or_reduct();
+    virtual function void calc_bw_or_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -139,7 +147,7 @@
         endcase
     endfunction: calc_bw_or_reduct
 
-    virtual function void calc_bw_xor();
+    virtual function void calc_bw_xor(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
@@ -170,7 +178,7 @@
         endcase
     endfunction: calc_bw_xor
 
-    virtual function void calc_bw_xor_reduct();
+    virtual function void calc_bw_xor_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -207,7 +215,7 @@
         endcase
     endfunction: calc_bw_xor_reduct
 
-    virtual function void calc_sll();
+    virtual function void calc_sll(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -238,7 +246,7 @@
         endcase
     endfunction: calc_sll
 
-    virtual function void calc_srl();
+    virtual function void calc_srl(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -269,7 +277,7 @@
         endcase
     endfunction: calc_srl
 
-    virtual function void calc_sra();
+    virtual function void calc_sra(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -299,3 +307,5 @@
             end
         endcase
     endfunction: calc_sra
+
+endclass: riscv_v_logic_ops
