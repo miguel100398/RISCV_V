@@ -98,7 +98,7 @@ class rotator#(
     virtual function object_t get_entry(int new_idx);
         if (!check_new_idx_entry(new_idx)) begin
             `uvm_error(get_name(), $sformatf("can't get entry, new_idx: %0d", new_idx))
-            return;
+            return null;
         end
         return array[new_idx];
     endfunction: get_entry

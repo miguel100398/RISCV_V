@@ -33,8 +33,10 @@ endfunction: rst
 virtual function void rst_rand();
 
     for (int i=0; i < NUM_REGS; i++) begin
-        assert (std::randomize(rf[i])) 
+        data_t tmp_data;
+        assert (std::randomize(tmp_data) 
         else `uvm_fatal(get_name, "Can't randomize reg")
+        rf[i] = tmp_data;
     end
 
 endfunction: rst_rand 
