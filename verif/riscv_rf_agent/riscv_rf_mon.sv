@@ -78,7 +78,7 @@ class riscv_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_rf_wr_seq_
   //Get interface
   virtual function void get_vif();
     if (!uvm_config_db#(virtual riscv_rf_if)::get(this, "*", interface_name, vif)) begin
-      `uvm_fatal(get_name(), $sformatf("NO_VIF", "virtual interface must be set for: %s", interface_name));
+      `uvm_fatal(get_name(), $sformatf("NO_VIF: virtual interface must be set for: %s", interface_name));
     end
   endfunction: get_vif
 

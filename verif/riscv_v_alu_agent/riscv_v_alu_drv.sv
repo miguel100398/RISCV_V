@@ -319,16 +319,16 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_seq_item
     //Get interfaces
   virtual function void get_vif();
     if (!uvm_config_db#(virtual riscv_v_logic_ALU_if)::get(this, "*", interfaces_names[LOGIC_ALU], logic_vif)) begin
-      `uvm_fatal("NO_VIF", $sformatf("virtual interface must be set for: %s", interfaces_names[LOGIC_ALU]));
+      `uvm_fatal(get_name(), $sformatf("NO_VIF: virtual interface must be set for: %s", interfaces_names[LOGIC_ALU]));
     end
     if (!uvm_config_db#(virtual riscv_v_arithmetic_ALU_if)::get(this, "*", interfaces_names[ARITHMETIC_ALU], arithmetic_vif)) begin
-      `uvm_fatal("NO_VIF", $sformatf("virtual interface must be set for: %s", interfaces_names[ARITHMETIC_ALU]));
+      `uvm_fatal(get_name(), $sformatf("NO_VIF: virtual interface must be set for: %s", interfaces_names[ARITHMETIC_ALU]));
     end
     if (!uvm_config_db#(virtual riscv_v_mask_ALU_if)::get(this, "*", interfaces_names[MASK_ALU], mask_vif)) begin
-      `uvm_fatal("NO_VIF", $sformatf("virtual interface must be set for: %s", interfaces_names[MASK_ALU]));
+      `uvm_fatal(get_name(), $sformatf("NO_VIF: virtual interface must be set for: %s", interfaces_names[MASK_ALU]));
     end
     if (!uvm_config_db#(virtual riscv_v_permutation_ALU_if)::get(this, "*", interfaces_names[PERMUTATION_ALU], permutation_vif)) begin
-      `uvm_fatal("NO_VIF", $sformatf("virtual interface must be set for: %s", interfaces_names[PERMUTATION_ALU]));
+      `uvm_fatal(get_name(), $sformatf("NO_VIF: virtual interface must be set for: %s", interfaces_names[PERMUTATION_ALU]));
     end
   endfunction: get_vif
 

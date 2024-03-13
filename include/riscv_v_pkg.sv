@@ -753,7 +753,7 @@ function automatic riscv_instr_funct6_t f_riscv_v_opcode_to_funct6(riscv_v_opcod
         V2I             : return RISCV_V_FUNCT6_VMV;
         NOP             : return '0;
         default         : begin
-            $fatal("opcode not supported yet, opcode: %0s", opcode.name());
+            $fatal(1, "opcode not supported yet, opcode: %0s", opcode.name());
             return 'x;
         end
     endcase
@@ -803,7 +803,7 @@ function automatic riscv_v_opcode_e f_riscv_v_get_opcode(riscv_instruction_t ins
         if (~found) begin
             riscv_v_funct3_e funct3_enum;
             funct3_enum = riscv_v_funct3_e'(instr.V.funct3);
-            $fatal($sformatf("Not supported op, funct6: 0x%0h, funct3: %s", instr.V.funct6, funct3_enum.name()));
+            $fatal(1, $sformatf("Not supported op, funct6: 0x%0h, funct3: %s", instr.V.funct6, funct3_enum.name()));
             return  NOP;
         end
 
