@@ -10,7 +10,7 @@ virtual class riscv_v_base_bfm #( type seq_item_in_t  = riscv_v_base_seq_item,
                                   type seq_item_out_t = riscv_v_base_seq_item,
                                   type sequencer_t    = riscv_v_base_sqr#(
                                                                    .seq_item_t(seq_item_in_t)),
-                                  type cfg_obj_t      = riscv_v_bfm_base_cfg_obj,
+                                  type cfg_obj_t      = riscv_v_base_bfm_cfg_obj,
                                   type seq_t          = riscv_v_base_seq,
                                   type model_t        = riscv_v_base_model
                                 ) extends base_bfm#(.seq_item_in_t(seq_item_in_t),
