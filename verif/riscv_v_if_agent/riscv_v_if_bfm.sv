@@ -15,7 +15,7 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
     .seq_t(riscv_v_if_seq)
 );
 
-    `uvm_component_utils(riscv_v_if_bfm);
+    `uvm_component_utils(riscv_v_if_bfm)
 
     riscv_instruction_t instruction;
     `ifdef RISCV_V_INST
