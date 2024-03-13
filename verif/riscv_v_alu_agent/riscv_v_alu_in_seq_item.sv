@@ -114,7 +114,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
                     riscv_v_valid_data_t valid_tmp;
-                    assert (std::randomize(valid_tmp)
+                    assert (std::randomize(valid_tmp))
                     else `uvm_fatal(get_name(), "Can't randomize srca.valid")
                     srca.valid[i*2]      = valid_tmp;
                     srca.valid[i*2]      &= (len > i);
