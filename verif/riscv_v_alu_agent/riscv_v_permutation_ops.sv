@@ -3,6 +3,9 @@
 //Date: 15/01/24
 //Description: RISC-V Vector ALU Scoreboard
 
+`ifndef __RISCV_V_PERMUTATION_OPS_SV__
+`define __RISCV_V_PERMUTATION_OPS_SV__
+
 class riscv_v_permutation_ops extends uvm_component;
 
     `uvm_component_utils(riscv_v_permutation_ops)
@@ -26,3 +29,5 @@ class riscv_v_permutation_ops extends uvm_component;
     endfunction: calc_v2i
 
 endclass: riscv_v_permutation_ops
+
+`endif //__RISCV_V_PERMUTATION_OPS_SV__

@@ -3,6 +3,9 @@
 //Date: 15/01/24
 //Description: RISC-V Vector ALU Scoreboard
 
+`ifndef __RISCV_V_MASK_OPS_SV__
+`define __RISCV_V_MASK_OPS_SV__
+
 class riscv_v_mask_ops extends uvm_component;
 
     `uvm_component_utils(riscv_v_mask_ops)
@@ -60,3 +63,5 @@ class riscv_v_mask_ops extends uvm_component;
     endfunction: calc_mxnor
 
 endclass: riscv_v_mask_ops
+
+`endif //__RISCV_V_MASK_OPS_SV__

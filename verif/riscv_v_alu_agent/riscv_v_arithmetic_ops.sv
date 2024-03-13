@@ -3,6 +3,9 @@
 //Date: 30/08/23
 //Description: RISC-V Vector ALU Scoreboard arithmetic ops
 
+`ifndef __RISCV_V_ARITHMETIC_OPS_SV__
+`define __RISCV_V_ARITHMETIC_OPS_SV__
+
 class riscv_v_arithmetic_ops extends uvm_component;
 
     `uvm_component_utils(riscv_v_arithmetic_ops)
@@ -1480,3 +1483,5 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_sgtu
 
 endclass: riscv_v_arithmetic_ops
+
+`endif //__RISCV_V_ARITHMETIC_OPS_SV__

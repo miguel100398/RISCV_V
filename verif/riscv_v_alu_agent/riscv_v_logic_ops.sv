@@ -3,6 +3,9 @@
 //Date: 17/08/23
 //Description: RISC-V Vector ALU Scoreboard
 
+`ifndef __RISCV_V_LOGIC_OPS_SV__
+`define __RISCV_V_LOGIC_OPS_SV__
+
 class riscv_v_logic_ops extends uvm_component;
 
     `uvm_component_utils(riscv_v_logic_ops)
@@ -309,3 +312,5 @@ class riscv_v_logic_ops extends uvm_component;
     endfunction: calc_sra
 
 endclass: riscv_v_logic_ops
+
+`endif //__RISCV_V_LOGIC_OPS_SV__
