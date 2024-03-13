@@ -43,7 +43,7 @@ typedef riscv_v_base_sqr#(
 `include "riscv_v_alu_model.sv"
 //`include "riscv_v_arithmetic_ops.sv"
 //`include "riscv_v_logic_ops.sv"
-//`include "riscv_v_mask_ops.sv"
+`include "riscv_v_mask_ops.sv"
 `include "riscv_v_permutation_ops.sv"
 `include "riscv_v_alu_scbd.sv"
 `include "riscv_v_alu_trk.sv"

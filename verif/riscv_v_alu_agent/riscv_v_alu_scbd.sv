@@ -19,7 +19,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     //riscv_v_arithmetic_ops     arithmetic_ops;
     //riscv_v_logic_ops          logic_ops;
-    //riscv_v_mask_ops           mask_ops;
+    riscv_v_mask_ops           mask_ops;
     riscv_v_permutation_ops    permutation_ops;
 
     //Expected results
@@ -41,7 +41,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
         //arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
         //logic_ops       = riscv_v_logic_ops::type_id::create("logic_ops", this);
-        //mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
+        mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
         permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
 
     endfunction: build_phase
@@ -127,7 +127,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     virtual function void calc_mask();
         case(mask_in_txn.opcode)
-        /*
             MAND:   mask_ops.calc_mand(mask_in_txn,     mask_exp_result);
             MNAND:  mask_ops.calc_mnand(mask_in_txn,    mask_exp_result);
             MANDN:  mask_ops.calc_mandn(mask_in_txn,    mask_exp_result);
@@ -136,7 +135,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             MORN:   mask_ops.calc_morn(mask_in_txn,     mask_exp_result);
             MXOR:   mask_ops.calc_mxor(mask_in_txn,     mask_exp_result);
             MXNOR:  mask_ops.calc_mxnor(mask_in_txn,    mask_exp_result);
-            */
             default: `uvm_fatal(get_name(), "Invalid mask ALU op")
         endcase
     endfunction: calc_mask
