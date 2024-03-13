@@ -17,7 +17,7 @@ import riscv_pkg::*;
     logic              wr_en;
     riscv_data_t       data_out_A;
     riscv_data_t       data_out_B;
-
+/**
     modport rf(
         input  wr_addr,
         input  rd_addr_A,
@@ -37,7 +37,7 @@ import riscv_pkg::*;
         input  data_out_A,
         input  data_out_B
     );
-
+*/
     clocking cb_mon @(negedge clk);
         input  wr_addr;
         input  rd_addr_A;
