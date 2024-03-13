@@ -14,7 +14,7 @@ class riscv_v_rf_scbd extends riscv_v_base_scbd#(
                                                   .seq_item_out_t (riscv_v_rf_rd_seq_item),
                                                   .model_t        (riscv_v_rf_model));
 
-  `uvm_component_utils(riscv_v_rf_scbd);
+  `uvm_component_utils(riscv_v_rf_scbd)
 
   typedef riscv_v_reg#(riscv_v_data_t, riscv_v_rf_wr_en_t) reg_t;
 
