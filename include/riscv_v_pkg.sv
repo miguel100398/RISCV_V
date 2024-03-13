@@ -221,9 +221,9 @@ typedef enum logic[1:0] {VEDIC_LA_LB = 2'b00, VEDIC_LA_HB = 2'b01, VEDIC_HA_LB =
 //RISCV_V types
 typedef logic  [RISCV_V_DATA_WIDTH-1:0]             riscv_v_bit_bus_t;
 typedef Byte_t [RISCV_V_NUM_BYTES_DATA-1:0]         riscv_v_byte_bus_t;
-//`ifdef RISCV_V_USE_WORD
+`ifdef RISCV_V_USE_WORD
     typedef Word_t [RISCV_V_NUM_WORDS_DATA-1:0]     riscv_v_word_bus_t;
-//`endif //RISCV_V_USE_WORD
+`endif //RISCV_V_USE_WORD
 `ifdef RISCV_V_USE_DWORD
     typedef Dword_t [RISCV_V_NUM_DWORDS_DATA-1:0]   riscv_v_dword_bus_t;
 `endif //RISCV_V_USE_DWORD
@@ -237,9 +237,9 @@ typedef Byte_t [RISCV_V_NUM_BYTES_DATA-1:0]         riscv_v_byte_bus_t;
 typedef union packed{
     riscv_v_bit_bus_t           Bit;
     riscv_v_byte_bus_t          Byte;
-    //`ifdef RISCV_V_USE_WORD
+    `ifdef RISCV_V_USE_WORD
         riscv_v_word_bus_t      Word;
-    //`endif // RISCV_V_USE_WORD
+    `endif // RISCV_V_USE_WORD
     `ifdef RISCV_V_USE_DWORD
         riscv_v_dword_bus_t     Dword;
     `endif // RISCV_V_USE_DWORD

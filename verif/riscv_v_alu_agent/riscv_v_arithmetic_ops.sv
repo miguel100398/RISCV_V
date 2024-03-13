@@ -14,6 +14,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
         super.new(name, parent);
     endfunction: new
 
+
     virtual function void calc_addc(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
@@ -135,27 +136,17 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 {cf_exp[1], arithmetic_exp_result.data.Word[0]} = ((arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Word[0]));
                 of_exp[1] = (~arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]) ||
                             (arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]);
-/*
+
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [WORD_WIDTH-1:0] tmp_result;
-                    //{cf_exp[1], tmp_result} = ((arithmetic_exp_result.data.Word[0]) + (arithmetic_in_txn.srcb.data.Word[i]));
-                    //of_exp[1] |= (~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & tmp_result[WORD_WIDTH-1]) ||
-                    //             (arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & tmp_result[WORD_WIDTH-1]);
-                    //arithmetic_exp_result.data.Word[0] = tmp_result;
-                    of_exp[0] |= (~arithmetic_exp_result.data.Word[0][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & tmp_result[BYTE_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & tmp_result[BYTE_WIDTH-1]);
+                    {cf_exp[1], tmp_result} = ((arithmetic_exp_result.data.Word[0]) + (arithmetic_in_txn.srcb.data.Word[i]));
+                    of_exp[1] |= (~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & tmp_result[WORD_WIDTH-1]) ||
+                                 (arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & tmp_result[WORD_WIDTH-1]);
+                    arithmetic_exp_result.data.Word[0] = tmp_result;
                 end  
-*/
-                for (int i=1; i < arithmetic_in_txn.len; i++) begin
-                    logic [BYTE_WIDTH-1:0] tmp_result;
-                    {cf_exp[0], tmp_result} = ((arithmetic_exp_result.data.Byte[0]) + (arithmetic_in_txn.srcb.data.Byte[i]));
-                    of_exp[0] |= (~arithmetic_exp_result.data.Word[0][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & tmp_result[BYTE_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & tmp_result[BYTE_WIDTH-1]);
-                    arithmetic_exp_result.data.Byte[0] = tmp_result;
-                end  
-                //zf_exp[1] = (arithmetic_exp_result.data.Word[0] == 0);
+
+                zf_exp[1] = (arithmetic_exp_result.data.Word[0] == 0);
             end
-            /*
             OSIZE_32: begin
 
                 {cf_exp[3], arithmetic_exp_result.data.Dword[0]} = ((arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Dword[0]));
@@ -203,11 +194,10 @@ class riscv_v_arithmetic_ops extends uvm_component;
 
                 zf_exp[15] = (arithmetic_exp_result.data.Dqword[0] == 0);
             end
-            */
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase
     endfunction: calc_add_reduct
-/*
+
     virtual function void calc_subb(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, output riscv_v_zf_t zf_exp, output riscv_v_of_t of_exp, output riscv_v_cf_t cf_exp, output riscv_v_wb_data_t arithmetic_exp_result);
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
@@ -1492,7 +1482,6 @@ class riscv_v_arithmetic_ops extends uvm_component;
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase
     endfunction: calc_sgtu
-    **/
 
 endclass: riscv_v_arithmetic_ops
 
