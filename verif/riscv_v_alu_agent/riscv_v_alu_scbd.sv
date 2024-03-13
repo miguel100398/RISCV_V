@@ -20,7 +20,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     //riscv_v_arithmetic_ops     arithmetic_ops;
     //riscv_v_logic_ops          logic_ops;
     //riscv_v_mask_ops           mask_ops;
-    //riscv_v_permutation_ops    permutation_ops;
+    riscv_v_permutation_ops    permutation_ops;
 
     //Expected results
     riscv_v_wb_data_t  logic_exp_result;
@@ -42,7 +42,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         //arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
         //logic_ops       = riscv_v_logic_ops::type_id::create("logic_ops", this);
         //mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
-        //permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
+        permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
 
     endfunction: build_phase
 
@@ -143,10 +143,8 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     virtual function void calc_permutation();
         case(permutation_in_txn.opcode)
-        /*
             I2V: permutation_ops.calc_i2v(permutation_in_txn, permutation_exp_vec_result, permutation_exp_int_result);
             V2I: permutation_ops.calc_v2i(permutation_in_txn, permutation_exp_vec_result, permutation_exp_int_result);
-            **/
             default: `uvm_fatal(get_name(), "Invalid permutation ALU op")
         endcase
     endfunction: calc_permutation
