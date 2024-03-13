@@ -149,7 +149,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [BYTE_WIDTH-1:0] tmp_result;
                     {cf_exp[0], tmp_result} = ((arithmetic_exp_result.data.Byte[0]) + (arithmetic_in_txn.srcb.data.Byte[i]));
-                    of_exp[0] |= (~arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & tmp_result[BYTE_WIDTH-1]) ||
+                    of_exp[0] |= (~arithmetic_exp_result.data.Word[0][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & tmp_result[BYTE_WIDTH-1]) ||
                                  (arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & tmp_result[BYTE_WIDTH-1]);
                     arithmetic_exp_result.data.Byte[0] = tmp_result;
                 end  
