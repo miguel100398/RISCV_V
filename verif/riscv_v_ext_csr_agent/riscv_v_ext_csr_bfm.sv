@@ -15,7 +15,7 @@ class riscv_v_ext_csr_bfm extends riscv_v_base_bfm#(
     .seq_t(riscv_v_ext_csr_seq)
 );
 
-    `uvm_component_utils(riscv_v_ext_csr_bfm);
+    `uvm_component_utils(riscv_v_ext_csr_bfm)
 
     riscv_data_t    ext_csr_data;
     logic           ext_wr_vsstatus;
