@@ -19,7 +19,7 @@ class riscv_rf_bfm extends rf_bfm#(
     .seq_t(riscv_rf_seq)
 );
 
-    `uvm_component_utils(riscv_rf_bfm);
+    `uvm_component_utils(riscv_rf_bfm)
 
 
     riscv_data_t srca;
