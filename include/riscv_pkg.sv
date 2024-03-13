@@ -324,6 +324,7 @@ parameter int RISCV_RF_WR_ADDR_PORT       = 0;
 
 //Regfile types
 typedef logic[RISCV_RF_ADDR_WIDTH-1:0]  riscv_rf_addr_t;
+typedef wire[RISCV_RF_ADDR_WIDTH-1:0]   riscv_rf_addr_wire_t;
 typedef logic[RISCV_RF_NUM_REGS-1:1]    riscv_rf_en_t;
 
 typedef riscv_data_t                    riscv_rf_regs_t    [RISCV_RF_NUM_REGS];
