@@ -31,7 +31,7 @@ class riscv_v_permutation_alu_seq extends riscv_v_base_seq#(riscv_v_alu_seq_item
     riscv_v_alu_seq_item                rst_txn;
 
     if (!is_rand) begin
-        assert (std::randomize(perm_txn)) else begin
+        assert (perm_txn.randomize()) else begin
           `uvm_fatal(get_name(), "Can't randomize riscv_v_permutation_alu_in_seq_item")
         end
     end

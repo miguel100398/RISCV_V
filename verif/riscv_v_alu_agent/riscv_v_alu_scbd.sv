@@ -36,7 +36,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         super.new(name, parent);
     endfunction: new
 
-    virtual function build_phase(uvm_phase phase);
+    virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
         //arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
