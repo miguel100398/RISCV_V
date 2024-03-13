@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 11/02/24
 //Description: RISC-V Vector extension Intruction Fetch Interface
+`timescale 1ns/1ps
 
 interface riscv_v_if_if 
 import riscv_pkg::*, riscv_v_pkg::*;

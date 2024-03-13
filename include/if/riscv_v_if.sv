@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 28/02/2024
 //Description RISCV Vector extension interface 
+`timescale 1ns/1ps
 
 interface riscv_v_if 
 import riscv_pkg::*, riscv_v_pkg::*;

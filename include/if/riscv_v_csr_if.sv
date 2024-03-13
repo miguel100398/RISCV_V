@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 29/02/2024
 //Description: RISCV V CSR Interface
+`timescale 1ns/1ps
 
 interface riscv_v_csr_if
 import riscv_pkg::*, riscv_v_pkg::*;

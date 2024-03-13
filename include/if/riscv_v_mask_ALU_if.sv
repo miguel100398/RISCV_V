@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 15/01/244
 //Description: RISC-V Vector extension Mask ALU interface
+`timescale 1ns/1ps
 
 interface riscv_v_mask_ALU_if 
 import riscv_v_pkg::*;

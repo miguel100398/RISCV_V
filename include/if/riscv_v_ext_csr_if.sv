@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 13/02/24
 //Description: RISC-V Vector extension External CSR interface
+`timescale 1ns/1ps
 
 interface riscv_v_ext_csr_if 
 import riscv_pkg::*, riscv_v_pkg::*;

@@ -2,6 +2,7 @@
 //Author: Miguel Bucio
 //Date: 10/02/24
 //Description: RISC-V register file interface
+`timescale 1ns/1ps
 
 interface riscv_rf_if 
 import riscv_pkg::*;
