@@ -89,7 +89,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
 
     virtual function void calc_arithmetic();
         case(arithmetic_in_txn.opcode)
-        /*
             ADDC:           arithmetic_ops.calc_addc(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             ADD:            arithmetic_ops.calc_add(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             ADD_REDUCT:     arithmetic_ops.calc_add_reduct(arithmetic_in_txn,   zf_exp, of_exp, cf_exp, arithmetic_exp_result);
@@ -118,7 +117,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             SLTU:           arithmetic_ops.calc_sltu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             SGT:            arithmetic_ops.calc_sgt(arithmetic_in_txn,          zf_exp, of_exp, cf_exp, arithmetic_exp_result);
             SGTU:           arithmetic_ops.calc_sgtu(arithmetic_in_txn,         zf_exp, of_exp, cf_exp, arithmetic_exp_result);
-            */
             default:        `uvm_fatal(get_name(), "Invalid arithmetic ALU op")
         endcase
     endfunction: calc_arithmetic
