@@ -272,7 +272,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     endfunction: compare_flags
 
     virtual function void calc_valid();
-        $display("Calc valid: 0x%0h", txn_in.srca.valid)
+        $display("Calc valid: 0x%0h", txn_in.srca.valid);
         logic_exp_result.valid = txn_in.srca.valid;
         arithmetic_exp_result.valid = txn_in.srca.valid;
     endfunction: calc_valid
