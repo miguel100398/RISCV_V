@@ -17,7 +17,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     riscv_v_mask_alu_in_seq_item        mask_in_txn;
     riscv_v_permutation_alu_in_seq_item permutation_in_txn;
 
-    //riscv_v_arithmetic_ops     arithmetic_ops;
+    riscv_v_arithmetic_ops     arithmetic_ops;
     riscv_v_logic_ops          logic_ops;
     riscv_v_mask_ops           mask_ops;
     riscv_v_permutation_ops    permutation_ops;
@@ -39,7 +39,7 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
-        //arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
+        arithmetic_ops  = riscv_v_arithmetic_ops::type_id::create("arithmetic_ops", this);
         logic_ops       = riscv_v_logic_ops::type_id::create("logic_ops", this);
         mask_ops        = riscv_v_mask_ops::type_id::create("mask_ops", this);
         permutation_ops = riscv_v_permutation_ops::type_id::create("permutation_ops", this);
