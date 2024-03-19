@@ -14,7 +14,7 @@ class riscv_v_logic_ops extends uvm_component;
         super.new(name, parent);
     endfunction: new
 
-    virtual function void calc_bw_and(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_bw_and(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
@@ -45,7 +45,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_bw_and
 
-    virtual function void calc_bw_and_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_bw_and_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -82,7 +82,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_bw_and_reduct
 
-    virtual function void calc_bw_or(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_bw_or(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
@@ -113,7 +113,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_bw_or
 
-    virtual function void calc_bw_or_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_bw_or_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -150,7 +150,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_bw_or_reduct
 
-    virtual function void calc_bw_xor(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_bw_xor(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         case(logic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
@@ -181,7 +181,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_bw_xor
 
-    virtual function void calc_bw_xor_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_bw_xor_reduct(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -218,7 +218,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_bw_xor_reduct
 
-    virtual function void calc_sll(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_sll(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -249,7 +249,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_sll
 
-    virtual function void calc_srl(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_srl(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
@@ -280,7 +280,7 @@ class riscv_v_logic_ops extends uvm_component;
         endcase
     endfunction: calc_srl
 
-    virtual function void calc_sra(input riscv_v_logic_alu_in_seq_item logic_in_txn, output riscv_v_wb_data_t logic_exp_result);
+    virtual function void calc_sra(input riscv_v_logic_alu_in_seq_item logic_in_txn, ref riscv_v_wb_data_t logic_exp_result);
         logic_exp_result.data = '0;
         case(logic_in_txn.osize)
             OSIZE_8: begin
