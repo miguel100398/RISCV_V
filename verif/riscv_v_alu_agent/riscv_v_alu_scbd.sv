@@ -73,7 +73,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     endfunction: calc_out
 
     virtual function void calc_logic();
-        $display("valid before calc: 0x%0h", logic_exp_result.valid);
         case(logic_in_txn.opcode)
             BW_AND:         logic_ops.calc_bw_and(logic_in_txn,         logic_exp_result);
             BW_AND_REDUCT:  logic_ops.calc_bw_and_reduct(logic_in_txn,  logic_exp_result);
@@ -86,7 +85,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             SRA:            logic_ops.calc_sra(logic_in_txn,            logic_exp_result);
             default:        `uvm_fatal(get_name(), "Invalid Logic ALU op")
         endcase
-        $display("valid after calc: 0x%0h", logic_exp_result.valid);
     endfunction: calc_logic
 
     virtual function void calc_arithmetic();
@@ -274,7 +272,6 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
     endfunction: compare_flags
 
     virtual function void calc_valid();
-        $display("Calc valid: 0x%0h", txn_in.srca.valid);
         logic_exp_result.valid = txn_in.srca.valid;
         arithmetic_exp_result.valid = txn_in.srca.valid;
     endfunction: calc_valid
