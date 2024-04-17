@@ -10,6 +10,17 @@ class riscv_v_in_seq_item extends riscv_v_base_seq_item;
 
 
     rand logic rst;
+    rand logic clear_pipe;
+    rand logic riscv_stall;
+    rand riscv_instruction_t instruction;
+    rand riscv_data_t int_rf_rd_data;
+    rand riscv_data_t ext_data_in;
+    rand logic ext_wr_vsstatus;
+    rand logic ext_wr_vtype;
+    rand logic ext_wr_vl;
+    rand logic ext_wr_vstart;
+    rand logic ext_wr_vxrm;
+    rand logic ext_wr_vxsat;
 
     `uvm_object_utils_begin(riscv_v_in_seq_item)
         

@@ -14,6 +14,17 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
   localparam int in_sem_keys = 2;
   //Semaphore to process read transactions before write transactions
   semaphore rd_sem;
+
+  //Delay data
+  riscv_data_t        ext_data_in_delay    [RISCV_V_EXE_2_WB_LATENCY:0];
+  logic               ext_wr_vsstatus_delay[RISCV_V_ID_2_WB_LATENCY:0];
+  logic               ext_wr_vtype_delay   [RISCV_V_ID_2_WB_LATENCY:0];
+  logic               ext_wr_vl_delay      [RISCV_V_ID_2_WB_LATENCY:0];
+  logic               ext_wr_vstart_delay  [RISCV_V_ID_2_WB_LATENCY:0];
+  logic               ext_wr_vxrm_delay    [RISCV_V_ID_2_WB_LATENCY:0];
+  logic               ext_wr_vxsat_delay   [RISCV_V_ID_2_WB_LATENCY:0];
+  riscv_instruction_t instruction_delay    [RISCV_V_ID_2_WB_LATENCY:0];
+  riscv_data_t        int_rf_data_delay    [RISCV_V_ID_2_WB_LATENCY:0];
   
   //Virtual interface
   virtual riscv_v_if vif;
@@ -31,6 +42,18 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
     super.run_phase(phase);
   endtask: run_phase
 
+  virtual function rst_mon();
+    ext_data_in_delay     = '{default:'x};
+    ext_wr_vsstatus_delay = '{default:'0};
+    ext_wr_vtype_delay    = '{default:'0};
+    ext_wr_vl_delay       = '{default:'0};
+    ext_wr_vstart_delay   = '{default:'0};
+    ext_wr_vxrm_delay     = '{default:'0};
+    ext_wr_vxsat_delay    = '{default:'0};
+    instruction_delay     = '{default:'0};
+    int_rf_data_delay     = '{default:'0};
+  endfunction: rst_mon
+
   virtual task mon_rtl_in();
     riscv_v_in_seq_item in_txn;
     //Monitor write transaction
@@ -38,10 +61,38 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
     //2 Keys needed, rd proccess will be executed before
     rd_sem.get(in_sem_keys);
 
+    if (vif.cb_mon.rst) begin
+      rst_mon();
+    end
+
+    delay_in_data();
+
+    //Get data from interface
+    ext_data_in_delay[0]     = vif.cb_mon.ext_data_in_exe;
+    ext_wr_vsstatus_delay[0] = vif.cb_mon.ext_wr_vsstatus_delay_id;
+    ext_wr_vtype_delay[0]    = vif.cb_mon.ext_wr_vtype_delay_id;
+    ext_wr_vl_delay[0]       = vif.cb_mon.ext_wr_vl_delay_id;
+    ext_wr_vstart_delay[0]   = vif.cb_mon.ext_wr_vstart_delay_id;
+    ext_wr_vxrm_delay[0]     = vif.cb_mon.ext_wr_vxrm_delay_id;
+    ext_wr_vxsat_delay[0]    = vif.cb_mon.ext_wr_vxsat_delay_id;
+    instruction_delay[0]     = vif.cb_mon.instruction_id;
+    int_rf_data_delay[0]     = vif.cb_mon.int_rf_rd_data_id;
+
     //`uvm_info(get_name(), "Transaction captured in Instruction Fetch port_in", UVM_HIGH);
     in_txn = riscv_v_in_seq_item::type_id::create("in_txn", this);
     
-
+    in_txn.rst                = vif.cb_mon.rst;
+    in_txn.clear_pipe         = vif.cb_mon.clear_pipe;
+    in_txn.riscv_stall        = vif.cb_mon.riscv_stall;
+    in_txn.instruction        = instruction_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.int_rf_rd_data     = int_rf_data_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.ext_data_in        = ext_data_in_delay[RISCV_V_EXE_2_WB_LATENCY];
+    in_txn.ext_wr_vsstatus    = ext_wr_vsstatus_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.ext_wr_vtype       = ext_wr_vtype_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.ext_wr_vl          = ext_wr_vl_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.ext_wr_vstart      = ext_wr_vstart_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.ext_wr_vxrm        = ext_wr_vxrm_delay[RISCV_V_ID_2_WB_LATENCY];
+    in_txn.ext_wr_vxsat       = ext_wr_vxsat_delay[RISCV_V_ID_2_WB_LATENCY];
 
     rtl_in_ap.write(in_txn);
     //Set keys to process rd taks in the next cycle
@@ -56,11 +107,38 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
 
     `uvm_info(get_name(), "Transaction captured in RISCV-V port_out", UVM_HIGH);
 
+    out_txn.riscv_v_stall   = vif.cb_mon.riscv_v_stall;
+    out_txn.int_rf_wr_data  = vif.cb_mon.int_rf_wr_data_wb;
+    out_txn.int_rf_wr_en    = vif.cb_mon.int_rf_wr_en_wb;
+    out_txn.vec_rf_wr_addr  = vif.cb_mon.v_rf_if.wr_addr;
+    out_txn.vec_rf_wr_en    = vif.cb_mon.v_rf_if.wr_en;
+    out_txn.vec_rf_wr_data  = vif.cb_mon.v_rf_if.data_in;
+
     rtl_out_ap.write(out_txn);
 
     //Set key to unlock write taks
     rd_sem.put(in_sem_keys);
   endtask: mon_rtl_out
+
+  virtual function delay_in_data();
+
+  //Delay ID to WB
+  for (int idx = RISCV_V_ID_2_WB_LATENCY; idx > 0; idx--) begin
+    ext_wr_vsstatus_delay[idx] = ext_wr_vsstatus_delay[idx-1];
+    ext_wr_vtype_delay[idx]    = ext_wr_vtype_delay[idx-1];
+    ext_wr_vl_delay[idx]       = ext_wr_vl_delay[idx-1];
+    ext_wr_vstart_delay[idx]   = ext_wr_vstart_delay[idx-1];
+    ext_wr_vxrm_delay[idx]     = ext_wr_vxrm_delay[idx-1];
+    ext_wr_vxsat_delay[idx]    = ext_wr_vxsat_delay[idx-1];
+    instruction_delay[idx]     = instruction_delay[idx-1];
+    int_rf_data_delay[idx]     = int_rf_data_delay[idx-1];
+  end
+  //Delay  EXE to WB
+  for (int idx = RISCV_V_EXE_2_WB_LATENCY; idx > 0; idx--) begin
+    ext_data_in_delay[idx]     = ext_data_in_delay[idx-1];
+  end
+ 
+  endfunction: delay_in_data
 
   //Get interface
   virtual function void get_vif();

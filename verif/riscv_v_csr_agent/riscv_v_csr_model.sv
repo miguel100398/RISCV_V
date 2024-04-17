@@ -39,6 +39,78 @@ class riscv_v_csr_model extends riscv_v_base_model;
     endfunction: rst
 
     ///////////////////////////////////////WRITE CSR/////////////////////////////////////////////////////////////
+
+    virtual function void write_vec_vsstatus(riscv_v_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vsstatus(data[RISCV_V_VSSTATUS_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vsstatus
+
+    virtual function void write_vec_vtype(riscv_v_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vtype(data[RISCV_V_VTYPE_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vtype
+
+    virtual function void write_vec_vl(riscv_v_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vl(data[RISCV_V_VL_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vl
+
+    virtual function void write_vec_vstart(riscv_v_data_t data), bit wr_en;
+        if (wr_en) begin
+            write_vstart(data[RISCV_V_VSTART_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vstart
+
+    virtual function void write_vec_vxrm(riscv_v_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vxrm(data[RISCV_V_VXRM_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vxrm
+
+    virtual function void write_vec_vxsat(riscv_v_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vxsat(data[RISCV_V_VXSAT_WIDTH-1:0]);
+        end
+    endfunction: write_vec_vxsat
+
+    virtual function void write_ext_vsstatus(riscv_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vsstatus(data[RISCV_V_VSSTATUS_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vsstatus
+
+    virtual function void write_ext_vtype(riscv_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vtype(data[RISCV_V_VTYPE_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vtype
+
+    virtual function void write_ext_vl(riscv_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vl(data[RISCV_V_VL_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vl
+
+    virtual function void write_ext_vstart(riscv_data_t data), bit wr_en;
+        if (wr_en) begin
+            write_vstart(data[RISCV_V_VSTART_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vstart
+
+    virtual function void write_ext_vxrm(riscv_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vxrm(data[RISCV_V_VXRM_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vxrm
+
+    virtual function void write_ext_vxsat(riscv_data_t data, bit wr_en);
+        if (wr_en) begin
+            write_vxsat(data[RISCV_V_VXSAT_WIDTH-1:0]);
+        end
+    endfunction: write_ext_vxsat
     
     virtual function void write_vsstatus(riscv_v_vsstatus_t _vsstatus);
         vsstatus = _vsstatus;

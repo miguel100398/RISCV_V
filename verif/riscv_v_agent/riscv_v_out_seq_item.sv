@@ -9,6 +9,12 @@
 class riscv_v_out_seq_item extends riscv_v_base_seq_item;
 
 
+    logic              riscv_v_stall;
+    riscv_data_t       int_rf_wr_data;
+    logic              int_rf_wr_en;
+    riscv_v_rf_addr_t  vec_rf_wwr_addr;
+    riscv_v_rf_wr_en_t vec_rf_wr_en;
+    riscv_v_data_t     vec_rf_wr_data;
 
     `uvm_object_utils_begin(riscv_v_out_seq_item)
 

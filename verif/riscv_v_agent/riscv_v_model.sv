@@ -152,6 +152,23 @@ class riscv_v_model extends riscv_v_base_model;
 
     endfunction: execute_v_instruction
 
+    virtual function void update_ext_csr(
+        riscv_data_t ext_data_in,
+        bit ext_wr_vsstatus,
+        bit ext_wr_vtype,
+        bit ext_wr_vl,
+        bit ext_wr_vstart,
+        bit ext_wr_vxrm,
+        bit ext_wr_vxsat
+    );
+        csr_model.write_ext_vsstatus(ext_data_in,  ext_wr_vsstatus);
+        csr_model.write_ext_vtype(ext_data_in,     ext_wr_vtype);
+        csr_model.write_ext_vl(ext_data_in,        ext_wr_vl);
+        csr_model.write_ext_vstart(ext_data_in,    ext_wr_vstart);
+        csr_model.write_ext_vxrm(ext_data_in,      ext_wr_vxrm);
+        csr_model.write_ext_vxsat(ext_data_in,     ext_wr_vxsat);
+    endfunction: update_ext_csr
+
 endclass: riscv_v_model 
 
 `endif //__RISCV_V_MODEL_SV__
