@@ -83,7 +83,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
                     end
                 end
                 
-            end begin : GEN_READ_SRCA_NO_BYPASS
+            end else begin : GEN_READ_SRCA_NO_BYPASS
                 assign data_out_A = regs[rd_addr_A_int];
             end
 
@@ -116,7 +116,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
                     end
                 end
                 
-            end begin : GEN_READ_SRCB_NO_BYPASS
+            end else begin : GEN_READ_SRCB_NO_BYPASS
                 assign data_out_B = regs[rd_addr_B_int];
             end
 

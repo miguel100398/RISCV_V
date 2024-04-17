@@ -66,16 +66,11 @@ class riscv_v_rf_scbd extends riscv_v_base_scbd#(
 
     if (RISCV_V_RF_USE_BYPASS) begin
       if (|txn_out.wr_en) begin
-        $display("using bypass, wr_addr: %0d, wr_data: %0d, wr_en: 0x%0h", txn_out.wr_addr, txn_out.wr_data, txn_out.wr_en);
         regs[txn_out.wr_addr].write_reg(txn_out.wr_data, txn_out.wr_en);
       end
     end 
 
-    $display("temp_reg_data: 0x%0h", tmp_reg_data);
-
     read_reg.write_reg(txn_out.data, '1);
-
-    $display("Read reg: %0s", read_reg.printBits);
 
     `uvm_info(get_name(), $sformatf("Register Read, Port: %0s, Addr: %0h, Data: %0s", txn_out.port.name(), txn_out.addr, read_reg.printBits), UVM_MEDIUM);
     //Compare register
