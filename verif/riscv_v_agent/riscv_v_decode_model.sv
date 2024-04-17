@@ -179,7 +179,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
         valid = '1;
 
         //Get number of bytes per osize
-        unique case(osize);
+        unique case(osize)
             OSIZE_8   : num_bytes_osize = 1;
             OSIZE_16  : num_bytes_osize = 2;
             OSIZE_32  : num_bytes_osize = 3;
