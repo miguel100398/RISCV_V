@@ -50,7 +50,7 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
         );
 
         //Execute instruction
-        compare_en = execute_v_instruction(
+        compare_en = model.execute_v_instruction(
             .instr(txn_in.instruction),
             .src_int(txn_in.int_rf_rd_data),
             .wr_vec(wr_vec_exp),
