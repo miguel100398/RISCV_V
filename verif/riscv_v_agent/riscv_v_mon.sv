@@ -69,12 +69,12 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
 
     //Get data from interface
     ext_data_in_delay[0]     = vif.cb_mon.ext_data_in_exe;
-    ext_wr_vsstatus_delay[0] = vif.cb_mon.ext_wr_vsstatus_delay_id;
-    ext_wr_vtype_delay[0]    = vif.cb_mon.ext_wr_vtype_delay_id;
-    ext_wr_vl_delay[0]       = vif.cb_mon.ext_wr_vl_delay_id;
-    ext_wr_vstart_delay[0]   = vif.cb_mon.ext_wr_vstart_delay_id;
-    ext_wr_vxrm_delay[0]     = vif.cb_mon.ext_wr_vxrm_delay_id;
-    ext_wr_vxsat_delay[0]    = vif.cb_mon.ext_wr_vxsat_delay_id;
+    ext_wr_vsstatus_delay[0] = vif.cb_mon.ext_wr_vsstatus_id;
+    ext_wr_vtype_delay[0]    = vif.cb_mon.ext_wr_vtype_id;
+    ext_wr_vl_delay[0]       = vif.cb_mon.ext_wr_vl_id;
+    ext_wr_vstart_delay[0]   = vif.cb_mon.ext_wr_vstart_id;
+    ext_wr_vxrm_delay[0]     = vif.cb_mon.ext_wr_vxrm_id;
+    ext_wr_vxsat_delay[0]    = vif.cb_mon.ext_wr_vxsat_id;
     instruction_delay[0]     = vif.cb_mon.instruction_id;
     int_rf_data_delay[0]     = vif.cb_mon.int_rf_rd_data_id;
 
