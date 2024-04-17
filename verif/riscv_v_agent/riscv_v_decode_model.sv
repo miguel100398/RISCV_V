@@ -49,7 +49,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
     endfunction: get_funct3
 
     //VD
-    virtual function riscv_instr_funct3_t get_vd(riscv_v_type_instruction_t instr);
+    virtual function riscv_instr_rd_t get_vd(riscv_v_type_instruction_t instr);
         return instr.vd;
     endfunction: get_vd
 
