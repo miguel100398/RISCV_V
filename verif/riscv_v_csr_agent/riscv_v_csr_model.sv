@@ -6,7 +6,7 @@
 `ifndef __RISCV_V_CSR_MODEL__
 `define __RISCV_V_CSR_MODEL__ 
 
-class riscv_v_csr_model extend riscv_v_base_model;
+class riscv_v_csr_model extends riscv_v_base_model;
     `uvm_component_utils(riscv_v_csr_model)
 
     riscv_v_vsstatus_t vsstatus;
