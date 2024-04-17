@@ -101,6 +101,6 @@ class riscv_v_csr_model extends riscv_v_base_model;
         return vcsr;
     endfunction: read_vcsr
 
-endclas: riscv_v_csr_model
+endclass: riscv_v_csr_model
 
 `endif //__RISCV_V_CSR_MODEL__  
