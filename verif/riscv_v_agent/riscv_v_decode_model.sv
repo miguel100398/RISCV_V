@@ -167,6 +167,41 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return vl.len;
     endfunction: get_len
 
+    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart);
+        riscv_v_osize_e osize;
+        riscv_v_src_len_t len;
+        riscv_v_valid_data_t valid;
+        int num_bytes_osize;
+
+        osize = riscv_v_osize_e'(vtype.vsew);
+        len   = vl.len;
+        //Set valid to all 1
+        valid = '1;
+
+        //Get number of bytes per osize
+        unique case(osize);
+            OSIZE_8   : num_bytes_osize = 1;
+            OSIZE_16  : num_bytes_osize = 2;
+            OSIZE_32  : num_bytes_osize = 3;
+            OSIZE_64  : num_bytes_osize = 4;
+            OSIZE_128 : num_bytes_osize = 5;
+            default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
+        endcase
+
+        //Turn off valid bits with vstart
+        for (int idx = 0; idx < (vstart.index * num_bytes_osize); idx++) begin
+            valid[idx] = 1'b0;
+        end
+
+        //Turn off valid bits with vlen 
+        for (int idx = (len*num_bytes_osize); idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+            valid[idx] = 1'b0;
+        end
+
+        return valid;
+
+    endfunction: get_valid
+
 endclass: riscv_v_decode_model
 
 `endif //__RISCV_V_DECODE_MODEL__
