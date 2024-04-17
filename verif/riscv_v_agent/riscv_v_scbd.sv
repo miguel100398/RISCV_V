@@ -113,7 +113,7 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
             //Check wr_addr
             if (vec_rf_wr_addr != vec_rf_wr_addr_exp) begin
                 `uvm_error(get_name(), $sformatf("Mismatchh in vec_rf_wr_addr, actual: %0d, expected: %0d", vec_rf_wr_addr, vec_rf_wr_addr_exp))
-                fali();
+                fail();
             end else begin
                 pass();
             end
