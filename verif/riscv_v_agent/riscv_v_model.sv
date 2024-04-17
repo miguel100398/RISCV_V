@@ -74,7 +74,7 @@ class riscv_v_model extends riscv_v_base_model;
 
     //Check if it is Vector instruction
     if (!decode_model.is_vector_op(instr)) begin
-        `uvm_info(get_name(), $sformatf("Instruction is not Vector instruction: %0d", instr))
+        `uvm_info(get_name(), $sformatf("Instruction is not Vector instruction: %0d", instr), UVM_MEDIUM)
         return 1'b0;
     end
 
