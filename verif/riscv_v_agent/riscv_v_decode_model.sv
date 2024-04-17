@@ -99,6 +99,11 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return SRC_VEC;
     endfunction: get_vs2_type
 
+    //Is scalar
+    virtual function bit is_scalar(riscv_v_type_instruction_t instr);
+        return f_is_scalar_fp_op(instr);
+    endfunction: is_scalar
+
     //Get ALU
     virtual function riscv_v_alu_e get_ALU(riscv_v_opcode_e opcode);
 
