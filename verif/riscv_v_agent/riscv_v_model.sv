@@ -79,9 +79,9 @@ class riscv_v_model extends riscv_v_base_model;
     end
 
     //Get CSR
-    csr_vtype  = csr_model.get_vtype();
-    csr_vl     = csr_model.get_vl();
-    csr_vstart = csr_model.get_vstart();
+    csr_vtype  = csr_model.read_vtype();
+    csr_vl     = csr_model.read_vl();
+    csr_vstart = csr_model.read_vstart();
 
     //Decode Instruction
     //Get Sources and destination
@@ -96,7 +96,7 @@ class riscv_v_model extends riscv_v_base_model;
     srcb = rf_model.read_data(srcb_addr);
 
     //Get opcode
-    opcode = rf_model.get_alu_opcode(instr);
+    opcode = decode_model.get_alu_opcode(instr);
 
     //Get if register files are writen
     wr_vec = decode_model.write_vec_dest(opcode);

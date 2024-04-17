@@ -31,7 +31,7 @@ class riscv_v_permutation_alu_model extends riscv_v_alu_base_model;
         endcase
 
         return result;
-    endfunction: execute_vec_op
+    endfunction: execute_v2i_op
 
 endclass: riscv_v_permutation_alu_model
 
