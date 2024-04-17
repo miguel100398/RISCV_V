@@ -72,7 +72,7 @@ class riscv_v_execute_model extends riscv_v_base_model;
             end
             PERMUTATION_ALU : begin
                 if (opcode == V2I) begin
-                    int_result = execute_v2i_op(srcb, opcode, src_osize);
+                    int_result = permutation_alu.execute_v2i_op(srcb, opcode, src_osize);
                 end else begin
                     vec_result = permutation_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize);
                 end
