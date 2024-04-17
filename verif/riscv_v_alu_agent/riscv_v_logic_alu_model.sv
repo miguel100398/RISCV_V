@@ -25,7 +25,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: execute_vec_op
 
-    virtual function riscv_v_data_t calc_bw_and(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e dst_osize);
+    virtual function riscv_v_data_t calc_bw_and(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize);
         
         riscv_v_data_t result;
         result = 'x;
@@ -100,7 +100,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_and
 
-    virtual function riscv_v_data_t calc_bw_or(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e dst_osize);
+    virtual function riscv_v_data_t calc_bw_or(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize);
         
         riscv_v_data_t result;
         result = 'x;
