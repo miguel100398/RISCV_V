@@ -30,7 +30,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
 
     //VM (Vector Mask)
     virtual function riscv_instr_mask_t get_vm(riscv_v_type_instruction_t instr);
-        return instr.get_vm;
+        return instr.vm;
     endfunction: get_vm
 
     //VS2
