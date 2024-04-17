@@ -33,7 +33,7 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
         
         //Check only 1 wr_en is set at time
         if (!$onehot0({txn_in.ext_wr_vsstatus, txn_in.ext_wr_vtype, txn_in.ext_wr_vl, txn_in.ext_wr_vstart, txn_in.ext_wr_vxrm, txn_in.ext_wr_vxsat})) begin
-            `uvm_error(get_name(), $$sformatf("More than 1 ext_csr_write asserted at time: {vstatus, vtype, vl, vstart, vxrm, vxsat }%0b",
+            `uvm_error(get_name(), $sformatf("More than 1 ext_csr_write asserted at time: {vstatus, vtype, vl, vstart, vxrm, vxsat }%0b",
             {txn_in.ext_wr_vsstatus, txn_in.ext_wr_vtype, txn_in.ext_wr_vl, txn_in.ext_wr_vstart, txn_in.ext_wr_vxrm, txn_in.ext_wr_vxsat}))
             fail();
         end
