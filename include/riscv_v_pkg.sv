@@ -322,7 +322,7 @@ typedef enum logic[2:0] {
     SRC_SCALAR_VEC,
     SRC_SCALAR_INT,
     SRC_SCALAR_IMM,
-    SRC_SCALAR_FP,
+    SRC_SCALAR_FP
 } riscv_v_src_type_t;
 
 //////////////////////Functions/////////////////////////////////////////////////////////////////
