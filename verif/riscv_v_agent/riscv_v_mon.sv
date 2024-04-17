@@ -110,9 +110,9 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
     out_txn.riscv_v_stall   = vif.cb_mon.riscv_v_stall;
     out_txn.int_rf_wr_data  = vif.cb_mon.int_rf_wr_data_wb;
     out_txn.int_rf_wr_en    = vif.cb_mon.int_rf_wr_en_wb;
-    out_txn.vec_rf_wr_addr  = vif.cb_mon.v_rf_if.wr_addr;
-    out_txn.vec_rf_wr_en    = vif.cb_mon.v_rf_if.wr_en;
-    out_txn.vec_rf_wr_data  = vif.cb_mon.v_rf_if.data_in;
+    out_txn.vec_rf_wr_addr  = vif.v_rf_if.cb_mon.wr_addr;
+    out_txn.vec_rf_wr_en    = vif.v_rf_if.cb_mon.wr_en;
+    out_txn.vec_rf_wr_data  = vif.v_rf_if.cb_mon.data_in;
 
     rtl_out_ap.write(out_txn);
 
