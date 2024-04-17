@@ -13,6 +13,7 @@ import base_pkg::*;
 import riscv_v_base_pkg::*;
 import riscv_v_rf_agt_pkg::*;
 import riscv_v_csr_agt_pkg::*;
+import riscv_v_alu_agt_pkg::*;
 
 `include "uvm_macros.svh"
 `include "riscv_v_bfm_cfg_obj.sv"
