@@ -25,7 +25,7 @@ class riscv_v_model extends riscv_v_base_model;
         csr_model     = riscv_v_csr_model::type_id::create("riscv_v_csr_model", this);
         rf_model      = riscv_v_rf_model::type_id::create("riscv_v_rf_model", this);
         decode_model  = riscv_v_decode_model::type_id::create("riscv_v_decode_model", this);
-        execute_model = riscv_v_execute_model::type_id::create("riscv_v_execute_model" this); 
+        execute_model = riscv_v_execute_model::type_id::create("riscv_v_execute_model", this); 
     endfunction: build_phase
 
     virtual function void rst();
