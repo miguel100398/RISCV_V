@@ -315,6 +315,16 @@ typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT,
                          I2V, V2I,
                          NOP} riscv_v_opcode_e;
 
+
+//Src types
+typedef enum logic[2:0] {
+    SRC_VEC,
+    SRC_SCALAR_VEC,
+    SRC_SCALAR_INT,
+    SRC_SCALAR_IMM,
+    SRC_SCALAR_FP,
+} riscv_v_src_type_t;
+
 //////////////////////Functions/////////////////////////////////////////////////////////////////
 
 function automatic logic[$clog2(RISCV_V_NUM_VALID_OSIZES)-1:0] f_count_trailing_zeroes_osize(int src);

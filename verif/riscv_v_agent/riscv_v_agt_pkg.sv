@@ -28,6 +28,7 @@ typedef riscv_v_base_sqr#(
 `include "riscv_v_mon.sv"
 `include "riscv_v_trk.sv"
 `include "riscv_v_cov.sv"
+`include "riscv_v_decode_model.sv"
 `include "riscv_v_model.sv"
 `include "riscv_v_bfm.sv"
 `include "riscv_v_scbd.sv"
