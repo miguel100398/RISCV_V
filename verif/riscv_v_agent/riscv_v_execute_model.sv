@@ -23,8 +23,8 @@ class riscv_v_execute_model extends riscv_v_base_model;
 
     virtual function void execute_op(
         input  riscv_v_opcode_e   opcode,
-        input  riscv_v_osize_e    src_osize;
-        input  riscv_v_osize_e    dst_osize;
+        input  riscv_v_osize_e    src_osize,
+        input  riscv_v_osize_e    dst_osize,
         input  riscv_v_alu_e      ALU,
         input  bit                is_scalar,
         input  riscv_v_src_type_t srca_type,
