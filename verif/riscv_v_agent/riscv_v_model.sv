@@ -90,8 +90,6 @@ class riscv_v_model extends riscv_v_base_model;
     dest_addr = decode_model.get_vd(instr);
     vec_wr_addr = dest_addr;
     int_wr_addr = dest_addr;
-    $display("Instruction decoded: 0x%0h", instr);
-    $display("Dest_addr: 0x%0h", dest_addr);
 
     //Get Vector sources from reg file
     srca = rf_model.read_data(srca_addr);
@@ -127,7 +125,6 @@ class riscv_v_model extends riscv_v_base_model;
     //Get Valid
     vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart);
 
-
     //Execute instruction
     execute_model.execute_op(
         .opcode(opcode),
@@ -144,6 +141,24 @@ class riscv_v_model extends riscv_v_base_model;
         .vec_result(vec_wr_data),
         .int_result(int_wr_data)
     );
+
+    `uvm_info(get_name(), $sformatf("Instruction executed: \
+    Instruction: 0x%0h \
+    Opcode: %0s \
+    ALU: %0s \
+    is_scalar: %0b \
+    dst_Osize: %0s \
+    srca_type: %0s \
+    srcb_type: %0s \
+    srca_addr: %0d \
+    srcb_addr: %0d \
+    dest_addr: %0d \
+    srca: 0x%0h \
+    srcb: 0x%0h \
+    imm: 0x%0h \
+    src_int: 0x%0h \
+    result: 0x%0h \
+    ref_wr_en: 0x%0h", instr, opcode.name(), ALU.name(), is_scalar, dst_osize.name(), srca_type.name(), srca_type.name(), srca_addr, srcb_addr, dest_addr, srca, srcb, imm, src_int, vec_wr_data, vec_wr_en), UVM_MEDIUM)
 
     //Write Back to register File
     if (wr_vec) begin

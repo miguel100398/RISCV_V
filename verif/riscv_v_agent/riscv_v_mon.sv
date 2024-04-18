@@ -10,9 +10,9 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
                                                 .seq_item_out_t  (riscv_v_out_seq_item));
   `uvm_component_utils(riscv_v_mon)
 
-  localparam int out_sem_keys = 1;
-  localparam int in_sem_keys = 2;
-  //Semaphore to process read transactions before write transactions
+  localparam int out_sem_keys = 2;
+  localparam int in_sem_keys = 1;
+  //Semaphore to process write transactions before read transactions
   semaphore rd_sem;
 
   //Delay data
@@ -35,7 +35,7 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    rd_sem = new(out_sem_keys);
+    rd_sem = new(in_sem_keys);
   endfunction: build_phase
 
   virtual task run_phase(uvm_phase phase);

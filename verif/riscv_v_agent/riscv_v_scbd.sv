@@ -66,6 +66,7 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
 
     //Read port
     virtual function void calc_out();
+
         //Check data
         if (compare_en) begin
             
@@ -100,6 +101,7 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
     endfunction: check_int
 
     virtual function void check_vec(riscv_v_rf_wr_en_t vec_rf_wr_en, riscv_v_rf_addr_t vec_rf_wr_addr, riscv_v_data_t vec_rf_wr_data);
+        bit wr_data_correct = 1'b1;
         if (wr_vec_exp) begin
             
             //Check wr_en
@@ -119,8 +121,14 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
             end
 
             //Check wr_data
-            if (vec_rf_wr_data != vec_rf_wr_data_exp) begin
-                `uvm_error(get_name(), $sformatf("Mismatch in vec_rf_wr_data, actual: %0d, expected: %0d", vec_rf_wr_data, vec_rf_wr_data_exp))
+            for (int idx = 0; idx < RISCV_V_NUM_BYTES_DATA; idx++) begin
+                if (vec_rf_wr_en_exp[idx]) begin
+                    wr_data_correct &= (vec_rf_wr_data.Byte[idx] == vec_rf_wr_data_exp.Byte[idx]);
+                end
+            end
+
+            if (!wr_data_correct) begin
+                `uvm_error(get_name(), $sformatf("Mismatch in vec_rf_wr_data, actual: 0x%0h, expected: 0x%0h", vec_rf_wr_data, vec_rf_wr_data_exp))
                 fail();
             end else begin
                 pass();
