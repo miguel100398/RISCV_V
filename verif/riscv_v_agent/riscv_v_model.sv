@@ -90,6 +90,8 @@ class riscv_v_model extends riscv_v_base_model;
     dest_addr = decode_model.get_vd(instr);
     vec_wr_addr = dest_addr;
     int_wr_addr = dest_addr;
+    $display("Instruction decoded: 0x%0h", instr);
+    $display("Dest_addr: 0x%0h", dest_addr);
 
     //Get Vector sources from reg file
     srca = rf_model.read_data(srca_addr);
