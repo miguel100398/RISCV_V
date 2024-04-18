@@ -99,7 +99,7 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
         end
     endfunction: check_int
 
-    virtual function void check_vec(bit vec_rf_wr_en, riscv_v_rf_addr_t vec_rf_wr_addr, riscv_v_data_t vec_rf_wr_data);
+    virtual function void check_vec(riscv_v_rf_wr_en_t vec_rf_wr_en, riscv_v_rf_addr_t vec_rf_wr_addr, riscv_v_data_t vec_rf_wr_data);
         if (wr_vec_exp) begin
             
             //Check wr_en
