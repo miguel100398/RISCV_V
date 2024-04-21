@@ -122,21 +122,23 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
 
   virtual function delay_in_data();
 
+  //Delay EXE to WB
+  for (int idx = RISCV_V_EXE_2_WB_LATENCY; idx > 0; idx--) begin
+    ext_data_in_delay[idx] = ext_data_in_delay[idx-1];
+  end
+
   //Delay ID to WB
   for (int idx = RISCV_V_ID_2_WB_LATENCY; idx > 0; idx--) begin
+    instruction_delay[idx]     = instruction_delay[idx-1];
+    int_rf_data_delay[idx]     = int_rf_data_delay[idx-1];
     ext_wr_vsstatus_delay[idx] = ext_wr_vsstatus_delay[idx-1];
     ext_wr_vtype_delay[idx]    = ext_wr_vtype_delay[idx-1];
     ext_wr_vl_delay[idx]       = ext_wr_vl_delay[idx-1];
     ext_wr_vstart_delay[idx]   = ext_wr_vstart_delay[idx-1];
     ext_wr_vxrm_delay[idx]     = ext_wr_vxrm_delay[idx-1];
-    ext_wr_vxsat_delay[idx]    = ext_wr_vxsat_delay[idx-1];
-    instruction_delay[idx]     = instruction_delay[idx-1];
-    int_rf_data_delay[idx]     = int_rf_data_delay[idx-1];
+    ext_wr_vxsat_delay[idx]    = ext_wr_vxsat_delay[idx-1]; 
   end
-  //Delay  EXE to WB
-  for (int idx = RISCV_V_EXE_2_WB_LATENCY; idx > 0; idx--) begin
-    ext_data_in_delay[idx]     = ext_data_in_delay[idx-1];
-  end
+
  
   endfunction: delay_in_data
 

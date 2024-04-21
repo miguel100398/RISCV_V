@@ -112,18 +112,18 @@ logic                        vec_wr_vl_id;
 logic                        vec_wr_vstart_id;
 logic                        vec_wr_vxrm_id;
 logic                        vec_wr_vxsat_id;
-logic                        csr_wr_en_vsstatus_wb;
-logic                        csr_wr_en_vtype_wb;
-logic                        csr_wr_en_vl_wb;
-logic                        csr_wr_en_vstart_wb;
-logic                        csr_wr_en_vxrm_wb;
-logic                        csr_wr_en_vxsat_wb;
-riscv_v_vsstatus_t           csr_wr_data_vsstatus_wb;
-riscv_v_vtype_t              csr_wr_data_vtype_wb;
-riscv_v_vl_t                 csr_wr_data_vl_wb;
-riscv_v_vstart_t             csr_wr_data_vstart_wb;
-riscv_v_vxrm_t               csr_wr_data_vxrm_wb;
-riscv_v_vxsat_t              csr_wr_data_vxsat_wb;
+logic                        csr_wr_en_vsstatus_exe;
+logic                        csr_wr_en_vtype_exe;
+logic                        csr_wr_en_vl_exe;
+logic                        csr_wr_en_vstart_exe;
+logic                        csr_wr_en_vxrm_exe;
+logic                        csr_wr_en_vxsat_exe;
+riscv_v_vsstatus_t           csr_wr_data_vsstatus_exe;
+riscv_v_vtype_t              csr_wr_data_vtype_exe;
+riscv_v_vl_t                 csr_wr_data_vl_exe;
+riscv_v_vstart_t             csr_wr_data_vstart_exe;
+riscv_v_vxrm_t               csr_wr_data_vxrm_exe;
+riscv_v_vxsat_t              csr_wr_data_vxsat_exe;
 
 
 assign riscv_v_stall = stall;
@@ -213,42 +213,42 @@ riscv_v_csr_ctrl v_csr_ctrl(
     .vec_wr_vxrm_id(vec_wr_vxrm_id),
     .vec_wr_vxsat_id(vec_wr_vxsat_id),
     //CSR Interface
-    .csr_wr_en_vsstatus_wb(csr_wr_en_vsstatus_wb),
-    .csr_wr_en_vtype_wb(csr_wr_en_vtype_wb),
-    .csr_wr_en_vl_wb(csr_wr_en_vl_wb),
-    .csr_wr_en_vstart_wb(csr_wr_en_vstart_wb),
-    .csr_wr_en_vxrm_wb(csr_wr_en_vxrm_wb),
-    .csr_wr_en_vxsat_wb(csr_wr_en_vxsat_wb),
-    .csr_wr_data_vsstatus_wb(csr_wr_data_vsstatus_wb),
-    .csr_wr_data_vtype_wb(csr_wr_data_vtype_wb),
-    .csr_wr_data_vl_wb(csr_wr_data_vl_wb),
-    .csr_wr_data_vstart_wb(csr_wr_data_vstart_wb),
-    .csr_wr_data_vxrm_wb(csr_wr_data_vxrm_wb),
-    .csr_wr_data_vxsat_wb(csr_wr_data_vxsat_wb)
+    .csr_wr_en_vsstatus_exe(csr_wr_en_vsstatus_exe),
+    .csr_wr_en_vtype_exe(csr_wr_en_vtype_exe),
+    .csr_wr_en_vl_exe(csr_wr_en_vl_exe),
+    .csr_wr_en_vstart_exe(csr_wr_en_vstart_exe),
+    .csr_wr_en_vxrm_exe(csr_wr_en_vxrm_exe),
+    .csr_wr_en_vxsat_exe(csr_wr_en_vxsat_exe),
+    .csr_wr_data_vsstatus_exe(csr_wr_data_vsstatus_exe),
+    .csr_wr_data_vtype_exe(csr_wr_data_vtype_exe),
+    .csr_wr_data_vl_exe(csr_wr_data_vl_exe),
+    .csr_wr_data_vstart_exe(csr_wr_data_vstart_exe),
+    .csr_wr_data_vxrm_exe(csr_wr_data_vxrm_exe),
+    .csr_wr_data_vxsat_exe(csr_wr_data_vxsat_exe)
 );
 
 //CSR
 riscv_v_csr v_csr(
     .clk(clk),
     .rst(rst),
-    .vsstatus_data_in(csr_wr_data_vsstatus_wb),
-    .vsstatus_wr_en(csr_wr_en_vsstatus_wb),
+    .vsstatus_data_in(csr_wr_data_vsstatus_exe),
+    .vsstatus_wr_en(csr_wr_en_vsstatus_exe),
     .vsstatus_data_out(vsstatus),
-    .vtype_data_in(csr_wr_data_vtype_wb),
-    .vtype_wr_en(csr_wr_en_vtype_wb),
+    .vtype_data_in(csr_wr_data_vtype_exe),
+    .vtype_wr_en(csr_wr_en_vtype_exe),
     .vtype_data_out(vtype),
-    .vl_data_in(csr_wr_data_vl_wb),
-    .vl_wr_en(csr_wr_en_vl_wb),
+    .vl_data_in(csr_wr_data_vl_exe),
+    .vl_wr_en(csr_wr_en_vl_exe),
     .vl_data_out(vl),
     .vlenb_data_out(vlenb),
-    .vstart_data_in(csr_wr_data_vstart_wb),
-    .vstart_wr_en(csr_wr_en_vstart_wb),
+    .vstart_data_in(csr_wr_data_vstart_exe),
+    .vstart_wr_en(csr_wr_en_vstart_exe),
     .vstart_data_out(vstart),
-    .vxrm_data_in(csr_wr_data_vxrm_wb),
-    .vxrm_wr_en(csr_wr_en_vxrm_wb),
+    .vxrm_data_in(csr_wr_data_vxrm_exe),
+    .vxrm_wr_en(csr_wr_en_vxrm_exe),
     .vxrm_data_out(vxrm),
-    .vxsat_data_in(csr_wr_data_vxsat_wb),
-    .vxsat_wr_en(csr_wr_en_vxsat_wb),
+    .vxsat_data_in(csr_wr_data_vxsat_exe),
+    .vxsat_wr_en(csr_wr_en_vxsat_exe),
     .vxsat_data_out(vxsat),
     .vcsr_data_out(vcsr)
 );

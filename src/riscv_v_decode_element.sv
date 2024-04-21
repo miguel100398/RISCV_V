@@ -90,7 +90,7 @@ generate
         localparam BYTES_PER_BLOCK  = RISCV_V_NUM_BYTES_DATA / NUM_BLOCKS_OSIZE;
 
         for (genvar block_idx = 0; block_idx < NUM_BLOCKS_OSIZE; block_idx++) begin : gen_mask_osize_block 
-            assign mask_valid_osize[osize_idx][(block_idx * BYTES_PER_BLOCK) +: BYTES_PER_BLOCK] = mask_valid[block_idx] & (dst_osize_vector[osize_idx]);
+            assign mask_valid_osize[osize_idx][(block_idx * BYTES_PER_BLOCK) +: BYTES_PER_BLOCK] = {BYTES_PER_BLOCK{(mask_valid[block_idx] & (dst_osize_vector[osize_idx]))}};
         end
 
     end

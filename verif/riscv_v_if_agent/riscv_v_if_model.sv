@@ -42,6 +42,13 @@ class riscv_v_if_model extends riscv_v_base_model;
                 `uvm_fatal(get_name(), $sformatf("Instruction: %0s, doesn't support masking", opcode.name()))
             end
             instr.V.vm = vm;
+            if (instr.V.vd == 0) begin
+                riscv_instr_rd_t tmp_dst;
+                assert(std::randomize(tmp_dst) with {
+                    tmp_dst != 0;
+                }) else `uvm_fatal(get_name(), "Can't randomize Vector destination different from zero")
+                instr.V.vd = tmp_dst;
+            end
         end
         return instr;
     endfunction: get_instruction

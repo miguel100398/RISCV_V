@@ -46,10 +46,13 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     vec_cfg_t           vec_cfg;
     riscv_v_alu_interfaces_names_t interfaces_names;
 
-    int RST_CYCLES    = 6;
-    int INIT_CYCLES   = 32;
-    int NUM_TXN_BLOCK = 50;
-    int NUM_BLOCKS    = 2;
+    int RST_CYCLES          = 6;
+    int INIT_CYCLES         = 32;
+    int NUM_TXN_BLOCK       = 50;
+    int NUM_BLOCKS_OSIZE    = 2;
+    int NUM_OSIZES          = RISCV_V_NUM_VALID_OSIZES;
+    int NUM_FORMATS         = 3;
+    int TOTAL_BLOCKS        = NUM_FORMATS*NUM_OSIZES*NUM_BLOCKS_OSIZE;
 
     function new(string name = "riscv_v_cpu_base_test", uvm_component parent=null);
         super.new(name, parent);
@@ -163,7 +166,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         int_rf_cfg.run_forever      = 1'b1;
         int_rf_cfg.init_rand_rf     = 1'b1;
         //Instruction Fetch
-        if_cfg.num_txn              =(RST_CYCLES + INIT_CYCLES) + (NUM_TXN_BLOCK*NUM_BLOCKS);
+        if_cfg.num_txn              =(RST_CYCLES + INIT_CYCLES) + (NUM_TXN_BLOCK*TOTAL_BLOCKS);
         if_cfg.use_file             = 1'b0;
         //EXT csr wr en
         ext_csr_cfg.run_forever     = 1'b1;

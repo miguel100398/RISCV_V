@@ -58,7 +58,7 @@ always_ff @(posedge clk or posedge rst) begin
         vsstatus <= vsstatus_data_in;
     end
 end
-assign vsstatus_data_out = vsstatus;
+assign vsstatus_data_out = (vsstatus_wr_en) ? vsstatus_data_in : vsstatus;
 
 //VTYPE
 always_ff @(posedge clk or posedge  rst) begin
@@ -68,7 +68,7 @@ always_ff @(posedge clk or posedge  rst) begin
         vtype <= vtype_data_in;
     end
 end
-assign vtype_data_out = vtype;
+assign vtype_data_out = (vtype_wr_en) ? vtype_data_in : vtype;
 
 //VL
 always_ff @(posedge clk or posedge rst) begin
@@ -78,10 +78,10 @@ always_ff @(posedge clk or posedge rst) begin
         vl <= vl_data_in;
     end
 end
-assign vl_data_out = vl;
+assign vl_data_out = (vl_wr_en) ? vl_data_in : vl;
 
 //VLENB (VL/8)
-assign vlenb          = vl.len >> 3;
+assign vlenb          = (vl_wr_en) ? (vl_data_in >> 3) : (vl.len >> 3);
 assign vlenb_data_out = vlenb;
 
 //VSTART
@@ -92,7 +92,7 @@ always_ff @(posedge clk or posedge rst) begin
         vstart <= vstart_data_in;
     end 
 end
-assign vstart_data_out = vstart;
+assign vstart_data_out = (vstart_wr_en) ? vstart_data_in : vstart;
 
 //VXRM
 always_ff @(posedge clk or posedge rst) begin
@@ -102,7 +102,7 @@ always_ff @(posedge clk or posedge rst) begin
         vxrm <= vxrm_data_in;
     end
 end
-assign vxrm_data_out = vxrm;
+assign vxrm_data_out = (vxrm_wr_en) ? vxrm_data_in : vxrm;
 
 //VXSAT
 always_ff @(posedge clk or posedge rst) begin
@@ -112,11 +112,11 @@ always_ff @(posedge clk or posedge rst) begin
         vxsat <= vxsat_data_in;
     end
 end
-assign vxsat_data_out = vxsat;
+assign vxsat_data_out = (vxsat_wr_en) ? vxsat_data_in : vxsat;
 
 //VCSR
-assign vcsr.rounding_mode = vxrm.rounding_mode;
-assign vcsr.saturate      = vxsat.saturate;
+assign vcsr.rounding_mode = (vxrm_wr_en)  ? vxrm_data_in.rounding_mode : vxrm.rounding_mode;
+assign vcsr.saturate      = (vxsat_wr_en) ? vxsat_data_in.saturate     : vxsat.saturate;
 assign vcsr_data_out      = vcsr;
 
 ////////////////////////////////////////////////Assertions/////////////////////////////////////////////
