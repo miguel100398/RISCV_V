@@ -21,7 +21,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_data_t              srcb_exe,
     input  riscv_v_mask_t              mask_exe,
     output riscv_v_wb_data_t           alu_result_exe,
-    output riscv_v_mask_t              mask_result_exe,
     //Bypass
     input  riscv_v_rf_wr_en_t          rf_wr_en_mem,
     input  riscv_v_rf_wr_en_t          rf_wr_en_wb,
@@ -46,6 +45,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                       is_negate_srca_exe,
     input  logic                       is_negate_result_exe,
     input  logic                       is_mask_exe,
+    input  logic                       use_mask_exe,
     input  logic                       is_shift_exe,
     input  logic                       is_left_exe,
     input  logic                       is_arith_exe,
@@ -130,8 +130,7 @@ riscv_v_exe_alu exe_alu(
     .is_signed_exe(is_signed_exe),
     .use_carry_exe(use_carry_exe),
     .int_result_exe(int_data_result_exe),
-    .vec_result_exe(alu_result_exe),
-    .mask_result_exe(mask_result_exe)
+    .vec_result_exe(alu_result_exe)
 );
 
 riscv_v_decode_element decode_element(
@@ -140,6 +139,9 @@ riscv_v_decode_element decode_element(
     .vtype(vtype),
     .vl(vl),
     .vstart(vstart),
+    .use_mask(use_mask_exe),
+    .mask(mask_exe),
+    .is_mask(is_mask_exe),
     .srca_alu(srca_alu),
     .srcb_alu(srcb_alu),
     `ifdef RISCV_V_INST

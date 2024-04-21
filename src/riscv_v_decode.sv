@@ -33,9 +33,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_data_t                 int_rf_wr_data_exe,
     output riscv_v_data_t               rf_rd_data_srca_exe,
     output riscv_v_data_t               rf_rd_data_srcb_exe,
-    output riscv_v_mask_t               mask_rf_rd_data_exe,
+    output riscv_v_mask_t               mask_exe,
     input  riscv_v_wb_data_t            alu_result_exe,
-    input  riscv_v_mask_t               mask_alu_result_exe,
     output logic                        is_scalar_op_exe,
     output logic                        is_vector_vector_op_exe,
     output logic                        is_scalar_vector_op_exe,
@@ -50,6 +49,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output logic                        is_negate_srca_exe,
     output logic                        is_negate_result_exe,
     output logic                        is_mask_exe,
+    output logic                        use_mask_exe,
     output logic                        is_shift_exe,
     output logic                        is_left_exe,
     output logic                        is_arith_exe,
@@ -101,15 +101,7 @@ riscv_v_rf_wr_en_t           rf_wr_en_exe;
 riscv_v_data_t               rf_wr_data_exe;
 riscv_v_data_t               rf_rd_data_srca_id;
 riscv_v_data_t               rf_rd_data_srcb_id;
-//Mask Register File Signals
-riscv_v_mask_rf_addr_t       mask_rf_rd_addr_id;
-riscv_v_mask_rf_addr_t       mask_rf_wr_addr_id;
-riscv_v_mask_rf_addr_t       mask_rf_wr_addr_wb;
-riscv_v_mask_t               mask_rf_wr_data_exe;
-riscv_v_mask_t               mask_rf_wr_data_wb;
-logic                        mask_rf_wr_en_id;
-logic                        mask_rf_wr_en_wb;
-riscv_v_mask_t               mask_rf_rd_data_id;
+riscv_v_mask_t               mask_id;
 //Integer Register File Signals
 logic                        int_rf_wr_en_id;
 //CSR Signals
@@ -144,9 +136,6 @@ assign vec_wr_vstart_id   = 1'b0;
 assign vec_wr_vxrm_id     = 1'b0;
 assign vec_wr_vxsat_id    = 1'b0;
 assign int_rf_wr_en_id    = 1'b0;
-assign mask_rf_rd_addr_id = 0;
-assign mask_rf_wr_addr_id = 0;
-assign mask_rf_wr_en_id   = 0;
 
 //Control unit
 riscv_v_ctrl v_ctrl(
@@ -178,6 +167,7 @@ riscv_v_ctrl v_ctrl(
     .is_negate_srca_exe(is_negate_srca_exe),
     .is_negate_result_exe(is_negate_result_exe),
     .is_mask_exe(is_mask_exe),
+    .use_mask_exe(use_mask_exe),
     .is_shift_exe(is_shift_exe),
     .is_left_exe(is_left_exe),
     .is_arith_exe(is_arith_exe),
@@ -266,7 +256,6 @@ riscv_v_csr v_csr(
 //Register File Control
 assign rf_wr_data_exe      = alu_result_exe.data;
 assign rf_wr_en_exe        = alu_result_exe.valid;
-assign mask_rf_wr_data_exe = mask_alu_result_exe;
 
 riscv_v_rf_ctrl v_rf_ctrl(
     .clk(clk),
@@ -287,15 +276,8 @@ riscv_v_rf_ctrl v_rf_ctrl(
     .rf_rd_data_srca_exe(rf_rd_data_srca_exe),
     .rf_rd_data_srcb_id(rf_rd_data_srcb_id),
     .rf_rd_data_srcb_exe(rf_rd_data_srcb_exe),
-    //Mask Register File interface
-    .mask_rf_wr_addr_id(mask_rf_wr_addr_id),
-    .mask_rf_wr_addr_wb(mask_rf_wr_addr_wb),
-    .mask_rf_wr_data_exe(mask_rf_wr_data_exe),
-    .mask_rf_wr_data_wb(mask_rf_wr_data_wb),
-    .mask_rf_wr_en_id(mask_rf_wr_en_id),
-    .mask_rf_wr_en_wb(mask_rf_wr_en_wb),
-    .mask_rf_rd_data_id(mask_rf_rd_data_id),
-    .mask_rf_rd_data_exe(mask_rf_rd_data_exe),
+    .mask_id(mask_id),
+    .mask_exe(mask_exe),
     //Integer Register File interface
     .int_rf_rd_data_id(int_rf_rd_data_id),
     .int_rf_rd_data_exe(int_rf_rd_data_exe),
@@ -320,25 +302,11 @@ riscv_v_rf #(
     .wr_en(rf_wr_en_wb),
     .data_out_A(rf_rd_data_srca_id),
     .data_out_B(rf_rd_data_srcb_id),
+    .mask(mask_id),
     //Interface to synthesis
     .syn_addr(syn_addr),
     .syn_data(syn_data)
 );
-
-//Mask register File
-riscv_v_mask_rf #(
-    .RD_ASYNC(RISCV_V_MASK_RF_RD_ASYNC),
-    .REG_INPUTS(RISCV_V_MASK_RF_REG_INPUTS)
-) v_mask_rf(
-    .clk(clk),
-    .wr_addr(mask_rf_wr_addr_wb),
-    .rd_addr(mask_rf_rd_addr_id),
-    .data_in(mask_rf_wr_data_wb),
-    .wr_en(mask_rf_wr_en_wb),
-    .data_out(mask_rf_rd_data_id)
-);
-
-
 
 
 endmodule: riscv_v_decode

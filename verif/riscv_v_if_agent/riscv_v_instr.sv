@@ -57,6 +57,18 @@ class riscv_v_instr extends riscv_instr;
         };
     }
 
+    constraint vd{
+        if (~instr.V.vm){
+            instr.V.vd != 0;
+        }
+    }
+
+    constraint vm{
+        if (instr.V.funct6 inside{1'b0}){
+            instr.V.vm == 1'b1;
+        }
+    }
+
 endclass: riscv_v_instr
 
 `endif //__RISCV_V_INSTR_SV__

@@ -54,8 +54,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                use_carry_exe,
     //Result
     output riscv_data_t         int_result_exe,
-    output riscv_v_wb_data_t    vec_result_exe,
-    output riscv_v_mask_t       mask_result_exe
+    output riscv_v_wb_data_t    vec_result_exe
 );
 
     riscv_v_alu_data_t  srca_shuffled_exe;
@@ -65,10 +64,16 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_wb_data_t   logic_result;
     riscv_v_wb_data_t   arithmetic_result;
     riscv_v_wb_data_t   permutation_result;
+    riscv_v_wb_data_t   mask_result_zext;
+
+    riscv_v_mask_t      mask_result_exe;
+
+    assign mask_result_zext = `RISCV_V_ZX(mask_result_exe, RISCV_V_DATA_WIDTH);
 
     assign vec_result_exe = logic_result
                           | arithmetic_result
-                          | permutation_result;
+                          | permutation_result
+                          | mask_result_zext;
     
     assign shuffler_sel_exe = '{default:'0};
 

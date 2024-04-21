@@ -6,6 +6,7 @@
 `timescale 1ns/1ps
 
 module riscv_v_rf_tb;
+    import riscv_pkg::*;
     import riscv_v_pkg::*;
     import uvm_pkg::*;
     import riscv_v_base_pkg::*;

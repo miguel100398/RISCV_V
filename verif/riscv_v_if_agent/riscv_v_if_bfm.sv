@@ -41,13 +41,13 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
             end
         end else begin
             if (cfg.rf_rst_complete) begin
-                instruction = model.get_instruction(cfg.use_file, cfg.use_specific_instr, cfg.use_specific_mode, cfg.specific_instr, cfg.specific_mode);
+                instruction = model.get_instruction(cfg.use_file, cfg.use_specific_instr, cfg.use_specific_mode, cfg.use_specific_vm, cfg.specific_instr, cfg.specific_mode, cfg.specific_vm);
                 `ifdef RISCV_V_INST 
                     opcode = f_riscv_v_get_opcode(instruction);
                 `endif //RISCV_V_INST
             end else begin
                 instruction.V.funct6 = f_riscv_v_opcode_to_funct6(cfg.rf_rst_seq[rf_rst_idx].opcode);
-                instruction.V.vm     = 1'b0;
+                instruction.V.vm     = 1'b1;
                 instruction.V.vs2    = 5'b0;
                 instruction.V.vs1    = cfg.rf_rst_seq[rf_rst_idx].imm;   //Immediate value
                 instruction.V.funct3 = OPIVI;

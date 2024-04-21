@@ -19,6 +19,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  riscv_v_rf_wr_en_t   wr_en,
     output riscv_v_data_t       data_out_A,
     output riscv_v_data_t       data_out_B,
+    output riscv_v_mask_t       mask,
     //Interface to synthesis
     input  riscv_v_rf_addr_t    syn_addr,
     output riscv_v_data_t       syn_data
@@ -37,6 +38,9 @@ import riscv_v_pkg::*, riscv_pkg::*;
 
     assign syn_data = regs[syn_addr];
 
+
+    //Mask is always register 0
+    assign mask = regs[RISCV_V_MASK_RF_POS][RISCV_V_NUM_ELEMENTS_REG-1:0];
 
     //Register or bypass inputs
     generate

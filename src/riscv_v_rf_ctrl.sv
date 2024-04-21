@@ -25,16 +25,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_data_t               rf_rd_data_srca_id,
     output riscv_v_data_t               rf_rd_data_srca_exe,
     input  riscv_v_data_t               rf_rd_data_srcb_id,
-    output riscv_v_data_t               rf_rd_data_srcb_exe,             
-    //Mask Register File Interface
-    input  riscv_v_mask_rf_addr_t       mask_rf_wr_addr_id,
-    output riscv_v_mask_rf_addr_t       mask_rf_wr_addr_wb,
-    input  riscv_v_mask_t               mask_rf_wr_data_exe,
-    output riscv_v_mask_t               mask_rf_wr_data_wb,
-    input  logic                        mask_rf_wr_en_id,
-    output logic                        mask_rf_wr_en_wb,
-    input  riscv_v_mask_t               mask_rf_rd_data_id,
-    output riscv_v_mask_t               mask_rf_rd_data_exe,
+    output riscv_v_data_t               rf_rd_data_srcb_exe,   
+    input  riscv_v_mask_t               mask_id,
+    output riscv_v_mask_t               mask_exe,          
     //Integer Register File Interface
     input  riscv_data_t                 int_rf_rd_data_id,
     output riscv_data_t                 int_rf_rd_data_exe,
@@ -59,17 +52,13 @@ riscv_v_stage#(.DATA_T(riscv_v_data_t),         .NUM_STAGES(RISCV_V_EXE_2_WB_LAT
 riscv_v_stage#(.DATA_T(riscv_v_data_t),         .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_rf_rd_data_srca (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(rf_rd_data_srca_id),  .data_out(rf_rd_data_srca_exe));
 riscv_v_stage#(.DATA_T(riscv_v_data_t),         .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_rf_rd_data_srcb (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(rf_rd_data_srcb_id),  .data_out(rf_rd_data_srcb_exe));
 
-//Stage Mask register file interface
-riscv_v_stage#(.DATA_T(riscv_v_mask_rf_addr_t), .NUM_STAGES(RISCV_V_ID_2_WB_LATENCY))  stage_mask_rf_wr_addr (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(mask_rf_wr_addr_id),  .data_out(mask_rf_wr_addr_wb));
-riscv_v_stage#(.DATA_T(riscv_v_mask_t),         .NUM_STAGES(RISCV_V_EXE_2_WB_LATENCY)) stage_mask_rf_wr_data (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(mask_rf_wr_data_exe), .data_out(mask_rf_wr_data_wb));
-riscv_v_stage#(.DATA_T(logic),                  .NUM_STAGES(RISCV_V_ID_2_WB_LATENCY))  stage_mask_rf_wr_en   (.clk(clk), .rst(rst),  .en(en_stage), .flush(flush), .rst_val('0), .flush_val('0), .data_in(mask_rf_wr_en_id),    .data_out(mask_rf_wr_en_wb));
-riscv_v_stage#(.DATA_T(riscv_v_mask_t),         .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_mask_rf_rd_data (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(mask_rf_rd_data_id),  .data_out(mask_rf_rd_data_exe));
-
 //Stage Integer Register File interface
 riscv_v_stage#(.DATA_T(riscv_data_t),           .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_int_rf_rd_data  (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(int_rf_rd_data_id),   .data_out(int_rf_rd_data_exe));
 riscv_v_stage#(.DATA_T(riscv_data_t),           .NUM_STAGES(RISCV_V_EXE_2_WB_LATENCY)) stage_int_rf_wr_data  (.clk(clk), .rst(1'b0), .en(en_stage), .flush(1'b0),  .rst_val('x), .flush_val('x), .data_in(int_rf_wr_data_exe),  .data_out(int_rf_wr_data_wb));
 riscv_v_stage#(.DATA_T(logic),                  .NUM_STAGES(RISCV_V_ID_2_WB_LATENCY))  stage_int_rf_wr_en    (.clk(clk), .rst(rst),  .en(en_stage), .flush(flush), .rst_val('0), .flush_val('0), .data_in(int_rf_wr_en_id),     .data_out(int_rf_wr_en_wb));
 
+//Stage Mask
+riscv_v_stage#(.DATA_T(riscv_v_mask_t),         .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_mask             (.clk(clk), .rst(rst), .en(en_stage), .flush(flush), .rst_val('x), .flush_val('x), .data_in(mask_id),             .data_out(mask_exe));
 
 //Intermediate stages
 assign rf_wr_en_mem   = rf_wr_en_stages[RISCV_V_EXE_2_MEM_LATENCY];

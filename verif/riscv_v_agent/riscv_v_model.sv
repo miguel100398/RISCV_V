@@ -58,11 +58,14 @@ class riscv_v_model extends riscv_v_base_model;
     riscv_v_src_type_t srca_type;
     riscv_v_src_type_t srcb_type;
     bit                is_scalar;
+    bit                use_mask;
+    bit                is_mask;
     riscv_v_alu_e      ALU;
     riscv_v_imm_t      imm;
     riscv_v_osize_e    src_osize;
     riscv_v_osize_e    dst_osize;
     riscv_v_src_len_t  len;
+    riscv_v_mask_t     mask;
 
     wr_vec      = 1'b0;
     vec_wr_en   = 'x;
@@ -95,6 +98,9 @@ class riscv_v_model extends riscv_v_base_model;
     srca = rf_model.read_data(srca_addr);
     srcb = rf_model.read_data(srcb_addr);
 
+    //Get Mask
+    mask = rf_model.read_mask();
+
     //Get opcode
     opcode = decode_model.get_alu_opcode(instr);
 
@@ -108,6 +114,12 @@ class riscv_v_model extends riscv_v_base_model;
 
     //Get is scalar
     is_scalar = decode_model.is_scalar(instr);
+
+    //Get use mask
+    use_mask  = decode_model.get_use_mask(instr);
+
+    //Get is mask
+    is_mask   = decode_model.get_is_mask(instr);
 
     //Get ALU
     ALU = decode_model.get_ALU(opcode);
@@ -123,7 +135,7 @@ class riscv_v_model extends riscv_v_base_model;
     len = decode_model.get_len(csr_vl);
 
     //Get Valid
-    vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart);
+    vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart, use_mask, mask, is_mask);
 
     //Execute instruction
     execute_model.execute_op(
@@ -147,6 +159,7 @@ class riscv_v_model extends riscv_v_base_model;
     Opcode: %0s \
     ALU: %0s \
     is_scalar: %0b \
+    use_mask : %0b \
     dst_Osize: %0s \
     srca_type: %0s \
     srcb_type: %0s \
@@ -155,10 +168,11 @@ class riscv_v_model extends riscv_v_base_model;
     dest_addr: %0d \
     srca: 0x%0h \
     srcb: 0x%0h \
+    mask: 0x%0h \
     imm: 0x%0h \
     src_int: 0x%0h \
     result: 0x%0h \
-    ref_wr_en: 0x%0h", instr, opcode.name(), ALU.name(), is_scalar, dst_osize.name(), srca_type.name(), srca_type.name(), srca_addr, srcb_addr, dest_addr, srca, srcb, imm, src_int, vec_wr_data, vec_wr_en), UVM_MEDIUM)
+    ref_wr_en: 0x%0h", instr, opcode.name(), ALU.name(), is_scalar, use_mask, dst_osize.name(), srca_type.name(), srca_type.name(), srca_addr, srcb_addr, dest_addr, srca, srcb, mask, imm, src_int, vec_wr_data, vec_wr_en), UVM_MEDIUM)
 
     //Write Back to register File
     if (wr_vec) begin

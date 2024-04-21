@@ -25,17 +25,25 @@ class riscv_v_if_model extends riscv_v_base_model;
         return;
     endfunction: rst
 
-    virtual function riscv_instruction_t get_instruction(bit use_file = 1'b1, bit use_specific_instr = 1'b0, bit use_specific_mode = 1'b0, riscv_v_opcode_e instr = ADD, riscv_v_funct3_e mode = OPIVV);
+    virtual function riscv_instruction_t get_instruction(bit use_file = 1'b1, bit use_specific_instr = 1'b0, bit use_specific_mode = 1'b0, bit use_specific_vm = 1'b0, riscv_v_opcode_e opcode = ADD, riscv_v_funct3_e mode = OPIVV, vm = 1'b1);
+        riscv_instruction_t instr;
         if (use_file) begin
             `uvm_fatal(get_name(), "use_file mode not supported yet")
         end else if (use_specific_instr) begin
-            case(instr)
-                ADD         : return instruction.get_vadd_instr(use_specific_mode, mode);
-                default     : `uvm_fatal(get_name(), $sformatf("Invalid instruction: %0s", instr.name()))
+            case(opcode)
+                ADD         : instr = instruction.get_vadd_instr(use_specific_mode, mode);
+                default     : `uvm_fatal(get_name(), $sformatf("Invalid instruction: %0s", opcode.name()))
             endcase
         end else begin
             `uvm_fatal(get_name(), "Get random instruction not supported yet")
         end
+        if (use_specific_vm) begin
+            if (vm == 1'b0 && opcode inside{1'b0}) begin
+                `uvm_fatal(get_name(), $sformatf("Instruction: %0s, doesn't support masking", opcode.name()))
+            end
+            instr.V.vm = vm;
+        end
+        return instr;
     endfunction: get_instruction
 
 endclass: riscv_v_if_model 

@@ -13,6 +13,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
 );
 
 //Shuffle Data
+/*
 generate
     for (genvar byte_idx = 0; byte_idx < RISCV_V_NUM_ELEMENTS_REG; byte_idx++) begin : gen_shuffler
         assign result.data.Byte[byte_idx] = src.data.Byte[sel[byte_idx]];
@@ -20,5 +21,7 @@ generate
         assign result.valid[byte_idx]     = src.valid[sel[byte_idx]];
     end 
 endgenerate
+*/
+assign result = src;
 
 endmodule: riscv_v_shuffler

@@ -40,6 +40,10 @@ virtual function void write_data_en(int addr, data_t wr_data, riscv_v_rf_wr_en_t
     end
 endfunction: write_data_en 
 
+virtual function riscv_v_mask_t read_mask();
+    return rf[RISCV_V_MASK_RF_POS][RISCV_V_NUM_ELEMENTS_REG-1:0];
+endfunction: read_mask
+
 endclass: riscv_v_rf_model
 
 `endif //__RISCV_V_RF_MODEL__ 

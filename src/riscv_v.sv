@@ -40,9 +40,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_data_t                 int_rf_wr_data_exe;
     riscv_v_data_t               rf_rd_data_srca_exe;
     riscv_v_data_t               rf_rd_data_srcb_exe;
-    riscv_v_mask_t               mask_rf_rd_data_exe;
+    riscv_v_mask_t               mask_exe;
     riscv_v_wb_data_t            alu_result_exe;
-    riscv_v_mask_t               mask_alu_result_exe;
     logic                        is_scalar_op_exe;
     logic                        is_vector_vector_op_exe;
     logic                        is_scalar_vector_op_exe;
@@ -57,6 +56,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     logic                        is_negate_srca_exe;
     logic                        is_negate_result_exe;
     logic                        is_mask_exe;
+    logic                        use_mask_exe;
     logic                        is_shift_exe;
     logic                        is_left_exe;
     logic                        is_arith_exe;
@@ -131,9 +131,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .int_rf_wr_data_exe(int_rf_wr_data_exe),
         .rf_rd_data_srca_exe(rf_rd_data_srca_exe),
         .rf_rd_data_srcb_exe(rf_rd_data_srcb_exe),
-        .mask_rf_rd_data_exe(mask_rf_rd_data_exe),
+        .mask_exe(mask_exe),
         .alu_result_exe(alu_result_exe),
-        .mask_alu_result_exe(mask_alu_result_exe),
         .is_scalar_op_exe(is_scalar_op_exe),
         .is_vector_vector_op_exe(is_vector_vector_op_exe),
         .is_scalar_vector_op_exe(is_scalar_vector_op_exe),
@@ -148,6 +147,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_negate_srca_exe(is_negate_srca_exe),
         .is_negate_result_exe(is_negate_result_exe),
         .is_mask_exe(is_mask_exe),
+        .use_mask_exe(use_mask_exe),
         .is_shift_exe(is_shift_exe),
         .is_left_exe(is_left_exe),
         .is_arith_exe(is_arith_exe),
@@ -201,9 +201,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .int_data_result_exe(int_rf_wr_data_exe),
         .srca_exe(rf_rd_data_srca_exe),
         .srcb_exe(rf_rd_data_srcb_exe),
-        .mask_exe(mask_rf_rd_data_exe),
+        .mask_exe(mask_exe),
         .alu_result_exe(alu_result_exe),
-        .mask_result_exe(mask_alu_result_exe),
         //Bypass
         .rf_wr_en_mem(rf_wr_en_mem),
         .rf_wr_en_wb(rf_wr_en_wb),
@@ -228,6 +227,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_negate_srca_exe(is_negate_srca_exe),
         .is_negate_result_exe(is_negate_result_exe),
         .is_mask_exe(is_mask_exe),
+        .use_mask_exe(use_mask_exe),
         .is_shift_exe(is_shift_exe),
         .is_left_exe(is_left_exe),
         .is_arith_exe(is_arith_exe),

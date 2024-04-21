@@ -37,6 +37,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output logic                is_xor_exe,
     output logic                is_negate_srca_exe,
     output logic                is_negate_result_exe,
+    output logic                use_mask_exe,
     output logic                is_mask_exe,
     output logic                is_shift_exe,
     output logic                is_left_exe,
@@ -64,6 +65,7 @@ riscv_instr_op_t riscv_v_op_code_id;
 riscv_v_funct3_e riscv_v_funct3_id;
 riscv_instr_funct6_t riscv_v_funct6_id;
 riscv_v_type_instruction_t riscv_vector_instr_id;
+logic vm_id;
 
 //Control signals
 logic is_vector_op_id;              //Is vector extension op
@@ -92,6 +94,7 @@ logic is_or_id;
 logic is_xor_id;
 logic is_negate_srca_id;
 logic is_negate_result_id;
+logic use_mask_id;
 logic is_mask_id;
 logic is_shift_id;
 logic is_left_id;
@@ -131,6 +134,7 @@ assign vs1_id                = riscv_vector_instr_id.vs1;
 assign vs2_id                = riscv_vector_instr_id.vs2;
 assign vd_id                 = riscv_vector_instr_id.vd;
 assign imm_id                = riscv_vector_instr_id.vs1;
+assign vm_id                 = riscv_vector_instr_id.vm;
 
 //Control signals
 assign is_vector_op_id        = f_is_vector_op(riscv_v_op_code_id);
@@ -163,6 +167,7 @@ assign is_or_id             = f_is_or           (riscv_v_funct6_id, funct3_is_OP
 assign is_xor_id            = f_is_xor          (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
 assign is_negate_srca_id    = f_is_negate_srca  (riscv_v_funct6_id, funct3_is_OPMVV_id)                                                                                             && is_vector_op_id;
 assign is_negate_result_id  = f_is_negate_result(riscv_v_funct6_id, funct3_is_OPMVV_id)                                                                                             && is_vector_op_id;
+assign use_mask_id          = f_use_mask        (vm_id)                                                                                                                             && is_vector_op_id;
 assign is_mask_id           = f_is_mask         (riscv_v_funct6_id, funct3_is_OPMVV_id)                                                                                             && is_vector_op_id;
 assign is_shift_id          = f_is_shift        (riscv_v_funct6_id, funct3_is_OPI_id)                                                                                               && is_vector_op_id;
 assign is_left_id           = f_is_left         (riscv_v_funct6_id, funct3_is_OPI_id)                                                                                               && is_vector_op_id;
@@ -198,6 +203,7 @@ riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_srca    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_srca_id),        .data_out(is_negate_srca_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_result  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_result_id),      .data_out(is_negate_result_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mask           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mask_id),               .data_out(is_mask_exe));
+riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_use_mask          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(use_mask_id),              .data_out(use_mask_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_shift          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_shift_id),              .data_out(is_shift_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_left           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_left_id),               .data_out(is_left_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_arith          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_arith_id),              .data_out(is_arith_exe));
@@ -256,5 +262,9 @@ scalar_fp_without_scalar_op: assert property ( @(posedge clk)
 scalar_src_mutex: assert property ( @(posedge clk)
     $onehot0({is_scalar_vector_op_id, is_scalar_imm_op_id, is_scalar_int_op_id, is_scalar_fp_op_id})
 ) else $fatal(1, $sformatf("scalar source is not mutex {vec,imm,int,fp}: %0b", {is_scalar_vector_op_id, is_scalar_imm_op_id, is_scalar_int_op_id, is_scalar_fp_op_id}));
+
+use_mask_dest_reg: assert property ( @(posedge clk)
+    !(use_mask_id && (vd_id == 0))
+) else $fatal(1, "Vector destination can't be 0 if mask is used");
 
 endmodule: riscv_v_ctrl

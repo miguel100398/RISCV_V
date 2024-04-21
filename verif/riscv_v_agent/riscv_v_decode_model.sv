@@ -172,7 +172,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return vl.len;
     endfunction: get_len
 
-    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart);
+    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart, bit use_mask, riscv_v_mask_t mask, bit is_mask);
         riscv_v_osize_e osize;
         riscv_v_src_len_t len;
         riscv_v_valid_data_t valid;
@@ -203,9 +203,58 @@ class riscv_v_decode_model extends riscv_v_base_model;
             valid[idx] = 1'b0;
         end
 
+        //Turn off valid bits with mask
+        if (use_mask) begin
+            unique case(osize) 
+                OSIZE_8 : begin
+                    for (int idx = 0; idx < RISCV_V_NUM_BYTES_DATA; idx++) begin
+                        valid[(idx) +: 1] &= mask[idx];
+                    end
+                end
+                OSIZE_16 : begin
+                    for (int idx = 0; idx < RISCV_V_NUM_WORDS_DATA; idx++) begin
+                        valid[(idx*2) +: 2] &= {2{mask[idx]}};
+                    end
+                end
+                OSIZE_32 : begin
+                    for (int idx = 0; idx < RISCV_V_NUM_DWORDS_DATA; idx++) begin
+                        valid[(idx*4) +: 4] &= {4{mask[idx]}};
+                    end
+                end
+                OSIZE_64 : begin
+                    for (int idx = 0; idx < RISCV_V_NUM_QWORDS_DATA; idx++) begin
+                        valid[(idx*8) +: 8] &= {8{mask[idx]}};
+                    end
+                end
+                OSIZE_128 : begin
+                    for (int idx = 0; idx < RISCV_V_NUM_DQWORDS_DATA; idx++) begin
+                        valid[(idx*16) +: 16] &= {16{mask[idx]}};
+                    end
+                end
+                default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
+            endcase
+        end 
+
+        //Turn off valid bits if is a mask operations
+        if (is_mask) begin
+            valid[RISCV_V_NUM_ELEMENTS_REG-1 : RISCV_V_NUM_BYTES_ALLOCATE_MASK] = '0;
+        end
+
         return valid;
 
     endfunction: get_valid
+
+    virtual function bit get_use_mask(riscv_v_type_instruction_t instr);
+        return f_use_mask(instr.vm);
+    endfunction: get_use_mask
+
+    virtual function bit get_is_mask(riscv_v_type_instruction_t instr);
+        bit is_OPMVV;
+        is_OPMVV = (instr.funct3 == OPMVV);
+        return f_is_mask(instr.funct6, is_OPMVV);
+
+    endfunction: get_is_mask
+
 
 endclass: riscv_v_decode_model
 

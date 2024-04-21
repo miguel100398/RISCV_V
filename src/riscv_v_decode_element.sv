@@ -12,6 +12,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_vtype_t          vtype,
     input  riscv_v_vl_t             vl,
     input  riscv_v_vstart_t         vstart, 
+    input  logic                    is_mask,
+    input  logic                    use_mask,
+    input  riscv_v_mask_t           mask,
     output riscv_v_alu_data_t       srca_alu,
     output riscv_v_alu_data_t       srcb_alu,
     `ifdef RISCV_V_INST
@@ -32,6 +35,10 @@ riscv_v_merge_data_t merge_osize[RISCV_V_NUM_VALID_OSIZES-1:1];
 riscv_v_valid_data_t valid_osize[RISCV_V_NUM_VALID_OSIZES-1:0];
 
 logic len_greater_than  [RISCV_V_NUM_ELEMENTS_REG-1:0];
+
+riscv_v_valid_data_t mask_valid;
+riscv_v_valid_data_t mask_valid_osize [RISCV_V_NUM_VALID_OSIZES];
+riscv_v_valid_data_t valid_is_mask_vec;
 
 assign dst_osize = riscv_v_osize_e'(vtype.vsew);
 assign src_osize = riscv_v_osize_e'(vtype.vsew);
@@ -66,6 +73,26 @@ endgenerate
 generate
     for (genvar len_idx = 0; len_idx < RISCV_V_NUM_ELEMENTS_REG; len_idx++) begin
         assign len_greater_than[len_idx] = (vl.len > len_idx);
+    end
+endgenerate
+
+//Mask
+//Disable upper elements if destination is mask registers
+assign valid_is_mask_vec = { {RISCV_V_NUM_BYTES_DATA - RISCV_V_NUM_BYTES_ALLOCATE_MASK{(~is_mask)}}, {RISCV_V_NUM_BYTES_ALLOCATE_MASK{1'b1}} };
+
+
+//Element is valid if ~use_mask | mask[i];
+assign mask_valid = ({RISCV_V_NUM_BYTES_DATA{~use_mask}} | mask) & valid_is_mask_vec; 
+
+generate
+    for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_mask_osize
+        localparam NUM_BLOCKS_OSIZE = RISCV_V_NUM_BYTES_DATA / (2**osize_idx);
+        localparam BYTES_PER_BLOCK  = RISCV_V_NUM_BYTES_DATA / NUM_BLOCKS_OSIZE;
+
+        for (genvar block_idx = 0; block_idx < NUM_BLOCKS_OSIZE; block_idx++) begin : gen_mask_osize_block 
+            assign mask_valid_osize[osize_idx][(block_idx * BYTES_PER_BLOCK) +: BYTES_PER_BLOCK] = mask_valid[block_idx] & (dst_osize_vector[osize_idx]);
+        end
+
     end
 endgenerate
 
@@ -114,7 +141,7 @@ endgenerate
 always_comb begin
     srca_alu.valid = '0;
     for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-        srca_alu.valid |= valid_osize[osize_idx];
+        srca_alu.valid |= (valid_osize[osize_idx] & mask_valid_osize[osize_idx]);
     end
 end
 

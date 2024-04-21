@@ -14,9 +14,11 @@ class riscv_v_if_bfm_cfg_obj extends riscv_v_base_bfm_cfg_obj;
     bit use_rf_rst_seq     = 1'b1;
     bit use_specific_instr = 1'b0;
     bit use_specific_mode  = 1'b0;
+    bit use_specific_vm    = 1'b0;
 
     riscv_v_opcode_e specific_instr = ADD;
     riscv_v_funct3_e specific_mode  = OPIVV;
+    logic            specific_vm    = 1'b1;
 
     bit rf_rst_complete = 1'b0;
 

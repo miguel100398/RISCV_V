@@ -19,6 +19,7 @@ package riscv_pkg;
 //Time constants
 parameter real CLK_FREQ                     = 50e6;
 parameter time CLK_PERIOD                   = 1/CLK_FREQ;
+parameter time CLK_HALF_PERIOD                   = CLK_PERIOD/2;
 
 //Common constants
 parameter int BYTE_WIDTH                    = 8;

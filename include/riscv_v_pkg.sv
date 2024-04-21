@@ -6,10 +6,6 @@
 package riscv_v_pkg;
 import riscv_pkg::*;
 
-//Time constants
-parameter real CLK_FREQ                     = 50e6;
-parameter time CLK_PERIOD                   = 1/CLK_FREQ;
-
 
 //RISCV_V_Constants
 parameter int RISCV_V_ELEN                  = 128;                                            //Maximum size in bits of a vector element that any operation can produce or consume
@@ -283,6 +279,8 @@ typedef riscv_v_data_t riscv_v_rf_regs_t [RISCV_V_RF_NUM_REGS];
 typedef logic[RISCV_V_MASK_RF_ADDR_WIDTH-1:0] riscv_v_mask_rf_addr_t;
 typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_t;
 typedef riscv_v_mask_t riscv_v_mask_regs_t [RISCV_V_MASK_RF_NUM_REGS];
+localparam RISCV_V_MASK_RF_POS = 0;
+localparam RISCV_V_NUM_BYTES_ALLOCATE_MASK = (RISCV_V_NUM_ELEMENTS_REG/BYTE_WIDTH);
 
 //ALU Types
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0]  riscv_v_src_byte_vector_t;
@@ -495,6 +493,10 @@ function automatic logic f_is_negate_result(riscv_instr_funct6_t funct6, logic f
 
     return is_negate_result;
 endfunction: f_is_negate_result
+
+function automatic logic f_use_mask(logic vm);
+    return ~vm;
+endfunction: f_use_mask;
 
 function automatic logic f_is_mask(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV);
     logic is_mask = 1'b0;
