@@ -54,8 +54,18 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     int NUM_FORMATS         = 0;
     int TOTAL_BLOCKS        = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
 
+    bit USE_RAND_START      = 1'b0;
+    bit USE_RAND_LEN        = 1'b0;
+
     riscv_v_osize_e  valid_osizes[];
     riscv_v_funct3_e valid_formats[];
+
+    bit cfg_wr_vsstatus     = 1'b0;
+    bit cfg_wr_vl           = 1'b1;
+    bit cfg_wr_vtype        = 1'b1;
+    bit cfg_wr_vstart       = 1'b1;
+    bit cfg_wr_vxrm         = 1'b0;
+    bit cfg_wr_vxsat        = 1'b0;
 
     function new(string name = "riscv_v_cpu_base_test", uvm_component parent=null);
         super.new(name, parent);
@@ -144,10 +154,24 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
    
         vtype_tmp = RISCV_V_VTYPE_RST_VAL;
 
+        ext_csr_cfg.wr_vsstatus     = 1'b0;
+        ext_csr_cfg.wr_vl           = 1'b0;
+        ext_csr_cfg.wr_vtype        = 1'b0;
+        ext_csr_cfg.wr_vstart       = 1'b0;
+        ext_csr_cfg.wr_vxrm         = 1'b0;
+        ext_csr_cfg.wr_vxsat        = 1'b0;
+
         //Wait for Initialization
         repeat(RST_CYCLES + INIT_CYCLES) begin
                 @(vec_env.agt.mon.vif.cb_mon);
         end
+
+        ext_csr_cfg.wr_vsstatus     = cfg_wr_vsstatus;
+        ext_csr_cfg.wr_vl           = cfg_wr_vl;
+        ext_csr_cfg.wr_vtype        = cfg_wr_vtype;
+        ext_csr_cfg.wr_vstart       = cfg_wr_vstart;
+        ext_csr_cfg.wr_vxrm         = cfg_wr_vxrm;
+        ext_csr_cfg.wr_vxsat        = cfg_wr_vxsat;
 
         //For Format
         for (int format = 0; format < NUM_FORMATS; format++) begin
@@ -162,12 +186,64 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
                 if_cfg.specific_vm          = 1'b1;
                 repeat(NUM_TXN_BLOCK) begin
                     @(vec_env.agt.mon.vif.cb_mon);
+
+                    //Update Start
+                    if (USE_RAND_START) begin
+
+                        riscv_v_field_vstart_t tmp_vstart;
+                        assert (
+                            std::randomize(tmp_vstart) with{
+                                tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                            }
+                        ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                        ext_csr_cfg.vstart_wr_data.index = tmp_vstart;
+
+                    end
+                    //Update Len 
+                    if (USE_RAND_LEN) begin
+                        
+                        riscv_v_vlen_t tmp_len;
+                        assert (
+                            std::randomize(tmp_len) with{
+                                tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                            }
+                        ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                        ext_csr_cfg.vl_wr_data.len = tmp_len;
+
+                    end
+
                 end
                 if (SUPPORTS_MASK) begin
                     //Mask
                     if_cfg.specific_vm          = 1'b0;
                     repeat(NUM_TXN_BLOCK) begin
                         @(vec_env.agt.mon.vif.cb_mon);
+
+                         //Update Start
+                        if (USE_RAND_START) begin
+
+                            riscv_v_field_vstart_t tmp_vstart;
+                            assert (
+                                std::randomize(tmp_vstart) with{
+                                    tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                }
+                            ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            ext_csr_cfg.vstart_wr_data.index = tmp_vstart;
+
+                        end
+                        //Update Len 
+                        if (USE_RAND_LEN) begin
+                            
+                            riscv_v_vlen_t tmp_len;
+                            assert (
+                                std::randomize(tmp_len) with{
+                                    tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                }
+                            ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            ext_csr_cfg.vl_wr_data.len = tmp_len;
+
+                        end
+                        
                     end
                 end
             end
@@ -218,12 +294,12 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         if_cfg.use_file             = 1'b0;
         //EXT csr wr en
         ext_csr_cfg.run_forever     = 1'b1;
-        ext_csr_cfg.wr_vsstatus          = 1'b0;
-        ext_csr_cfg.wr_vl                = 1'b1;
-        ext_csr_cfg.wr_vtype             = 1'b1;
-        ext_csr_cfg.wr_vstart            = 1'b0;
-        ext_csr_cfg.wr_vxrm              = 1'b0;
-        ext_csr_cfg.wr_vxsat             = 1'b0;
+        ext_csr_cfg.wr_vsstatus     = cfg_wr_vsstatus;
+        ext_csr_cfg.wr_vl           = cfg_wr_vl;
+        ext_csr_cfg.wr_vtype        = cfg_wr_vtype;
+        ext_csr_cfg.wr_vstart       = cfg_wr_vstart;
+        ext_csr_cfg.wr_vxrm         = cfg_wr_vxrm;
+        ext_csr_cfg.wr_vxsat        = cfg_wr_vxsat;
         //EXT csr wr data
         ext_csr_cfg.vsstatus_wr_data     = RISCV_V_VSSTATUS_RST_VAL;
         ext_csr_cfg.vtype_wr_data        = RISCV_V_VTYPE_RST_VAL;
@@ -234,11 +310,11 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     endfunction: base_bfm_cfg
 
     virtual function void base_csr_rotator_cfg();
-        ext_csr_rotator.set_num_entries(2);
+        ext_csr_rotator.set_num_entries(3);
         ext_csr_rotator.set_entry(VTYPE_E,      0);
         ext_csr_rotator.set_entry(VL_E,         1);
-        ext_csr_rotator.set_entry(VSSTATUS_E,   2);
-        ext_csr_rotator.set_entry(VSTART_E,     3);
+        ext_csr_rotator.set_entry(VSTART_E,     2);
+        ext_csr_rotator.set_entry(VSSTATUS_E,   3);
         ext_csr_rotator.set_entry(VXRM_E,       4);
         ext_csr_rotator.set_entry(VXSAT_E,      5);
     endfunction: base_csr_rotator_cfg

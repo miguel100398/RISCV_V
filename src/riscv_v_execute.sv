@@ -203,4 +203,9 @@ assign alu_result_exe.data  = result_swizzle_exe;
 assign alu_result_exe.valid = alu_result_pre_swizzle_exe.valid;
 
 
+vstart_reduct_unsupported: assert property ( @(posedge clk)
+    !((vstart.index != 0) && is_reduct_exe)
+) else $fatal(1, $sformatf("Vstart different from 0 not supported for reduct operations"));
+
+
 endmodule: riscv_v_execute

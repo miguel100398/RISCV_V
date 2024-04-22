@@ -36,6 +36,7 @@ riscv_v_merge_data_t merge_osize[RISCV_V_NUM_VALID_OSIZES-1:1];
 riscv_v_valid_data_t valid_osize[RISCV_V_NUM_VALID_OSIZES-1:0];
 
 logic len_greater_than  [RISCV_V_NUM_ELEMENTS_REG-1:0];
+logic start_less_than   [RISCV_V_NUM_ELEMENTS_REG-1:0];
 
 riscv_v_valid_data_t mask_valid;
 riscv_v_valid_data_t mask_valid_osize [RISCV_V_NUM_VALID_OSIZES];
@@ -75,7 +76,14 @@ endgenerate
 //Len comparators
 generate
     for (genvar len_idx = 0; len_idx < RISCV_V_NUM_ELEMENTS_REG; len_idx++) begin : gen_len_greater_than
-        assign len_greater_than[len_idx] = (vl.len > len_idx);
+        assign len_greater_than[len_idx] = (unsigned'(vl.len) >= unsigned'(len_idx+1));
+    end
+endgenerate
+
+//Start comparators
+generate
+    for (genvar start_idx = 0; start_idx < RISCV_V_NUM_ELEMENTS_REG; start_idx++) begin : gen_start_less_than 
+        assign start_less_than[start_idx] = (unsigned'(vstart.index) < unsigned'(start_idx+1));
     end
 endgenerate
 
@@ -150,7 +158,7 @@ generate
         always_comb begin
             valid_osize[osize_idx] = '0;
             for (int block_idx = 0; block_idx < NUM_BLOCKS_OSIZE; block_idx++) begin
-                valid_osize[osize_idx][block_idx*(2**osize_idx) +: NUM_BITS_OSIZE] = {NUM_BITS_OSIZE{(len_greater_than[block_idx])}};
+                valid_osize[osize_idx][block_idx*(2**osize_idx) +: NUM_BITS_OSIZE] = {NUM_BITS_OSIZE{(len_greater_than[block_idx] & start_less_than[block_idx] & dst_osize_vector[osize_idx])}};
             end
         end
 

@@ -13,12 +13,15 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         super.new(name, parent);
     endfunction: new 
 
-    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_src_start_t start);
         riscv_v_data_t result = 'x;
+        riscv_v_src_len_t len_op;
+
+        len_op = get_len_op(len, dst_osize);
         
         unique case(opcode)
-            ADD        : result = calc_add(srca, srcb, is_scalar, dst_osize, len, start);
-            ADD_REDUCT : result = calc_add_reduct(srca, srcb, dst_osize, len, start);
+            ADD        : result = calc_add(srca, srcb, is_scalar, dst_osize, len_op, start);
+            ADD_REDUCT : result = calc_add_reduct(srca, srcb, dst_osize, len_op, start);
             default : `uvm_fatal(get_name(), $sformatf("Invalid opcode: %s", opcode.name()))
         endcase
 
@@ -110,6 +113,10 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
             `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDSUM")
         end
 
+        if (len == 0) begin
+            return result;
+        end
+
         unique case(osize)
             OSIZE_8 : begin
                 result.Byte[0] = signed'(srcb.Byte[0]) + signed'(srca.Byte[0]);
@@ -119,10 +126,8 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
             end
             OSIZE_16 : begin
                 result.Word[0] = signed'(srcb.Word[0]) + signed'(srca.Word[0]);
-                $display("tmp result[0]: 0x%0h", result.Word[0]);
                 for (int idx = 1; idx <len; idx++) begin
                     result.Word[0] = signed'(srcb.Word[idx]) + signed'(result.Word[0]);
-                    $display("tmp result[%0d]: 0x%0h", idx, result.Word[0]);
                 end
             end
             OSIZE_32 : begin

@@ -46,7 +46,7 @@ class riscv_v_execute_model extends riscv_v_base_model;
         input  riscv_v_data_t      srcb_vec,
         input  riscv_data_t        src_int,
         input  riscv_v_imm_t       src_imm,
-        input  riscv_v_src_len_t   len,
+        input  riscv_v_vlen_t      len,
         input  riscv_v_src_start_t start,
         output riscv_v_data_t      vec_result,
         output riscv_data_t        int_result

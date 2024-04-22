@@ -65,7 +65,7 @@ class riscv_v_model extends riscv_v_base_model;
     riscv_v_imm_t       imm;
     riscv_v_osize_e     src_osize;
     riscv_v_osize_e     dst_osize;
-    riscv_v_src_len_t   len;
+    riscv_v_vlen_t      len;
     riscv_v_src_start_t start;
     riscv_v_mask_t      mask;
 

@@ -121,13 +121,10 @@ assign vcsr_data_out      = vcsr;
 
 ////////////////////////////////////////////////Assertions/////////////////////////////////////////////
 
-vstart_supported: assert property ( @(posedge clk)
-    vstart.index == 0
-) else $fatal(1, "Vstart different than 0 is not supported yet");
 
 vlen_supported: assert property ( @(posedge clk)
-    vl.len <= RISCV_V_NUM_ELEMENTS_REG
-) else $fatal(1, $sformatf("Vlen different than %0d is not supported yet", RISCV_V_NUM_ELEMENTS_REG));
+    vl.len <= RISCV_V_MAX_VLEN
+) else $fatal(1, $sformatf("Vlen greater than %0d is not supported", RISCV_V_MAX_VLEN));
 
 vlmul_suppoorted: assert property ( @(posedge clk)
     vtype.vlmul == LMUL_1

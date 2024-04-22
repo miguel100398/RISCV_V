@@ -168,37 +168,9 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return riscv_v_osize_e'(vtype.vsew);
     endfunction: get_dst_osize
 
-    virtual function riscv_v_src_len_t get_len(riscv_v_vl_t vl, riscv_v_osize_e osize);
-        riscv_v_src_len_t len;
+    virtual function riscv_v_vlen_t get_len(riscv_v_vl_t vl, riscv_v_osize_e osize);
+        riscv_v_vlen_t len;
         len = vl.len;
-        unique case(osize)
-            OSIZE_8   : begin
-                if (len > RISCV_V_NUM_BYTES_DATA) begin
-                    len = RISCV_V_NUM_BYTES_DATA;
-                end
-            end
-            OSIZE_16  : begin
-                if (len > RISCV_V_NUM_WORDS_DATA) begin
-                    len = RISCV_V_NUM_WORDS_DATA;
-                end
-            end
-            OSIZE_32  : begin
-                if (len > RISCV_V_NUM_DWORDS_DATA) begin
-                    len = RISCV_V_NUM_DWORDS_DATA;
-                end
-            end
-            OSIZE_64  : begin
-                if (len > RISCV_V_NUM_QWORDS_DATA) begin
-                    len = RISCV_V_NUM_QWORDS_DATA;
-                end
-            end
-            OSIZE_128 : begin
-                if (len > RISCV_V_NUM_DQWORDS_DATA) begin
-                    len = RISCV_V_NUM_DQWORDS_DATA;
-                end
-            end
-            default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
-        endcase
         return len;
     endfunction: get_len
 
@@ -208,7 +180,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
 
     virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart, bit use_mask, riscv_v_mask_t mask, bit is_mask, bit is_reduct);
         riscv_v_osize_e osize;
-        riscv_v_src_len_t len;
+        riscv_v_vlen_t len;
         riscv_v_valid_data_t valid;
         int num_bytes_osize;
 
@@ -221,9 +193,9 @@ class riscv_v_decode_model extends riscv_v_base_model;
         unique case(osize)
             OSIZE_8   : num_bytes_osize = 1;
             OSIZE_16  : num_bytes_osize = 2;
-            OSIZE_32  : num_bytes_osize = 3;
-            OSIZE_64  : num_bytes_osize = 4;
-            OSIZE_128 : num_bytes_osize = 5;
+            OSIZE_32  : num_bytes_osize = 4;
+            OSIZE_64  : num_bytes_osize = 8;
+            OSIZE_128 : num_bytes_osize = 16;
             default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
         endcase
 

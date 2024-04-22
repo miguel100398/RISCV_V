@@ -13,11 +13,13 @@ class riscv_v_cpu_vredsum_test extends riscv_v_cpu_base_test;
     function new(string name = "riscv_v_cpu_vredsum_test",uvm_component parent=null);
         super.new(name,parent);
         //Set Global variables
-        NUM_TXN_BLOCK = 50;
-        SUPPORTS_MASK = 1;
-        NUM_OSIZES    = RISCV_V_NUM_VALID_OSIZES-1;
-        NUM_FORMATS   = 2;
-        TOTAL_BLOCKS  = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
+        NUM_TXN_BLOCK  = 50;
+        SUPPORTS_MASK  = 1;
+        NUM_OSIZES     = RISCV_V_NUM_VALID_OSIZES-1;
+        NUM_FORMATS    = 2;
+        TOTAL_BLOCKS   = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
+        USE_RAND_START = 1'b0;
+        USE_RAND_LEN   = 1'b1;
     endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
@@ -38,6 +40,9 @@ class riscv_v_cpu_vredsum_test extends riscv_v_cpu_base_test;
         //Set Valid formats for test
         valid_formats = new[NUM_FORMATS];
         valid_formats = '{OPMVV, OPMVX};
+        //Dont update vstart
+        cfg_wr_vstart = 1'b0;
+
     endfunction: specific_bfm_cfg
 
 endclass: riscv_v_cpu_vredsum_test 
