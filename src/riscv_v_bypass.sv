@@ -12,6 +12,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_imm_t        imm,
     input  riscv_v_data_t       srca,
     input  riscv_v_data_t       srcb,
+    input  riscv_v_mask_t       mask,
     input  osize_vector_t       osize_vector,
     input  logic                is_scalar,
     input  logic                is_scalar_int,
@@ -27,7 +28,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_data_t       rf_wr_data_mem,
     input  riscv_v_data_t       rf_wr_data_wb,
     output riscv_v_data_t       srca_byp,
-    output riscv_v_data_t       srcb_byp
+    output riscv_v_data_t       srcb_byp,
+    output riscv_v_mask_t       mask_byp
 );
 
     //Get data from bypass
@@ -35,10 +37,15 @@ import riscv_pkg::*, riscv_v_pkg::*;
     logic                     rd_addr_A_wb_match;
     logic                     rd_addr_B_mem_match;
     logic                     rd_addr_B_wb_match;
+    logic                     mask_mem_match;
+    logic                     mask_wb_match;
     riscv_v_num_byte_vector_t srca_mem_sel;
     riscv_v_num_byte_vector_t srca_wb_sel;
     riscv_v_num_byte_vector_t srcb_mem_sel;
     riscv_v_num_byte_vector_t srcb_wb_sel;
+    riscv_v_mask_byte_t       mask_mem_sel;
+    riscv_v_mask_byte_t       mask_wb_sel;
+
 
     riscv_v_data_t srca_vec_byp;
     riscv_v_data_t srcb_vec_byp;
@@ -57,6 +64,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     assign rd_addr_B_mem_match = (rf_rd_addr_srcb_exe == rf_wr_addr_mem);
     assign rd_addr_B_wb_match  = (rf_rd_addr_srcb_exe == rf_wr_addr_wb);
 
+    assign mask_mem_match      = (rf_wr_addr_mem      == RISCV_V_MASK_RF_POS);
+    assign mask_wb_match       = (rf_wr_addr_wb       == RISCV_V_MASK_RF_POS);
     
     always_comb begin
         for (int idx = 0; idx < RISCV_V_NUM_BYTES_DATA; idx++) begin
@@ -69,6 +78,13 @@ import riscv_pkg::*, riscv_v_pkg::*;
         for (int idx = 0; idx < RISCV_V_NUM_BYTES_DATA; idx++) begin
             srcb_mem_sel[idx] = rd_addr_B_mem_match && rf_wr_en_mem[idx];
             srcb_wb_sel[idx]  = rd_addr_B_wb_match  && rf_wr_en_wb[idx];
+        end
+    end
+
+    always_comb begin
+        for (int idx = 0; idx < RISCV_V_NUM_BYTES_ALLOCATE_MASK; idx++) begin
+            mask_mem_sel[idx] = mask_mem_match && rf_wr_en_mem[idx];
+            mask_wb_sel[idx]  = mask_wb_match  && rf_wr_en_wb[idx];
         end
     end
 
@@ -92,6 +108,18 @@ import riscv_pkg::*, riscv_v_pkg::*;
                 srcb_vec_byp.Byte[idx] = rf_wr_data_wb.Byte[idx];
             end else begin
                 srcb_vec_byp.Byte[idx] = srcb.Byte[idx];
+            end
+        end
+    end
+
+    always_comb begin
+        for (int idx = 0; idx < RISCV_V_NUM_BYTES_ALLOCATE_MASK; idx++) begin
+            if (mask_mem_sel[idx]) begin
+                mask_byp[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = rf_wr_data_mem[(idx*BYTE_WIDTH) +: BYTE_WIDTH];
+            end else if (mask_wb_sel[idx]) begin
+                mask_byp[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = rf_wr_data_wb[(idx*BYTE_WIDTH) +: BYTE_WIDTH];
+            end else begin
+                mask_byp[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = mask[(idx*BYTE_WIDTH) +: BYTE_WIDTH];
             end
         end
     end

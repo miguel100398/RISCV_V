@@ -48,11 +48,14 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
 
     int RST_CYCLES          = 6;
     int INIT_CYCLES         = 32;
-    int NUM_TXN_BLOCK       = 50;
-    int NUM_BLOCKS_OSIZE    = 2;
-    int NUM_OSIZES          = RISCV_V_NUM_VALID_OSIZES;
-    int NUM_FORMATS         = 3;
-    int TOTAL_BLOCKS        = NUM_FORMATS*NUM_OSIZES*NUM_BLOCKS_OSIZE;
+    int NUM_TXN_BLOCK       = 0;
+    bit SUPPORTS_MASK       = 0;
+    int NUM_OSIZES          = 0;
+    int NUM_FORMATS         = 0;
+    int TOTAL_BLOCKS        = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
+
+    riscv_v_osize_e  valid_osizes[];
+    riscv_v_funct3_e valid_formats[];
 
     function new(string name = "riscv_v_cpu_base_test", uvm_component parent=null);
         super.new(name, parent);
@@ -135,8 +138,41 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     endfunction: start_of_simulation_phase
 
     virtual task run_phase(uvm_phase phase);
+        riscv_v_vtype_t vtype_tmp;
         super.run_phase(phase);
         start_bfm();
+   
+        vtype_tmp = RISCV_V_VTYPE_RST_VAL;
+
+        //Wait for Initialization
+        repeat(RST_CYCLES + INIT_CYCLES) begin
+                @(vec_env.agt.mon.vif.cb_mon);
+        end
+
+        //For Format
+        for (int format = 0; format < NUM_FORMATS; format++) begin
+            //Update format
+            if_cfg.specific_mode = valid_formats[format];
+            //For loop osizes
+            for (int osize = 0; osize < RISCV_V_NUM_VALID_OSIZES; osize++) begin
+                //Update osize
+                vtype_tmp.vsew = valid_osizes[osize];
+                ext_csr_cfg.vtype_wr_data = vtype_tmp;
+                //Not Mask
+                if_cfg.specific_vm          = 1'b1;
+                repeat(NUM_TXN_BLOCK) begin
+                    @(vec_env.agt.mon.vif.cb_mon);
+                end
+                if (SUPPORTS_MASK) begin
+                    //Mask
+                    if_cfg.specific_vm          = 1'b0;
+                    repeat(NUM_TXN_BLOCK) begin
+                        @(vec_env.agt.mon.vif.cb_mon);
+                    end
+                end
+            end
+        end
+
     endtask: run_phase
 
     virtual function void get_bfm();
@@ -157,6 +193,18 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         configure_csr_rotator();
         base_bfm_cfg();
         specific_bfm_cfg();
+        if (valid_osizes.size() == 0) begin
+            `uvm_fatal(get_name(), "Valid osizes is 0, override this parameter to start test")
+        end
+        if (valid_formats.size() == 0) begin
+            `uvm_fatal(get_name(), "Valid formats is 0, override this parameter to start test")
+        end
+        if (NUM_TXN_BLOCK == 0) begin
+            `uvm_fatal(get_name(), "NUM_TXN_BLOCK is 0, override this parameter to start text")
+        end
+        if (TOTAL_BLOCKS == 0) begin
+            `uvm_fatal(get_name(), "TOTAL_BLOCKS is 0, override this parameter to start test")
+        end
     endfunction: configure_bfm
 
     virtual function void base_bfm_cfg();

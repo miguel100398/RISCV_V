@@ -25,7 +25,7 @@ class riscv_v_if_model extends riscv_v_base_model;
         return;
     endfunction: rst
 
-    virtual function riscv_instruction_t get_instruction(bit use_file = 1'b1, bit use_specific_instr = 1'b0, bit use_specific_mode = 1'b0, bit use_specific_vm = 1'b0, riscv_v_opcode_e opcode = ADD, riscv_v_funct3_e mode = OPIVV, vm = 1'b1);
+    virtual function riscv_instruction_t get_instruction(bit use_file = 1'b1, bit use_specific_instr = 1'b0, bit use_specific_mode = 1'b0, bit use_specific_vm = 1'b0, riscv_v_opcode_e opcode = ADD, riscv_v_funct3_e mode = OPIVV, bit vm = 1'b1);
         riscv_instruction_t instr;
         if (use_file) begin
             `uvm_fatal(get_name(), "use_file mode not supported yet")
@@ -42,7 +42,8 @@ class riscv_v_if_model extends riscv_v_base_model;
                 `uvm_fatal(get_name(), $sformatf("Instruction: %0s, doesn't support masking", opcode.name()))
             end
             instr.V.vm = vm;
-            if (instr.V.vd == 0) begin
+            //If Masking enabled destination register can't be reg 0
+            if ((~vm) && (instr.V.vd == 0)) begin
                 riscv_instr_rd_t tmp_dst;
                 assert(std::randomize(tmp_dst) with {
                     tmp_dst != 0;

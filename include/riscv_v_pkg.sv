@@ -281,6 +281,7 @@ typedef logic[RISCV_V_NUM_ELEMENTS_REG-1:0]   riscv_v_mask_t;
 typedef riscv_v_mask_t riscv_v_mask_regs_t [RISCV_V_MASK_RF_NUM_REGS];
 localparam RISCV_V_MASK_RF_POS = 0;
 localparam RISCV_V_NUM_BYTES_ALLOCATE_MASK = (RISCV_V_NUM_ELEMENTS_REG/BYTE_WIDTH);
+typedef logic[RISCV_V_NUM_BYTES_ALLOCATE_MASK-1:0] riscv_v_mask_byte_t;
 
 //ALU Types
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0]  riscv_v_src_byte_vector_t;

@@ -18,6 +18,6 @@ package riscv_v_cpu_arithmetic_test_pkg;
     `include "uvm_macros.svh"
     import riscv_v_base_test_pkg::*;
     import riscv_v_cpu_base_test_pkg::*;
-    `include "riscv_v_cpu_vadd_osize8_v2v_test.sv"
+    `include "riscv_v_cpu_vadd_test.sv"
 
 endpackage: riscv_v_cpu_arithmetic_test_pkg 

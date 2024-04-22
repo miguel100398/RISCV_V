@@ -72,6 +72,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
 
 riscv_v_data_t srca_byp;
 riscv_v_data_t srcb_byp;
+riscv_v_mask_t mask_byp;
 
 riscv_v_alu_data_t  srca_alu;
 riscv_v_alu_data_t  srcb_alu;
@@ -98,7 +99,7 @@ riscv_v_exe_alu exe_alu(
     .srca_exe(srca_alu),
     .srcb_exe(srcb_alu),
     .src_int_exe(int_data_exe),
-    .mask_exe(mask_exe),
+    .mask_exe(mask_byp),
     .dst_osize_vector_exe(dst_osize_vector),
     .src_osize_vector_exe(src_osize_vector),
     .is_greater_osize_vector_exe(is_greater_osize_vector),
@@ -140,7 +141,7 @@ riscv_v_decode_element decode_element(
     .vl(vl),
     .vstart(vstart),
     .use_mask(use_mask_exe),
-    .mask(mask_exe),
+    .mask(mask_byp),
     .is_mask(is_mask_exe),
     .srca_alu(srca_alu),
     .srcb_alu(srcb_alu),
@@ -160,6 +161,7 @@ riscv_v_bypass v_bypass(
     .imm(imm_exe),
     .srca(srca_exe),
     .srcb(srcb_exe),
+    .mask(mask_exe),
     .osize_vector(src_osize_vector),
     .is_scalar_int(is_scalar_int_op_exe),
     .is_scalar_imm(is_scalar_imm_op_exe),
@@ -175,7 +177,8 @@ riscv_v_bypass v_bypass(
     .rf_wr_data_mem(rf_wr_data_mem),
     .rf_wr_data_wb(rf_wr_data_wb),
     .srca_byp(srca_byp),
-    .srcb_byp(srcb_byp)
+    .srcb_byp(srcb_byp),
+    .mask_byp(mask_byp)
 );
 
 

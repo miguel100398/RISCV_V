@@ -40,7 +40,39 @@ import riscv_v_pkg::*, riscv_pkg::*;
 
 
     //Mask is always register 0
-    assign mask = regs[RISCV_V_MASK_RF_POS][RISCV_V_NUM_ELEMENTS_REG-1:0];
+    generate
+        if (RD_ASYNC) begin : GEN_READ_MASK_ASYNC
+
+            if (USE_BYPASS) begin : GEN_READ_MASK_BYPASS 
+
+                logic wr_addr_match_mask;
+                assign wr_addr_match_mask = (wr_addr_int == RISCV_V_MASK_RF_POS);
+
+                always_comb begin
+                    for (int idx = 0; idx < RISCV_V_NUM_BYTES_ALLOCATE_MASK; idx++) begin
+                        if (wr_en_int[idx] && wr_addr_match_mask) begin
+                            mask[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = data_in[(idx*BYTE_WIDTH) +: BYTE_WIDTH];
+                        end else begin
+                            mask[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = regs[RISCV_V_MASK_RF_POS][(idx*BYTE_WIDTH) +: BYTE_WIDTH];
+                        end
+                    end
+                end
+
+            end else begin : BEGIN_READ_MASK_NO_BYPASS 
+
+                assign mask = regs[RISCV_V_MASK_RF_POS][RISCV_V_NUM_ELEMENTS_REG-1:0];
+
+            end
+
+        end else begin : GEN_READ_MASK_SYNC 
+
+            always_ff @(posedge clk) begin
+                mask <= regs[RISCV_V_MASK_RF_POS][RISCV_V_NUM_ELEMENTS_REG-1:0];
+            end
+
+        end
+    endgenerate
+    
 
     //Register or bypass inputs
     generate
