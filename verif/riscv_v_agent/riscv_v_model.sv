@@ -46,26 +46,28 @@ class riscv_v_model extends riscv_v_base_model;
         output riscv_rf_addr_t           int_wr_addr,
         output riscv_data_t              int_wr_data
     );
-    riscv_v_vtype_t    csr_vtype;
-    riscv_v_vl_t       csr_vl;
-    riscv_v_vstart_t   csr_vstart;
-    riscv_instr_rs_t   srca_addr;
-    riscv_instr_rs_t   srcb_addr;
-    riscv_instr_rs_t   dest_addr;
-    riscv_v_data_t     srca;
-    riscv_v_data_t     srcb;
-    riscv_v_opcode_e   opcode;
-    riscv_v_src_type_t srca_type;
-    riscv_v_src_type_t srcb_type;
-    bit                is_scalar;
-    bit                use_mask;
-    bit                is_mask;
-    riscv_v_alu_e      ALU;
-    riscv_v_imm_t      imm;
-    riscv_v_osize_e    src_osize;
-    riscv_v_osize_e    dst_osize;
-    riscv_v_src_len_t  len;
-    riscv_v_mask_t     mask;
+    riscv_v_vtype_t     csr_vtype;
+    riscv_v_vl_t        csr_vl;
+    riscv_v_vstart_t    csr_vstart;
+    riscv_instr_rs_t    srca_addr;
+    riscv_instr_rs_t    srcb_addr;
+    riscv_instr_rs_t    dest_addr;
+    riscv_v_data_t      srca;
+    riscv_v_data_t      srcb;
+    riscv_v_opcode_e    opcode;
+    riscv_v_src_type_t  srca_type;
+    riscv_v_src_type_t  srcb_type;
+    bit                 is_scalar;
+    bit                 use_mask;
+    bit                 is_mask;
+    bit                 is_reduct;
+    riscv_v_alu_e       ALU;
+    riscv_v_imm_t       imm;
+    riscv_v_osize_e     src_osize;
+    riscv_v_osize_e     dst_osize;
+    riscv_v_src_len_t   len;
+    riscv_v_src_start_t start;
+    riscv_v_mask_t      mask;
 
     wr_vec      = 1'b0;
     vec_wr_en   = 'x;
@@ -121,6 +123,9 @@ class riscv_v_model extends riscv_v_base_model;
     //Get is mask
     is_mask   = decode_model.get_is_mask(instr);
 
+    //Get is reduct
+    is_reduct = decode_model.get_is_reduct(opcode);
+
     //Get ALU
     ALU = decode_model.get_ALU(opcode);
 
@@ -132,10 +137,13 @@ class riscv_v_model extends riscv_v_base_model;
     dst_osize = decode_model.get_dst_osize(csr_vtype);
 
     //Get len
-    len = decode_model.get_len(csr_vl);
+    len = decode_model.get_len(csr_vl, dst_osize);
+
+    //Get start
+    start = decode_model.get_start(csr_vstart);
 
     //Get Valid
-    vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart, use_mask, mask, is_mask);
+    vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart, use_mask, mask, is_mask, is_reduct);
 
     //Execute instruction
     execute_model.execute_op(
@@ -150,6 +158,8 @@ class riscv_v_model extends riscv_v_base_model;
         .srcb_vec(srcb),
         .src_int(src_int),
         .src_imm(imm),
+        .len(len),
+        .start(start),
         .vec_result(vec_wr_data),
         .int_result(int_wr_data)
     );
@@ -171,8 +181,10 @@ class riscv_v_model extends riscv_v_base_model;
     mask: 0x%0h \
     imm: 0x%0h \
     src_int: 0x%0h \
+    len: %0d \
+    vstart: %0d \
     result: 0x%0h \
-    ref_wr_en: 0x%0h", instr, opcode.name(), ALU.name(), is_scalar, use_mask, dst_osize.name(), srca_type.name(), srca_type.name(), srca_addr, srcb_addr, dest_addr, srca, srcb, mask, imm, src_int, vec_wr_data, vec_wr_en), UVM_MEDIUM)
+    ref_wr_en: 0x%0h", instr, opcode.name(), ALU.name(), is_scalar, use_mask, dst_osize.name(), srca_type.name(), srcb_type.name(), srca_addr, srcb_addr, dest_addr, srca, srcb, mask, imm, src_int, len, start, vec_wr_data, vec_wr_en), UVM_MEDIUM)
 
     //Write Back to register File
     if (wr_vec) begin

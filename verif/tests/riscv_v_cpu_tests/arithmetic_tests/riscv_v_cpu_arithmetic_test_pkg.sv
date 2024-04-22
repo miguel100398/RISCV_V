@@ -19,5 +19,6 @@ package riscv_v_cpu_arithmetic_test_pkg;
     import riscv_v_base_test_pkg::*;
     import riscv_v_cpu_base_test_pkg::*;
     `include "riscv_v_cpu_vadd_test.sv"
+    `include "riscv_v_cpu_vredsum_test.sv"
 
 endpackage: riscv_v_cpu_arithmetic_test_pkg 

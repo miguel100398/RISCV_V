@@ -168,11 +168,45 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return riscv_v_osize_e'(vtype.vsew);
     endfunction: get_dst_osize
 
-    virtual function riscv_v_src_len_t get_len(riscv_v_vl_t vl);
-        return vl.len;
+    virtual function riscv_v_src_len_t get_len(riscv_v_vl_t vl, riscv_v_osize_e osize);
+        riscv_v_src_len_t len;
+        len = vl.len;
+        unique case(osize)
+            OSIZE_8   : begin
+                if (len > RISCV_V_NUM_BYTES_DATA) begin
+                    len = RISCV_V_NUM_BYTES_DATA;
+                end
+            end
+            OSIZE_16  : begin
+                if (len > RISCV_V_NUM_WORDS_DATA) begin
+                    len = RISCV_V_NUM_WORDS_DATA;
+                end
+            end
+            OSIZE_32  : begin
+                if (len > RISCV_V_NUM_DWORDS_DATA) begin
+                    len = RISCV_V_NUM_DWORDS_DATA;
+                end
+            end
+            OSIZE_64  : begin
+                if (len > RISCV_V_NUM_QWORDS_DATA) begin
+                    len = RISCV_V_NUM_QWORDS_DATA;
+                end
+            end
+            OSIZE_128 : begin
+                if (len > RISCV_V_NUM_DQWORDS_DATA) begin
+                    len = RISCV_V_NUM_DQWORDS_DATA;
+                end
+            end
+            default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
+        endcase
+        return len;
     endfunction: get_len
 
-    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart, bit use_mask, riscv_v_mask_t mask, bit is_mask);
+    virtual function riscv_v_src_start_t get_start(riscv_v_vstart_t vstart);
+        return vstart.index;
+    endfunction: get_start 
+
+    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart, bit use_mask, riscv_v_mask_t mask, bit is_mask, bit is_reduct);
         riscv_v_osize_e osize;
         riscv_v_src_len_t len;
         riscv_v_valid_data_t valid;
@@ -240,6 +274,25 @@ class riscv_v_decode_model extends riscv_v_base_model;
             valid[RISCV_V_NUM_ELEMENTS_REG-1 : RISCV_V_NUM_BYTES_ALLOCATE_MASK] = '0;
         end
 
+        //Turn off valid bits if is a reduct operation
+        if (is_reduct) begin
+            unique case(osize)
+                OSIZE_8 : begin
+                    valid[RISCV_V_NUM_BYTES_DATA-1:(BYTE_WIDTH/BYTE_WIDTH)] = '0;
+                end
+                OSIZE_16 : begin
+                    valid[RISCV_V_NUM_BYTES_DATA-1:(WORD_WIDTH/BYTE_WIDTH)] = '0;
+                end
+                OSIZE_32 : begin
+                    valid[RISCV_V_NUM_BYTES_DATA-1:(DWORD_WIDTH/BYTE_WIDTH)] = '0;
+                end
+                OSIZE_64 : begin
+                    valid[RISCV_V_NUM_BYTES_DATA-1:(QWORD_WIDTH/BYTE_WIDTH)] = '0;
+                end 
+                default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
+            endcase
+        end
+
         return valid;
 
     endfunction: get_valid
@@ -254,6 +307,16 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return f_is_mask(instr.funct6, is_OPMVV);
 
     endfunction: get_is_mask
+
+    virtual function bit get_is_reduct(riscv_v_opcode_e opcode);
+        if (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT, BW_XOR_REDUCT,
+                           ADD_REDUCT, SUB_REDUCT, MINS_REDUCT, MINU_REDUCT,
+                           MAXS_REDUCT, MAXU_REDUCT}) begin
+            return 1'b1;
+        end else begin
+            return 1'b0;
+        end
+    endfunction: get_is_reduct
 
 
 endclass: riscv_v_decode_model

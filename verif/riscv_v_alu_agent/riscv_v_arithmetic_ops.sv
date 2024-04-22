@@ -116,83 +116,84 @@ class riscv_v_arithmetic_ops extends uvm_component;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
 
-                {cf_exp[0], arithmetic_exp_result.data.Byte[0]} = ((arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1]) + (arithmetic_in_txn.srcb.data.Byte[0]));
-                of_exp[0] = (~arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[0][BYTE_WIDTH-1] & arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]) ||
-                            (arithmetic_in_txn.srca.data.Byte[RISCV_V_NUM_BYTES_DATA-1][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[0][BYTE_WIDTH-1]  & ~arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]);
-
+                {cf_exp[0], arithmetic_exp_result.data.Byte[0]} = (arithmetic_in_txn.srca.data.Byte[0]) + (arithmetic_in_txn.srcb.data.Byte[0]);
+                of_exp[0]                                       = (~arithmetic_in_txn.srca.data.Byte[0][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[0][BYTE_WIDTH-1] & arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]) ||
+                                                                  (arithmetic_in_txn.srca.data.Byte[0][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[0][BYTE_WIDTH-1]  & ~arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]);
+                zf_exp[0]                                       = (arithmetic_exp_result.data.Byte[0] == 0);
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [BYTE_WIDTH-1:0] tmp_result;
-                    {cf_exp[0], tmp_result} = ((arithmetic_exp_result.data.Byte[0]) + (arithmetic_in_txn.srcb.data.Byte[i]));
-                    of_exp[0] |= (~arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & tmp_result[BYTE_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Byte[0][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & tmp_result[BYTE_WIDTH-1]);
-                    arithmetic_exp_result.data.Byte[0] = tmp_result;
-                end  
-
-                zf_exp[0] = (arithmetic_exp_result.data.Byte[0] == 0);
+                    {cf_exp[i], tmp_result}            =  arithmetic_exp_result.data.Byte[i-1] +  arithmetic_in_txn.srcb.data.Byte[i];
+                    of_exp[i]                          = (~arithmetic_exp_result.data.Byte[i-1][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & tmp_result[BYTE_WIDTH-1]) ||
+                                                         (arithmetic_exp_result.data.Byte[i-1][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & tmp_result[BYTE_WIDTH-1]) ||
+                                                         of_exp[i-1];
+                    arithmetic_exp_result.data.Byte[i] = tmp_result;
+                    zf_exp[i]                          = (arithmetic_exp_result.data.Byte[i] == 0);
+                end
 
             end
             OSIZE_16: begin
 
-                {cf_exp[1], arithmetic_exp_result.data.Word[0]} = ((arithmetic_in_txn.srca.data.Word[RISCV_V_NUM_WORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Word[0]));
-                of_exp[1] = (~arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]) ||
-                            (arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]);
-
+                {cf_exp[0], arithmetic_exp_result.data.Word[0]} = (arithmetic_in_txn.srca.data.Word[0]) + (arithmetic_in_txn.srcb.data.Word[0]);
+                of_exp[0]                                       = (~arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]) ||
+                                                                  (arithmetic_in_txn.srca.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[0][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]);
+                zf_exp[0]                                       = (arithmetic_exp_result.data.Word[0] == 0);
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [WORD_WIDTH-1:0] tmp_result;
-                    {cf_exp[1], tmp_result} = ((arithmetic_exp_result.data.Word[0]) + (arithmetic_in_txn.srcb.data.Word[i]));
-                    of_exp[1] |= (~arithmetic_exp_result.data.Word[0][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & tmp_result[WORD_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Word[0][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & tmp_result[WORD_WIDTH-1]);
-                    arithmetic_exp_result.data.Word[0] = tmp_result;
-                end  
+                    {cf_exp[i], tmp_result}            =  arithmetic_exp_result.data.Word[i-1] +  arithmetic_in_txn.srcb.data.Word[i];
+                    of_exp[i]                          = (~arithmetic_exp_result.data.Word[i-1][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & tmp_result[WORD_WIDTH-1]) ||
+                                                         (arithmetic_exp_result.data.Word[i-1][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & tmp_result[WORD_WIDTH-1]) ||
+                                                         of_exp[i-1];
+                    arithmetic_exp_result.data.Word[i] = tmp_result;
+                    zf_exp[i]                          = (arithmetic_exp_result.data.Word[i] == 0);
+                end
 
-                zf_exp[1] = (arithmetic_exp_result.data.Word[0] == 0);
             end
             OSIZE_32: begin
 
-                {cf_exp[3], arithmetic_exp_result.data.Dword[0]} = ((arithmetic_in_txn.srca.data.Dword[RISCV_V_NUM_DWORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Dword[0]));
-                of_exp[3] = (~arithmetic_in_txn.srca.data.Dword[0][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[0][DWORD_WIDTH-1] & arithmetic_exp_result.data.Dword[0][DWORD_WIDTH-1]) ||
-                            (arithmetic_in_txn.srca.data.Dword[0][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[0][DWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dword[0][DWORD_WIDTH-1]);
-
+                {cf_exp[0], arithmetic_exp_result.data.Dword[0]} = (arithmetic_in_txn.srca.data.Dword[0]) + (arithmetic_in_txn.srcb.data.Dword[0]);
+                of_exp[0]                                       = (~arithmetic_in_txn.srca.data.Dword[0][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[0][DWORD_WIDTH-1] & arithmetic_exp_result.data.Dword[0][DWORD_WIDTH-1]) ||
+                                                                  (arithmetic_in_txn.srca.data.Dword[0][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[0][DWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dword[0][DWORD_WIDTH-1]);
+                zf_exp[0]                                       = (arithmetic_exp_result.data.Dword[0] == 0);
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [DWORD_WIDTH-1:0] tmp_result;
-                    {cf_exp[3], tmp_result} = ((arithmetic_exp_result.data.Dword[0]) + (arithmetic_in_txn.srcb.data.Dword[i]));
-                    of_exp[3] |= (~arithmetic_exp_result.data.Dword[0][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1] & tmp_result[DWORD_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Dword[0][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1]  & tmp_result[DWORD_WIDTH-1]);
-                    arithmetic_exp_result.data.Dword[0] = tmp_result;
-                end  
-
-                zf_exp[3] = (arithmetic_exp_result.data.Dword[0] == 0);
+                    {cf_exp[i], tmp_result}            =  arithmetic_exp_result.data.Dword[i-1] +  arithmetic_in_txn.srcb.data.Dword[i];
+                    of_exp[i]                          = (~arithmetic_exp_result.data.Dword[i-1][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1] & tmp_result[DWORD_WIDTH-1]) ||
+                                                         (arithmetic_exp_result.data.Dword[i-1][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1]  & tmp_result[DWORD_WIDTH-1]) ||
+                                                         of_exp[i-1];
+                    arithmetic_exp_result.data.Dword[i] = tmp_result;
+                    zf_exp[i]                          = (arithmetic_exp_result.data.Dword[i] == 0);
+                end
             end
             OSIZE_64: begin
 
-                {cf_exp[7], arithmetic_exp_result.data.Qword[0]} = ((arithmetic_in_txn.srca.data.Qword[RISCV_V_NUM_QWORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Qword[0]));
-                of_exp[7] = (~arithmetic_in_txn.srca.data.Qword[0][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[0][QWORD_WIDTH-1] & arithmetic_exp_result.data.Qword[0][QWORD_WIDTH-1]) ||
-                            (arithmetic_in_txn.srca.data.Qword[0][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[0][QWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Qword[0][QWORD_WIDTH-1]);
-
+                {cf_exp[0], arithmetic_exp_result.data.Qword[0]} = (arithmetic_in_txn.srca.data.Qword[0]) + (arithmetic_in_txn.srcb.data.Qword[0]);
+                of_exp[0]                                       = (~arithmetic_in_txn.srca.data.Qword[0][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[0][QWORD_WIDTH-1] & arithmetic_exp_result.data.Qword[0][QWORD_WIDTH-1]) ||
+                                                                  (arithmetic_in_txn.srca.data.Qword[0][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[0][QWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Qword[0][QWORD_WIDTH-1]);
+                zf_exp[0]                                       = (arithmetic_exp_result.data.Qword[0] == 0);
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [QWORD_WIDTH-1:0] tmp_result;
-                    {cf_exp[7], tmp_result} = ((arithmetic_exp_result.data.Qword[0]) + (arithmetic_in_txn.srcb.data.Qword[i]));
-                    of_exp[7] |= (~arithmetic_exp_result.data.Qword[0][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1] & tmp_result[QWORD_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Qword[0][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1]  & tmp_result[QWORD_WIDTH-1]);
-                    arithmetic_exp_result.data.Qword[0] = tmp_result;
-                end  
-
-                zf_exp[7] = (arithmetic_exp_result.data.Qword[0] == 0);
+                    {cf_exp[i], tmp_result}            =  arithmetic_exp_result.data.Qword[i-1] +  arithmetic_in_txn.srcb.data.Qword[i];
+                    of_exp[i]                          = (~arithmetic_exp_result.data.Qword[i-1][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1] & tmp_result[QWORD_WIDTH-1]) ||
+                                                         (arithmetic_exp_result.data.Qword[i-1][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1]  & tmp_result[QWORD_WIDTH-1]) ||
+                                                         of_exp[i-1];
+                    arithmetic_exp_result.data.Qword[i] = tmp_result;
+                    zf_exp[i]                          = (arithmetic_exp_result.data.Qword[i] == 0);
+                end
             end
             OSIZE_128: begin
-                {cf_exp[15], arithmetic_exp_result.data.Dqword[0]} = ((arithmetic_in_txn.srca.data.Dqword[RISCV_V_NUM_DQWORDS_DATA-1]) + (arithmetic_in_txn.srcb.data.Dqword[0]));
-                of_exp[15] = (~arithmetic_in_txn.srca.data.Dqword[0][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[0][DQWORD_WIDTH-1] & arithmetic_exp_result.data.Dqword[0][DQWORD_WIDTH-1]) ||
-                            (arithmetic_in_txn.srca.data.Dqword[0][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[0][DQWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dqword[0][DQWORD_WIDTH-1]);
-
+                {cf_exp[0], arithmetic_exp_result.data.Dqword[0]} = (arithmetic_in_txn.srca.data.Dqword[0]) + (arithmetic_in_txn.srcb.data.Dqword[0]);
+                of_exp[0]                                       = (~arithmetic_in_txn.srca.data.Dqword[0][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[0][DQWORD_WIDTH-1] & arithmetic_exp_result.data.Dqword[0][DQWORD_WIDTH-1]) ||
+                                                                  (arithmetic_in_txn.srca.data.Dqword[0][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[0][DQWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dqword[0][DQWORD_WIDTH-1]);
+                zf_exp[0]                                       = (arithmetic_exp_result.data.Dqword[0] == 0);
                 for (int i=1; i < arithmetic_in_txn.len; i++) begin
                     logic [DQWORD_WIDTH-1:0] tmp_result;
-                    {cf_exp[15], tmp_result} = ((arithmetic_exp_result.data.Dqword[0]) + (arithmetic_in_txn.srcb.data.Dqword[i]));
-                    of_exp[15] |= (~arithmetic_exp_result.data.Dqword[0][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1] & tmp_result[DQWORD_WIDTH-1]) ||
-                                 (arithmetic_exp_result.data.Dqword[0][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1]  & tmp_result[DQWORD_WIDTH-1]);
-                    arithmetic_exp_result.data.Dqword[0] = tmp_result;
-                end  
-
-                zf_exp[15] = (arithmetic_exp_result.data.Dqword[0] == 0);
+                    {cf_exp[i], tmp_result}            =  arithmetic_exp_result.data.Dqword[i-1] +  arithmetic_in_txn.srcb.data.Dqword[i];
+                    of_exp[i]                          = (~arithmetic_exp_result.data.Dqword[i-1][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1] & tmp_result[DQWORD_WIDTH-1]) ||
+                                                         (arithmetic_exp_result.data.Dqword[i-1][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1]  & tmp_result[DQWORD_WIDTH-1]) ||
+                                                         of_exp[i-1];
+                    arithmetic_exp_result.data.Dqword[i] = tmp_result;
+                    zf_exp[i]                          = (arithmetic_exp_result.data.Dqword[i] == 0);
+                end
             end
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
         endcase

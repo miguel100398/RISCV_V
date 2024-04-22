@@ -32,6 +32,7 @@ class riscv_v_if_model extends riscv_v_base_model;
         end else if (use_specific_instr) begin
             case(opcode)
                 ADD         : instr = instruction.get_vadd_instr(use_specific_mode, mode);
+                ADD_REDUCT  : instr = instruction.get_vadd_reduct_instr(use_specific_mode, mode);
                 default     : `uvm_fatal(get_name(), $sformatf("Invalid instruction: %0s", opcode.name()))
             endcase
         end else begin

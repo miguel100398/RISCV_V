@@ -18,7 +18,7 @@ virtual class riscv_v_alu_base_model extends riscv_v_base_model;
         return;
     endfunction: rst 
 
-    pure virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize);
+    pure virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
 
 
 

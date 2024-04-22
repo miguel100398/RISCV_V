@@ -81,6 +81,12 @@ osize_vector_t      src_osize_vector;
 osize_vector_t      is_greater_osize_vector;
 osize_vector_t      is_less_osize_vector;
 
+riscv_v_wb_data_t alu_result_pre_swizzle_exe;
+riscv_v_data_t    alu_result_data_exe;
+riscv_v_data_t    result_swizzle_exe;
+
+logic swizzle_exe;
+
 
 `ifdef RISCV_V_INST
     riscv_v_osize_e     osize_exe;
@@ -131,7 +137,7 @@ riscv_v_exe_alu exe_alu(
     .is_signed_exe(is_signed_exe),
     .use_carry_exe(use_carry_exe),
     .int_result_exe(int_data_result_exe),
-    .vec_result_exe(alu_result_exe)
+    .vec_result_exe(alu_result_pre_swizzle_exe)
 );
 
 riscv_v_decode_element decode_element(
@@ -143,6 +149,7 @@ riscv_v_decode_element decode_element(
     .use_mask(use_mask_exe),
     .mask(mask_byp),
     .is_mask(is_mask_exe),
+    .is_reduct(is_reduct_exe),
     .srca_alu(srca_alu),
     .srcb_alu(srcb_alu),
     `ifdef RISCV_V_INST
@@ -180,6 +187,20 @@ riscv_v_bypass v_bypass(
     .srcb_byp(srcb_byp),
     .mask_byp(mask_byp)
 );
+
+assign alu_result_data_exe = alu_result_pre_swizzle_exe.data;
+
+assign swizzle_exe = is_reduct_exe && is_add_exe;
+
+riscv_v_swizzle v_swizzle(
+    .src_data(alu_result_data_exe),
+    .invert(swizzle_exe),
+    .osize_vec(dst_osize_vector),
+    .result(result_swizzle_exe)
+);
+
+assign alu_result_exe.data  = result_swizzle_exe;
+assign alu_result_exe.valid = alu_result_pre_swizzle_exe.valid;
 
 
 endmodule: riscv_v_execute

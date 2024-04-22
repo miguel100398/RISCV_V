@@ -23,12 +23,26 @@ class riscv_v_instr extends riscv_instr;
         end else begin
             assert (this.randomize() with{
                 instr.V.funct6 == RISCV_V_FUNCT6_VADD;
+                instr.V.funct3 inside {OPIVV, OPIVX, OPIVI};
             }) else `uvm_fatal(get_name(), "Can't randomize vadd instruction");
         end
         return instr;
     endfunction: get_vadd_instr
 
-
+    virtual function riscv_instruction_t get_vadd_reduct_instr(bit set_instr_mode = 1'b0, riscv_v_funct3_e instr_mode = OPIVV);
+        if (set_instr_mode) begin
+            assert (this.randomize() with{
+                instr.V.funct6 == RISCV_V_FUNCT6_VREDSUM;
+                instr.V.funct3 == instr_mode;
+            }) else `uvm_fatal(get_name(), "Can't randomize vadd reduction instruction");
+        end else begin
+            assert (this.randomize() with{
+                instr.V.funct6 == RISCV_V_FUNCT6_VREDSUM;
+                instr.V.funct3 inside {OPMVV, OPMVX};
+            }) else `uvm_fatal(get_name(), "Can't randomize vadd reduction instruction");
+        end
+        return instr;
+    endfunction: get_vadd_instr
 
 
     constraint op{
@@ -36,8 +50,8 @@ class riscv_v_instr extends riscv_instr;
     }
 
     constraint funct3{
-        if (instr.V.funct6 == RISCV_V_FUNCT6_VADD){
-            instr.V.funct3 inside{OPIVV, OPIVX, OPIVI};
+        if (instr.V.funct6 inside {RISCV_V_FUNCT6_VADD, RISCV_V_FUNCT6_VREDSUM}){
+            instr.V.funct3 inside {OPIVV, OPIVX, OPIVI, OPMVV, OPMVX};
         } else {
             instr.V.funct3 inside{OPIVV, OPMVV, OPIVI, OPIVX, OPMVX, OPCFG};
         }

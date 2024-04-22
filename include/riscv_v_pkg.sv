@@ -286,6 +286,7 @@ typedef logic[RISCV_V_NUM_BYTES_ALLOCATE_MASK-1:0] riscv_v_mask_byte_t;
 //ALU Types
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] [BYTE_WIDTH-1:0]  riscv_v_src_byte_vector_t;
 typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0]             riscv_v_src_len_t;
+typedef logic[$clog2(RISCV_V_NUM_BYTES_DATA):0]             riscv_v_src_start_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0]                   riscv_v_num_byte_vector_t;
 typedef logic[RISCV_V_NUM_WORDS_DATA-1:0]                   riscv_v_num_word_vector_t;
 typedef logic[RISCV_V_NUM_DWORDS_DATA-1:0]                  riscv_v_num_dword_vector_t;
@@ -540,44 +541,44 @@ function automatic logic f_is_arith(riscv_instr_funct6_t funct6, logic funct3_is
     return is_arith;
 endfunction: f_is_arith
 
-function automatic logic f_is_reduct(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV);
+function automatic logic f_is_reduct(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV, logic funct3_is_OPMVX);
     logic is_reduct = 1'b0;
 
-    is_reduct  = (funct6 == RISCV_V_FUNCT6_VREDAND)  && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDOR)   && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDXOR)  && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDSUM)  && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMAX)  && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMAXU) && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMIN)  && funct3_is_OPMVV;
-    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMINU) && funct3_is_OPMVV;
+    is_reduct  = (funct6 == RISCV_V_FUNCT6_VREDAND)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDOR)   && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDXOR)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDSUM)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMAX)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMAXU) && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMIN)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_reduct |= (funct6 == RISCV_V_FUNCT6_VREDMINU) && (funct3_is_OPMVV | funct3_is_OPMVX);
 
     return is_reduct;
 endfunction: f_is_reduct
 
-function automatic logic f_is_add(riscv_instr_funct6_t funct6, logic funct3_is_OPI, logic funct3_is_OPMVV);
+function automatic logic f_is_add(riscv_instr_funct6_t funct6, logic funct3_is_OPI, logic funct3_is_OPMVV, logic funct3_is_OPMVX);
     logic is_add = 1'b0;
 
     is_add  = (funct6 == RISCV_V_FUNCT6_VADD)    && funct3_is_OPI;
-    is_add |= (funct6 == RISCV_V_FUNCT6_VREDSUM) && funct3_is_OPMVV;
+    is_add |= (funct6 == RISCV_V_FUNCT6_VREDSUM) && (funct3_is_OPMVV | funct3_is_OPMVX);
     is_add |= (funct6 == RISCV_V_FUNCT6_VADC)    && funct3_is_OPI;
 
     return is_add;
 endfunction: f_is_add 
 
-function automatic logic f_is_sub(riscv_instr_funct6_t funct6, logic funct3_is_OPI, logic funct3_is_OPMVV, logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPIVX_OPIVI);
+function automatic logic f_is_sub(riscv_instr_funct6_t funct6, logic funct3_is_OPI, logic funct3_is_OPMVV, logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPIVX_OPIVI, logic funct3_is_OPMVX);
     logic is_sub = 1'b0;
 
     is_sub  = (funct6 == RISCV_V_FUNCT6_VSUB)     && funct3_is_OPIVV_OPIVX;
     is_sub |= (funct6 == RISCV_V_FUNCT6_VSBC)     && funct3_is_OPIVV_OPIVX;
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMIN)     && funct3_is_OPIVV_OPIVX;
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMINU)    && funct3_is_OPIVV_OPIVX;
-    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMIN)  && funct3_is_OPMVV;
-    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMINU) && funct3_is_OPMVV;
+    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMIN)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMINU) && (funct3_is_OPMVV | funct3_is_OPMVX);
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMAX)     && funct3_is_OPIVV_OPIVX;
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMAXU)    && funct3_is_OPIVV_OPIVX;
-    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMAX)  && funct3_is_OPMVV;
-    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMAXU) && funct3_is_OPMVV;
+    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMAX)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_sub |= (funct6 == RISCV_V_FUNCT6_VREDMAXU) && (funct3_is_OPMVV | funct3_is_OPMVX);
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMSEQ)    && funct3_is_OPI;
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMSNE)    && funct3_is_OPI;
     is_sub |= (funct6 == RISCV_V_FUNCT6_VMSLTU)   && funct3_is_OPIVV_OPIVX;

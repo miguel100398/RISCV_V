@@ -35,19 +35,21 @@ class riscv_v_execute_model extends riscv_v_base_model;
     endfunction: rst 
 
     virtual function void execute_op(
-        input  riscv_v_opcode_e   opcode,
-        input  riscv_v_osize_e    src_osize,
-        input  riscv_v_osize_e    dst_osize,
-        input  riscv_v_alu_e      ALU,
-        input  bit                is_scalar,
-        input  riscv_v_src_type_t srca_type,
-        input  riscv_v_src_type_t srcb_type,
-        input  riscv_v_data_t     srca_vec,
-        input  riscv_v_data_t     srcb_vec,
-        input  riscv_data_t       src_int,
-        input  riscv_v_imm_t      src_imm,
-        output riscv_v_data_t     vec_result,
-        output riscv_data_t       int_result
+        input  riscv_v_opcode_e    opcode,
+        input  riscv_v_osize_e     src_osize,
+        input  riscv_v_osize_e     dst_osize,
+        input  riscv_v_alu_e       ALU,
+        input  bit                 is_scalar,
+        input  riscv_v_src_type_t  srca_type,
+        input  riscv_v_src_type_t  srcb_type,
+        input  riscv_v_data_t      srca_vec,
+        input  riscv_v_data_t      srcb_vec,
+        input  riscv_data_t        src_int,
+        input  riscv_v_imm_t       src_imm,
+        input  riscv_v_src_len_t   len,
+        input  riscv_v_src_start_t start,
+        output riscv_v_data_t      vec_result,
+        output riscv_data_t        int_result
     );
         riscv_v_data_t srca;
         riscv_v_data_t srcb;
@@ -62,19 +64,19 @@ class riscv_v_execute_model extends riscv_v_base_model;
         //Execute op in ALU
         unique case(ALU)
             LOGIC_ALU : begin
-                vec_result = logic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize);
+                vec_result = logic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
             end
             ARITHMETIC_ALU : begin
-                vec_result = arithmetic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize);
+                vec_result = arithmetic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
             end
             MASK_ALU : begin
-                vec_result = mask_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize);
+                vec_result = mask_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
             end
             PERMUTATION_ALU : begin
                 if (opcode == V2I) begin
                     int_result = permutation_alu.execute_v2i_op(srcb, opcode, src_osize);
                 end else begin
-                    vec_result = permutation_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize);
+                    vec_result = permutation_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
                 end
             end
             default : `uvm_fatal(get_name(), $sformatf("Invalid ALU: %s", ALU.name()))

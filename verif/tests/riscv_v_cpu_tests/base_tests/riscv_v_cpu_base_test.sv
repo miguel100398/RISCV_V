@@ -154,7 +154,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
             //Update format
             if_cfg.specific_mode = valid_formats[format];
             //For loop osizes
-            for (int osize = 0; osize < RISCV_V_NUM_VALID_OSIZES; osize++) begin
+            for (int osize = 0; osize < NUM_OSIZES; osize++) begin
                 //Update osize
                 vtype_tmp.vsew = valid_osizes[osize];
                 ext_csr_cfg.vtype_wr_data = vtype_tmp;
