@@ -50,6 +50,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     int INIT_CYCLES         = 32;
     int NUM_TXN_BLOCK       = 0;
     bit SUPPORTS_MASK       = 0;
+    bit SUPPORTS_UNMASK     = 1;
     int NUM_OSIZES          = 0;
     int NUM_FORMATS         = 0;
     int TOTAL_BLOCKS        = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
@@ -182,36 +183,38 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
                 //Update osize
                 vtype_tmp.vsew = riscv_v_vsew_t'(valid_osizes[osize]);
                 ext_csr_cfg.vtype_wr_data = vtype_tmp;
-                //Not Mask
-                if_cfg.specific_vm          = 1'b1;
-                repeat(NUM_TXN_BLOCK) begin
-                    @(vec_env.agt.mon.vif.cb_mon);
+                if (SUPPORTS_UNMASK) begin
+                    //Not Mask
+                    if_cfg.specific_vm          = 1'b1;
+                    repeat(NUM_TXN_BLOCK) begin
+                        @(vec_env.agt.mon.vif.cb_mon);
 
-                    //Update Start
-                    if (USE_RAND_START) begin
+                        //Update Start
+                        if (USE_RAND_START) begin
 
-                        riscv_v_field_vstart_t tmp_vstart;
-                        assert (
-                            std::randomize(tmp_vstart) with{
-                                tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
-                            }
-                        ) else `uvm_fatal(get_name(), "Can't randomize vstart")
-                        ext_csr_cfg.vstart_wr_data.index = tmp_vstart;
+                            riscv_v_field_vstart_t tmp_vstart;
+                            assert (
+                                std::randomize(tmp_vstart) with{
+                                    tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                }
+                            ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            ext_csr_cfg.vstart_wr_data.index = tmp_vstart;
+
+                        end
+                        //Update Len 
+                        if (USE_RAND_LEN) begin
+                            
+                            riscv_v_vlen_t tmp_len;
+                            assert (
+                                std::randomize(tmp_len) with{
+                                    tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                }
+                            ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            ext_csr_cfg.vl_wr_data.len = tmp_len;
+
+                        end
 
                     end
-                    //Update Len 
-                    if (USE_RAND_LEN) begin
-                        
-                        riscv_v_vlen_t tmp_len;
-                        assert (
-                            std::randomize(tmp_len) with{
-                                tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
-                            }
-                        ) else `uvm_fatal(get_name(), "Can't randomize vlen")
-                        ext_csr_cfg.vl_wr_data.len = tmp_len;
-
-                    end
-
                 end
                 if (SUPPORTS_MASK) begin
                     //Mask

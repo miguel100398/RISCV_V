@@ -13,13 +13,14 @@ class riscv_v_cpu_vadd_test extends riscv_v_cpu_base_test;
     function new(string name = "riscv_v_cpu_vadd_test",uvm_component parent=null);
         super.new(name,parent);
         //Set Global variables
-        NUM_TXN_BLOCK  = 50;
-        SUPPORTS_MASK  = 1;
-        NUM_OSIZES     = RISCV_V_NUM_VALID_OSIZES;
-        NUM_FORMATS    = 3;
-        TOTAL_BLOCKS   = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
-        USE_RAND_START = 1'b1;
-        USE_RAND_LEN   = 1'b1;
+        NUM_TXN_BLOCK   = 50;
+        SUPPORTS_MASK   = 1;
+        SUPPORTS_UNMASK = 1;
+        NUM_OSIZES      = RISCV_V_NUM_VALID_OSIZES;
+        NUM_FORMATS     = 3;
+        TOTAL_BLOCKS    = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+SUPPORTS_UNMASK);
+        USE_RAND_START  = 1'b1;
+        USE_RAND_LEN    = 1'b1;
     endfunction : new
 
     virtual function void build_phase(uvm_phase phase);

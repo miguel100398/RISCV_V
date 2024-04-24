@@ -1,25 +1,25 @@
-//File: riscv_v_cpu_vredsum_test
+//File: riscv_v_cpu_vadc_test
 //Author: Miguel Bucio
 //Date: 10/02/24
 //Description: RISC-V Vector CPU Reduction ADD Test
 
-`ifndef __RISCV_V_CPU_VREDSUM_TEST_SV__
-`define __RISCV_V_CPU_VREDSUM_TEST_SV__
+`ifndef __RISCV_V_CPU_VADC_TEST_SV__
+`define __RISCV_V_CPU_VADC_TEST_SV__
 
-class riscv_v_cpu_vredsum_test extends riscv_v_cpu_base_test;
+class riscv_v_cpu_vadc_test extends riscv_v_cpu_base_test;
 
-    `uvm_component_utils(riscv_v_cpu_vredsum_test)
+    `uvm_component_utils(riscv_v_cpu_vadc_test)
 
-    function new(string name = "riscv_v_cpu_vredsum_test",uvm_component parent=null);
+    function new(string name = "riscv_v_cpu_vadc_test",uvm_component parent=null);
         super.new(name,parent);
         //Set Global variables
         NUM_TXN_BLOCK   = 50;
         SUPPORTS_MASK   = 1;
-        SUPPORTS_UNMASK = 1;
-        NUM_OSIZES      = RISCV_V_NUM_VALID_OSIZES-1;
-        NUM_FORMATS     = 1;
+        SUPPORTS_UNMASK = 0;
+        NUM_OSIZES      = RISCV_V_NUM_VALID_OSIZES;
+        NUM_FORMATS     = 3;
         TOTAL_BLOCKS    = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+SUPPORTS_UNMASK);
-        USE_RAND_START  = 1'b0;
+        USE_RAND_START  = 1'b1;
         USE_RAND_LEN    = 1'b1;
     endfunction : new
 
@@ -32,20 +32,18 @@ class riscv_v_cpu_vredsum_test extends riscv_v_cpu_base_test;
         if_cfg.use_specific_instr   = 1'b1;
         if_cfg.use_specific_mode    = 1'b1;
         if_cfg.use_specific_vm      = 1'b1;
-        if_cfg.specific_instr       = ADD_REDUCT;
+        if_cfg.specific_instr       = ADDC;
         if_cfg.specific_mode        = OPIVV;
         if_cfg.specific_vm          = 1'b1;
         //Set Valid osizes for test
         valid_osizes = new[NUM_OSIZES];
-        valid_osizes = '{OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64};
+        valid_osizes = '{OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64, OSIZE_128};
         //Set Valid formats for test
         valid_formats = new[NUM_FORMATS];
-        valid_formats = '{OPMVV};
-        //Dont update vstart
-        cfg_wr_vstart = 1'b0;
+        valid_formats = '{OPIVV, OPIVX, OPIVI};
 
     endfunction: specific_bfm_cfg
 
-endclass: riscv_v_cpu_vredsum_test 
+endclass: riscv_v_cpu_vadc_test 
 
-`endif //__RISCV_V_CPU_VREDSUM_TEST_SV__ 
+`endif //__RISCV_V_CPU_VADC_TEST_SV__ 

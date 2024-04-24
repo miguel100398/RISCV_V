@@ -848,6 +848,292 @@ function automatic riscv_v_opcode_e f_riscv_v_get_opcode(riscv_instruction_t ins
                 //VASUBU Not supported
                 //VFSGNJX Not supported
             end
+            //VXOR, VASUB
+            RISCV_V_FUNCT6_VXOR: begin
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = BW_XOR;
+                    found = 1;
+                end
+                //VASUB Not supported
+            end
+            //VADC, VWXUNARY0, VWFUNARY0, VRXUNARY0, VRFUNARY0
+            RISCV_V_FUNCT6_VADC: begin
+                //VADC
+                if (instr.V.funct3 inside{OPIVV, OPIVX, OPIVI} ) begin
+                    op = ADDC;
+                    found = 1;
+                //V2I
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    if (instr.V.vs1 == 0) begin
+                        op = V2I; 
+                        found = 1;
+                    end
+                //I2V
+                end else if (instr.V.funct3 inside {OPMVX}) begin
+                    if (instr.V.vs2 == 0) begin
+                        op = I2V;
+                        found = 1;
+                    end
+                end
+                //VWFUNARY0 Not supported
+            end
+            //VSUB, VREDOR, VFSUB
+            RISCV_V_FUNCT6_VSUB: begin
+                //VSUB
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = SUB;
+                    found = 1;
+                //VREDOR
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = BW_OR_REDUCT;
+                    found = 1;
+                end
+                //VFSUB Not supported
+            end
+            //VSBC, VXUNARY0, VFUNARY0
+            RISCV_V_FUNCT6_VSBC: begin
+                //VSBC 
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = SUBB;
+                    found = 1;
+                //Zero/Sign extend
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    //Zero extend
+                    if (instr.V.vs1 inside {RISCV_V_ZEXT_VF8, RISCV_V_ZEXT_VF4, RISCV_V_ZEXT_VF2}) begin
+                        op = ZERO_EXT;
+                        found = 1;
+                    //Sign extend
+                    end else if (instr.V.vs1 inside {RISCV_V_SEXT_VF8, RISCV_V_SEXT_VF4, RISCV_V_SEXT_VF2}) begin
+                        op = SIGN_EXT;
+                        found = 1;
+                    end
+                end
+                //VFUNARY0 Not supported
+            end
+            //VSLL, VMUL 
+            RISCV_V_FUNCT6_VSLL: begin
+                //VSLL 
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SLL;
+                    found = 1;
+                //VMUL
+                end else if (instr.V.funct3 inside {OPMVV, OPMVX}) begin
+                    op = MULLS;
+                    found = 1;
+                end
+            end
+            //VMULH, VSMUL, VFRSUB
+            RISCV_V_FUNCT6_VMULH: begin
+                //VMULH
+                if (instr.V.funct3 inside {OPMVV, OPMVX}) begin
+                    op = MULHS;
+                    found = 1;
+                end
+                //VSMUL Not supported
+                //VFRSUB Not supported
+            end
+            //VMULHU, VFMUL
+            RISCV_V_FUNCT6_VMULHU: begin
+                //VMULHU
+                if (instr.V.funct3 inside {OPMVV, OPMVX}) begin
+                    op = MULHU;
+                    found = 1;
+                end
+                //VFMUL not supported
+            end
+            //VSRL, VFMADD
+            RISCV_V_FUNCT6_VSRL: begin
+                //VSRL
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SRL;
+                    found = 1;
+                end
+                //VFMADD Not supported
+            end
+            //VSRA, VMADD, VFNMADD
+            RISCV_V_FUNCT6_VSRA: begin
+                //VSRA
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SRA;
+                    found = 1;
+                end
+                //VMADD Not supported
+                //VFNMADD Not supported
+            end 
+            //VMSEQ, VMANDN, VMFEQ
+            RISCV_V_FUNCT6_VMSEQ: begin
+                //VMSEQQ
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SEQ;
+                    found = 1;
+                //VMANDN
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MANDN;
+                    found = 1;
+                end
+                //VMFEQ Not supported
+            end
+            //VMSNE, VMAND, VMFLE
+            RISCV_V_FUNCT6_VMSNE: begin
+                //VMSNE
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SNE;
+                    found = 1;
+                //VMAND
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MAND;
+                    found = 1;
+                end
+                //VMFLE Not supported
+            end
+            //VMSLTU, VMOR
+            RISCV_V_FUNCT6_VMSLTU: begin
+                //VMSLTU 
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = SLTU;
+                    found = 1;
+                //VMOR
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MOR;
+                    found = 1;
+                end
+            end
+            //VMSLT, VMXOR, VMFLT
+            RISCV_V_FUNCT6_VMSLT: begin
+                //VMSLTU 
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = SLT;
+                    found = 1;
+                //VMXOR
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MXOR;
+                    found = 1;
+                end
+                //VMFLT Not supported
+            end
+            //VMSLEU, VMORN, VMFNE
+            RISCV_V_FUNCT6_VMSLEU: begin
+                //VMSLEU 
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SLEU;
+                    found = 1;
+                //VMORN
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MORN;
+                    found = 1;
+                end
+                //VMFNE Not supported
+            end
+            //VMSLE, VMNAND, VMFGT
+            RISCV_V_FUNCT6_VMSLE: begin
+                //VMSLE
+                if (instr.V.funct3 inside {OPIVV, OPIVX, OPIVI}) begin
+                    op = SLE;
+                    found = 1;
+                //VMNAND
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MNAND;
+                    found = 1;
+                end
+                //VMFGT Not supported
+            end
+            //VMSGTU, VMNOR
+            RISCV_V_FUNCT6_VMSGTU: begin
+                //VMSGTU
+                if (instr.V.funct3 inside {OPIVX, OPIVI}) begin
+                    op = SGTU;
+                    found = 1;
+                //VMNOR
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MNOR;
+                    found = 1;
+                end
+            end
+            //VMSGT, VMXNOR, VMFGE
+            RISCV_V_FUNCT6_VMSGT: begin
+                //VMSGT
+                if (instr.V.funct3 inside {OPIVX, OPIVI}) begin
+                    op = SGT;
+                    found = 1;
+                //VMXNOR
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MXNOR;
+                    found = 1;
+                end
+                //VMFGE Not supported
+            end
+            //VMINU, VREDMINU, VFMIN
+            RISCV_V_FUNCT6_VMINU: begin
+                //VMINU
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = MINU;
+                    found = 1;
+                //VREDMINU
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MINU_REDUCT;
+                    found = 1;
+                end
+                //VFMIN Not supported
+            end
+            //VMIN, VREDMIN, VFFREDMIN
+            RISCV_V_FUNCT6_VMIN: begin
+                //VMIN
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = MINS;
+                    found = 1;
+                //VREDMIN
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MINS_REDUCT;
+                    found = 1;
+                end
+                //VFFREDMIN Not supported
+            end
+            //VMAXU, VREDMAXU, VFMAX
+            RISCV_V_FUNCT6_VMAXU: begin
+                //VMAXU
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = MAXU;
+                    found = 1;
+                //VREDMAXU
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MAXU_REDUCT;
+                    found = 1;
+                end
+                //VFMAX Not supported
+            end
+            //VMAX, VREDMAX, VFFREDMAX
+            RISCV_V_FUNCT6_VMIN: begin
+                //VMAX
+                if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
+                    op = MAXS;
+                    found = 1;
+                //VREDMAX
+                end else if (instr.V.funct3 inside {OPMVV}) begin
+                    op = MAXS_REDUCT;
+                    found = 1;
+                end
+                //VFFREDMAX Not supported
+            end
+            //VREDAND, VFREDUSUM
+            RISCV_V_FUNCT6_VREDAND: begin
+                //VREDAND
+                if (instr.V.funct3 inside {OPMVV}) begin
+                    op = BW_AND_REDUCT;
+                    found = 1;
+                end
+                //VFREDUSUM Not supported
+            end
+            //VRSUB, VREDXOR, VFREDOSUM
+            RISCV_V_FUNCT6_VREDXOR: begin
+                //VREDXOR
+                if (instr.V.funct3 inside {OPMVV}) begin
+                    op = BW_XOR_REDUCT;
+                    found = 1;
+                end
+                //VRSUB Not supported
+                //VFREDOSUM Not supported
+            end
+
         endcase
 
         if (~found) begin
