@@ -384,7 +384,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
         is_OPIVV       = (instr.funct3 == OPIVV);
         is_OPIVX       = (instr.funct3 == OPIVX);
         is_OPIVI       = (instr.funct3 == OPIVI);
-        is_OPIVV_OPIVX = (is_OPIVV || is_OPIVV_OPIVX);
+        is_OPIVV_OPIVX = (is_OPIVV || is_OPIVX);
         is_OPI         = (is_OPIVV || is_OPIVX|| is_OPIVI);
         use_carry = f_use_carry(instr.funct6, is_OPI, is_OPIVV_OPIVX);
 

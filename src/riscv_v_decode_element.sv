@@ -18,6 +18,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_mask_t           mask,
     output riscv_v_alu_data_t       srca_alu,
     output riscv_v_alu_data_t       srcb_alu,
+    output riscv_v_mask_t           mask_osize_sel,
     `ifdef RISCV_V_INST
         output riscv_v_src_len_t    len,
         output riscv_v_osize_e      osize,
@@ -34,15 +35,17 @@ riscv_v_osize_e src_osize;
 riscv_v_osize_e dst_osize;
 riscv_v_merge_data_t merge_osize[RISCV_V_NUM_VALID_OSIZES-1:1];
 riscv_v_valid_data_t valid_osize[RISCV_V_NUM_VALID_OSIZES-1:0];
+riscv_v_valid_data_t valid_osize_sel;
 
 logic len_greater_than  [RISCV_V_NUM_ELEMENTS_REG-1:0];
 logic start_less_than   [RISCV_V_NUM_ELEMENTS_REG-1:0];
 
+riscv_v_mask_t       mask_osize [RISCV_V_NUM_VALID_OSIZES];
 riscv_v_valid_data_t mask_valid;
-riscv_v_valid_data_t mask_valid_osize [RISCV_V_NUM_VALID_OSIZES];
-riscv_v_valid_data_t valid_is_mask_vec;
-riscv_v_valid_data_t valid_is_reduct_vec;
-riscv_v_valid_data_t valid_is_reduct_vec_osize [RISCV_V_NUM_VALID_OSIZES-1];
+riscv_v_valid_data_t is_mask_valid;
+riscv_v_valid_data_t is_reduct_osize [RISCV_V_NUM_VALID_OSIZES-1];
+riscv_v_valid_data_t is_reduct_osize_sel;
+riscv_v_valid_data_t is_reduct_valid;
 
 assign dst_osize = riscv_v_osize_e'(vtype.vsew);
 assign src_osize = riscv_v_osize_e'(vtype.vsew);
@@ -91,37 +94,50 @@ endgenerate
 generate
     for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin : gen_reduct 
         always_comb begin
-            valid_is_reduct_vec_osize[osize_idx] = '1;
-            valid_is_reduct_vec_osize[osize_idx][RISCV_V_NUM_BYTES_DATA-1 : (2**osize_idx)] &= {(RISCV_V_NUM_BYTES_DATA-(2**osize_idx)){~(is_reduct && is_greater_osize_vector[osize_idx])}};
+            is_reduct_osize[osize_idx] = '0;
+            //Set lower bits to 1 depending on OSIZE
+            is_reduct_osize[osize_idx][0 +: (2**osize_idx)] = {(2**osize_idx){dst_osize_vector[osize_idx]}};
         end
     end 
 endgenerate
 
+//Select is_reduct
 always_comb begin
-    valid_is_reduct_vec = '1;
-    for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin
-        valid_is_reduct_vec &= valid_is_reduct_vec_osize[osize_idx];
+    is_reduct_osize_sel = '0;
+    for(int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin
+        is_reduct_osize_sel |= is_reduct_osize[osize_idx];
     end
 end
 
+assign is_reduct_valid = ({RISCV_V_NUM_BYTES_DATA{~is_reduct}} | is_reduct_osize_sel);
+
 //Mask
-//Disable upper elements if destination is mask registers
-assign valid_is_mask_vec = { {RISCV_V_NUM_BYTES_DATA - RISCV_V_NUM_BYTES_ALLOCATE_MASK{(~is_mask)}}, {RISCV_V_NUM_BYTES_ALLOCATE_MASK{1'b1}} };
 
-//Element is valid if ~use_mask | mask[i];
-assign mask_valid = ({RISCV_V_NUM_BYTES_DATA{~use_mask}} | mask) & valid_is_mask_vec & valid_is_reduct_vec; 
-
+//Get different Masks with osize
 generate
     for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_mask_osize
         localparam NUM_BLOCKS_OSIZE = RISCV_V_NUM_BYTES_DATA / (2**osize_idx);
         localparam BYTES_PER_BLOCK  = RISCV_V_NUM_BYTES_DATA / NUM_BLOCKS_OSIZE;
-
         for (genvar block_idx = 0; block_idx < NUM_BLOCKS_OSIZE; block_idx++) begin : gen_mask_osize_block 
-            assign mask_valid_osize[osize_idx][(block_idx * BYTES_PER_BLOCK) +: BYTES_PER_BLOCK] = {BYTES_PER_BLOCK{(mask_valid[block_idx] & (dst_osize_vector[osize_idx]))}};
+            assign mask_osize[osize_idx][(block_idx * BYTES_PER_BLOCK) +: BYTES_PER_BLOCK] = {BYTES_PER_BLOCK{(mask[block_idx] & (dst_osize_vector[osize_idx]))}};
         end
-
-    end
+    end 
 endgenerate
+
+//Select final mask
+always_comb begin
+    mask_osize_sel = '0;
+    for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
+        mask_osize_sel |= mask_osize[osize_idx];
+    end
+end
+
+//Disable upper elements if destination is mask registers
+assign is_mask_valid = { {RISCV_V_NUM_BYTES_DATA - RISCV_V_NUM_BYTES_ALLOCATE_MASK{(~is_mask)}}, {RISCV_V_NUM_BYTES_ALLOCATE_MASK{1'b1}} };
+
+//Element is valid if ~use_mask | mask[i];
+assign mask_valid = ({RISCV_V_NUM_BYTES_DATA{~use_mask}} | mask_osize_sel);
+
 
 //Assign data
 assign srca_alu.data = srca;
@@ -165,13 +181,23 @@ generate
     end
 endgenerate
 
+//Select Valid osize
 always_comb begin
-    srca_alu.valid = '0;
-    srcb_alu.valid = '0;
+    valid_osize_sel = '0;
     for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-        srcb_alu.valid |= (valid_osize[osize_idx]);
-        srca_alu.valid |= (valid_osize[osize_idx] & mask_valid_osize[osize_idx]);
-    end
+        valid_osize_sel |= valid_osize[osize_idx];
+    end 
+end
+
+always_comb begin
+    srca_alu.valid = valid_osize_sel;
+    srcb_alu.valid = valid_osize_sel;
+    //Turn off valid bits with mask
+    srca_alu.valid &= mask_valid;
+    //Turn off valid bits if is_reduct
+    srca_alu.valid &= is_reduct_valid;
+    //Turn off valid bits if is_mask
+    srca_alu.valid &= is_mask_valid;
 end
 
 assign srcb_alu.merge = srca_alu.merge;

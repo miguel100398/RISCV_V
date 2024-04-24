@@ -48,16 +48,16 @@ class riscv_v_if_bfm extends riscv_v_base_bfm#(
             end else begin
                 instruction.V.funct6 = f_riscv_v_opcode_to_funct6(cfg.rf_rst_seq[rf_rst_idx].opcode);
                 instruction.V.vm     = 1'b1;
-                instruction.V.vs2    = 5'b0;
+                instruction.V.vs2    = 5'd0;
                 instruction.V.vs1    = cfg.rf_rst_seq[rf_rst_idx].imm;   //Immediate value
                 instruction.V.funct3 = OPIVI;
-                instruction.V.vd     = rf_rst_idx[4:0];
+                instruction.V.vd     = (rf_rst_idx[4:0] % RISCV_V_RF_NUM_REGS);
                 instruction.V.op     = RISCV_V_TYPE_OP_CODE;
                 `ifdef RISCV_V_INST
                     opcode = f_riscv_v_get_opcode(instruction);
                 `endif //RISCV_V_INST
                 rf_rst_idx++;
-                cfg.rf_rst_complete = (rf_rst_idx == RISCV_V_RF_NUM_REGS);
+                cfg.rf_rst_complete = (rf_rst_idx == (RISCV_V_RF_NUM_REGS + 1));
             end  
         end
         update_bfm_sem.put(update_bfm_sem_keys);

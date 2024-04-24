@@ -73,6 +73,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
 riscv_v_data_t srca_byp;
 riscv_v_data_t srcb_byp;
 riscv_v_mask_t mask_byp;
+riscv_v_mask_t mask_alu;
 
 riscv_v_alu_data_t  srca_alu;
 riscv_v_alu_data_t  srcb_alu;
@@ -105,7 +106,7 @@ riscv_v_exe_alu exe_alu(
     .srca_exe(srca_alu),
     .srcb_exe(srcb_alu),
     .src_int_exe(int_data_exe),
-    .mask_exe(mask_byp),
+    .mask_exe(mask_alu),
     .dst_osize_vector_exe(dst_osize_vector),
     .src_osize_vector_exe(src_osize_vector),
     .is_greater_osize_vector_exe(is_greater_osize_vector),
@@ -148,6 +149,7 @@ riscv_v_decode_element decode_element(
     .vstart(vstart),
     .use_mask(use_mask_exe),
     .mask(mask_byp),
+    .mask_osize_sel(mask_alu),
     .is_mask(is_mask_exe),
     .is_reduct(is_reduct_exe),
     .srca_alu(srca_alu),

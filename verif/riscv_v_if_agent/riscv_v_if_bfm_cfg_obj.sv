@@ -23,7 +23,7 @@ class riscv_v_if_bfm_cfg_obj extends riscv_v_base_bfm_cfg_obj;
     bit rf_rst_complete = 1'b0;
 
     //Register File reset sequence
-    rf_rst_arr_t rf_rst_seq[RISCV_V_RF_NUM_REGS-1:0];
+    rf_rst_arr_t rf_rst_seq[RISCV_V_RF_NUM_REGS:0];
 
     function new(string name = "riscv_v_if_bfm_cfg_obj");
         super.new(name);
@@ -33,7 +33,7 @@ class riscv_v_if_bfm_cfg_obj extends riscv_v_base_bfm_cfg_obj;
             imm    : 0
         };
 
-        for (int idx = 1; idx < RISCV_V_RF_NUM_REGS; idx++) begin
+        for (int idx = 1; idx < RISCV_V_RF_NUM_REGS+1; idx++) begin
             
             rf_rst_seq[idx] = '{
                 opcode : BW_OR, 
@@ -41,7 +41,6 @@ class riscv_v_if_bfm_cfg_obj extends riscv_v_base_bfm_cfg_obj;
             };
 
         end
-
 
     endfunction: new
     

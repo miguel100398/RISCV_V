@@ -113,7 +113,7 @@ import riscv_v_pkg::*;
         input  cf
     );
 
-    clocking cb_mon @(posedge clk);
+    clocking cb_mon @(negedge clk);
         input  is_reduct;
         input  is_add;
         input  is_sub;
