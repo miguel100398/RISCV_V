@@ -20,7 +20,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.R.op inside {RISCV_R_TYPE_OP_CODE, RISCV_R_SHFT_TYPE_OP_CODE};
-        }) else $fatal("can't randomize rtype instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize rtype instruction");
         return instr;
 
     endfunction: get_rtype_instr
@@ -29,7 +29,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.I.op inside {RISCV_I_TYPE_OP_CODE, RISCV_LOAD_OP_CODE, RISCV_JALR_OP_CODE};
-        }) else $fatal("can't randomize itype instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize itype instruction");
         return instr;
 
     endfunction: get_itype_instr
@@ -38,7 +38,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.S.op inside {RISCV_S_TYPE_OP_CODE};
-        }) else $fatal("can't randomize stype instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize stype instruction");
         return instr;
 
     endfunction: get_stype_instr
@@ -47,7 +47,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.B.op inside {RISCV_B_TYPE_OP_CODE};
-        }) else $fatal("can't randomize btype instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize btype instruction");
         return instr;
 
     endfunction: get_btype_instr
@@ -56,7 +56,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.U.op inside {RISCV_LUI_OP_CODE, RISCV_AUIPC_OP_CODE};
-        }) else $fatal("can't randomize jtype instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize jtype instruction");
         return instr;
 
     endfunction: get_utype_instr
@@ -65,14 +65,14 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.J.op inside {RISCV_J_TYPE_OP_CODE};
-        }) else $fatal("can't randomize jtype instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize jtype instruction");
         return instr;
 
     endfunction: get_jtype_instr
 
     virtual function riscv_instruction_t get_rand_instr();
 
-        assert (this.randomize()) else $fatal("can't randomize rand instruction");
+        assert (this.randomize()) else `uvm_fatal(get_name(), "can't randomize rand instruction");
         return instr;
 
     endfunction: get_rand_instr
@@ -88,7 +88,7 @@ class riscv_instr extends uvm_component;
                 instr.R.funct7 != RISCV_FUNCT7_MUL;
                 instr.R.funct7 != RISCV_FUNCT7_DIV;
             }            
-        }) else $fatal("can't randomize int queue instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize int queue instruction");
         return instr;
 
     endfunction: get_int_queue_instr
@@ -103,7 +103,7 @@ class riscv_instr extends uvm_component;
                 instr.R.funct7 != RISCV_FUNCT7_MUL;
                 instr.R.funct7 != RISCV_FUNCT7_DIV;
             }            
-        }) else $fatal("can't randomize int queue no branch jump instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize int queue no branch jump instruction");
         return instr;
 
     endfunction: get_int_queue_no_br_jmp_instr
@@ -112,7 +112,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.R.op inside {RISCV_S_TYPE_OP_CODE, RISCV_LOAD_OP_CODE};          
-        }) else $fatal("can't randomize ls queue instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize ls queue instruction");
         return instr;
 
     endfunction: get_ls_queue_instr
@@ -123,7 +123,7 @@ class riscv_instr extends uvm_component;
             instr.R.op     == RISCV_R_TYPE_OP_CODE;
             instr.R.funct7 == RISCV_FUNCT7_MUL; 
             instr.R.funct3 == RISCV_FUNCT3_MUL;        
-        }) else $fatal("can't randomize mul queue instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize mul queue instruction");
         return instr;
 
     endfunction: get_mul_queue_instr
@@ -134,7 +134,7 @@ class riscv_instr extends uvm_component;
             instr.R.op     == RISCV_R_TYPE_OP_CODE;
             instr.R.funct7 ==  RISCV_FUNCT7_DIV;    
             instr.R.funct3 == RISCV_FUNCT3_DIV;      
-        }) else $fatal("can't randomize div queue instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize div queue instruction");
         return instr;
 
     endfunction: get_div_queue_instr
@@ -143,7 +143,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.R.op     == RISCV_J_TYPE_OP_CODE;
-        }) else $fatal("can't randomize jal instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize jal instruction");
         return instr;
 
     endfunction: get_jal_instr
@@ -152,7 +152,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.R.op     == RISCV_JALR_OP_CODE;
-        }) else $fatal("can't randomize jalr instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize jalr instruction");
         return instr;
         
     endfunction: get_jalr_instr
@@ -161,7 +161,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.B.op     == RISCV_B_TYPE_OP_CODE;
-        }) else $fatal("can't randomize branch instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize branch instruction");
         return instr;
         
     endfunction: get_branch_instr
@@ -171,7 +171,7 @@ class riscv_instr extends uvm_component;
         assert (this.randomize() with {
             instr.B.op     == RISCV_B_TYPE_OP_CODE;
             instr.B.funct3 == RISCV_FUNCT3_BEQ;
-        }) else $fatal("can't randomize BEQ instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize BEQ instruction");
         return instr;
         
     endfunction: get_beq_instr
@@ -180,7 +180,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.S.op     == RISCV_S_TYPE_OP_CODE;
-        }) else $fatal("can't randomize store instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize store instruction");
         return instr;
         
     endfunction: get_st_instr
@@ -189,7 +189,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.S.op     == RISCV_LOAD_OP_CODE;
-        }) else $fatal("can't randomize load instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize load instruction");
         return instr;
         
     endfunction: get_ld_instr
@@ -198,7 +198,7 @@ class riscv_instr extends uvm_component;
 
         assert (this.randomize() with {
             instr.R.op inside{RISCV_B_TYPE_OP_CODE, RISCV_JALR_OP_CODE, RISCV_J_TYPE_OP_CODE};
-        }) else $fatal("can't randomize jal/jalr/branch instruction");
+        }) else `uvm_fatal(get_name(), "can't randomize jal/jalr/branch instruction");
         return instr;
 
     endfunction: get_j_br_instr

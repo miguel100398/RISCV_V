@@ -34,52 +34,62 @@ typedef enum logic [2:0] {
     OPCFG = 3'b111
 } riscv_v_funct3_e;
  
-parameter logic [5:0] RISCV_V_FUNCT6_VADD     = 6'b000000;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDSUM  = 6'b000000;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDAND  = 6'b000001;
-parameter logic [5:0] RISCV_V_FUNCT6_VSUB     = 6'b000010;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDOR   = 6'b000010;
-parameter logic [5:0] RISCV_V_FUNCT6_VRSUB    = 6'b000011;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDXOR  = 6'b000011;
-parameter logic [5:0] RISCV_V_FUNCT6_VMINU    = 6'b000100;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDMINU = 6'b000100;
-parameter logic [5:0] RISCV_V_FUNCT6_VMIN     = 6'b000101;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDMIN  = 6'b000101;
-parameter logic [5:0] RISCV_V_FUNCT6_VMAXU    = 6'b000110;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDMAXU = 6'b000110;
-parameter logic [5:0] RISCV_V_FUNCT6_VMAX     = 6'b000111;
-parameter logic [5:0] RISCV_V_FUNCT6_VREDMAX  = 6'b000111;
-parameter logic [5:0] RISCV_V_FUNCT6_VAND     = 6'b001001;
-parameter logic [5:0] RISCV_V_FUNCT6_VOR      = 6'b001010;
-parameter logic [5:0] RISCV_V_FUNCT6_VXOR     = 6'b001011;
-parameter logic [5:0] RISCV_V_FUNCT6_VADC     = 6'b010000;
-parameter logic [5:0] RISCV_V_FUNCT6_VXUNARY0 = 6'b010010;
-parameter logic [5:0] RISCV_V_FUNCT6_VSBC     = 6'b010010;
-parameter logic [5:0] RISCV_V_FUNCT6_VMV      = 6'b010111;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSEQ    = 6'b011000;
-parameter logic [5:0] RISCV_V_FUNCT6_VMANDN   = 6'b011000;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSNE    = 6'b011001;
-parameter logic [5:0] RISCV_V_FUNCT6_VMAND    = 6'b011001;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSLTU   = 6'b011010;
-parameter logic [5:0] RISCV_V_FUNCT6_VMOR     = 6'b011010;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSLT    = 6'b011011;
-parameter logic [5:0] RISCV_V_FUNCT6_VMXOR    = 6'b011011;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSLEU   = 6'b011100;
-parameter logic [5:0] RISCV_V_FUNCT6_VMORN    = 6'b011100;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSLE    = 6'b011101;
-parameter logic [5:0] RISCV_V_FUNCT6_VMNAND   = 6'b011101;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSGTU   = 6'b011110;
-parameter logic [5:0] RISCV_V_FUNCT6_VMNOR    = 6'b011110;
-parameter logic [5:0] RISCV_V_FUNCT6_VMSGT    = 6'b011111;
-parameter logic [5:0] RISCV_V_FUNCT6_VMXNOR   = 6'b011111;
-parameter logic [5:0] RISCV_V_FUNCT6_VMULHU   = 6'b100100;
-parameter logic [5:0] RISCV_V_FUNCT6_VSLL     = 6'b100101;
-parameter logic [5:0] RISCV_V_FUNCT6_VMUL     = 6'b100101;
-parameter logic [5:0] RISCV_V_FUNCT6_VMULHSU  = 6'b100110;
-parameter logic [5:0] RISCV_V_FUNCT6_VSMUL    = 6'b100111;
-parameter logic [5:0] RISCV_V_FUNCT6_VMULH    = 6'b100111;
-parameter logic [5:0] RISCV_V_FUNCT6_VSRL     = 6'b101000;
-parameter logic [5:0] RISCV_V_FUNCT6_VSRA     = 6'b101001;
+parameter logic [5:0] RISCV_V_FUNCT6_VADD      = 6'b000000;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDSUM   = 6'b000000;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDAND   = 6'b000001;
+parameter logic [5:0] RISCV_V_FUNCT6_VSUB      = 6'b000010;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDOR    = 6'b000010;
+parameter logic [5:0] RISCV_V_FUNCT6_VRSUB     = 6'b000011;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDXOR   = 6'b000011;
+parameter logic [5:0] RISCV_V_FUNCT6_VMINU     = 6'b000100;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDMINU  = 6'b000100;
+parameter logic [5:0] RISCV_V_FUNCT6_VMIN      = 6'b000101;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDMIN   = 6'b000101;
+parameter logic [5:0] RISCV_V_FUNCT6_VMAXU     = 6'b000110;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDMAXU  = 6'b000110;
+parameter logic [5:0] RISCV_V_FUNCT6_VMAX      = 6'b000111;
+parameter logic [5:0] RISCV_V_FUNCT6_VREDMAX   = 6'b000111;
+parameter logic [5:0] RISCV_V_FUNCT6_VAND      = 6'b001001;
+parameter logic [5:0] RISCV_V_FUNCT6_VOR       = 6'b001010;
+parameter logic [5:0] RISCV_V_FUNCT6_VXOR      = 6'b001011;
+parameter logic [5:0] RISCV_V_FUNCT6_VADC      = 6'b010000;
+parameter logic [5:0] RISCV_V_FUNCT6_VWXUNARY0 = 6'b010000;
+parameter logic [5:0] RISCV_V_FUNCT6_VRXUNARY0 = 6'b010000;
+parameter logic [5:0] RISCV_V_FUNCT6_VXUNARY0  = 6'b010010;
+parameter logic [5:0] RISCV_V_FUNCT6_VSBC      = 6'b010010;
+parameter logic [5:0] RISCV_V_FUNCT6_VMV       = 6'b010111;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSEQ     = 6'b011000;
+parameter logic [5:0] RISCV_V_FUNCT6_VMANDN    = 6'b011000;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSNE     = 6'b011001;
+parameter logic [5:0] RISCV_V_FUNCT6_VMAND     = 6'b011001;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSLTU    = 6'b011010;
+parameter logic [5:0] RISCV_V_FUNCT6_VMOR      = 6'b011010;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSLT     = 6'b011011;
+parameter logic [5:0] RISCV_V_FUNCT6_VMXOR     = 6'b011011;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSLEU    = 6'b011100;
+parameter logic [5:0] RISCV_V_FUNCT6_VMORN     = 6'b011100;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSLE     = 6'b011101;
+parameter logic [5:0] RISCV_V_FUNCT6_VMNAND    = 6'b011101;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSGTU    = 6'b011110;
+parameter logic [5:0] RISCV_V_FUNCT6_VMNOR     = 6'b011110;
+parameter logic [5:0] RISCV_V_FUNCT6_VMSGT     = 6'b011111;
+parameter logic [5:0] RISCV_V_FUNCT6_VMXNOR    = 6'b011111;
+parameter logic [5:0] RISCV_V_FUNCT6_VMULHU    = 6'b100100;
+parameter logic [5:0] RISCV_V_FUNCT6_VSLL      = 6'b100101;
+parameter logic [5:0] RISCV_V_FUNCT6_VMUL      = 6'b100101;
+parameter logic [5:0] RISCV_V_FUNCT6_VMULHSU   = 6'b100110;
+parameter logic [5:0] RISCV_V_FUNCT6_VSMUL     = 6'b100111;
+parameter logic [5:0] RISCV_V_FUNCT6_VMULH     = 6'b100111;
+parameter logic [5:0] RISCV_V_FUNCT6_VSRL      = 6'b101000;
+parameter logic [5:0] RISCV_V_FUNCT6_VSRA      = 6'b101001;
+
+parameter logic [4:0] RISCV_V_ZEXT_VF8         = 5'b00010;
+parameter logic [4:0] RISCV_V_ZEXT_VF4         = 5'b00100;
+parameter logic [4:0] RISCV_V_ZEXT_VF2         = 5'b00110;
+
+parameter logic [4:0] RISCV_V_SEXT_VF8         = 5'b00011;
+parameter logic [4:0] RISCV_V_SEXT_VF4         = 5'b00101;
+parameter logic [4:0] RISCV_V_SEXT_VF2         = 5'b00111;
 
 //PIPE STAGES
 typedef enum {RISCV_V_IF, RISCV_V_ID, RISCV_V_EXE, RISCV_V_MEM, RISCV_V_WB} PIPE_STAGES_E;
@@ -496,11 +506,11 @@ function automatic logic f_is_negate_result(riscv_instr_funct6_t funct6, logic f
     return is_negate_result;
 endfunction: f_is_negate_result
 
-function automatic logic f_use_mask(logic vm);
-    return ~vm;
-endfunction: f_use_mask;
+function automatic logic f_use_mask(logic vm, logic use_carry);
+    return (~vm && ~use_carry);
+endfunction: f_use_mask
 
-function automatic logic f_is_mask(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV);
+function automatic logic f_is_mask(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV, logic funct3_is_OPI, logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPIVX_OPIVI);
     logic is_mask = 1'b0;
 
     is_mask  = (funct6 == RISCV_V_FUNCT6_VMAND)  && funct3_is_OPMVV;
@@ -511,6 +521,15 @@ function automatic logic f_is_mask(riscv_instr_funct6_t funct6, logic funct3_is_
     is_mask |= (funct6 == RISCV_V_FUNCT6_VMORN)  && funct3_is_OPMVV;
     is_mask |= (funct6 == RISCV_V_FUNCT6_VMXNOR) && funct3_is_OPMVV;
     is_mask |= (funct6 == RISCV_V_FUNCT6_VMXOR)  && funct3_is_OPMVV; 
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSEQ   && funct3_is_OPI);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSNE   && funct3_is_OPI);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSLE   && funct3_is_OPI);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSLEU  && funct3_is_OPI);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSLT   && funct3_is_OPIVV_OPIVX);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSLTU  && funct3_is_OPIVV_OPIVX);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSGT   && funct3_is_OPIVX_OPIVI);
+    is_mask |= (funct6 == RISCV_V_FUNCT6_VMSGTU  && funct3_is_OPIVX_OPIVI);
+    
 
     return is_mask;
 endfunction: f_is_mask
@@ -654,6 +673,23 @@ function automatic logic f_is_set_greater(riscv_instr_funct6_t funct6, logic fun
 
     return is_set_greater;
 endfunction: f_is_set_greater
+
+function automatic logic f_is_compare(riscv_instr_funct6_t funct6, logic funct3_is_OPI,  logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPIVX_OPIVI);
+    logic is_compare = 1'b0;
+
+    is_compare  = (funct6 == RISCV_V_FUNCT6_VMSEQ)    && funct3_is_OPI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSLE)    && funct3_is_OPI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSLEU)   && funct3_is_OPI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSNE)    && funct3_is_OPI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSLTU)   && funct3_is_OPIVV_OPIVX;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSLT)    && funct3_is_OPIVV_OPIVX;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSLE)    && funct3_is_OPI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSLEU)   && funct3_is_OPI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSGT)    && funct3_is_OPIVX_OPIVI;
+    is_compare |= (funct6 == RISCV_V_FUNCT6_VMSGTU)   && funct3_is_OPIVX_OPIVI;
+
+    return is_compare;
+endfunction: f_is_compare
 
 function automatic logic f_is_max(riscv_instr_funct6_t funct6, logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPMVV);
     logic is_max = 1'b0;

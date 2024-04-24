@@ -48,6 +48,10 @@ class riscv_v_execute_model extends riscv_v_base_model;
         input  riscv_v_imm_t       src_imm,
         input  riscv_v_vlen_t      len,
         input  riscv_v_src_start_t start,
+        input  bit                 use_mask,
+        input  bit                 is_shift,
+        input  riscv_v_mask_t      mask,
+        input  riscv_v_mask_t      dst_mask_merge,
         output riscv_v_data_t      vec_result,
         output riscv_data_t        int_result
     );
@@ -58,25 +62,25 @@ class riscv_v_execute_model extends riscv_v_base_model;
         int_result = 'x;
 
         //Format sources if one source is scalar
-        srca = get_src(srca_type, srca_vec, src_int, src_imm, src_osize);
-        srcb = get_src(srcb_type, srcb_vec, src_int, src_imm, src_osize);
+        srca = get_src(srca_type, srca_vec, src_int, src_imm, src_osize, is_shift);
+        srcb = get_src(srcb_type, srcb_vec, src_int, src_imm, src_osize, is_shift);
 
         //Execute op in ALU
         unique case(ALU)
             LOGIC_ALU : begin
-                vec_result = logic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
+                vec_result = logic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start, mask, dst_mask_merge, use_mask);
             end
             ARITHMETIC_ALU : begin
-                vec_result = arithmetic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
+                vec_result = arithmetic_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start, mask, dst_mask_merge, use_mask);
             end
             MASK_ALU : begin
-                vec_result = mask_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
+                vec_result = mask_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start, mask, dst_mask_merge, use_mask);
             end
             PERMUTATION_ALU : begin
                 if (opcode == V2I) begin
                     int_result = permutation_alu.execute_v2i_op(srcb, opcode, src_osize);
                 end else begin
-                    vec_result = permutation_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start);
+                    vec_result = permutation_alu.execute_vec_op(srca, srcb, is_scalar, opcode, src_osize, dst_osize, len, start, mask, dst_mask_merge, use_mask);
                 end
             end
             default : `uvm_fatal(get_name(), $sformatf("Invalid ALU: %s", ALU.name()))
@@ -84,7 +88,7 @@ class riscv_v_execute_model extends riscv_v_base_model;
 
     endfunction: execute_op
 
-    virtual function riscv_v_data_t get_src(riscv_v_src_type_t src_type, riscv_v_data_t src_vec, riscv_data_t src_int, riscv_v_imm_t src_imm, riscv_v_osize_e osize);
+    virtual function riscv_v_data_t get_src(riscv_v_src_type_t src_type, riscv_v_data_t src_vec, riscv_data_t src_int, riscv_v_imm_t src_imm, riscv_v_osize_e osize, bit unsigned_imm);
         riscv_v_data_t src;
 
         src = 'x;
@@ -125,10 +129,10 @@ class riscv_v_execute_model extends riscv_v_base_model;
                         src.Dword[0] = src_int[DWORD_WIDTH-1 : 0];
                     end
                     OSIZE_64: begin
-                        src.Qword[0] = `RISCV_V_SX(src_int, 64);
+                        src.Qword[0] = `RISCV_V_SX(src_int, QWORD_WIDTH);
                     end
                     OSIZE_128: begin
-                        src.Dqword[0] = `RISCV_V_SX(src_int, 128);
+                        src.Dqword[0] = `RISCV_V_SX(src_int, DQWORD_WIDTH);
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE:%0s", osize.name()))
                 endcase
@@ -136,19 +140,39 @@ class riscv_v_execute_model extends riscv_v_base_model;
             SRC_SCALAR_IMM : begin
                 unique case(osize)
                     OSIZE_8: begin
-                        src.Byte[0] = `RISCV_V_SX(src_imm, 8);
+                        if (unsigned_imm) begin
+                            src.Byte[0] = `RISCV_V_ZX(src_imm, BYTE_WIDTH);
+                        end else begin
+                            src.Byte[0] = `RISCV_V_SX(src_imm, BYTE_WIDTH);
+                        end
                     end
                     OSIZE_16: begin
-                        src.Word[0] = `RISCV_V_SX(src_imm, 16);
+                        if (unsigned_imm) begin
+                            src.Word[0] = `RISCV_V_ZX(src_imm, WORD_WIDTH);
+                        end else begin
+                            src.Word[0] = `RISCV_V_SX(src_imm, WORD_WIDTH);
+                        end
                     end
                     OSIZE_32: begin
-                        src.Dword[0] = `RISCV_V_SX(src_imm, 32);
+                        if (unsigned_imm) begin
+                            src.Dword[0] = `RISCV_V_ZX(src_imm, DWORD_WIDTH);
+                        end else begin
+                            src.Dword[0] = `RISCV_V_SX(src_imm, DWORD_WIDTH);
+                        end
                     end
                     OSIZE_64: begin
-                        src.Qword[0] = `RISCV_V_SX(src_imm, 64);
+                        if (unsigned_imm) begin
+                            src.Qword[0] = `RISCV_V_ZX(src_imm, QWORD_WIDTH);
+                        end else begin
+                            src.Qword[0] = `RISCV_V_SX(src_imm, QWORD_WIDTH);
+                        end
                     end
                     OSIZE_128: begin
-                        src.Dqword[0] = `RISCV_V_SX(src_imm, 128);
+                        if (unsigned_imm) begin
+                            src.Dqword[0] = `RISCV_V_ZX(src_imm, DQWORD_WIDTH);
+                        end else begin
+                            src.Dqword[0] = `RISCV_V_SX(src_imm, DQWORD_WIDTH);
+                        end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE:%0s", osize.name()))
                 endcase

@@ -218,7 +218,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
                             srcb.merge[i*2 +: 2] =  2'b01;
                         end
                     end
-                    default:  `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                    default:  `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %0s", src_osize.name()))
                 endcase
             end
             OSIZE_32: begin
@@ -235,7 +235,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
                             srcb.merge[i*4 +: 4] =  4'b0011;
                         end
                     end
-                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %0s", src_osize.name()))
                 endcase
             end
             OSIZE_64: begin
@@ -258,7 +258,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
                             srcb.merge[i*8 +: 8] =  8'b00001111;
                         end
                     end
-                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %0s", src_osize.name()))
                 endcase
             end
             OSIZE_128: begin
@@ -287,7 +287,7 @@ class riscv_v_alu_in_seq_item extends riscv_v_base_seq_item;
                             srcb.merge[i*16 +: 16] = 16'b0000000011111111;
                         end
                     end
-                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %%0s", src_osize.name()))
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid src_osize: %0s", src_osize.name()))
                 endcase
             end
             default: begin

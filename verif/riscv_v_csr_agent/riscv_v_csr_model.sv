@@ -44,31 +44,31 @@ class riscv_v_csr_model extends riscv_v_base_model;
         if (wr_en) begin
             write_vsstatus(data[RISCV_V_VSSTATUS_WIDTH-1:0]);
         end
-    endfunction: write_ext_vsstatus
+    endfunction: write_vec_vsstatus
 
     virtual function void write_vec_vtype(riscv_v_data_t data, bit wr_en);
         if (wr_en) begin
             write_vtype(data[RISCV_V_VTYPE_WIDTH-1:0]);
         end
-    endfunction: write_ext_vtype
+    endfunction: write_vec_vtype
 
     virtual function void write_vec_vl(riscv_v_data_t data, bit wr_en);
         if (wr_en) begin
             write_vl(data[RISCV_V_VL_WIDTH-1:0]);
         end
-    endfunction: write_ext_vl
+    endfunction: write_vec_vl
 
     virtual function void write_vec_vstart(riscv_v_data_t data, bit wr_en);
         if (wr_en) begin
             write_vstart(data[RISCV_V_VSTART_WIDTH-1:0]);
         end
-    endfunction: write_ext_vstart
+    endfunction: write_vec_vstart
 
     virtual function void write_vec_vxrm(riscv_v_data_t data, bit wr_en);
         if (wr_en) begin
             write_vxrm(data[RISCV_V_VXRM_WIDTH-1:0]);
         end
-    endfunction: write_ext_vxrm
+    endfunction: write_vec_vxrm
 
     virtual function void write_vec_vxsat(riscv_v_data_t data, bit wr_en);
         if (wr_en) begin

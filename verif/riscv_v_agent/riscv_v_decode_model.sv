@@ -71,19 +71,19 @@ class riscv_v_decode_model extends riscv_v_base_model;
     //Get vs1 type
     virtual function riscv_v_src_type_t get_vs1_type(riscv_v_type_instruction_t instr);
         unique case(1'b1)
-            f_is_vector_vector_op(instr.funct3) : begin
+            f_is_vector_vector_op(riscv_v_funct3_e'(instr.funct3)) : begin
                 return SRC_VEC;
             end
-            f_is_scalar_vector_op(instr.funct3) : begin
+            f_is_scalar_vector_op(riscv_v_funct3_e'(instr.funct3)) : begin
                 return SRC_SCALAR_VEC;
             end
-            f_is_scalar_int_op(instr.funct3) : begin
+            f_is_scalar_int_op(riscv_v_funct3_e'(instr.funct3)) : begin
                 return SRC_SCALAR_INT;
             end
-            f_is_scalar_imm_op(instr.funct3) : begin
+            f_is_scalar_imm_op(riscv_v_funct3_e'(instr.funct3)) : begin
                 return SRC_SCALAR_IMM;
             end
-            f_is_scalar_fp_op(instr.funct3) : begin
+            f_is_scalar_fp_op(riscv_v_funct3_e'(instr.funct3)) : begin
                 `uvm_fatal(get_name(), "Scalar_FP not supported yet")
                 return SRC_SCALAR_FP;
             end
@@ -101,7 +101,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
 
     //Is scalar
     virtual function bit is_scalar(riscv_v_type_instruction_t instr);
-        return f_is_scalar_op(instr.funct3);
+        return f_is_scalar_op(riscv_v_funct3_e'(instr.funct3));
     endfunction: is_scalar
 
     //Get ALU
@@ -121,12 +121,11 @@ class riscv_v_decode_model extends riscv_v_base_model;
             MINS, MINS_REDUCT, MINU, MINU_REDUCT,
             MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, 
             MULLS, MULHS, MULLU, MULHU, 
-            SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU
-        }) begin
-            return ARITHMETIC_ALU;
-        end else if (opcode inside {
+            SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU,
             MAND, MNAND, MANDN, MXOR, MOR, MNOR, MORN, MXNOR
         }) begin
+            return ARITHMETIC_ALU;
+        end else if (opcode inside {1'b0}) begin
             return MASK_ALU;
         end else if (opcode inside {
             I2V, V2I
@@ -159,8 +158,29 @@ class riscv_v_decode_model extends riscv_v_base_model;
     endfunction: get_imm 
 
     //Get source osize
-    virtual function riscv_v_osize_e get_src_osize(riscv_v_vtype_t vtype);
-        return riscv_v_osize_e'(vtype.vsew);
+    virtual function riscv_v_osize_e get_src_osize(riscv_v_vtype_t vtype, riscv_v_opcode_e opcode, riscv_instr_rs_t vs1);
+        riscv_v_osize_e src_osize;
+
+
+        if (opcode == ZERO_EXT) begin
+            unique case (vs1)
+                RISCV_V_ZEXT_VF8 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 3);
+                RISCV_V_ZEXT_VF4 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 2);
+                RISCV_V_ZEXT_VF2 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 1);
+                default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+            endcase
+        end else if (opcode == SIGN_EXT) begin
+            unique case (vs1)
+                RISCV_V_SEXT_VF8 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 3);
+                RISCV_V_SEXT_VF4 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 2);
+                RISCV_V_SEXT_VF2 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 1);
+                default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+            endcase
+        end else begin
+            src_osize = riscv_v_osize_e'(vtype.vsew);
+        end
+        
+        return src_osize;
     endfunction: get_src_osize
 
     //Get source osize
@@ -178,7 +198,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return vstart.index;
     endfunction: get_start 
 
-    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart, bit use_mask, riscv_v_mask_t mask, bit is_mask, bit is_reduct);
+    virtual function riscv_v_valid_data_t get_valid(riscv_v_vtype_t vtype, riscv_v_vl_t vl, riscv_v_vstart_t vstart, bit use_mask, riscv_v_mask_t mask, bit is_mask, bit is_reduct, bit is_i2v, bit is_v2i);
         riscv_v_osize_e osize;
         riscv_v_vlen_t len;
         riscv_v_valid_data_t valid;
@@ -241,11 +261,6 @@ class riscv_v_decode_model extends riscv_v_base_model;
             endcase
         end 
 
-        //Turn off valid bits if is a mask operations
-        if (is_mask) begin
-            valid[RISCV_V_NUM_ELEMENTS_REG-1 : RISCV_V_NUM_BYTES_ALLOCATE_MASK] = '0;
-        end
-
         //Turn off valid bits if is a reduct operation
         if (is_reduct) begin
             unique case(osize)
@@ -265,18 +280,66 @@ class riscv_v_decode_model extends riscv_v_base_model;
             endcase
         end
 
+        //Turn off valid bits if is i2v
+        if (is_i2v) begin
+            unique case(osize)
+                OSIZE_8 : begin
+                    valid[RISCV_V_NUM_ELEMENTS_REG-1 : 1] = '0;
+                end
+                OSIZE_16 : begin
+                    valid[RISCV_V_NUM_ELEMENTS_REG-1 : 2] = '0;
+                end
+                OSIZE_32 : begin
+                    valid[RISCV_V_NUM_ELEMENTS_REG-1 : 4] = '0;
+                end
+                OSIZE_64 : begin
+                    valid[RISCV_V_NUM_ELEMENTS_REG-1 : 8] = '0;
+                end
+                OSIZE_128 : begin
+                    //Don't need to turn off bits here
+                end
+                default : `uvm_fatal(get_name(), $sformatf("Invalid OSIZE: %s", osize.name()))
+            endcase
+            
+        end
+
+        //Turn off valid bits if is v2i
+        if (is_v2i) begin
+            valid = '0;
+        end
+
+        //Turn off valid bits if is a mask operations
+        if (is_mask) begin
+            valid[RISCV_V_NUM_ELEMENTS_REG-1 : RISCV_V_NUM_BYTES_ALLOCATE_MASK] = '0;
+            valid[RISCV_V_NUM_BYTES_ALLOCATE_MASK-1:0] = '1;
+        end
+
+
         return valid;
 
     endfunction: get_valid
 
-    virtual function bit get_use_mask(riscv_v_type_instruction_t instr);
-        return f_use_mask(instr.vm);
+    virtual function bit get_use_mask(riscv_v_type_instruction_t instr, use_carry);
+        return f_use_mask(instr.vm, use_carry);
     endfunction: get_use_mask
 
     virtual function bit get_is_mask(riscv_v_type_instruction_t instr);
         bit is_OPMVV;
-        is_OPMVV = (instr.funct3 == OPMVV);
-        return f_is_mask(instr.funct6, is_OPMVV);
+        bit is_OPIVV;
+        bit is_OPIVX;
+        bit is_OPIVI;
+        bit is_OPIVV_OPIVX;
+        bit is_OPIVX_OPIVI;
+        bit is_OPI;
+
+        is_OPIVV       = (instr.funct3 == OPIVV);
+        is_OPIVX       = (instr.funct3 == OPIVX);
+        is_OPIVI       = (instr.funct3 == OPIVI);
+        is_OPIVV_OPIVX = (is_OPIVV || is_OPIVV_OPIVX);
+        is_OPIVX_OPIVI = (is_OPIVX || is_OPIVI); 
+        is_OPI         = (is_OPIVV || is_OPIVX|| is_OPIVI);
+        is_OPMVV       = (instr.funct3 == OPMVV);
+        return f_is_mask(instr.funct6, is_OPMVV, is_OPI, is_OPIVV_OPIVX, is_OPIVX_OPIVI);
 
     endfunction: get_is_mask
 
@@ -290,6 +353,82 @@ class riscv_v_decode_model extends riscv_v_base_model;
         end
     endfunction: get_is_reduct
 
+    virtual function bit get_is_compare(riscv_v_type_instruction_t instr);
+        bit is_compare;
+        bit is_OPIVV;
+        bit is_OPIVX;
+        bit is_OPIVI;
+        bit is_OPIVV_OPIVX;
+        bit is_OPIVX_OPIVI;
+        bit is_OPI;
+
+        is_OPIVV       = (instr.funct3 == OPIVV);
+        is_OPIVX       = (instr.funct3 == OPIVX);
+        is_OPIVI       = (instr.funct3 == OPIVI);
+        is_OPIVV_OPIVX = (is_OPIVV || is_OPIVV_OPIVX);
+        is_OPIVX_OPIVI = (is_OPIVX || is_OPIVI); 
+        is_OPI         = (is_OPIVV || is_OPIVX|| is_OPIVI);
+        is_compare = f_is_compare(instr.funct6, is_OPI, is_OPIVV_OPIVX, is_OPIVX_OPIVI);
+
+        return is_compare;
+    endfunction: get_is_compare
+
+    virtual function bit get_use_carry(riscv_v_type_instruction_t instr);
+        bit use_carry;
+        bit is_OPIVV;
+        bit is_OPIVX;
+        bit is_OPIVI;
+        bit is_OPIVV_OPIVX;
+        bit is_OPI;
+
+        is_OPIVV       = (instr.funct3 == OPIVV);
+        is_OPIVX       = (instr.funct3 == OPIVX);
+        is_OPIVI       = (instr.funct3 == OPIVI);
+        is_OPIVV_OPIVX = (is_OPIVV || is_OPIVV_OPIVX);
+        is_OPI         = (is_OPIVV || is_OPIVX|| is_OPIVI);
+        use_carry = f_use_carry(instr.funct6, is_OPI, is_OPIVV_OPIVX);
+
+        return use_carry;
+    endfunction: get_use_carry
+
+    virtual function bit get_is_shift(riscv_v_type_instruction_t instr);
+        bit is_shift;
+        bit is_OPIVV;
+        bit is_OPIVX;
+        bit is_OPIVI;
+        bit is_OPI;
+
+        is_OPIVV       = (instr.funct3 == OPIVV);
+        is_OPIVX       = (instr.funct3 == OPIVX);
+        is_OPIVI       = (instr.funct3 == OPIVI);
+        is_OPI         = (is_OPIVV || is_OPIVX|| is_OPIVI);
+
+        is_shift = f_is_shift(instr.funct6, is_OPI);
+
+        return is_shift;
+    endfunction: get_is_shift
+
+    virtual function bit get_is_i2v(riscv_v_type_instruction_t instr);
+        bit is_i2v;
+        bit is_OPIVX;
+
+        is_OPIVX       = (instr.funct3 == OPIVX);
+
+        is_i2v = f_is_i2v(instr.funct6, is_OPIVX);
+
+        return is_i2v;
+    endfunction: get_is_i2v 
+
+    virtual function bit get_is_v2i(riscv_v_type_instruction_t instr);
+        bit is_v2i;
+        bit is_OPIVV;
+
+        is_OPIVV       = (instr.funct3 == OPIVV);
+
+        is_v2i = f_is_v2i(instr.funct6, is_OPIVV);
+
+        return is_v2i;
+    endfunction: get_is_v2i 
 
 endclass: riscv_v_decode_model
 

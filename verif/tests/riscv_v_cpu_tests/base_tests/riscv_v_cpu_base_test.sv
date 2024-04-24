@@ -180,7 +180,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
             //For loop osizes
             for (int osize = 0; osize < NUM_OSIZES; osize++) begin
                 //Update osize
-                vtype_tmp.vsew = valid_osizes[osize];
+                vtype_tmp.vsew = riscv_v_vsew_t'(valid_osizes[osize]);
                 ext_csr_cfg.vtype_wr_data = vtype_tmp;
                 //Not Mask
                 if_cfg.specific_vm          = 1'b1;

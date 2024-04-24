@@ -16,7 +16,7 @@ class riscv_v_cpu_vredsum_test extends riscv_v_cpu_base_test;
         NUM_TXN_BLOCK  = 50;
         SUPPORTS_MASK  = 1;
         NUM_OSIZES     = RISCV_V_NUM_VALID_OSIZES-1;
-        NUM_FORMATS    = 2;
+        NUM_FORMATS    = 1;
         TOTAL_BLOCKS   = NUM_FORMATS*NUM_OSIZES*(SUPPORTS_MASK+1);
         USE_RAND_START = 1'b0;
         USE_RAND_LEN   = 1'b1;
@@ -39,7 +39,7 @@ class riscv_v_cpu_vredsum_test extends riscv_v_cpu_base_test;
         valid_osizes = '{OSIZE_8, OSIZE_16, OSIZE_32, OSIZE_64};
         //Set Valid formats for test
         valid_formats = new[NUM_FORMATS];
-        valid_formats = '{OPMVV, OPMVX};
+        valid_formats = '{OPMVV};
         //Dont update vstart
         cfg_wr_vstart = 1'b0;
 

@@ -101,7 +101,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         logic stall_inst;
         assign stall_inst = riscv_stall || riscv_v_stall;
 
-        riscv_v_stage#(.DATA_T(riscv_v_opcode_e),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) riscv_v_opcode_inst_stage (.clk(clk), .rst(rst), .en(~stall_inst), .flush(clear_pipe), .rst_val('x), .flush_val('x), .data_in(opcode_id),  .data_out(opcode_exe));
+        riscv_v_stage#(.DATA_T(riscv_v_opcode_e),  .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) riscv_v_opcode_inst_stage (.clk(clk), .rst(rst), .en(~stall_inst), .flush(clear_pipe), .rst_val(riscv_v_opcode_e'('x)), .flush_val(riscv_v_opcode_e'('x)), .data_in(opcode_id),  .data_out(opcode_exe));
 
     `endif //RISCV_V_INST
 

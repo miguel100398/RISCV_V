@@ -42,7 +42,7 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
     super.run_phase(phase);
   endtask: run_phase
 
-  virtual function rst_mon();
+  virtual function void rst_mon();
     ext_data_in_delay     = '{default:'x};
     ext_wr_vsstatus_delay = '{default:'0};
     ext_wr_vtype_delay    = '{default:'0};
@@ -120,7 +120,7 @@ class riscv_v_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_in_seq_it
     rd_sem.put(in_sem_keys);
   endtask: mon_rtl_out
 
-  virtual function delay_in_data();
+  virtual function void delay_in_data();
 
   //Delay EXE to WB
   for (int idx = RISCV_V_EXE_2_WB_LATENCY; idx > 0; idx--) begin

@@ -39,7 +39,7 @@ virtual class riscv_v_alu_base_model extends riscv_v_base_model;
                 OSIZE_128 : begin
                     len_op = (len > RISCV_V_NUM_DQWORDS_DATA) ? RISCV_V_NUM_DQWORDS_DATA : len;
                 end
-                default : `uvm_fatal(get_name(), $sformatf("invalid OSIZE: ", osize.name()))
+                default : `uvm_fatal(get_name(), $sformatf("invalid OSIZE: %0s", osize.name()))
 
             endcase
 
@@ -47,7 +47,7 @@ virtual class riscv_v_alu_base_model extends riscv_v_base_model;
 
     endfunction: get_len_op
 
-    pure virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_src_start_t start);
+    pure virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
 
 
