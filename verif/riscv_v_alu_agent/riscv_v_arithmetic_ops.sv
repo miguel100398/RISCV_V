@@ -390,7 +390,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Word[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Byte[i*2], 16);
+                            arithmetic_exp_result.data.Word[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Byte[i], 16);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -400,12 +400,12 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Byte[i*4], 32);
+                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Byte[i], 32);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[1] : begin
                         for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Word[i*2], 32);
+                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Word[i], 32);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -415,17 +415,17 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Byte[i*8], 64);
+                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Byte[i], 64);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[1] : begin
                         for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Word[i*4], 64);
+                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Word[i], 64);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[2] : begin
                         for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Dword[i*2], 64);
+                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Dword[i], 64);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -435,22 +435,22 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Byte[i*16], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Byte[i], 128);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[1] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Word[i*8], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Word[i], 128);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[2] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Dword[i*4], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Dword[i], 128);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[3] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srca.data.Qword[i*2], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_SX(arithmetic_in_txn.srcb.data.Qword[i], 128);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -470,7 +470,7 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Word[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Byte[i*2], 16);
+                            arithmetic_exp_result.data.Word[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Byte[i], 16);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -480,12 +480,12 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Byte[i*4], 32);
+                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Byte[i], 32);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[1] : begin
                         for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Word[i*2], 32);
+                            arithmetic_exp_result.data.Dword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Word[i], 32);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -495,17 +495,17 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Byte[i*8], 64);
+                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Byte[i], 64);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[1] : begin
                         for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Word[i*4], 64);
+                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Word[i], 64);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[2] : begin
                         for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Dword[i*2], 64);
+                            arithmetic_exp_result.data.Qword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Dword[i], 64);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))
@@ -515,22 +515,22 @@ class riscv_v_arithmetic_ops extends uvm_component;
                 unique case (1'b1)
                     arithmetic_in_txn.src_osize_vector[0] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Byte[i*16], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Byte[i], 128);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[1] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Word[i*8], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Word[i], 128);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[2] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Dword[i*4], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Dword[i], 128);
                         end
                     end
                     arithmetic_in_txn.src_osize_vector[3] : begin
                         for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srca.data.Qword[i*2], 128);
+                            arithmetic_exp_result.data.Dqword[i] = `RISCV_V_ZX(arithmetic_in_txn.srcb.data.Qword[i], 128);
                         end
                     end
                     default : `uvm_fatal(get_name(), $sformatf("Invalid src_osize_vector, Osize: %0s, src_osize_vector: %0b",  arithmetic_in_txn.osize, arithmetic_in_txn.src_osize_vector))

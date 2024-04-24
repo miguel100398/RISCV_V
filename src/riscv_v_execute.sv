@@ -142,6 +142,7 @@ riscv_v_exe_alu exe_alu(
 );
 
 riscv_v_decode_element decode_element(
+    .srca_addr(rf_rd_addr_srca_exe),
     .srca(srca_byp),
     .srcb(srcb_byp),
     .vtype(vtype),
@@ -151,6 +152,8 @@ riscv_v_decode_element decode_element(
     .mask(mask_byp),
     .mask_osize_sel(mask_alu),
     .is_mask(is_mask_exe),
+    .is_zero_ext(is_zero_ext_exe),
+    .is_sign_ext(is_sign_ext_exe),
     .is_reduct(is_reduct_exe),
     .srca_alu(srca_alu),
     .srcb_alu(srcb_alu),

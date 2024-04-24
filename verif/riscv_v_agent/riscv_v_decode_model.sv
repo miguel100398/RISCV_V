@@ -158,23 +158,82 @@ class riscv_v_decode_model extends riscv_v_base_model;
     endfunction: get_imm 
 
     //Get source osize
-    virtual function riscv_v_osize_e get_src_osize(riscv_v_vtype_t vtype, riscv_v_opcode_e opcode, riscv_instr_rs_t vs1);
+    virtual function riscv_v_osize_e get_src_osize(riscv_v_vtype_t vtype, riscv_v_opcode_e opcode, riscv_instr_rs_t vs1, riscv_v_osize_e dst_osize);
         riscv_v_osize_e src_osize;
 
-
         if (opcode == ZERO_EXT) begin
-            unique case (vs1)
-                RISCV_V_ZEXT_VF8 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 3);
-                RISCV_V_ZEXT_VF4 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 2);
-                RISCV_V_ZEXT_VF2 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 1);
-                default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+
+            unique case(dst_osize)
+                OSIZE_16: begin
+                    unique case (vs1)
+                        RISCV_V_ZEXT_VF8 : src_osize = OSIZE_8;
+                        RISCV_V_ZEXT_VF4 : src_osize = OSIZE_8;
+                        RISCV_V_ZEXT_VF2 : src_osize = OSIZE_8;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                OSIZE_32: begin
+                    unique case (vs1)
+                        RISCV_V_ZEXT_VF8 : src_osize = OSIZE_8;
+                        RISCV_V_ZEXT_VF4 : src_osize = OSIZE_8;
+                        RISCV_V_ZEXT_VF2 : src_osize = OSIZE_16;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                OSIZE_64: begin
+                    unique case (vs1)
+                        RISCV_V_ZEXT_VF8 : src_osize = OSIZE_8;
+                        RISCV_V_ZEXT_VF4 : src_osize = OSIZE_16;
+                        RISCV_V_ZEXT_VF2 : src_osize = OSIZE_32;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                OSIZE_128: begin
+                    unique case (vs1)
+                        RISCV_V_ZEXT_VF8 : src_osize = OSIZE_16;
+                        RISCV_V_ZEXT_VF4 : src_osize = OSIZE_32;
+                        RISCV_V_ZEXT_VF2 : src_osize = OSIZE_64;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                default : `uvm_fatal(get_name(), $sformatf("Invalid dst_osize: %0s", dst_osize))
             endcase
+            
         end else if (opcode == SIGN_EXT) begin
-            unique case (vs1)
-                RISCV_V_SEXT_VF8 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 3);
-                RISCV_V_SEXT_VF4 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 2);
-                RISCV_V_SEXT_VF2 : src_osize = riscv_v_osize_e'((vtype.vsew) >> 1);
-                default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+            unique case(dst_osize)
+                OSIZE_16: begin
+                    unique case (vs1)
+                        RISCV_V_SEXT_VF8 : src_osize = OSIZE_8;
+                        RISCV_V_SEXT_VF4 : src_osize = OSIZE_8;
+                        RISCV_V_SEXT_VF2 : src_osize = OSIZE_8;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                OSIZE_32: begin
+                    unique case (vs1)
+                        RISCV_V_SEXT_VF8 : src_osize = OSIZE_8;
+                        RISCV_V_SEXT_VF4 : src_osize = OSIZE_8;
+                        RISCV_V_SEXT_VF2 : src_osize = OSIZE_16;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                OSIZE_64: begin
+                    unique case (vs1)
+                        RISCV_V_SEXT_VF8 : src_osize = OSIZE_8;
+                        RISCV_V_SEXT_VF4 : src_osize = OSIZE_16;
+                        RISCV_V_SEXT_VF2 : src_osize = OSIZE_32;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                OSIZE_128: begin
+                    unique case (vs1)
+                        RISCV_V_SEXT_VF8 : src_osize = OSIZE_16;
+                        RISCV_V_SEXT_VF4 : src_osize = OSIZE_32;
+                        RISCV_V_SEXT_VF2 : src_osize = OSIZE_64;
+                        default : `uvm_fatal(get_name(), $sformatf("Invalid VS1 for ZERO_EXT, vs1: %0b", vs1))
+                    endcase
+                end
+                default : `uvm_fatal(get_name(), $sformatf("Invalid dst_osize: %0s", dst_osize))
             endcase
         end else begin
             src_osize = riscv_v_osize_e'(vtype.vsew);

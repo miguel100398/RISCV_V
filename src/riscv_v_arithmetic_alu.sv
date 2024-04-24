@@ -115,7 +115,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
         .is_sign_ext(is_sign_ext),
         .src_osize_vector(src_osize_vector),
         .dst_osize_vector(dst_osize_vector),
-        .srca(srca),
+        .src(srcb),
         .result(extend_result)
     );
 

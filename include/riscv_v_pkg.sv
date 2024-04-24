@@ -91,6 +91,13 @@ parameter logic [4:0] RISCV_V_SEXT_VF8         = 5'b00011;
 parameter logic [4:0] RISCV_V_SEXT_VF4         = 5'b00101;
 parameter logic [4:0] RISCV_V_SEXT_VF2         = 5'b00111;
 
+parameter logic [1:0] RISCV_V_EXT_SHIFT_3 = 2'b01;
+parameter logic [1:0] RISCV_V_EXT_SHIFT_2 = 2'b10;
+parameter logic [1:0] RISCV_V_EXT_SHIFT_1 = 2'b11;
+
+parameter RISCV_V_OSIZE_SHIFT_STICKY_WIDTH = 2;
+typedef logic[RISCV_V_OSIZE_SHIFT_STICKY_WIDTH-1:0] riscv_v_osize_shift_stikcy_t;
+
 //PIPE STAGES
 typedef enum {RISCV_V_IF, RISCV_V_ID, RISCV_V_EXE, RISCV_V_MEM, RISCV_V_WB} PIPE_STAGES_E;
 parameter RISCV_V_IF_2_ID_LATENCY   = 1;
@@ -308,6 +315,11 @@ parameter int RISCV_V_SHUFFLER_SEL_WIDTH = $clog2(RISCV_V_NUM_ELEMENTS_REG);
 typedef logic[RISCV_V_SHUFFLER_SEL_WIDTH-1:0] riscv_v_shuffler_sel_t;
 typedef riscv_v_shuffler_sel_t riscv_v_shuffler_sel_vector_t [RISCV_V_NUM_ELEMENTS_REG-1:0];
 
+//Sign extend types
+localparam RISCV_V_EXTEND_SHIFT_CNT_WIDTH = 2;
+localparam RISCV_V_EXTEND_SHIFT_END       = 2;
+localparam RISCV_V_EXTEND_SHIFT_BEGIN     = 1;
+typedef logic[RISCV_V_EXTEND_SHIFT_CNT_WIDTH-1:0] riscv_v_extend_shft_cnt_t;
 
 //Opcode types
 typedef enum logic[5:0] {BW_AND, BW_AND_REDUCT, 

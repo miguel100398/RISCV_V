@@ -7,11 +7,14 @@
 module riscv_v_decode_element
 import riscv_pkg::*, riscv_v_pkg::*;
 (
+    input  riscv_instr_rs_t         srca_addr,
     input  riscv_v_data_t           srca,
     input  riscv_v_data_t           srcb,
     input  riscv_v_vtype_t          vtype,
     input  riscv_v_vl_t             vl,
     input  riscv_v_vstart_t         vstart, 
+    input  logic                    is_zero_ext,
+    input  logic                    is_sign_ext,
     input  logic                    is_mask,
     input  logic                    is_reduct,
     input  logic                    use_mask,
@@ -30,9 +33,12 @@ import riscv_pkg::*, riscv_v_pkg::*;
     
 );
 
+logic is_extend;
+
 //Osize
-riscv_v_osize_e src_osize;
 riscv_v_osize_e dst_osize;
+osize_vector_t               src_osize_vector_ext;
+riscv_v_osize_shift_stikcy_t src_osize_vector_sticky;
 riscv_v_merge_data_t merge_osize[RISCV_V_NUM_VALID_OSIZES-1:1];
 riscv_v_valid_data_t valid_osize[RISCV_V_NUM_VALID_OSIZES-1:0];
 riscv_v_valid_data_t valid_osize_sel;
@@ -48,7 +54,6 @@ riscv_v_valid_data_t is_reduct_osize_sel;
 riscv_v_valid_data_t is_reduct_valid;
 
 assign dst_osize = riscv_v_osize_e'(vtype.vsew);
-assign src_osize = riscv_v_osize_e'(vtype.vsew);
 
 //Destination osize vector
 assign dst_osize_vector[0] = (dst_osize == OSIZE_8);
@@ -57,8 +62,20 @@ assign dst_osize_vector[2] = (dst_osize == OSIZE_32);
 assign dst_osize_vector[3] = (dst_osize == OSIZE_64);
 assign dst_osize_vector[4] = (dst_osize == OSIZE_128);
 
-//FIXME
-assign src_osize_vector = dst_osize_vector;
+//Get source osize for Shift/Zero extend
+assign is_extend = is_zero_ext | is_sign_ext;
+always_comb begin
+    unique case(srca_addr[RISCV_V_EXTEND_SHIFT_END:RISCV_V_EXTEND_SHIFT_BEGIN])
+        RISCV_V_EXT_SHIFT_3 : {src_osize_vector_ext, src_osize_vector_sticky} = {dst_osize_vector, {RISCV_V_OSIZE_SHIFT_STICKY_WIDTH{1'b0}}} >> 3;
+        RISCV_V_EXT_SHIFT_2 : {src_osize_vector_ext, src_osize_vector_sticky} = {dst_osize_vector, {RISCV_V_OSIZE_SHIFT_STICKY_WIDTH{1'b0}}} >> 2;
+        RISCV_V_EXT_SHIFT_1 : {src_osize_vector_ext, src_osize_vector_sticky} = {dst_osize_vector, {RISCV_V_OSIZE_SHIFT_STICKY_WIDTH{1'b0}}} >> 1;
+        default: src_osize_vector_ext = 'x;
+    endcase
+    //Set Osize to if OSIZE was shifted out;
+    src_osize_vector_ext[0] |= |src_osize_vector_sticky;
+end
+
+assign src_osize_vector = (is_extend) ? src_osize_vector_ext : dst_osize_vector;
 
 //Is greater osize vector
 assign is_greater_osize_vector[0] = 1'b1; //Bit 0 is always 1 since all osizes are greater than osize0

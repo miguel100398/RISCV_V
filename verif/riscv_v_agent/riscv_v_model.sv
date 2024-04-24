@@ -144,8 +144,8 @@ class riscv_v_model extends riscv_v_base_model;
     imm = decode_model.get_imm(instr);
 
     //Get osize
-    src_osize = decode_model.get_src_osize(csr_vtype, opcode, srca_addr);
     dst_osize = decode_model.get_dst_osize(csr_vtype);
+    src_osize = decode_model.get_src_osize(csr_vtype, opcode, srca_addr, dst_osize);
 
     //Get len
     len = decode_model.get_len(csr_vl, dst_osize);
