@@ -1114,7 +1114,7 @@ function automatic riscv_v_opcode_e f_riscv_v_get_opcode(riscv_instruction_t ins
                 //VFMAX Not supported
             end
             //VMAX, VREDMAX, VFFREDMAX
-            RISCV_V_FUNCT6_VMIN: begin
+            RISCV_V_FUNCT6_VMAX: begin
                 //VMAX
                 if (instr.V.funct3 inside {OPIVV, OPIVX}) begin
                     op = MAXS;

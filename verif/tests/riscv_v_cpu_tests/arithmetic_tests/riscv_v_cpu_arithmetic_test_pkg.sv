@@ -28,5 +28,9 @@ package riscv_v_cpu_arithmetic_test_pkg;
     `include "riscv_v_cpu_vmul_test.sv"
     `include "riscv_v_cpu_vmulh_test.sv"
     `include "riscv_v_cpu_vmulhu_test.sv"
+    `include "riscv_v_cpu_vmin_test.sv"
+    `include "riscv_v_cpu_vminu_test.sv"
+    `include "riscv_v_cpu_vmax_test.sv"
+    `include "riscv_v_cpu_vmaxu_test.sv"
 
 endpackage: riscv_v_cpu_arithmetic_test_pkg 
