@@ -291,7 +291,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Byte[0] = srca.Byte[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Byte[idx] = result.Byte[0] & srcb.Byte[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Byte[0] = result.Byte[0] & srcb.Byte[idx];
+                    end
                 end
             end
             OSIZE_16 : begin
@@ -301,7 +303,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Word[idx] = result.Word[0] & srcb.Word[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Word[0] = result.Word[0] & srcb.Word[idx];
+                    end
                 end
             end
             OSIZE_32 : begin
@@ -311,7 +315,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Dword[idx] = result.Dword[0] & srcb.Dword[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Dword[0] = result.Dword[0] & srcb.Dword[idx];
+                    end
                 end
             end
             OSIZE_64 : begin
@@ -321,7 +327,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Qword[0] = srca.Qword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Qword[idx] = result.Qword[0] & srcb.Qword[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Qword[0] = result.Qword[0] & srcb.Qword[idx];
+                    end
                 end
             end
             default : `uvm_fatal(get_name(), $sformatf("invalid OSIZE: %0s", osize.name()))
@@ -355,7 +363,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Byte[0] = srca.Byte[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Byte[idx] = result.Byte[0] | srcb.Byte[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Byte[0] = result.Byte[0] | srcb.Byte[idx];
+                    end
                 end
             end
             OSIZE_16 : begin
@@ -365,7 +375,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Word[idx] = result.Word[0] | srcb.Word[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Word[0] = result.Word[0] | srcb.Word[idx];
+                    end
                 end
             end
             OSIZE_32 : begin
@@ -375,7 +387,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Dword[idx] = result.Dword[0] | srcb.Dword[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Dword[0] = result.Dword[0] | srcb.Dword[idx];
+                    end
                 end
             end
             OSIZE_64 : begin
@@ -385,7 +399,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Qword[0] = srca.Qword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Qword[idx] = result.Qword[0] | srcb.Qword[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Qword[0] = result.Qword[0] | srcb.Qword[idx];
+                    end 
                 end
             end
             default : `uvm_fatal(get_name(), $sformatf("invalid OSIZE: %0s", osize.name()))
@@ -419,7 +435,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Byte[0] = srca.Byte[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Byte[idx] = result.Byte[0] ^ srcb.Byte[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Byte[0] = result.Byte[0] ^ srcb.Byte[idx];
+                    end
                 end
             end
             OSIZE_16 : begin
@@ -429,7 +447,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Word[idx] = result.Word[0] ^ srcb.Word[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Word[0] = result.Word[0] ^ srcb.Word[idx];
+                    end
                 end
             end
             OSIZE_32 : begin
@@ -439,7 +459,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Dword[idx] = result.Dword[0] ^ srcb.Dword[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Dword[0] = result.Dword[0] ^ srcb.Dword[idx];
+                    end
                 end
             end
             OSIZE_64 : begin
@@ -449,7 +471,9 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
                     result.Qword[0] = srca.Qword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
-                    result.Qword[idx] = result.Qword[0] ^ srcb.Qword[idx];
+                    if (~use_mask | mask[idx]) begin
+                        result.Qword[0] = result.Qword[0] ^ srcb.Qword[idx];
+                    end
                 end
             end
             default : `uvm_fatal(get_name(), $sformatf("invalid OSIZE: %0s", osize.name()))

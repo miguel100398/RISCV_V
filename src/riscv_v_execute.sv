@@ -86,9 +86,6 @@ riscv_v_wb_data_t alu_result_pre_swizzle_exe;
 riscv_v_data_t    alu_result_data_exe;
 riscv_v_data_t    result_swizzle_exe;
 
-logic swizzle_exe;
-
-
 `ifdef RISCV_V_INST
     riscv_v_osize_e     osize_exe;
     riscv_v_src_len_t   len_exe;
@@ -195,11 +192,9 @@ riscv_v_bypass v_bypass(
 
 assign alu_result_data_exe = alu_result_pre_swizzle_exe.data;
 
-assign swizzle_exe = is_reduct_exe && is_add_exe;
-
 riscv_v_swizzle v_swizzle(
     .src_data(alu_result_data_exe),
-    .invert(swizzle_exe),
+    .invert(is_reduct_exe),
     .osize_vec(dst_osize_vector),
     .result(result_swizzle_exe)
 );

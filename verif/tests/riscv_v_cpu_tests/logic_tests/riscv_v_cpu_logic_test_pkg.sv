@@ -21,6 +21,9 @@ package riscv_v_cpu_logic_test_pkg;
     `include "riscv_v_cpu_vand_test.sv"
     `include "riscv_v_cpu_vor_test.sv"
     `include "riscv_v_cpu_vxor_test.sv"
+    `include "riscv_v_cpu_vredand_test.sv"
+    `include "riscv_v_cpu_vredor_test.sv"
+    `include "riscv_v_cpu_vredxor_test.sv"
     
 
 endpackage: riscv_v_cpu_logic_test_pkg 

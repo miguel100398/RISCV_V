@@ -313,7 +313,7 @@ module riscv_v_tb;
     end
 
     initial begin
-        run_test("riscv_v_cpu_vxor_test");
+        run_test("riscv_v_cpu_vredxor_test");
     end
     
 

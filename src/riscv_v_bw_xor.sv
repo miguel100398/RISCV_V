@@ -40,14 +40,14 @@ generate
             assign srcb_gated[i] = srcb.data.Byte[i] & {BYTE_WIDTH{(is_xor & ~is_mask)}};
         end
         //Srca input to BW block
-        //Input to Most significant Block is only srca
-        assign srca_bw[NUM_BW_BLOCKS-1] = srca_gated[NUM_BW_BLOCKS-1];
-        for (genvar block=NUM_BW_BLOCKS-2; block>=0; block--) begin : gen_srca_bw
+        //Input to Least significant Block is only srca
+        assign srca_bw[0] = srca_gated[0];
+        for (genvar block=1; block < NUM_BW_BLOCKS; block++) begin : gen_srca_bw
             always_comb begin
                 //Fisrt input is srca
-                srca_bw[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(NUM_BW_BLOCKS-block)]}};        //Select this source if op is not reduct or osize is greater than
-                for (int reduct_input=0; reduct_input < $clog2(NUM_BW_BLOCKS-block); reduct_input++) begin
-                    srca_bw[block] |= result_bw[block+(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
+                srca_bw[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(block+1)]}};        //Select this source if op is not reduct or osize is greater than
+                for (int reduct_input=0; reduct_input <= (($clog2(block+1))-1); reduct_input++) begin
+                    srca_bw[block] |= result_bw[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
                 end
             end
         end
