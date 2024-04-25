@@ -211,6 +211,7 @@ always_comb begin
     srcb_alu.valid = valid_osize_sel;
     //Turn off valid bits with mask
     srca_alu.valid &= mask_valid;
+    srcb_alu.valid &= mask_valid;
     //Turn off valid bits if is_reduct
     srca_alu.valid &= is_reduct_valid;
     //Turn off valid bits if is_mask

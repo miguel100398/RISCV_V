@@ -274,7 +274,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         result = 'x;
 
         if(start != 0) begin
-            `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDMINU")
+            `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDAND")
         end
 
         if (len == 0) begin
@@ -346,7 +346,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         result = 'x;
 
         if(start != 0) begin
-            `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDMINU")
+            `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDOR")
         end
 
         if (len == 0) begin
@@ -418,7 +418,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         result = 'x;
 
         if(start != 0) begin
-            `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDMINU")
+            `uvm_fatal(get_name(), "Start different from 0 not supported for this op, VREDXOR")
         end
 
         if (len == 0) begin

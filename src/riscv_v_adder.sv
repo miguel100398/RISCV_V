@@ -113,7 +113,7 @@ generate
             //Fisrt input is srca
             srca_adder[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(block+1)]}};        //Select this source if op is not reduct or osize is greater than
             for (int reduct_input=0; reduct_input <= (($clog2(block+1))-1); reduct_input++) begin
-                srca_adder[block] |= result_adder[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
+                srca_adder[block] |= result[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
             end
         end
     end

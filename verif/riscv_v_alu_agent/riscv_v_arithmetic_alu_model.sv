@@ -1934,43 +1934,46 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Byte[idx] = get_min_byte(result.Byte[0], srcb.Byte[idx], 1'b1);
+                        result.Byte[0] = get_min_byte(result.Byte[0], srcb.Byte[idx], 1'b1);
                     end
                 end
             end
             OSIZE_16 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Word[0] = get_min_word(result.Word[0], srcb.Word[0], 1'b1);
+                    result.Word[0] = get_min_word(srca.Word[0], srcb.Word[0], 1'b1);
                 end else begin
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Word[idx] = get_min_word(result.Word[0], srcb.Word[idx], 1'b1);
+                        result.Word[0] = get_min_word(result.Word[0], srcb.Word[idx], 1'b1);
                     end
                 end
             end
             OSIZE_32 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Dword[0] = get_min_dword(result.Dword[0], srcb.Dword[0], 1'b1);
+                    result.Dword[0] = get_min_dword(srca.Dword[0], srcb.Dword[0], 1'b1);
                 end else begin
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Dword[idx] = get_min_dword(result.Dword[0], srcb.Dword[idx], 1'b1);
+                        result.Dword[0] = get_min_dword(result.Dword[0], srcb.Dword[idx], 1'b1);
                     end
                 end
             end
             OSIZE_64 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Qword[0] = get_min_qword(result.Qword[0], srcb.Qword[0], 1'b1);
+                    result.Qword[0] = get_min_qword(srca.Qword[0], srcb.Qword[0], 1'b1);
                 end else begin
                     result.Qword[0] = srca.Qword[0];
                 end
+                $display("First result: srca: 0x%0h, %0d, srcb: 0x%0h, %0d, result: 0x%0h", srca.Qword[0], srca.Qword[0], srcb.Qword[0], srcb.Qword[0], result.Qword[0]);
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Qword[idx] = get_min_qword(result.Qword[0], srcb.Qword[idx], 1'b1);
+                        result.Qword[0] = get_min_qword(result.Qword[0], srcb.Qword[idx], 1'b1);
+                        $display("result[%0d]: srca: 0x%0h, %0d, srcb: 0x%0h, %0d, result: 0x%0h", idx, srca.Qword[idx], srca.Qword[idx], srcb.Qword[idx], srcb.Qword[idx], result.Qword[idx]);
+
                     end
                 end
             end
@@ -2001,43 +2004,43 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Byte[idx] = get_min_byte(result.Byte[0], srcb.Byte[idx], 1'b0);
+                        result.Byte[0] = get_min_byte(result.Byte[0], srcb.Byte[idx], 1'b0);
                     end
                 end
             end
             OSIZE_16 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Word[0] = get_min_word(result.Word[0], srcb.Word[0], 1'b0);
+                    result.Word[0] = get_min_word(srca.Word[0], srcb.Word[0], 1'b0);
                 end else begin
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Word[idx] = get_min_word(result.Word[0], srcb.Word[idx], 1'b0);
+                        result.Word[0] = get_min_word(result.Word[0], srcb.Word[idx], 1'b0);
                     end
                 end
             end
             OSIZE_32 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Dword[0] = get_min_dword(result.Dword[0], srcb.Dword[0], 1'b0);
+                    result.Dword[0] = get_min_dword(srca.Dword[0], srcb.Dword[0], 1'b0);
                 end else begin
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Dword[idx] = get_min_dword(result.Dword[0], srcb.Dword[idx], 1'b0);
+                        result.Dword[0] = get_min_dword(result.Dword[0], srcb.Dword[idx], 1'b0);
                     end
                 end
             end
             OSIZE_64 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Qword[0] = get_min_qword(result.Qword[0], srcb.Qword[0], 1'b0);
+                    result.Qword[0] = get_min_qword(srca.Qword[0], srcb.Qword[0], 1'b0);
                 end else begin
                     result.Qword[0] = srca.Qword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Qword[idx] = get_min_qword(result.Qword[0], srcb.Qword[idx], 1'b0);
+                        result.Qword[0] = get_min_qword(result.Qword[0], srcb.Qword[idx], 1'b0);
                     end
                 end
             end
@@ -2068,43 +2071,43 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Byte[idx] = get_max_byte(result.Byte[0], srcb.Byte[idx], 1'b1);
+                        result.Byte[0] = get_max_byte(result.Byte[0], srcb.Byte[idx], 1'b1);
                     end
                 end
             end
             OSIZE_16 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Word[0] = get_max_word(result.Word[0], srcb.Word[0], 1'b1);
+                    result.Word[0] = get_max_word(srca.Word[0], srcb.Word[0], 1'b1);
                 end else begin
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Word[idx] = get_max_word(result.Word[0], srcb.Word[idx], 1'b1);
+                        result.Word[0] = get_max_word(result.Word[0], srcb.Word[idx], 1'b1);
                     end
                 end
             end
             OSIZE_32 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Dword[0] = get_max_dword(result.Dword[0], srcb.Dword[0], 1'b1);
+                    result.Dword[0] = get_max_dword(srca.Dword[0], srcb.Dword[0], 1'b1);
                 end else begin
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Dword[idx] = get_max_dword(result.Dword[0], srcb.Dword[idx], 1'b1);
+                        result.Dword[0] = get_max_dword(result.Dword[0], srcb.Dword[idx], 1'b1);
                     end
                 end
             end
             OSIZE_64 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Qword[0] = get_max_qword(result.Qword[0], srcb.Qword[0], 1'b1);
+                    result.Qword[0] = get_max_qword(srca.Qword[0], srcb.Qword[0], 1'b1);
                 end else begin
                     result.Qword[0] = srca.Qword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Qword[idx] = get_max_qword(result.Qword[0], srcb.Qword[idx], 1'b1);
+                        result.Qword[0] = get_max_qword(result.Qword[0], srcb.Qword[idx], 1'b1);
                     end
                 end
             end
@@ -2136,43 +2139,43 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Byte[idx] = get_max_byte(result.Byte[0], srcb.Byte[idx], 1'b0);
+                        result.Byte[0] = get_max_byte(result.Byte[0], srcb.Byte[idx], 1'b0);
                     end
                 end
             end
             OSIZE_16 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Word[0] = get_max_word(result.Word[0], srcb.Word[0], 1'b0);
+                    result.Word[0] = get_max_word(srca.Word[0], srcb.Word[0], 1'b0);
                 end else begin
                     result.Word[0] = srca.Word[0];
                 end
                 for (int idx = 1; idx <len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Word[idx] = get_max_word(result.Word[0], srcb.Word[idx], 1'b0);
+                        result.Word[0] = get_max_word(result.Word[0], srcb.Word[idx], 1'b0);
                     end
                 end
             end
             OSIZE_32 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Dword[0] = get_max_dword(result.Dword[0], srcb.Dword[0], 1'b0);
+                    result.Dword[0] = get_max_dword(srca.Dword[0], srcb.Dword[0], 1'b0);
                 end else begin
                     result.Dword[0] = srca.Dword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Dword[idx] = get_max_dword(result.Dword[0], srcb.Dword[idx], 1'b0);
+                        result.Dword[0] = get_max_dword(result.Dword[0], srcb.Dword[idx], 1'b0);
                     end
                 end
             end
             OSIZE_64 : begin
                 if (~use_mask | mask[0]) begin
-                    result.Qword[0] = get_max_qword(result.Qword[0], srcb.Qword[0], 1'b0);
+                    result.Qword[0] = get_max_qword(srca.Qword[0], srcb.Qword[0], 1'b0);
                 end else begin
                     result.Qword[0] = srca.Qword[0];
                 end
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
-                        result.Qword[idx] = get_max_qword(result.Qword[0], srcb.Qword[idx], 1'b0);
+                        result.Qword[0] = get_max_qword(result.Qword[0], srcb.Qword[idx], 1'b0);
                     end
                 end
             end
