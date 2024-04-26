@@ -4,7 +4,7 @@
 //Description: RISC-V Vector adder
 `timescale 1ns/1ps
 
-module riscv_v_adder
+module riscv_v_adder_min_max_comb_loop
 import riscv_v_pkg::*, riscv_pkg::*;
 (
     input  logic                       valid_adder,
@@ -51,7 +51,6 @@ riscv_v_carry_in_t        prev_cout_adder;
 riscv_v_carry_in_t        cout_adder;
 //Result of adder block
 riscv_v_src_byte_vector_t result_adder;
-riscv_v_src_byte_vector_t result_adder_qual;
 //Merge carry in
 riscv_v_carry_in_t        merge_carry_in;
 //Sub Carry in
@@ -75,11 +74,7 @@ riscv_v_less_than_t       result_less_than_prev_osize;
 riscv_v_less_than_t       result_less_than_osize    [RISCV_V_NUM_VALID_OSIZES-1:0];
 riscv_v_less_than_t       result_less_than;
 //Select between A and B in is_max or is_min
-riscv_v_src_byte_vector_t result_min_max_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_src_byte_vector_t result_min_max_osize_qual [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_src_byte_vector_t result_min_max_osize_shift [RISCV_V_NUM_VALID_OSIZES-2:0];
-riscv_v_src_byte_vector_t result_min_max_reduct_src;
-riscv_v_src_byte_vector_t result_min_max_qual;
+riscv_v_src_byte_vector_t result_min_max;
 //Compare result
 riscv_v_num_byte_vector_t result_set_equal_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
 riscv_v_num_byte_vector_t result_set_equal_block;
@@ -118,9 +113,8 @@ generate
             //Fisrt input is srca
             srca_adder[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(block+1)]}};        //Select this source if op is not reduct or osize is greater than
             for (int reduct_input=0; reduct_input <= (($clog2(block+1))-1); reduct_input++) begin
-                srca_adder[block] |= result_adder_qual[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
+                srca_adder[block] |= result[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
             end
-            srca_adder |= {RISCV_V_DATA_WIDTH{is_reduct}} & result_min_max_reduct_src;
         end
     end
 
@@ -162,34 +156,8 @@ generate
     end
 
     //Min max result
-    for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_result_min_max_osize
-        localparam NUM_BYTES_OSIZE  = 2**osize_idx;
-        localparam NUM_BLOCKS_OSIZE = NUM_ADD_BLOCKS / NUM_BYTES_OSIZE;
-        for (genvar byte_idx = 0; byte_idx < NUM_BLOCKS_OSIZE; byte_idx++) begin
-            assign result_min_max_osize[osize_idx][(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE] = (is_max ^ result_less_than_prev_osize[((byte_idx+1)*NUM_BYTES_OSIZE)-1]) ? srca_adder[(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE] : srcb_gated[(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE];
-        end
-
-        assign result_min_max_osize_qual[osize_idx] = {RISCV_V_DATA_WIDTH{(is_min_max && osize_vector[osize_idx])}} & result_min_max_osize[osize_idx];
-
-    end 
-
-    for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin : gen_result_min_max_shift
-        assign result_min_max_osize_shift[osize_idx] = (result_min_max_osize_qual[osize_idx] << ((2**osize_idx)*BYTE_WIDTH));
-    end
-
-    always_comb begin
-        result_min_max_reduct_src = '0;
-        for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin
-            result_min_max_reduct_src |= result_min_max_osize_shift[osize_idx];
-        end 
-    end
-
-    always_comb begin
-        result_min_max_qual = '0;
-        for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-            result_min_max_qual |= result_min_max_osize_qual[osize_idx];
-        end
-        
+    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_result_min_max
+        assign result_min_max[block] = ((is_max ^ result_less_than_prev_osize[block]) | ~srcb.valid[block]) ? srca_adder[block] : srcb_gated[block];
     end
 
     //Compare result
@@ -209,12 +177,9 @@ generate
     end
 
     //Final result
-
-    assign result_adder_qual = {RISCV_V_DATA_WIDTH{is_arithmetic}} & result_adder;
-
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_adder_result
-        assign result[block] = result_adder_qual[block]
-                             | result_min_max_qual[block]
+        assign result[block] = result_adder[block]       & {BYTE_WIDTH{is_arithmetic}}
+                             | result_min_max[block]     & {BYTE_WIDTH{is_min_max}}
                              | result_set_equal[block]   & {BYTE_WIDTH{is_set_equal}}
                              | result_set_nequal[block]  & {BYTE_WIDTH{is_set_nequal}}
                              | result_set_less[block]    & {BYTE_WIDTH{is_set_less}}
@@ -297,4 +262,4 @@ generate
 
 endgenerate
 
-endmodule: riscv_v_adder
+endmodule: riscv_v_adder_min_max_comb_loop
