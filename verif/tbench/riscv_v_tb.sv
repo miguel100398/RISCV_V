@@ -313,7 +313,7 @@ module riscv_v_tb;
     end
 
     initial begin
-        run_test("riscv_v_cpu_vredmin_test");
+        run_test("riscv_v_cpu_vsubc_test");
     end
     
 

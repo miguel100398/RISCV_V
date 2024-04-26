@@ -110,6 +110,10 @@ generate
         assign srcb_xor_sub[block] = srcb_gated[block] ^ {BYTE_WIDTH{is_sub}};
     end
 
+    //TODO: Gatear resultado final con qual
+    //Mover el mux de srca_adder con srca_adder osize igual que src_min_max
+    //Revisar comportamiento de instrucciones de comparacion
+
     //Srca input to BW block
     //Input to Least significant Block is only srca
     assign srca_adder[0] = srca_gated[0];
@@ -120,7 +124,7 @@ generate
             for (int reduct_input=0; reduct_input <= (($clog2(block+1))-1); reduct_input++) begin
                 srca_adder[block] |= result_adder_qual[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
             end
-            srca_adder |= {RISCV_V_DATA_WIDTH{is_reduct}} & result_min_max_reduct_src;
+            srca_adder[block] |= {BYTE_WIDTH{is_reduct}} & result_min_max_reduct_src[block];
         end
     end
 
@@ -166,7 +170,7 @@ generate
         localparam NUM_BYTES_OSIZE  = 2**osize_idx;
         localparam NUM_BLOCKS_OSIZE = NUM_ADD_BLOCKS / NUM_BYTES_OSIZE;
         for (genvar byte_idx = 0; byte_idx < NUM_BLOCKS_OSIZE; byte_idx++) begin
-            assign result_min_max_osize[osize_idx][(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE] = (is_max ^ result_less_than_prev_osize[((byte_idx+1)*NUM_BYTES_OSIZE)-1]) ? srca_adder[(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE] : srcb_gated[(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE];
+            assign result_min_max_osize[osize_idx][(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE] = (is_max ^ result_less_than_prev_osize[((byte_idx+1)*NUM_BYTES_OSIZE)-1] | ~srcb.valid[(byte_idx*NUM_BYTES_OSIZE)]) ? srca_adder[(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE] : srcb_gated[(byte_idx*NUM_BYTES_OSIZE) +: NUM_BYTES_OSIZE];
         end
 
         assign result_min_max_osize_qual[osize_idx] = {RISCV_V_DATA_WIDTH{(is_min_max && osize_vector[osize_idx])}} & result_min_max_osize[osize_idx];

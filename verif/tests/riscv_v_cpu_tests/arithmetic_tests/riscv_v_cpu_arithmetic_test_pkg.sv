@@ -33,5 +33,8 @@ package riscv_v_cpu_arithmetic_test_pkg;
     `include "riscv_v_cpu_vmax_test.sv"
     `include "riscv_v_cpu_vmaxu_test.sv"
     `include "riscv_v_cpu_vredmin_test.sv"
+    `include "riscv_v_cpu_vredminu_test.sv"
+    `include "riscv_v_cpu_vredmax_test.sv"
+    `include "riscv_v_cpu_vredmaxu_test.sv"
 
 endpackage: riscv_v_cpu_arithmetic_test_pkg 
