@@ -26,17 +26,17 @@ localparam SELECTOR_WIDTH       = BLOCK_SELECTOR_WIDTH+BYTE_SELECTOR_WIDTH;
 
 typedef logic[SELECTOR_WIDTH-1:0] byte_selector_t;
 
-//Srca A gated with is_shift
+//srcb A gated with is_shift
 riscv_v_src_byte_vector_t srca_gated;
 riscv_v_src_byte_vector_t srcb_gated;
-//Srca A swizzle
+//srcb A swizzle
 riscv_v_src_byte_vector_t    srca_swizzle;
 riscv_v_src_byte_vector_t    srcb_swizzle;
-riscv_v_merge_data_t         srca_merge_swizzle;
+riscv_v_merge_data_t         srcb_merge_swizzle;
 riscv_v_merge_data_t         selected_merge;
 logic [NUM_SHIFT_BLOCKS-1:0] shifter_arith_vector;
-//Select between srca and srca swizzle
-riscv_v_src_byte_vector_t srca_shift_selected;
+//Select between srcb and srcb swizzle
+riscv_v_src_byte_vector_t srcb_shift_selected;
 //Muxes to shift blocks
 Byte_t mux_shift_block[BYTE_SELECTOR_WIDTH-1:0][NUM_SHIFT_BLOCKS-1:0];
 riscv_v_src_byte_vector_t shifter_shift_in;
@@ -48,51 +48,51 @@ riscv_v_src_byte_vector_t shifter_result;
 riscv_v_src_byte_vector_t shifter_result_swizzle;
 
 generate
-    //Gate srca with is_shift
-    for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srca_gated
-        assign srca_gated[block] = srca.data.Byte[block] & {BYTE_WIDTH{is_shift}};
+    //Gate srcb with is_shift
+    for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srcb_gated
         assign srcb_gated[block] = srcb.data.Byte[block] & {BYTE_WIDTH{is_shift}};
+        assign srca_gated[block] = srca.data.Byte[block] & {BYTE_WIDTH{is_shift}};
     end
-    //Swizzle srca A
-    for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srca_swizzle
-        assign srca_swizzle[block]       = srca_gated[NUM_SHIFT_BLOCKS-1-block];
-        assign srca_merge_swizzle[block] = srca.merge[NUM_SHIFT_BLOCKS-1-block];
+    //Swizzle srcb A
+    for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srcb_swizzle
         assign srcb_swizzle[block]       = srcb_gated[NUM_SHIFT_BLOCKS-1-block];
+        assign srcb_merge_swizzle[block] = srcb.merge[NUM_SHIFT_BLOCKS-1-block];
+        assign srca_swizzle[block]       = srca_gated[NUM_SHIFT_BLOCKS-1-block];
     end
-    //Select between srca and srca swizzle
-    assign srca_shift_selected = (is_left) ? srca_swizzle : srca_gated;
+    //Select between srcb and srcb swizzle
+    assign srcb_shift_selected = (is_left) ? srcb_swizzle : srcb_gated;
 
     for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_byte_selector
         always_comb begin
             if (is_left) begin
-                //Most significant block is always srcb[0] | srcb_swizzle[MSB]
+                //Most significant block is always srca[0] | srca_swizzle[MSB]
                 if (block == NUM_SHIFT_BLOCKS-1) begin
-                    mux_byte_selector[block] = srcb_swizzle[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH];
+                    mux_byte_selector[block] = srca_swizzle[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH];
                 end else begin
                     //First input, same block
-                    mux_byte_selector[block]  = srcb_swizzle[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]                  & {SELECTOR_WIDTH{is_less_osize_vector[f_count_trailing_ones_osize(block)]}};
+                    mux_byte_selector[block]  = srca_swizzle[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]                  & {SELECTOR_WIDTH{is_less_osize_vector[f_count_trailing_ones_osize(block)]}};
                     //Select Block Zero
-                    mux_byte_selector[block] |= srcb_swizzle[NUM_SHIFT_BLOCKS-1][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]     & {SELECTOR_WIDTH{is_greater_osize_vector[$clog2(NUM_SHIFT_BLOCKS-block)]}};
+                    mux_byte_selector[block] |= srca_swizzle[NUM_SHIFT_BLOCKS-1][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]     & {SELECTOR_WIDTH{is_greater_osize_vector[$clog2(NUM_SHIFT_BLOCKS-block)]}};
                     //Select osize specific entry
                     for (int osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin
                         if ((NUM_SHIFT_BLOCKS-1-block) % (2**osize_idx)) begin
-                            mux_byte_selector[block] |= srcb_swizzle[block+((NUM_SHIFT_BLOCKS-1-block) % (2**osize_idx))][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
+                            mux_byte_selector[block] |= srca_swizzle[block+((NUM_SHIFT_BLOCKS-1-block) % (2**osize_idx))][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
                         end
                     end
                 end
             end else begin
-                //Block 0 is always srcb[0]
+                //Block 0 is always srca[0]
                 if (block == 0) begin
-                    mux_byte_selector[block]  = srcb_gated[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH];
+                    mux_byte_selector[block]  = srca_gated[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH];
                 end else begin
                     //First input, same block
-                    mux_byte_selector[block]  = srcb_gated[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{is_less_osize_vector[f_count_trailing_zeroes_osize(block)]}};
+                    mux_byte_selector[block]  = srca_gated[block][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{is_less_osize_vector[f_count_trailing_zeroes_osize(block)]}};
                     //Select Block Zero
-                    mux_byte_selector[block] |= srcb_gated[0][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]     & {SELECTOR_WIDTH{is_greater_osize_vector[$clog2(block+1)]}};
+                    mux_byte_selector[block] |= srca_gated[0][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH]     & {SELECTOR_WIDTH{is_greater_osize_vector[$clog2(block+1)]}};
                     //Select osize specific entry
                     for (int osize_idx=1; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
                         if (block % (2**osize_idx)) begin
-                            mux_byte_selector[block] |= srcb_gated[block-(block % (2**osize_idx))][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
+                            mux_byte_selector[block] |= srca_gated[block-(block % (2**osize_idx))][0 +: BYTE_SELECTOR_WIDTH + BLOCK_SELECTOR_WIDTH] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
                         end
                     end
                 end
@@ -102,7 +102,7 @@ generate
 
     //Select merge
     for (genvar block=0; block < NUM_SHIFT_BLOCKS-1; block++) begin : gen_selected_merge
-        assign selected_merge[block] = (is_left) ? srca_merge_swizzle[block+1] : srca.merge[block];
+        assign selected_merge[block] = (is_left) ? srcb_merge_swizzle[block+1] : srcb.merge[block];
     end
     assign selected_merge[NUM_SHIFT_BLOCKS-1] = 1'b0;
 
@@ -113,20 +113,20 @@ generate
             always_comb begin
                 if (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) begin      //Osize enables Mux shift
                     if (selected_merge[mux_idx]) begin      //Data can be shifted from previous stage
-                        mux_shift_block[0][mux_idx] = srca_shift_selected[mux_idx+1];
+                        mux_shift_block[0][mux_idx] = srcb_shift_selected[mux_idx+1];
                     end else begin           //Data can't be shifted from previous stage, is out of range
-                        mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srca_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}} & {BYTE_WIDTH{is_arith}};      //Set Data to Zero or MSB depending on is_arith
+                        mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srcb_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}} & {BYTE_WIDTH{is_arith}};      //Set Data to Zero or MSB depending on is_arith
                     end
                 end else begin              //Mux is not enabled by osize, don't shift data
-                    mux_shift_block[0][mux_idx]     =  srca_shift_selected[mux_idx];
+                    mux_shift_block[0][mux_idx]     =  srcb_shift_selected[mux_idx];
                 end
             end
         end else begin
             always_comb begin               //Higher muxes that can't get data from previous stage and should select between sign or zero in case of shift
                 if (mux_byte_selector[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) begin
-                    mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srca_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}} & {BYTE_WIDTH{is_arith}};      //Select between zero or MSB
+                    mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srcb_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}} & {BYTE_WIDTH{is_arith}};      //Select between zero or MSB
                 end else begin          //Don't shift
-                    mux_shift_block[0][mux_idx] = srca_shift_selected[mux_idx];
+                    mux_shift_block[0][mux_idx] = srcb_shift_selected[mux_idx];
                 end
             end
         end

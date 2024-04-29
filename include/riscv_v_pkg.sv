@@ -550,8 +550,8 @@ function automatic logic f_is_shift(riscv_instr_funct6_t funct6, logic funct3_is
     logic is_shift = 1'b0;
 
     is_shift = (funct6 == RISCV_V_FUNCT6_VSLL) && funct3_is_OPI;
-    is_shift = (funct6 == RISCV_V_FUNCT6_VSRL) && funct3_is_OPI;
-    is_shift = (funct6 == RISCV_V_FUNCT6_VSRA) && funct3_is_OPI;
+    is_shift |= (funct6 == RISCV_V_FUNCT6_VSRL) && funct3_is_OPI;
+    is_shift |= (funct6 == RISCV_V_FUNCT6_VSRA) && funct3_is_OPI;
 
     return is_shift;
 endfunction: f_is_shift

@@ -723,6 +723,8 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
             endcase
 
         end
+
+        return result;
     endfunction: calc_sll
 
     virtual function riscv_v_data_t calc_srl(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
@@ -812,6 +814,8 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
             endcase
 
         end
+
+        return result;
     endfunction: calc_srl
 
     virtual function riscv_v_data_t calc_sra(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
@@ -901,6 +905,8 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
             endcase
 
         end
+
+        return result;
     endfunction: calc_sra
 
 endclass: riscv_v_logic_alu_model

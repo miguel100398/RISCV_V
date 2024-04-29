@@ -14,6 +14,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_data_t       srcb,
     input  riscv_v_mask_t       mask,
     input  osize_vector_t       osize_vector,
+    input  logic                is_shift,
     input  logic                is_scalar,
     input  logic                is_scalar_int,
     input  logic                is_scalar_vec,
@@ -130,7 +131,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     assign srcb_byp = srcb_vec_byp;
 
     //Get sign for sign extend integer and immediate data
-    assign sign_imm_int = (is_scalar_imm) ? imm[RISCV_V_IMM_WIDTH-1] : integer_data[RISCV_DATA_WIDTH-1];
+    assign sign_imm_int = (is_scalar_imm) ? (imm[RISCV_V_IMM_WIDTH-1] & ~is_shift) : integer_data[RISCV_DATA_WIDTH-1];
     //Sign extend data
     always_comb begin
         sign_extended_data[RISCV_V_DATA_WIDTH-1:RISCV_DATA_WIDTH]   = {(RISCV_V_DATA_WIDTH-RISCV_DATA_WIDTH){sign_imm_int}};

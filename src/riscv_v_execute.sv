@@ -172,6 +172,7 @@ riscv_v_bypass v_bypass(
     .srcb(srcb_exe),
     .mask(mask_exe),
     .osize_vector(src_osize_vector),
+    .is_shift(is_shift_exe),
     .is_scalar_int(is_scalar_int_op_exe),
     .is_scalar_imm(is_scalar_imm_op_exe),
     .is_scalar_vec(is_scalar_vector_op_exe),
