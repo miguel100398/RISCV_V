@@ -13,6 +13,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic              is_or,
     input  logic              is_xor,
     input  logic              is_mask,
+    input  logic              is_negate_srca,
+    input  logic              is_negate_result,
     input  logic              is_shift,
     input  logic              is_left,
     input  logic              is_arith,
@@ -34,15 +36,27 @@ import riscv_v_pkg::*, riscv_pkg::*;
 
     logic valid_result;
 
+    riscv_v_alu_data_t srca_bw;
+    riscv_v_alu_data_t srcb_bw;
+
     //Bitwise results
     riscv_v_src_byte_vector_t and_result;
     riscv_v_src_byte_vector_t or_result;
     riscv_v_src_byte_vector_t xor_result;
+    riscv_v_src_byte_vector_t bw_result_pre_neg;
+    riscv_v_src_byte_vector_t bw_result;
     riscv_v_src_byte_vector_t shifter_result;
 
-    assign valid_result = is_and || is_or || is_xor || is_mask || is_shift;
+    assign valid_result = is_and || is_or || is_xor || is_shift;
 
     assign is_reduct_n = ~is_reduct;
+
+    always_comb begin
+        srca_bw      = srca;
+        srca_bw.data = {RISCV_V_DATA_WIDTH{is_negate_srca}} ^ srca.data;
+    end
+    
+    assign srcb_bw = srcb;
 
     riscv_v_bw_and bw_and(
         .is_reduct(is_reduct),
@@ -51,8 +65,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
         .is_mask(is_mask),
         .osize_vector(dst_osize_vector),
         .is_greater_osize_vector(is_greater_osize_vector),
-        .srca(srca),
-        .srcb(srcb),
+        .srca(srca_bw),
+        .srcb(srcb_bw),
         .result(and_result)
     );
 
@@ -63,8 +77,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
         .is_mask(is_mask),
         .osize_vector(dst_osize_vector),
         .is_greater_osize_vector(is_greater_osize_vector),
-        .srca(srca),
-        .srcb(srcb),
+        .srca(srca_bw),
+        .srcb(srcb_bw),
         .result(or_result)
     );
 
@@ -75,8 +89,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
         .is_mask(is_mask),
         .osize_vector(dst_osize_vector),
         .is_greater_osize_vector(is_greater_osize_vector),
-        .srca(srca),
-        .srcb(srcb),
+        .srca(srca_bw),
+        .srcb(srcb_bw),
         .result(xor_result)
     );
 
@@ -93,9 +107,15 @@ import riscv_v_pkg::*, riscv_pkg::*;
     );
 
 
+    //BW result
+    assign bw_result_pre_neg = and_result | or_result | xor_result;
+
+  
+    assign bw_result         = {RISCV_V_DATA_WIDTH{is_negate_result}} ^ bw_result_pre_neg;
+        
 
     //Final Mux result
-    assign result.data  = and_result | or_result | xor_result | shifter_result;
+    assign result.data  = bw_result | shifter_result;
     assign result.valid = srca.valid & {$bits(srca.valid){valid_result}};
 
 endmodule: riscv_v_logic_ALU

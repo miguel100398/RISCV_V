@@ -27,6 +27,14 @@ package riscv_v_cpu_logic_test_pkg;
     `include "riscv_v_cpu_vsll_test.sv"
     `include "riscv_v_cpu_vsrl_test.sv"
     `include "riscv_v_cpu_vsra_test.sv"
+    `include "riscv_v_cpu_vmand_test.sv"
+    `include "riscv_v_cpu_vmnand_test.sv"
+    `include "riscv_v_cpu_vmandn_test.sv"
+    `include "riscv_v_cpu_vmor_test.sv"
+    `include "riscv_v_cpu_vmnor_test.sv"
+    `include "riscv_v_cpu_vmorn_test.sv"
+    `include "riscv_v_cpu_vmxor_test.sv"
+    `include "riscv_v_cpu_vmxnor_test.sv"
     
 
 endpackage: riscv_v_cpu_logic_test_pkg 

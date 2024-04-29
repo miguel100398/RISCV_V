@@ -20,6 +20,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_alu_data_t   srcb_exe,
     input  riscv_data_t         src_int_exe,
     input  riscv_v_mask_t       mask_exe,
+    input  riscv_v_mask_t       mask_merge_exe,
+    input  riscv_v_mask_t       mask_result_valid_exe,
     //Control signals
     input  osize_vector_t       dst_osize_vector_exe,
     input  osize_vector_t       src_osize_vector_exe,
@@ -31,9 +33,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                is_and_exe,
     input  logic                is_or_exe,
     input  logic                is_xor_exe,
+    input  logic                is_mask_exe,
     input  logic                is_negate_srca_exe,
     input  logic                is_negate_result_exe,
-    input  logic                is_mask_exe,
     input  logic                is_shift_exe,
     input  logic                is_left_exe,
     input  logic                is_arith_exe,
@@ -64,16 +66,23 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_wb_data_t   logic_result;
     riscv_v_wb_data_t   arithmetic_result;
     riscv_v_wb_data_t   permutation_result;
-    riscv_v_wb_data_t   mask_result_zext;
 
-    riscv_v_mask_t      mask_result_exe;
 
-    assign mask_result_zext = `RISCV_V_ZX(mask_result_exe, RISCV_V_DATA_WIDTH);
+    always_comb begin
+        vec_result_exe                                     = logic_result;
+        vec_result_exe                                    |= arithmetic_result;
+        vec_result_exe                                    |= permutation_result;
+        //Turn off bits if bit is not valid in mask operation
+        for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+            vec_result_exe.data[idx] &= ~is_mask_exe | mask_result_valid_exe[idx];
+        end
+        //Merge result with mask destination
+        vec_result_exe.data[RISCV_V_NUM_ELEMENTS_REG-1:0] |= mask_merge_exe;
+    end
 
     assign vec_result_exe = logic_result
                           | arithmetic_result
-                          | permutation_result
-                          | mask_result_zext;
+                          | permutation_result;
     
     assign shuffler_sel_exe = '{default:'0};
 
@@ -91,6 +100,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_or(is_or_exe),
         .is_xor(is_xor_exe),
         .is_mask(is_mask_exe),
+        .is_negate_srca(is_negate_srca_exe),
+        .is_negate_result(is_negate_result_exe),
         .is_shift(is_shift_exe),
         .is_left(is_left_exe),
         .is_arith(is_arith_exe),
@@ -137,22 +148,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
             .len(len_exe),
         `endif //RISCV_V_INST
         .result(arithmetic_result)
-    );
-
-    //Mask  ALU
-    riscv_v_mask_ALU mask_ALU(
-        .is_mask(is_mask_exe),
-        .is_and(is_and_exe),
-        .is_or(is_or_exe),
-        .is_xor(is_xor_exe),
-        .is_negate_srca(is_negate_srca_exe),
-        .is_negate_result(is_negate_result_exe),
-        .srca(srca_shuffled_exe.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0]),
-        .srcb(srcb_exe.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0]),
-        `ifdef RISCV_V_INST
-            .opcode(opcode_exe),
-        `endif //RISCV_V_INST
-        .result(mask_result_exe)
     );
 
     //Permutation ALU

@@ -13,6 +13,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
 )(
     input  logic                clk,
     input  riscv_v_rf_addr_t    wr_addr,
+    input  riscv_v_rf_addr_t    mask_merge_addr,
     input  riscv_v_rf_addr_t    rd_addr_A,
     input  riscv_v_rf_addr_t    rd_addr_B,  
     input  riscv_v_data_t       data_in,
@@ -20,6 +21,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
     output riscv_v_data_t       data_out_A,
     output riscv_v_data_t       data_out_B,
     output riscv_v_mask_t       mask,
+    output riscv_v_mask_t       mask_merge,
     //Interface to synthesis
     input  riscv_v_rf_addr_t    syn_addr,
     output riscv_v_data_t       syn_data
@@ -31,6 +33,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
 
     //Internal Inputs
     riscv_v_rf_addr_t    wr_addr_int;
+    riscv_v_rf_addr_t    mask_merge_addr_int;
     riscv_v_rf_addr_t    rd_addr_A_int;
     riscv_v_rf_addr_t    rd_addr_B_int;  
     riscv_v_data_t       data_in_int;
@@ -79,21 +82,59 @@ import riscv_v_pkg::*, riscv_pkg::*;
         if (REG_INPUTS) begin : GEN_REG_INPUTS
 
             always_ff @(posedge clk) begin
-                wr_addr_int   <= wr_addr;
-                rd_addr_A_int <= rd_addr_A;
-                rd_addr_B_int <= rd_addr_B;
-                data_in_int   <= data_in;
-                wr_en_int     <= wr_en;
+                wr_addr_int         <= wr_addr;
+                mask_merge_addr_int <= mask_merge_addr;
+                rd_addr_A_int       <= rd_addr_A;
+                rd_addr_B_int       <= rd_addr_B;
+                data_in_int         <= data_in;
+                wr_en_int           <= wr_en;
             end
             
         end else begin : GEN_BYPASS_INPUTS
 
             always_comb begin
-                wr_addr_int   = wr_addr;
-                rd_addr_A_int = rd_addr_A;
-                rd_addr_B_int = rd_addr_B;
-                data_in_int   = data_in;
-                wr_en_int     = wr_en;
+                wr_addr_int         = wr_addr;
+                mask_merge_addr_int = mask_merge_addr;
+                rd_addr_A_int       = rd_addr_A;
+                rd_addr_B_int       = rd_addr_B;
+                data_in_int         = data_in;
+                wr_en_int           = wr_en;
+            end
+
+        end
+    endgenerate
+
+
+    //Read Mask merge
+    generate
+        if (RD_ASYNC) begin : GEN_READ_MERGE_MASK_ASYNC 
+
+            if (USE_BYPASS) begin : GEN_READ_MERGE_MASK_BYPASS
+
+                logic wr_addr_match_merge_mask;
+
+                assign wr_addr_match_merge_mask = (wr_addr_int == mask_merge_addr_int);
+
+                always_comb begin
+                    for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+                        if (wr_en_int[idx] && wr_addr_match_merge_mask) begin
+                            mask_merge[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = data_in[(idx*BYTE_WIDTH) +: BYTE_WIDTH];
+                        end else begin
+                            mask_merge[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = regs[mask_merge_addr_int][(idx*BYTE_WIDTH) +: BYTE_WIDTH];
+                        end
+                    end
+                end
+
+            end else begin : GEN_READ_MERGE_MASK_NO_BYPASS
+
+                assign mask_merge = regs[mask_merge_addr_int][RISCV_V_NUM_ELEMENTS_REG-1:0];
+
+            end
+
+        end else begin : GEN_READ_MERGE_MASK_SYNC 
+
+            always_ff @(posedge clk) begin
+                mask_merge = regs[mask_merge_addr_int][RISCV_V_NUM_ELEMENTS_REG-1:0];
             end
 
         end

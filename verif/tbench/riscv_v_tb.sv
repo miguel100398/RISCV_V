@@ -248,7 +248,7 @@ module riscv_v_tb;
     assign vec_logic_alu_vif.is_and                         = dut.v_execute.exe_alu.logic_ALU.is_and;
     assign vec_logic_alu_vif.is_or                          = dut.v_execute.exe_alu.logic_ALU.is_or;
     assign vec_logic_alu_vif.is_xor                         = dut.v_execute.exe_alu.logic_ALU.is_xor;
-    assign vec_logic_alu_vif.is_mask                        = dut.v_execute.exe_alu.logic_ALU.is_mask;
+    assign vec_logic_alu_vif.is_mask                        = dut.v_execute.is_mask_exe;
     assign vec_logic_alu_vif.is_shift                       = dut.v_execute.exe_alu.logic_ALU.is_shift;
     assign vec_logic_alu_vif.is_left                        = dut.v_execute.exe_alu.logic_ALU.is_left;
     assign vec_logic_alu_vif.is_arith                       = dut.v_execute.exe_alu.logic_ALU.is_arith;
@@ -265,17 +265,17 @@ module riscv_v_tb;
     `endif //RISCV_V_INST
 
     //Mask ALU signals
-    assign  vec_mask_alu_vif.is_mask                        = dut.v_execute.exe_alu.mask_ALU.is_mask;
-    assign  vec_mask_alu_vif.is_and                         = dut.v_execute.exe_alu.mask_ALU.is_and;
-    assign  vec_mask_alu_vif.is_or                          = dut.v_execute.exe_alu.mask_ALU.is_or;
-    assign  vec_mask_alu_vif.is_xor                         = dut.v_execute.exe_alu.mask_ALU.is_xor;
-    assign  vec_mask_alu_vif.is_negate_srca                 = dut.v_execute.exe_alu.mask_ALU.is_negate_srca;
-    assign  vec_mask_alu_vif.is_negate_result               = dut.v_execute.exe_alu.mask_ALU.is_negate_result;
-    assign  vec_mask_alu_vif.srca                           = dut.v_execute.exe_alu.mask_ALU.srca;
-    assign  vec_mask_alu_vif.srcb                           = dut.v_execute.exe_alu.mask_ALU.srcb;
-    assign  vec_mask_alu_vif.result                         = dut.v_execute.exe_alu.mask_ALU.result;
+    assign  vec_mask_alu_vif.is_mask                        = 1'b0;//dut.v_execute.is_mask_exe;             FIXME: Re-enable MASK ALU
+    assign  vec_mask_alu_vif.is_and                         = dut.v_execute.exe_alu.logic_ALU.is_and;
+    assign  vec_mask_alu_vif.is_or                          = dut.v_execute.exe_alu.logic_ALU.is_or;
+    assign  vec_mask_alu_vif.is_xor                         = dut.v_execute.exe_alu.logic_ALU.is_xor;
+    assign  vec_mask_alu_vif.is_negate_srca                 = dut.v_execute.exe_alu.logic_ALU.is_negate_srca;
+    assign  vec_mask_alu_vif.is_negate_result               = dut.v_execute.exe_alu.logic_ALU.is_negate_result;
+    assign  vec_mask_alu_vif.srca                           = dut.v_execute.exe_alu.logic_ALU.srca.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0];
+    assign  vec_mask_alu_vif.srcb                           = dut.v_execute.exe_alu.logic_ALU.srcb.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0];
+    assign  vec_mask_alu_vif.result                         = dut.v_execute.exe_alu.logic_ALU.result.data.Bit[RISCV_V_NUM_ELEMENTS_REG-1:0];
     `ifdef RISCV_V_INST 
-        assign vec_mask_alu_vif.opcode                      = dut.v_execute.exe_alu.mask_ALU.opcode;
+        assign vec_mask_alu_vif.opcode                      = dut.v_execute.exe_alu.logic_ALU.opcode;
     `endif //RISCV_V_INST
 
     //Permutation ALU signals
@@ -313,7 +313,7 @@ module riscv_v_tb;
     end
 
     initial begin
-        run_test("riscv_v_cpu_vsra_test");
+        run_test("riscv_v_cpu_vmxnor_test");
     end
     
 

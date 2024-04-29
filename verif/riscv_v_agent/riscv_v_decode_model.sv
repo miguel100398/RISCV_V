@@ -111,7 +111,8 @@ class riscv_v_decode_model extends riscv_v_base_model;
             BW_AND, BW_AND_REDUCT,
             BW_OR, BW_OR_REDUCT,
             BW_XOR, BW_XOR_REDUCT,
-            SLL, SRL, SRA
+            SLL, SRL, SRA,
+            MAND, MNAND, MANDN, MXOR, MOR, MNOR, MORN, MXNOR
         }) begin
             return LOGIC_ALU;
         end else if (opcode inside {
@@ -121,8 +122,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
             MINS, MINS_REDUCT, MINU, MINU_REDUCT,
             MAXS, MAXS_REDUCT, MAXU, MAXU_REDUCT, 
             MULLS, MULHS, MULLU, MULHU, 
-            SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU,
-            MAND, MNAND, MANDN, MXOR, MOR, MNOR, MORN, MXNOR
+            SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU
         }) begin
             return ARITHMETIC_ALU;
         end else if (opcode inside {1'b0}) begin
@@ -253,7 +253,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
         return len;
     endfunction: get_len
 
-    virtual function riscv_v_src_start_t get_start(riscv_v_vstart_t vstart);
+    virtual function riscv_v_field_vstart_t get_start(riscv_v_vstart_t vstart);
         return vstart.index;
     endfunction: get_start 
 

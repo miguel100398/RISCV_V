@@ -14,6 +14,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                        flush,
     //Register File interface
     input  riscv_v_rf_addr_t            rf_wr_addr_id,
+    output riscv_v_rf_addr_t            rf_wr_addr_exe,
     output riscv_v_rf_addr_t            rf_wr_addr_mem,
     output riscv_v_rf_addr_t            rf_wr_addr_wb,
     input  riscv_v_rf_wr_en_t           rf_wr_en_exe,
@@ -27,7 +28,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_data_t               rf_rd_data_srcb_id,
     output riscv_v_data_t               rf_rd_data_srcb_exe,   
     input  riscv_v_mask_t               mask_id,
-    output riscv_v_mask_t               mask_exe,          
+    output riscv_v_mask_t               mask_exe,
+    input  riscv_v_mask_t               mask_merge_id,
+    output riscv_v_mask_t               mask_merge_exe,          
     //Integer Register File Interface
     input  riscv_data_t                 int_rf_rd_data_id,
     output riscv_data_t                 int_rf_rd_data_exe,
@@ -59,9 +62,11 @@ riscv_v_stage#(.DATA_T(logic),                  .NUM_STAGES(RISCV_V_ID_2_WB_LATE
 
 //Stage Mask
 riscv_v_stage#(.DATA_T(riscv_v_mask_t),         .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_mask             (.clk(clk), .rst(rst), .en(en_stage), .flush(flush), .rst_val('x), .flush_val('x), .data_in(mask_id),             .data_out(mask_exe));
+riscv_v_stage#(.DATA_T(riscv_v_mask_t),         .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY)) stage_mask_merge       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush), .rst_val('x), .flush_val('x), .data_in(mask_merge_id),       .data_out(mask_merge_exe));
 
 //Intermediate stages
 assign rf_wr_en_mem   = rf_wr_en_stages[RISCV_V_EXE_2_MEM_LATENCY];
+assign rf_wr_addr_exe = rf_wr_addr_stages[RISCV_V_ID_2_EXE_LATENCY];
 assign rf_wr_addr_mem = rf_wr_addr_stages[RISCV_V_ID_2_MEM_LATENCY];
 assign rf_wr_data_mem = rf_wr_data_stages[RISCV_V_EXE_2_MEM_LATENCY];
 

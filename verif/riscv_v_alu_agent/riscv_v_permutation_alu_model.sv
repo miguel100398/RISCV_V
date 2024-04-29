@@ -13,7 +13,7 @@ class riscv_v_permutation_alu_model extends riscv_v_alu_base_model;
         super.new(name, parent);
     endfunction: new 
 
-    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
         riscv_v_data_t result = 'x;
         riscv_v_src_len_t len_op;
         
@@ -38,7 +38,7 @@ class riscv_v_permutation_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: execute_v2i_op
 
-    virtual function riscv_v_data_t calc_i2v(riscv_v_data_t src, riscv_v_osize_e osize, riscv_v_vlen_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_i2v(riscv_v_data_t src, riscv_v_osize_e osize, riscv_v_vlen_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         riscv_data_t   tmp_src;
         riscv_v_data_t tmp_result;

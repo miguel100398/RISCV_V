@@ -35,25 +35,25 @@ class riscv_v_execute_model extends riscv_v_base_model;
     endfunction: rst 
 
     virtual function void execute_op(
-        input  riscv_v_opcode_e    opcode,
-        input  riscv_v_osize_e     src_osize,
-        input  riscv_v_osize_e     dst_osize,
-        input  riscv_v_alu_e       ALU,
-        input  bit                 is_scalar,
-        input  riscv_v_src_type_t  srca_type,
-        input  riscv_v_src_type_t  srcb_type,
-        input  riscv_v_data_t      srca_vec,
-        input  riscv_v_data_t      srcb_vec,
-        input  riscv_data_t        src_int,
-        input  riscv_v_imm_t       src_imm,
-        input  riscv_v_vlen_t      len,
-        input  riscv_v_src_start_t start,
-        input  bit                 use_mask,
-        input  bit                 is_shift,
-        input  riscv_v_mask_t      mask,
-        input  riscv_v_mask_t      dst_mask_merge,
-        output riscv_v_data_t      vec_result,
-        output riscv_data_t        int_result
+        input  riscv_v_opcode_e         opcode,
+        input  riscv_v_osize_e          src_osize,
+        input  riscv_v_osize_e          dst_osize,
+        input  riscv_v_alu_e            ALU,
+        input  bit                      is_scalar,
+        input  riscv_v_src_type_t       srca_type,
+        input  riscv_v_src_type_t       srcb_type,
+        input  riscv_v_data_t           srca_vec,
+        input  riscv_v_data_t           srcb_vec,
+        input  riscv_data_t             src_int,
+        input  riscv_v_imm_t            src_imm,
+        input  riscv_v_vlen_t           len,
+        input  riscv_v_field_vstart_t   start,
+        input  bit                      use_mask,
+        input  bit                      is_shift,
+        input  riscv_v_mask_t           mask,
+        input  riscv_v_mask_t           dst_mask_merge,
+        output riscv_v_data_t           vec_result,
+        output riscv_data_t             int_result
     );
         riscv_v_data_t srca;
         riscv_v_data_t srcb;

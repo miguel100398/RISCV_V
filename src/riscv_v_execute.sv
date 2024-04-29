@@ -20,12 +20,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_data_t              srca_exe,
     input  riscv_v_data_t              srcb_exe,
     input  riscv_v_mask_t              mask_exe,
+    input  riscv_v_mask_t              mask_merge_exe,
     output riscv_v_wb_data_t           alu_result_exe,
     //Bypass
     input  riscv_v_rf_wr_en_t          rf_wr_en_mem,
     input  riscv_v_rf_wr_en_t          rf_wr_en_wb,
     input  riscv_instr_rs_t            rf_rd_addr_srca_exe,
     input  riscv_instr_rs_t            rf_rd_addr_srcb_exe,
+    input  riscv_instr_rs_t            rf_wr_addr_exe,
     input  riscv_instr_rd_t            rf_wr_addr_mem,
     input  riscv_instr_rd_t            rf_wr_addr_wb,
     input  riscv_v_data_t              rf_wr_data_mem,
@@ -74,6 +76,9 @@ riscv_v_data_t srca_byp;
 riscv_v_data_t srcb_byp;
 riscv_v_mask_t mask_byp;
 riscv_v_mask_t mask_alu;
+riscv_v_mask_t mask_merge_byp;
+riscv_v_mask_t mask_merge_alu;
+riscv_v_mask_t mask_result_valid_alu;
 
 riscv_v_alu_data_t  srca_alu;
 riscv_v_alu_data_t  srcb_alu;
@@ -103,7 +108,10 @@ riscv_v_exe_alu exe_alu(
     .srca_exe(srca_alu),
     .srcb_exe(srcb_alu),
     .src_int_exe(int_data_exe),
+    .is_mask_exe(is_mask_exe),
+    .mask_result_valid_exe(mask_result_valid_alu),
     .mask_exe(mask_alu),
+    .mask_merge_exe(mask_merge_alu),
     .dst_osize_vector_exe(dst_osize_vector),
     .src_osize_vector_exe(src_osize_vector),
     .is_greater_osize_vector_exe(is_greater_osize_vector),
@@ -115,7 +123,6 @@ riscv_v_exe_alu exe_alu(
     .is_xor_exe(is_xor_exe),
     .is_negate_srca_exe(is_negate_srca_exe),
     .is_negate_result_exe(is_negate_result_exe),
-    .is_mask_exe(is_mask_exe),
     .is_shift_exe(is_shift_exe),
     .is_left_exe(is_left_exe),
     .is_arith_exe(is_arith_exe),
@@ -147,7 +154,10 @@ riscv_v_decode_element decode_element(
     .vstart(vstart),
     .use_mask(use_mask_exe),
     .mask(mask_byp),
+    .mask_merge(mask_merge_byp),
     .mask_osize_sel(mask_alu),
+    .mask_merge_qual(mask_merge_alu),
+    .mask_result_valid(mask_result_valid_alu),
     .is_mask(is_mask_exe),
     .is_zero_ext(is_zero_ext_exe),
     .is_sign_ext(is_sign_ext_exe),
@@ -171,6 +181,7 @@ riscv_v_bypass v_bypass(
     .srca(srca_exe),
     .srcb(srcb_exe),
     .mask(mask_exe),
+    .mask_merge(mask_merge_exe),
     .osize_vector(src_osize_vector),
     .is_shift(is_shift_exe),
     .is_scalar_int(is_scalar_int_op_exe),
@@ -182,13 +193,15 @@ riscv_v_bypass v_bypass(
     .rf_wr_en_wb(rf_wr_en_wb),
     .rf_rd_addr_srca_exe(rf_rd_addr_srca_exe),
     .rf_rd_addr_srcb_exe(rf_rd_addr_srcb_exe),
+    .rf_merge_mask_addr_exe(rf_wr_addr_exe),
     .rf_wr_addr_mem(rf_wr_addr_mem),
     .rf_wr_addr_wb(rf_wr_addr_wb),
     .rf_wr_data_mem(rf_wr_data_mem),
     .rf_wr_data_wb(rf_wr_data_wb),
     .srca_byp(srca_byp),
     .srcb_byp(srcb_byp),
-    .mask_byp(mask_byp)
+    .mask_byp(mask_byp),
+    .mask_merge_byp(mask_merge_byp)
 );
 
 assign alu_result_data_exe = alu_result_pre_swizzle_exe.data;

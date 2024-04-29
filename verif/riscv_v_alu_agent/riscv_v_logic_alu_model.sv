@@ -13,11 +13,19 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         super.new(name, parent);
     endfunction: new 
 
-    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
         riscv_v_data_t result = 'x;
         riscv_v_src_len_t len_op;
 
-        len_op = get_len_op(len, dst_osize);
+        if (!(opcode inside {MAND, MNAND, MANDN, MOR, MNOR, MORN, MXOR, MXNOR})) begin
+            len_op = get_len_op(len, dst_osize);
+        end else begin
+            if (len > RISCV_V_NUM_ELEMENTS_REG) begin
+                len_op = RISCV_V_NUM_ELEMENTS_REG;
+            end else begin
+                len_op = len;
+            end
+        end
         
         unique case(opcode)
             BW_AND        : result = calc_bw_and        (srca, srcb, is_scalar, dst_osize, len_op, start);
@@ -43,7 +51,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: execute_vec_op
 
-    virtual function riscv_v_data_t calc_bw_and(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_bw_and(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         
         riscv_v_data_t result;
         result = 'x;
@@ -118,7 +126,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_and
 
-    virtual function riscv_v_data_t calc_bw_or(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_bw_or(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         
         riscv_v_data_t result;
         result = 'x;
@@ -193,7 +201,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_or
 
-    virtual function riscv_v_data_t calc_bw_xor(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_bw_xor(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         
         riscv_v_data_t result;
         result = 'x;
@@ -268,7 +276,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_xor
 
-    virtual function riscv_v_data_t calc_bw_redand(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_bw_redand(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         
         riscv_v_data_t result;
         result = 'x;
@@ -340,7 +348,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_redand
 
-    virtual function riscv_v_data_t calc_bw_redor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_bw_redor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         
         riscv_v_data_t result;
         result = 'x;
@@ -412,7 +420,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_redor
 
-    virtual function riscv_v_data_t calc_bw_redxor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_bw_redxor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         
         riscv_v_data_t result;
         result = 'x;
@@ -484,159 +492,120 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_bw_redxor
 
-    virtual function riscv_v_data_t calc_mand(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mand(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = (srca[idx] && srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mand
 
-    virtual function riscv_v_data_t calc_mnand(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mnand(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = !(srca[idx] && srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mnand
 
-    virtual function riscv_v_data_t calc_mandn(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mandn(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = (!srca[idx] && srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mandn
 
-    virtual function riscv_v_data_t calc_mxor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mxor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
 
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = (srca[idx] ^^ srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mxor
 
-    virtual function riscv_v_data_t calc_mor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = (srca[idx] || srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mor
 
-    virtual function riscv_v_data_t calc_mnor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mnor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = !(srca[idx] || srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mnor
 
-    virtual function riscv_v_data_t calc_morn(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_morn(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = (!srca[idx] || srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_morn
 
-    virtual function riscv_v_data_t calc_mxnor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t dst_mask_merge);
+    virtual function riscv_v_data_t calc_mxnor(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t dst_mask_merge);
         riscv_v_data_t result;
-        int mask_len;
 
         result = 'x;
         result[RISCV_V_NUM_ELEMENTS_REG-1:0] = dst_mask_merge;
 
-        if (len > RISCV_V_NUM_ELEMENTS_REG) begin
-            mask_len = RISCV_V_NUM_ELEMENTS_REG;
-        end else begin
-            mask_len  = len;
-        end
-
-        for (int idx = start; idx < mask_len; idx++) begin
+        for (int idx = start; idx < len; idx++) begin
             result[idx] = !(srca[idx] ^^ srcb[idx]);
         end
 
+        return result;
+
     endfunction: calc_mxnor
 
-    virtual function riscv_v_data_t calc_sll(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_sll(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 
@@ -727,7 +696,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_sll
 
-    virtual function riscv_v_data_t calc_srl(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_srl(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 
@@ -818,7 +787,7 @@ class riscv_v_logic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_srl
 
-    virtual function riscv_v_data_t calc_sra(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_sra(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 

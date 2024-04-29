@@ -19,9 +19,12 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                    is_reduct,
     input  logic                    use_mask,
     input  riscv_v_mask_t           mask,
+    input  riscv_v_mask_t           mask_merge,
     output riscv_v_alu_data_t       srca_alu,
     output riscv_v_alu_data_t       srcb_alu,
     output riscv_v_mask_t           mask_osize_sel,
+    output riscv_v_mask_t           mask_merge_qual,
+    output riscv_v_mask_t           mask_result_valid,
     `ifdef RISCV_V_INST
         output riscv_v_src_len_t    len,
         output riscv_v_osize_e      osize,
@@ -45,6 +48,7 @@ riscv_v_valid_data_t valid_osize_sel;
 
 logic len_greater_than  [RISCV_V_NUM_ELEMENTS_REG-1:0];
 logic start_less_than   [RISCV_V_NUM_ELEMENTS_REG-1:0];
+logic len_start_vec     [RISCV_V_NUM_ELEMENTS_REG-1:0];
 
 riscv_v_mask_t       mask_osize [RISCV_V_NUM_VALID_OSIZES];
 riscv_v_valid_data_t mask_valid;
@@ -105,6 +109,14 @@ generate
     for (genvar start_idx = 0; start_idx < RISCV_V_NUM_ELEMENTS_REG; start_idx++) begin : gen_start_less_than 
         assign start_less_than[start_idx] = (unsigned'(vstart.index) < unsigned'(start_idx+1));
     end
+endgenerate
+
+//Len/Start vector
+generate
+    for (genvar idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin : gen_len_start_vec 
+        assign len_start_vec[idx]     = len_greater_than[idx] & start_less_than[idx];
+        assign mask_result_valid[idx] = len_start_vec[idx];
+    end  
 endgenerate
 
 //Disable upper elements if is reduct operation
@@ -191,7 +203,7 @@ generate
         always_comb begin
             valid_osize[osize_idx] = '0;
             for (int block_idx = 0; block_idx < NUM_BLOCKS_OSIZE; block_idx++) begin
-                valid_osize[osize_idx][block_idx*(2**osize_idx) +: NUM_BITS_OSIZE] = {NUM_BITS_OSIZE{(len_greater_than[block_idx] & start_less_than[block_idx] & dst_osize_vector[osize_idx])}};
+                valid_osize[osize_idx][block_idx*(2**osize_idx) +: NUM_BITS_OSIZE] = {NUM_BITS_OSIZE{(len_start_vec[block_idx] & dst_osize_vector[osize_idx])}};
             end
         end
 
@@ -216,9 +228,22 @@ always_comb begin
     srca_alu.valid &= is_reduct_valid;
     //Turn off valid bits if is_mask
     srca_alu.valid &= is_mask_valid;
+    //Last bits are alawys set if is_mask op
+    srca_alu.valid[RISCV_V_NUM_BYTES_ALLOCATE_MASK-1:0] |= {RISCV_V_NUM_BYTES_ALLOCATE_MASK{is_mask}};
 end
 
 assign srcb_alu.merge = srca_alu.merge;
+
+//Qualify mask merge
+always_comb begin
+    mask_merge_qual = mask_merge;
+    //Don't merge if it is not mask
+    mask_merge_qual &= {RISCV_V_NUM_ELEMENTS_REG{is_mask}};
+    //Don't merge if bit is valid
+    for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+        mask_merge_qual[idx] &= ~mask_result_valid[idx];
+    end
+end
 
 `ifdef RISCV_V_INST 
     assign len   = vl.len;

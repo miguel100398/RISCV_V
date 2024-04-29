@@ -46,34 +46,34 @@ class riscv_v_model extends riscv_v_base_model;
         output riscv_rf_addr_t           int_wr_addr,
         output riscv_data_t              int_wr_data
     );
-    riscv_v_vtype_t     csr_vtype;
-    riscv_v_vl_t        csr_vl;
-    riscv_v_vstart_t    csr_vstart;
-    riscv_instr_rs_t    srca_addr;
-    riscv_instr_rs_t    srcb_addr;
-    riscv_instr_rs_t    dest_addr;
-    riscv_v_data_t      srca;
-    riscv_v_data_t      srcb;
-    riscv_v_data_t      read_dest;
-    riscv_v_opcode_e    opcode;
-    riscv_v_src_type_t  srca_type;
-    riscv_v_src_type_t  srcb_type;
-    bit                 is_scalar;
-    bit                 use_mask;
-    bit                 is_mask;
-    bit                 is_reduct;
-    bit                 use_carry;
-    riscv_v_alu_e       ALU;
-    riscv_v_imm_t       imm;
-    riscv_v_osize_e     src_osize;
-    riscv_v_osize_e     dst_osize;
-    riscv_v_vlen_t      len;
-    riscv_v_src_start_t start;
-    riscv_v_mask_t      mask;
-    riscv_v_mask_t      dst_mask_merge;
-    bit                 is_shift;
-    bit                 is_i2v;
-    bit                 is_v2i;
+    riscv_v_vtype_t         csr_vtype;
+    riscv_v_vl_t            csr_vl;
+    riscv_v_vstart_t        csr_vstart;
+    riscv_instr_rs_t        srca_addr;
+    riscv_instr_rs_t        srcb_addr;
+    riscv_instr_rs_t        dest_addr;
+    riscv_v_data_t          srca;
+    riscv_v_data_t          srcb;
+    riscv_v_data_t          read_dest;
+    riscv_v_opcode_e        opcode;
+    riscv_v_src_type_t      srca_type;
+    riscv_v_src_type_t      srcb_type;
+    bit                     is_scalar;
+    bit                     use_mask;
+    bit                     is_mask;
+    bit                     is_reduct;
+    bit                     use_carry;
+    riscv_v_alu_e           ALU;
+    riscv_v_imm_t           imm;
+    riscv_v_osize_e         src_osize;
+    riscv_v_osize_e         dst_osize;
+    riscv_v_vlen_t          len;
+    riscv_v_field_vstart_t  start;
+    riscv_v_mask_t          mask;
+    riscv_v_mask_t          dst_mask_merge;
+    bit                     is_shift;
+    bit                     is_i2v;
+    bit                     is_v2i;
 
     wr_vec      = 1'b0;
     vec_wr_en   = 'x;
@@ -106,7 +106,8 @@ class riscv_v_model extends riscv_v_base_model;
     srca = rf_model.read_data(srca_addr);
     srcb = rf_model.read_data(srcb_addr);
     read_dest = rf_model.read_data(dest_addr);
-    dst_mask_merge = read_dest[RISCV_V_NUM_BYTES_ALLOCATE_MASK-1:0];
+    dst_mask_merge = read_dest[RISCV_V_NUM_ELEMENTS_REG-1:0];
+    $display("dest_addr: %0d, read_dest: 0x%0h, dst_mask_merge: 0x%0h", dest_addr, read_dest, dst_mask_merge);
 
     //Get Mask
     mask = rf_model.read_mask();
@@ -165,6 +166,7 @@ class riscv_v_model extends riscv_v_base_model;
     //Get Valid
     vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart, use_mask, mask, is_mask, is_reduct, is_i2v, is_v2i);
 
+    $display("before execute_op len: %0d", len);
     //Execute instruction
     execute_model.execute_op(
         .opcode(opcode),
@@ -187,6 +189,7 @@ class riscv_v_model extends riscv_v_base_model;
         .vec_result(vec_wr_data),
         .int_result(int_wr_data)
     );
+    $display("after execute_op len: %0d", len);
 
     `uvm_info(get_name(), $sformatf("Instruction executed: \
     Instruction: 0x%0h \

@@ -24,6 +24,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_v_rf_wr_en_t           rf_wr_en_wb,
     output riscv_instr_rs_t             rf_rd_addr_srca_exe,
     output riscv_instr_rs_t             rf_rd_addr_srcb_exe,
+    output riscv_instr_rs_t             rf_wr_addr_exe,
     output riscv_instr_rd_t             rf_wr_addr_mem,
     output riscv_instr_rd_t             rf_wr_addr_wb,
     output riscv_v_data_t               rf_wr_data_mem,
@@ -34,6 +35,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_v_data_t               rf_rd_data_srca_exe,
     output riscv_v_data_t               rf_rd_data_srcb_exe,
     output riscv_v_mask_t               mask_exe,
+    output riscv_v_mask_t               mask_merge_exe,
     input  riscv_v_wb_data_t            alu_result_exe,
     output logic                        is_scalar_op_exe,
     output logic                        is_vector_vector_op_exe,
@@ -102,6 +104,7 @@ riscv_v_data_t               rf_wr_data_exe;
 riscv_v_data_t               rf_rd_data_srca_id;
 riscv_v_data_t               rf_rd_data_srcb_id;
 riscv_v_mask_t               mask_id;
+riscv_v_mask_t               mask_merge_id;
 //Integer Register File Signals
 logic                        int_rf_wr_en_id;
 //CSR Signals
@@ -264,6 +267,7 @@ riscv_v_rf_ctrl v_rf_ctrl(
     .flush(flush),
     //Register File interface
     .rf_wr_addr_id(rf_wr_addr_id),
+    .rf_wr_addr_exe(rf_wr_addr_exe),
     .rf_wr_addr_mem(rf_wr_addr_mem),
     .rf_wr_addr_wb(rf_wr_addr_wb),
     .rf_wr_en_exe(rf_wr_en_exe),
@@ -278,6 +282,8 @@ riscv_v_rf_ctrl v_rf_ctrl(
     .rf_rd_data_srcb_exe(rf_rd_data_srcb_exe),
     .mask_id(mask_id),
     .mask_exe(mask_exe),
+    .mask_merge_id(mask_merge_id),
+    .mask_merge_exe(mask_merge_exe),
     //Integer Register File interface
     .int_rf_rd_data_id(int_rf_rd_data_id),
     .int_rf_rd_data_exe(int_rf_rd_data_exe),
@@ -296,6 +302,7 @@ riscv_v_rf #(
 )v_rf(
     .clk(clk),
     .wr_addr(rf_wr_addr_wb),
+    .mask_merge_addr(rf_wr_addr_id),
     .rd_addr_A(rf_rd_addr_srca_id),
     .rd_addr_B(rf_rd_addr_srcb_id),
     .data_in(rf_wr_data_wb),
@@ -303,6 +310,7 @@ riscv_v_rf #(
     .data_out_A(rf_rd_data_srca_id),
     .data_out_B(rf_rd_data_srcb_id),
     .mask(mask_id),
+    .mask_merge(mask_merge_id),
     //Interface to synthesis
     .syn_addr(syn_addr),
     .syn_data(syn_data)

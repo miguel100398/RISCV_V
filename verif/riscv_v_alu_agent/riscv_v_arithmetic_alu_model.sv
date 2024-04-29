@@ -13,7 +13,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         super.new(name, parent);
     endfunction: new 
 
-    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t execute_vec_op(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_opcode_e opcode, riscv_v_osize_e src_osize, riscv_v_osize_e dst_osize, riscv_v_vlen_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
         riscv_v_data_t result = 'x;
         riscv_v_src_len_t len_op;
 
@@ -52,7 +52,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: execute_vec_op
 
-    virtual function riscv_v_data_t calc_add(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_add(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -129,7 +129,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_add
 
-    virtual function riscv_v_data_t calc_add_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_add_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         riscv_v_data_t result;
         result = 'x;
 
@@ -196,7 +196,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_add_reduct
 
-    virtual function riscv_v_data_t calc_addc(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t carry_in);
+    virtual function riscv_v_data_t calc_addc(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t carry_in);
 
         riscv_v_data_t result;
         result = 'x;
@@ -273,7 +273,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_addc
 
-    virtual function riscv_v_data_t calc_sub(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_sub(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -350,7 +350,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sub
 
-    virtual function riscv_v_data_t calc_subb(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t borrow_in);
+    virtual function riscv_v_data_t calc_subb(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t borrow_in);
 
         riscv_v_data_t result;
         result = 'x;
@@ -427,7 +427,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_subb
 
-    virtual function riscv_v_data_t calc_zext(riscv_v_data_t srcb, riscv_v_osize_e dst_osize, riscv_v_osize_e src_osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_zext(riscv_v_data_t srcb, riscv_v_osize_e dst_osize, riscv_v_osize_e src_osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -515,7 +515,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_zext
 
-    virtual function riscv_v_data_t calc_sext(riscv_v_data_t srcb, riscv_v_osize_e dst_osize, riscv_v_osize_e src_osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_sext(riscv_v_data_t srcb, riscv_v_osize_e dst_osize, riscv_v_osize_e src_osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -603,7 +603,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sext
 
-    virtual function riscv_v_data_t calc_mulls(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_mulls(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -694,7 +694,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_mulls
 
-    virtual function riscv_v_data_t calc_mulhs(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_mulhs(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -785,7 +785,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_mulhs
 
-    virtual function riscv_v_data_t calc_mulhu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_mulhu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
 
         riscv_v_data_t result;
         result = 'x;
@@ -876,7 +876,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_mulhu
 
-    virtual function riscv_v_data_t calc_seq(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_seq(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -970,7 +970,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_seq
 
-    virtual function riscv_v_data_t calc_sne(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_sne(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1062,7 +1062,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sne
 
-    virtual function riscv_v_data_t calc_sle(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_sle(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1155,7 +1155,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sle
 
-    virtual function riscv_v_data_t calc_sleu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_sleu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1248,7 +1248,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sleu
 
-    virtual function riscv_v_data_t calc_slt(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_slt(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1341,7 +1341,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_slt
 
-    virtual function riscv_v_data_t calc_sltu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_sltu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1434,7 +1434,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sltu
 
-    virtual function riscv_v_data_t calc_sgt(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_sgt(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1527,7 +1527,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
     endfunction: calc_sgt
 
-    virtual function riscv_v_data_t calc_sgtu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
+    virtual function riscv_v_data_t calc_sgtu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, riscv_v_mask_t dst_mask_merge, bit use_mask);
 
         riscv_v_data_t result;
         result = 'x;
@@ -1621,7 +1621,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
     endfunction: calc_sgtu
 
 
-    virtual function riscv_v_data_t calc_mins(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_mins(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 
@@ -1694,7 +1694,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_mins 
 
-    virtual function riscv_v_data_t calc_minu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_minu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 
@@ -1767,7 +1767,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_minu
 
-    virtual function riscv_v_data_t calc_maxs(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_maxs(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 
@@ -1840,7 +1840,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_maxs
 
-    virtual function riscv_v_data_t calc_maxu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start);
+    virtual function riscv_v_data_t calc_maxu(riscv_v_data_t srca, riscv_v_data_t srcb, bit is_scalar, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start);
         riscv_v_data_t result;
         result = 'x;
 
@@ -1913,7 +1913,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_maxu
 
-    virtual function riscv_v_data_t calc_mins_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_mins_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         riscv_v_data_t result;
         result = 'x;
 
@@ -1983,7 +1983,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_mins_reduct
 
-    virtual function riscv_v_data_t calc_minu_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_minu_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         riscv_v_data_t result;
         result = 'x;
 
@@ -2050,7 +2050,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
         return result;
     endfunction: calc_minu_reduct
 
-    virtual function riscv_v_data_t calc_maxs_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_maxs_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         riscv_v_data_t result;
         result = 'x;
 
@@ -2118,7 +2118,7 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
     endfunction: calc_maxs_reduct
 
 
-    virtual function riscv_v_data_t calc_maxu_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_src_start_t start, riscv_v_mask_t mask, bit use_mask);
+    virtual function riscv_v_data_t calc_maxu_reduct(riscv_v_data_t srca, riscv_v_data_t srcb, riscv_v_osize_e osize, riscv_v_src_len_t len, riscv_v_field_vstart_t start, riscv_v_mask_t mask, bit use_mask);
         riscv_v_data_t result;
         result = 'x;
 
