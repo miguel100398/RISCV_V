@@ -284,27 +284,27 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
                 OSIZE_8 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Byte[idx] = signed'(srca.Byte[idx]) - signed'(srcb.Byte[idx]);
+                        result.Byte[idx] = signed'(srcb.Byte[idx]) - signed'(srca.Byte[idx]);
                     end
                 end
                 OSIZE_16 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Word[idx] = signed'(srca.Word[idx]) - signed'(srcb.Word[idx]);
+                        result.Word[idx] = signed'(srcb.Word[idx]) - signed'(srca.Word[idx]);
                     end
                 end
                 OSIZE_32 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dword[idx] = signed'(srca.Dword[idx]) - signed'(srcb.Dword[idx]);
+                        result.Dword[idx] = signed'(srcb.Dword[idx]) - signed'(srca.Dword[idx]);
                     end
                 end
                 OSIZE_64 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Qword[idx] = signed'(srca.Qword[idx]) - signed'(srcb.Qword[idx]);
+                        result.Qword[idx] = signed'(srcb.Qword[idx]) - signed'(srca.Qword[idx]);
                     end
                 end
                 OSIZE_128 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dqword[idx] = signed'(srca.Dqword[idx]) - signed'(srcb.Dqword[idx]);
+                        result.Dqword[idx] = signed'(srcb.Dqword[idx]) - signed'(srca.Dqword[idx]);
                     end
                 end
                 default : `uvm_fatal(get_name(), $sformatf("invalid osize: %0s", osize.name()))
@@ -317,27 +317,27 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
                 OSIZE_8 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Byte[idx] = signed'(srca.Byte[0]) - signed'(srcb.Byte[idx]);
+                        result.Byte[idx] = signed'(srcb.Byte[idx]) - signed'(srca.Byte[0]);
                     end
                 end
                 OSIZE_16 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Word[idx] = signed'(srca.Word[0]) - signed'(srcb.Word[idx]);
+                        result.Word[idx] = signed'(srcb.Word[idx]) - signed'(srca.Word[0]);
                     end
                 end
                 OSIZE_32 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dword[idx] = signed'(srca.Dword[0]) - signed'(srcb.Dword[idx]);
+                        result.Dword[idx] = signed'(srcb.Dword[idx]) - signed'(srca.Dword[0]);
                     end
                 end
                 OSIZE_64 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Qword[idx] = signed'(srca.Qword[0]) - signed'(srcb.Qword[idx]);
+                        result.Qword[idx] = signed'(srcb.Qword[idx]) - signed'(srca.Qword[0]);
                     end
                 end
                 OSIZE_128 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dqword[idx] = signed'(srca.Dqword[0]) - signed'(srcb.Dqword[idx]);
+                        result.Dqword[idx] = signed'(srcb.Dqword[idx]) - signed'(srca.Dqword[0]);
                     end
                 end
                 default : `uvm_fatal(get_name(), $sformatf("invalid osize: %0s", osize.name()))
@@ -361,27 +361,27 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
                 OSIZE_8 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Byte[idx] = signed'(srca.Byte[idx]) - signed'(srcb.Byte[idx]) - borrow_in[idx];
+                        result.Byte[idx] = signed'(srcb.Byte[idx]) - signed'(srca.Byte[idx]) - borrow_in[idx];
                     end
                 end
                 OSIZE_16 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Word[idx] = signed'(srca.Word[idx]) - signed'(srcb.Word[idx]) - borrow_in[idx];
+                        result.Word[idx] = signed'(srcb.Word[idx]) - signed'(srca.Word[idx]) - borrow_in[idx];
                     end
                 end
                 OSIZE_32 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dword[idx] = signed'(srca.Dword[idx]) - signed'(srcb.Dword[idx]) - borrow_in[idx];
+                        result.Dword[idx] = signed'(srcb.Dword[idx]) - signed'(srca.Dword[idx]) - borrow_in[idx];
                     end
                 end
                 OSIZE_64 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Qword[idx] = signed'(srca.Qword[idx]) - signed'(srcb.Qword[idx]) - borrow_in[idx];
+                        result.Qword[idx] = signed'(srcb.Qword[idx]) - signed'(srca.Qword[idx]) - borrow_in[idx];
                     end
                 end
                 OSIZE_128 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dqword[idx] = signed'(srca.Dqword[idx]) - signed'(srcb.Dqword[idx]) - borrow_in[idx];
+                        result.Dqword[idx] = signed'(srcb.Dqword[idx]) - signed'(srca.Dqword[idx]) - borrow_in[idx];
                     end
                 end
                 default : `uvm_fatal(get_name(), $sformatf("invalid osize: %0s", osize.name()))
@@ -394,27 +394,27 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
 
                 OSIZE_8 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Byte[idx] = signed'(srca.Byte[0]) - signed'(srcb.Byte[idx]) - borrow_in[idx];
+                        result.Byte[idx] = signed'(srcb.Byte[idx]) - signed'(srca.Byte[0]) - borrow_in[idx];
                     end
                 end
                 OSIZE_16 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Word[idx] = signed'(srca.Word[0]) - signed'(srcb.Word[idx]) - borrow_in[idx];
+                        result.Word[idx] = signed'(srcb.Word[idx]) - signed'(srca.Word[0]) - borrow_in[idx];
                     end
                 end
                 OSIZE_32 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dword[idx] = signed'(srca.Dword[0]) - signed'(srcb.Dword[idx]) - borrow_in[idx];
+                        result.Dword[idx] = signed'(srcb.Dword[idx]) - signed'(srca.Dword[0]) - borrow_in[idx];
                     end
                 end
                 OSIZE_64 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Qword[idx] = signed'(srca.Qword[0]) - signed'(srcb.Qword[idx]) - borrow_in[idx];
+                        result.Qword[idx] = signed'(srcb.Qword[idx]) - signed'(srca.Qword[0]) - borrow_in[idx];
                     end
                 end
                 OSIZE_128 : begin
                     for (int idx = start; idx < len; idx++) begin
-                        result.Dqword[idx] = signed'(srca.Dqword[0]) - signed'(srcb.Dqword[idx]) - borrow_in[idx];
+                        result.Dqword[idx] = signed'(srcb.Dqword[idx]) - signed'(srca.Dqword[0]) - borrow_in[idx];
                     end
                 end
                 default : `uvm_fatal(get_name(), $sformatf("invalid osize: %0s", osize.name()))
@@ -1968,11 +1968,9 @@ class riscv_v_arithmetic_alu_model extends riscv_v_alu_base_model;
                 end else begin
                     result.Qword[0] = srca.Qword[0];
                 end
-                $display("First result: srca: 0x%0h, %0d, srcb: 0x%0h, %0d, result: 0x%0h", srca.Qword[0], srca.Qword[0], srcb.Qword[0], srcb.Qword[0], result.Qword[0]);
                 for (int idx = 1; idx < len; idx++) begin
                     if (~use_mask | mask[idx]) begin
                         result.Qword[0] = get_min_qword(result.Qword[0], srcb.Qword[idx], 1'b1);
-                        $display("result[%0d]: srca: 0x%0h, %0d, srcb: 0x%0h, %0d, result: 0x%0h", idx, srca.Qword[idx], srca.Qword[idx], srcb.Qword[idx], srcb.Qword[idx], result.Qword[idx]);
 
                     end
                 end

@@ -107,7 +107,6 @@ class riscv_v_model extends riscv_v_base_model;
     srcb = rf_model.read_data(srcb_addr);
     read_dest = rf_model.read_data(dest_addr);
     dst_mask_merge = read_dest[RISCV_V_NUM_ELEMENTS_REG-1:0];
-    $display("dest_addr: %0d, read_dest: 0x%0h, dst_mask_merge: 0x%0h", dest_addr, read_dest, dst_mask_merge);
 
     //Get Mask
     mask = rf_model.read_mask();
@@ -166,7 +165,6 @@ class riscv_v_model extends riscv_v_base_model;
     //Get Valid
     vec_wr_en = decode_model.get_valid(csr_vtype, csr_vl, csr_vstart, use_mask, mask, is_mask, is_reduct, is_i2v, is_v2i);
 
-    $display("before execute_op len: %0d", len);
     //Execute instruction
     execute_model.execute_op(
         .opcode(opcode),
@@ -189,7 +187,6 @@ class riscv_v_model extends riscv_v_base_model;
         .vec_result(vec_wr_data),
         .int_result(int_wr_data)
     );
-    $display("after execute_op len: %0d", len);
 
     `uvm_info(get_name(), $sformatf("Instruction executed: \
     Instruction: 0x%0h \

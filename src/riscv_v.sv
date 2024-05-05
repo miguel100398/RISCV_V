@@ -55,6 +55,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     logic                        is_or_exe;
     logic                        is_xor_exe;
     logic                        is_negate_srca_exe;
+    logic                        is_negate_srcb_exe;
     logic                        is_negate_result_exe;
     logic                        is_mask_exe;
     logic                        use_mask_exe;
@@ -67,6 +68,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     logic                        is_mul_exe;
     logic                        is_zero_ext_exe;
     logic                        is_sign_ext_exe;
+    logic                        is_compare_exe;
     logic                        is_set_equal_exe;
     logic                        is_set_nequal_exe;
     logic                        is_set_less_exe;
@@ -149,6 +151,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_or_exe(is_or_exe),
         .is_xor_exe(is_xor_exe),
         .is_negate_srca_exe(is_negate_srca_exe),
+        .is_negate_srcb_exe(is_negate_srcb_exe),
         .is_negate_result_exe(is_negate_result_exe),
         .is_mask_exe(is_mask_exe),
         .use_mask_exe(use_mask_exe),
@@ -161,6 +164,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_mul_exe(is_mul_exe),
         .is_zero_ext_exe(is_zero_ext_exe),
         .is_sign_ext_exe(is_sign_ext_exe),
+        .is_compare_exe(is_compare_exe),
         .is_set_equal_exe(is_set_equal_exe),
         .is_set_nequal_exe(is_set_nequal_exe),
         .is_set_less_exe(is_set_less_exe),
@@ -231,6 +235,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_or_exe(is_or_exe),
         .is_xor_exe(is_xor_exe),
         .is_negate_srca_exe(is_negate_srca_exe),
+        .is_negate_srcb_exe(is_negate_srcb_exe),
         .is_negate_result_exe(is_negate_result_exe),
         .is_mask_exe(is_mask_exe),
         .use_mask_exe(use_mask_exe),
@@ -243,6 +248,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_mul_exe(is_mul_exe),
         .is_zero_ext_exe(is_zero_ext_exe),
         .is_sign_ext_exe(is_sign_ext_exe),
+        .is_compare_exe(is_compare_exe),
         .is_set_equal_exe(is_set_equal_exe),
         .is_set_nequal_exe(is_set_nequal_exe),
         .is_set_less_exe(is_set_less_exe),

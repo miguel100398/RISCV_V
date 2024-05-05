@@ -163,8 +163,23 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
         bit comp = 1;
         comp &= arithmetic_exp_result.valid == txn_out.result.valid;
         for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
-            if (arithmetic_exp_result.valid[i]) begin
-                comp &= arithmetic_exp_result.data.Byte[i] == txn_out.result.data.Byte[i];
+            if (~(arithmetic_in_txn.opcode inside {SEQ, SNE, SLE, SLEU, SLT, SLTU, SGT, SGTU})) begin
+                if (arithmetic_exp_result.valid[i]) begin
+                    comp &= arithmetic_exp_result.data.Byte[i] == txn_out.result.data.Byte[i];
+                end
+            end else begin
+                int osize_offset;
+                unique case(arithmetic_in_txn.osize)
+                    OSIZE_8:   osize_offset = 1;
+                    OSIZE_16:  osize_offset = 2;
+                    OSIZE_32:  osize_offset = 4;
+                    OSIZE_64:  osize_offset = 8;
+                    OSIZE_128: osize_offset = 16;
+                    default: `uvm_fatal(get_name(), $sformatf("Invalid Osize %0s", arithmetic_in_txn.osize.name()))
+                endcase
+                if (arithmetic_in_txn.srcb.valid[i*osize_offset]) begin
+                    comp &= arithmetic_exp_result.data[i] == txn_out.result.data[i];
+                end
             end
         end
         if (~arithmetic_in_txn.is_reduct) begin

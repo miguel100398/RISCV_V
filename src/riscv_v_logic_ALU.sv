@@ -18,6 +18,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic              is_shift,
     input  logic              is_left,
     input  logic              is_arith,
+    input  riscv_v_mask_t     mask_result_valid,
     input  osize_vector_t     dst_osize_vector,
     input  osize_vector_t     is_greater_osize_vector,
     input  osize_vector_t     is_less_osize_vector,
@@ -110,9 +111,13 @@ import riscv_v_pkg::*, riscv_pkg::*;
     //BW result
     assign bw_result_pre_neg = and_result | or_result | xor_result;
 
-  
-    assign bw_result         = {RISCV_V_DATA_WIDTH{is_negate_result}} ^ bw_result_pre_neg;
-        
+    always_comb begin
+        bw_result            = {RISCV_V_DATA_WIDTH{is_negate_result}} ^ bw_result_pre_neg;
+        //Turn off bits if bit is not valid in mask operation
+        for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+            bw_result[(idx / BYTE_WIDTH)][(idx % BYTE_WIDTH)] &= ~is_mask | mask_result_valid[idx];
+        end
+    end        
 
     //Final Mux result
     assign result.data  = bw_result | shifter_result;

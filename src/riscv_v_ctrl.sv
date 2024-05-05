@@ -36,6 +36,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output logic                is_or_exe,
     output logic                is_xor_exe,
     output logic                is_negate_srca_exe,
+    output logic                is_negate_srcb_exe,
     output logic                is_negate_result_exe,
     output logic                use_mask_exe,
     output logic                is_mask_exe,
@@ -48,6 +49,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output logic                is_mul_exe,
     output logic                is_zero_ext_exe,
     output logic                is_sign_ext_exe,
+    output logic                is_compare_exe,
     output logic                is_set_equal_exe,
     output logic                is_set_nequal_exe,
     output logic                is_set_less_exe,
@@ -93,6 +95,7 @@ logic is_and_id;
 logic is_or_id;
 logic is_xor_id;
 logic is_negate_srca_id;
+logic is_negate_srcb_id;
 logic is_negate_result_id;
 logic use_mask_id;
 logic is_mask_id;
@@ -109,6 +112,7 @@ logic is_set_equal_id;
 logic is_set_nequal_id;
 logic is_set_less_id;
 logic is_set_greater_id;
+logic is_compare_id;
 logic is_max_id;
 logic is_min_id;
 logic is_high_id;
@@ -165,7 +169,8 @@ assign is_v2i_id            = f_is_v2i          (riscv_v_funct6_id, funct3_is_OP
 assign is_and_id            = f_is_and          (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
 assign is_or_id             = f_is_or           (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
 assign is_xor_id            = f_is_xor          (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
-assign is_negate_srca_id    = f_is_negate_srca  (riscv_v_funct6_id, funct3_is_OPMVV_id)                                                                                             && is_vector_op_id;
+assign is_negate_srca_id    = f_is_negate_srca  (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id, funct3_is_OPIVV_OPIVX_id, funct3_is_OPIVX_OPIVI_id)                       && is_vector_op_id;
+assign is_negate_srcb_id    = f_is_negate_srcb  (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPMVX_id, funct3_is_OPIVV_OPIVX_id)                                               && is_vector_op_id;
 assign is_negate_result_id  = f_is_negate_result(riscv_v_funct6_id, funct3_is_OPMVV_id)                                                                                             && is_vector_op_id;
 assign use_mask_id          = f_use_mask        (vm_id, use_carry_id)                                                                                                               && is_vector_op_id;
 assign is_mask_id           = f_is_mask         (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id, funct3_is_OPIVV_OPIVX_id, funct3_is_OPIVX_OPIVI_id)                       && is_vector_op_id;
@@ -179,6 +184,7 @@ assign is_mul_id            = f_is_mul          (riscv_v_funct6_id, funct3_is_OP
 assign is_zero_ext_id       = f_is_zero_ext     (riscv_v_funct6_id, funct3_is_OPMVV_id, vs1_id)                                                                                     && is_vector_op_id;
 assign is_sign_ext_id       = f_is_sign_ext     (riscv_v_funct6_id, funct3_is_OPMVV_id, vs1_id)                                                                                     && is_vector_op_id;
 assign is_set_equal_id      = f_is_set_equal    (riscv_v_funct6_id, funct3_is_OPI_id)                                                                                               && is_vector_op_id;
+assign is_compare_id        = f_is_compare      (riscv_v_funct6_id, funct3_is_OPI_id, funct3_is_OPIVV_OPIVX_id, funct3_is_OPIVX_OPIVI_id)                                           && is_vector_op_id;
 assign is_set_nequal_id     = f_is_set_nequal   (riscv_v_funct6_id, funct3_is_OPI_id)                                                                                               && is_vector_op_id;
 assign is_set_less_id       = f_is_set_less     (riscv_v_funct6_id, funct3_is_OPIVV_OPIVX_id, funct3_is_OPI_id)                                                                     && is_vector_op_id;
 assign is_set_greater_id    = f_is_set_greater  (riscv_v_funct6_id, funct3_is_OPIVX_OPIVI_id)                                                                                       && is_vector_op_id;
@@ -201,6 +207,7 @@ riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_or             (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_or_id),                 .data_out(is_or_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_xor            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_xor_id),                .data_out(is_xor_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_srca    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_srca_id),        .data_out(is_negate_srca_exe));
+riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_srcb    (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_srcb_id),        .data_out(is_negate_srcb_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_negate_result  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_negate_result_id),      .data_out(is_negate_result_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mask           (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mask_id),               .data_out(is_mask_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_use_mask          (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(use_mask_id),              .data_out(use_mask_exe));
@@ -213,6 +220,7 @@ riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_mul            (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_mul_id),                .data_out(is_mul_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_zero_ext       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_zero_ext_id),           .data_out(is_zero_ext_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_sign_ext       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_sign_ext_id),           .data_out(is_sign_ext_exe));
+riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_compare        (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_compare_id),            .data_out(is_compare_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_equal      (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_equal_id),          .data_out(is_set_equal_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_nequal     (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_nequal_id),         .data_out(is_set_nequal_exe));
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_set_less       (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_set_less_id),           .data_out(is_set_less_exe));
@@ -258,6 +266,10 @@ scalar_int_without_scalar_op: assert property ( @(posedge clk)
 scalar_fp_without_scalar_op: assert property ( @(posedge clk)
     !(is_scalar_fp_op_id && ~is_scalar_op_id)
 ) else $fatal(1, "scalar_fp op asserted without scalar_op");
+
+compare_without_is_set_op: assert property ( @(posedge clk)
+    is_compare_id |-> |{is_set_equal_id, is_set_nequal_id, is_set_less_id, is_set_greater_id}
+) else $fatal(1, $sformatf("is_compare, without is_set op: {equal, nequal, less, greater} : %0b", {is_set_equal_id, is_set_nequal_id, is_set_less_id, is_set_greater_id}));
 
 scalar_src_mutex: assert property ( @(posedge clk)
     $onehot0({is_scalar_vector_op_id, is_scalar_imm_op_id, is_scalar_int_op_id, is_scalar_fp_op_id})

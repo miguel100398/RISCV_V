@@ -17,6 +17,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                    is_sign_ext,
     input  logic                    is_mask,
     input  logic                    is_reduct,
+    input  logic                    is_compare,
     input  logic                    use_mask,
     input  riscv_v_mask_t           mask,
     input  riscv_v_mask_t           mask_merge,
@@ -115,9 +116,24 @@ endgenerate
 generate
     for (genvar idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin : gen_len_start_vec 
         assign len_start_vec[idx]     = len_greater_than[idx] & start_less_than[idx];
-        assign mask_result_valid[idx] = len_start_vec[idx];
     end  
 endgenerate
+
+always_comb begin
+    //Set mask valid with len and start
+    for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+        mask_result_valid[idx] = len_start_vec[idx];
+    end
+    //Turn off mask valid for compare oparations checking mask and osize
+    for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+        mask_result_valid[idx] &= ~( ( (use_mask & ~mask[idx]) | ~is_less_osize_vector[(RISCV_V_NUM_VALID_OSIZES-1) - $clog2(idx+1)]) & is_compare);
+    end
+    //mask_result_valid[0]    &= ~( ( (use_mask & ~mask[0])           | ~is_less_osize_vector[4]) & is_compare);
+    //mask_result_valid[1]    &= ~( ( (use_mask & ~mask[1])           | ~is_less_osize_vector[3]) & is_compare);
+    //mask_result_valid[3:2]  &= ~( ( ({2{use_mask}} & ~mask[3:2])    | {2{~is_less_osize_vector[2]}}) & {2{is_compare}});
+    //mask_result_valid[7:4]  &= ~( ( ({4{use_mask}} & ~mask[7:4])    | {4{~is_less_osize_vector[1]}}) & {4{is_compare}});
+    //mask_result_valid[15:8] &= ~( ( ({8{use_mask}} & ~mask[15:8])   | {8{~is_less_osize_vector[0]}}) & {8{is_compare}});
+end
 
 //Disable upper elements if is reduct operation
 generate
@@ -239,10 +255,11 @@ always_comb begin
     mask_merge_qual = mask_merge;
     //Don't merge if it is not mask
     mask_merge_qual &= {RISCV_V_NUM_ELEMENTS_REG{is_mask}};
-    //Don't merge if bit is valid
+    //Don't merge if bit is valid 
     for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
-        mask_merge_qual[idx] &= ~mask_result_valid[idx];
-    end
+        mask_merge_qual[idx] &= ~(mask_result_valid[idx]);
+    end    
+    
 end
 
 `ifdef RISCV_V_INST 

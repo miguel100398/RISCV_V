@@ -499,14 +499,39 @@ function automatic logic f_is_xor(riscv_instr_funct6_t funct6, logic funct3_is_O
     return is_xor;
 endfunction: f_is_xor
 
-function automatic logic f_is_negate_srca(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV);
+function automatic logic f_is_negate_srca(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV, logic funct3_is_OPI, logic funct3_is_OPIVV_OPIVX, logic funct3_is_OPIVX_OPIVI);
     logic is_negate_srca = 1'b0;
 
     is_negate_srca  = (funct6 == RISCV_V_FUNCT6_VMANDN) && funct3_is_OPMVV;
     is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMORN)  && funct3_is_OPMVV;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSEQ)  && funct3_is_OPI;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSNE)  && funct3_is_OPI;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSLTU) && funct3_is_OPIVV_OPIVX;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSLT)  && funct3_is_OPIVV_OPIVX;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSLE)  && funct3_is_OPI;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSLEU) && funct3_is_OPI;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSGT)  && funct3_is_OPIVX_OPIVI;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VMSGTU) && funct3_is_OPIVX_OPIVI;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VSUB)   && funct3_is_OPIVV_OPIVX;
+    is_negate_srca |= (funct6 == RISCV_V_FUNCT6_VSBC)   && funct3_is_OPIVV_OPIVX;
 
     return is_negate_srca;
 endfunction: f_is_negate_srca
+
+function automatic logic f_is_negate_srcb(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV, logic funct3_is_OPMVX, logic funct3_is_OPIVV_OPIVX);
+    logic is_negate_srcb = 1'b0;
+
+    is_negate_srcb  = (funct6 == RISCV_V_FUNCT6_VMIN)     && funct3_is_OPIVV_OPIVX;
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VMINU)    && funct3_is_OPIVV_OPIVX;
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VREDMIN)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VREDMINU) && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VMAX)     && funct3_is_OPIVV_OPIVX;
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VMAXU)    && funct3_is_OPIVV_OPIVX;
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VREDMAX)  && (funct3_is_OPMVV | funct3_is_OPMVX);
+    is_negate_srcb |= (funct6 == RISCV_V_FUNCT6_VREDMAXU) && (funct3_is_OPMVV | funct3_is_OPMVX);
+
+    return is_negate_srcb;
+endfunction: f_is_negate_srcb
 
 function automatic logic f_is_negate_result(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV);
     logic is_negate_result = 1'b0;
@@ -541,6 +566,7 @@ function automatic logic f_is_mask(riscv_instr_funct6_t funct6, logic funct3_is_
     is_mask |= (funct6 == RISCV_V_FUNCT6_VMSLTU  && funct3_is_OPIVV_OPIVX);
     is_mask |= (funct6 == RISCV_V_FUNCT6_VMSGT   && funct3_is_OPIVX_OPIVI);
     is_mask |= (funct6 == RISCV_V_FUNCT6_VMSGTU  && funct3_is_OPIVX_OPIVI);
+    
     
 
     return is_mask;

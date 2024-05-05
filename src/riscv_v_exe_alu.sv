@@ -35,6 +35,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                is_xor_exe,
     input  logic                is_mask_exe,
     input  logic                is_negate_srca_exe,
+    input  logic                is_negate_srcb_exe,
     input  logic                is_negate_result_exe,
     input  logic                is_shift_exe,
     input  logic                is_left_exe,
@@ -72,10 +73,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
         vec_result_exe                                     = logic_result;
         vec_result_exe                                    |= arithmetic_result;
         vec_result_exe                                    |= permutation_result;
-        //Turn off bits if bit is not valid in mask operation
-        for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
-            vec_result_exe.data[idx] &= ~is_mask_exe | mask_result_valid_exe[idx];
-        end
         //Merge result with mask destination
         vec_result_exe.data[RISCV_V_NUM_ELEMENTS_REG-1:0] |= mask_merge_exe;
     end
@@ -100,6 +97,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_or(is_or_exe),
         .is_xor(is_xor_exe),
         .is_mask(is_mask_exe),
+        .mask_result_valid(mask_result_valid_exe),
         .is_negate_srca(is_negate_srca_exe),
         .is_negate_result(is_negate_result_exe),
         .is_shift(is_shift_exe),
@@ -123,6 +121,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_reduct(is_reduct_exe),
         .is_add(is_add_exe),
         .is_sub(is_sub_exe),
+        .is_negate_srca(is_negate_srca_exe),
+        .is_negate_srcb(is_negate_srcb_exe),
         .is_mul(is_mul_exe),
         .is_zero_ext(is_zero_ext_exe),
         .is_sign_ext(is_sign_ext_exe),

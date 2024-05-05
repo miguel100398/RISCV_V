@@ -21,6 +21,8 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic                       is_min_max,
     input  logic                       is_signed,
     input  logic                       use_carry,
+    input  logic                       is_negate_srca,
+    input  logic                       is_negate_srcb,
     input  osize_vector_t              osize_vector,
     input  osize_vector_t              is_greater_osize_vector,
     input  riscv_v_alu_data_t          srca,
@@ -37,7 +39,8 @@ localparam NUM_ADD_BLOCKS = RISCV_V_NUM_BYTES_DATA;
 //Srca and srcb gated with is_add or is_sub
 riscv_v_src_byte_vector_t srca_gated;
 riscv_v_src_byte_vector_t srcb_gated;
-//SrcB xor with is_sub
+//Src xor with is_negate src
+riscv_v_src_byte_vector_t srca_xor_sub;
 riscv_v_src_byte_vector_t srcb_xor_sub;
 //Srca input to adder block
 riscv_v_src_byte_vector_t srca_adder;
@@ -68,35 +71,33 @@ riscv_v_of_t              signed_of;
 riscv_v_of_t              unsigned_of;
 //Sign
 riscv_v_sign_t            sign_result;
-//Less than vector
-riscv_v_less_than_t       result_less_than_signed;
-riscv_v_less_than_t       result_less_than_unsigned;
-riscv_v_less_than_t       result_less_than_prev_osize;
-riscv_v_less_than_t       result_less_than_osize    [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_less_than_t       result_less_than;
 //Select between A and B in is_max or is_min
 riscv_v_src_byte_vector_t result_min_max_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
 riscv_v_src_byte_vector_t result_min_max_osize_qual [RISCV_V_NUM_VALID_OSIZES-1:0];
 riscv_v_src_byte_vector_t result_min_max_osize_shift [RISCV_V_NUM_VALID_OSIZES-2:0];
 riscv_v_src_byte_vector_t result_min_max_reduct_src;
 riscv_v_src_byte_vector_t result_min_max_qual;
+//Less than vector
+riscv_v_less_than_t         result_less_than_signed;
+riscv_v_less_than_t         result_less_than_unsigned;
+riscv_v_less_than_t         result_less_than_prev_osize;
 //Compare result
-riscv_v_num_byte_vector_t result_set_equal_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_num_byte_vector_t result_set_equal_block;
-riscv_v_num_byte_vector_t result_set_equal_block_qual;
-riscv_v_src_byte_vector_t result_set_equal;
-riscv_v_num_byte_vector_t result_set_nequal_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_num_byte_vector_t result_set_nequal_block;
-riscv_v_num_byte_vector_t result_set_nequal_block_qual;
-riscv_v_src_byte_vector_t result_set_nequal;
-riscv_v_num_byte_vector_t result_set_less_osize  [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_num_byte_vector_t result_set_less_block;
-riscv_v_num_byte_vector_t result_set_less_block_qual;
-riscv_v_src_byte_vector_t result_set_less;
-riscv_v_num_byte_vector_t result_set_greater_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
-riscv_v_num_byte_vector_t result_set_greater_block;
-riscv_v_num_byte_vector_t result_set_greater_block_qual;
-riscv_v_src_byte_vector_t result_set_greater;
+riscv_v_mask_t              result_set_equal_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
+riscv_v_mask_t              result_set_equal;
+riscv_v_mask_t              result_set_equal_qual;
+riscv_v_src_byte_vector_t   result_set_equal_ext_qual;
+riscv_v_mask_t              result_set_nequal_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
+riscv_v_mask_t              result_set_nequal;
+riscv_v_mask_t              result_set_nequal_qual;
+riscv_v_src_byte_vector_t   result_set_nequal_ext_qual;
+riscv_v_mask_t              result_set_less_osize  [RISCV_V_NUM_VALID_OSIZES-1:0];
+riscv_v_mask_t              result_set_less;
+riscv_v_mask_t              result_set_less_qual;
+riscv_v_src_byte_vector_t   result_set_less_ext_qual;
+riscv_v_mask_t              result_set_greater_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
+riscv_v_mask_t              result_set_greater;
+riscv_v_mask_t              result_set_greater_qual;
+riscv_v_src_byte_vector_t   result_set_greater_ext_qual;
 
 generate
     //Gate sources
@@ -107,7 +108,8 @@ generate
 
     //Xor srcb with is_sub
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_xor_is_sub
-        assign srcb_xor_sub[block] = srcb_gated[block] ^ {BYTE_WIDTH{is_sub}};
+        assign srca_xor_sub[block] = srca_gated[block] ^ {BYTE_WIDTH{is_negate_srca}};
+        assign srcb_xor_sub[block] = srcb_gated[block] ^ {BYTE_WIDTH{is_negate_srcb}};
     end
 
     //TODO: Gatear resultado final con qual
@@ -116,11 +118,11 @@ generate
 
     //Srca input to BW block
     //Input to Least significant Block is only srca
-    assign srca_adder[0] = srca_gated[0];
+    assign srca_adder[0] = srca_xor_sub[0];
     for (genvar block=1; block < NUM_ADD_BLOCKS; block++) begin : gen_srca_adder
          always_comb begin
             //Fisrt input is srca
-            srca_adder[block] = srca_gated[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(block+1)]}};        //Select this source if op is not reduct or osize is greater than
+            srca_adder[block] = srca_xor_sub[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(block+1)]}};        //Select this source if op is not reduct or osize is greater than
             for (int reduct_input=0; reduct_input <= (($clog2(block+1))-1); reduct_input++) begin
                 srca_adder[block] |= result_adder_qual[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
             end
@@ -196,36 +198,6 @@ generate
         
     end
 
-    //Compare result
-    for (genvar block=0;  block < NUM_ADD_BLOCKS; block++) begin :  gen_result_compare 
-        //Set Equal
-        assign result_set_equal_block_qual[block]   = result_set_equal_block[block] & is_set_equal;
-        assign result_set_equal[block]              = {{(BYTE_WIDTH-1){1'b0}}, result_set_equal_block_qual[block]};
-        //Set Not equal
-        assign result_set_nequal_block_qual[block]  = result_set_nequal_block[block] & is_set_nequal;
-        assign result_set_nequal[block]             = {{(BYTE_WIDTH-1){1'b0}}, result_set_nequal_block_qual[block]}; 
-        //Set Less than
-        assign result_set_less_block_qual[block]    = result_set_less_block[block] & is_set_less;
-        assign result_set_less[block]               = {{(BYTE_WIDTH-1){1'b0}}, result_set_less_block_qual[block]};
-        //Set greater than
-        assign result_set_greater_block_qual[block] = result_set_greater_block[block] & is_set_greater;
-        assign result_set_greater[block]            = {{(BYTE_WIDTH-1){1'b0}}, result_set_greater_block_qual[block]};
-    end
-
-    //Final result
-
-    assign result_adder_qual = {RISCV_V_DATA_WIDTH{is_arithmetic}} & result_adder;
-
-    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_adder_result
-        assign result[block] = result_adder_qual[block]
-                             | result_min_max_qual[block]
-                             | result_set_equal[block]   & {BYTE_WIDTH{is_set_equal}}
-                             | result_set_nequal[block]  & {BYTE_WIDTH{is_set_nequal}}
-                             | result_set_less[block]    & {BYTE_WIDTH{is_set_less}}
-                             | result_set_greater[block] & {BYTE_WIDTH{is_set_greater}};
-
-    end
-
     //Flags
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_flags
         assign zf_prev_osize[block]               = (result_adder[block] == 0);
@@ -256,47 +228,73 @@ generate
     end
 
     for (genvar osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_compare_osize
+        localparam NUM_BITS_OSIZE   = 2**osize_idx;
         always_comb begin
             result_set_equal_osize[osize_idx]   = '0;
             result_set_nequal_osize[osize_idx]  = '0;
             result_set_less_osize[osize_idx]    = '0;
             result_set_greater_osize[osize_idx] = '0;
-            for  (int cmp_idx = 0; cmp_idx < NUM_ADD_BLOCKS; cmp_idx = cmp_idx+(2**osize_idx)) begin
-                result_set_equal_osize[osize_idx][cmp_idx]   = (&zf_prev_osize[cmp_idx  +: (2**osize_idx)]) & osize_vector[osize_idx];
-                result_set_nequal_osize[osize_idx][cmp_idx]  = ~(&zf_prev_osize[cmp_idx +: (2**osize_idx)]) & osize_vector[osize_idx];
-                result_set_less_osize[osize_idx][cmp_idx]    = result_less_than_osize[osize_idx][cmp_idx];
-                result_set_greater_osize[osize_idx][cmp_idx] = ~(result_set_less_osize[osize_idx][cmp_idx] | result_set_equal_osize[osize_idx][cmp_idx]) & osize_vector[osize_idx];
-            end
-        end
-    end
-
-    for (genvar osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_result_less_than_osize 
-        localparam NUM_BLOCKS_OSIZE = NUM_ADD_BLOCKS/(2**osize_idx);
-        localparam NUM_BITS_OSIZE   = 2**osize_idx;
-        always_comb begin
-            result_less_than_osize[osize_idx] = '0;
-            for (int lt_idx=0; lt_idx < NUM_BLOCKS_OSIZE; lt_idx++) begin
-                result_less_than_osize[osize_idx][lt_idx*NUM_BITS_OSIZE +: NUM_BITS_OSIZE] = {NUM_BITS_OSIZE{(result_less_than_prev_osize[((lt_idx+1)*NUM_BITS_OSIZE)-1] &  osize_vector[osize_idx])}};
+            for  (int cmp_idx = 0; cmp_idx < (RISCV_V_NUM_ELEMENTS_REG/NUM_BITS_OSIZE); cmp_idx++) begin
+                result_set_equal_osize[osize_idx][cmp_idx]   = (&zf_prev_osize[(cmp_idx  * NUM_BITS_OSIZE)  +: NUM_BITS_OSIZE])                          & osize_vector[osize_idx] & srcb.valid[(cmp_idx  * NUM_BITS_OSIZE)];
+                result_set_nequal_osize[osize_idx][cmp_idx]  = ~(&zf_prev_osize[(cmp_idx * NUM_BITS_OSIZE)  +: NUM_BITS_OSIZE])                          & osize_vector[osize_idx] & srcb.valid[(cmp_idx  * NUM_BITS_OSIZE)];
+                result_set_less_osize[osize_idx][cmp_idx]    = (result_less_than_prev_osize[((cmp_idx+1)*NUM_BITS_OSIZE)-1]                              & osize_vector[osize_idx] & srcb.valid[(cmp_idx  * NUM_BITS_OSIZE)]);
+                result_set_greater_osize[osize_idx][cmp_idx] = ~(result_set_less_osize[osize_idx][cmp_idx] | result_set_equal_osize[osize_idx][cmp_idx]) & osize_vector[osize_idx] & srcb.valid[(cmp_idx  * NUM_BITS_OSIZE)];
             end
         end
     end
 
     //Final flags
     always_comb begin
-        zf                       = '0;
-        result_less_than         = '0;
-        result_set_equal_block   = '0;
-        result_set_nequal_block  = '0;
-        result_set_less_block    = '0;
-        result_set_greater_block = '0;
+        zf                 = '0;
+        result_set_equal   = '0;
+        result_set_nequal  = '0;
+        result_set_less    = '0;
+        result_set_greater = '0;
         for (int osize_idx=0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-            zf                       |= zf_osize[osize_idx];
-            result_less_than         |= result_less_than_osize[osize_idx];
-            result_set_equal_block   |= result_set_equal_osize[osize_idx];
-            result_set_nequal_block  |= result_set_nequal_osize[osize_idx];
-            result_set_less_block    |= result_set_less_osize[osize_idx];
-            result_set_greater_block |= result_set_greater_osize[osize_idx];
+            zf                 |= zf_osize[osize_idx];
+            result_set_equal   |= result_set_equal_osize[osize_idx];
+            result_set_nequal  |= result_set_nequal_osize[osize_idx];
+            result_set_less    |= result_set_less_osize[osize_idx];
+            result_set_greater |= result_set_greater_osize[osize_idx];
         end
+    end
+
+    //Qualify compare results
+    always_comb begin
+        result_set_equal_qual   = result_set_equal   & {$bits(result_set_equal){is_set_equal}};
+        result_set_nequal_qual  = result_set_nequal  & {$bits(result_set_nequal){is_set_nequal}};
+        result_set_less_qual    = result_set_less    & {$bits(result_set_less){is_set_less}};
+        result_set_greater_qual = result_set_greater & {$bits(result_set_greater){is_set_greater}};
+    end
+
+    //Extend compare result to vector length
+    always_comb begin
+        //Set equal
+        result_set_equal_ext_qual = 0;
+        result_set_equal_ext_qual[0 +: RISCV_V_NUM_BYTES_ALLOCATE_MASK] = result_set_equal_qual;
+        //Set nequal
+        result_set_nequal_ext_qual = 0;
+        result_set_nequal_ext_qual[0 +: RISCV_V_NUM_BYTES_ALLOCATE_MASK] = result_set_nequal_qual;
+        //Set less
+        result_set_less_ext_qual = 0;
+        result_set_less_ext_qual[0 +: RISCV_V_NUM_BYTES_ALLOCATE_MASK] = result_set_less_qual;
+        //Set equal
+        result_set_greater_ext_qual = 0;
+        result_set_greater_ext_qual[0 +: RISCV_V_NUM_BYTES_ALLOCATE_MASK] = result_set_greater_qual;
+    end
+
+    //Final result
+
+    assign result_adder_qual = {RISCV_V_DATA_WIDTH{is_arithmetic}} & result_adder;
+
+    for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_adder_result
+        assign result[block] = result_adder_qual[block]
+                             | result_min_max_qual[block]
+                             | result_set_equal_ext_qual[block]
+                             | result_set_nequal_ext_qual[block]
+                             | result_set_less_ext_qual[block]
+                             | result_set_greater_ext_qual[block];
+
     end
 
 endgenerate
