@@ -108,7 +108,7 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             arithmetic_in_txn = riscv_v_arithmetic_alu_in_seq_item::type_id::create("arithmetic_in_txn", this);
             arithmetic_in_txn.srca                    = arithmetic_vif.cb_mon.srca;
             arithmetic_in_txn.srcb                    = arithmetic_vif.cb_mon.srcb;
-            arithmetic_in_txn.carry_in                = arithmetic_vif.carry_in;
+            arithmetic_in_txn.carry_in                = arithmetic_vif.cb_mon.carry_in;
             arithmetic_in_txn.dst_osize_vector        = arithmetic_vif.cb_mon.dst_osize_vector;
             arithmetic_in_txn.src_osize_vector        = arithmetic_vif.cb_mon.src_osize_vector;
             arithmetic_in_txn.is_greater_osize_vector = arithmetic_vif.cb_mon.is_greater_osize_vector;
@@ -156,12 +156,14 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
         if (is_permutation_op()) begin
             `uvm_info(get_name(), "Transaction captured in permutation_alu in port", UVM_HIGH);
             permutation_in_txn = riscv_v_permutation_alu_in_seq_item::type_id::create("permutation_in_txn", this);
-            permutation_in_txn.integer_data_in      = permutation_vif.integer_data_in;
-            permutation_in_txn.vector_data_in       = permutation_vif.vector_data_in;
+            permutation_in_txn.srca                 = permutation_vif.cb_mon.srca;
+            permutation_in_txn.srcb                 = permutation_vif.cb_mon.srcb;
             `ifdef RISCV_V_INST
                 permutation_in_txn.opcode           = permutation_vif.cb_mon.opcode;
+                permutation_in_txn.osize            = permutation_vif.cb_mon.osize;
             `else 
                 permutation_in_txn.opcode           = get_permutation_opcode();
+                permutation_in_txn.osize            = get_osize(permutation_vif.cb_mon.srcb.merge);
             `endif
             rtl_in_ap.write(permutation_in_txn);
         end

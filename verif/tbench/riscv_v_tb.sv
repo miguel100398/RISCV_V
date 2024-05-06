@@ -281,12 +281,13 @@ module riscv_v_tb;
     //Permutation ALU signals
     assign vec_permutation_alu_vif.is_v2i                   = dut.v_execute.exe_alu.permutation_ALU.is_v2i;
     assign vec_permutation_alu_vif.is_i2v                   = dut.v_execute.exe_alu.permutation_ALU.is_i2v;
-    assign vec_permutation_alu_vif.integer_data_in          = dut.v_execute.exe_alu.permutation_ALU.integer_data_in;
-    assign vec_permutation_alu_vif.vector_data_in           = dut.v_execute.exe_alu.permutation_ALU.vector_data_in;
+    assign vec_permutation_alu_vif.srca                     = dut.v_execute.exe_alu.permutation_ALU.srca;
+    assign vec_permutation_alu_vif.srcb                     = dut.v_execute.exe_alu.permutation_ALU.srcb;
     assign vec_permutation_alu_vif.integer_data_out         = dut.v_execute.exe_alu.permutation_ALU.integer_data_out;
     assign vec_permutation_alu_vif.vector_data_out          = dut.v_execute.exe_alu.permutation_ALU.vector_data_out;
     `ifdef RISCV_V_INST 
         assign vec_permutation_alu_vif.opcode               = dut.v_execute.exe_alu.permutation_ALU.opcode;
+        assign vec_permutation_alu_vif.osize                = dut.v_execute.exe_alu.permutation_ALU.osize;
     `endif //RISCV_V_INST
 
     //Drive rst
@@ -313,7 +314,7 @@ module riscv_v_tb;
     end
 
     initial begin
-        run_test("riscv_v_cpu_vmand_test");
+        run_test("riscv_v_cpu_v2i_test");
     end
     
 

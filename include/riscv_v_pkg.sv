@@ -18,6 +18,7 @@ parameter int RISCV_V_NUM_DWORDS_DATA       = RISCV_V_DATA_WIDTH / DWORD_WIDTH; 
 parameter int RISCV_V_NUM_QWORDS_DATA       = RISCV_V_DATA_WIDTH / QWORD_WIDTH;               //Number of qwords in Data bus
 parameter int RISCV_V_NUM_DQWORDS_DATA      = RISCV_V_DATA_WIDTH / DQWORD_WIDTH;              //Number of dqwords in Data bus
 parameter int RISCV_V_NUM_QQWORDS_DATA      = RISCV_V_DATA_WIDTH / QQWORD_WIDTH;              //Number of dqwords in Data bus
+parameter int RISCV_V_NUM_INT_BYTES_DATA    = RISCV_V_DATA_WIDTH / RISCV_DATA_WIDTH;          //NUmber of bytes in integer register
 
 
 //OPCODES
@@ -221,6 +222,8 @@ parameter riscv_v_vxsat_t RISCV_V_VXSAT_RST_VAL = '{
 //Operation size enum
 typedef enum logic[2:0] {OSIZE_8 = 3'd0, OSIZE_16 = 3'd1, OSIZE_32 = 3'd2, OSIZE_64 = 3'd3, OSIZE_128 = 3'd4} riscv_v_osize_e;
 parameter int RISCV_V_NUM_VALID_OSIZES = 5;
+parameter int RISCV_V_NUM_INT_OSIZES   = 3;     //Number of Osizes that can fit in an Integer Register (32-bits)
+parameter int RISCV_V_NUM_INT_VALID_OSIZES = (RISCV_V_NUM_INT_OSIZES > RISCV_V_NUM_VALID_OSIZES) ? RISCV_V_NUM_VALID_OSIZES : RISCV_V_NUM_INT_OSIZES;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:0] osize_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-1:1] osize_is_greater_vector_t;
 typedef logic [RISCV_V_NUM_VALID_OSIZES-2:0] osize_is_less_vector_t;
@@ -456,12 +459,12 @@ function automatic logic f_is_scalar_fp_op(riscv_v_funct3_e funct3);
     return  funct3 == OPFVF;
 endfunction: f_is_scalar_fp_op
 
-function automatic logic f_is_i2v(riscv_instr_funct6_t funct6, logic funct3_is_OPIVX);
-    return (funct6 == RISCV_V_FUNCT6_VMV) && funct3_is_OPIVX;
+function automatic logic f_is_i2v(riscv_instr_funct6_t funct6, logic funct3_is_OPMVX, riscv_instr_rs_t vs2);
+    return (funct6 == RISCV_V_FUNCT6_VRXUNARY0) && funct3_is_OPMVX && (vs2 == 0);
 endfunction: f_is_i2v 
 
-function automatic logic f_is_v2i(riscv_instr_funct6_t funct6, logic funct3_is_OPIVV);
-    return (funct6 == RISCV_V_FUNCT6_VMV) && funct3_is_OPIVV;
+function automatic logic f_is_v2i(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV, riscv_instr_rs_t vs1);
+    return (funct6 == RISCV_V_FUNCT6_VWXUNARY0) && funct3_is_OPMVV && (vs1 == 0);
 endfunction: f_is_v2i
 
 function automatic logic f_is_and(riscv_instr_funct6_t funct6, logic funct3_is_OPMVV, logic funct3_is_OPI);

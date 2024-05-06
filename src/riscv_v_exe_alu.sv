@@ -18,7 +18,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
     //Sources
     input  riscv_v_alu_data_t   srca_exe,
     input  riscv_v_alu_data_t   srcb_exe,
-    input  riscv_data_t         src_int_exe,
     input  riscv_v_mask_t       mask_exe,
     input  riscv_v_mask_t       mask_merge_exe,
     input  riscv_v_mask_t       mask_result_valid_exe,
@@ -60,9 +59,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output riscv_v_wb_data_t    vec_result_exe
 );
 
-    riscv_v_alu_data_t  srca_shuffled_exe;
-    riscv_v_shuffler_sel_vector_t shuffler_sel_exe;
-
     //Results
     riscv_v_wb_data_t   logic_result;
     riscv_v_wb_data_t   arithmetic_result;
@@ -81,14 +77,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
                           | arithmetic_result
                           | permutation_result;
     
-    assign shuffler_sel_exe = '{default:'0};
-
-    //Shuffler
-    riscv_v_shuffler v_shuffler(
-        .src(srca_exe),
-        .sel(shuffler_sel_exe),
-        .result(srca_shuffled_exe)
-    );
 
     //Logical ALU
     riscv_v_logic_ALU logic_ALU(
@@ -106,7 +94,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .dst_osize_vector(dst_osize_vector_exe),
         .is_greater_osize_vector(is_greater_osize_vector_exe),
         .is_less_osize_vector(is_less_osize_vector_exe),
-        .srca(srca_shuffled_exe),
+        .srca(srca_exe),
         .srcb(srcb_exe),
         `ifdef RISCV_V_INST
             .osize(osize_exe),
@@ -139,7 +127,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .src_osize_vector(src_osize_vector_exe),
         .is_greater_osize_vector(is_greater_osize_vector_exe),
         .is_less_osize_vector(is_less_osize_vector_exe),
-        .srca(srca_shuffled_exe),
+        .srca(srca_exe),
         .srcb(srcb_exe),
         .carry_in(mask_exe),
         `ifdef RISCV_V_INST
@@ -154,9 +142,12 @@ import riscv_pkg::*, riscv_v_pkg::*;
     riscv_v_permutation_ALU permutation_ALU(
         .is_i2v(is_i2v_exe),
         .is_v2i(is_v2i_exe),
-        .integer_data_in(src_int_exe),
-        .vector_data_in(srca_shuffled_exe),
+        .srca(srca_exe),
+        .srcb(srcb_exe),
+        .osize_greater_vector(is_greater_osize_vector_exe),
+        .osize_vector(src_osize_vector_exe),
         `ifdef RISCV_V_INST
+            .osize(osize_exe),
             .opcode(opcode_exe),
         `endif //RISCV_V_INST
         .integer_data_out(int_result_exe),

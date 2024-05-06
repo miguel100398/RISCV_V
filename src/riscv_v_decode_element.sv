@@ -15,6 +15,8 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  riscv_v_vstart_t         vstart, 
     input  logic                    is_zero_ext,
     input  logic                    is_sign_ext,
+    input  logic                    is_v2i,
+    input  logic                    is_i2v,
     input  logic                    is_mask,
     input  logic                    is_reduct,
     input  logic                    is_compare,
@@ -57,6 +59,7 @@ riscv_v_valid_data_t is_mask_valid;
 riscv_v_valid_data_t is_reduct_osize [RISCV_V_NUM_VALID_OSIZES-1];
 riscv_v_valid_data_t is_reduct_osize_sel;
 riscv_v_valid_data_t is_reduct_valid;
+riscv_v_valid_data_t i2v_mask;
 
 assign dst_osize = riscv_v_osize_e'(vtype.vsew);
 
@@ -119,6 +122,14 @@ generate
     end  
 endgenerate
 
+//I2V mask
+generate
+    assign i2v_mask[0] = 1'b1;      //First bit is always 1
+    for (genvar osize_idx = 1; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin : gen_i2v_mask
+        assign i2v_mask[(2**osize_idx)-1 -: (2**(osize_idx-1))] = {(2**(osize_idx-1)){~is_i2v || is_greater_osize_vector[osize_idx]}};
+    end
+endgenerate
+
 always_comb begin
     //Set mask valid with len and start
     for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
@@ -128,11 +139,6 @@ always_comb begin
     for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
         mask_result_valid[idx] &= ~( ( (use_mask & ~mask[idx]) | ~is_less_osize_vector[(RISCV_V_NUM_VALID_OSIZES-1) - $clog2(idx+1)]) & is_compare);
     end
-    //mask_result_valid[0]    &= ~( ( (use_mask & ~mask[0])           | ~is_less_osize_vector[4]) & is_compare);
-    //mask_result_valid[1]    &= ~( ( (use_mask & ~mask[1])           | ~is_less_osize_vector[3]) & is_compare);
-    //mask_result_valid[3:2]  &= ~( ( ({2{use_mask}} & ~mask[3:2])    | {2{~is_less_osize_vector[2]}}) & {2{is_compare}});
-    //mask_result_valid[7:4]  &= ~( ( ({4{use_mask}} & ~mask[7:4])    | {4{~is_less_osize_vector[1]}}) & {4{is_compare}});
-    //mask_result_valid[15:8] &= ~( ( ({8{use_mask}} & ~mask[15:8])   | {8{~is_less_osize_vector[0]}}) & {8{is_compare}});
 end
 
 //Disable upper elements if is reduct operation
@@ -244,7 +250,11 @@ always_comb begin
     srca_alu.valid &= is_reduct_valid;
     //Turn off valid bits if is_mask
     srca_alu.valid &= is_mask_valid;
-    //Last bits are alawys set if is_mask op
+    //Turn off bits if is v2i op
+    srca_alu.valid &= {(RISCV_V_NUM_ELEMENTS_REG){~is_v2i}};
+    //Turn off bits if is i2v op
+    srca_alu.valid &= i2v_mask;
+    //Last bits are always set if is_mask op
     srca_alu.valid[RISCV_V_NUM_BYTES_ALLOCATE_MASK-1:0] |= {RISCV_V_NUM_BYTES_ALLOCATE_MASK{is_mask}};
 end
 

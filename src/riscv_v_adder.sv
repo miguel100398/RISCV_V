@@ -112,10 +112,6 @@ generate
         assign srcb_xor_sub[block] = srcb_gated[block] ^ {BYTE_WIDTH{is_negate_srcb}};
     end
 
-    //TODO: Gatear resultado final con qual
-    //Mover el mux de srca_adder con srca_adder osize igual que src_min_max
-    //Revisar comportamiento de instrucciones de comparacion
-
     //Srca input to BW block
     //Input to Least significant Block is only srca
     assign srca_adder[0] = srca_xor_sub[0];

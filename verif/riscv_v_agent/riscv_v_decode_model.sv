@@ -144,7 +144,7 @@ class riscv_v_decode_model extends riscv_v_base_model;
 
     //Write integer destination
     virtual function bit write_int_dest(riscv_v_opcode_e opcode);
-        return (opcode == I2V);
+        return (opcode == V2I);
     endfunction: write_int_dest
 
     //Write floating point destination
@@ -469,22 +469,22 @@ class riscv_v_decode_model extends riscv_v_base_model;
 
     virtual function bit get_is_i2v(riscv_v_type_instruction_t instr);
         bit is_i2v;
-        bit is_OPIVX;
+        bit is_OPMVX;
 
-        is_OPIVX       = (instr.funct3 == OPIVX);
+        is_OPMVX       = (instr.funct3 == OPMVX);
 
-        is_i2v = f_is_i2v(instr.funct6, is_OPIVX);
+        is_i2v = f_is_i2v(instr.funct6, is_OPMVX, instr.vs2);
 
         return is_i2v;
     endfunction: get_is_i2v 
 
     virtual function bit get_is_v2i(riscv_v_type_instruction_t instr);
         bit is_v2i;
-        bit is_OPIVV;
+        bit is_OPMVV;
 
-        is_OPIVV       = (instr.funct3 == OPIVV);
+        is_OPMVV       = (instr.funct3 == OPMVV);
 
-        is_v2i = f_is_v2i(instr.funct6, is_OPIVV);
+        is_v2i = f_is_v2i(instr.funct6, is_OPMVV, instr.vs1);
 
         return is_v2i;
     endfunction: get_is_v2i 

@@ -10,14 +10,14 @@ class riscv_v_permutation_alu_in_seq_item extends riscv_v_alu_in_seq_item;
 
     rand logic              is_i2v;
     rand logic              is_v2i;
-    rand riscv_data_t       integer_data_in;
-    rand riscv_v_alu_data_t vector_data_in;
+    rand riscv_v_alu_data_t srca;
+    rand riscv_v_alu_data_t srcb;
 
     `uvm_object_utils_begin(riscv_v_permutation_alu_in_seq_item)
         `uvm_field_int(is_i2v,             UVM_ALL_ON)
         `uvm_field_int(is_v2i,             UVM_ALL_ON)
-        `uvm_field_int(integer_data_in,    UVM_ALL_ON)
-        `uvm_field_int(vector_data_in,     UVM_ALL_ON)
+        `uvm_field_int(srca,               UVM_ALL_ON)
+        `uvm_field_int(srcb,               UVM_ALL_ON)
     `uvm_object_utils_end
 
     //Constructor 

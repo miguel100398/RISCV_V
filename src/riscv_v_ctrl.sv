@@ -32,6 +32,7 @@ import riscv_pkg::*, riscv_v_pkg::*;
     output logic                is_scalar_fp_op_exe,
     output logic                is_i2v_exe,
     output logic                is_v2i_exe,
+    output logic                int_rf_wr_en_id,
     output logic                is_and_exe,
     output logic                is_or_exe,
     output logic                is_xor_exe,
@@ -164,8 +165,8 @@ assign funct3_is_OPM_id         = (funct3_is_OPMVV_id || funct3_is_OPMVX_id);
 assign funct3_is_OPIVV_OPIVX_id = (funct3_is_OPIVV_id || funct3_is_OPIVX_id);
 assign funct3_is_OPIVX_OPIVI_id = (funct3_is_OPIVX_id || funct3_is_OPIVI_id);
 //Decode ALU control signals
-assign is_i2v_id            = f_is_i2v          (riscv_v_funct6_id, funct3_is_OPIVX_id)                                                                                             && is_vector_op_id;
-assign is_v2i_id            = f_is_v2i          (riscv_v_funct6_id, funct3_is_OPIVV_id)                                                                                             && is_vector_op_id;
+assign is_i2v_id            = f_is_i2v          (riscv_v_funct6_id, funct3_is_OPMVX_id, vs2_id)                                                                                     && is_vector_op_id;
+assign is_v2i_id            = f_is_v2i          (riscv_v_funct6_id, funct3_is_OPMVV_id, vs1_id)                                                                                     && is_vector_op_id;
 assign is_and_id            = f_is_and          (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
 assign is_or_id             = f_is_or           (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
 assign is_xor_id            = f_is_xor          (riscv_v_funct6_id, funct3_is_OPMVV_id, funct3_is_OPI_id)                                                                           && is_vector_op_id;
@@ -193,6 +194,7 @@ assign is_min_id            = f_is_min          (riscv_v_funct6_id, funct3_is_OP
 assign is_high_id           = f_is_high         (riscv_v_funct6_id, funct3_is_OPM_id)                                                                                               && is_vector_op_id;
 assign is_signed_id         = f_is_signed       (riscv_v_funct6_id, funct3_is_OPI_id, funct3_is_OPMVV_id, funct3_is_OPIVV_OPIVX_id, funct3_is_OPIVX_OPIVI_id, funct3_is_OPM_id)     && is_vector_op_id;
 assign use_carry_id         = f_use_carry       (riscv_v_funct6_id, funct3_is_OPI_id, funct3_is_OPIVV_OPIVX_id)                                                                     && is_vector_op_id;
+assign int_rf_wr_en_id      = is_v2i_id;
 
 //Stage signals
 riscv_v_stage#(.DATA_T(logic),              .NUM_STAGES(RISCV_V_ID_2_EXE_LATENCY))  stage_is_vector_vector  (.clk(clk), .rst(rst), .en(en_stage), .flush(flush),  .rst_val('0), .flush_val('0), .data_in(is_vector_vector_op_id),   .data_out(is_vector_vector_op_exe));

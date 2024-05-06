@@ -109,7 +109,6 @@ riscv_v_exe_alu exe_alu(
     `endif //RISCV_V_INST
     .srca_exe(srca_alu),
     .srcb_exe(srcb_alu),
-    .src_int_exe(int_data_exe),
     .is_mask_exe(is_mask_exe),
     .mask_result_valid_exe(mask_result_valid_alu),
     .mask_exe(mask_alu),
@@ -155,6 +154,8 @@ riscv_v_decode_element decode_element(
     .vtype(vtype),
     .vl(vl),
     .vstart(vstart),
+    .is_i2v(is_i2v_exe),
+    .is_v2i(is_v2i_exe),
     .is_compare(is_compare_exe),
     .use_mask(use_mask_exe),
     .mask(mask_byp),

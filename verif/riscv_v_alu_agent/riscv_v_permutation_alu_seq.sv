@@ -46,8 +46,8 @@ class riscv_v_permutation_alu_seq extends riscv_v_base_seq#(riscv_v_alu_seq_item
         rst_txn     = riscv_v_alu_seq_item::type_id::create("riscv_v_permutation_rst_txn");
         rst_txn_tmp.is_i2v               = 1'b0;
         rst_txn_tmp.is_v2i               = 1'b0;
-        rst_txn_tmp.integer_data_in      = '0;
-        rst_txn_tmp.vector_data_in       = '0;
+        rst_txn_tmp.srca                 = '0;
+        rst_txn_tmp.srcb                 = '0;
         
         wait_for_grant();
         rst_txn.in = rst_txn_tmp;

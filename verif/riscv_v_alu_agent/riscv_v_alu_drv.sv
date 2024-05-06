@@ -152,8 +152,8 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_seq_item
     virtual task drive_initial_permutation_agt();
         permutation_vif.is_i2v              <= 1'b0;
         permutation_vif.is_v2i              <= 1'b0;
-        permutation_vif.integer_data_in     <= '0;
-        permutation_vif.vector_data_in      <= '0;
+        permutation_vif.srca                <= '0;
+        permutation_vif.srcb                <= '0;
         `ifdef RISCV_V_INST 
             permutation_vif.opcode          <= NOP;
         `endif //RISCV_V_INST
@@ -300,8 +300,8 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_seq_item
         @(permutation_vif.cb_drv);
         permutation_vif.cb_drv.is_i2v           <= permutation_txn.is_i2v;
         permutation_vif.cb_drv.is_v2i           <= permutation_txn.is_v2i;
-        permutation_vif.cb_drv.integer_data_in  <= permutation_txn.integer_data_in;
-        permutation_vif.cb_drv.vector_data_in   <= permutation_txn.vector_data_in;
+        permutation_vif.cb_drv.srca             <= permutation_txn.srca;
+        permutation_vif.cb_drv.srcb             <= permutation_txn.srcb;
         `ifdef RISCV_V_INST
             permutation_vif.cb_drv.opcode       <= permutation_txn.opcode;
         `endif //RISCV_V_INST

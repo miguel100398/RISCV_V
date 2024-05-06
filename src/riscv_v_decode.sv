@@ -140,7 +140,6 @@ assign vec_wr_vl_id       = 1'b0;
 assign vec_wr_vstart_id   = 1'b0;
 assign vec_wr_vxrm_id     = 1'b0;
 assign vec_wr_vxsat_id    = 1'b0;
-assign int_rf_wr_en_id    = 1'b0;
 
 //Control unit
 riscv_v_ctrl v_ctrl(
@@ -166,6 +165,7 @@ riscv_v_ctrl v_ctrl(
     .is_scalar_fp_op_exe(is_scalar_fp_op_exe),
     .is_i2v_exe(is_i2v_exe),
     .is_v2i_exe(is_v2i_exe),
+    .int_rf_wr_en_id(int_rf_wr_en_id),
     .is_and_exe(is_and_exe),
     .is_or_exe(is_or_exe),
     .is_xor_exe(is_xor_exe),
