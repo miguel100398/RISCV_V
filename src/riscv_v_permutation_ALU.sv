@@ -41,7 +41,7 @@ generate
 endgenerate
 
 //Qualify result with is_i2v
-assign i2v_result_qual = i2v_result_qual_osize & {RISCV_V_DATA_WIDTH{is_i2v}};;
+assign i2v_result_qual = i2v_result_qual_osize & {RISCV_V_DATA_WIDTH{is_i2v}};
 
 assign vector_data_out.valid = srca.valid;
 assign vector_data_out.data  = i2v_result_qual;
