@@ -1,7 +1,7 @@
 #!
 
-#tclsh scripts/run_regression.tcl Xcelium off True True False regression/xcelium | & tee xcelieum_regression.log
-#tclsh scripts/run_regression.tcl Incisive all False False True regression/incisive | & tee incisive_regression.log
+#tclsh scripts/run_regression.tcl Xcelium off True True False regression/xcelium verif/lists/riscv_v_cpu/doa_list/ | & tee xcelieum_regression.log
+#tclsh scripts/run_regression.tcl Incisive all False False True regression/incisive verif/lists/riscv_v_cpu/doa_list/ | & tee incisive_regression.log
 
 set start_time [clock seconds]
 
@@ -148,7 +148,9 @@ set lines_duts [split [read $test_list_f] "\n"]
 close $test_list_f
 
 foreach line_dut $lines_duts {
-    lappend DUTS $line_dut
+    if {[string index $line_dut 0] ne "#"} {
+        lappend DUTS $line_dut
+    }
 }
 
 
@@ -170,8 +172,10 @@ foreach DUT $DUTS {
     set lines_tests [split [read $test_list_f] "\n"]
     close $test_list_f
 
-    foreach line_dut $lines_duts {
-        lappend ${DUT}_tests $lines_tests
+    foreach line_test $lines_tests {
+        if {[string index $line_test 0] ne "#"} {
+            lappend ${DUT}_tests $line_test
+        }
     }
 
 }
