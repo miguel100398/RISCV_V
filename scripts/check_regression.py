@@ -1,6 +1,6 @@
 #Script to check Test results
 
-
+import sys
 # import OS module
 import os
 # import regex
@@ -14,8 +14,22 @@ WORKAREA = os.getenv("WORKAREA")
 
 print("WORKAREA is %s" % (WORKAREA))
 
-REGRESSION_DIR = "%s/regression_xcelium/" % (WORKAREA)
-regex = re.compile('xrun.log')
+num_args = len(sys.argv)
+
+if (num_args != 3):
+    print("Error, Invalid number of arguments, arguments are:")
+    print("     REGRESSION_DIR")
+    print("     LOG_NAME")
+    print("Exiting")
+    exit(1)
+
+REGRESSION_DIR = "%s/%s/" % (WORKAREA, sys.argv[1])
+print ("REGRESSION_DIR: %s" % (REGRESSION_DIR))
+
+LOG_NAME = "%s" %(sys.argv[2])
+print ("LOG_NAME: %s" % (LOG_NAME))
+
+regex = re.compile(LOG_NAME)
 
 regression = []
 

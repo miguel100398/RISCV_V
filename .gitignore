@@ -63,5 +63,8 @@ xrun/
 #Irun files
 irun/
 
+#Log files
+*.log
+
 #Synthesis outputs
 .Synthesis/

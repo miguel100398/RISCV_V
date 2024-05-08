@@ -5,8 +5,6 @@
 -warn_multiple_driver
 -access +rw
 
--coverage All
-
 -define XCELIUM
 -define RISCV_V_INST
 -define RISCV_V_USE_WORD

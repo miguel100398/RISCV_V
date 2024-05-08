@@ -17,6 +17,8 @@ class riscv_v_rf_cov extends riscv_v_base_cov#(
 
     //Cover groups
     covergroup cg_wr_rf;
+        option.per_instance = 1;
+        option.name = "cg_wr_rf";
         //Wr address cover point
         cp_wr_addr : coverpoint  txn_in.addr {
             //1 bin per each value
@@ -124,6 +126,8 @@ class riscv_v_rf_cov extends riscv_v_base_cov#(
     endgroup: cg_wr_rf
 
     covergroup cg_rd_a_rf;
+        option.per_instance = 1;
+        option.name = "cg_rd_a_rf";
         //RD address cover point
         cp_rf_addr : coverpoint  txn_out.addr {
             //1 bin per each value
@@ -165,6 +169,8 @@ class riscv_v_rf_cov extends riscv_v_base_cov#(
     endgroup: cg_rd_a_rf
 
     covergroup cg_rd_b_rf;
+        option.per_instance = 1;
+        option.name = "cg_rd_b_rf";
         //RD address cover point
         cp_rf_addr : coverpoint  txn_out.addr {
             //1 bin per each value

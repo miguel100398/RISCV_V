@@ -17,15 +17,18 @@ class riscv_rf_cov extends riscv_v_base_cov#(
 
     //Cover groups
     covergroup cg_wr_rf;
-
+        option.per_instance = 1;
+        option.name = "cg_wr_rf";
     endgroup: cg_wr_rf
 
     covergroup cg_rd_a_rf;
-
+        option.per_instance = 1;
+        option.name = "cg_rd_a_rf";
     endgroup: cg_rd_a_rf
 
     covergroup cg_rd_b_rf;
-
+        option.per_instance = 1;
+        option.name = "cg_rd_b_rf";
     endgroup: cg_rd_b_rf
 
     function new(string name = "riscv_rf_cov", uvm_component parent = null);
