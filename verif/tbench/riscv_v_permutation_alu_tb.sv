@@ -44,8 +44,8 @@ module riscv_v_permutation_alu_tb;
     riscv_v_permutation_ALU dut(
         .is_i2v(permutation_vif.is_i2v),
         .is_v2i(permutation_vif.is_v2i),
-        .integer_data_in(permutation_vif.integer_data_in),
-        .vector_data_in(permutation_vif.vector_data_in),
+        .srca(permutation_vif.srca),
+        .srcb(permutation_vif.srcb),
         .integer_data_out(permutation_vif.integer_data_out),
         .vector_data_out(permutation_vif.vector_data_out)
     );
