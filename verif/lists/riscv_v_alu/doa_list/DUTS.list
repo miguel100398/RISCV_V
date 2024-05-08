@@ -1,0 +1,3 @@
+riscv_v_arithmetic_alu_tb
+riscv_v_logic_alu_tb
+riscv_v_permutation_alu_tb

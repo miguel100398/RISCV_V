@@ -1,0 +1,18 @@
+#################Logic TESTS#############################
+riscv_v_cpu_vand_test
+riscv_v_cpu_vor_test
+riscv_v_cpu_vxor_test
+riscv_v_cpu_vredand_test
+riscv_v_cpu_vredor_test
+riscv_v_cpu_vredxor_test
+riscv_v_cpu_vsll_test
+riscv_v_cpu_vsrl_test
+riscv_v_cpu_vsra_test
+riscv_v_cpu_vmand_test
+riscv_v_cpu_vmnand_test
+riscv_v_cpu_vmandn_test
+riscv_v_cpu_vmor_test
+riscv_v_cpu_vmnor_test
+riscv_v_cpu_vmorn_test
+riscv_v_cpu_vmxor_test
+riscv_v_cpu_vmxnor_test
