@@ -1,0 +1,100 @@
+( globals
+   version = 3
+   space = 0
+# io_order: clockwise | counterclockwise | default: vertical bottom to top; horizontal left to right
+   io_order = default
+)
+ 
+( row_margin
+  ( top
+  ( io_row ring_number = 1 margin = 50)
+ )
+  ( bottom
+  ( io_row ring_number = 1 margin = 50)
+ )
+  ( left
+  ( io_row ring_number = 1 margin = 50)
+)
+  ( right
+  ( io_row ring_number = 1 margin = 50)
+)
+  )
+ 
+#Pads: 
+
+( iopad
+   ( topleft
+     (locals ring_number = 1)
+      ( inst name= "nw_padIORINGCORNER")
+   )
+ 
+    ( left
+      ( locals ring_number = 1)
+( inst name= "pad_gpio_port_in_0" )
+( inst name= "pad_gpio_port_in_1" )
+( inst name= "pad_gpio_port_in_2" )
+( inst name= "pad_gpio_port_in_3" )
+( inst name= "pad_gpio_port_in_4" )
+( inst name= "pad_gpio_port_in_5" )
+( inst name= "pad_gpio_port_in_6" )
+( inst name= "pad_gpio_port_in_7" )
+
+# Power PADs do not have defined allocation. These will placed automatically
+#( inst name= "pad_vss_i1" )
+#( inst name= "pad_vss_i2" )
+#( inst name= "pad_vss_i3" )
+#( inst name= "pad_vdd_i1" )
+#( inst name= "pad_vdd_i2" )
+#( inst name= "pad_vss_ior" )
+#( inst name= "pad_vdd_ior" )
+
+ )
+
+( bottomleft
+       (locals ring_number = 1)
+       ( inst name= "sw_padIORINGCORNER")
+    )
+ 
+ ( bottom
+      ( locals ring_number = 1    )
+( inst name= "pad_gpio_port_out_0" )
+( inst name= "pad_gpio_port_out_1" )
+( inst name= "pad_gpio_port_out_2" )
+( inst name= "pad_gpio_port_out_3" )
+( inst name= "pad_gpio_port_out_4" )
+( inst name= "pad_gpio_port_out_5" )
+( inst name= "pad_gpio_port_out_6" )
+( inst name= "pad_gpio_port_out_7" )
+) 
+
+( bottomright
+       (locals ring_number = 1)
+( inst name= "se_padIORINGCORNER" )
+    )
+
+ ( right
+      ( locals ring_number = 1    )
+( inst name= "pad_vss_i1" )
+( inst name= "pad_vss_i2" )
+( inst name= "pad_vss_i3" )
+( inst name= "pad_vdd_i1" )
+( inst name= "pad_vdd_i2" )
+( inst name= "pad_vss_ior" )
+( inst name= "pad_vdd_ior" )
+)
+
+( topright
+       (locals ring_number = 1)
+( inst name= "ne_padIORINGCORNER")
+    )
+( top
+      ( locals ring_number = 1    )
+
+# Power PADs do not have defined allocation. These will placed automatically
+( inst name= "pad_uart_rx" )
+( inst name= "pad_uart_tx" )
+( inst name= "pad_clk")
+( inst name= "pad_reset" )
+)
+)
+

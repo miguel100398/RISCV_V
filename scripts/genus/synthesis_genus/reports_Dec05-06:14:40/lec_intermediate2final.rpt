@@ -1,0 +1,21 @@
+Mapping and compare statistics
+================================================================================
+                     Compare Result       Golden            Revised
+--------------------------------------------------------------------------------
+Root module name                          RISC_V_pipeline   RISC_V_pipeline   
+
+Primary inputs                                25                 25
+   Mapped                                     25                 25
+
+Primary outputs                               16                 16
+   Mapped                                     16                 16
+      Equivalent                 16
+
+Black-box key points                           7                  7
+   Mapped                                      7                  7
+      Equivalent                  7
+
+State key points                            4403               4403
+   Mapped                                   4403               4403
+      Equivalent               4403
+================================================================================

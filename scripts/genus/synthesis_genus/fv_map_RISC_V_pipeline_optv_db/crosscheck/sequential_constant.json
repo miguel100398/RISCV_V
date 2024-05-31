@@ -1,0 +1,137 @@
+{
+ "filetype": "conformal-table",
+ "data": [
+  {
+   "Object": "/VSSIOR",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VDDIOR",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSS3",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSS2",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSS1",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VDD2",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VDD1",
+   "Type": "BUS",
+   "Design": "G",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSSIOR",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VDDIOR",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSS3",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSS2",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VSS1",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VDD2",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  },
+  {
+   "Object": "/VDD1",
+   "Type": "BUS",
+   "Design": "R",
+   "User Setup constant": "",
+   "LEC constant": "0",
+   "highlite": 0
+  }
+ ],
+ "cols": [
+  {
+   "key": "Object"
+  },
+  {
+   "key": "Type"
+  },
+  {
+   "key": "Design"
+  },
+  {
+   "key": "User Setup constant"
+  },
+  {
+   "key": "LEC constant"
+  }
+ ],
+ "sort": [
+  "-highlite"
+ ]
+}

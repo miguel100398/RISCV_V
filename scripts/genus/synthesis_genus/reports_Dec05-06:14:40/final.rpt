@@ -1,0 +1,69 @@
+
+
+Working Directory = /users/iteso-s005/models/riscv_pipe/genus/synthesis_genus
+QoS Summary for RISC_V_pipeline
+==========================================================================================
+Metric                          generic         map             syn_opt         final          
+==========================================================================================
+
+View : view_riscv_pipe_slow
+Slack (ps):                     2,607             208              20              20
+  R2R (ps):                     2,607             208              20              20
+  I2R (ps):                     8,196           7,923           7,721           7,721
+  R2O (ps):                     7,694           7,694           7,694           7,694
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                  no_value        no_value        no_value        no_value
+TNS (ps):                           0               0               0               0
+  R2R (ps):                         0               0               0               0
+  I2R (ps):                         0               0               0               0
+  R2O (ps):                         0               0               0               0
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                  no_value        no_value        no_value        no_value
+Failing Paths:                      0               0               0               0
+
+View : INACTIVE_CM_riscv_pipe_fast
+Slack (ps):                  no_value        no_value        no_value        no_value
+  R2R (ps):                  no_value        no_value        no_value        no_value
+  I2R (ps):                  no_value        no_value        no_value        no_value
+  R2O (ps):                  no_value        no_value        no_value        no_value
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                  no_value        no_value        no_value        no_value
+TNS (ps):                    no_value        no_value        no_value        no_value
+  R2R (ps):                  no_value        no_value        no_value        no_value
+  I2R (ps):                  no_value        no_value        no_value        no_value
+  R2O (ps):                  no_value        no_value        no_value        no_value
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                  no_value        no_value        no_value        no_value
+Failing Paths:               no_value        no_value        no_value        no_value
+
+Cell Area:                    388,800         518,942         528,180         528,180
+Total Cell Area:              388,800         518,942         528,180         528,180
+Leaf Instances:                28,487          20,018          19,157          19,157
+Total Instances:               28,487          20,018          19,157          19,157
+Utilization (%):                 0.00            0.00            0.00            0.00
+Tot. Net Length (um):        no_value        no_value        no_value        no_value
+Avg. Net Length (um):        no_value        no_value        no_value        no_value
+Route Overflow H (%):        no_value        no_value        no_value        no_value
+Route Overflow V (%):        no_value        no_value        no_value        no_value
+MBCI(%) (bits/gate) :            0.00            0.00            0.00            0.00
+Norm Cong Hotspot Area:
+  Max Cong:                  no_value        no_value        no_value        no_value
+  Tot Cong:                  no_value        no_value        no_value        no_value
+==========================================================================================
+CPU  Runtime (h:m:s):        00:04:12        00:16:14        00:20:56        00:00:01
+Real Runtime (h:m:s):        00:04:10        00:28:34        00:23:32        00:00:04
+CPU  Elapsed (h:m:s):        00:04:20        00:20:33        00:41:29        00:41:31
+Real Elapsed (h:m:s):        00:04:14        00:32:47        00:56:19        00:56:23
+Memory (MB):                  1601.57         1666.38         1636.77         1636.77
+==========================================================================================
+==========================================================================================
+Flow Settings:
+==========================================================================================
+Total Runtime (h:m:s): 00:56:24
+Total Memory (MB):     1636.77
+Executable Version:    20.11-s111_1
+==========================================================================================
+Total Cell Area =  Cell Area + Physical Cell Area
+Total Instances =  Leaf Instances + Physical Instances
+
+

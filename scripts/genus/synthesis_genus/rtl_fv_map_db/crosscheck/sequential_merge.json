@@ -1,0 +1,358 @@
+{
+ "filetype": "conformal-table",
+ "data": [
+  {
+   "Object": "/riscv/id_ex_pipe/data_out_reg[immediate][31]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/id_ex_pipe/data_out_reg[funct7][6]",
+   "LEC representative": "/riscv/id_ex_pipe/data_out_reg[funct7][4]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 1,
+   "Object:style": "color:red",
+   "Type:style": "color:red",
+   "Design:style": "color:red",
+   "User Setup representative:style": "color:red",
+   "LEC representative:style": "color:red",
+   "User Setup phase:style": "color:red",
+   "LEC phase:style": "color:red"
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][1]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][2]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][3]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][4]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][5]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][6]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][7]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][8]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][9]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][10]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][11]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][12]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][13]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][14]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][15]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][16]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][17]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][18]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][19]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][20]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][21]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][22]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/uart0/csr/uart_status_0_csr_reg[dont_care][23]",
+   "Type": "DLAT",
+   "Design": "G",
+   "User Setup representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "LEC representative": "/uart0/csr/uart_status_0_csr_reg[dont_care][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/if_id_pipe/data_out_reg[instruction][1]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/if_id_pipe_data_out_reg[instruction][0]",
+   "LEC representative": "/riscv/if_id_pipe/data_out_reg[instruction][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/if_id_pipe/data_out_reg[instruction][31]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/if_id_pipe_data_out_reg[instruction][29]",
+   "LEC representative": "/riscv/if_id_pipe/data_out_reg[instruction][29]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/if_id_pipe/data_out_reg[pc_add4][0]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/if_id_pipe_data_out_reg[pc][0]",
+   "LEC representative": "/riscv/if_id_pipe/data_out_reg[pc][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/if_id_pipe/data_out_reg[pc_add4][1]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/if_id_pipe_data_out_reg[pc][1]",
+   "LEC representative": "/riscv/if_id_pipe/data_out_reg[pc][1]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/id_ex_pipe/data_out_reg[funct7][6]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/id_ex_pipe_data_out_reg[funct7][4]",
+   "LEC representative": "/riscv/id_ex_pipe/data_out_reg[funct7][4]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/id_ex_pipe/data_out_reg[pc_add4][0]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/id_ex_pipe_data_out_reg[pc][0]",
+   "LEC representative": "/riscv/id_ex_pipe/data_out_reg[pc][0]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/id_ex_pipe/data_out_reg[pc_add4][1]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/id_ex_pipe_data_out_reg[pc][1]",
+   "LEC representative": "/riscv/id_ex_pipe/data_out_reg[pc][1]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  },
+  {
+   "Object": "/riscv/id_ex_pipe/data_out_reg[immediate][29]",
+   "Type": "DFF",
+   "Design": "G",
+   "User Setup representative": "/riscv/id_ex_pipe_data_out_reg[funct7][4]",
+   "LEC representative": "/riscv/id_ex_pipe/data_out_reg[funct7][4]",
+   "User Setup phase": "+",
+   "LEC phase": "+",
+   "highlite": 0
+  }
+ ],
+ "cols": [
+  {
+   "key": "Object"
+  },
+  {
+   "key": "Type"
+  },
+  {
+   "key": "Design"
+  },
+  {
+   "key": "User Setup representative"
+  },
+  {
+   "key": "LEC representative"
+  },
+  {
+   "key": "User Setup phase"
+  },
+  {
+   "key": "LEC phase"
+  }
+ ],
+ "sort": [
+  "-highlite"
+ ]
+}

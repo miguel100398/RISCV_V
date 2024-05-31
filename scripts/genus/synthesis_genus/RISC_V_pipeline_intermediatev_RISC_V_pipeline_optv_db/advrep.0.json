@@ -1,0 +1,9 @@
+[{"object": {"name": "lec_run"}, "lec": "21.10-p100 (15-Apr-2021) (64 bit executable)", "pid": "22833"},
+{"Total_DesignSize": "47726", "Inout_count": "7", "Output_count": "9", "object": {"OBJID": "0", "NAME": "RISC_V_pipeline", "DESIGN": "golden"}, "DESFILE": "1", "LIBFILE": "3", "Input_count": "11", "Root_name": "RISC_V_pipeline", "Total_Hierachies": "3", "Design_search_path": ["."]},
+{"Total_DesignSize": "47695", "Inout_count": "7", "Output_count": "9", "object": {"OBJID": "1", "NAME": "RISC_V_pipeline", "DESIGN": "revised"}, "DESFILE": "1", "LIBFILE": "0", "Input_count": "11", "Root_name": "RISC_V_pipeline", "Total_Hierachies": "3", "Design_search_path": ["."]},
+{"freemem": "8025.83", "object": {"order": "2", "name": "SET SYSTEM MODE - Processing Revised"}, "ncpu": "8", "cpu": "0.65", "elapse": "1.00", "mem": "179.25", "peakmem": "179.25", "load": "0.56", "outdisk": "2.46"},
+{"freemem": "8021.89", "object": {"order": "3", "name": "SET SYSTEM MODE - Balanced modeling"}, "cpu": "1.07", "elapse": "1.00", "mem": "182.09", "peakmem": "182.09", "load": "0.56", "outdisk": "2.46"},
+{"freemem": "8010.26", "object": {"order": "4", "name": "SET SYSTEM MODE - Mapping"}, "cpu": "2.00", "elapse": "2.00", "mem": "195.16", "peakmem": "195.16", "load": "0.59", "outdisk": "2.46"},
+{"freemem": "8010.59", "object": {"order": "13", "name": "COMPARE "}, "cpu": "1.88", "elapse": "2.00", "mem": "195.54", "peakmem": "195.54", "load": "0.63", "parent": {"order": "5", "name": "ANALYZE SETUP "}, "outdisk": "2.46"},
+{"freemem": "8010.28", "object": {"order": "5", "name": "ANALYZE SETUP "}, "cpu": "2.96", "elapse": "3.00", "mem": "195.79", "peakmem": "195.79", "load": "0.63", "outdisk": "2.46"},
+{"freemem": "8008.85", "object": {"order": "19", "name": "License check"}, "cpu": "0.06", "elapse": "2.00", "mem": "196.07", "peakmem": "196.07", "load": "0.63", "outdisk": "2.46"}]
