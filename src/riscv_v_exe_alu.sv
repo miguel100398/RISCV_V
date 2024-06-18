@@ -73,11 +73,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
         vec_result_exe.data[RISCV_V_NUM_ELEMENTS_REG-1:0] |= mask_merge_exe;
     end
 
-    assign vec_result_exe = logic_result
-                          | arithmetic_result
-                          | permutation_result;
-    
-
     //Logical ALU
     riscv_v_logic_ALU logic_ALU(
         .is_reduct(is_reduct_exe),
