@@ -33,18 +33,9 @@ riscv_v_data_t v2i_src;
 //Integer to Vector
 assign i2v_src    = srca.data & {RISCV_V_DATA_WIDTH{is_i2v}};
 
-generate
-    assign i2v_result_qual_osize[BYTE_WIDTH-1:0] = i2v_src[BYTE_WIDTH-1:0];        //First Byte is always valid with all osizes
-
-    //Qualify Bytes with osize
-    for (genvar osize_idx = 1; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-        assign i2v_result_qual_osize[(BYTE_WIDTH*(2**(osize_idx-1))) +: (BYTE_WIDTH*(2**(osize_idx-1)))] = i2v_src[(BYTE_WIDTH*(2**(osize_idx-1))) +: (BYTE_WIDTH*(2**(osize_idx-1)))] & {(BYTE_WIDTH*(2**(osize_idx-1))){osize_greater_vector[osize_idx]}};
-    end
-
-endgenerate
-
 //Qualify result with is_i2v
-assign i2v_result_qual = i2v_result_qual_osize;
+//I2V does not require extra logic, Scalar data is already sign extend before getting to ALU and WR_EN is disabled for invalid bytes so PRF won't be modified
+assign i2v_result_qual = i2v_src;
 
 assign vector_data_out.valid = srca.valid;
 assign vector_data_out.data  = i2v_result_qual;

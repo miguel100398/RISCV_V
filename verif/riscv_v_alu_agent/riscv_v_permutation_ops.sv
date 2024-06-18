@@ -22,19 +22,29 @@ class riscv_v_permutation_ops extends uvm_component;
 
         unique case (permutation_in_txn.osize)
             OSIZE_8: begin
-                permutation_exp_vec_result.data.Byte   =  permutation_in_txn.srca.data[BYTE_WIDTH-1:0];
+                for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
+                    permutation_exp_vec_result.data.Byte[i]   =  permutation_in_txn.srca.data[BYTE_WIDTH-1:0];
+                end
             end
             OSIZE_16: begin
-                permutation_exp_vec_result.data.Word   =  permutation_in_txn.srca.data[WORD_WIDTH-1:0];
+                for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
+                    permutation_exp_vec_result.data.Word[i]   =  permutation_in_txn.srca.data[WORD_WIDTH-1:0];
+                end
             end
             OSIZE_32: begin
-                permutation_exp_vec_result.data.Dword  =  permutation_in_txn.srca.data[DWORD_WIDTH-1:0];
+                for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
+                    permutation_exp_vec_result.data.Dword[i]  =  permutation_in_txn.srca.data[DWORD_WIDTH-1:0];
+                end
             end
             OSIZE_64: begin
-                permutation_exp_vec_result.data.Qword  =  `RISCV_V_SX(permutation_in_txn.srca.data.Dword[0], QWORD_WIDTH);
+                for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
+                    permutation_exp_vec_result.data.Qword[i]  =  `RISCV_V_SX(permutation_in_txn.srca.data.Dword[0], QWORD_WIDTH);
+                end
             end
             OSIZE_128: begin
-                permutation_exp_vec_result.data.Dqword =  `RISCV_V_SX(permutation_in_txn.srca.data.Dword[0], DQWORD_WIDTH);
+                for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
+                    permutation_exp_vec_result.data.Dqword[i] =  `RISCV_V_SX(permutation_in_txn.srca.data.Dword[0], DQWORD_WIDTH);
+                end
             end
         endcase
 
