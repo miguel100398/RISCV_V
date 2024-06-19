@@ -43,6 +43,7 @@ riscv_v_src_byte_vector_t srcb_gated;
 riscv_v_src_byte_vector_t srca_xor_sub;
 riscv_v_src_byte_vector_t srcb_xor_sub;
 //Srca input to adder block
+riscv_v_src_byte_vector_t srca_reduct;
 riscv_v_src_byte_vector_t srca_adder;
 //Srcb input to adder block
 riscv_v_src_byte_vector_t srcb_adder;
@@ -114,16 +115,18 @@ generate
 
     //Srca input to BW block
     //Input to Least significant Block is only srca
-    assign srca_adder[0] = srca_xor_sub[0];
+    riscv_v_reduct_src reduct_srca(
+            .src(srca_xor_sub),
+            .is_reduct(is_reduct),
+            .is_reduct_n(is_reduct_n),
+            .osize_vector(osize_vector),
+            .is_greater_osize_vector(is_greater_osize_vector),
+            .result(result_adder_qual),
+            .src_o(srca_reduct)
+    );
+    assign srca_adder[0] = srca_reduct[0];
     for (genvar block=1; block < NUM_ADD_BLOCKS; block++) begin : gen_srca_adder
-         always_comb begin
-            //Fisrt input is srca
-            srca_adder[block] = srca_xor_sub[block] & {BYTE_WIDTH{is_reduct_n | is_greater_osize_vector[$clog2(block+1)]}};        //Select this source if op is not reduct or osize is greater than
-            for (int reduct_input=0; reduct_input <= (($clog2(block+1))-1); reduct_input++) begin
-                srca_adder[block] |= result_adder_qual[block-(2**reduct_input)] & {BYTE_WIDTH{(is_reduct & osize_vector[reduct_input])}};
-            end
-            srca_adder[block] |= {BYTE_WIDTH{is_reduct}} & result_min_max_reduct_src[block];
-        end
+        assign srca_adder[block] = srca_reduct[block] | ({BYTE_WIDTH{is_reduct}} & result_min_max_reduct_src[block]);
     end
 
     //Srcb input to BW block
