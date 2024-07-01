@@ -25,6 +25,7 @@ localparam BYTE_SELECTOR_WIDTH  = $clog2(NUM_SHIFT_BLOCKS);
 localparam SELECTOR_WIDTH       = BLOCK_SELECTOR_WIDTH+BYTE_SELECTOR_WIDTH;
 
 typedef logic[SELECTOR_WIDTH-1:0] byte_selector_t;
+typedef byte_selector_t byte_selector_vector_t [NUM_SHIFT_BLOCKS-1:0];
 
 //srcb A gated with is_shift
 riscv_v_src_byte_vector_t srca_gated;
@@ -48,17 +49,27 @@ riscv_v_src_byte_vector_t shifter_result_swizzle;
 
 //Shift cnt
 //Shift count with data replicated
-riscv_v_src_byte_vector_t shift_cnt_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
+byte_selector_vector_t shift_cnt_osize [RISCV_V_NUM_VALID_OSIZES-1:0];
 //Shihft count qualified with osize
-riscv_v_src_byte_vector_t shift_cnt_osize_qual [RISCV_V_NUM_VALID_OSIZES-1:0];
+byte_selector_vector_t shift_cnt_osize_qual [RISCV_V_NUM_VALID_OSIZES-1:0];
 //Shift count qualified selected
-riscv_v_src_byte_vector_t shift_cnt;
+byte_selector_vector_t shift_cnt;
 //Shift count selected swizzled
-riscv_v_src_byte_vector_t shift_cnt_swizzle;
+byte_selector_vector_t shift_cnt_swizzle;
 //Shhift count selected between qualified and swizzled
-riscv_v_src_byte_vector_t shift_cnt_sel;
+byte_selector_vector_t shift_cnt_sel;
+
+//Oisize selector mask
+byte_selector_t           selector_mask;
 
 generate
+
+    //Generate selector mask
+    assign selector_mask[BLOCK_SELECTOR_WIDTH-1 : 0] = {BLOCK_SELECTOR_WIDTH{1'b1}};    //Bits that affect to Byte shifter are always enabled
+    for (genvar block_idx = BLOCK_SELECTOR_WIDTH; block_idx < SELECTOR_WIDTH; block_idx++) begin
+        assign selector_mask[block_idx] = is_greater_osize_vector[(block_idx - BLOCK_SELECTOR_WIDTH + 1)];
+    end
+
     //Gate srcb with is_shift
     for (genvar block=0; block < NUM_SHIFT_BLOCKS; block++) begin : gen_srcb_gated
         assign srcb_gated[block] = srcb.data.Byte[block] & {BYTE_WIDTH{is_shift}};
@@ -83,18 +94,23 @@ generate
 
             byte_selector_t srca_byte_sel;
             //Get Byte to be replicated
-            assign srca_byte_sel = srca_gated[(block_idx*NUM_REPLICATE_BLOCKS)][0 +: SELECTOR_WIDTH];
+            assign srca_byte_sel = (srca_gated[(block_idx*NUM_REPLICATE_BLOCKS)][0 +: SELECTOR_WIDTH] & selector_mask);
             //Replicate Data to shift_cnt_osize
-            assign shift_cnt_osize[osize_idx][(block_idx*NUM_REPLICATE_BLOCKS) +: NUM_REPLICATE_BLOCKS] = {NUM_REPLICATE_BLOCKS{`RISCV_V_ZX(srca_byte_sel, BYTE_WIDTH)}};//Add gate srca first to only get valid bits
+            assign shift_cnt_osize[osize_idx][(block_idx*NUM_REPLICATE_BLOCKS) +: NUM_REPLICATE_BLOCKS] = {NUM_REPLICATE_BLOCKS{srca_byte_sel}};
         end
-        //Qualify with osize to get shift_cnt
-        assign shift_cnt_osize_qual[osize_idx] = shift_cnt_osize[osize_idx] & {RISCV_V_DATA_WIDTH{osize_vector[osize_idx]}};
+
+        for (genvar block_idx = 0; block_idx < NUM_SHIFT_BLOCKS; block_idx++) begin : gen_shift_cnt_qual
+            //Qualify with osize to get shift_cnt
+            assign shift_cnt_osize_qual[osize_idx][block_idx] = shift_cnt_osize[osize_idx][block_idx] & {SELECTOR_WIDTH{osize_vector[osize_idx]}};
+        end
     end
 
     always_comb begin
-        shift_cnt = 0;
+        shift_cnt = '{default:'0};
         for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
-            shift_cnt |= shift_cnt_osize_qual[osize_idx];
+            for (int block_idx = 0; block_idx < NUM_SHIFT_BLOCKS; block_idx++) begin
+                shift_cnt[block_idx] |= shift_cnt_osize_qual[osize_idx][block_idx];
+            end
         end
     end
 
@@ -107,12 +123,12 @@ generate
     end
     assign selected_merge[NUM_SHIFT_BLOCKS-1] = 1'b0;
 
-    //Multiplexors to shift Bytes
+    //Multiplexors to shift Bytes (Barrel Shifter)
     //First stage
     for (genvar mux_idx=0; mux_idx < NUM_SHIFT_BLOCKS; mux_idx++) begin : gen_mux_first_stage 
         if (mux_idx < (NUM_SHIFT_BLOCKS-1)) begin           //Lower muxes that can get data from previous stage
             always_comb begin
-                if (shift_cnt_sel[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) begin      //Osize enables Mux shift
+                if (shift_cnt_sel[mux_idx][0+BLOCK_SELECTOR_WIDTH]) begin      //Osize enables Mux shift
                     if (selected_merge[mux_idx]) begin      //Data can be shifted from previous stage
                         mux_shift_block[0][mux_idx] = srcb_shift_selected[mux_idx+1];
                     end else begin           //Data can't be shifted from previous stage, is out of range
@@ -124,7 +140,7 @@ generate
             end
         end else begin
             always_comb begin               //Higher muxes that can't get data from previous stage and should select between sign or zero in case of shift
-                if (shift_cnt_sel[mux_idx][0+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[1]) begin
+                if (shift_cnt_sel[mux_idx][0+BLOCK_SELECTOR_WIDTH]) begin
                     mux_shift_block[0][mux_idx] = {BYTE_WIDTH{srcb_shift_selected[(((mux_idx/2)+1)*2)-1][BYTE_WIDTH-1]}} & {BYTE_WIDTH{is_arith}};      //Select between zero or MSB
                 end else begin          //Don't shift
                     mux_shift_block[0][mux_idx] = srcb_shift_selected[mux_idx];
@@ -137,7 +153,7 @@ generate
         for (genvar mux_idx=0; mux_idx < NUM_SHIFT_BLOCKS; mux_idx++) begin : gen_mux_idx 
             if (mux_idx < (NUM_SHIFT_BLOCKS-(2**mux_stage))) begin      //Lower muxes that can get data from previous stage
                 always_comb begin
-                    if (shift_cnt_sel[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage+1]) begin        //Osize enables Mux shift
+                    if (shift_cnt_sel[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH]) begin        //Osize enables Mux shift
                         if (&selected_merge[mux_idx +: (2**mux_stage)]) begin       //Data can be shifted from previous stage
                             mux_shift_block[mux_stage][mux_idx] = mux_shift_block[mux_stage-1][mux_idx+(2**mux_stage)];
                         end else begin                                              //Data can't be shifted from previous stage, is out of range
@@ -149,7 +165,7 @@ generate
                 end
             end else begin              //Higher muxes that can't get data from previous stage and should select between sign or zero in case of shift
                 always_comb begin
-                    if (shift_cnt_sel[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH] & is_greater_osize_vector[mux_stage+1]) begin        //Shift Mux outside of range
+                    if (shift_cnt_sel[mux_idx][mux_stage+BLOCK_SELECTOR_WIDTH]) begin        //Shift Mux outside of range
                         mux_shift_block[mux_stage][mux_idx] = {BYTE_WIDTH{mux_shift_block[mux_stage-1][(((mux_idx/(2**mux_stage))+1)*(2**mux_stage))-1][BYTE_WIDTH-1]}} & {BYTE_WIDTH{is_arith}};   //Select between zero or MSB
                     end else begin      //Don't shift
                         mux_shift_block[mux_stage][mux_idx] = mux_shift_block[mux_stage-1][mux_idx];
