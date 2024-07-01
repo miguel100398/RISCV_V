@@ -25,7 +25,7 @@ virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
     int num_fail = 0;
 
     //Stop simulation when error is detected
-    int stop_at_error = 1;
+    bit stop_at_error = 1'b0;
 
     //Model to predict Results
     model_t model;
@@ -37,6 +37,9 @@ virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        if ($test$plusargs("SCBD_STOP_AT_ERROR")) begin
+            stop_at_error = 1'b1;
+        end
         model = model_t::type_id::create({get_name(), "_model"}, this);
     endfunction: build_phase
 
