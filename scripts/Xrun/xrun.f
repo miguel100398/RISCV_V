@@ -12,6 +12,8 @@
 -define RISCV_V_USE_QWORD
 -define RISCV_V_USE_DQWORD
 
+-xmsimargs +SCBD_STOP_AT_ERROR
+
 -incdir ${WORKAREA}/include
 -incdir ${WORKAREA}/verif/base
 -incdir ${WORKAREA}/verif/riscv_v_base

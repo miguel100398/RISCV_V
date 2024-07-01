@@ -272,7 +272,7 @@ if {$check_regression_en == "True"} {
     } else {
         puts "Checking regression"
         set check_regression_start_time [clock seconds]
-        if {[catch {exec python3 ${WORKAREA}/scripts/check_regression.py $output_dir $log_name >@ stdout} result] != 0} { 
+        if {[catch {exec python ${WORKAREA}/scripts/check_regression.py $output_dir $log_name >@ stdout} result] != 0} { 
             puts stderr "Error: check_regression didn't complete succesfully"
         }
         set check_regression_end_time [expr [clock seconds] - $check_regression_start_time]
