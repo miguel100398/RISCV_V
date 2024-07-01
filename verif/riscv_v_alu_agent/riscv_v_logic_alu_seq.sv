@@ -56,7 +56,6 @@ class riscv_v_logic_alu_seq extends riscv_v_base_seq#(riscv_v_alu_seq_item);
         rst_txn_tmp.is_reduct               = 1'b0;
         rst_txn_tmp.dst_osize_vector        = '0;
         rst_txn_tmp.is_greater_osize_vector = '0;
-        rst_txn_tmp.is_less_osize_vector    = '0;
         wait_for_grant();
         rst_txn.in = rst_txn_tmp;
         send_request(rst_txn);

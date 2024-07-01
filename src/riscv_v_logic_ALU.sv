@@ -21,7 +21,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  riscv_v_mask_t     mask_result_valid,
     input  osize_vector_t     dst_osize_vector,
     input  osize_vector_t     is_greater_osize_vector,
-    input  osize_vector_t     is_less_osize_vector,
     `ifdef RISCV_V_INST 
         input riscv_v_osize_e   osize,
         input riscv_v_opcode_e  opcode,
@@ -100,7 +99,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
         .is_left(is_left),
         .is_arith(is_arith),
         .osize_vector(dst_osize_vector),
-        .is_less_osize_vector(is_less_osize_vector),
         .is_greater_osize_vector(is_greater_osize_vector),
         .srca(srca),
         .srcb(srcb),

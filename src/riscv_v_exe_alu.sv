@@ -88,7 +88,6 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_arith(is_arith_exe),
         .dst_osize_vector(dst_osize_vector_exe),
         .is_greater_osize_vector(is_greater_osize_vector_exe),
-        .is_less_osize_vector(is_less_osize_vector_exe),
         .srca(srca_exe),
         .srcb(srcb_exe),
         `ifdef RISCV_V_INST

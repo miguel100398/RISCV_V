@@ -11,7 +11,6 @@ import riscv_v_pkg::*, riscv_pkg::*;
     input  logic              is_left,
     input  logic              is_arith,
     input  osize_vector_t     osize_vector,
-    input  osize_vector_t     is_less_osize_vector,
     input  osize_vector_t     is_greater_osize_vector,
     //Input sources
     input  riscv_v_alu_data_t srca,
@@ -41,8 +40,6 @@ riscv_v_src_byte_vector_t srcb_shift_selected;
 Byte_t mux_shift_block[BYTE_SELECTOR_WIDTH-1:0][NUM_SHIFT_BLOCKS-1:0];
 riscv_v_src_byte_vector_t shifter_shift_in;
 
-//Mux Byte selector
-byte_selector_t mux_byte_selector[NUM_SHIFT_BLOCKS-1:0];
 //Shifter result
 riscv_v_src_byte_vector_t shifter_result;
 riscv_v_src_byte_vector_t shifter_result_swizzle;

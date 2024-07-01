@@ -21,7 +21,6 @@ import riscv_v_pkg::*;
     logic                     is_arith;
     osize_vector_t            dst_osize_vector;
     osize_vector_t            is_greater_osize_vector;
-    osize_vector_t            is_less_osize_vector;
     //Input sources
     riscv_v_alu_data_t srca;
     riscv_v_alu_data_t srcb;
@@ -44,7 +43,6 @@ import riscv_v_pkg::*;
         input  is_arith,
         input  dst_osize_vector,
         input  is_greater_osize_vector,
-        input  is_less_osize_vector,
         input  srca,
         input  srcb,
         `ifdef RISCV_V_INST
@@ -66,7 +64,6 @@ import riscv_v_pkg::*;
         output is_arith,
         output dst_osize_vector,
         output is_greater_osize_vector,
-        output is_less_osize_vector,
         output srca,
         output srcb,
         `ifdef RISCV_V_INST 
@@ -88,7 +85,6 @@ import riscv_v_pkg::*;
         input  is_arith;
         input  dst_osize_vector;
         input  is_greater_osize_vector;
-        input  is_less_osize_vector;
         input  srca;
         input  srcb;
         input  result;
@@ -110,7 +106,6 @@ import riscv_v_pkg::*;
         output is_arith;
         output dst_osize_vector;
         output is_greater_osize_vector;
-        output is_less_osize_vector;
         output srca;
         output srcb;
         `ifdef RISCV_V_INST 

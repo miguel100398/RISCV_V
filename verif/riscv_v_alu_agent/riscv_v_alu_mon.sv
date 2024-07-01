@@ -83,7 +83,6 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             logic_in_txn.srcb                    = logic_vif.cb_mon.srcb;
             logic_in_txn.dst_osize_vector        = logic_vif.cb_mon.dst_osize_vector;
             logic_in_txn.is_greater_osize_vector = logic_vif.cb_mon.is_greater_osize_vector;
-            logic_in_txn.is_less_osize_vector    = logic_vif.cb_mon.is_less_osize_vector;
             `ifdef RISCV_V_INST
                 logic_in_txn.osize  = logic_vif.cb_mon.osize;
                 logic_in_txn.opcode = logic_vif.cb_mon.opcode;

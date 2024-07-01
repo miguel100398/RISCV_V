@@ -82,7 +82,6 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_seq_item
         logic_vif.srcb                      <= '0;
         logic_vif.dst_osize_vector          <= '0;
         logic_vif.is_greater_osize_vector   <= '0;
-        logic_vif.is_less_osize_vector      <= '0;
         `ifdef RISCV_V_INST
             logic_vif.opcode                <= NOP;
             logic_vif.osize                 <= OSIZE_8;
@@ -210,7 +209,6 @@ class riscv_v_alu_drv extends riscv_v_base_drv#(.seq_item_t(riscv_v_alu_seq_item
         logic_vif.cb_drv.srcb             <= logic_txn.srcb;
         logic_vif.dst_osize_vector        <= logic_txn.dst_osize_vector;
         logic_vif.is_greater_osize_vector <= logic_txn.is_greater_osize_vector;
-        logic_vif.is_less_osize_vector    <= logic_txn.is_less_osize_vector;
         `ifdef RISCV_V_INST
             logic_vif.cb_drv.opcode       <= logic_txn.opcode;
             logic_vif.cb_drv.osize        <= logic_txn.osize;

@@ -254,7 +254,6 @@ module riscv_v_tb;
     assign vec_logic_alu_vif.is_arith                       = dut.v_execute.exe_alu.logic_ALU.is_arith;
     assign vec_logic_alu_vif.dst_osize_vector               = dut.v_execute.exe_alu.logic_ALU.dst_osize_vector;
     assign vec_logic_alu_vif.is_greater_osize_vector        = dut.v_execute.exe_alu.logic_ALU.is_greater_osize_vector;
-    assign vec_logic_alu_vif.is_less_osize_vector           = dut.v_execute.exe_alu.logic_ALU.is_less_osize_vector;
     assign vec_logic_alu_vif.srca                           = dut.v_execute.exe_alu.logic_ALU.srca;
     assign vec_logic_alu_vif.srcb                           = dut.v_execute.exe_alu.logic_ALU.srcb;
     assign vec_logic_alu_vif.result                         = dut.v_execute.exe_alu.logic_ALU.result;
