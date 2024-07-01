@@ -199,7 +199,7 @@ foreach DUT $DUTS {
 puts "Creating regression folder"
 if { [file exist $REGRESSION_DIR] } {
     puts "Regression already exists, deleting regression"
-    file delete -force $REGRESSION_DIR
+    file delete -force -- $REGRESSION_DIR
 }
 
 file mkdir $REGRESSION_DIR
