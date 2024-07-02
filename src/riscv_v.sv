@@ -80,14 +80,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
     logic                        use_carry_exe;
     riscv_v_imm_t                imm_exe;
     //CSR
-    riscv_v_vsstatus_t           vsstatus;
-    riscv_v_vtype_t              vtype;
-    riscv_v_vl_t                 vl;
-    riscv_v_vlenb_t              vlenb;
-    riscv_v_vstart_t             vstart;
-    riscv_v_vxrm_t               vxrm;
-    riscv_v_vxsat_t              vxsat;
-    riscv_v_vcsr_t               vcsr;
+    riscv_v_vsstatus_t           vsstatus_exe;
+    riscv_v_vtype_t              vtype_exe;
+    riscv_v_vl_t                 vl_exe;
+    riscv_v_vlenb_t              vlenb_exe;
+    riscv_v_vstart_t             vstart_exe;
+    riscv_v_vxrm_t               vxrm_exe;
+    riscv_v_vxsat_t              vxsat_exe;
+    riscv_v_vcsr_t               vcsr_exe;
     //Bypass 
     riscv_v_rf_wr_en_t   rf_wr_en_mem;
     riscv_v_rf_wr_en_t   rf_wr_en_wb;
@@ -183,14 +183,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .ext_wr_vxrm_id(ext_wr_vxrm_id),
         .ext_wr_vxsat_id(ext_wr_vxsat_id),
         //CSR Interface
-        .vsstatus(vsstatus),
-        .vtype(vtype),
-        .vl(vl),
-        .vlenb(vlenb),
-        .vstart(vstart),
-        .vxrm(vxrm),
-        .vxsat(vxsat),
-        .vcsr(vcsr),
+        .vsstatus_exe(vsstatus_exe),
+        .vtype_exe(vtype_exe),
+        .vl_exe(vl_exe),
+        .vlenb_exe(vlenb_exe),
+        .vstart_exe(vstart_exe),
+        .vxrm_exe(vxrm_exe),
+        .vxsat_exe(vxsat_exe),
+        .vcsr_exe(vcsr_exe),
         //Interface to synthesis
         .syn_addr(syn_addr),
         .syn_data(syn_data)
@@ -258,9 +258,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
         .is_high_exe(is_high_exe),
         .is_signed_exe(is_signed_exe),
         .use_carry_exe(use_carry_exe),
-        .vtype(vtype),
-        .vl(vl),
-        .vstart(vstart)
+        .vtype_exe(vtype_exe),
+        .vl_exe(vl_exe),
+        .vstart_exe(vstart_exe)
     );
 
     //Memory stage

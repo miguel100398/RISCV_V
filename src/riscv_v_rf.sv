@@ -116,7 +116,7 @@ import riscv_v_pkg::*, riscv_pkg::*;
                 assign wr_addr_match_merge_mask = (wr_addr_int == mask_merge_addr_int);
 
                 always_comb begin
-                    for (int idx = 0; idx < RISCV_V_NUM_ELEMENTS_REG; idx++) begin
+                    for (int idx = 0; idx < RISCV_V_NUM_BYTES_ALLOCATE_MASK; idx++) begin
                         if (wr_en_int[idx] && wr_addr_match_merge_mask) begin
                             mask_merge[(idx*BYTE_WIDTH) +: BYTE_WIDTH] = data_in[(idx*BYTE_WIDTH) +: BYTE_WIDTH];
                         end else begin

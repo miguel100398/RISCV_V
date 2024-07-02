@@ -38,17 +38,6 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
             fail();
         end
 
-        //Write External csr
-        model.update_ext_csr(
-            .ext_data_in(txn_in.ext_data_in),
-            .ext_wr_vsstatus(txn_in.ext_wr_vsstatus),
-            .ext_wr_vtype(txn_in.ext_wr_vtype),
-            .ext_wr_vl(txn_in.ext_wr_vl),
-            .ext_wr_vstart(txn_in.ext_wr_vstart),
-            .ext_wr_vxrm(txn_in.ext_wr_vxrm),
-            .ext_wr_vxsat(txn_in.ext_wr_vxsat)
-        );
-
         //Execute instruction
         compare_en = model.execute_v_instruction(
             .instr(txn_in.instruction),
@@ -61,6 +50,18 @@ class riscv_v_scbd extends riscv_v_base_scbd#(
             .int_wr_addr(int_wr_addr_exp),
             .int_wr_data(int_wr_data_exp)
         );
+
+        //Write External csr
+        model.update_ext_csr(
+            .ext_data_in(txn_in.ext_data_in),
+            .ext_wr_vsstatus(txn_in.ext_wr_vsstatus),
+            .ext_wr_vtype(txn_in.ext_wr_vtype),
+            .ext_wr_vl(txn_in.ext_wr_vl),
+            .ext_wr_vstart(txn_in.ext_wr_vstart),
+            .ext_wr_vxrm(txn_in.ext_wr_vxrm),
+            .ext_wr_vxsat(txn_in.ext_wr_vxsat)
+        );
+
         
     endfunction: calc_in 
 

@@ -81,14 +81,14 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                        ext_wr_vxrm_id,
     input  logic                        ext_wr_vxsat_id,
     //CSR interface
-    output riscv_v_vsstatus_t           vsstatus,
-    output riscv_v_vtype_t              vtype,
-    output riscv_v_vl_t                 vl,
-    output riscv_v_vlenb_t              vlenb,
-    output riscv_v_vstart_t             vstart,
-    output riscv_v_vxrm_t               vxrm,
-    output riscv_v_vxsat_t              vxsat,
-    output riscv_v_vcsr_t               vcsr,
+    output riscv_v_vsstatus_t           vsstatus_exe,
+    output riscv_v_vtype_t              vtype_exe,
+    output riscv_v_vl_t                 vl_exe,
+    output riscv_v_vlenb_t              vlenb_exe,
+    output riscv_v_vstart_t             vstart_exe,
+    output riscv_v_vxrm_t               vxrm_exe,
+    output riscv_v_vxsat_t              vxsat_exe,
+    output riscv_v_vcsr_t               vcsr_exe,
     //Interface to synthesis
     input  riscv_v_rf_addr_t            syn_addr,
     output riscv_v_data_t               syn_data
@@ -129,6 +129,14 @@ riscv_v_vl_t                 csr_wr_data_vl_exe;
 riscv_v_vstart_t             csr_wr_data_vstart_exe;
 riscv_v_vxrm_t               csr_wr_data_vxrm_exe;
 riscv_v_vxsat_t              csr_wr_data_vxsat_exe;
+riscv_v_vsstatus_t           vsstatus_id;
+riscv_v_vtype_t              vtype_id;
+riscv_v_vl_t                 vl_id;
+riscv_v_vlenb_t              vlenb_id;
+riscv_v_vstart_t             vstart_id;
+riscv_v_vxrm_t               vxrm_id;
+riscv_v_vxsat_t              vxsat_id;
+riscv_v_vcsr_t               vcsr_id;
 
 
 assign riscv_v_stall = stall;
@@ -231,7 +239,20 @@ riscv_v_csr_ctrl v_csr_ctrl(
     .csr_wr_data_vl_exe(csr_wr_data_vl_exe),
     .csr_wr_data_vstart_exe(csr_wr_data_vstart_exe),
     .csr_wr_data_vxrm_exe(csr_wr_data_vxrm_exe),
-    .csr_wr_data_vxsat_exe(csr_wr_data_vxsat_exe)
+    .csr_wr_data_vxsat_exe(csr_wr_data_vxsat_exe),
+    //CSR
+    .vsstatus_id(vsstatus_id),
+    .vtype_id(vtype_id),
+    .vl_id(vl_id),
+    .vstart_id(vstart_id),
+    .vxrm_id(vxrm_id),
+    .vxsat_id(vxsat_id),
+    .vsstatus_exe(vsstatus_exe),
+    .vtype_exe(vtype_exe),
+    .vl_exe(vl_exe),
+    .vstart_exe(vstart_exe),
+    .vxrm_exe(vxrm_exe),
+    .vxsat_exe(vxsat_exe)
 );
 
 //CSR
@@ -240,24 +261,24 @@ riscv_v_csr v_csr(
     .rst(rst),
     .vsstatus_data_in(csr_wr_data_vsstatus_exe),
     .vsstatus_wr_en(csr_wr_en_vsstatus_exe),
-    .vsstatus_data_out(vsstatus),
+    .vsstatus_data_out(vsstatus_id),
     .vtype_data_in(csr_wr_data_vtype_exe),
     .vtype_wr_en(csr_wr_en_vtype_exe),
-    .vtype_data_out(vtype),
+    .vtype_data_out(vtype_id),
     .vl_data_in(csr_wr_data_vl_exe),
     .vl_wr_en(csr_wr_en_vl_exe),
-    .vl_data_out(vl),
-    .vlenb_data_out(vlenb),
+    .vl_data_out(vl_id),
+    .vlenb_data_out(vlenb_id),
     .vstart_data_in(csr_wr_data_vstart_exe),
     .vstart_wr_en(csr_wr_en_vstart_exe),
-    .vstart_data_out(vstart),
+    .vstart_data_out(vstart_id),
     .vxrm_data_in(csr_wr_data_vxrm_exe),
     .vxrm_wr_en(csr_wr_en_vxrm_exe),
-    .vxrm_data_out(vxrm),
+    .vxrm_data_out(vxrm_id),
     .vxsat_data_in(csr_wr_data_vxsat_exe),
     .vxsat_wr_en(csr_wr_en_vxsat_exe),
-    .vxsat_data_out(vxsat),
-    .vcsr_data_out(vcsr)
+    .vxsat_data_out(vxsat_id),
+    .vcsr_data_out(vcsr_id)
 );
 
 //Register File Control

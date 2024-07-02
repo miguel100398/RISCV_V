@@ -69,9 +69,9 @@ import riscv_pkg::*, riscv_v_pkg::*;
     input  logic                       is_signed_exe,
     input  logic                       use_carry_exe,
     //CSR interface
-    input  riscv_v_vtype_t             vtype,
-    input  riscv_v_vl_t                vl,
-    input  riscv_v_vstart_t            vstart   
+    input  riscv_v_vtype_t             vtype_exe,
+    input  riscv_v_vl_t                vl_exe,
+    input  riscv_v_vstart_t            vstart_exe   
 );
 
 riscv_v_data_t srca_byp;
@@ -151,9 +151,9 @@ riscv_v_decode_element decode_element(
     .srca_addr(rf_rd_addr_srca_exe),
     .srca(srca_byp),
     .srcb(srcb_byp),
-    .vtype(vtype),
-    .vl(vl),
-    .vstart(vstart),
+    .vtype(vtype_exe),
+    .vl(vl_exe),
+    .vstart(vstart_exe),
     .is_i2v(is_i2v_exe),
     .is_v2i(is_v2i_exe),
     .is_compare(is_compare_exe),
@@ -223,7 +223,7 @@ assign alu_result_exe.valid = alu_result_pre_swizzle_exe.valid;
 
 
 vstart_reduct_unsupported: assert property ( @(posedge clk)
-    !((vstart.index != 0) && is_reduct_exe)
+    !((vstart_exe.index != 0) && is_reduct_exe)
 ) else $fatal(1, $sformatf("Vstart different from 0 not supported for reduct operations"));
 
 
