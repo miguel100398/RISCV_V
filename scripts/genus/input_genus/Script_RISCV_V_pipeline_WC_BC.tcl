@@ -1,6 +1,6 @@
 # ITESO
 # Miguel Bucio
-# File: Script_RISC_V_pipeline_WC_BC.tcl based on Script_Adders_mmmc.tcl
+# File: Script_RISCV_V_pipeline_WC_BC.tcl based on Script_Adders_mmmc.tcl
 #### Template Script for RTL->Gate-Level Flow (generated from GENUS 20.11-s111_1) 
 ## The Genus Simple Template was adapted to the riscv_pipe design.
 
@@ -11,10 +11,12 @@ if {[file exists /proc/cpuinfo]} {
 
 puts "Hostname : [info hostname]"
 
+set WORKAREA $env(WORKAREA)
+
 ##############################################################################
 ## Preset global variables and attributes
 ##############################################################################
-set DESIGN RISC_V_pipeline
+set DESIGN riscv_v
 set Timing_Libs_Path /CMC/kits/cadence/GPDK045/gsclib045_all_v4.4/gsclib045/timing/
 set LEF_Libs_Path /CMC/kits/cadence/GPDK045/gsclib045_all_v4.4/gsclib045/lef/ 
 
@@ -23,7 +25,7 @@ set LEF_Libs_Path /CMC/kits/cadence/GPDK045/gsclib045_all_v4.4/gsclib045/lef/
 
 # LEF libraries, I/O PADs included 
 set LEF_List {gsclib045_tech.lef gsclib045_macro.lef gsclib045_multibitsDFF.lef 
-		/users/iteso-s005/models/riscv_pipe/genus/giolib045_crag.lef}
+    /users/iteso/iteso-s10004/models/riscv_v/scripts/genus/giolib045_crag.lef}
 
 set GEN_EFF medium
 set MAP_OPT_EFF high
@@ -31,25 +33,36 @@ set DATE [clock format [clock seconds] -format "%b%d-%T"]
 
 set RELEASE [lindex [get_db program_version] end]
 
-set _OUTPUTS_PATH outputs_${DATE}
-set _REPORTS_PATH reports_${DATE}
-set _LOG_PATH logs_${DATE}
+set _OUTPUT_GENUS_PATH ${WORKAREA}/synthesis/genus
+
+set _OUTPUTS_PATH $_OUTPUT_GENUS_PATH/outputs_${DATE}
+set _REPORTS_PATH $_OUTPUT_GENUS_PATH/reports_${DATE}
+set _LOG_PATH $_OUTPUT_GENUS_PATH/logs_${DATE}
 
 # Variables used by Cadence training for RTL Codes and QRC files
 #set RTL_LIST {pads_SS_s1vg.v full_adder.v Adders.v Adders_Pad_Frame.v }
-set RTL_LIST {ALU_pkg.sv GPIO_pkg.sv mem_ctrl_pkg.sv riscv32_pkg.sv UART_csr_pkg.sv UART_pkg.sv UART_rx_pkg.sv UART_tx_pkg.sv 
-              UART_csr_if.sv 
-              Adder.sv ALU_ctrl.sv ALU.sv BHT_1bit.sv branch_predictor.sv BTB.sv clk_divider.sv const_shifter.sv ex_mem_reg.sv 
-              FIFO.sv forwarding_unit.sv GPIO_csr.sv GPIO.sv hazard_detection_unit.sv id_ex_reg.sv if_id_reg.sv mem_ctrl.sv 
-              mem_wb_reg.sv mux.sv RAM.sv register_file.sv register.sv riscv32_control_unit.sv riscv32_imm_gen.sv riscv32.sv 
-              RISC_V_pipeline.sv ROM.sv shift_register.sv timer.sv UART_csr.sv UART_rx_datapath.sv UART_rx_fsm.sv UART_rx.sv
-              UART_tx_datapath.sv UART_tx_fsm.sv UART_tx.sv UART.sv}
+set RTL_LIST {riscv_pkg.sv riscv_v_pkg.sv riscv_v_macros.svh 
+              riscv_csr.sv
+              adder_nbit.sv behavioral_adder.sv full_adder.sv half_adder.sv mul_array.sv mul_behavioral.sv mul128_behavioral.sv multiplier_2bit.sv mulvec_behavioral.sv ripple_carry_adder.sv riscv_v_adder_comb_loop.sv 
+              riscv_v_adder_min_max_comb_loop.sv riscv_v_adder_wrapper.sv riscv_v_adder.sv riscv_v_arithmetic_alu.sv riscv_v_bitwise_and.sv riscv_v_bitwise_or.sv riscv_v_bitwise_xor.sv riscv_v_bw_and.sv riscv_v_bw_or.sv riscv_v_bw_xor.sv
+              riscv_v_bypass.sv riscv_v_check_params.sv riscv_v_csr_ctrl.sv riscv_v_csr.sv riscv_v_ctrl.sv riscv_v_decode_element.sv riscv_v_decode.sv riscv_v_exe_alu.sv riscv_v_execute.sv riscv_v_extend.sv riscv_v_logic_ALU.sv riscv_v_mask_ALU.sv 
+              riscv_v_mask_rf.sv riscv_v_memory.sv riscv_v_mul_wrapper.sv riscv_v_mul.sv riscv_v_permutation_ALU.sv riscv_v_reduct_src.sv riscv_v_rf_ctrl.sv riscv_v_rf.sv riscv_v_shifter_wrapper.sv riscv_v_shifter.sv riscv_v_shuffler.sv
+              riscv_v_stage.sv riscv_v_swizzle.sv riscv_v_twos_comp_sel.sv riscv_v.sv shifter.sv twos_comp_sel.sv vedic_mul_unsigned.sv vedic_mul.sv}
 
 set QRC_TECH_FILE {/CMC/kits/cadence/GPDK045/gsclib045_all_v4.4/gsclib045/qrc/qx/gpdk045.tch}
 
+
 set_db init_lib_search_path "$Timing_Libs_Path $LEF_Libs_Path"
-set_db / .script_search_path {../input_genus} 
-set_db / .init_hdl_search_path {../hdl_files /CMC/kits/cadence/GPDK045/giolib045_v3.3/vlog ../hdl_files/include ../hdl_files/if ../hdl_files/src} 
+
+set script_search_path_list {}
+lappend script_search_path_list ${WORKAREA}/scripts/genus/input_genus/input_genus
+
+set_db / .script_search_path $script_search_path_list
+
+set init_hdl_search_path_list {}
+lappend init_hdl_search_path_list ${WORKAREA}/include ${WORKAREA}/include/if ${WORKAREA}/src/riscv ${WORKAREA}/src /CMC/kits/cadence/GPDK045/giolib045_v3.3/vlog
+
+set_db / .init_hdl_search_path $init_hdl_search_path_list
 
 set_db / .information_level 11 
 
@@ -63,10 +76,10 @@ set_db lp_power_unit mW
 ###############################################################
 
 ## Reading Configuration Analysis in a MMMC  file
-read_mmmc ../input_genus/WC_BC_riscv_pipe_A_View.tcl
+read_mmmc ${WORKAREA}/scripts/genus/input_genus/WC_BC_riscv_v_pipe_A_View.tcl
 
 puts "Review log file for execution of read_mmmc command"
-suspend
+#suspend
 
 # Reading LEF Libraries
 read_physical -lef $LEF_List
@@ -74,7 +87,7 @@ read_physical -lef $LEF_List
 #	check_library -libcell physical_cells/*
 # to see the physical cell that you have used in your RTL.
 puts "Review log file for execution of read_physical command"
-suspend
+#suspend
 
 set_db tns_opto true 
 
@@ -87,13 +100,13 @@ puts "Runtime & Memory after 'read_hdl'"
 time_info Elaboration
 check_design
 puts "View check_design Report and RTL Schematic"
-suspend
+#suspend
 
 init_design
 time_info init_design
 check_design -unresolved
 puts "Review log file for execution of init_design: Reading CONSTRAINTS and check_design commands"
-suspend
+#suspend
 
 ####################################################################
 ## Constraints Setup
@@ -102,13 +115,13 @@ suspend
 # To print the failed constraints 
 puts "$::dc::sdc_failed_commands > failed.sdc"
 puts "View no-applied constraints"
-suspend
+#suspend
 # Timing Lint
 check_timing_intent -verbose
 
 report clocks
 puts "Review Timing Lint Reporte and Clock reports"
-suspend
+#suspend
 
 puts "The number of exceptions is [llength [vfind "design:$DESIGN" -exception *]]"
 puts "Review Exceptions"
@@ -125,16 +138,16 @@ if {[llength [all::all_seqs]] > 0} {
   define_cost_group -name C2O -design $DESIGN
   define_cost_group -name C2C -design $DESIGN
   define_cost_group -name I2O -design $DESIGN
- path_group -from [all::all_seqs] -to [all::all_seqs] -group C2C -name C2C -view view_riscv_pipe_slow
- path_group -from [all::all_seqs] -to [all_outputs]   -group C2O -name C2O -view view_riscv_pipe_slow
- path_group -from [all_inputs] 	  -to [all::all_seqs] -group I2C -name I2C -view view_riscv_pipe_slow
- path_group -from [all_inputs]    -to [all_outputs]   -group I2O -name I2O -view view_riscv_pipe_slow
+ path_group -from [all::all_seqs] -to [all::all_seqs] -group C2C -name C2C -view view_riscv_v_pipe_slow
+ path_group -from [all::all_seqs] -to [all_outputs]   -group C2O -name C2O -view view_riscv_v_pipe_slow
+ path_group -from [all_inputs] 	  -to [all::all_seqs] -group I2C -name I2C -view view_riscv_v_pipe_slow
+ path_group -from [all_inputs]    -to [all_outputs]   -group I2O -name I2O -view view_riscv_v_pipe_slow
 }
 
 get_db cost_groups
 
 puts " Review Cost Group Creation"
-suspend
+#suspend
 
 if {![file exists ${_OUTPUTS_PATH}]} {
   file mkdir ${_OUTPUTS_PATH}
@@ -156,7 +169,7 @@ report_timing -group {I2C C2O C2C I2O} > ${_REPORTS_PATH}/${DESIGN}_pretim.rpt
 report_timing > ${_REPORTS_PATH}/${DESIGN}_pretim.rpt
 
 puts "Check Pretimng Report"
-suspend
+#suspend
 
 ####################################################################################################
 ## Synthesizing to generic 
@@ -210,8 +223,8 @@ report_summary -directory $_REPORTS_PATH
 write_hdl  > ${_OUTPUTS_PATH}/${DESIGN}_hdl_opt.v
 write_design -basename ${_OUTPUTS_PATH}/${DESIGN}_opt
 
-write_sdc -version 1.1 -view view_riscv_pipe_slow $DESIGN > ${_OUTPUTS_PATH}/${DESIGN}_opt_WC.sdc
-write_sdc -version 1.1 -view view_riscv_pipe_fast $DESIGN > ${_OUTPUTS_PATH}/${DESIGN}_opt_BC.sdc
+write_sdc -version 1.1 -view view_riscv_v_pipe_slow $DESIGN > ${_OUTPUTS_PATH}/${DESIGN}_opt_WC.sdc
+write_sdc -version 1.1 -view view_riscv_v_pipe_fast $DESIGN > ${_OUTPUTS_PATH}/${DESIGN}_opt_BC.sdc
 puts "Review  Optimized reports and Schematic"
 suspend
 #################################
