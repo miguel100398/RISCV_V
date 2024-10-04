@@ -154,13 +154,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         start_bfm();
    
         vtype_tmp = RISCV_V_VTYPE_RST_VAL;
-
-        ext_csr_cfg.wr_vsstatus     = 1'b0;
-        ext_csr_cfg.wr_vl           = 1'b0;
-        ext_csr_cfg.wr_vtype        = 1'b0;
-        ext_csr_cfg.wr_vstart       = 1'b0;
-        ext_csr_cfg.wr_vxrm         = 1'b0;
-        ext_csr_cfg.wr_vxsat        = 1'b0;
+        init_ext_csr_cfg();
 
         //Wait for Initialization
         repeat(RST_CYCLES + INIT_CYCLES) begin
@@ -253,6 +247,24 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         end
 
     endtask: run_phase
+
+    virtual task init_ext_csr_cfg();
+
+        ext_csr_cfg.wr_vsstatus     = 1'b0;
+        ext_csr_cfg.wr_vl           = 1'b0;
+        ext_csr_cfg.wr_vtype        = 1'b0;
+        ext_csr_cfg.wr_vstart       = 1'b0;
+        ext_csr_cfg.wr_vxrm         = 1'b0;
+        ext_csr_cfg.wr_vxsat        = 1'b0;
+
+        ext_csr_cfg.vsstatus_wr_data = RISCV_V_VSSTATUS_RST_VAL;
+        ext_csr_cfg.vl_wr_data       = RISCV_V_VL_RST_VAL;
+        ext_csr_cfg.vtype_wr_data    = RISCV_V_VTYPE_RST_VAL;
+        ext_csr_cfg.vstart_wr_data   = RISCV_V_VSTART_RST_VAL;
+        ext_csr_cfg.vxrm_wr_data     = RISCV_V_VXRM_RST_VAL;
+        ext_csr_cfg.vxsat_wr_data    = RISCV_V_VXSAT_RST_VAL;
+
+    endtask:init_ext_csr_cfg
 
     virtual function void get_bfm();
         int_rf_bfm = int_rf_env.agt.bfm;

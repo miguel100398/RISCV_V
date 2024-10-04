@@ -93,7 +93,7 @@ generate
             //Get Byte to be replicated
             assign srca_byte_sel = (srca_gated[(block_idx*NUM_REPLICATE_BLOCKS)][0 +: SELECTOR_WIDTH] & selector_mask);
             //Replicate Data to shift_cnt_osize
-            assign shift_cnt_osize[osize_idx][(block_idx*NUM_REPLICATE_BLOCKS) +: NUM_REPLICATE_BLOCKS] = {NUM_REPLICATE_BLOCKS{srca_byte_sel}};
+            assign shift_cnt_osize[osize_idx][(block_idx*NUM_REPLICATE_BLOCKS) +: NUM_REPLICATE_BLOCKS] = ('{NUM_REPLICATE_BLOCKS{srca_byte_sel}});
         end
 
         for (genvar block_idx = 0; block_idx < NUM_SHIFT_BLOCKS; block_idx++) begin : gen_shift_cnt_qual
