@@ -19,6 +19,8 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     typedef riscv_v_if_env              if_env_t;
     typedef riscv_v_if_bfm              if_bfm_t;
     typedef riscv_v_if_bfm_cfg_obj      if_cfg_t;
+    typedef riscv_v_csr_env             csr_env_t;
+    typedef riscv_v_csr_bfm             csr_bfm_t;
     typedef riscv_v_ext_csr_env         ext_csr_env_t;
     typedef riscv_v_ext_csr_bfm         ext_csr_bfm_t;
     typedef riscv_v_ext_csr_bfm_cfg_obj ext_csr_cfg_t;
@@ -37,6 +39,8 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
     if_env_t            if_env;
     if_bfm_t            if_bfm;
     if_cfg_t            if_cfg;
+    csr_env_t           csr_env;
+    csr_bfm_t           csr_bfm;
     ext_csr_env_t       ext_csr_env;
     ext_csr_bfm_t       ext_csr_bfm;
     ext_csr_cfg_t       ext_csr_cfg;
@@ -79,6 +83,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         vec_rf_env      = vec_rf_env_t::type_id::create("vec_rf_env", this);
         alu_env         = alu_env_t::type_id::create("alu_env", this);
         if_env          = if_env_t::type_id::create("if_env", this);
+        csr_env         = csr_env_t::type_id::create("csr_env", this);
         ext_csr_env     = ext_csr_env_t::type_id::create("ext_csr_env", this);
         vec_env         = vec_env_t::type_id::create("vec_env", this);
 
@@ -111,6 +116,11 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         uvm_config_db #(bit)::set(this,                     "if_env.*",         "bfm_mode",                     1'b1);
         uvm_config_db #(bit)::set(this,                     "if_env*",          "USE_SCBD",                     1'b0);
         uvm_config_db #(if_cfg_t)::set(this,                "if_env.*",         "if_env_agent_bfm_cfg",         if_cfg);
+        //CSR
+        uvm_config_db #(uvm_active_passive_enum)::set(this, "csr_env.*",        "is_active",                    UVM_PASSIVE);
+        uvm_config_db #(bit)::set(this,                     "csr_env.*",        "USE_BFM",                      1'b0);
+        uvm_config_db #(bit)::set(this,                     "csr_env.*",        "bfm_mode",                     1'b0);
+        uvm_config_db #(bit)::set(this,                     "csr_env*",         "USE_SCBD",                     1'b0);
         //EXT CSR
         uvm_config_db #(uvm_active_passive_enum)::set(this, "ext_csr_env.*",    "is_active",                    UVM_ACTIVE);
         uvm_config_db #(bit)::set(this,                     "ext_csr_env.*",    "USE_BFM",                      1'b1);
@@ -129,13 +139,14 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         interfaces_names[MASK_ALU]        = "riscv_v_vec_mask_alu_vif";
         interfaces_names[PERMUTATION_ALU] = "riscv_v_vec_permutation_alu_vif";
         //Set interfaces names
-        uvm_config_db #(string)::set(this, "int_rf_env.*", "interface_name",  "riscv_v_int_rf_vif");
-        uvm_config_db #(string)::set(this, "vec_rf_env.*", "interface_name",  "riscv_v_vec_rf_vif");
+        uvm_config_db #(string)::set(this, "int_rf_env.*",      "interface_name",  "riscv_v_int_rf_vif");
+        uvm_config_db #(string)::set(this, "vec_rf_env.*",      "interface_name",  "riscv_v_vec_rf_vif");
         uvm_config_db #(string)::set(this, "alu_env.*",         "logic_vif_name",  interfaces_names[LOGIC_ALU]);
         uvm_config_db #(string)::set(this, "alu_env.*",         "arithmetic_vif_name",  interfaces_names[ARITHMETIC_ALU]);
         uvm_config_db #(string)::set(this, "alu_env.*",         "mask_vif_name",  interfaces_names[MASK_ALU]);
         uvm_config_db #(string)::set(this, "alu_env.*",         "permutation_vif_name",  interfaces_names[PERMUTATION_ALU]);
         uvm_config_db #(string)::set(this, "if_env.*",          "interface_name",  "riscv_v_if_vif");
+        uvm_config_db #(string)::set(this, "csr_env.*",         "interface_name",  "riscv_v_csr_vif");
         uvm_config_db #(string)::set(this, "ext_csr_env.*",     "interface_name",  "riscv_v_ext_csr_vif");
         uvm_config_db #(string)::set(this, "vec_env.*",         "interface_name",  "riscv_v_vif");
 
@@ -185,25 +196,43 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
 
                         //Update Start
                         if (USE_RAND_START) begin
-
                             riscv_v_field_vstart_t tmp_vstart;
-                            assert (
-                                std::randomize(tmp_vstart) with{
-                                    tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
-                                }
-                            ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            `ifdef VIVADO
+                                int max_value_vstart = (2**$bits(tmp_vstart))-1;
+                                assert (
+                                    std::randomize(tmp_vstart) with{
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:max_value_vstart] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            `else 
+                                assert (
+                                    std::randomize(tmp_vstart) with{
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            `endif //VIVADO
                             ext_csr_cfg.vstart_wr_data.index = tmp_vstart;
+                            
 
                         end
                         //Update Len 
                         if (USE_RAND_LEN) begin
-                            
                             riscv_v_vlen_t tmp_len;
-                            assert (
-                                std::randomize(tmp_len) with{
-                                    tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
-                                }
-                            ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            `ifdef VIVADO
+                                int max_value_vlen = (2**$bits(tmp_len))-1;
+                                assert (
+                                    std::randomize(tmp_len) with{
+                                        tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:max_value_vlen] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            `else 
+                                assert (
+                                    std::randomize(tmp_len) with{
+                                        tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            `endif //VIVADO
+
                             ext_csr_cfg.vl_wr_data.len = tmp_len;
 
                         end
@@ -218,25 +247,43 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
 
                          //Update Start
                         if (USE_RAND_START) begin
-
                             riscv_v_field_vstart_t tmp_vstart;
-                            assert (
-                                std::randomize(tmp_vstart) with{
-                                    tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
-                                }
-                            ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            `ifdef VIVADO
+                                int max_value_vstart = (2**$bits(tmp_vstart))-1;
+                                assert (
+                                    std::randomize(tmp_vstart) with{
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:max_value_vstart] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            `else 
+                                assert (
+                                    std::randomize(tmp_vstart) with{
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vstart")
+                            `endif ///VIVADO
+                            
                             ext_csr_cfg.vstart_wr_data.index = tmp_vstart;
 
                         end
                         //Update Len 
                         if (USE_RAND_LEN) begin
-                            
                             riscv_v_vlen_t tmp_len;
-                            assert (
-                                std::randomize(tmp_len) with{
-                                    tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
-                                }
-                            ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            `ifdef VIVADO
+                                int max_value_vlen = (2**$bits(tmp_len))-1;
+                                assert (
+                                    std::randomize(tmp_len) with{
+                                        tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:max_value_vlen] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            `else 
+                                assert (
+                                    std::randomize(tmp_len) with{
+                                        tmp_len dist{RISCV_V_NUM_ELEMENTS_REG :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                    }
+                                ) else `uvm_fatal(get_name(), "Can't randomize vlen")
+                            `endif //VIVADO
+                            
                             ext_csr_cfg.vl_wr_data.len = tmp_len;
 
                         end
@@ -271,6 +318,7 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
         vec_rf_bfm = vec_rf_env.agt.bfm;
         alu_bfm = alu_env.agt.bfm;
         if_bfm  = if_env.agt.bfm;
+        csr_bfm = csr_env.agt.bfm;
         ext_csr_bfm = ext_csr_env.agt.bfm;
     endfunction: get_bfm
 

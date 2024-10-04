@@ -20,7 +20,7 @@ class riscv_v_csr_trk_item extends riscv_v_base_seq_item;
     riscv_v_vxsat_t        vxsat_data_in;
     logic                  vxsat_wr_en;
 
-    `uvm_object_utils_begin(riscv_rf_trk_item)
+    `uvm_object_utils_begin(riscv_v_csr_trk_item)
         `uvm_field_int(vsstatus_data_in, UVM_ALL_ON)
         `uvm_field_int(vsstatus_wr_en, UVM_ALL_ON)
         `uvm_field_int(vtype_data_in, UVM_ALL_ON)

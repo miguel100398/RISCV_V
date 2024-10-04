@@ -70,25 +70,26 @@ class riscv_v_decode_model extends riscv_v_base_model;
 
     //Get vs1 type
     virtual function riscv_v_src_type_t get_vs1_type(riscv_v_type_instruction_t instr);
+        riscv_v_funct3_e funct3 = riscv_v_funct3_e'(instr.funct3);
         unique case(1'b1)
-            f_is_vector_vector_op(riscv_v_funct3_e'(instr.funct3)) : begin
+            f_is_vector_vector_op(funct3) : begin
                 return SRC_VEC;
             end
-            f_is_scalar_vector_op(riscv_v_funct3_e'(instr.funct3)) : begin
+            f_is_scalar_vector_op(funct3) : begin
                 return SRC_SCALAR_VEC;
             end
-            f_is_scalar_int_op(riscv_v_funct3_e'(instr.funct3)) : begin
+            f_is_scalar_int_op(funct3) : begin
                 return SRC_SCALAR_INT;
             end
-            f_is_scalar_imm_op(riscv_v_funct3_e'(instr.funct3)) : begin
+            f_is_scalar_imm_op(funct3) : begin
                 return SRC_SCALAR_IMM;
             end
-            f_is_scalar_fp_op(riscv_v_funct3_e'(instr.funct3)) : begin
+            f_is_scalar_fp_op(funct3) : begin
                 `uvm_fatal(get_name(), "Scalar_FP not supported yet")
                 return SRC_SCALAR_FP;
             end
             default : begin
-                `uvm_fatal(get_name(), "VS1 type not found")
+                `uvm_fatal(get_name(), $sformatf("VS1 type not found, funct3: 0x%0h", funct3))
             end
         endcase
     endfunction: get_vs1_type

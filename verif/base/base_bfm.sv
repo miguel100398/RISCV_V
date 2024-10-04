@@ -73,7 +73,7 @@ virtual function void build_phase(uvm_phase phase);
         cfg = cfg_obj_t::type_id::create({get_name(), "_cfg"});
     end
 
-    seq   = seq_t::type_id::create("testeo");
+    seq   = seq_t::type_id::create("sequence");
     sqr   = sequencer_t::type_id::create({get_name(), "_sequencer"}, this);
     model = model_t::type_id::create({get_name(), "_model"}, this);
     update_bfm_sem = new(0);

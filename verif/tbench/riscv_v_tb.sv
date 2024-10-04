@@ -308,12 +308,13 @@ module riscv_v_tb;
         uvm_config_db#(virtual riscv_v_mask_ALU_if)::set(uvm_root::get(),"*","riscv_v_vec_mask_alu_vif",vec_mask_alu_vif);
         uvm_config_db#(virtual riscv_v_permutation_ALU_if)::set(uvm_root::get(),"*","riscv_v_vec_permutation_alu_vif",vec_permutation_alu_vif);
         uvm_config_db#(virtual riscv_v_if_if)::set(uvm_root::get(),"*","riscv_v_if_vif",riscv_v_if_vif);
+        uvm_config_db#(virtual riscv_v_csr_if)::set(uvm_root::get(),"*","riscv_v_csr_vif",riscv_v_csr_vif);
         uvm_config_db#(virtual riscv_v_ext_csr_if)::set(uvm_root::get(),"*","riscv_v_ext_csr_vif",riscv_v_ext_csr_vif);
         uvm_config_db#(virtual riscv_v_if)::set(uvm_root::get(), "*", "riscv_v_vif", riscv_v_vif);
     end
 
     initial begin
-        run_test("riscv_v_cpu_v2i_test");
+        run_test("riscv_v_cpu_vadd_test");
     end
     
 
