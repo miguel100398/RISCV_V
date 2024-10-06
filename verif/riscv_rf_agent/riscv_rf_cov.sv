@@ -19,16 +19,131 @@ class riscv_rf_cov extends riscv_v_base_cov#(
     covergroup cg_wr_rf;
         option.per_instance = 1;
         option.name = "cg_wr_rf";
+
+        cp_wr_addr: coverpoint txn_in.addr {
+            bins addr[] = {[0:$]};
+        }
+
+        cp_wr_en: coverpoint txn_in.wr_en {
+            bins wr_enable = {1'b1};
+            bins wr_disable = {1'b0};
+        }
+
+        cp_wr_addr_en: coverpoint txn_in.addr {
+            bins wr_en_addr[] = {[0:$]} iff (txn_in.wr_en);
+        }
+        
+        `ifndef VIVADO
+
+            cp_wr_data: coverpoint txn_in.data {
+                bins data[4] = {[0:$]};
+            }
+
+            cp_wr_addr_wr_data_cross: cross cp_wr_addr_en, cp_wr_data;
+        `else 
+
+            cp_wr_data_0: coverpoint txn_in.data[0 +: 8] {
+                bins data[1] = {[0:$]};
+            }
+            cp_wr_data_1: coverpoint txn_in.data[8 +: 8] {
+                bins data[1] = {[0:$]};
+            }
+            cp_wr_data_2: coverpoint txn_in.data[16 +: 8] {
+                bins data[1] = {[0:$]};
+            }
+            cp_wr_data_3: coverpoint txn_in.data[24 +: 8] {
+                bins data[1] = {[0:$]};
+            }
+
+            
+
+            cp_wr_addr_wr_data_cross_0: cross cp_wr_addr_en, cp_wr_data_0;
+            cp_wr_addr_wr_data_cross_1: cross cp_wr_addr_en, cp_wr_data_1;
+            cp_wr_addr_wr_data_cross_2: cross cp_wr_addr_en, cp_wr_data_2;
+            cp_wr_addr_wr_data_cross_3: cross cp_wr_addr_en, cp_wr_data_3;
+
+        `endif //VIVADO
+
     endgroup: cg_wr_rf
 
     covergroup cg_rd_a_rf;
         option.per_instance = 1;
         option.name = "cg_rd_a_rf";
+
+        cp_rd_addr: coverpoint txn_out.addr{
+            bins addr[] = {[0:$]};
+        }
+
+        `ifndef VIVADO
+
+            cp_rd_data: coverpoint txn_out.data{
+                bins data[4] = {[0:$]};
+            }
+
+            cp_rd_addr_x_data: cross cp_rd_addr, cp_rd_data;
+
+        `else 
+
+            cp_rd_data_0: coverpoint txn_out.data[0 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+            cp_rd_data_1: coverpoint txn_out.data[8 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+            cp_rd_data_2: coverpoint txn_out.data[16 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+            cp_rd_data_3: coverpoint txn_out.data[24 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+
+            cp_rd_addr_x_data_0: cross cp_rd_addr, cp_rd_data_0;
+            cp_rd_addr_x_data_1: cross cp_rd_addr, cp_rd_data_1;
+            cp_rd_addr_x_data_2: cross cp_rd_addr, cp_rd_data_2;
+            cp_rd_addr_x_data_3: cross cp_rd_addr, cp_rd_data_3;
+
+        `endif //VIVADO
+
     endgroup: cg_rd_a_rf
 
     covergroup cg_rd_b_rf;
         option.per_instance = 1;
         option.name = "cg_rd_b_rf";
+
+        cp_rd_addr: coverpoint txn_out.addr{
+            bins addr[] = {[0:$]};
+        }
+
+        `ifndef VIVADO
+
+            cp_rd_data: coverpoint txn_out.data{
+                bins data[4] = {[0:$]};
+            }
+
+            cp_rd_addr_x_data: cross cp_rd_addr, cp_rd_data;
+
+        `else 
+
+            cp_rd_data_0: coverpoint txn_out.data[0 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+            cp_rd_data_1: coverpoint txn_out.data[8 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+            cp_rd_data_2: coverpoint txn_out.data[16 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+            cp_rd_data_3: coverpoint txn_out.data[24 +: 8]{
+                bins data[1] = {[0:$]};
+            }
+
+            cp_rd_addr_x_data_0: cross cp_rd_addr, cp_rd_data_0;
+            cp_rd_addr_x_data_1: cross cp_rd_addr, cp_rd_data_1;
+            cp_rd_addr_x_data_2: cross cp_rd_addr, cp_rd_data_2;
+            cp_rd_addr_x_data_3: cross cp_rd_addr, cp_rd_data_3;
+
+        `endif //VIVADO
+
     endgroup: cg_rd_b_rf
 
     function new(string name = "riscv_rf_cov", uvm_component parent = null);
