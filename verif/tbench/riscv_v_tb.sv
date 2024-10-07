@@ -316,6 +316,17 @@ module riscv_v_tb;
     initial begin
         run_test("riscv_v_cpu_vadd_test");
     end
+
+    bind riscv_v_decode riscv_v_decode_cov inst_riscv_v_decode_cov(
+        .clk(clk),
+        .rst(rst),
+        .stall(stall),
+        .flush(flush),
+        .instruction_id(instruction_id),
+        .vtype_exe(vtype_exe),
+        .vl_exe(vl_exe),
+        .vstart_exe(vstart_exe)
+    );
     
 
 endmodule: riscv_v_tb
