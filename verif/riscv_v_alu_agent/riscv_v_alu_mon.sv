@@ -92,6 +92,16 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
                 logic_in_txn.opcode = get_logic_opcode();
                 logic_in_txn.len    = get_len(logic_in_txn.osize);
             `endif// RISCV_V_INST 
+
+            logic_in_txn.is_reduct  = logic_vif.cb_mon.is_reduct;
+            logic_in_txn.is_and     = logic_vif.cb_mon.is_and;
+            logic_in_txn.is_or      = logic_vif.cb_mon.is_or;
+            logic_in_txn.is_xor     = logic_vif.cb_mon.is_xor;
+            logic_in_txn.is_mask    = logic_vif.cb_mon.is_mask;
+            logic_in_txn.is_shift   = logic_vif.cb_mon.is_shift;
+            logic_in_txn.is_left    = logic_vif.cb_mon.is_left;
+            logic_in_txn.is_arith   = logic_vif.cb_mon.is_arith;
+
             rtl_in_ap.write(logic_in_txn);
         end
         //Set keys to process result
@@ -121,6 +131,23 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
                 arithmetic_in_txn.opcode = get_arithmetic_opcode();
                 arithmetic_in_txn.len    = get_len(arithmetic_in_txn.osize);
             `endif// RISCV_V_INST 
+
+            arithmetic_in_txn.is_reduct         = arithmetic_vif.cb_mon.is_reduct;
+            arithmetic_in_txn.is_add            = arithmetic_vif.cb_mon.is_add;
+            arithmetic_in_txn.is_sub            = arithmetic_vif.cb_mon.is_sub;
+            arithmetic_in_txn.is_mul            = arithmetic_vif.cb_mon.is_mul;
+            arithmetic_in_txn.is_zero_ext       = arithmetic_vif.cb_mon.is_zero_ext;
+            arithmetic_in_txn.is_sign_ext       = arithmetic_vif.cb_mon.is_sign_ext;
+            arithmetic_in_txn.is_set_equal      = arithmetic_vif.cb_mon.is_set_equal;
+            arithmetic_in_txn.is_set_nequal     = arithmetic_vif.cb_mon.is_set_nequal;
+            arithmetic_in_txn.is_set_less       = arithmetic_vif.cb_mon.is_set_less;
+            arithmetic_in_txn.is_set_greater    = arithmetic_vif.cb_mon.is_set_greater;
+            arithmetic_in_txn.is_max            = arithmetic_vif.cb_mon.is_max;
+            arithmetic_in_txn.is_min            = arithmetic_vif.cb_mon.is_min;
+            arithmetic_in_txn.is_high           = arithmetic_vif.cb_mon.is_high;
+            arithmetic_in_txn.is_signed         = arithmetic_vif.cb_mon.is_signed;
+            arithmetic_in_txn.use_carry         = arithmetic_vif.cb_mon.use_carry;
+
             rtl_in_ap.write(arithmetic_in_txn);
         end
         //Set keys to process result
@@ -164,6 +191,10 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
                 permutation_in_txn.opcode           = get_permutation_opcode();
                 permutation_in_txn.osize            = get_osize(permutation_vif.cb_mon.srcb.merge);
             `endif
+
+            permutation_in_txn.is_i2v = permutation_vif.cb_mon.is_i2v;
+            permutation_in_txn.is_v2i = permutation_vif.cb_mon.is_v2i;
+
             rtl_in_ap.write(permutation_in_txn);
         end
         //Set Keys to process result
