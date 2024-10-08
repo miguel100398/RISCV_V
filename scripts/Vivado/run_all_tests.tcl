@@ -5,7 +5,7 @@ foreach tb $DUTS {
     foreach test [set ${tb}_tests] {
         set TEST $test
         puts "Runnint test: $test"
-        source ${WORK_AREA}/../scripts/run_test.tcl
+        source ${WORK_AREA}/../scripts/Vivado/run_test.tcl
         
     }
 }

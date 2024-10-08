@@ -276,6 +276,7 @@ typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_cf_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_sign_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_less_than_t;
 typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_complement_t;
+typedef logic[RISCV_V_NUM_BYTES_DATA-1:0] riscv_v_flags_t;
 
 parameter RISCV_V_IMM_WIDTH = 5;
 typedef logic[RISCV_V_IMM_WIDTH-1:0]      riscv_v_imm_t;

@@ -100,6 +100,9 @@ riscv_v_mask_t              result_set_greater;
 riscv_v_mask_t              result_set_greater_qual;
 riscv_v_src_byte_vector_t   result_set_greater_ext_qual;
 
+riscv_v_flags_t flags_mask_osize [RISCV_V_NUM_VALID_OSIZES];
+riscv_v_flags_t flags_mask_sel;
+
 generate
     //Gate sources
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin  : gen_gate_sources
@@ -197,13 +200,34 @@ generate
         
     end
 
+    for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
+        localparam NUM_FLAG_BITS_OSIZE = (2**osize_idx);
+        localparam NUM_BLOCKS_OSIZE = RISCV_V_DATA_WIDTH / (8*(2**osize_idx));    
+         
+
+        always_comb begin
+            flags_mask_osize[osize_idx] = '0;
+            for (int bit_idx = 0; bit_idx < NUM_BLOCKS_OSIZE; bit_idx++) begin
+                flags_mask_osize[osize_idx][(bit_idx*NUM_FLAG_BITS_OSIZE) + (NUM_FLAG_BITS_OSIZE-1)] = 1'b1;
+            end
+        end
+
+    end
+
+    always_comb begin
+        flags_mask_sel = '0;
+        for (int osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES; osize_idx++) begin
+            flags_mask_sel |= flags_mask_osize[osize_idx] &  {$bits(flags_mask_sel){osize_vector[osize_idx]}};
+        end
+    end
+
     //Flags
     for (genvar block=0; block < NUM_ADD_BLOCKS; block++) begin : gen_flags
         assign zf_prev_osize[block]               = (result_adder[block] == 0);
-        assign cf[block]                          = (cout_adder[block]);
+        assign cf[block]                          = (cout_adder[block] & flags_mask_sel[block]);
         assign signed_of[block]                   = (cout_adder[block] ^ prev_cout_adder[block]) & is_signed;
         assign unsigned_of[block]                 = (cout_adder[block] ^ is_sub)                 & ~is_signed;
-        assign of[block]                          = signed_of[block] | unsigned_of[block];
+        assign of[block]                          = ((signed_of[block] | unsigned_of[block]) & flags_mask_sel[block]);
         assign sign_result[block]                 = result_adder[block][BYTE_WIDTH-1];
         assign result_less_than_signed[block]     = (sign_result[block] ^ signed_of[block])      & is_signed;
         assign result_less_than_unsigned[block]   = unsigned_of[block];

@@ -1,3 +1,3 @@
-source ../scripts/init.tcl 
-source ../scripts/elaborate.tcl
-source ../scripts/run_all_tests.tcl
+source ../scripts/Vivado/init.tcl 
+source ../scripts/Vivado/elaborate.tcl
+source ../scripts/Vivado/run_all_tests.tcl

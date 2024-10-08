@@ -25,7 +25,7 @@ virtual class base_scbd#( type seq_item_in_t  = base_seq_item,
     int num_fail = 0;
 
     //Stop simulation when error is detected
-    bit stop_at_error = 1'b0;
+    bit stop_at_error = 1'b1;
 
     //Model to predict Results
     model_t model;

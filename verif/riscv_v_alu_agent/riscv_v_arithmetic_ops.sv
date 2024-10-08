@@ -200,46 +200,52 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_add_reduct
 
     virtual function void calc_subb(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, ref riscv_v_zf_t zf_exp, ref riscv_v_of_t of_exp, ref riscv_v_cf_t cf_exp, ref riscv_v_wb_data_t arithmetic_exp_result);
+        riscv_v_data_t srca_adder = arithmetic_in_txn.srca.data;
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    {cf_exp[i], arithmetic_exp_result.data.Byte[i]} = ((arithmetic_in_txn.srcb.data.Byte[i]) - (arithmetic_in_txn.srca.data.Byte[i]) - arithmetic_in_txn.carry_in[i]);
+                    srca_adder.Byte[i] = ~srca_adder.Byte[i];
+                    {cf_exp[i], arithmetic_exp_result.data.Byte[i]} = ((arithmetic_in_txn.srcb.data.Byte[i]) + (srca_adder.Byte[i]) - arithmetic_in_txn.carry_in[i] + 1'b1);
                     zf_exp[i] = (arithmetic_exp_result.data.Byte[i] == 0);
-                    of_exp[i] = (~arithmetic_in_txn.srca.data.Byte[i][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]) ||
-                                (arithmetic_in_txn.srca.data.Byte[i][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & ~arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]);
+                    of_exp[i] = (~srca_adder.Byte[i][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]) ||
+                                (srca_adder.Byte[i][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & ~arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]);
                 end     
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    {cf_exp[(2*i)+1], arithmetic_exp_result.data.Word[i]} = ((arithmetic_in_txn.srcb.data.Word[i]) - (arithmetic_in_txn.srca.data.Word[i]) - arithmetic_in_txn.carry_in[2*i]);
+                    srca_adder.Word[i] = ~srca_adder.Word[i];
+                    {cf_exp[(2*i)+1], arithmetic_exp_result.data.Word[i]} = ((arithmetic_in_txn.srcb.data.Word[i]) + (srca_adder.Word[i]) - arithmetic_in_txn.carry_in[2*i] + 1'b1);
                     zf_exp[(2*i)+1] = (arithmetic_exp_result.data.Word[i] == 0);
-                    of_exp[(2*i)+1] = (~arithmetic_in_txn.srca.data.Word[i][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]) ||
-                                  (arithmetic_in_txn.srca.data.Word[i][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]);
+                    of_exp[(2*i)+1] = (~srca_adder.Word[i][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]) ||
+                                  (srca_adder.Word[i][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]);
                 end
             end
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    {cf_exp[(4*i)+3], arithmetic_exp_result.data.Dword[i]} = ((arithmetic_in_txn.srcb.data.Dword[i]) - (arithmetic_in_txn.srca.data.Dword[i]) - arithmetic_in_txn.carry_in[4*i]);
+                    srca_adder.Dword[i] = ~srca_adder.Dword[i];
+                    {cf_exp[(4*i)+3], arithmetic_exp_result.data.Dword[i]} = ((arithmetic_in_txn.srcb.data.Dword[i]) + (srca_adder.Dword[i]) - arithmetic_in_txn.carry_in[4*i] + 1'b1);
                     zf_exp[(4*i)+3] = (arithmetic_exp_result.data.Dword[i] == 0);
-                    of_exp[(4*i)+3] = (~arithmetic_in_txn.srca.data.Dword[i][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1] & arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]) ||
-                                  (arithmetic_in_txn.srca.data.Dword[i][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]);
+                    of_exp[(4*i)+3] = (~srca_adder.Dword[i][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1] & arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]) ||
+                                  (srca_adder.Dword[i][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]);
                 end
             end
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    {cf_exp[(8*i)+7], arithmetic_exp_result.data.Qword[i]} = ((arithmetic_in_txn.srcb.data.Qword[i]) - (arithmetic_in_txn.srca.data.Qword[i]) - arithmetic_in_txn.carry_in[8*i]);
+                    srca_adder.Qword[i] = ~srca_adder.Qword[i];
+                    {cf_exp[(8*i)+7], arithmetic_exp_result.data.Qword[i]} = ((arithmetic_in_txn.srcb.data.Qword[i]) + (srca_adder.Qword[i]) - arithmetic_in_txn.carry_in[8*i] + 1'b1);
                     zf_exp[(8*i)+7] = (arithmetic_exp_result.data.Qword[i] == 0);
-                    of_exp[(8*i)+7] = (~arithmetic_in_txn.srca.data.Qword[i][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1] & arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]) ||
-                                  (arithmetic_in_txn.srca.data.Qword[i][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]);
+                    of_exp[(8*i)+7] = (~srca_adder.Qword[i][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1] & arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]) ||
+                                  (srca_adder.Qword[i][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]);
                 end
             end
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    {cf_exp[(16*i)+15], arithmetic_exp_result.data.Dqword[i]} = ((arithmetic_in_txn.srcb.data.Dqword[i]) - (arithmetic_in_txn.srca.data.Dqword[i]) - arithmetic_in_txn.carry_in[16*i]);
+                    srca_adder.Dqword[i] = ~srca_adder.Dqword[i];
+                    {cf_exp[(16*i)+15], arithmetic_exp_result.data.Dqword[i]} = ((arithmetic_in_txn.srcb.data.Dqword[i]) + (srca_adder.Dqword[i]) - arithmetic_in_txn.carry_in[16*i] + 1'b1);
                     zf_exp[(16*i)+15] = (arithmetic_exp_result.data.Dqword[i] == 0);
-                    of_exp[(16*i)+15] = (~arithmetic_in_txn.srca.data.Dqword[i][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1] & arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]) ||
-                                   (arithmetic_in_txn.srca.data.Dqword[i][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]);
+                    of_exp[(16*i)+15] = (~srca_adder.Dqword[i][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1] & arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]) ||
+                                   (srca_adder.Dqword[i][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]);
                 end
             end
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
@@ -247,46 +253,52 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_subb 
 
     virtual function void calc_sub(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, ref riscv_v_zf_t zf_exp, ref riscv_v_of_t of_exp, ref riscv_v_cf_t cf_exp, ref riscv_v_wb_data_t arithmetic_exp_result);
+        riscv_v_data_t srca_adder = arithmetic_in_txn.srca.data;
         {zf_exp, of_exp, cf_exp} = 3'b000;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_ELEN/BYTE_WIDTH; i++) begin
-                    {cf_exp[i], arithmetic_exp_result.data.Byte[i]} = ((arithmetic_in_txn.srcb.data.Byte[i]) - (arithmetic_in_txn.srca.data.Byte[i]));
+                    srca_adder.Byte[i] = ~srca_adder.Byte[i];
+                    {cf_exp[i], arithmetic_exp_result.data.Byte[i]} = ((arithmetic_in_txn.srcb.data.Byte[i]) + (srca_adder.Byte[i]) + 1'b1);
                     zf_exp[i] = (arithmetic_exp_result.data.Byte[i] == 0);
-                    of_exp[i] = (~arithmetic_in_txn.srca.data.Byte[i][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]) ||
-                                (arithmetic_in_txn.srca.data.Byte[i][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & ~arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]);
+                    of_exp[i] = (~srca_adder.Byte[i][BYTE_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1] & arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]) ||
+                                (srca_adder.Byte[i][BYTE_WIDTH-1]  & arithmetic_in_txn.srcb.data.Byte[i][BYTE_WIDTH-1]  & ~arithmetic_exp_result.data.Byte[i][BYTE_WIDTH-1]);
                 end     
             end
             OSIZE_16: begin
                 for (int i=0; i<RISCV_V_ELEN/WORD_WIDTH; i++) begin
-                    {cf_exp[(2*i)+1], arithmetic_exp_result.data.Word[i]} = ((arithmetic_in_txn.srcb.data.Word[i]) - (arithmetic_in_txn.srca.data.Word[i]));
+                    srca_adder.Word[i] = ~srca_adder.Word[i];
+                    {cf_exp[(2*i)+1], arithmetic_exp_result.data.Word[i]} = ((arithmetic_in_txn.srcb.data.Word[i]) + (srca_adder.Word[i]) + 1'b1);
                     zf_exp[(2*i)+1] = (arithmetic_exp_result.data.Word[i] == 0);
-                    of_exp[(2*i)+1] = (~arithmetic_in_txn.srca.data.Word[i][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]) ||
-                                  (arithmetic_in_txn.srca.data.Word[i][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]);
+                    of_exp[(2*i)+1] = (~srca_adder.Word[i][WORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1] & arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]) ||
+                                  (srca_adder.Word[i][WORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Word[i][WORD_WIDTH-1]  & ~arithmetic_exp_result.data.Word[i][WORD_WIDTH-1]);
                 end
             end
             OSIZE_32: begin
                 for (int i=0; i<RISCV_V_ELEN/DWORD_WIDTH; i++) begin
-                    {cf_exp[(4*i)+3], arithmetic_exp_result.data.Dword[i]} = ((arithmetic_in_txn.srcb.data.Dword[i]) - (arithmetic_in_txn.srca.data.Dword[i]));
+                    srca_adder.Dword[i] = ~srca_adder.Dword[i];
+                    {cf_exp[(4*i)+3], arithmetic_exp_result.data.Dword[i]} = ((arithmetic_in_txn.srcb.data.Dword[i]) + (srca_adder.Dword[i]) + 1'b1);
                     zf_exp[(4*i)+3] = (arithmetic_exp_result.data.Dword[i] == 0);
-                    of_exp[(4*i)+3] = (~arithmetic_in_txn.srca.data.Dword[i][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1] & arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]) ||
-                                  (arithmetic_in_txn.srca.data.Dword[i][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]);
+                    of_exp[(4*i)+3] = (~srca_adder.Dword[i][DWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1] & arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]) ||
+                                  (srca_adder.Dword[i][DWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dword[i][DWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dword[i][DWORD_WIDTH-1]);
                 end
             end
             OSIZE_64: begin
                 for (int i=0; i<RISCV_V_ELEN/QWORD_WIDTH; i++) begin
-                    {cf_exp[(8*i)+7], arithmetic_exp_result.data.Qword[i]} = ((arithmetic_in_txn.srcb.data.Qword[i]) - (arithmetic_in_txn.srca.data.Qword[i]));
+                    srca_adder.Qword[i] = ~srca_adder.Qword[i];
+                    {cf_exp[(8*i)+7], arithmetic_exp_result.data.Qword[i]} = ((arithmetic_in_txn.srcb.data.Qword[i]) + (srca_adder.Qword[i]) + 1'b1);
                     zf_exp[(8*i)+7] = (arithmetic_exp_result.data.Qword[i] == 0);
-                    of_exp[(8*i)+7] = (~arithmetic_in_txn.srca.data.Qword[i][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1] & arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]) ||
-                                  (arithmetic_in_txn.srca.data.Qword[i][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]);
+                    of_exp[(8*i)+7] = (~srca_adder.Qword[i][QWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1] & arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]) ||
+                                  (srca_adder.Qword[i][QWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Qword[i][QWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Qword[i][QWORD_WIDTH-1]);
                 end
             end
             OSIZE_128: begin
                 for (int i=0; i<RISCV_V_ELEN/DQWORD_WIDTH; i++) begin
-                    {cf_exp[(16*i)+15], arithmetic_exp_result.data.Dqword[i]} = ((arithmetic_in_txn.srcb.data.Dqword[i]) - (arithmetic_in_txn.srca.data.Dqword[i]));
+                    srca_adder.Dqword[i] = ~srca_adder.Dqword[i];
+                    {cf_exp[(16*i)+15], arithmetic_exp_result.data.Dqword[i]} = ((arithmetic_in_txn.srcb.data.Dqword[i]) + (srca_adder.Dqword[i]) + 1'b1);
                     zf_exp[(16*i)+15] = (arithmetic_exp_result.data.Dqword[i] == 0);
-                    of_exp[(16*i)+15] = (~arithmetic_in_txn.srca.data.Dqword[i][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1] & arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]) ||
-                                   (arithmetic_in_txn.srca.data.Dqword[i][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]);
+                    of_exp[(16*i)+15] = (~srca_adder.Dqword[i][DQWORD_WIDTH-1] & ~arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1] & arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]) ||
+                                   (srca_adder.Dqword[i][DQWORD_WIDTH-1]  & arithmetic_in_txn.srcb.data.Dqword[i][DQWORD_WIDTH-1]  & ~arithmetic_exp_result.data.Dqword[i][DQWORD_WIDTH-1]);
                 end
             end
             default: `uvm_fatal(get_name(), $sformatf("Invalid Osize"))
@@ -1057,6 +1069,9 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_maxu_reduct
 
     virtual function void calc_mullu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, ref riscv_v_zf_t zf_exp, ref riscv_v_of_t of_exp, ref riscv_v_cf_t cf_exp, ref riscv_v_wb_data_t arithmetic_exp_result);
+        zf_exp = '0;
+        of_exp = '0;
+        cf_exp = '0;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1098,6 +1113,9 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_mullu
 
     virtual function void calc_mulls(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, ref riscv_v_zf_t zf_exp, ref riscv_v_of_t of_exp, ref riscv_v_cf_t cf_exp, ref riscv_v_wb_data_t arithmetic_exp_result);
+        zf_exp = '0;
+        of_exp = '0;
+        cf_exp = '0;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1139,6 +1157,9 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_mulls
 
     virtual function void calc_mulhu(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, ref riscv_v_zf_t zf_exp, ref riscv_v_of_t of_exp, ref riscv_v_cf_t cf_exp, ref riscv_v_wb_data_t arithmetic_exp_result);
+        zf_exp = '0;
+        of_exp = '0;
+        cf_exp = '0;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin
@@ -1180,6 +1201,9 @@ class riscv_v_arithmetic_ops extends uvm_component;
     endfunction: calc_mulhu
 
     virtual function void calc_mulhs(input riscv_v_arithmetic_alu_in_seq_item arithmetic_in_txn, ref riscv_v_zf_t zf_exp, ref riscv_v_of_t of_exp, ref riscv_v_cf_t cf_exp, ref riscv_v_wb_data_t arithmetic_exp_result);
+        zf_exp = '0;
+        of_exp = '0;
+        cf_exp = '0;
         case(arithmetic_in_txn.osize)
             OSIZE_8: begin
                 for (int i=0; i<RISCV_V_NUM_BYTES_DATA; i++) begin

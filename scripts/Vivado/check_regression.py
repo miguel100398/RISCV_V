@@ -21,7 +21,7 @@ for root, dirs, files in os.walk(REGRESSION_DIR):
   for file in files:
     if regex.match(file):
        print("Test file found " + file)
-       regression.append((file, os.path.abspath(root + "\\" + file)))
+       regression.append((file, os.path.abspath(root + "/" + file)))
 
 print(str(len(regression)) + " files found in regression")
 
