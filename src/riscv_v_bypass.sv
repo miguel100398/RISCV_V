@@ -6,7 +6,6 @@
 
 module riscv_v_bypass
 import riscv_pkg::*, riscv_v_pkg::*;
-`include "riscv_v_macros.svh"
 (
     input  riscv_data_t         integer_data,
     input  riscv_v_imm_t        imm,
