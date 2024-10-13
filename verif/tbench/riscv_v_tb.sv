@@ -314,7 +314,7 @@ module riscv_v_tb;
     end
 
     initial begin
-        run_test("riscv_v_cpu_i2v_test");
+        run_test("riscv_v_cpu_vmul_test");
     end
 
     bind riscv_v_decode riscv_v_decode_cov inst_riscv_v_decode_cov(

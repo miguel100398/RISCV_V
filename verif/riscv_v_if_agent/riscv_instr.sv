@@ -203,57 +203,168 @@ class riscv_instr extends uvm_component;
 
     endfunction: get_j_br_instr
 
-    //Constraints
-    constraint op{
-        instr.R.op inside{RISCV_R_TYPE_OP_CODE, RISCV_R_SHFT_TYPE_OP_CODE, 
-                          RISCV_I_TYPE_OP_CODE, RISCV_LOAD_OP_CODE, RISCV_JALR_OP_CODE,
-                          RISCV_S_TYPE_OP_CODE,
-                          RISCV_B_TYPE_OP_CODE,
-                          RISCV_LUI_OP_CODE, RISCV_AUIPC_OP_CODE,
-                          RISCV_J_TYPE_OP_CODE};
-    }
+    `ifndef VIVADO
+        //Constraints
+        constraint op{
+            instr.R.op inside{RISCV_R_TYPE_OP_CODE, RISCV_R_SHFT_TYPE_OP_CODE, 
+                            RISCV_I_TYPE_OP_CODE, RISCV_LOAD_OP_CODE, RISCV_JALR_OP_CODE,
+                            RISCV_S_TYPE_OP_CODE,
+                            RISCV_B_TYPE_OP_CODE,
+                            RISCV_LUI_OP_CODE, RISCV_AUIPC_OP_CODE,
+                            RISCV_J_TYPE_OP_CODE};
+        }
 
-    constraint funct3{
-        if(instr.R.op == RISCV_R_TYPE_OP_CODE){
-            if(instr.R.funct7 == RISCV_FUNCT7_SPEC){
-                instr.R.funct3 inside{RISCV_FUNCT3_SUB, RISCV_FUNCT3_SRA};
-            } else if (instr.R.funct7 == RISCV_FUNCT7_GEN){
-                instr.R.funct3 inside{RISCV_FUNCT3_ADD, RISCV_FUNCT3_SLL, RISCV_FUNCT3_SLT, RISCV_FUNCT3_SLTU, RISCV_FUNCT3_XOR, RISCV_FUNCT3_SRL, RISCV_FUNCT3_OR, RISCV_FUNCT3_AND};
-            } else if (instr.R.funct7 == RISCV_FUNCT7_MUL){     //MUL and DIV has same funct7
-                instr.R.funct3 inside{RISCV_FUNCT3_MUL, RISCV_FUNCT3_DIV};
-            }
-        } else if (instr.R.op == RISCV_R_SHFT_TYPE_OP_CODE){
-            if(instr.R.funct7 == RISCV_FUNCT7_SPEC){
-                instr.R.funct3 inside{RISCV_FUNCT3_SRAI};
-            } else if (instr.R.funct7 == RISCV_FUNCT7_GEN){
-                instr.R.funct3 inside{RISCV_FUNCT3_SLLI, RISCV_FUNCT3_SRLI};
-            }
-        } else if (instr.R.op == RISCV_I_TYPE_OP_CODE){
-            instr.R.funct3 inside{RISCV_FUNCT3_ADDI, RISCV_FUNCT3_SLTI, RISCV_FUNCT3_SLTIU, RISCV_FUNCT3_XORI, RISCV_FUNCT3_ORI, RISCV_FUNCT3_ANDI};
-        } else if (instr.R.op == RISCV_LOAD_OP_CODE){
-            instr.R.funct3 inside{RISCV_FUNCT3_LB, RISCV_FUNCT3_LH, RISCV_FUNCT3_LW, RISCV_FUNCT3_LBU, RISCV_FUNCT3_LHU};
-        } else if (instr.R.op == RISCV_JALR_OP_CODE){
-            instr.R.funct3 == RISCV_FUNCT3_JALR;
-        } else if (instr.R.op == RISCV_S_TYPE_OP_CODE){
-            instr.R.funct3 inside{RISCV_FUNCT3_SB, RISCV_FUNCT3_SH, RISCV_FUNCT3_SW};
-        } else if (instr.R.op == RISCV_B_TYPE_OP_CODE){
-            instr.R.funct3 inside{RISCV_FUNCT3_BEQ, RISCV_FUNCT3_BNE, RISCV_FUNCT3_BLT, RISCV_FUNCT3_BGE, RISCV_FUNCT3_BLTU, RISCV_FUNCT3_BGEU};
-        }
-    }
-    
-    constraint funct7{
-        if (instr.R.op == RISCV_R_TYPE_OP_CODE){
-            (instr.R.funct7 == RISCV_FUNCT7_GEN) || (instr.R.funct7 == RISCV_FUNCT7_SPEC) || (instr.R.funct7 == RISCV_FUNCT7_MUL) || (instr.R.funct7 == RISCV_FUNCT7_DIV);
-        } else if (instr.R.op == RISCV_R_SHFT_TYPE_OP_CODE) {
-            (instr.R.funct7 == RISCV_FUNCT7_GEN) ||  (instr.R.funct7 == RISCV_FUNCT7_SPEC);
-        } else if (instr.R.op == RISCV_I_TYPE_OP_CODE){
-            if (instr.R.funct3 == RISCV_FUNCT3_SLL){
-                instr.R.funct7 == RISCV_FUNCT7_SRL;
-            } else if (instr.R.funct3 == RISCV_FUNCT3_SRL){
-                (instr.R.funct7 == RISCV_FUNCT7_SRL) || (instr.R.funct7 == RISCV_FUNCT7_SRA);
+        constraint funct3{
+            if(instr.R.op == RISCV_R_TYPE_OP_CODE){
+                if(instr.R.funct7 == RISCV_FUNCT7_SPEC){
+                    instr.R.funct3 inside{RISCV_FUNCT3_SUB, RISCV_FUNCT3_SRA};
+                } else if (instr.R.funct7 == RISCV_FUNCT7_GEN){
+                    instr.R.funct3 inside{RISCV_FUNCT3_ADD, RISCV_FUNCT3_SLL, RISCV_FUNCT3_SLT, RISCV_FUNCT3_SLTU, RISCV_FUNCT3_XOR, RISCV_FUNCT3_SRL, RISCV_FUNCT3_OR, RISCV_FUNCT3_AND};
+                } else if (instr.R.funct7 == RISCV_FUNCT7_MUL){     //MUL and DIV has same funct7
+                    instr.R.funct3 inside{RISCV_FUNCT3_MUL, RISCV_FUNCT3_DIV};
+                }
+            } else if (instr.R.op == RISCV_R_SHFT_TYPE_OP_CODE){
+                if(instr.R.funct7 == RISCV_FUNCT7_SPEC){
+                    instr.R.funct3 inside{RISCV_FUNCT3_SRAI};
+                } else if (instr.R.funct7 == RISCV_FUNCT7_GEN){
+                    instr.R.funct3 inside{RISCV_FUNCT3_SLLI, RISCV_FUNCT3_SRLI};
+                }
+            } else if (instr.R.op == RISCV_I_TYPE_OP_CODE){
+                instr.R.funct3 inside{RISCV_FUNCT3_ADDI, RISCV_FUNCT3_SLTI, RISCV_FUNCT3_SLTIU, RISCV_FUNCT3_XORI, RISCV_FUNCT3_ORI, RISCV_FUNCT3_ANDI};
+            } else if (instr.R.op == RISCV_LOAD_OP_CODE){
+                instr.R.funct3 inside{RISCV_FUNCT3_LB, RISCV_FUNCT3_LH, RISCV_FUNCT3_LW, RISCV_FUNCT3_LBU, RISCV_FUNCT3_LHU};
+            } else if (instr.R.op == RISCV_JALR_OP_CODE){
+                instr.R.funct3 == RISCV_FUNCT3_JALR;
+            } else if (instr.R.op == RISCV_S_TYPE_OP_CODE){
+                instr.R.funct3 inside{RISCV_FUNCT3_SB, RISCV_FUNCT3_SH, RISCV_FUNCT3_SW};
+            } else if (instr.R.op == RISCV_B_TYPE_OP_CODE){
+                instr.R.funct3 inside{RISCV_FUNCT3_BEQ, RISCV_FUNCT3_BNE, RISCV_FUNCT3_BLT, RISCV_FUNCT3_BGE, RISCV_FUNCT3_BLTU, RISCV_FUNCT3_BGEU};
             }
         }
-    }
+        
+        constraint funct7{
+            if (instr.R.op == RISCV_R_TYPE_OP_CODE){
+                (instr.R.funct7 == RISCV_FUNCT7_GEN) || (instr.R.funct7 == RISCV_FUNCT7_SPEC) || (instr.R.funct7 == RISCV_FUNCT7_MUL) || (instr.R.funct7 == RISCV_FUNCT7_DIV);
+            } else if (instr.R.op == RISCV_R_SHFT_TYPE_OP_CODE) {
+                (instr.R.funct7 == RISCV_FUNCT7_GEN) ||  (instr.R.funct7 == RISCV_FUNCT7_SPEC);
+            } else if (instr.R.op == RISCV_I_TYPE_OP_CODE){
+                if (instr.R.funct3 == RISCV_FUNCT3_SLL){
+                    instr.R.funct7 == RISCV_FUNCT7_SRL;
+                } else if (instr.R.funct3 == RISCV_FUNCT3_SRL){
+                    (instr.R.funct7 == RISCV_FUNCT7_SRL) || (instr.R.funct7 == RISCV_FUNCT7_SRA);
+                }
+            }
+        }
+    `else
+
+        function void post_randomize();
+            super.post_randomize();
+            constraint_op();
+            constraint_funct3();
+            constraint_funct7();
+        endfunction: post_randomize 
+
+        virtual function void constraint_op();
+            riscv_instr_op_t tmp_op;
+            if (!(instr.R.op inside{RISCV_R_TYPE_OP_CODE, RISCV_R_SHFT_TYPE_OP_CODE, 
+                            RISCV_I_TYPE_OP_CODE, RISCV_LOAD_OP_CODE, RISCV_JALR_OP_CODE,
+                            RISCV_S_TYPE_OP_CODE,
+                            RISCV_B_TYPE_OP_CODE,
+                            RISCV_LUI_OP_CODE, RISCV_AUIPC_OP_CODE,
+                            RISCV_J_TYPE_OP_CODE})) begin
+
+                assert(std::randomize(tmp_op) with{
+                    tmp_op inside{RISCV_R_TYPE_OP_CODE, RISCV_R_SHFT_TYPE_OP_CODE, 
+                            RISCV_I_TYPE_OP_CODE, RISCV_LOAD_OP_CODE, RISCV_JALR_OP_CODE,
+                            RISCV_S_TYPE_OP_CODE,
+                            RISCV_B_TYPE_OP_CODE,
+                            RISCV_LUI_OP_CODE, RISCV_AUIPC_OP_CODE,
+                            RISCV_J_TYPE_OP_CODE};
+                }) else `uvm_fatal(get_name(), "Can't randomize tmp_op")
+                instr.R.op = tmp_op;
+
+            end
+        endfunction: constraint_op
+
+        virtual function void constraint_funct3();
+            riscv_instr_funct3_t tmp_funct3;
+            if(instr.R.op == RISCV_R_TYPE_OP_CODE) begin
+                if(instr.R.funct7 == RISCV_FUNCT7_SPEC) begin
+                    assert(std::randomize(tmp_funct3) with{
+                        tmp_funct3 inside {RISCV_FUNCT3_SUB, RISCV_FUNCT3_SRA};
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                    instr.R.funct3 = tmp_funct3;
+                end else if (instr.R.funct7 == RISCV_FUNCT7_GEN) begin
+                    assert(std::randomize(tmp_funct3) with{
+                        tmp_funct3 inside {RISCV_FUNCT3_ADD, RISCV_FUNCT3_SLL, RISCV_FUNCT3_SLT,RISCV_FUNCT3_SLTU, RISCV_FUNCT3_XOR, RISCV_FUNCT3_SRL, RISCV_FUNCT3_OR, RISCV_FUNCT3_AND};
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                    instr.R.funct3 = tmp_funct3;
+                end else if (instr.R.funct7 == RISCV_FUNCT7_MUL) begin     //MUL and DIV has same funct7
+                    assert(std::randomize(tmp_funct3) with{
+                        tmp_funct3 inside {RISCV_FUNCT3_MUL, RISCV_FUNCT3_DIV};
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                    instr.R.funct3 = tmp_funct3;
+                end
+            end else if (instr.R.op == RISCV_R_SHFT_TYPE_OP_CODE)begin
+                if(instr.R.funct7 == RISCV_FUNCT7_SPEC)begin
+                    instr.R.funct3 = RISCV_FUNCT3_SRAI;
+                end else if (instr.R.funct7 == RISCV_FUNCT7_GEN) begin
+                    assert(std::randomize(tmp_funct3) with{
+                        tmp_funct3 inside {RISCV_FUNCT3_SLLI, RISCV_FUNCT3_SRLI};
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                    instr.R.funct3 = tmp_funct3;
+                end
+            end else if (instr.R.op == RISCV_I_TYPE_OP_CODE)begin
+                assert(std::randomize(tmp_funct3) with{
+                    tmp_funct3 inside {RISCV_FUNCT3_ADDI, RISCV_FUNCT3_SLTI, RISCV_FUNCT3_SLTIU, RISCV_FUNCT3_XORI, RISCV_FUNCT3_ORI, RISCV_FUNCT3_ANDI};
+                }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                instr.R.funct3 = tmp_funct3;
+            end else if (instr.R.op == RISCV_LOAD_OP_CODE) begin
+                assert(std::randomize(tmp_funct3) with{
+                    tmp_funct3 inside {RISCV_FUNCT3_LB, RISCV_FUNCT3_LH, RISCV_FUNCT3_LW, RISCV_FUNCT3_LBU, RISCV_FUNCT3_LHU};
+                }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                instr.R.funct3 = tmp_funct3;
+            end else if (instr.R.op == RISCV_JALR_OP_CODE) begin
+                instr.R.funct3 = RISCV_FUNCT3_JALR;
+            end else if (instr.R.op == RISCV_S_TYPE_OP_CODE) begin
+                assert(std::randomize(tmp_funct3) with{
+                    tmp_funct3 inside {RISCV_FUNCT3_SB, RISCV_FUNCT3_SH, RISCV_FUNCT3_SW};
+                }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                instr.R.funct3 = tmp_funct3;
+            end else if (instr.R.op == RISCV_B_TYPE_OP_CODE) begin
+                assert(std::randomize(tmp_funct3) with{
+                    tmp_funct3 inside {RISCV_FUNCT3_BEQ, RISCV_FUNCT3_BNE, RISCV_FUNCT3_BLT, RISCV_FUNCT3_BGE, RISCV_FUNCT3_BLTU, RISCV_FUNCT3_BGEU};
+                }) else `uvm_fatal(get_name(), "Can't randomize funct3")
+                instr.R.funct3 = tmp_funct3;
+            end
+        endfunction: constraint_funct3
+
+        virtual function void constraint_funct7();
+            riscv_instr_funct7_t tmp_funct7;
+            if (instr.R.op == RISCV_R_TYPE_OP_CODE) begin
+                assert(std::randomize(tmp_funct7) with{
+                    tmp_funct7 inside {RISCV_FUNCT7_GEN, RISCV_FUNCT7_SPEC, RISCV_FUNCT7_MUL, RISCV_FUNCT7_DIV};
+                }) else `uvm_fatal(get_name(), "Can't randomize funct7")
+                instr.R.funct7 = tmp_funct7;
+            end else if (instr.R.op == RISCV_R_SHFT_TYPE_OP_CODE) begin
+                assert(std::randomize(tmp_funct7) with{
+                    tmp_funct7 inside {RISCV_FUNCT7_GEN, RISCV_FUNCT7_SPEC};
+                }) else `uvm_fatal(get_name(), "Can't randomize funct7")
+                instr.R.funct7 = tmp_funct7;
+            end else if (instr.R.op == RISCV_I_TYPE_OP_CODE) begin
+                if (instr.R.funct3 == RISCV_FUNCT3_SLL)begin
+                    instr.R.funct7 = RISCV_FUNCT7_SRL;
+                end else if (instr.R.funct3 == RISCV_FUNCT3_SRL) begin
+                    assert(std::randomize(tmp_funct7) with{
+                        tmp_funct7 inside {RISCV_FUNCT7_SRL, RISCV_FUNCT7_SRA};
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct7")
+                    instr.R.funct7 = tmp_funct7;
+                end
+            end
+
+        endfunction: constraint_funct7
+
+    `endif //VIVADO
 
 endclass: riscv_instr 
 

@@ -700,26 +700,28 @@ class riscv_v_instr extends riscv_instr;
     endfunction: get_v2i_instr
 
 
-    constraint op{
-        instr.V.op == RISCV_V_TYPE_OP_CODE;
-    }
-
-    constraint funct6{
-        
-        instr.V.funct6 inside{
-            RISCV_V_FUNCT6_VADD, RISCV_V_FUNCT6_VREDSUM, RISCV_V_FUNCT6_VREDAND, RISCV_V_FUNCT6_VSUB, RISCV_V_FUNCT6_VREDOR,
-            RISCV_V_FUNCT6_VRSUB, RISCV_V_FUNCT6_VREDXOR, RISCV_V_FUNCT6_VMINU, RISCV_V_FUNCT6_VREDMINU, RISCV_V_FUNCT6_VMIN,
-            RISCV_V_FUNCT6_VREDMIN, RISCV_V_FUNCT6_VMAXU, RISCV_V_FUNCT6_VREDMAXU, RISCV_V_FUNCT6_VMAX, RISCV_V_FUNCT6_VREDMAX,
-            RISCV_V_FUNCT6_VAND, RISCV_V_FUNCT6_VOR, RISCV_V_FUNCT6_VXOR, RISCV_V_FUNCT6_VADC, RISCV_V_FUNCT6_VXUNARY0, RISCV_V_FUNCT6_VSBC,
-            RISCV_V_FUNCT6_VMV, RISCV_V_FUNCT6_VMSEQ, RISCV_V_FUNCT6_VMANDN, RISCV_V_FUNCT6_VMSNE, RISCV_V_FUNCT6_VMAND, RISCV_V_FUNCT6_VMSLTU,
-            RISCV_V_FUNCT6_VMOR, RISCV_V_FUNCT6_VMSLT, RISCV_V_FUNCT6_VMXOR, RISCV_V_FUNCT6_VMSLEU, RISCV_V_FUNCT6_VMORN, RISCV_V_FUNCT6_VMSLE,
-            RISCV_V_FUNCT6_VMNAND, RISCV_V_FUNCT6_VMSGTU, RISCV_V_FUNCT6_VMNOR, RISCV_V_FUNCT6_VMSGT, RISCV_V_FUNCT6_VMXNOR, RISCV_V_FUNCT6_VMULHU,
-            RISCV_V_FUNCT6_VSLL, RISCV_V_FUNCT6_VMUL, RISCV_V_FUNCT6_VMULHSU, RISCV_V_FUNCT6_VSMUL, RISCV_V_FUNCT6_VMULH, RISCV_V_FUNCT6_VSRL, RISCV_V_FUNCT6_VSRA,
-            RISCV_V_FUNCT6_VWXUNARY0, RISCV_V_FUNCT6_VRXUNARY0
-        };
-    }
+    
     
     `ifndef VIVADO
+
+        constraint op{
+            instr.V.op == RISCV_V_TYPE_OP_CODE;
+        }
+
+        constraint funct6{
+            
+            instr.V.funct6 inside{
+                RISCV_V_FUNCT6_VADD, RISCV_V_FUNCT6_VREDSUM, RISCV_V_FUNCT6_VREDAND, RISCV_V_FUNCT6_VSUB, RISCV_V_FUNCT6_VREDOR,
+                RISCV_V_FUNCT6_VRSUB, RISCV_V_FUNCT6_VREDXOR, RISCV_V_FUNCT6_VMINU, RISCV_V_FUNCT6_VREDMINU, RISCV_V_FUNCT6_VMIN,
+                RISCV_V_FUNCT6_VREDMIN, RISCV_V_FUNCT6_VMAXU, RISCV_V_FUNCT6_VREDMAXU, RISCV_V_FUNCT6_VMAX, RISCV_V_FUNCT6_VREDMAX,
+                RISCV_V_FUNCT6_VAND, RISCV_V_FUNCT6_VOR, RISCV_V_FUNCT6_VXOR, RISCV_V_FUNCT6_VADC, RISCV_V_FUNCT6_VXUNARY0, RISCV_V_FUNCT6_VSBC,
+                RISCV_V_FUNCT6_VMV, RISCV_V_FUNCT6_VMSEQ, RISCV_V_FUNCT6_VMANDN, RISCV_V_FUNCT6_VMSNE, RISCV_V_FUNCT6_VMAND, RISCV_V_FUNCT6_VMSLTU,
+                RISCV_V_FUNCT6_VMOR, RISCV_V_FUNCT6_VMSLT, RISCV_V_FUNCT6_VMXOR, RISCV_V_FUNCT6_VMSLEU, RISCV_V_FUNCT6_VMORN, RISCV_V_FUNCT6_VMSLE,
+                RISCV_V_FUNCT6_VMNAND, RISCV_V_FUNCT6_VMSGTU, RISCV_V_FUNCT6_VMNOR, RISCV_V_FUNCT6_VMSGT, RISCV_V_FUNCT6_VMXNOR, RISCV_V_FUNCT6_VMULHU,
+                RISCV_V_FUNCT6_VSLL, RISCV_V_FUNCT6_VMUL, RISCV_V_FUNCT6_VMULHSU, RISCV_V_FUNCT6_VSMUL, RISCV_V_FUNCT6_VMULH, RISCV_V_FUNCT6_VSRL, RISCV_V_FUNCT6_VSRA,
+                RISCV_V_FUNCT6_VWXUNARY0, RISCV_V_FUNCT6_VRXUNARY0
+            };
+        }
 
         constraint funct3{
             if (instr.V.funct6 inside {RISCV_V_FUNCT6_VREDSUM, RISCV_V_FUNCT6_VREDMAX, RISCV_V_FUNCT6_VREDMAXU, RISCV_V_FUNCT6_VREDMIN, RISCV_V_FUNCT6_VREDMINU, RISCV_V_FUNCT6_VREDAND, RISCV_V_FUNCT6_VREDOR, RISCV_V_FUNCT6_VREDXOR,
@@ -758,12 +760,48 @@ class riscv_v_instr extends riscv_instr;
     `else 
 
         function void post_randomize();
-            super.post_randomize();
+            constraint_op();
+            constraint_funct6();
             constraint_funct3();
             constraint_vd();
             constraint_vm();
             constraint_vs1();
         endfunction: post_randomize
+
+        virtual function void constraint_op();
+            instr.V.op = RISCV_V_TYPE_OP_CODE;
+        endfunction: constraint_op 
+
+        virtual function void constraint_funct6();
+            riscv_instr_funct6_t tmp_funct6;
+            $display("hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            if (!(instr.V.funct6 inside{
+                RISCV_V_FUNCT6_VADD, RISCV_V_FUNCT6_VREDSUM, RISCV_V_FUNCT6_VREDAND, RISCV_V_FUNCT6_VSUB, RISCV_V_FUNCT6_VREDOR,
+                RISCV_V_FUNCT6_VRSUB, RISCV_V_FUNCT6_VREDXOR, RISCV_V_FUNCT6_VMINU, RISCV_V_FUNCT6_VREDMINU, RISCV_V_FUNCT6_VMIN,
+                RISCV_V_FUNCT6_VREDMIN, RISCV_V_FUNCT6_VMAXU, RISCV_V_FUNCT6_VREDMAXU, RISCV_V_FUNCT6_VMAX, RISCV_V_FUNCT6_VREDMAX,
+                RISCV_V_FUNCT6_VAND, RISCV_V_FUNCT6_VOR, RISCV_V_FUNCT6_VXOR, RISCV_V_FUNCT6_VADC, RISCV_V_FUNCT6_VXUNARY0, RISCV_V_FUNCT6_VSBC,
+                RISCV_V_FUNCT6_VMV, RISCV_V_FUNCT6_VMSEQ, RISCV_V_FUNCT6_VMANDN, RISCV_V_FUNCT6_VMSNE, RISCV_V_FUNCT6_VMAND, RISCV_V_FUNCT6_VMSLTU,
+                RISCV_V_FUNCT6_VMOR, RISCV_V_FUNCT6_VMSLT, RISCV_V_FUNCT6_VMXOR, RISCV_V_FUNCT6_VMSLEU, RISCV_V_FUNCT6_VMORN, RISCV_V_FUNCT6_VMSLE,
+                RISCV_V_FUNCT6_VMNAND, RISCV_V_FUNCT6_VMSGTU, RISCV_V_FUNCT6_VMNOR, RISCV_V_FUNCT6_VMSGT, RISCV_V_FUNCT6_VMXNOR, RISCV_V_FUNCT6_VMULHU,
+                RISCV_V_FUNCT6_VSLL, RISCV_V_FUNCT6_VMUL, RISCV_V_FUNCT6_VMULHSU, RISCV_V_FUNCT6_VSMUL, RISCV_V_FUNCT6_VMULH, RISCV_V_FUNCT6_VSRL, RISCV_V_FUNCT6_VSRA,
+                RISCV_V_FUNCT6_VWXUNARY0, RISCV_V_FUNCT6_VRXUNARY0}
+            )) begin
+                assert(std::randomize(tmp_funct6) with{
+                    tmp_funct6 inside{
+                        RISCV_V_FUNCT6_VADD, RISCV_V_FUNCT6_VREDSUM, RISCV_V_FUNCT6_VREDAND, RISCV_V_FUNCT6_VSUB, RISCV_V_FUNCT6_VREDOR,
+                        RISCV_V_FUNCT6_VRSUB, RISCV_V_FUNCT6_VREDXOR, RISCV_V_FUNCT6_VMINU, RISCV_V_FUNCT6_VREDMINU, RISCV_V_FUNCT6_VMIN,
+                        RISCV_V_FUNCT6_VREDMIN, RISCV_V_FUNCT6_VMAXU, RISCV_V_FUNCT6_VREDMAXU, RISCV_V_FUNCT6_VMAX, RISCV_V_FUNCT6_VREDMAX,
+                        RISCV_V_FUNCT6_VAND, RISCV_V_FUNCT6_VOR, RISCV_V_FUNCT6_VXOR, RISCV_V_FUNCT6_VADC, RISCV_V_FUNCT6_VXUNARY0, RISCV_V_FUNCT6_VSBC,
+                        RISCV_V_FUNCT6_VMV, RISCV_V_FUNCT6_VMSEQ, RISCV_V_FUNCT6_VMANDN, RISCV_V_FUNCT6_VMSNE, RISCV_V_FUNCT6_VMAND, RISCV_V_FUNCT6_VMSLTU,
+                        RISCV_V_FUNCT6_VMOR, RISCV_V_FUNCT6_VMSLT, RISCV_V_FUNCT6_VMXOR, RISCV_V_FUNCT6_VMSLEU, RISCV_V_FUNCT6_VMORN, RISCV_V_FUNCT6_VMSLE,
+                        RISCV_V_FUNCT6_VMNAND, RISCV_V_FUNCT6_VMSGTU, RISCV_V_FUNCT6_VMNOR, RISCV_V_FUNCT6_VMSGT, RISCV_V_FUNCT6_VMXNOR, RISCV_V_FUNCT6_VMULHU,
+                        RISCV_V_FUNCT6_VSLL, RISCV_V_FUNCT6_VMUL, RISCV_V_FUNCT6_VMULHSU, RISCV_V_FUNCT6_VSMUL, RISCV_V_FUNCT6_VMULH, RISCV_V_FUNCT6_VSRL, RISCV_V_FUNCT6_VSRA,
+                        RISCV_V_FUNCT6_VWXUNARY0, RISCV_V_FUNCT6_VRXUNARY0};
+                    }
+                ) else `uvm_fatal(get_name(), "Can't randomize funct6")
+                instr.V.funct6 = tmp_funct6;
+            end
+        endfunction: constraint_funct6
 
         virtual function void constraint_funct3();
             riscv_instr_funct3_t tmp_funct3;
@@ -772,21 +810,21 @@ class riscv_v_instr extends riscv_instr;
                 if (instr.V.funct3 inside {OPMVX}) begin
                     assert(std::randomize(tmp_funct3) with {
                         !(tmp_funct3 inside {OPMVX});
-                    }) else `uvm_fatal(get_name(), "'Cant randomize funct3")
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
                     instr.V.funct3 = tmp_funct3;
                 end
             end else if (instr.V.funct6 inside {RISCV_V_FUNCT6_VSUB, RISCV_V_FUNCT6_VMSLT, RISCV_V_FUNCT6_VMSLTU, RISCV_V_FUNCT6_VMAX, RISCV_V_FUNCT6_VMAXU, RISCV_V_FUNCT6_VMIN, RISCV_V_FUNCT6_VMINU}) begin
                 if (instr.V.funct3 inside {OPIVI}) begin
                     assert(std::randomize(tmp_funct3) with {
                         !(tmp_funct3 inside {OPIVI});
-                    }) else `uvm_fatal(get_name(), "'Cant randomize funct3")
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
                     instr.V.funct3 = tmp_funct3;
                 end                
             end else if (instr.V.funct6 inside {RISCV_V_FUNCT6_VMSGT, RISCV_V_FUNCT6_VMSGTU}) begin
                 if (instr.V.funct3 inside {OPIVV}) begin
                     assert(std::randomize(tmp_funct3) with {
                         !(tmp_funct3 inside {OPIVV});
-                    }) else `uvm_fatal(get_name(), "'Cant randomize funct3")
+                    }) else `uvm_fatal(get_name(), "Can't randomize funct3")
                     instr.V.funct3 = tmp_funct3;
                 end                 
             end
@@ -797,7 +835,7 @@ class riscv_v_instr extends riscv_instr;
             if ((~instr.V.vm) && (instr.V.vd == 0)) begin
                 assert(std::randomize(tmp_vd ) with {
                     tmp_vd != 0;
-                }) else `uvm_fatal(get_name(), "'Cant randomize Vd")
+                }) else `uvm_fatal(get_name(), "Can't randomize Vd")
                 instr.V.vd = tmp_vd;
             end
         endfunction: constraint_vd
@@ -819,7 +857,7 @@ class riscv_v_instr extends riscv_instr;
                 if (!(instr.V.vs1 inside {5'b00010, 5'b00011, 5'b00100, 5'b00101, 5'b00110, 5'b00111})) begin
                     assert(std::randomize(tmp_vs1 ) with {
                         tmp_vs1 inside {5'b00010, 5'b00011, 5'b00100, 5'b00101, 5'b00110, 5'b00111};
-                    }) else `uvm_fatal(get_name(), "'Cant randomize Vs1")
+                    }) else `uvm_fatal(get_name(), "Can't randomize Vs1")
                     instr.V.vs1 = tmp_vs1;
                 end
             end
