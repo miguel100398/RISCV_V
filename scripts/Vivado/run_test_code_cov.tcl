@@ -13,14 +13,8 @@ puts "Test is $TEST"
 
 #Launch simulation
 cd ${WORK_AREA}/riscv_v.sim/sim_1/behav/xsim/
-file mkdir $TEST
-cd $TEST
 
-if {[file exist xsim.dir]} {
-    file delete -force -- xsim.dir
-}
-file link -symbolic xsim.dir ../xsim.dir
-#xsim ${TB}_behav -key {Behavioral:sim_1:Functional:$tb} -testplusarg UVM_TESTNAME=$TEST -wdb waves -cov_db_dir cov -xsimdir ../xsim.dir  
+
 xsim ${TB}_behav -key {Behavioral:sim_1:Functional:$tb} -testplusarg UVM_TESTNAME=$TEST -wdb waves -cov_db_dir functional_cov -cov_db_name ${TEST}_cov_db
 
 #Get Waves
@@ -50,7 +44,11 @@ if {$CLOSE_WAVES == 1} {
 
 #Copy coverage data bases to Merge coverage folder
 file copy -force ./functional_cov/xsim.covdb/${TEST}_cov_db ${COV_MERGE}/functional/xsim.covdb/
-#file copy -force ../cov/xsim.codeCov/code_cov_db/ ${COV_MERGE}/code/xsim.codeCov/
-#file rename -force ${COV_MERGE}/code/xsim.codeCov/code_cov_db ${COV_MERGE}/code/xsim.codeCov/${TEST}_code_db
+file copy -force ./code_cov/xsim.codeCov/code_cov_db/ ${COV_MERGE}/code/xsim.codeCov/
+file rename -force ${COV_MERGE}/code/xsim.codeCov/code_cov_db ${COV_MERGE}/code/xsim.codeCov/${TEST}_code_db
+
+#Delete files to force recompilation needed to generate new code coverage data base
+file delete -force ./code_cov/
+file delete -force ./xsim.dir
 
 cd $WORK_AREA

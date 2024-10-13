@@ -1,5 +1,6 @@
 #Set work area
 set WORK_AREA D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/Vivado
+set COV_MERGE D:/migue/Documents/Maestria/IDI/RISCV_V_HDL/Vivado/cov_merge/
 
 set DUTS {riscv_v_tb}
 
@@ -10,7 +11,33 @@ set riscv_v_tb_tests {riscv_v_cpu_vadc_test riscv_v_cpu_vadd_test riscv_v_cpu_vm
                       riscv_v_cpu_vmxor_test riscv_v_cpu_vmxnor_test riscv_v_cpu_vredand_test riscv_v_cpu_vredor_test riscv_v_cpu_vredxor_test riscv_v_cpu_vsll_test riscv_v_cpu_vsrl_test riscv_v_cpu_vsra_test
                       riscv_v_cpu_i2v_test riscv_v_cpu_v2i_test}
 
+#set riscv_v_tb_tests {riscv_v_cpu_v2i_test riscv_v_cpu_vadc_test}
+
 set WAVES 0
 set CLOSE_WAVES 1
+set CODE_COVERAGE 1
 
 cd $WORK_AREA
+
+if {[file exist cov_merge]} {
+    file delete -force -- cov_merge
+}
+
+if {[file exist cov_reports]} {
+    file delete -force -- cov_reports
+}
+
+
+file mkdir cov_merge
+file mkdir cov_merge/functional
+file mkdir cov_merge/functional/xsim.covdb/ 
+if {$CODE_COVERAGE == 1} {
+    file mkdir cov_merge/code
+    file mkdir cov_merge/code/xsim.codeCov
+}
+
+file mkdir cov_reports 
+file mkdir cov_reports/functional
+if {$CODE_COVERAGE == 1} {
+    file mkdir cov_reports/code
+}
