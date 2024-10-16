@@ -277,10 +277,16 @@ covergroup instruction_cg @(posedge clk);
     }
 
 
-    cp_vec_ops_len: cross cp_vec_funct6, cp_len;
+    cp_vec_ops_len: cross cp_vec_funct6, cp_len{
+        ignore_bins ignore_vredand = binsof(cp_vec_funct6.VREDAND) && binsof(cp_len.len_less_start);
+        ignore_bins ignore_vredxor = binsof(cp_vec_funct6.VREDXOR) && binsof(cp_len.len_less_start);
+    }
 
 
-    cp_vec_ops_start: cross cp_vec_funct6, cp_start;
+    cp_vec_ops_start: cross cp_vec_funct6, cp_start{
+        ignore_bins ignore_vredand = binsof(cp_vec_funct6.VREDAND) && !binsof(cp_start.start_0);
+        ignore_bins ignore_vredxor = binsof(cp_vec_funct6.VREDXOR) && !binsof(cp_start.start_0);
+    }
 
 
 endgroup: instruction_cg
