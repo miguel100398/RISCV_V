@@ -26,7 +26,6 @@ class riscv_rf_cov extends riscv_v_base_cov#(
 
         cp_wr_en: coverpoint txn_in.wr_en {
             bins wr_enable = {1'b1};
-            bins wr_disable = {1'b0};
         }
 
         cp_wr_addr_en: coverpoint txn_in.addr {

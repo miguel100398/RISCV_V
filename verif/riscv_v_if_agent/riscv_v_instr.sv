@@ -774,7 +774,6 @@ class riscv_v_instr extends riscv_instr;
 
         virtual function void constraint_funct6();
             riscv_instr_funct6_t tmp_funct6;
-            $display("hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             if (!(instr.V.funct6 inside{
                 RISCV_V_FUNCT6_VADD, RISCV_V_FUNCT6_VREDSUM, RISCV_V_FUNCT6_VREDAND, RISCV_V_FUNCT6_VSUB, RISCV_V_FUNCT6_VREDOR,
                 RISCV_V_FUNCT6_VRSUB, RISCV_V_FUNCT6_VREDXOR, RISCV_V_FUNCT6_VMINU, RISCV_V_FUNCT6_VREDMINU, RISCV_V_FUNCT6_VMIN,

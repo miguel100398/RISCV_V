@@ -29,13 +29,13 @@ class riscv_v_if_cov extends riscv_v_base_cov#(
 
         cp_vec_funct3: coverpoint txn_out.instruction.V.funct3 iff (txn_out.instruction.V.op == RISCV_V_TYPE_OP_CODE){
             bins OPIVV = {OPIVV};
-            bins OPFVV = {OPFVV};
+            //<Exclude Coverage>bins OPFVV = {OPFVV};
             bins OPMVV = {OPMVV};
             bins OPIVI = {OPIVI};
             bins OPIVX = {OPIVX};
-            bins OPFVF = {OPFVF};
+            //<Exclude Coverage>bins OPFVF = {OPFVF};
             bins OPMVX = {OPMVX};
-            bins OPCFG = {OPCFG};
+            //<Exclude Coverage>bins OPCFG = {OPCFG};
         }
 
         cp_vec_vs1: coverpoint txn_out.instruction.V.vs1 iff (txn_out.instruction.V.op == RISCV_V_TYPE_OP_CODE){
@@ -150,10 +150,10 @@ class riscv_v_if_cov extends riscv_v_base_cov#(
             ignore_bins VMSLEU_ignore       = binsof(cp_vec_funct6.VMSLEU)      && !(binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX) || binsof(cp_vec_funct3.OPIVI));
             //bins VMSLE                      = binsof(cp_vec_funct6.VMSLE)       &&  (binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX) || binsof(cp_vec_funct3.OPIVI));
             ignore_bins VMSLE_ignore        = binsof(cp_vec_funct6.VMSLE)       && !(binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX) || binsof(cp_vec_funct3.OPIVI));
-            //bins VMSGTU                     = binsof(cp_vec_funct6.VMSGTU)      &&  (binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));
-            ignore_bins VMSGTU_ignore       = binsof(cp_vec_funct6.VMSGTU)      && !(binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));
-            //bins VMSGT                      = binsof(cp_vec_funct6.VMSGT)       &&  (binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));
-            ignore_bins VMSGT_ignore        = binsof(cp_vec_funct6.VMSGT)       && !(binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));
+            //bins VMSGTU                     = binsof(cp_vec_funct6.VMSGTU)      &&  (binsof(cp_vec_funct3.OPIVI) || binsof(cp_vec_funct3.OPIVX));
+            ignore_bins VMSGTU_ignore       = binsof(cp_vec_funct6.VMSGTU)      && !(binsof(cp_vec_funct3.OPIVI) || binsof(cp_vec_funct3.OPIVX));
+            //bins VMSGT                      = binsof(cp_vec_funct6.VMSGT)       &&  (binsof(cp_vec_funct3.OPIVI) || binsof(cp_vec_funct3.OPIVX));
+            ignore_bins VMSGT_ignore        = binsof(cp_vec_funct6.VMSGT)       && !(binsof(cp_vec_funct3.OPIVI) || binsof(cp_vec_funct3.OPIVX));
             //bins VMINU                      = binsof(cp_vec_funct6.VMINU)       &&  (binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));
             ignore_bins VMINU_ignore        = binsof(cp_vec_funct6.VMINU)       && !(binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));
             //bins VMIN                       = binsof(cp_vec_funct6.VMIN)        &&  (binsof(cp_vec_funct3.OPIVV) || binsof(cp_vec_funct3.OPIVX));

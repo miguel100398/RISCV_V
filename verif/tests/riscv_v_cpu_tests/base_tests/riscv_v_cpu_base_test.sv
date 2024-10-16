@@ -201,13 +201,13 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
                                 int max_value_vstart = (2**$bits(tmp_vstart))-1;
                                 assert (
                                     std::randomize(tmp_vstart) with{
-                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:max_value_vstart] :/ 5};
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, RISCV_V_NUM_ELEMENTS_REG :/ 1, [RISCV_V_NUM_ELEMENTS_REG+1:max_value_vstart] :/ 4};
                                     }
                                 ) else `uvm_fatal(get_name(), "Can't randomize vstart")
                             `else 
                                 assert (
                                     std::randomize(tmp_vstart) with{
-                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, RISCV_V_NUM_ELEMENTS_REG :/ 1, [RISCV_V_NUM_ELEMENTS_REG+1:$] :/ 4};
                                     }
                                 ) else `uvm_fatal(get_name(), "Can't randomize vstart")
                             `endif //VIVADO
@@ -252,13 +252,13 @@ virtual class riscv_v_cpu_base_test extends riscv_v_base_test;
                                 int max_value_vstart = (2**$bits(tmp_vstart))-1;
                                 assert (
                                     std::randomize(tmp_vstart) with{
-                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:max_value_vstart] :/ 5};
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, RISCV_V_NUM_ELEMENTS_REG :/ 1, [RISCV_V_NUM_ELEMENTS_REG+1:max_value_vstart] :/ 4};
                                     }
                                 ) else `uvm_fatal(get_name(), "Can't randomize vstart")
                             `else 
                                 assert (
                                     std::randomize(tmp_vstart) with{
-                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, [RISCV_V_NUM_ELEMENTS_REG:$] :/ 5};
+                                        tmp_vstart dist{0 :/ 80, [0:RISCV_V_NUM_ELEMENTS_REG-1] :/ 15, RISCV_V_NUM_ELEMENTS_REG :/ 1, [RISCV_V_NUM_ELEMENTS_REG+1:$] :/ 4};
                                     }
                                 ) else `uvm_fatal(get_name(), "Can't randomize vstart")
                             `endif ///VIVADO

@@ -107,6 +107,25 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             bins len_greater_16 = {[17:$]};
         }
 
+        cp_mask_valid: coverpoint logic_in_txn.mask_result_valid{
+            wildcard bins mask_valid_0  = {16'b????_????_????_???1};
+            wildcard bins mask_valid_1  = {16'b????_????_????_??1?};
+            wildcard bins mask_valid_2  = {16'b????_????_????_?1??};
+            wildcard bins mask_valid_3  = {16'b????_????_????_1???};
+            wildcard bins mask_valid_4  = {16'b????_????_???1_????};
+            wildcard bins mask_valid_5  = {16'b????_????_??1?_????};
+            wildcard bins mask_valid_6  = {16'b????_????_?1??_????};
+            wildcard bins mask_valid_7  = {16'b????_????_1???_????};
+            wildcard bins mask_valid_8  = {16'b????_???1_????_????};
+            wildcard bins mask_valid_9  = {16'b????_??1?_????_????};
+            wildcard bins mask_valid_10 = {16'b????_?1??_????_????};
+            wildcard bins mask_valid_11 = {16'b????_1???_????_????};
+            wildcard bins mask_valid_12 = {16'b???1_????_????_????};
+            wildcard bins mask_valid_13 = {16'b??1?_????_????_????};
+            wildcard bins mask_valid_14 = {16'b?1??_????_????_????};
+            wildcard bins mask_valid_15 = {16'b1???_????_????_????};
+        }
+
         cp_is_reduct: coverpoint logic_in_txn.is_reduct{
             bins is_reduct = {1'b1};
         }
@@ -139,51 +158,106 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             bins is_arith = {1'b1};
         }
 
-        cp_op_VAND: coverpoint logic_in_txn.is_and{
+        cp_is_negate_result: coverpoint logic_in_txn.is_negate_result{
+            bins is_negate_result = {1'b1};
+        }
+
+        cp_is_negate_srca: coverpoint logic_in_txn.is_negate_srca{
+            bins is_negate_srca = {1'b1};
+        }
+
+        cp_op_VAND: coverpoint (logic_in_txn.is_and && ~logic_in_txn.is_mask && ~logic_in_txn.is_reduct){
             bins op_VAND = {1'b1};
         }
 
-        cp_op_VREDAND: coverpoint (logic_in_txn.is_and && logic_in_txn.is_reduct){
+        cp_op_VREDAND: coverpoint (logic_in_txn.is_and && logic_in_txn.is_reduct && ~logic_in_txn.is_mask){
             bins op_VREDAND = {1'b1};
         }
 
-        cp_op_VOR: coverpoint logic_in_txn.is_or{
+        cp_op_VOR: coverpoint (logic_in_txn.is_or && ~logic_in_txn.is_mask && ~logic_in_txn.is_reduct){
             bins op_VOR = {1'b1};
         }
 
-        cp_op_VREDOR: coverpoint (logic_in_txn.is_or && logic_in_txn.is_reduct){
+        cp_op_VREDOR: coverpoint (logic_in_txn.is_or && logic_in_txn.is_reduct && ~logic_in_txn.is_mask){
             bins op_VREDOR = {1'b1};
         }
 
-        cp_op_VXOR: coverpoint logic_in_txn.is_xor{
+        cp_op_VXOR: coverpoint (logic_in_txn.is_xor && ~logic_in_txn.is_mask && ~logic_in_txn.is_reduct){
             bins op_VXOR = {1'b1};
         }
 
-        cp_op_VREDXOR: coverpoint (logic_in_txn.is_xor && logic_in_txn.is_reduct){
+        cp_op_VREDXOR: coverpoint (logic_in_txn.is_xor && logic_in_txn.is_reduct && ~logic_in_txn.is_mask){
             bins op_VREDXOR = {1'b1};
         }
 
-        cp_op_VSLL: coverpoint(logic_in_txn.is_shift && logic_in_txn.is_left){
+        cp_op_VSLL: coverpoint(logic_in_txn.is_shift && logic_in_txn.is_left && ~logic_in_txn.is_reduct){
             bins op_VSLL = {1'b1};
         }
 
-        cp_op_VSRL: coverpoint(logic_in_txn.is_shift){
+        cp_op_VSRL: coverpoint(logic_in_txn.is_shift && ~logic_in_txn.is_reduct){
             bins op_VSRL = {1'b1};
         }
 
-        cp_op_VSRA: coverpoint(logic_in_txn.is_shift && logic_in_txn.is_arith){
+        cp_op_VSRA: coverpoint(logic_in_txn.is_shift && logic_in_txn.is_arith && ~logic_in_txn.is_reduct){
             bins op_VSRA = {1'b1};
         }
 
+        cp_op_VMAND: coverpoint(logic_in_txn.is_and && logic_in_txn.is_mask && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_result && ~logic_in_txn.is_negate_srca){
+            bins op_VMAND = {1'b1};
+        }
+
+        cp_op_VMNAND: coverpoint(logic_in_txn.is_and && logic_in_txn.is_mask && logic_in_txn.is_negate_result && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_srca){
+            bins op_VMNAND = {1'b1};
+        }
+
+        cp_op_VMANDN: coverpoint(logic_in_txn.is_and && logic_in_txn.is_mask && logic_in_txn.is_negate_srca && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_result){
+            bins op_VMANDN = {1'b1};
+        }
+
+        cp_op_VMOR: coverpoint(logic_in_txn.is_or && logic_in_txn.is_mask && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_result && ~logic_in_txn.is_negate_srca){
+            bins op_VMOR = {1'b1};
+        }
+
+        cp_op_VMNOR: coverpoint(logic_in_txn.is_or && logic_in_txn.is_mask && logic_in_txn.is_negate_result && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_srca){
+            bins op_VMNOR = {1'b1};
+        }
+
+        cp_op_VMORN: coverpoint(logic_in_txn.is_or && logic_in_txn.is_mask && logic_in_txn.is_negate_srca && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_result){
+            bins op_VMORN = {1'b1};
+        }
+
+        cp_op_VMXOR: coverpoint(logic_in_txn.is_xor && logic_in_txn.is_mask && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_result && ~logic_in_txn.is_negate_srca){
+            bins op_VMXOR = {1'b1};
+        }
+
+
+        cp_op_VMXNOR: coverpoint(logic_in_txn.is_xor && logic_in_txn.is_mask && logic_in_txn.is_negate_result && ~logic_in_txn.is_reduct && ~logic_in_txn.is_negate_srca){
+            bins op_VMXNOR = {1'b1};
+        }
+
         cp_VAND_osize_len:      cross cp_op_VAND, cp_osize, cp_len;
-        cp_VREDAND_osize_len:   cross cp_op_VREDAND, cp_osize, cp_len;
+        cp_VREDAND_osize_len:   cross cp_op_VREDAND, cp_osize, cp_len {
+            illegal_bins VREDAND_128 = binsof(cp_op_VREDAND.op_VREDAND) && binsof(cp_osize.OSIZE_128);
+        }
         cp_VOR_osize_len:       cross cp_op_VOR, cp_osize, cp_len;
-        cp_VREDOR_osize_len:    cross cp_op_VREDOR, cp_osize, cp_len;
+        cp_VREDOR_osize_len:    cross cp_op_VREDOR, cp_osize, cp_len {
+            illegal_bins VREDOR_128 = binsof(cp_op_VREDOR.op_VREDOR) && binsof(cp_osize.OSIZE_128);
+        }
         cp_VXOR_osize_len:      cross cp_op_VXOR, cp_osize, cp_len;
-        cp_VREDXOR_osize_len:   cross cp_op_VREDXOR, cp_osize, cp_len;
+        cp_VREDXOR_osize_len:   cross cp_op_VREDXOR, cp_osize, cp_len {
+            illegal_bins VREDXOR_128 = binsof(cp_op_VREDXOR.op_VREDXOR) && binsof(cp_osize.OSIZE_128);
+        }
         cp_VSLL_osize_len:      cross cp_op_VSLL, cp_osize, cp_len;
         cp_VSRL_osize_len:      cross cp_op_VSRL, cp_osize, cp_len;
         cp_VSRA_osize_len:      cross cp_op_VSRA, cp_osize, cp_len;
+        cp_VMAND_mask_valid:    cross cp_op_VMAND, cp_mask_valid;
+        cp_VMNAND_mask_valid:    cross cp_op_VMNAND, cp_mask_valid;
+        cp_VMANDN_mask_valid:    cross cp_op_VMANDN, cp_mask_valid;
+        cp_VMOR_mask_valid:      cross cp_op_VMOR, cp_mask_valid;
+        cp_VMNOR_mask_valid:     cross cp_op_VMNOR, cp_mask_valid;
+        cp_VMORN_mask_valid:     cross cp_op_VMORN, cp_mask_valid;
+        cp_VMXOR_mask_valid:     cross cp_op_VMXOR, cp_mask_valid;
+        cp_VMXNOR_mask_valid:    cross cp_op_VMXNOR, cp_mask_valid;
 
     endgroup: cg_logic
 
@@ -259,19 +333,17 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
         }
 
         cp_src_osize: coverpoint arithmetic_in_txn.src_osize_vector iff(arithmetic_in_txn.is_zero_ext || arithmetic_in_txn.is_sign_ext){
-            bins OSIZE_8   = {5'b00001};
-            bins OSIZE_16  = {5'b00010};
-            bins OSIZE_32  = {5'b00100};
-            bins OSIZE_64  = {5'b01000};
-            bins OSIZE_128 = {5'b10000};
+            bins OSIZE_8           = {5'b00001};
+            bins OSIZE_16          = {5'b00010};
+            bins OSIZE_32          = {5'b00100};
+            bins OSIZE_64          = {5'b01000};
         }
 
         cp_dst_osize: coverpoint arithmetic_in_txn.dst_osize_vector iff(arithmetic_in_txn.is_zero_ext || arithmetic_in_txn.is_sign_ext){
-            bins OSIZE_8   = {5'b00001};
-            bins OSIZE_16  = {5'b00010};
-            bins OSIZE_32  = {5'b00100};
-            bins OSIZE_64  = {5'b01000};
-            bins OSIZE_128 = {5'b10000};
+            bins OSIZE_16          = {5'b00010};
+            bins OSIZE_32          = {5'b00100};
+            bins OSIZE_64          = {5'b01000};
+            bins OSIZE_128         = {5'b10000};
         }
 
         cp_len: coverpoint arithmetic_in_txn.len{
@@ -374,11 +446,11 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             wildcard bins carry_in_15 = {16'b1???_????_????_????};
         }
 
-        cp_op_VADC: coverpoint (arithmetic_in_txn.is_add && arithmetic_in_txn.is_signed && arithmetic_in_txn.use_carry){
+        cp_op_VADC: coverpoint (arithmetic_in_txn.is_add && arithmetic_in_txn.is_signed && arithmetic_in_txn.use_carry && ~arithmetic_in_txn.is_reduct){
             bins op_VADC = {1'b1};
         }
 
-        cp_op_VADD: coverpoint(arithmetic_in_txn.is_add && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_reduct){
+        cp_op_VADD: coverpoint(arithmetic_in_txn.is_add && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_reduct && ~arithmetic_in_txn.use_carry){
             bins op_VADD = {1'b1};
         }
 
@@ -386,17 +458,22 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             bins op_VREDADD = {1'b1};
         }
 
-        cp_op_VSUBB: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && arithmetic_in_txn.use_carry){
+        cp_op_VSUBB: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && arithmetic_in_txn.use_carry && ~arithmetic_in_txn.is_reduct && ~arithmetic_in_txn.is_min && ~arithmetic_in_txn.is_max 
+                               && ~arithmetic_in_txn.is_set_equal && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_greater){
             bins op_VSUBB = {1'b1};
         }
 
-        cp_op_VSUB: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_reduct){
+        cp_op_VSUB: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_reduct && ~arithmetic_in_txn.use_carry && ~arithmetic_in_txn.is_min && ~arithmetic_in_txn.is_max 
+                               && ~arithmetic_in_txn.is_set_equal && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_greater){
             bins op_VSUB = {1'b1};
         }
-
-        cp_op_VREDSUB: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && arithmetic_in_txn.is_reduct){
-            bins op_VREDSUB = {1'b1};
-        }
+        
+        `ifdef RISCV_V_ALU_TOP
+            cp_op_VREDSUB: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && arithmetic_in_txn.is_reduct && ~arithmetic_in_txn.is_min && ~arithmetic_in_txn.is_max 
+                                      && ~arithmetic_in_txn.is_set_equal && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_greater){
+                bins op_VREDSUB = {1'b1};
+            }
+        `endif //RISCV_V_ALU_TOP
 
         cp_op_VMINS: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_signed && arithmetic_in_txn.is_min && ~arithmetic_in_txn.is_reduct){
             bins op_VMINS = {1'b1};
@@ -430,35 +507,35 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             bins op_VREDMAXU = {1'b1};
         }
 
-        cp_op_VSEQ: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_equal){
+        cp_op_VSEQ: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_equal && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_set_nequal){
             bins op_VSEQ = {1'b1};
         }
 
-        cp_op_VSNEQ: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_nequal){
+        cp_op_VSNEQ: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_set_equal){
             bins op_VNSEQ = {1'b1};
         }
 
-        cp_op_VSLE: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_equal && arithmetic_in_txn.is_set_less && arithmetic_in_txn.is_signed){
+        cp_op_VSLE: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_equal && arithmetic_in_txn.is_set_less && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_set_nequal){
             bins op_VSLE = {1'b1};
         }
 
-        cp_op_VSLEU: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_equal && arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_signed){
+        cp_op_VSLEU: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_equal && arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_set_nequal){
             bins op_VSLEU = {1'b1};
         }
 
-        cp_op_VSLT: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_less && arithmetic_in_txn.is_signed){
+        cp_op_VSLT: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_less && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_equal){
             bins op_VSLT = {1'b1};
         }
 
-        cp_op_VSLTU: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_signed){
+        cp_op_VSLTU: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_equal){
             bins op_VSLTU = {1'b1};
         }
 
-        cp_op_VSGT: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_greater && arithmetic_in_txn.is_signed){
+        cp_op_VSGT: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_greater && arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_equal){
             bins op_VSGT = {1'b1};
         }
 
-        cp_op_VSGTU: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_signed){
+        cp_op_VSGTU: coverpoint(arithmetic_in_txn.is_sub && arithmetic_in_txn.is_set_greater && ~arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_set_less && ~arithmetic_in_txn.is_set_nequal && ~arithmetic_in_txn.is_set_equal){
             bins op_VSGTU = {1'b1};
         }
 
@@ -470,9 +547,11 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             bins op_VMULHS = {1'b1};
         }
 
-        cp_op_VMULLU: coverpoint(arithmetic_in_txn.is_mul && ~arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_high){
-            bins op_VMULLU = {1'b1};
-        }
+        `ifdef RISCV_V_ALU_TOP
+            cp_op_VMULLU: coverpoint(arithmetic_in_txn.is_mul && ~arithmetic_in_txn.is_signed && ~arithmetic_in_txn.is_high){
+                bins op_VMULLU = {1'b1};
+            }
+        `endif //RISCV_V_ALU_TOP
 
         cp_op_VMULHU: coverpoint(arithmetic_in_txn.is_mul && ~arithmetic_in_txn.is_signed && arithmetic_in_txn.is_high){
             bins op_VMULHU = {1'b1};
@@ -488,18 +567,32 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
 
         cp_VADC_osize_len:      cross cp_op_VADC, cp_osize, cp_len;
         cp_VADD_osize_len:      cross cp_op_VADD, cp_osize, cp_len;
-        cp_VREDADD_osize_len:   cross cp_op_VREDADD, cp_osize, cp_len;
+        cp_VREDADD_osize_len:   cross cp_op_VREDADD, cp_osize, cp_len{
+            illegal_bins VREDADD_128 = binsof(cp_op_VREDADD.op_VREDADD) && binsof(cp_osize.OSIZE_128);
+        }
         cp_VSUBB_osize_len:     cross cp_op_VSUBB, cp_osize, cp_len;
         cp_VSUB_osize_len:      cross cp_op_VSUB, cp_osize, cp_len;
-        cp_VREDSUB_osize_len:   cross cp_op_VREDSUB, cp_osize, cp_len;
+        `ifdef RISCV_V_ALU_TOP
+            cp_VREDSUB_osize_len:   cross cp_op_VREDSUB, cp_osize, cp_len{
+                illegal_bins VREDSUB_128 = binsof(cp_op_VREDSUB.op_VREDSUB) && binsof(cp_osize.OSIZE_128);
+            }
+        `endif //RISCV_V_ALU_TOP
         cp_VMINS_osize_len:     cross cp_op_VMINS, cp_osize, cp_len;
         cp_VMINU_osize_len:     cross cp_op_VMINU, cp_osize, cp_len;
-        cp_VREDMINS_osize_len:  cross cp_op_VREDMINS, cp_osize, cp_len;
-        cp_VREDMINU_osize_len:  cross cp_op_VREDMINU, cp_osize, cp_len;
+        cp_VREDMINS_osize_len:  cross cp_op_VREDMINS, cp_osize, cp_len {
+            illegal_bins VREDMINS_128 = binsof(cp_op_VREDMINS.op_VREDMINS) && binsof(cp_osize.OSIZE_128);
+        }
+        cp_VREDMINU_osize_len:  cross cp_op_VREDMINU, cp_osize, cp_len {
+            illegal_bins VREDMINU_128 = binsof(cp_op_VREDMINU.op_VREDMINU) && binsof(cp_osize.OSIZE_128);
+        }
         cp_VMAXS_osize_len:     cross cp_op_VMAXS, cp_osize, cp_len;
         cp_VMAXU_osize_len:     cross cp_op_VMAXU, cp_osize, cp_len;
-        cp_VREDMAXS_osize_len:  cross cp_op_VREDMAXS, cp_osize, cp_len;
-        cp_VREDMAXU_osize_len:  cross cp_op_VREDMAXU, cp_osize, cp_len;
+        cp_VREDMAXS_osize_len:  cross cp_op_VREDMAXS, cp_osize, cp_len {
+            illegal_bins VREDMAXS_128 = binsof(cp_op_VREDMAXS.op_VREDMAXS) && binsof(cp_osize.OSIZE_128);
+        }
+        cp_VREDMAXU_osize_len:  cross cp_op_VREDMAXU, cp_osize, cp_len {
+            illegal_bins VREDMAXU_128 = binsof(cp_op_VREDMAXU.op_VREDMAXU) && binsof(cp_osize.OSIZE_128);
+        }
         cp_VSEQ_osize_len:      cross cp_op_VSEQ, cp_osize, cp_len;
         cp_VSNEQ_osize_len:     cross cp_op_VSNEQ, cp_osize, cp_len;
         cp_VSLE_osize_len:      cross cp_op_VSLE, cp_osize, cp_len;
@@ -508,23 +601,21 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
         cp_VSGTU_osize_len:     cross cp_op_VSGTU, cp_osize, cp_len;
         cp_VMULLS_osize_len:    cross cp_op_VMULLS, cp_osize, cp_len;
         cp_VMULHS_osize_len:    cross cp_op_VMULHS, cp_osize, cp_len;
-        cp_VMULLU_osize_len:    cross cp_op_VMULLU, cp_osize, cp_len;
+        `ifdef RISCV_V_ALU_TOP
+            cp_VMULLU_osize_len:    cross cp_op_VMULLU, cp_osize, cp_len;
+        `endif //RISCV_V_ALU_TOP
         cp_VMULHU_osize_len:    cross cp_op_VMULHU, cp_osize, cp_len;
         cp_VZEXT_osize_len:     cross cp_op_VZEXT, cp_src_osize, cp_dst_osize, cp_len{
             illegal_bins cross_VZEXT_illegal_dst0 = binsof(cp_src_osize.OSIZE_8)   && binsof(cp_dst_osize.OSIZE_128);
-            illegal_bins cross_VZEXT_illegal_dst1 = binsof(cp_dst_osize.OSIZE_8);
-            illegal_bins cross_VZEXT_illegal_src0 = binsof(cp_dst_osize.OSIZE_16)  && (binsof(cp_src_osize.OSIZE_16) ||  binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64) ||  binsof(cp_src_osize.OSIZE_128));
-            illegal_bins cross_VZEXT_illegal_src1 = binsof(cp_dst_osize.OSIZE_32)  && (binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64) ||  binsof(cp_src_osize.OSIZE_128));
-            illegal_bins cross_VZEXT_illegal_src2 = binsof(cp_dst_osize.OSIZE_64)  && (binsof(cp_src_osize.OSIZE_64) ||  binsof(cp_src_osize.OSIZE_128));
-            illegal_bins cross_VZEXT_illegal_src3 = binsof(cp_dst_osize.OSIZE_128) && (binsof(cp_src_osize.OSIZE_128));
+            illegal_bins cross_VZEXT_illegal_src0 = binsof(cp_dst_osize.OSIZE_16)  && (binsof(cp_src_osize.OSIZE_16) ||  binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64));
+            illegal_bins cross_VZEXT_illegal_src1 = binsof(cp_dst_osize.OSIZE_32)  && (binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64));
+            illegal_bins cross_VZEXT_illegal_src2 = binsof(cp_dst_osize.OSIZE_64)  && (binsof(cp_src_osize.OSIZE_64));
         }
         cp_VSEXT_osize_len: cross cp_op_VSEXT, cp_src_osize, cp_dst_osize, cp_len{
             illegal_bins cross_VZEXT_illegal_dst0 = binsof(cp_src_osize.OSIZE_8)   && binsof(cp_dst_osize.OSIZE_128);
-            illegal_bins cross_VZEXT_illegal_dst1 = binsof(cp_dst_osize.OSIZE_8);
-            illegal_bins cross_VZEXT_illegal_src0 = binsof(cp_dst_osize.OSIZE_16)  && (binsof(cp_src_osize.OSIZE_16) ||  binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64) ||  binsof(cp_src_osize.OSIZE_128));
-            illegal_bins cross_VZEXT_illegal_src1 = binsof(cp_dst_osize.OSIZE_32)  && (binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64) ||  binsof(cp_src_osize.OSIZE_128));
-            illegal_bins cross_VZEXT_illegal_src2 = binsof(cp_dst_osize.OSIZE_64)  && (binsof(cp_src_osize.OSIZE_64) ||  binsof(cp_src_osize.OSIZE_128));
-            illegal_bins cross_VZEXT_illegal_src3 = binsof(cp_dst_osize.OSIZE_128) && (binsof(cp_src_osize.OSIZE_128));
+            illegal_bins cross_VZEXT_illegal_src0 = binsof(cp_dst_osize.OSIZE_16)  && (binsof(cp_src_osize.OSIZE_16) ||  binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64));
+            illegal_bins cross_VZEXT_illegal_src1 = binsof(cp_dst_osize.OSIZE_32)  && (binsof(cp_src_osize.OSIZE_32) ||  binsof(cp_src_osize.OSIZE_64));
+            illegal_bins cross_VZEXT_illegal_src2 = binsof(cp_dst_osize.OSIZE_64)  && (binsof(cp_src_osize.OSIZE_64));
         }
 
     endgroup: cg_arithmetic
@@ -598,27 +689,6 @@ class riscv_v_alu_cov extends riscv_v_base_cov#(
             bins OSIZE_32  = {OSIZE_32};
             bins OSIZE_64  = {OSIZE_64};
             bins OSIZE_128 = {OSIZE_128};
-        }
-
-        cp_len: coverpoint permutation_in_txn.len{
-            bins len_0  = {0};
-            illegal_bins len_1  = {1};
-            illegal_bins len_2  = {2};
-            illegal_bins len_3  = {3};
-            illegal_bins len_4  = {4};
-            illegal_bins len_5  = {5};
-            illegal_bins len_6  = {6};
-            illegal_bins len_7  = {7};
-            illegal_bins len_8  = {8};
-            illegal_bins len_9  = {9};
-            illegal_bins len_10 = {10};
-            illegal_bins len_11 = {11};
-            illegal_bins len_12 = {12};
-            illegal_bins len_13 = {13};
-            illegal_bins len_14 = {14};
-            illegal_bins len_15 = {15};
-            illegal_bins len_16 = {16};
-            illegal_bins len_greater_16 = {[17:$]};
         }
 
         cp_is_i2v: coverpoint permutation_in_txn.is_i2v{

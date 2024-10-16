@@ -101,6 +101,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
             logic_in_txn.is_shift   = logic_vif.cb_mon.is_shift;
             logic_in_txn.is_left    = logic_vif.cb_mon.is_left;
             logic_in_txn.is_arith   = logic_vif.cb_mon.is_arith;
+            logic_in_txn.is_negate_srca = logic_vif.cb_mon.is_negate_srca;
+            logic_in_txn.is_negate_result = logic_vif.cb_mon.is_negate_result;
+            logic_in_txn.mask_result_valid = logic_vif.cb_mon.mask_result_valid;
 
             rtl_in_ap.write(logic_in_txn);
         end
@@ -298,16 +301,24 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
 
     virtual function riscv_v_opcode_e get_logic_opcode();
         unique case(3'b111)
-            {1'b1,                      logic_vif.cb_mon.is_reduct,  (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask)} : return BW_AND_REDUCT;
-            {1'b1,                      ~logic_vif.cb_mon.is_reduct, (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask)} : return BW_AND;
-            {1'b1,                      logic_vif.cb_mon.is_reduct,  (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask)} : return BW_OR_REDUCT;
-            {1'b1,                      ~logic_vif.cb_mon.is_reduct, (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask)} : return BW_OR;
-            {1'b1,                      logic_vif.cb_mon.is_reduct,  (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask)} : return BW_XOR_REDUCT;
-            {1'b1,                      ~logic_vif.cb_mon.is_reduct, (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask)} : return BW_XOR;
-            {logic_vif.cb_mon.is_shift, logic_vif.cb_mon.is_left,    1'b1}                                                  : return SLL;
-            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   ~logic_vif.cb_mon.is_arith}                            : return SRL;
-            {logic_vif.cb_mon.is_shift, ~logic_vif.cb_mon.is_left,   logic_vif.cb_mon.is_arith}                             : return SRA;
-            default                                                                                                         : return NOP;
+            {1'b1,                                   logic_vif.cb_mon.is_reduct,          (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask)} : return BW_AND_REDUCT;
+            {1'b1,                                   ~logic_vif.cb_mon.is_reduct,         (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask)} : return BW_AND;
+            {1'b1,                                   logic_vif.cb_mon.is_reduct,          (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask)} : return BW_OR_REDUCT;
+            {1'b1,                                   ~logic_vif.cb_mon.is_reduct,         (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask)} : return BW_OR;
+            {1'b1,                                   logic_vif.cb_mon.is_reduct,          (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask)} : return BW_XOR_REDUCT;
+            {1'b1,                                   ~logic_vif.cb_mon.is_reduct,         (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask)} : return BW_XOR;
+            {logic_vif.cb_mon.is_shift,              logic_vif.cb_mon.is_left,            1'b1}                                                  : return SLL;
+            {logic_vif.cb_mon.is_shift,              ~logic_vif.cb_mon.is_left,           ~logic_vif.cb_mon.is_arith}                            : return SRL;
+            {logic_vif.cb_mon.is_shift,              ~logic_vif.cb_mon.is_left,           logic_vif.cb_mon.is_arith}                             : return SRA;
+            {~logic_vif.cb_mon.is_negate_result,     ~logic_vif.cb_mon.is_negate_srca,    (logic_vif.cb_mon.is_and & logic_vif.cb_mon.is_mask)}  : return MAND;
+            {logic_vif.cb_mon.is_negate_result,      ~logic_vif.cb_mon.is_negate_srca,    (logic_vif.cb_mon.is_and & logic_vif.cb_mon.is_mask)}  : return MNAND;
+            {~logic_vif.cb_mon.is_negate_result,     logic_vif.cb_mon.is_negate_srca,     (logic_vif.cb_mon.is_and & logic_vif.cb_mon.is_mask)}  : return MANDN;
+            {~logic_vif.cb_mon.is_negate_result,     ~logic_vif.cb_mon.is_negate_srca,    (logic_vif.cb_mon.is_or  & logic_vif.cb_mon.is_mask)}  : return MOR;
+            {logic_vif.cb_mon.is_negate_result,      ~logic_vif.cb_mon.is_negate_srca,    (logic_vif.cb_mon.is_or  & logic_vif.cb_mon.is_mask)}  : return MNOR;
+            {~logic_vif.cb_mon.is_negate_result,     logic_vif.cb_mon.is_negate_srca,     (logic_vif.cb_mon.is_or  & logic_vif.cb_mon.is_mask)}  : return MORN;
+            {~logic_vif.cb_mon.is_negate_result,     ~logic_vif.cb_mon.is_negate_srca,    (logic_vif.cb_mon.is_xor & logic_vif.cb_mon.is_mask)}  : return MXOR;
+            {logic_vif.cb_mon.is_negate_result,      ~logic_vif.cb_mon.is_negate_srca,    (logic_vif.cb_mon.is_xor & logic_vif.cb_mon.is_mask)}  : return MXNOR;
+            default                                                                                                                              : return NOP;
         endcase
     endfunction: get_logic_opcode
 
@@ -444,9 +455,9 @@ class riscv_v_alu_mon extends riscv_v_base_mon#(
 
     virtual function bit is_logic_op();
         bit is_logic = 0;
-        is_logic |= (logic_vif.cb_mon.is_and & ~logic_vif.cb_mon.is_mask);
-        is_logic |= (logic_vif.cb_mon.is_or  & ~logic_vif.cb_mon.is_mask);
-        is_logic |= (logic_vif.cb_mon.is_xor & ~logic_vif.cb_mon.is_mask);
+        is_logic |= (logic_vif.cb_mon.is_and);
+        is_logic |= (logic_vif.cb_mon.is_or);
+        is_logic |= (logic_vif.cb_mon.is_xor);
         is_logic |= logic_vif.cb_mon.is_shift;
         return is_logic;
     endfunction: is_logic_op

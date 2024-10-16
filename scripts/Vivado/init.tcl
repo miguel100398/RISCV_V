@@ -11,11 +11,11 @@ set riscv_v_tb_tests {riscv_v_cpu_vadc_test riscv_v_cpu_vadd_test riscv_v_cpu_vm
                       riscv_v_cpu_vmxor_test riscv_v_cpu_vmxnor_test riscv_v_cpu_vredand_test riscv_v_cpu_vredor_test riscv_v_cpu_vredxor_test riscv_v_cpu_vsll_test riscv_v_cpu_vsrl_test riscv_v_cpu_vsra_test
                       riscv_v_cpu_i2v_test riscv_v_cpu_v2i_test}
 
-#set riscv_v_tb_tests {riscv_v_cpu_v2i_test riscv_v_cpu_vadc_test}
+#set riscv_v_tb_tests {riscv_v_cpu_vredand_test}
 
 set WAVES 0
 set CLOSE_WAVES 1
-set CODE_COVERAGE 1
+set CODE_COVERAGE 0
 
 cd $WORK_AREA
 

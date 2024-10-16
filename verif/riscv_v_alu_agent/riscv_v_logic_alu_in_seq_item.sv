@@ -15,6 +15,9 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
     rand logic is_shift;
     rand logic is_left;
     rand logic is_arith;
+    rand logic is_negate_srca;
+    rand logic is_negate_result;
+    rand riscv_v_mask_t mask_result_valid;
 
     `uvm_object_utils_begin(riscv_v_logic_alu_in_seq_item)
         `uvm_field_int(is_reduct,  UVM_ALL_ON)
@@ -25,6 +28,9 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         `uvm_field_int(is_shift,   UVM_ALL_ON)
         `uvm_field_int(is_left,    UVM_ALL_ON)
         `uvm_field_int(is_arith,   UVM_ALL_ON)
+        `uvm_field_int(is_negate_result, UVM_ALL_ON)
+        `uvm_field_int(is_negate_srca, UVM_ALL_ON)
+        `uvm_field_int(mask_result_valid, UVM_ALL_ON)
     `uvm_object_utils_end
 
     //Constructor 
@@ -54,6 +60,9 @@ class riscv_v_logic_alu_in_seq_item extends riscv_v_alu_in_seq_item;
         is_arith  = (opcode inside {SRA});
         is_reduct = (opcode inside {BW_AND_REDUCT, BW_OR_REDUCT, BW_XOR_REDUCT});
         is_mask   = 1'b0;
+        is_negate_srca = 1'b0;
+        is_negate_result = 1'b0;
+        mask_result_valid = '0;
     endfunction: constraint_control
 
     //Constraint control signals depending on opcode

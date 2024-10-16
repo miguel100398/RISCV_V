@@ -19,8 +19,11 @@ import riscv_v_pkg::*;
     logic                     is_shift;
     logic                     is_left;
     logic                     is_arith;
+    logic                     is_negate_srca;
+    logic                     is_negate_result;
     osize_vector_t            dst_osize_vector;
     osize_vector_t            is_greater_osize_vector;
+    riscv_v_mask_t            mask_result_valid;
     //Input sources
     riscv_v_alu_data_t srca;
     riscv_v_alu_data_t srcb;
@@ -45,6 +48,9 @@ import riscv_v_pkg::*;
         input  is_greater_osize_vector,
         input  srca,
         input  srcb,
+        input  is_negate_result,
+        input  is_negate_srca,
+        input  mask_result_valid,
         `ifdef RISCV_V_INST
             input osize,
             input opcode,
@@ -66,6 +72,9 @@ import riscv_v_pkg::*;
         output is_greater_osize_vector,
         output srca,
         output srcb,
+        output is_negate_srca,
+        output is_negate_result,
+        output mask_result_valid,
         `ifdef RISCV_V_INST 
             output osize,
             output opcode,
@@ -88,6 +97,9 @@ import riscv_v_pkg::*;
         input  srca;
         input  srcb;
         input  result;
+        input  is_negate_result;
+        input  is_negate_srca;
+        input  mask_result_valid;
         `ifdef RISCV_V_INST 
             input osize;
             input opcode;
@@ -108,6 +120,9 @@ import riscv_v_pkg::*;
         output is_greater_osize_vector;
         output srca;
         output srcb;
+        output is_negate_srca;
+        output is_negate_result;
+        output mask_result_valid;
         `ifdef RISCV_V_INST 
             output osize;
             output opcode;

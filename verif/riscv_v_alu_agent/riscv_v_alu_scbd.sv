@@ -83,6 +83,14 @@ class riscv_v_alu_scbd extends riscv_v_base_scbd#(
             SLL:            logic_ops.calc_sll(logic_in_txn,            logic_exp_result);
             SRL:            logic_ops.calc_srl(logic_in_txn,            logic_exp_result);
             SRA:            logic_ops.calc_sra(logic_in_txn,            logic_exp_result);
+            MAND:           logic_ops.calc_mand(logic_in_txn,           logic_exp_result);
+            MNAND:          logic_ops.calc_mnand(logic_in_txn,          logic_exp_result);
+            MANDN:          logic_ops.calc_mandn(logic_in_txn,          logic_exp_result);
+            MOR:            logic_ops.calc_mor(logic_in_txn,            logic_exp_result);
+            MNOR:           logic_ops.calc_mnor(logic_in_txn,           logic_exp_result);
+            MORN:           logic_ops.calc_morn(logic_in_txn,           logic_exp_result);
+            MXOR:           logic_ops.calc_mxor(logic_in_txn,           logic_exp_result);
+            MXNOR:          logic_ops.calc_mxnor(logic_in_txn,          logic_exp_result);
             default:        `uvm_fatal(get_name(), "Invalid Logic ALU op")
         endcase
     endfunction: calc_logic

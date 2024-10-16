@@ -77,7 +77,7 @@ always_comb begin
         RISCV_V_EXT_SHIFT_3 : {src_osize_vector_ext, src_osize_vector_sticky} = {dst_osize_vector, {RISCV_V_OSIZE_SHIFT_STICKY_WIDTH{1'b0}}} >> 3;
         RISCV_V_EXT_SHIFT_2 : {src_osize_vector_ext, src_osize_vector_sticky} = {dst_osize_vector, {RISCV_V_OSIZE_SHIFT_STICKY_WIDTH{1'b0}}} >> 2;
         RISCV_V_EXT_SHIFT_1 : {src_osize_vector_ext, src_osize_vector_sticky} = {dst_osize_vector, {RISCV_V_OSIZE_SHIFT_STICKY_WIDTH{1'b0}}} >> 1;
-        default: src_osize_vector_ext = 'x;
+        default: {src_osize_vector_ext, src_osize_vector_sticky} = 'x;
     endcase
     //Set Osize to if OSIZE was shifted out;
     src_osize_vector_ext[0] |= |src_osize_vector_sticky;
@@ -144,11 +144,16 @@ end
 //Disable upper elements if is reduct operation
 generate
     for (genvar osize_idx = 0; osize_idx < RISCV_V_NUM_VALID_OSIZES-1; osize_idx++) begin : gen_reduct 
+        localparam NUM_BITS_OSIZE_IDX = 2**osize_idx;
+        assign is_reduct_osize[osize_idx][RISCV_V_NUM_BYTES_DATA-1:NUM_BITS_OSIZE_IDX] = '0;
+        assign is_reduct_osize[osize_idx][NUM_BITS_OSIZE_IDX-1:0] = {NUM_BITS_OSIZE_IDX{dst_osize_vector[osize_idx]}};
+        /*
         always_comb begin
             is_reduct_osize[osize_idx] = '0;
             //Set lower bits to 1 depending on OSIZE
-            is_reduct_osize[osize_idx][0 +: (2**osize_idx)] = {(2**osize_idx){dst_osize_vector[osize_idx]}};
+            is_reduct_osize[osize_idx][0 +: NUM_BITS_OSIZE_IDX] = {NUM_BITS_OSIZE_IDX{dst_osize_vector[osize_idx]}};
         end
+        */
     end 
 endgenerate
 

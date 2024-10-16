@@ -248,7 +248,7 @@ module riscv_v_tb;
     assign vec_logic_alu_vif.is_and                         = dut.v_execute.exe_alu.logic_ALU.is_and;
     assign vec_logic_alu_vif.is_or                          = dut.v_execute.exe_alu.logic_ALU.is_or;
     assign vec_logic_alu_vif.is_xor                         = dut.v_execute.exe_alu.logic_ALU.is_xor;
-    assign vec_logic_alu_vif.is_mask                        = dut.v_execute.is_mask_exe;
+    assign vec_logic_alu_vif.is_mask                        = dut.v_execute.exe_alu.logic_ALU.is_mask;
     assign vec_logic_alu_vif.is_shift                       = dut.v_execute.exe_alu.logic_ALU.is_shift;
     assign vec_logic_alu_vif.is_left                        = dut.v_execute.exe_alu.logic_ALU.is_left;
     assign vec_logic_alu_vif.is_arith                       = dut.v_execute.exe_alu.logic_ALU.is_arith;
@@ -257,6 +257,9 @@ module riscv_v_tb;
     assign vec_logic_alu_vif.srca                           = dut.v_execute.exe_alu.logic_ALU.srca;
     assign vec_logic_alu_vif.srcb                           = dut.v_execute.exe_alu.logic_ALU.srcb;
     assign vec_logic_alu_vif.result                         = dut.v_execute.exe_alu.logic_ALU.result;
+    assign vec_logic_alu_vif.is_negate_result               = dut.v_execute.exe_alu.logic_ALU.is_negate_result;
+    assign vec_logic_alu_vif.is_negate_srca                 = dut.v_execute.exe_alu.logic_ALU.is_negate_srca;
+    assign vec_logic_alu_vif.mask_result_valid              = dut.v_execute.exe_alu.logic_ALU.mask_result_valid;
     `ifdef RISCV_V_INST
         assign vec_logic_alu_vif.osize                      = dut.v_execute.exe_alu.logic_ALU.osize;
         assign vec_logic_alu_vif.opcode                     = dut.v_execute.exe_alu.logic_ALU.opcode;
@@ -314,7 +317,7 @@ module riscv_v_tb;
     end
 
     initial begin
-        run_test("riscv_v_cpu_vmul_test");
+        run_test("riscv_v_cpu_vadd_test");
     end
 
     bind riscv_v_decode riscv_v_decode_cov inst_riscv_v_decode_cov(

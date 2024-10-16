@@ -20,6 +20,7 @@ class riscv_v_csr_cov extends riscv_v_base_cov#(
         option.name = "cg_wr_csr";
 
         cp_wr_en_vsstatus: coverpoint txn_in.vsstatus_wr_en{
+            option.weight = 0;  //<Exclude Coverage>
             bins wr_en = {1'b1};
         }
         cp_wr_en_vtype: coverpoint txn_in.vtype_wr_en{
@@ -32,31 +33,34 @@ class riscv_v_csr_cov extends riscv_v_base_cov#(
             bins wr_en = {1'b1};
         }
         cp_wr_en_vxrm: coverpoint txn_in.vxrm_wr_en{
+            option.weight = 0; //<Exclude Coverage>
             bins wr_en = {1'b1};
         }
-        cp_wr_en_vxsat: coverpoint txn_in.vsstatus_wr_en{
+        cp_wr_en_vxsat: coverpoint txn_in.vxsat_wr_en{
+            option.weight = 0; //<Exclude Coverage>
             bins wr_en = {1'b1};
         }
 
         cp_wr_vsstatus: coverpoint txn_in.vsstatus_data_in iff (txn_in.vsstatus_wr_en){
+            option.weight = 0; //<Exclude Coverage>
             wildcard bins NO_VS = {10'b0_?????????};
             wildcard bins VS    = {10'b1_?????????};
         }
         cp_wr_vtype: coverpoint txn_in.vtype_data_in iff (txn_in.vtype_wr_en){
-            wildcard bins VILL    = {9'b1_?_?_???_???};
+            //<Exclude Coverage>wildcard bins VILL    = {9'b1_?_?_???_???};
             wildcard bins NO_VILL = {9'b0_?_?_???_???};
             wildcard bins VMA     = {9'b?_1_?_???_???};
-            wildcard bins NO_VMA  = {9'b?_0_?_???_???};
+            //<Exclude Coverage>wildcard bins NO_VMA  = {9'b?_0_?_???_???};
             wildcard bins VTA     = {9'b?_?_1_???_???};
-            wildcard bins NO_VTA  = {9'b?_?_0_???_???};
+            //<Exclude Coverage>wildcard bins NO_VTA  = {9'b?_?_0_???_???};
             wildcard bins VSEW128 = {9'b?_?_?_100_???};
             wildcard bins VSEW64  = {9'b?_?_?_011_???};
             wildcard bins VSEW32  = {9'b?_?_?_010_???};
             wildcard bins VSEW16  = {9'b?_?_?_001_???};
             wildcard bins VSEW8   = {9'b?_?_?_000_???};
-            wildcard bins LMUL8   = {9'b?_?_?_???_011};
-            wildcard bins LMUL4   = {9'b?_?_?_???_010};
-            wildcard bins LMUL2   = {9'b?_?_?_???_001};
+            //<Exclude Coverage>wildcard bins LMUL8   = {9'b?_?_?_???_011};
+            //<Exclude Coverage>wildcard bins LMUL4   = {9'b?_?_?_???_010};
+            //<Exclude Coverage>wildcard bins LMUL2   = {9'b?_?_?_???_001};
             wildcard bins LMUL1   = {9'b?_?_?_???_000};
         }
         cp_wr_vl: coverpoint txn_in.vl_data_in iff (txn_in.vl_wr_en){
@@ -100,12 +104,14 @@ class riscv_v_csr_cov extends riscv_v_base_cov#(
             bins start_greater_16 = {[17:$]};
         }
         cp_wr_vxrm: coverpoint txn_in.vxrm_data_in iff (txn_in.vxrm_wr_en){
+            option.weight = 0; //<Exclude Coverage>
             bins RNU = {2'b00};
             bins RNE = {2'b01};
             bins RDN = {2'b10};
             bins ROD = {2'b11};
         }
         cp_wr_vxsat: coverpoint txn_in.vxsat_data_in iff (txn_in.vxsat_wr_en){
+            option.weight = 0; //<Exclude Coverage>
             bins NO_SATURATE = {1'b0};
             bins SATURATE = {1'b1};
         }
@@ -120,23 +126,23 @@ class riscv_v_csr_cov extends riscv_v_base_cov#(
 
         cp_rd_vsstatus: coverpoint txn_out.vsstatus_data_out{
             wildcard bins NO_VS = {10'b0_?????????};
-            wildcard bins VS    = {10'b1_?????????};
+            //<Exclude Coverage>wildcard bins VS    = {10'b1_?????????};
         }
         cp_rd_vtype: coverpoint txn_out.vtype_data_out{
-            wildcard bins VILL    = {9'b1_?_?_???_???};
+            //<Exclude Coverage>wildcard bins VILL    = {9'b1_?_?_???_???};
             wildcard bins NO_VILL = {9'b0_?_?_???_???};
             wildcard bins VMA     = {9'b?_1_?_???_???};
-            wildcard bins NO_VMA  = {9'b?_0_?_???_???};
+            //<Exclude Coverage>wildcard bins NO_VMA  = {9'b?_0_?_???_???};
             wildcard bins VTA     = {9'b?_?_1_???_???};
-            wildcard bins NO_VTA  = {9'b?_?_0_???_???};
+            //<Exclude Coverage>wildcard bins NO_VTA  = {9'b?_?_0_???_???};
             wildcard bins VSEW128 = {9'b?_?_?_100_???};
             wildcard bins VSEW64  = {9'b?_?_?_011_???};
             wildcard bins VSEW32  = {9'b?_?_?_010_???};
             wildcard bins VSEW16  = {9'b?_?_?_001_???};
             wildcard bins VSEW8   = {9'b?_?_?_000_???};
-            wildcard bins LMUL8   = {9'b?_?_?_???_011};
-            wildcard bins LMUL4   = {9'b?_?_?_???_010};
-            wildcard bins LMUL2   = {9'b?_?_?_???_001};
+            //<Exclude Coverage>wildcard bins LMUL8   = {9'b?_?_?_???_011};
+            //<Exclude Coverage>wildcard bins LMUL4   = {9'b?_?_?_???_010};
+            //<Exclude Coverage>wildcard bins LMUL2   = {9'b?_?_?_???_001};
             wildcard bins LMUL1   = {9'b?_?_?_???_000};
         }
         cp_rd_vl: coverpoint txn_out.vl_data_out{
@@ -182,13 +188,13 @@ class riscv_v_csr_cov extends riscv_v_base_cov#(
         }
         cp_rd_vxrm: coverpoint txn_out.vxrm_data_out{
             bins RNU = {2'b00};
-            bins RNE = {2'b01};
-            bins RDN = {2'b10};
-            bins ROD = {2'b11};
+            //<Exclude Coverage>bins RNE = {2'b01};
+            //<Exclude Coverage>bins RDN = {2'b10};
+            //<Exclude Coverage>bins ROD = {2'b11};
         }
         cp_rd_vxsat: coverpoint txn_out.vxsat_data_out{
             bins NO_SATURATE = {1'b0};
-            bins SATURATE = {1'b1};
+            //<Exclude Coverage>bins SATURATE = {1'b1};
         }
 
     endgroup: cg_rd_csr 
