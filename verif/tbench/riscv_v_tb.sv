@@ -185,7 +185,7 @@ module riscv_v_tb;
     assign vec_rf_vif.wr_en      = dut.v_decode.v_rf.wr_en;
     assign vec_rf_vif.data_out_A = dut.v_decode.v_rf.data_out_A;
     assign vec_rf_vif.data_out_B = dut.v_decode.v_rf.data_out_B;
-    assign vec_rf.vif.mask       = dut.v_decode.v_rf.mask;
+    assign vec_rf_vif.mask       = dut.v_decode.v_rf.mask;
 
     //Vector CSR signals
     assign riscv_v_csr_vif.rst                  = dut.v_decode.v_csr.rst;
