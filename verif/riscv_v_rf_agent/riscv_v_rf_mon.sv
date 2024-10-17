@@ -67,6 +67,7 @@ class riscv_v_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_rf_wr_
       rd_txn_A.wr_data = vif.cb_mon.data_in;
       rd_txn_A.wr_addr = vif.cb_mon.wr_addr;
     end
+    rd_txn_A.mask = vif.cb_mon.mask;
     rtl_out_ap.write(rd_txn_A);
 
     //Monitor rd_port_B
@@ -79,6 +80,7 @@ class riscv_v_rf_mon extends riscv_v_base_mon#( .seq_item_in_t   (riscv_v_rf_wr_
       rd_txn_B.wr_data = vif.cb_mon.data_in;
       rd_txn_B.wr_addr = vif.cb_mon.wr_addr;
     end
+    rd_txn_B.mask = vif.cb_mon.mask;
     rtl_out_ap.write(rd_txn_B);
 
     //Set key to unlock write taks

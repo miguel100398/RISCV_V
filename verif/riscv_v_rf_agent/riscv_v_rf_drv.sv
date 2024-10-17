@@ -36,6 +36,7 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
   virtual task drive_initial_bfm();
     vif.data_out_A   <= '0;
     vif.data_out_B   <= '0;
+    vif.mask         <= '0;
   endtask: drive_initial_bfm
 
   // drive 
@@ -63,6 +64,7 @@ class riscv_v_rf_drv extends riscv_v_base_drv#(.seq_item_t (riscv_v_rf_seq_item)
     @(vif.cb_bfm);
     vif.cb_bfm.data_out_A <= req.out.data;
     vif.cb_bfm.data_out_B <= req.out2.data;
+    vif.cb_bfm.mask       <= req.out.mask;
 
   endtask: drive_bfm
 

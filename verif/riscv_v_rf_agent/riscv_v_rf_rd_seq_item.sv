@@ -15,6 +15,8 @@ class riscv_v_rf_rd_seq_item extends riscv_v_base_seq_item;
     riscv_v_data_t           wr_data;
     riscv_v_rf_addr_t        wr_addr;
 
+    riscv_v_mask_t           mask;
+
 
     `uvm_object_utils_begin(riscv_v_rf_rd_seq_item)
         `uvm_field_int(addr, UVM_ALL_ON)
