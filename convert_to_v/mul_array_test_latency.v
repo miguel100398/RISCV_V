@@ -16,10 +16,12 @@ module mul_array_test_latency (
 	wire [WIDTH - 1:0] partial_product_and [WIDTH - 1:0];
 	wire [WIDTH - 1:0] partial_product_add [WIDTH - 2:0];
 	wire carry_out_add [WIDTH - 2:0];
+
 	always @(posedge clk) begin
 		srca <= srca_in;
 		srcb <= srcb_in;
 	end
+
 	genvar _gv_i_1;
 	generate
 		for (_gv_i_1 = 0; _gv_i_1 < WIDTH; _gv_i_1 = _gv_i_1 + 1) begin : gen_partial_and
@@ -27,14 +29,35 @@ module mul_array_test_latency (
 			assign partial_product_and[i] = srca & {WIDTH {srcb[i]}};
 		end
 	endgenerate
-	assign {carry_out_add[0], partial_product_add[0]} = partial_product_and[0] + partial_product_and[1];
+
+
+	ripple_carry_adder #(
+		.WIDTH(WIDTH)
+	)adder0(
+		.A({1'b0, partial_product_and[0][WIDTH-1:1]}),
+		.B(partial_product_and[1]),
+		.cin(1'b0),
+		.S(partial_product_add[0]),
+		.cout(carry_out_add[0])
+	);
+
 	genvar _gv_i_2;
+
 	generate
 		for (_gv_i_2 = 1; _gv_i_2 < (WIDTH - 1); _gv_i_2 = _gv_i_2 + 1) begin : gen_partial_add
 			localparam i = _gv_i_2;
-			assign {carry_out_add[i], partial_product_add[i]} = partial_product_and[i + 1] + {carry_out_add[i - 1], partial_product_add[i - 1][WIDTH - 1:1]};
+			ripple_carry_adder #(
+				.WIDTH(WIDTH)
+			)addern(
+				.A({carry_out_add[i - 1], partial_product_add[i - 1][WIDTH - 1:1]}),
+				.B(partial_product_and[i+1]),
+				.cin(1'b0),
+				.S(partial_product_add[i]),
+				.cout(carry_out_add[i])
+			);
 		end
 	endgenerate
+	
 	assign mul_result[0] = partial_product_and[0][0];
 	genvar _gv_i_3;
 	generate
