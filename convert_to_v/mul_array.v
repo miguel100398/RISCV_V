@@ -40,7 +40,7 @@ module mul_array#(
 
     genvar gen_adder;
     generate
-        for gen_adder = 1; gen_adder < WIDTH-1; gen_adder = gen_adder+1) begin : gen_partial_adder
+        for (gen_adder = 1; gen_adder < WIDTH-1; gen_adder = gen_adder+1) begin : gen_partial_adder
             adder_nbit#(
                 .WIDTH(WIDTH),
                 .BEHAVIORAL(BEHAVIORAL),
