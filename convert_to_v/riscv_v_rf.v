@@ -14,9 +14,9 @@ module riscv_v_rf (
 	syn_data
 );
 	reg _sv2v_0;
-	parameter [0:0] RD_ASYNC = 1'b1;
-	parameter [0:0] REG_INPUTS = 1'b0;
-	parameter [0:0] USE_BYPASS = 1'b1;
+	localparam [0:0] RD_ASYNC = 1'b1;
+	localparam [0:0] REG_INPUTS = 1'b0;
+	localparam [0:0] USE_BYPASS = 1'b1;
 	input wire clk;
 	localparam signed [31:0] riscv_v_pkg_RISCV_V_RF_NUM_REGS = 32;
 	localparam signed [31:0] riscv_v_pkg_RISCV_V_RF_ADDR_WIDTH = 5;

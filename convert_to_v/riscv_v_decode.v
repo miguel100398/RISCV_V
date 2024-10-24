@@ -393,11 +393,7 @@ module riscv_v_decode (
 	localparam [0:0] riscv_v_pkg_RISCV_V_RF_RD_ASYNC = 1'b1;
 	localparam [0:0] riscv_v_pkg_RISCV_V_RF_REG_INPUTS = 1'b0;
 	localparam [0:0] riscv_v_pkg_RISCV_V_RF_USE_BYPASS = 1'b1;
-	riscv_v_rf #(
-		.RD_ASYNC(riscv_v_pkg_RISCV_V_RF_RD_ASYNC),
-		.REG_INPUTS(riscv_v_pkg_RISCV_V_RF_REG_INPUTS),
-		.USE_BYPASS(riscv_v_pkg_RISCV_V_RF_USE_BYPASS)
-	) v_rf(
+	riscv_v_rf  v_rf(
 		.clk(clk),
 		.wr_addr(rf_wr_addr_wb),
 		.mask_merge_addr(rf_wr_addr_id),
