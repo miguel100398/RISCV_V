@@ -1,0 +1,840 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib -o objects/nangate45/riscv_v_logic_ALU/base/lib/NangateOpenCellLibrary_typical.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/nangate45/riscv_v_logic_ALU/base/lib/NangateOpenCellLibrary_typical.lib
+mkdir -p results/nangate45/riscv_v_logic_ALU/base/
+echo 15.0 > results/nangate45/riscv_v_logic_ALU/base/clock_period.txt
+mkdir -p ./results/nangate45/riscv_v_logic_ALU/base ./logs/nangate45/riscv_v_logic_ALU/base ./reports/nangate45/riscv_v_logic_ALU/base ./objects/nangate45/riscv_v_logic_ALU/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_logic_ALU/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/nangate45/riscv_v_logic_ALU/base/lib/NangateOpenCellLibrary_typical.lib
+58. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_logic_ALU/base/clock_period.txt
+Setting clock period to 15.0
+59. Executing HIERARCHY pass (managing design hierarchy).
+60. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_logic_ALU'.
+60.1. Analyzing design hierarchy..
+60.2. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_shifter'.
+Warning: Replacing memory \mux_shift_block with list of registers. See ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_shifter.v:171, ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_shifter.v:158, ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_shifter.v:138, ./designs/src/riscv_v_logic_ALU/convert_to_v/riscv_v_shifter.v:125
+60.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_xor'.
+60.4. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_or'.
+60.5. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_and'.
+60.6. Analyzing design hierarchy..
+60.7. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_and'.
+60.8. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+60.9. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_or'.
+60.10. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_xor'.
+60.11. Executing AST frontend in derive mode using pre-parsed AST for module `\shifter'.
+60.12. Analyzing design hierarchy..
+60.13. Analyzing design hierarchy..
+60.14. Analyzing design hierarchy..
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\shifter\WIDTH=s32'00000000000000000000000000001000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_logic_ALU because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_shifter because it contains processes (run 'proc' command first).
+62. Executing RTLIL backend.
+Warnings: 5 unique messages, 6 total
+End of script. Logfile hash: 6f100f91ab, CPU: user 0.40s system 0.02s, MEM: 44.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 67% 1x hierarchy (0 sec), 16% 2x read_liberty (0 sec), ...
+Elapsed time: 0:00.48[h:]min:sec. CPU time: user 0.46 sys 0.02 (100%). Peak memory: 46336KB.
+mkdir -p ./results/nangate45/riscv_v_logic_ALU/base ./logs/nangate45/riscv_v_logic_ALU/base ./reports/nangate45/riscv_v_logic_ALU/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_logic_ALU/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_logic_ALU/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.00 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (100%). Peak memory: 13056KB.
+mkdir -p ./results/nangate45/riscv_v_logic_ALU/base ./logs/nangate45/riscv_v_logic_ALU/base ./reports/nangate45/riscv_v_logic_ALU/base ./objects/nangate45/riscv_v_logic_ALU/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_logic_ALU/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_logic_ALU/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/nangate45/riscv_v_logic_ALU/base/lib/NangateOpenCellLibrary_typical.lib
+3. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_logic_ALU/base/clock_period.txt
+Setting clock period to 15.0
+synth -top riscv_v_logic_ALU -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4. Executing SYNTH pass.
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+4.1.1. Analyzing design hierarchy..
+4.1.2. Analyzing design hierarchy..
+4.2. Executing PROC pass (convert processes to netlists).
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+4.3. Executing FLATTEN pass (flatten design).
+4.4. Executing OPT_EXPR pass (perform const folding).
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.6. Executing CHECK pass (checking for obvious problems).
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+4.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.8. Executing OPT_EXPR pass (perform const folding).
+4.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.12. Executing OPT_MERGE pass (detect identical cells).
+4.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.15. Executing OPT_EXPR pass (perform const folding).
+4.7.16. Finished OPT passes. (There is nothing left to do.)
+4.8. Executing FSM pass (extract and optimize FSM).
+4.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+4.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+4.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+4.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+4.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+4.9. Executing OPT pass (performing simple optimizations).
+4.9.1. Executing OPT_EXPR pass (perform const folding).
+4.9.2. Executing OPT_MERGE pass (detect identical cells).
+4.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.5. Executing OPT_MERGE pass (detect identical cells).
+4.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.8. Executing OPT_EXPR pass (perform const folding).
+4.9.9. Finished OPT passes. (There is nothing left to do.)
+4.10. Executing WREDUCE pass (reducing word size of cells).
+4.11. Executing PEEPOPT pass (run peephole optimizers).
+4.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.13. Executing ALUMACC pass (create $alu and $macc cells).
+4.14. Executing SHARE pass (SAT-based resource sharing).
+4.15. Executing OPT pass (performing simple optimizations).
+4.15.1. Executing OPT_EXPR pass (perform const folding).
+4.15.2. Executing OPT_MERGE pass (detect identical cells).
+4.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.15.5. Executing OPT_MERGE pass (detect identical cells).
+4.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.15.8. Executing OPT_EXPR pass (perform const folding).
+4.15.9. Finished OPT passes. (There is nothing left to do.)
+4.16. Executing MEMORY pass.
+4.16.1. Executing OPT_MEM pass (optimize memories).
+4.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+4.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+4.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+4.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+4.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+4.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+4.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+4.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+5. Executing SYNTH pass.
+5.1. Executing OPT pass (performing simple optimizations).
+5.1.1. Executing OPT_EXPR pass (perform const folding).
+5.1.2. Executing OPT_MERGE pass (detect identical cells).
+5.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.1.5. Finished fast OPT passes.
+5.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+5.3. Executing OPT pass (performing simple optimizations).
+5.3.1. Executing OPT_EXPR pass (perform const folding).
+5.3.2. Executing OPT_MERGE pass (detect identical cells).
+5.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.5. Executing OPT_MERGE pass (detect identical cells).
+5.3.6. Executing OPT_SHARE pass.
+5.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.9. Executing OPT_EXPR pass (perform const folding).
+5.3.10. Rerunning OPT passes. (Maybe there is more to do..)
+5.3.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.13. Executing OPT_MERGE pass (detect identical cells).
+5.3.14. Executing OPT_SHARE pass.
+5.3.15. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.17. Executing OPT_EXPR pass (perform const folding).
+5.3.18. Finished OPT passes. (There is nothing left to do.)
+5.4. Executing TECHMAP pass (map to technology primitives).
+5.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+5.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+5.4.3. Continuing TECHMAP pass.
+5.4.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.10. Executing OPT_EXPR pass (perform const folding).
+5.5. Executing OPT pass (performing simple optimizations).
+5.5.1. Executing OPT_EXPR pass (perform const folding).
+5.5.2. Executing OPT_MERGE pass (detect identical cells).
+5.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.5.5. Finished fast OPT passes.
+5.6. Executing ABC pass (technology mapping using ABC).
+5.6.1. Extracting gate netlist of module `\riscv_v_logic_ALU' to `<abc-temp-dir>/input.blif'..
+5.7. Executing OPT pass (performing simple optimizations).
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+5.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.7.5. Finished fast OPT passes.
+5.8. Executing HIERARCHY pass (managing design hierarchy).
+5.8.1. Analyzing design hierarchy..
+5.8.2. Analyzing design hierarchy..
+5.9. Printing statistics.
+5.10. Executing CHECK pass (checking for obvious problems).
+6. Executing OPT pass (performing simple optimizations).
+6.1. Executing OPT_EXPR pass (perform const folding).
+6.2. Executing OPT_MERGE pass (detect identical cells).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.5. Executing OPT_MERGE pass (detect identical cells).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.8. Executing OPT_EXPR pass (perform const folding).
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.12. Executing OPT_MERGE pass (detect identical cells).
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.15. Executing OPT_EXPR pass (perform const folding).
+6.16. Finished OPT passes. (There is nothing left to do.)
+7. Executing TECHMAP pass (map to technology primitives).
+7.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_latch.v
+7.2. Continuing TECHMAP pass.
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+9. Executing OPT pass (performing simple optimizations).
+9.1. Executing OPT_EXPR pass (perform const folding).
+9.2. Executing OPT_MERGE pass (detect identical cells).
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.5. Executing OPT_MERGE pass (detect identical cells).
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.8. Executing OPT_EXPR pass (perform const folding).
+9.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/nangate45/riscv_v_logic_ALU/base/lib/NangateOpenCellLibrary_typical.lib -constr ./objects/nangate45/riscv_v_logic_ALU/base/abc.constr -dont_use TAPCELL_X1 -dont_use FILLCELL_X1 -dont_use AOI211_X1 -dont_use OAI211_X1 -D 15.0
+10. Executing ABC pass (technology mapping using ABC).
+10.1. Extracting gate netlist of module `\riscv_v_logic_ALU' to `<abc-temp-dir>/input.blif'..
+10.1.1. Executing ABC.
+10.1.2. Re-integrating ABC results.
+11. Executing SETUNDEF pass (replace undef values with defined constants).
+12. Executing SPLITNETS pass (splitting up multi-bit signals).
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+14. Executing HILOMAP pass (mapping to constant drivers).
+15. Executing INSBUF pass (insert buffer cells for connected wires).
+16. Executing CHECK pass (checking for obvious problems).
+17. Printing statistics.
+18. Executing Verilog backend.
+exec cp ./designs/nangate45/riscv_v_logic_ALU/constraint.sdc ./results/nangate45/riscv_v_logic_ALU/base/1_synth.sdc
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: e18a052878, CPU: user 2.29s system 0.04s, MEM: 62.41 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 87% 2x abc (15 sec), 3% 19x opt_clean (0 sec), ...
+Elapsed time: 0:17.29[h:]min:sec. CPU time: user 17.18 sys 0.10 (99%). Peak memory: 64548KB.
+mkdir -p ./results/nangate45/riscv_v_logic_ALU/base ./logs/nangate45/riscv_v_logic_ALU/base ./reports/nangate45/riscv_v_logic_ALU/base
+cp ./results/nangate45/riscv_v_logic_ALU/base/1_1_yosys.v ./results/nangate45/riscv_v_logic_ALU/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/nangate45/riscv_v_logic_ALU/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 8575
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.070, 200.200).
+[INFO IFP-0001] Added 2714 rows of 19999 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO RSZ-0026] Removed 748 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 9664 u^2 0% utilization.
+Elapsed time: 0:02.09[h:]min:sec. CPU time: user 2.02 sys 0.07 (100%). Peak memory: 155740KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers metal5 -ver_layers metal6 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:00.36[h:]min:sec. CPU time: user 0.31 sys 0.05 (100%). Peak memory: 134296KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/nangate45/riscv_v_logic_ALU/base/2_2_floorplan_io.odb ./results/nangate45/riscv_v_logic_ALU/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.15[h:]min:sec. CPU time: user 0.11 sys 0.03 (100%). Peak memory: 100832KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:00.36[h:]min:sec. CPU time: user 0.32 sys 0.04 (100%). Peak memory: 132836KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO TAP-0004] Inserted 5428 endcaps.
+[INFO TAP-0005] Inserted 42098 tapcells.
+Elapsed time: 0:00.46[h:]min:sec. CPU time: user 0.40 sys 0.05 (100%). Peak memory: 147296KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: grid
+Elapsed time: 0:04.31[h:]min:sec. CPU time: user 4.21 sys 0.10 (99%). Peak memory: 222736KB.
+cp ./results/nangate45/riscv_v_logic_ALU/base/2_6_floorplan_pdn.odb ./results/nangate45/riscv_v_logic_ALU/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             55353
+[INFO GPL-0007] NumPlaceInstances:         7827
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   8183
+[INFO GPL-0011] NumPins:                  30261
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        9663.514 um^2
+[INFO GPL-0019] Util:                     0.067 %
+[INFO GPL-0020] StdInstsArea:          9663.514 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  11994732
+[INFO GPL-0032] FillerInit:NumGNets:       8183
+[INFO GPL-0033] FillerInit:NumGPins:      30261
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        1.235 um^2
+[INFO GPL-0025] IdealBinArea:             1.235 um^2
+[INFO GPL-0026] IdealBinCnt:           11693917
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             55353
+[INFO GPL-0007] NumPlaceInstances:         7827
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   8183
+[INFO GPL-0011] NumPins:                  29761
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        9663.514 um^2
+[INFO GPL-0019] Util:                     0.067 %
+[INFO GPL-0020] StdInstsArea:          9663.514 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  10915991
+[INFO GPL-0032] FillerInit:NumGNets:       8183
+[INFO GPL-0033] FillerInit:NumGPins:      29761
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        1.235 um^2
+[INFO GPL-0025] IdealBinArea:             1.357 um^2
+[INFO GPL-0026] IdealBinCnt:           10642248
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[NesterovSolve] Iter:    1 overflow: 0.997 HPWL: 14982280
+[NesterovSolve] Iter:   10 overflow: 0.997 HPWL: 5884156
+[NesterovSolve] Iter:   20 overflow: 0.997 HPWL: 5775634
+[NesterovSolve] Iter:   30 overflow: 0.997 HPWL: 5766988
+[NesterovSolve] Iter:   40 overflow: 0.997 HPWL: 5765174
+[NesterovSolve] Iter:   50 overflow: 0.997 HPWL: 5762840
+[NesterovSolve] Iter:   60 overflow: 0.997 HPWL: 5762755
+[NesterovSolve] Iter:   70 overflow: 0.997 HPWL: 5763562
+[NesterovSolve] Iter:   80 overflow: 0.997 HPWL: 5763737
+[NesterovSolve] Iter:   90 overflow: 0.997 HPWL: 5765220
+[NesterovSolve] Iter:  100 overflow: 0.997 HPWL: 5768919
+[NesterovSolve] Iter:  110 overflow: 0.997 HPWL: 5777765
+[NesterovSolve] Iter:  120 overflow: 0.997 HPWL: 5795626
+[NesterovSolve] Iter:  130 overflow: 0.997 HPWL: 5827484
+[NesterovSolve] Iter:  140 overflow: 0.997 HPWL: 5890335
+[NesterovSolve] Iter:  150 overflow: 0.996 HPWL: 6024243
+[NesterovSolve] Iter:  160 overflow: 0.995 HPWL: 6357008
+[NesterovSolve] Iter:  170 overflow: 0.994 HPWL: 7416635
+[NesterovSolve] Iter:  180 overflow: 0.991 HPWL: 10350927
+[NesterovSolve] Iter:  190 overflow: 0.987 HPWL: 15322231
+[NesterovSolve] Iter:  200 overflow: 0.979 HPWL: 21557068
+[NesterovSolve] Iter:  210 overflow: 0.971 HPWL: 27420891
+[NesterovSolve] Iter:  220 overflow: 0.962 HPWL: 32518042
+[NesterovSolve] Iter:  230 overflow: 0.949 HPWL: 39072844
+[NesterovSolve] Iter:  240 overflow: 0.929 HPWL: 46312764
+[NesterovSolve] Iter:  250 overflow: 0.907 HPWL: 52465684
+[NesterovSolve] Iter:  260 overflow: 0.877 HPWL: 64839013
+[NesterovSolve] Iter:  270 overflow: 0.844 HPWL: 73592423
+[NesterovSolve] Iter:  280 overflow: 0.804 HPWL: 80192277
+[NesterovSolve] Iter:  290 overflow: 0.761 HPWL: 92402914
+[NesterovSolve] Iter:  300 overflow: 0.715 HPWL: 98676075
+[NesterovSolve] Iter:  310 overflow: 0.666 HPWL: 105411330
+[NesterovSolve] Iter:  320 overflow: 0.612 HPWL: 114823373
+[NesterovSolve] Iter:  330 overflow: 0.551 HPWL: 122150007
+[NesterovSolve] Iter:  340 overflow: 0.494 HPWL: 126884717
+[NesterovSolve] Iter:  350 overflow: 0.450 HPWL: 133739100
+[NesterovSolve] Iter:  360 overflow: 0.403 HPWL: 138004714
+[NesterovSolve] Iter:  370 overflow: 0.360 HPWL: 141446146
+[NesterovSolve] Iter:  380 overflow: 0.327 HPWL: 145290905
+[NesterovSolve] Iter:  390 overflow: 0.301 HPWL: 148060475
+[NesterovSolve] Iter:  400 overflow: 0.267 HPWL: 152082253
+[NesterovSolve] Iter:  410 overflow: 0.233 HPWL: 157232167
+[NesterovSolve] Iter:  420 overflow: 0.195 HPWL: 164359312
+[NesterovSolve] Iter:  430 overflow: 0.162 HPWL: 171326168
+[NesterovSolve] Iter:  440 overflow: 0.151 HPWL: 154406163
+[NesterovSolve] Iter:  450 overflow: 0.132 HPWL: 151553692
+[NesterovSolve] Iter:  460 overflow: 0.113 HPWL: 149140565
+[NesterovSolve] Finished with Overflow: 0.099949
+Elapsed time: 52:28.41[h:]min:sec. CPU time: user 3393.53 sys 3.68 (107%). Peak memory: 3336832KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers metal5 -ver_layers metal6
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           28564
+[INFO PPL-0002] Number of I/O             500
+[INFO PPL-0003] Number of I/O w/sink      482
+[INFO PPL-0004] Number of I/O w/o sink    18
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 924301.00 um.
+Elapsed time: 0:00.80[h:]min:sec. CPU time: user 0.69 sys 0.10 (100%). Peak memory: 208680KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             55353
+[INFO GPL-0007] NumPlaceInstances:         7827
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   8183
+[INFO GPL-0011] NumPins:                  30261
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        9663.514 um^2
+[INFO GPL-0019] Util:                     0.067 %
+[INFO GPL-0020] StdInstsArea:          9663.514 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  11994732
+[INFO GPL-0032] FillerInit:NumGNets:       8183
+[INFO GPL-0033] FillerInit:NumGPins:      30261
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        1.235 um^2
+[INFO GPL-0025] IdealBinArea:             1.235 um^2
+[INFO GPL-0026] IdealBinCnt:           11693917
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+global_placement -density 0.9100669908884448 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             55353
+[INFO GPL-0007] NumPlaceInstances:         7827
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   8183
+[INFO GPL-0011] NumPins:                  30261
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        9663.514 um^2
+[INFO GPL-0019] Util:                     0.067 %
+[INFO GPL-0020] StdInstsArea:          9663.514 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000011 HPWL: 2021835223
+[InitialPlace]  Iter: 2 CG residual: 0.00000172 HPWL: 1898024399
+[InitialPlace]  Iter: 3 CG residual: 0.00000137 HPWL: 1845223930
+[InitialPlace]  Iter: 4 CG residual: 0.00000052 HPWL: 1787025014
+[InitialPlace]  Iter: 5 CG residual: 0.00000028 HPWL: 1773202613
+[INFO GPL-0031] FillerInit:NumGCells:  10915991
+[INFO GPL-0032] FillerInit:NumGNets:       8183
+[INFO GPL-0033] FillerInit:NumGPins:      30261
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        1.235 um^2
+[INFO GPL-0025] IdealBinArea:             1.357 um^2
+[INFO GPL-0026] IdealBinCnt:           10642248
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[NesterovSolve] Iter:    1 overflow: 0.938 HPWL: 1776534308
+[NesterovSolve] Iter:   10 overflow: 0.827 HPWL: 1825133241
+[NesterovSolve] Iter:   20 overflow: 0.800 HPWL: 1819198151
+[NesterovSolve] Iter:   30 overflow: 0.791 HPWL: 1815608937
+[NesterovSolve] Iter:   40 overflow: 0.793 HPWL: 1813661719
+[NesterovSolve] Iter:   50 overflow: 0.796 HPWL: 1812753928
+[NesterovSolve] Iter:   60 overflow: 0.798 HPWL: 1812238631
+[NesterovSolve] Iter:   70 overflow: 0.798 HPWL: 1810996812
+[NesterovSolve] Iter:   80 overflow: 0.798 HPWL: 1808494836
+[NesterovSolve] Iter:   90 overflow: 0.799 HPWL: 1805425994
+[NesterovSolve] Iter:  100 overflow: 0.799 HPWL: 1802340887
+[NesterovSolve] Iter:  110 overflow: 0.799 HPWL: 1799038281
+[NesterovSolve] Iter:  120 overflow: 0.799 HPWL: 1795420729
+[NesterovSolve] Iter:  130 overflow: 0.799 HPWL: 1791245379
+[NesterovSolve] Iter:  140 overflow: 0.798 HPWL: 1786590022
+[NesterovSolve] Iter:  150 overflow: 0.798 HPWL: 1781467718
+[NesterovSolve] Iter:  160 overflow: 0.796 HPWL: 1776344840
+[NesterovSolve] Iter:  170 overflow: 0.795 HPWL: 1770817385
+[NesterovSolve] Iter:  180 overflow: 0.793 HPWL: 1765083900
+[NesterovSolve] Iter:  190 overflow: 0.790 HPWL: 1759300179
+[NesterovSolve] Iter:  200 overflow: 0.786 HPWL: 1753229744
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 5.74e-09
+[INFO GPL-0103] Timing-driven: weighted 806 nets.
+[NesterovSolve] Iter:  210 overflow: 0.784 HPWL: 1729351166
+[NesterovSolve] Iter:  220 overflow: 0.774 HPWL: 1718126080
+[NesterovSolve] Iter:  230 overflow: 0.761 HPWL: 1708723544
+[NesterovSolve] Iter:  240 overflow: 0.743 HPWL: 1702040806
+[NesterovSolve] Iter:  250 overflow: 0.721 HPWL: 1700230040
+[NesterovSolve] Iter:  260 overflow: 0.694 HPWL: 1710711885
+[NesterovSolve] Iter:  270 overflow: 0.653 HPWL: 1748318937
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 5.45e-09
+[INFO GPL-0103] Timing-driven: weighted 805 nets.
+[NesterovSolve] Iter:  280 overflow: 0.614 HPWL: 1787160111
+[NesterovSolve] Snapshot saved at iter = 283
+[NesterovSolve] Iter:  290 overflow: 0.567 HPWL: 1783619065
+[NesterovSolve] Iter:  300 overflow: 0.507 HPWL: 1773542282
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 5.77e-09
+[INFO GPL-0103] Timing-driven: weighted 808 nets.
+[NesterovSolve] Iter:  310 overflow: 0.450 HPWL: 1757208610
+[NesterovSolve] Iter:  320 overflow: 0.409 HPWL: 1739077029
+[NesterovSolve] Iter:  330 overflow: 0.338 HPWL: 1729988788
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 4200 4200 ) DBU
+[INFO GPL-0038] TileCnt:    1904 1904
+[INFO GPL-0040] NumTiles: 3625216
+[INFO GPL-0081] TotalRouteOverflow: 117.87058174610138
+[INFO GPL-0082] OverflowTileCnt: 603
+[INFO GPL-0083] 0.5%RC: 0.5471419073008739
+[INFO GPL-0084] 1.0%RC: 0.5073042635948507
+[INFO GPL-0085] 2.0%RC: 0.48033201639738243
+[INFO GPL-0086] 5.0%RC: 0.45169927748703137
+[INFO GPL-0087] FinalRC: 0.5272231
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  340 overflow: 0.283 HPWL: 1721317082
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 5.81e-09
+[INFO GPL-0103] Timing-driven: weighted 807 nets.
+[NesterovSolve] Iter:  350 overflow: 0.235 HPWL: 1719646947
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 6.01e-09
+[INFO GPL-0103] Timing-driven: weighted 804 nets.
+[NesterovSolve] Iter:  360 overflow: 0.187 HPWL: 1734116574
+[NesterovSolve] Iter:  370 overflow: 0.166 HPWL: 1740405601
+[NesterovSolve] Iter:  380 overflow: 0.152 HPWL: 1752176502
+[NesterovSolve] Iter:  390 overflow: 0.186 HPWL: 1656084720
+[NesterovSolve] Iter:  400 overflow: 0.215 HPWL: 1612433682
+[NesterovSolve] Iter:  410 overflow: 0.188 HPWL: 1600643849
+[NesterovSolve] Iter:  420 overflow: 0.163 HPWL: 1595663797
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 6.03e-09
+[INFO GPL-0103] Timing-driven: weighted 807 nets.
+[NesterovSolve] Iter:  430 overflow: 0.139 HPWL: 1590777938
+[NesterovSolve] Iter:  440 overflow: 0.119 HPWL: 1586671876
+[NesterovSolve] Iter:  450 overflow: 0.100 HPWL: 1583788301
+[NesterovSolve] Finished with Overflow: 0.099534
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 22305 u^2 0% utilization.
+Elapsed time: 51:49.76[h:]min:sec. CPU time: user 3351.16 sys 4.80 (107%). Peak memory: 6246616KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 338 input buffers.
+[INFO RSZ-0028] Inserted 144 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 640um.
+[INFO RSZ-0034] Found 2000 slew violations.
+[INFO RSZ-0036] Found 87 capacitance violations.
+[INFO RSZ-0037] Found 451 long wires.
+[INFO RSZ-0038] Inserted 1134 buffers in 2350 nets.
+[INFO RSZ-0039] Resized 3121 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 37304 u^2 0% utilization.
+Instance count before 55353, after 56969
+Pin count before 29761, after 32993
+Elapsed time: 0:07.02[h:]min:sec. CPU time: user 6.86 sys 0.15 (99%). Peak memory: 360440KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement     109873.5 u
+average displacement        1.9 u
+max displacement           69.8 u
+original HPWL          795976.5 u
+legalized HPWL         944194.6 u
+delta HPWL                   19 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 56969 cells, 500 terminals, 9799 edges, 33493 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 57469, edges 9799, pins 33493
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 14000 2800 units.
+[INFO DPO-0320] Collected 48026 fixed cells.
+[INFO DPO-0318] Collected 9443 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (400140, 400400) - (7999380, 7999600)
+[INFO DPO-0310] Assigned 9443 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 1.889464e+09.
+[INFO DPO-0302] End of matching; objective is 1.886327e+09, improvement is 0.17 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 1.880381e+09.
+[INFO DPO-0307] End of global swaps; objective is 1.880381e+09, improvement is 0.32 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 1.879455e+09.
+[INFO DPO-0309] End of vertical swaps; objective is 1.879455e+09, improvement is 0.05 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 1.857407e+09.
+[INFO DPO-0304] Pass   2 of reordering; objective is 1.850970e+09.
+[INFO DPO-0305] End of reordering; objective is 1.850970e+09, improvement is 1.52 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 188860 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 188860, swaps 32937, moves 12436 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.848692e+09, Scratch cost 1.842338e+09, Incremental cost 1.842338e+09, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.842338e+09.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.34 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.343741 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 4734 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 3547 cell flips.
+[INFO DPO-0384] End of flipping; objective is 1.832111e+09, improvement is 0.68 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           944194.6 u
+Final HPWL              915709.3 u
+Delta HPWL                  -3.0 %
+
+[INFO DPL-0020] Mirrored 737 instances
+[INFO DPL-0021] HPWL before          915709.3 u
+[INFO DPL-0022] HPWL after           915565.4 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+No registers in design
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 37304 u^2 0% utilization.
+Elapsed time: 0:38.95[h:]min:sec. CPU time: user 34.55 sys 4.37 (99%). Peak memory: 8041228KB.
+cp ./results/nangate45/riscv_v_logic_ALU/base/3_5_place_dp.odb ./results/nangate45/riscv_v_logic_ALU/base/3_place.odb
+cp ./results/nangate45/riscv_v_logic_ALU/base/2_floorplan.sdc ./results/nangate45/riscv_v_logic_ALU/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO RSZ-0058] Using max wire length 640um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          915565.4 u
+legalized HPWL         921849.9 u
+delta HPWL                    1 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          921849.9 u
+legalized HPWL         921849.9 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+No registers in design
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 37304 u^2 0% utilization.
+Elapsed time: 0:24.10[h:]min:sec. CPU time: user 21.10 sys 2.98 (99%). Peak memory: 8110488KB.
+cp ./results/nangate45/riscv_v_logic_ALU/base/4_1_cts.odb ./results/nangate45/riscv_v_logic_ALU/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/nangate45/riscv_v_logic_ALU/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 261
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical     39892608      25249755          36.71%
+metal3     Horizontal   54399184      32623129          40.03%
+metal4     Vertical     25387936      14173612          44.17%
+metal5     Horizontal   25387936      14500860          42.88%
+metal6     Vertical     25387936      14488552          42.93%
+metal7     Horizontal    7254240       3235649          55.40%
+metal8     Vertical      7254240       3625215          50.03%
+metal9     Horizontal    3627120       3621409          0.16%
+metal10    Vertical      3627120       3621409          0.16%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0103] Extra Run for hard benchmark.
+[INFO GRT-0197] Via related to pin nodes: 88400
+[INFO GRT-0198] Via related Steiner nodes: 4805
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 167955
+[INFO GRT-0112] Final usage 3D: 1055918
+[ERROR GRT-0119] Routing congestion too high. Check the congestion heatmap in the GUI and load ./reports/nangate45/riscv_v_logic_ALU/base/congestion.rpt in the DRC viewer.
+Error: global_route.tcl, 122 GRT-0119
+Command exited with non-zero status 1
+Elapsed time: 24:00.09[h:]min:sec. CPU time: user 1438.02 sys 1.95 (99%). Peak memory: 3003132KB.

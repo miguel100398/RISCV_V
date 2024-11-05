@@ -1,0 +1,67 @@
+
+17. Printing statistics.
+
+=== riscv_v_rf ===
+
+   Number of wires:              34702
+   Number of wire bits:          35275
+   Number of public wires:        8205
+   Number of public wire bits:    8778
+   Number of ports:                 13
+   Number of port bits:            586
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              31009
+     AND2_X1                        31
+     AND2_X4                         1
+     AND3_X1                         1
+     AOI21_X1                     1311
+     AOI221_X1                     105
+     AOI221_X2                      13
+     AOI221_X4                       1
+     AOI222_X1                      32
+     AOI222_X2                       6
+     AOI222_X4                      11
+     AOI22_X1                      439
+     AOI22_X2                        1
+     BUF_X1                       1968
+     BUF_X16                         1
+     BUF_X2                        679
+     BUF_X4                        145
+     BUF_X8                         10
+     CLKBUF_X1                     379
+     CLKBUF_X2                      21
+     DFF_X1                       4096
+     INV_X1                        234
+     INV_X2                          1
+     MUX2_X1                     15694
+     NAND2_X1                     1232
+     NAND2_X2                        9
+     NAND3_X1                       91
+     NAND4_X1                       12
+     NOR2_X1                      1548
+     NOR2_X2                         8
+     NOR3_X1                       442
+     NOR3_X2                        14
+     NOR4_X1                       336
+     NOR4_X2                         1
+     OAI211_X2                       6
+     OAI21_X1                     1077
+     OAI221_X1                      74
+     OAI221_X2                       8
+     OAI222_X1                      13
+     OAI222_X2                       4
+     OAI22_X1                      771
+     OAI22_X2                       37
+     OR2_X1                         15
+     OR3_X1                          8
+     OR3_X2                          2
+     OR4_X1                        101
+     OR4_X2                          5
+     XNOR2_X1                        9
+     XOR2_X1                         6
+
+   Chip area for module '\riscv_v_rf': 59138.982000
+     of which used for sequential elements: 18522.112000 (31.32%)
+

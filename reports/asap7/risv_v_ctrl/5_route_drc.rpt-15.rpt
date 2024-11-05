@@ -1,0 +1,12 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:is_negate_result_exe 
+    bbox = ( 351.552, 499.793 ) - ( 351.576, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:use_mask_exe 
+    bbox = ( 351.456, 499.793 ) - ( 351.48, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:flush 
+    bbox = ( 346.176, 499.793 ) - ( 346.176, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:instruction_id[0] 
+    bbox = ( 346.08, 499.793 ) - ( 346.104, 499.829 ) on Layer M5

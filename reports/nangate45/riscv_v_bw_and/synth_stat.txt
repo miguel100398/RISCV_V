@@ -1,0 +1,68 @@
+
+17. Printing statistics.
+
+=== riscv_v_bw_and ===
+
+   Number of wires:               1317
+   Number of wire bits:           1770
+   Number of public wires:           9
+   Number of public wire bits:     462
+   Number of ports:                  9
+   Number of port bits:            462
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1436
+     AND2_X1                        39
+     AND2_X2                         1
+     AND2_X4                         1
+     AND3_X1                         7
+     AOI211_X2                      14
+     AOI21_X1                      125
+     AOI21_X2                        6
+     AOI21_X4                        1
+     AOI221_X1                      28
+     AOI221_X2                      10
+     AOI221_X4                       1
+     AOI222_X1                      10
+     AOI222_X2                       4
+     AOI22_X1                       61
+     AOI22_X4                        1
+     BUF_X1                         61
+     BUF_X16                         3
+     BUF_X2                         32
+     BUF_X4                         10
+     BUF_X8                          2
+     CLKBUF_X1                       5
+     INV_X1                        124
+     NAND2_X1                      114
+     NAND3_X1                       39
+     NAND4_X1                       22
+     NOR2_X1                       246
+     NOR2_X2                         1
+     NOR3_X1                        30
+     NOR3_X2                         2
+     NOR4_X1                        13
+     NOR4_X2                         1
+     OAI211_X2                      29
+     OAI21_X1                      163
+     OAI21_X2                        5
+     OAI21_X4                        2
+     OAI221_X1                      78
+     OAI221_X2                       4
+     OAI221_X4                       1
+     OAI222_X1                       8
+     OAI222_X2                       2
+     OAI222_X4                       1
+     OAI22_X1                       35
+     OAI22_X2                        4
+     OAI33_X1                       10
+     OR2_X1                         53
+     OR2_X2                          2
+     OR2_X4                          2
+     OR3_X1                         21
+     OR4_X1                          2
+
+   Chip area for module '\riscv_v_bw_and': 1644.412000
+     of which used for sequential elements: 0.000000 (0.00%)
+

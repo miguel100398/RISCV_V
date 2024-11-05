@@ -1,0 +1,138 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2463.86
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: src_data[0] (input port clocked by clk)
+Endpoint: result[0] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     5    4.09    0.00    0.00 1000.00 v src_data[0] (in)
+                                         src_data[0] (net)
+                  2.02    0.64 1000.64 v _355_/B2 (AO22x1_ASAP7_75t_R)
+     1    0.18    4.41   10.75 1011.39 v _355_/Y (AO22x1_ASAP7_75t_R)
+                                         result[0] (net)
+                  4.41    0.00 1011.39 v result[0] (out)
+                               1011.39   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                       -1000.00 -1000.00   output external delay
+                               -1000.00   data required time
+-----------------------------------------------------------------------------
+                               -1000.00   data required time
+                               -1011.39   data arrival time
+-----------------------------------------------------------------------------
+                               2011.39   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: invert (input port clocked by clk)
+Endpoint: result[86] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+   129   96.35    0.00    0.00 1000.00 v invert (in)
+                                         invert (net)
+                 55.54   17.52 1017.52 v _352_/B (NAND2x1_ASAP7_75t_R)
+   128   90.86  668.11  288.68 1306.20 ^ _352_/Y (NAND2x1_ASAP7_75t_R)
+                                         _010_ (net)
+                670.49   23.02 1329.22 ^ _766_/A2 (AO22x2_ASAP7_75t_R)
+     1   37.52   96.57  103.90 1433.11 ^ _766_/Y (AO22x2_ASAP7_75t_R)
+                                         result[86] (net)
+                340.92  103.03 1536.14 ^ result[86] (out)
+                               1536.14   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1536.14   data arrival time
+-----------------------------------------------------------------------------
+                               2463.86   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: invert (input port clocked by clk)
+Endpoint: result[86] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+   129   96.35    0.00    0.00 1000.00 v invert (in)
+                                         invert (net)
+                 55.54   17.52 1017.52 v _352_/B (NAND2x1_ASAP7_75t_R)
+   128   90.86  668.11  288.68 1306.20 ^ _352_/Y (NAND2x1_ASAP7_75t_R)
+                                         _010_ (net)
+                670.49   23.02 1329.22 ^ _766_/A2 (AO22x2_ASAP7_75t_R)
+     1   37.52   96.57  103.90 1433.11 ^ _766_/Y (AO22x2_ASAP7_75t_R)
+                                         result[86] (net)
+                340.92  103.03 1536.14 ^ result[86] (out)
+                               1536.14   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1536.14   data arrival time
+-----------------------------------------------------------------------------
+                               2463.86   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          8.45e-06   8.10e-06   1.84e-08   1.66e-05 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  8.45e-06   8.10e-06   1.84e-08   1.66e-05 100.0%
+                          51.0%      48.9%       0.1%

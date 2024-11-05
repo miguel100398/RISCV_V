@@ -1,0 +1,92 @@
+
+17. Printing statistics.
+
+=== riscv_v_arithmetic_ALU ===
+
+   Number of wires:             172276
+   Number of wire bits:         172813
+   Number of public wires:          28
+   Number of public wire bits:     565
+   Number of ports:                 28
+   Number of port bits:            565
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             172440
+     AND2_X1                      4262
+     AND2_X2                        13
+     AND2_X4                         1
+     AND3_X1                      1420
+     AND3_X2                        11
+     AND3_X4                         2
+     AND4_X1                       296
+     AND4_X2                        14
+     AOI211_X2                     635
+     AOI211_X4                      12
+     AOI21_X1                    18156
+     AOI21_X2                       50
+     AOI21_X4                        6
+     AOI221_X1                    2341
+     AOI221_X2                      56
+     AOI221_X4                       8
+     AOI222_X1                     211
+     AOI222_X4                       1
+     AOI22_X1                     4536
+     AOI22_X2                        4
+     AOI22_X4                        1
+     BUF_X1                       9696
+     BUF_X2                        516
+     BUF_X4                         96
+     BUF_X8                         11
+     CLKBUF_X1                     563
+     CLKBUF_X2                      19
+     CLKBUF_X3                     119
+     INV_X1                       6918
+     INV_X2                          9
+     MUX2_X1                      2919
+     MUX2_X2                         1
+     NAND2_X1                    20378
+     NAND2_X2                       20
+     NAND2_X4                        3
+     NAND3_X1                     4043
+     NAND3_X2                       10
+     NAND3_X4                        2
+     NAND4_X1                      713
+     NAND4_X2                       18
+     NOR2_X1                     25401
+     NOR2_X2                        22
+     NOR2_X4                         6
+     NOR3_X1                      4816
+     NOR3_X2                        42
+     NOR3_X4                         3
+     NOR4_X1                       763
+     NOR4_X2                        46
+     NOR4_X4                         5
+     OAI211_X2                     581
+     OAI21_X1                    17239
+     OAI21_X2                       53
+     OAI21_X4                        6
+     OAI221_X1                    2310
+     OAI221_X2                      16
+     OAI222_X1                     131
+     OAI22_X1                     4153
+     OAI22_X2                        8
+     OAI22_X4                        2
+     OAI33_X1                     1073
+     OR2_X1                       3720
+     OR2_X2                         13
+     OR2_X4                          1
+     OR3_X1                       1232
+     OR3_X2                         15
+     OR3_X4                          2
+     OR4_X1                        264
+     OR4_X2                         17
+     OR4_X4                          3
+     XNOR2_X1                    25123
+     XNOR2_X2                       11
+     XOR2_X1                      7269
+     XOR2_X2                         4
+
+   Chip area for module '\riscv_v_arithmetic_ALU': 194186.384000
+     of which used for sequential elements: 0.000000 (0.00%)
+

@@ -1,0 +1,3 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:use_mask_exe 
+    bbox = ( 351.456, 499.793 ) - ( 351.48, 499.861 ) on Layer M5

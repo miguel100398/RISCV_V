@@ -1,0 +1,31 @@
+
+21. Printing statistics.
+
+=== riscv_v_reduct_src ===
+
+   Number of wires:                235
+   Number of wire bits:            624
+   Number of public wires:           7
+   Number of public wire bits:     396
+   Number of ports:                  7
+   Number of port bits:            396
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                356
+     AND2x2_ASAP7_75t_R              1
+     AND2x4_ASAP7_75t_R              1
+     AO221x1_ASAP7_75t_R            64
+     AO222x2_ASAP7_75t_R            48
+     AO22x1_ASAP7_75t_R             76
+     AO22x2_ASAP7_75t_R             84
+     AO32x1_ASAP7_75t_R              8
+     BUFx2_ASAP7_75t_R              53
+     BUFx3_ASAP7_75t_R               6
+     BUFx4f_ASAP7_75t_R              3
+     BUFx6f_ASAP7_75t_R              8
+     OR2x2_ASAP7_75t_R               4
+
+   Chip area for module '\riscv_v_reduct_src': 47.370420
+     of which used for sequential elements: 0.000000 (0.00%)
+

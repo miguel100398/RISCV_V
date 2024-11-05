@@ -1,0 +1,28 @@
+
+22. Printing statistics.
+
+=== riscv_v_swizzle ===
+
+   Number of wires:                346
+   Number of wire bits:            604
+   Number of public wires:           4
+   Number of public wire bits:     262
+   Number of ports:                  4
+   Number of port bits:            262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                470
+     AO221x1_ASAP7_75t_R           128
+     AO22x1_ASAP7_75t_R            130
+     AO22x2_ASAP7_75t_R            126
+     BUFx12f_ASAP7_75t_R             1
+     BUFx2_ASAP7_75t_R              55
+     BUFx3_ASAP7_75t_R               2
+     BUFx6f_ASAP7_75t_R             26
+     INVx1_ASAP7_75t_R               1
+     NAND2x1_ASAP7_75t_R             1
+
+   Chip area for module '\riscv_v_swizzle': 62.460720
+     of which used for sequential elements: 0.000000 (0.00%)
+

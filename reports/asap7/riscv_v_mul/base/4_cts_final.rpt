@@ -1,0 +1,649 @@
+
+==========================================================================
+cts final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+cts final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+cts final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 818.86
+
+==========================================================================
+cts final report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+No launch/capture paths found.
+
+
+==========================================================================
+cts final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: osize_vector[1] (input port clocked by clk)
+Endpoint: result[31] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 ^ input external delay
+     1    2.24    0.00    0.00 1000.00 ^ osize_vector[1] (in)
+                                         osize_vector[1] (net)
+                  0.26    0.08 1000.08 ^ input5/A (BUFx16f_ASAP7_75t_R)
+    44   32.64   17.13   12.95 1013.03 ^ input5/Y (BUFx16f_ASAP7_75t_R)
+                                         net5 (net)
+                 58.80   17.82 1030.85 ^ _21514_/C2 (AO222x2_ASAP7_75t_R)
+     1    0.88    7.12   22.79 1053.64 ^ _21514_/Y (AO222x2_ASAP7_75t_R)
+                                         net332 (net)
+                  7.12    0.05 1053.69 ^ output332/A (BUFx2_ASAP7_75t_R)
+     1    0.20    4.12   11.50 1065.19 ^ output332/Y (BUFx2_ASAP7_75t_R)
+                                         result[31] (net)
+                  4.12    0.00 1065.20 ^ result[31] (out)
+                               1065.20   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                       -1000.00 -1000.00   output external delay
+                               -1000.00   data required time
+-----------------------------------------------------------------------------
+                               -1000.00   data required time
+                               -1065.20   data arrival time
+-----------------------------------------------------------------------------
+                               2065.20   slack (MET)
+
+
+
+==========================================================================
+cts final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: osize_vector[2] (input port clocked by clk)
+Endpoint: result[89] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 ^ input external delay
+     1    1.25    0.00    0.00 1000.00 ^ osize_vector[2] (in)
+                                         osize_vector[2] (net)
+                  0.07    0.02 1000.02 ^ input6/A (BUFx4f_ASAP7_75t_R)
+     5    8.72   17.32   14.55 1014.58 ^ input6/Y (BUFx4f_ASAP7_75t_R)
+                                         net6 (net)
+                 17.73    1.46 1016.04 ^ load_slew1889/A (BUFx16f_ASAP7_75t_R)
+    61   60.37   31.32   20.37 1036.41 ^ load_slew1889/Y (BUFx16f_ASAP7_75t_R)
+                                         net1889 (net)
+                 78.61   22.95 1059.35 ^ load_slew1887/A (BUFx16f_ASAP7_75t_R)
+    64   50.52   32.19   33.99 1093.34 ^ load_slew1887/Y (BUFx16f_ASAP7_75t_R)
+                                         net1887 (net)
+                 35.28    5.19 1098.54 ^ load_slew1886/A (BUFx16f_ASAP7_75t_R)
+    46   40.37   26.19   25.25 1123.78 ^ load_slew1886/Y (BUFx16f_ASAP7_75t_R)
+                                         net1886 (net)
+                 44.05   11.81 1135.60 ^ max_length1885/A (BUFx16f_ASAP7_75t_R)
+    27   50.53   25.17   24.80 1160.40 ^ max_length1885/Y (BUFx16f_ASAP7_75t_R)
+                                         net1885 (net)
+                 74.34   21.85 1182.25 ^ _17264_/B (NOR2x2_ASAP7_75t_R)
+    22   30.27  109.08   53.56 1235.81 v _17264_/Y (NOR2x2_ASAP7_75t_R)
+                                         _04719_ (net)
+                140.96   30.47 1266.28 v _17266_/A (AND2x4_ASAP7_75t_R)
+     6    7.83   18.98   50.46 1316.74 v _17266_/Y (AND2x4_ASAP7_75t_R)
+                                         _04721_ (net)
+                 19.14    0.94 1317.68 v _17271_/A (OR3x1_ASAP7_75t_R)
+     2    1.98   17.57   29.70 1347.38 v _17271_/Y (OR3x1_ASAP7_75t_R)
+                                         _04726_ (net)
+                 17.57    0.01 1347.39 v _17272_/B2 (AOI22x1_ASAP7_75t_R)
+     6    4.66   34.99   21.93 1369.32 ^ _17272_/Y (AOI22x1_ASAP7_75t_R)
+                                         _04727_ (net)
+                 34.99    0.09 1369.41 ^ _17320_/B (AND4x2_ASAP7_75t_R)
+    12   10.40   49.26   52.22 1421.63 ^ _17320_/Y (AND4x2_ASAP7_75t_R)
+                                         _04774_ (net)
+                 50.42    4.15 1425.77 ^ _19644_/A1 (OA211x2_ASAP7_75t_R)
+     1    1.32   10.45   29.31 1455.08 ^ _19644_/Y (OA211x2_ASAP7_75t_R)
+                                         _06884_ (net)
+                 10.45    0.02 1455.10 ^ _19645_/A1 (OAI21x1_ASAP7_75t_R)
+     6    4.88   26.91   15.20 1470.30 v _19645_/Y (OAI21x1_ASAP7_75t_R)
+                                         _06885_ (net)
+                 26.92    0.31 1470.60 v _27647_/C (OR3x1_ASAP7_75t_R)
+     2    1.84   16.33   31.66 1502.26 v _27647_/Y (OR3x1_ASAP7_75t_R)
+                                         _10771_ (net)
+                 16.33    0.06 1502.32 v _27703_/B (OR2x2_ASAP7_75t_R)
+     2    1.83   10.29   23.19 1525.51 v _27703_/Y (OR2x2_ASAP7_75t_R)
+                                         _10788_ (net)
+                 10.29    0.02 1525.53 v _27711_/A2 (OA21x2_ASAP7_75t_R)
+     1    1.13    7.29   17.85 1543.39 v _27711_/Y (OA21x2_ASAP7_75t_R)
+                                         _10794_ (net)
+                  7.29    0.02 1543.41 v _27712_/B (XOR2x2_ASAP7_75t_R)
+    16   24.83   80.99   50.52 1593.92 v _27712_/Y (XOR2x2_ASAP7_75t_R)
+                                         _10795_ (net)
+                 81.72    4.54 1598.47 v load_slew771/A (BUFx16f_ASAP7_75t_R)
+    26   35.85   22.64   34.87 1633.34 v load_slew771/Y (BUFx16f_ASAP7_75t_R)
+                                         net771 (net)
+                 27.34    4.93 1638.27 v load_slew769/A (BUFx16f_ASAP7_75t_R)
+    19   32.10   15.43   22.49 1660.76 v load_slew769/Y (BUFx16f_ASAP7_75t_R)
+                                         net769 (net)
+                 34.52    8.96 1669.72 v wire768/A (BUFx16f_ASAP7_75t_R)
+    25   34.10    9.93   23.55 1693.26 v wire768/Y (BUFx16f_ASAP7_75t_R)
+                                         net768 (net)
+                 93.88   29.16 1722.42 v load_slew767/A (BUFx16f_ASAP7_75t_R)
+    21   22.71   14.82   33.77 1756.19 v load_slew767/Y (BUFx16f_ASAP7_75t_R)
+                                         net767 (net)
+                 50.53   15.25 1771.44 v _52638_/A (AND2x2_ASAP7_75t_R)
+     1    2.22   11.44   32.25 1803.69 v _52638_/Y (AND2x2_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.B (net)
+                 11.44    0.02 1803.71 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.72   28.24   21.18 1824.89 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 28.24    0.00 1824.90 ^ _52568_/A (INVx1_ASAP7_75t_R)
+     1    2.03   16.81   13.30 1838.20 v _52568_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.A (net)
+                 16.81    0.01 1838.21 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.76   30.12   32.70 1870.91 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.NY (net)
+                 30.12    0.01 1870.92 ^ _52550_/A (INVx1_ASAP7_75t_R)
+     1    2.27   18.34   14.42 1885.34 v _52550_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.B (net)
+                 18.34    0.04 1885.38 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.75   29.37   22.92 1908.30 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.NY (net)
+                 29.37    0.01 1908.31 ^ _52531_/A (INVx1_ASAP7_75t_R)
+     1    2.04   17.11   13.52 1921.83 v _52531_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.11    0.02 1921.84 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.75   22.15   35.23 1957.07 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 22.15    0.01 1957.08 v _52345_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.75   14.56 1971.64 ^ _52345_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.B (net)
+                 18.75    0.03 1971.67 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.72   29.47   31.90 2003.56 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.NY (net)
+                 29.47    0.00 2003.57 ^ _52319_/A (INVx1_ASAP7_75t_R)
+     1    2.21   17.93   14.13 2017.70 v _52319_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.B (net)
+                 17.93    0.02 2017.72 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.75   29.34   22.83 2040.55 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.NY (net)
+                 29.34    0.01 2040.56 ^ _52302_/A (INVx1_ASAP7_75t_R)
+     1    2.22   17.99   14.08 2054.64 v _52302_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.99    0.09 2054.72 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.76   22.41   35.63 2090.35 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 22.41    0.01 2090.36 v _51543_/A (INVx1_ASAP7_75t_R)
+     1    2.32   19.25   14.87 2105.23 ^ _51543_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.B (net)
+                 19.25    0.06 2105.29 ^ vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.86   32.08   34.13 2139.42 ^ vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.NY (net)
+                 32.08    0.03 2139.45 ^ _51492_/A (INVx1_ASAP7_75t_R)
+     1    2.57   20.27   15.79 2155.24 v _51492_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.B (net)
+                 20.28    0.18 2155.41 v vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.73   29.08   23.09 2178.50 ^ vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.NY (net)
+                 29.08    0.01 2178.51 ^ _51458_/A (INVx1_ASAP7_75t_R)
+     1    2.09   17.31   13.64 2192.15 v _51458_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.31    0.04 2192.18 v vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    4.28  103.21   85.07 2277.25 v vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                103.29    1.71 2278.96 v _48165_/A (INVx1_ASAP7_75t_R)
+     1    2.40   36.18   28.84 2307.80 ^ _48165_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.B (net)
+                 36.18    0.10 2307.90 ^ vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    1.70   49.04   50.93 2358.83 ^ vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.NY (net)
+                 49.04    0.23 2359.05 ^ _48060_/A (INVx1_ASAP7_75t_R)
+     1    2.23   22.09   17.15 2376.21 v _48060_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.B (net)
+                 22.09    0.02 2376.23 v vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.74   29.41   23.48 2399.71 ^ vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.NY (net)
+                 29.41    0.01 2399.71 ^ _47955_/A (INVx1_ASAP7_75t_R)
+     1    2.08   17.33   13.66 2413.37 v _47955_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.33    0.03 2413.40 v vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    1.68   43.22   48.98 2462.38 v vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 43.22    0.22 2462.61 v _22681_/A (INVx1_ASAP7_75t_R)
+     1    2.72   26.68   21.18 2483.78 ^ _22681_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.A (net)
+                 26.69    0.32 2484.10 ^ vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.86   32.94   35.97 2520.07 ^ vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.NY (net)
+                 32.94    0.03 2520.09 ^ _22445_/A (INVx1_ASAP7_75t_R)
+     1    2.56   20.43   15.93 2536.02 v _22445_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.B (net)
+                 20.43    0.17 2536.19 v vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    3.37   82.14   47.56 2583.76 ^ vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.NY (net)
+                 82.14    0.09 2583.85 ^ _22233_/A (INVx5_ASAP7_75t_R)
+     1   10.32   32.08   16.75 2600.60 v _22233_/Y (INVx5_ASAP7_75t_R)
+                                         vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 40.86    8.57 2609.17 v vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     2    1.54   48.09   48.73 2657.89 ^ vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 48.09    0.03 2657.92 ^ _19662_/A (INVx1_ASAP7_75t_R)
+     1    0.51   11.32    8.66 2666.58 v _19662_/Y (INVx1_ASAP7_75t_R)
+                                         _06901_ (net)
+                 11.32    0.01 2666.59 v _19663_/C (OA211x2_ASAP7_75t_R)
+     1    0.59    9.01   27.38 2693.97 v _19663_/Y (OA211x2_ASAP7_75t_R)
+                                         _06902_ (net)
+                  9.01    0.01 2693.97 v _19664_/C (AO221x2_ASAP7_75t_R)
+     3    3.67   16.77   30.72 2724.70 v _19664_/Y (AO221x2_ASAP7_75t_R)
+                                         _06903_ (net)
+                 16.77    0.10 2724.79 v _19667_/A (OR2x2_ASAP7_75t_R)
+     4    4.24   17.28   27.39 2752.19 v _19667_/Y (OR2x2_ASAP7_75t_R)
+                                         _06906_ (net)
+                 17.28    0.07 2752.25 v _19668_/B (NOR2x2_ASAP7_75t_R)
+     8    7.63   31.69   20.49 2772.74 ^ _19668_/Y (NOR2x2_ASAP7_75t_R)
+                                         _06907_ (net)
+                 31.70    0.31 2773.06 ^ _19696_/B (AND4x1_ASAP7_75t_R)
+     3    2.40   23.98   36.16 2809.21 ^ _19696_/Y (AND4x1_ASAP7_75t_R)
+                                         _06935_ (net)
+                 23.99    0.22 2809.43 ^ _19698_/B (AND2x2_ASAP7_75t_R)
+     1    0.48    7.63   20.01 2829.44 ^ _19698_/Y (AND2x2_ASAP7_75t_R)
+                                         _06937_ (net)
+                  7.63    0.00 2829.45 ^ _19699_/B (OA211x2_ASAP7_75t_R)
+     1    0.68    7.97   19.00 2848.45 ^ _19699_/Y (OA211x2_ASAP7_75t_R)
+                                         _06938_ (net)
+                  7.97    0.01 2848.45 ^ _19700_/B (AO21x1_ASAP7_75t_R)
+     2    1.30   11.27   12.91 2861.36 ^ _19700_/Y (AO21x1_ASAP7_75t_R)
+                                         _06939_ (net)
+                 11.27    0.03 2861.39 ^ _19702_/C (AND3x1_ASAP7_75t_R)
+     2    1.69   16.95   24.62 2886.01 ^ _19702_/Y (AND3x1_ASAP7_75t_R)
+                                         _06941_ (net)
+                 16.95    0.02 2886.03 ^ _19704_/B1 (AO32x2_ASAP7_75t_R)
+     8    6.64   28.52   33.38 2919.41 ^ _19704_/Y (AO32x2_ASAP7_75t_R)
+                                         _06943_ (net)
+                 28.73    1.36 2920.77 ^ _19710_/B1 (AO33x2_ASAP7_75t_R)
+    14   12.48   46.22   45.07 2965.84 ^ _19710_/Y (AO33x2_ASAP7_75t_R)
+                                         _06949_ (net)
+                 46.54    2.22 2968.06 ^ _19715_/A2 (AO21x2_ASAP7_75t_R)
+    16   17.69   58.78   46.72 3014.78 ^ _19715_/Y (AO21x2_ASAP7_75t_R)
+                                         _06954_ (net)
+                 58.80    0.51 3015.30 ^ _20148_/A (AND4x2_ASAP7_75t_R)
+     3    3.21   21.01   45.36 3060.66 ^ _20148_/Y (AND4x2_ASAP7_75t_R)
+                                         _07334_ (net)
+                 21.01    0.02 3060.68 ^ _20150_/A (XNOR2x2_ASAP7_75t_R)
+     2    2.69   13.64   35.28 3095.96 v _20150_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _07336_ (net)
+                 13.71    0.55 3096.51 v _20151_/B (AND2x2_ASAP7_75t_R)
+     4    2.81   16.58   21.26 3117.77 v _20151_/Y (AND2x2_ASAP7_75t_R)
+                                         _07337_ (net)
+                 16.58    0.06 3117.83 v _22080_/B (AO21x1_ASAP7_75t_R)
+     1    0.64    9.50   17.24 3135.07 v _22080_/Y (AO21x1_ASAP7_75t_R)
+                                         _09097_ (net)
+                  9.50    0.01 3135.08 v _22085_/A2 (AO222x2_ASAP7_75t_R)
+     1    1.32   12.89   31.93 3167.01 v _22085_/Y (AO222x2_ASAP7_75t_R)
+                                         net395 (net)
+                 12.89    0.13 3167.14 v output395/A (BUFx2_ASAP7_75t_R)
+     1    0.17    4.12   13.99 3181.13 v output395/Y (BUFx2_ASAP7_75t_R)
+                                         result[89] (net)
+                  4.12    0.00 3181.14 v result[89] (out)
+                               3181.14   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -3181.14   data arrival time
+-----------------------------------------------------------------------------
+                                818.86   slack (MET)
+
+
+
+==========================================================================
+cts final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: osize_vector[2] (input port clocked by clk)
+Endpoint: result[89] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 ^ input external delay
+     1    1.25    0.00    0.00 1000.00 ^ osize_vector[2] (in)
+                                         osize_vector[2] (net)
+                  0.07    0.02 1000.02 ^ input6/A (BUFx4f_ASAP7_75t_R)
+     5    8.72   17.32   14.55 1014.58 ^ input6/Y (BUFx4f_ASAP7_75t_R)
+                                         net6 (net)
+                 17.73    1.46 1016.04 ^ load_slew1889/A (BUFx16f_ASAP7_75t_R)
+    61   60.37   31.32   20.37 1036.41 ^ load_slew1889/Y (BUFx16f_ASAP7_75t_R)
+                                         net1889 (net)
+                 78.61   22.95 1059.35 ^ load_slew1887/A (BUFx16f_ASAP7_75t_R)
+    64   50.52   32.19   33.99 1093.34 ^ load_slew1887/Y (BUFx16f_ASAP7_75t_R)
+                                         net1887 (net)
+                 35.28    5.19 1098.54 ^ load_slew1886/A (BUFx16f_ASAP7_75t_R)
+    46   40.37   26.19   25.25 1123.78 ^ load_slew1886/Y (BUFx16f_ASAP7_75t_R)
+                                         net1886 (net)
+                 44.05   11.81 1135.60 ^ max_length1885/A (BUFx16f_ASAP7_75t_R)
+    27   50.53   25.17   24.80 1160.40 ^ max_length1885/Y (BUFx16f_ASAP7_75t_R)
+                                         net1885 (net)
+                 74.34   21.85 1182.25 ^ _17264_/B (NOR2x2_ASAP7_75t_R)
+    22   30.27  109.08   53.56 1235.81 v _17264_/Y (NOR2x2_ASAP7_75t_R)
+                                         _04719_ (net)
+                140.96   30.47 1266.28 v _17266_/A (AND2x4_ASAP7_75t_R)
+     6    7.83   18.98   50.46 1316.74 v _17266_/Y (AND2x4_ASAP7_75t_R)
+                                         _04721_ (net)
+                 19.14    0.94 1317.68 v _17271_/A (OR3x1_ASAP7_75t_R)
+     2    1.98   17.57   29.70 1347.38 v _17271_/Y (OR3x1_ASAP7_75t_R)
+                                         _04726_ (net)
+                 17.57    0.01 1347.39 v _17272_/B2 (AOI22x1_ASAP7_75t_R)
+     6    4.66   34.99   21.93 1369.32 ^ _17272_/Y (AOI22x1_ASAP7_75t_R)
+                                         _04727_ (net)
+                 34.99    0.09 1369.41 ^ _17320_/B (AND4x2_ASAP7_75t_R)
+    12   10.40   49.26   52.22 1421.63 ^ _17320_/Y (AND4x2_ASAP7_75t_R)
+                                         _04774_ (net)
+                 50.42    4.15 1425.77 ^ _19644_/A1 (OA211x2_ASAP7_75t_R)
+     1    1.32   10.45   29.31 1455.08 ^ _19644_/Y (OA211x2_ASAP7_75t_R)
+                                         _06884_ (net)
+                 10.45    0.02 1455.10 ^ _19645_/A1 (OAI21x1_ASAP7_75t_R)
+     6    4.88   26.91   15.20 1470.30 v _19645_/Y (OAI21x1_ASAP7_75t_R)
+                                         _06885_ (net)
+                 26.92    0.31 1470.60 v _27647_/C (OR3x1_ASAP7_75t_R)
+     2    1.84   16.33   31.66 1502.26 v _27647_/Y (OR3x1_ASAP7_75t_R)
+                                         _10771_ (net)
+                 16.33    0.06 1502.32 v _27703_/B (OR2x2_ASAP7_75t_R)
+     2    1.83   10.29   23.19 1525.51 v _27703_/Y (OR2x2_ASAP7_75t_R)
+                                         _10788_ (net)
+                 10.29    0.02 1525.53 v _27711_/A2 (OA21x2_ASAP7_75t_R)
+     1    1.13    7.29   17.85 1543.39 v _27711_/Y (OA21x2_ASAP7_75t_R)
+                                         _10794_ (net)
+                  7.29    0.02 1543.41 v _27712_/B (XOR2x2_ASAP7_75t_R)
+    16   24.83   80.99   50.52 1593.92 v _27712_/Y (XOR2x2_ASAP7_75t_R)
+                                         _10795_ (net)
+                 81.72    4.54 1598.47 v load_slew771/A (BUFx16f_ASAP7_75t_R)
+    26   35.85   22.64   34.87 1633.34 v load_slew771/Y (BUFx16f_ASAP7_75t_R)
+                                         net771 (net)
+                 27.34    4.93 1638.27 v load_slew769/A (BUFx16f_ASAP7_75t_R)
+    19   32.10   15.43   22.49 1660.76 v load_slew769/Y (BUFx16f_ASAP7_75t_R)
+                                         net769 (net)
+                 34.52    8.96 1669.72 v wire768/A (BUFx16f_ASAP7_75t_R)
+    25   34.10    9.93   23.55 1693.26 v wire768/Y (BUFx16f_ASAP7_75t_R)
+                                         net768 (net)
+                 93.88   29.16 1722.42 v load_slew767/A (BUFx16f_ASAP7_75t_R)
+    21   22.71   14.82   33.77 1756.19 v load_slew767/Y (BUFx16f_ASAP7_75t_R)
+                                         net767 (net)
+                 50.53   15.25 1771.44 v _52638_/A (AND2x2_ASAP7_75t_R)
+     1    2.22   11.44   32.25 1803.69 v _52638_/Y (AND2x2_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.B (net)
+                 11.44    0.02 1803.71 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.72   28.24   21.18 1824.89 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 28.24    0.00 1824.90 ^ _52568_/A (INVx1_ASAP7_75t_R)
+     1    2.03   16.81   13.30 1838.20 v _52568_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.A (net)
+                 16.81    0.01 1838.21 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.76   30.12   32.70 1870.91 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.NY (net)
+                 30.12    0.01 1870.92 ^ _52550_/A (INVx1_ASAP7_75t_R)
+     1    2.27   18.34   14.42 1885.34 v _52550_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.B (net)
+                 18.34    0.04 1885.38 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.75   29.37   22.92 1908.30 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[6].adder.NY (net)
+                 29.37    0.01 1908.31 ^ _52531_/A (INVx1_ASAP7_75t_R)
+     1    2.04   17.11   13.52 1921.83 v _52531_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.11    0.02 1921.84 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.75   22.15   35.23 1957.07 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 22.15    0.01 1957.08 v _52345_/A (INVx1_ASAP7_75t_R)
+     1    2.24   18.75   14.56 1971.64 ^ _52345_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.B (net)
+                 18.75    0.03 1971.67 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.72   29.47   31.90 2003.56 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.NY (net)
+                 29.47    0.00 2003.57 ^ _52319_/A (INVx1_ASAP7_75t_R)
+     1    2.21   17.93   14.13 2017.70 v _52319_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.B (net)
+                 17.93    0.02 2017.72 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.75   29.34   22.83 2040.55 ^ vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[10].adder.NY (net)
+                 29.34    0.01 2040.56 ^ _52302_/A (INVx1_ASAP7_75t_R)
+     1    2.22   17.99   14.08 2054.64 v _52302_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.99    0.09 2054.72 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.76   22.41   35.63 2090.35 v vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 22.41    0.01 2090.36 v _51543_/A (INVx1_ASAP7_75t_R)
+     1    2.32   19.25   14.87 2105.23 ^ _51543_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.B (net)
+                 19.25    0.06 2105.29 ^ vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.86   32.08   34.13 2139.42 ^ vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.mid_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.NY (net)
+                 32.08    0.03 2139.45 ^ _51492_/A (INVx1_ASAP7_75t_R)
+     1    2.57   20.27   15.79 2155.24 v _51492_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.B (net)
+                 20.28    0.18 2155.41 v vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.73   29.08   23.09 2178.50 ^ vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.low_adder.get_ripple_carry_adder.adder.gen_adder[18].adder.NY (net)
+                 29.08    0.01 2178.51 ^ _51458_/A (INVx1_ASAP7_75t_R)
+     1    2.09   17.31   13.64 2192.15 v _51458_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.31    0.04 2192.18 v vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    4.28  103.21   85.07 2277.25 v vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mul_ha_lb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                103.29    1.71 2278.96 v _48165_/A (INVx1_ASAP7_75t_R)
+     1    2.40   36.18   28.84 2307.80 ^ _48165_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.B (net)
+                 36.18    0.10 2307.90 ^ vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    1.70   49.04   50.93 2358.83 ^ vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.mid_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.NY (net)
+                 49.04    0.23 2359.05 ^ _48060_/A (INVx1_ASAP7_75t_R)
+     1    2.23   22.09   17.15 2376.21 v _48060_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.B (net)
+                 22.09    0.02 2376.23 v vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    0.74   29.41   23.48 2399.71 ^ vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.low_adder.get_ripple_carry_adder.adder.gen_adder[34].adder.NY (net)
+                 29.41    0.01 2399.71 ^ _47955_/A (INVx1_ASAP7_75t_R)
+     1    2.08   17.33   13.66 2413.37 v _47955_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 17.33    0.03 2413.40 v vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    1.68   43.22   48.98 2462.38 v vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mul_la_hb.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 43.22    0.22 2462.61 v _22681_/A (INVx1_ASAP7_75t_R)
+     1    2.72   26.68   21.18 2483.78 ^ _22681_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.A (net)
+                 26.69    0.32 2484.10 ^ vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     1    0.86   32.94   35.97 2520.07 ^ vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.mid_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.NY (net)
+                 32.94    0.03 2520.09 ^ _22445_/A (INVx1_ASAP7_75t_R)
+     1    2.56   20.43   15.93 2536.02 v _22445_/Y (INVx1_ASAP7_75t_R)
+                                         vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.B (net)
+                 20.43    0.17 2536.19 v vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/B (FAx1_ASAP7_75t_R)
+     1    3.37   82.14   47.56 2583.76 ^ vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.low_adder.get_ripple_carry_adder.adder.gen_adder[66].adder.NY (net)
+                 82.14    0.09 2583.85 ^ _22233_/A (INVx5_ASAP7_75t_R)
+     1   10.32   32.08   16.75 2600.60 v _22233_/Y (INVx5_ASAP7_75t_R)
+                                         vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.A (net)
+                 40.86    8.57 2609.17 v vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/A (FAx1_ASAP7_75t_R)
+     2    1.54   48.09   48.73 2657.89 ^ vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.genblk1[0].genblk1.fulladder/SN (FAx1_ASAP7_75t_R)
+                                         vedic_mul.high_adder.get_ripple_carry_adder.adder.gen_adder[2].adder.NY (net)
+                 48.09    0.03 2657.92 ^ _19662_/A (INVx1_ASAP7_75t_R)
+     1    0.51   11.32    8.66 2666.58 v _19662_/Y (INVx1_ASAP7_75t_R)
+                                         _06901_ (net)
+                 11.32    0.01 2666.59 v _19663_/C (OA211x2_ASAP7_75t_R)
+     1    0.59    9.01   27.38 2693.97 v _19663_/Y (OA211x2_ASAP7_75t_R)
+                                         _06902_ (net)
+                  9.01    0.01 2693.97 v _19664_/C (AO221x2_ASAP7_75t_R)
+     3    3.67   16.77   30.72 2724.70 v _19664_/Y (AO221x2_ASAP7_75t_R)
+                                         _06903_ (net)
+                 16.77    0.10 2724.79 v _19667_/A (OR2x2_ASAP7_75t_R)
+     4    4.24   17.28   27.39 2752.19 v _19667_/Y (OR2x2_ASAP7_75t_R)
+                                         _06906_ (net)
+                 17.28    0.07 2752.25 v _19668_/B (NOR2x2_ASAP7_75t_R)
+     8    7.63   31.69   20.49 2772.74 ^ _19668_/Y (NOR2x2_ASAP7_75t_R)
+                                         _06907_ (net)
+                 31.70    0.31 2773.06 ^ _19696_/B (AND4x1_ASAP7_75t_R)
+     3    2.40   23.98   36.16 2809.21 ^ _19696_/Y (AND4x1_ASAP7_75t_R)
+                                         _06935_ (net)
+                 23.99    0.22 2809.43 ^ _19698_/B (AND2x2_ASAP7_75t_R)
+     1    0.48    7.63   20.01 2829.44 ^ _19698_/Y (AND2x2_ASAP7_75t_R)
+                                         _06937_ (net)
+                  7.63    0.00 2829.45 ^ _19699_/B (OA211x2_ASAP7_75t_R)
+     1    0.68    7.97   19.00 2848.45 ^ _19699_/Y (OA211x2_ASAP7_75t_R)
+                                         _06938_ (net)
+                  7.97    0.01 2848.45 ^ _19700_/B (AO21x1_ASAP7_75t_R)
+     2    1.30   11.27   12.91 2861.36 ^ _19700_/Y (AO21x1_ASAP7_75t_R)
+                                         _06939_ (net)
+                 11.27    0.03 2861.39 ^ _19702_/C (AND3x1_ASAP7_75t_R)
+     2    1.69   16.95   24.62 2886.01 ^ _19702_/Y (AND3x1_ASAP7_75t_R)
+                                         _06941_ (net)
+                 16.95    0.02 2886.03 ^ _19704_/B1 (AO32x2_ASAP7_75t_R)
+     8    6.64   28.52   33.38 2919.41 ^ _19704_/Y (AO32x2_ASAP7_75t_R)
+                                         _06943_ (net)
+                 28.73    1.36 2920.77 ^ _19710_/B1 (AO33x2_ASAP7_75t_R)
+    14   12.48   46.22   45.07 2965.84 ^ _19710_/Y (AO33x2_ASAP7_75t_R)
+                                         _06949_ (net)
+                 46.54    2.22 2968.06 ^ _19715_/A2 (AO21x2_ASAP7_75t_R)
+    16   17.69   58.78   46.72 3014.78 ^ _19715_/Y (AO21x2_ASAP7_75t_R)
+                                         _06954_ (net)
+                 58.80    0.51 3015.30 ^ _20148_/A (AND4x2_ASAP7_75t_R)
+     3    3.21   21.01   45.36 3060.66 ^ _20148_/Y (AND4x2_ASAP7_75t_R)
+                                         _07334_ (net)
+                 21.01    0.02 3060.68 ^ _20150_/A (XNOR2x2_ASAP7_75t_R)
+     2    2.69   13.64   35.28 3095.96 v _20150_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _07336_ (net)
+                 13.71    0.55 3096.51 v _20151_/B (AND2x2_ASAP7_75t_R)
+     4    2.81   16.58   21.26 3117.77 v _20151_/Y (AND2x2_ASAP7_75t_R)
+                                         _07337_ (net)
+                 16.58    0.06 3117.83 v _22080_/B (AO21x1_ASAP7_75t_R)
+     1    0.64    9.50   17.24 3135.07 v _22080_/Y (AO21x1_ASAP7_75t_R)
+                                         _09097_ (net)
+                  9.50    0.01 3135.08 v _22085_/A2 (AO222x2_ASAP7_75t_R)
+     1    1.32   12.89   31.93 3167.01 v _22085_/Y (AO222x2_ASAP7_75t_R)
+                                         net395 (net)
+                 12.89    0.13 3167.14 v output395/A (BUFx2_ASAP7_75t_R)
+     1    0.17    4.12   13.99 3181.13 v output395/Y (BUFx2_ASAP7_75t_R)
+                                         result[89] (net)
+                  4.12    0.00 3181.14 v result[89] (out)
+                               3181.14   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -3181.14   data arrival time
+-----------------------------------------------------------------------------
+                                818.86   slack (MET)
+
+
+
+==========================================================================
+cts final report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+cts final max_slew_check_slack
+--------------------------------------------------------------------------
+35.748043060302734
+
+==========================================================================
+cts final max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+cts final max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.1117
+
+==========================================================================
+cts final max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+cts final max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+cts final max_capacitance_check_slack
+--------------------------------------------------------------------------
+11.378840446472168
+
+==========================================================================
+cts final max_capacitance_check_limit
+--------------------------------------------------------------------------
+23.040000915527344
+
+==========================================================================
+cts final max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.4939
+
+==========================================================================
+cts final max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+cts final max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+cts final max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+cts final setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+cts final hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+cts final critical path delay
+--------------------------------------------------------------------------
+3181.1365
+
+==========================================================================
+cts final critical path slack
+--------------------------------------------------------------------------
+818.8634
+
+==========================================================================
+cts final slack div critical path delay
+--------------------------------------------------------------------------
+25.741222
+
+==========================================================================
+cts final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          7.49e-03   1.23e-02   5.69e-06   1.98e-02 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  7.49e-03   1.23e-02   5.69e-06   1.98e-02 100.0%
+                          37.8%      62.2%       0.0%

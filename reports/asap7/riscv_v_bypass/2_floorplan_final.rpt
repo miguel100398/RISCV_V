@@ -1,0 +1,156 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2538.69
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: is_scalar (input port clocked by clk)
+Endpoint: srca_byp[100] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 ^ input external delay
+   123   56.07    0.00    0.00 1000.00 ^ is_scalar (in)
+                                         is_scalar (net)
+                  0.00    0.00 1000.00 ^ _1841_/A1 (AO21x1_ASAP7_75t_R)
+     1    0.00    2.70    9.16 1009.16 ^ _1841_/Y (AO21x1_ASAP7_75t_R)
+                                         srca_byp[100] (net)
+                  2.70    0.00 1009.16 ^ srca_byp[100] (out)
+                               1009.16   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                       -1000.00 -1000.00   output external delay
+                               -1000.00   data required time
+-----------------------------------------------------------------------------
+                               -1000.00   data required time
+                               -1009.16   data arrival time
+-----------------------------------------------------------------------------
+                               2009.16   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rf_wr_addr_wb[1] (input port clocked by clk)
+Endpoint: srcb_byp[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     4    3.79    0.00    0.00 1000.00 v rf_wr_addr_wb[1] (in)
+                                         rf_wr_addr_wb[1] (net)
+                  0.00    0.00 1000.00 v _2964_/A (XNOR2x2_ASAP7_75t_R)
+     1    0.54    7.35   21.14 1021.14 ^ _2964_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _1189_ (net)
+                  7.35    0.00 1021.14 ^ _2965_/E (AND5x1_ASAP7_75t_R)
+   144   93.77  638.76  317.80 1338.94 ^ _2965_/Y (AND5x1_ASAP7_75t_R)
+                                         _1190_ (net)
+                638.76    0.00 1338.94 ^ _2967_/B (NAND2x1_ASAP7_75t_R)
+     8    4.56  122.57   70.89 1409.83 v _2967_/Y (NAND2x1_ASAP7_75t_R)
+                                         _1192_ (net)
+                122.57    0.00 1409.83 v _2971_/B1 (AO221x1_ASAP7_75t_R)
+     1    0.63   14.75   37.97 1447.80 v _2971_/Y (AO221x1_ASAP7_75t_R)
+                                         _1196_ (net)
+                 14.75    0.00 1447.80 v _2972_/B (OA21x2_ASAP7_75t_R)
+     1    0.00    8.07   13.51 1461.31 v _2972_/Y (OA21x2_ASAP7_75t_R)
+                                         srcb_byp[0] (net)
+                  8.07    0.00 1461.31 v srcb_byp[0] (out)
+                               1461.31   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1461.31   data arrival time
+-----------------------------------------------------------------------------
+                               2538.69   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rf_wr_addr_wb[1] (input port clocked by clk)
+Endpoint: srcb_byp[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     4    3.79    0.00    0.00 1000.00 v rf_wr_addr_wb[1] (in)
+                                         rf_wr_addr_wb[1] (net)
+                  0.00    0.00 1000.00 v _2964_/A (XNOR2x2_ASAP7_75t_R)
+     1    0.54    7.35   21.14 1021.14 ^ _2964_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _1189_ (net)
+                  7.35    0.00 1021.14 ^ _2965_/E (AND5x1_ASAP7_75t_R)
+   144   93.77  638.76  317.80 1338.94 ^ _2965_/Y (AND5x1_ASAP7_75t_R)
+                                         _1190_ (net)
+                638.76    0.00 1338.94 ^ _2967_/B (NAND2x1_ASAP7_75t_R)
+     8    4.56  122.57   70.89 1409.83 v _2967_/Y (NAND2x1_ASAP7_75t_R)
+                                         _1192_ (net)
+                122.57    0.00 1409.83 v _2971_/B1 (AO221x1_ASAP7_75t_R)
+     1    0.63   14.75   37.97 1447.80 v _2971_/Y (AO221x1_ASAP7_75t_R)
+                                         _1196_ (net)
+                 14.75    0.00 1447.80 v _2972_/B (OA21x2_ASAP7_75t_R)
+     1    0.00    8.07   13.51 1461.31 v _2972_/Y (OA21x2_ASAP7_75t_R)
+                                         srcb_byp[0] (net)
+                  8.07    0.00 1461.31 v srcb_byp[0] (out)
+                               1461.31   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1461.31   data arrival time
+-----------------------------------------------------------------------------
+                               2538.69   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          2.48e-05   1.21e-05   1.28e-07   3.70e-05 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.48e-05   1.21e-05   1.28e-07   3.70e-05 100.0%
+                          66.9%      32.8%       0.3%

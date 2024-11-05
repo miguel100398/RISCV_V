@@ -1,0 +1,28 @@
+
+17. Printing statistics.
+
+=== riscv_v_swizzle ===
+
+   Number of wires:                473
+   Number of wire bits:            731
+   Number of public wires:           4
+   Number of public wire bits:     262
+   Number of ports:                  4
+   Number of port bits:            262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                597
+     sky130_fd_sc_hd__a22o_1       128
+     sky130_fd_sc_hd__a22oi_1      256
+     sky130_fd_sc_hd__buf_1          2
+     sky130_fd_sc_hd__buf_2         31
+     sky130_fd_sc_hd__buf_4         12
+     sky130_fd_sc_hd__buf_6         32
+     sky130_fd_sc_hd__clkbuf_1       7
+     sky130_fd_sc_hd__nand2_1      128
+     sky130_fd_sc_hd__nand2b_1       1
+
+   Chip area for module '\riscv_v_swizzle': 4168.998400
+     of which used for sequential elements: 0.000000 (0.00%)
+

@@ -1,0 +1,627 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz -o objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz -o objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz -o objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz -o objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib -o objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lib/NLDM/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+/home/ubuntu/mbucio/tools/openROAD/flow/util/mergeLib.pl asap7_merged  ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib  ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib  ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib  ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib > objects/asap7/mul_array_test_latency/base/lib/merged.lib
+mkdir -p results/asap7/mul_array_test_latency/base/
+echo 110.0 > results/asap7/mul_array_test_latency/base/clock_period.txt
+mkdir -p ./results/asap7/mul_array_test_latency/base ./logs/asap7/mul_array_test_latency/base ./reports/asap7/mul_array_test_latency/base ./objects/asap7/mul_array_test_latency/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/mul_array_test_latency/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/mul_array_test_latency.v
+57. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/mul_vec_array_test_latency.v
+58. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/mul_vedic_test_latency.v
+59. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/mul_vec_vedic_test_latency.v
+60. Executing Verilog-2005 frontend: ./designs/src/mul_array_test_latency/convert_to_v/riscv_v.v
+61. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+62. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+63. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+64. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+65. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+66. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_clkgate_R.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/asap7/mul_array_test_latency/base/clock_period.txt
+Setting clock period to 110.0
+67. Executing HIERARCHY pass (managing design hierarchy).
+68. Executing AST frontend in derive mode using pre-parsed AST for module `\mul_array_test_latency'.
+68.1. Analyzing design hierarchy..
+68.2. Analyzing design hierarchy..
+69. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module mul_array_test_latency because it contains processes (run 'proc' command first).
+70. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 0f808b6c73, CPU: user 0.61s system 0.04s, MEM: 83.38 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 90% 6x read_liberty (0 sec), 8% 122x read_verilog (0 sec), ...
+Elapsed time: 0:00.71[h:]min:sec. CPU time: user 0.66 sys 0.04 (99%). Peak memory: 86656KB.
+mkdir -p ./results/asap7/mul_array_test_latency/base ./logs/asap7/mul_array_test_latency/base ./reports/asap7/mul_array_test_latency/base
+(export VERILOG_FILES=./results/asap7/mul_array_test_latency/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/mul_array_test_latency/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (80%). Peak memory: 12928KB.
+mkdir -p ./results/asap7/mul_array_test_latency/base ./logs/asap7/mul_array_test_latency/base ./reports/asap7/mul_array_test_latency/base ./objects/asap7/mul_array_test_latency/base
+(export VERILOG_FILES=./results/asap7/mul_array_test_latency/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/mul_array_test_latency/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+3. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+4. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+5. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+6. Executing Liberty frontend: ./objects/asap7/mul_array_test_latency/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+7. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_clkgate_R.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/asap7/mul_array_test_latency/base/clock_period.txt
+Setting clock period to 110.0
+synth -top mul_array_test_latency -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+8. Executing SYNTH pass.
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+8.1.1. Analyzing design hierarchy..
+8.1.2. Analyzing design hierarchy..
+8.2. Executing PROC pass (convert processes to netlists).
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+8.3. Executing FLATTEN pass (flatten design).
+8.4. Executing OPT_EXPR pass (perform const folding).
+8.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.6. Executing CHECK pass (checking for obvious problems).
+8.7. Executing OPT pass (performing simple optimizations).
+8.7.1. Executing OPT_EXPR pass (perform const folding).
+8.7.2. Executing OPT_MERGE pass (detect identical cells).
+8.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.7.5. Executing OPT_MERGE pass (detect identical cells).
+8.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.7.8. Executing OPT_EXPR pass (perform const folding).
+8.7.9. Finished OPT passes. (There is nothing left to do.)
+8.8. Executing FSM pass (extract and optimize FSM).
+8.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+8.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+8.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+8.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+8.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+8.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+8.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+8.9. Executing OPT pass (performing simple optimizations).
+8.9.1. Executing OPT_EXPR pass (perform const folding).
+8.9.2. Executing OPT_MERGE pass (detect identical cells).
+8.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.9.5. Executing OPT_MERGE pass (detect identical cells).
+8.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.9.8. Executing OPT_EXPR pass (perform const folding).
+8.9.9. Finished OPT passes. (There is nothing left to do.)
+8.10. Executing WREDUCE pass (reducing word size of cells).
+8.11. Executing PEEPOPT pass (run peephole optimizers).
+8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.13. Executing ALUMACC pass (create $alu and $macc cells).
+8.14. Executing SHARE pass (SAT-based resource sharing).
+8.15. Executing OPT pass (performing simple optimizations).
+8.15.1. Executing OPT_EXPR pass (perform const folding).
+8.15.2. Executing OPT_MERGE pass (detect identical cells).
+8.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.15.5. Executing OPT_MERGE pass (detect identical cells).
+8.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.15.8. Executing OPT_EXPR pass (perform const folding).
+8.15.9. Finished OPT passes. (There is nothing left to do.)
+8.16. Executing MEMORY pass.
+8.16.1. Executing OPT_MEM pass (optimize memories).
+8.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+8.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+8.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+8.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+8.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+8.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+8.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+8.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+9. Executing SYNTH pass.
+9.1. Executing OPT pass (performing simple optimizations).
+9.1.1. Executing OPT_EXPR pass (perform const folding).
+9.1.2. Executing OPT_MERGE pass (detect identical cells).
+9.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.1.5. Finished fast OPT passes.
+9.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+9.3. Executing OPT pass (performing simple optimizations).
+9.3.1. Executing OPT_EXPR pass (perform const folding).
+9.3.2. Executing OPT_MERGE pass (detect identical cells).
+9.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.3.5. Executing OPT_MERGE pass (detect identical cells).
+9.3.6. Executing OPT_SHARE pass.
+9.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+9.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.3.9. Executing OPT_EXPR pass (perform const folding).
+9.3.10. Finished OPT passes. (There is nothing left to do.)
+9.4. Executing TECHMAP pass (map to technology primitives).
+9.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+9.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+9.4.3. Continuing TECHMAP pass.
+9.5. Executing OPT pass (performing simple optimizations).
+9.5.1. Executing OPT_EXPR pass (perform const folding).
+9.5.2. Executing OPT_MERGE pass (detect identical cells).
+9.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.5.5. Finished fast OPT passes.
+9.6. Executing ABC pass (technology mapping using ABC).
+9.6.1. Extracting gate netlist of module `\mul_array_test_latency' to `<abc-temp-dir>/input.blif'..
+9.7. Executing OPT pass (performing simple optimizations).
+9.7.1. Executing OPT_EXPR pass (perform const folding).
+9.7.2. Executing OPT_MERGE pass (detect identical cells).
+9.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.7.5. Finished fast OPT passes.
+9.8. Executing HIERARCHY pass (managing design hierarchy).
+9.8.1. Analyzing design hierarchy..
+9.8.2. Analyzing design hierarchy..
+9.9. Printing statistics.
+9.10. Executing CHECK pass (checking for obvious problems).
+10. Executing OPT pass (performing simple optimizations).
+10.1. Executing OPT_EXPR pass (perform const folding).
+10.2. Executing OPT_MERGE pass (detect identical cells).
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+10.5. Executing OPT_MERGE pass (detect identical cells).
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+10.8. Executing OPT_EXPR pass (perform const folding).
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+10.12. Executing OPT_MERGE pass (detect identical cells).
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+10.15. Executing OPT_EXPR pass (perform const folding).
+10.16. Finished OPT passes. (There is nothing left to do.)
+11. Executing TECHMAP pass (map to technology primitives).
+11.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_latch_R.v
+11.2. Continuing TECHMAP pass.
+12. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+12.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+13. Executing OPT pass (performing simple optimizations).
+13.1. Executing OPT_EXPR pass (perform const folding).
+13.2. Executing OPT_MERGE pass (detect identical cells).
+13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+13.5. Executing OPT_MERGE pass (detect identical cells).
+13.6. Executing OPT_DFF pass (perform DFF optimizations).
+13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+13.8. Executing OPT_EXPR pass (perform const folding).
+13.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/asap7/mul_array_test_latency/base/lib/merged.lib -constr ./objects/asap7/mul_array_test_latency/base/abc.constr -dont_use *x1p*_ASAP7* -dont_use *xp*_ASAP7* -dont_use SDF* -dont_use ICG* -D 110.0
+14. Executing ABC pass (technology mapping using ABC).
+14.1. Extracting gate netlist of module `\mul_array_test_latency' to `<abc-temp-dir>/input.blif'..
+14.1.1. Executing ABC.
+14.1.2. Re-integrating ABC results.
+15. Executing SETUNDEF pass (replace undef values with defined constants).
+16. Executing SPLITNETS pass (splitting up multi-bit signals).
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+18. Executing HILOMAP pass (mapping to constant drivers).
+19. Executing INSBUF pass (insert buffer cells for connected wires).
+20. Executing CHECK pass (checking for obvious problems).
+21. Printing statistics.
+22. Executing Verilog backend.
+exec cp ./designs/asap7/mul_array_test_latency/constraint.sdc ./results/asap7/mul_array_test_latency/base/1_synth.sdc
+End of script. Logfile hash: 14f8424d41, CPU: user 1.55s system 0.09s, MEM: 136.00 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 23% 6x read_liberty (0 sec), 23% 2x abc (0 sec), ...
+Elapsed time: 0:02.23[h:]min:sec. CPU time: user 2.08 sys 0.15 (100%). Peak memory: 140032KB.
+mkdir -p ./results/asap7/mul_array_test_latency/base ./logs/asap7/mul_array_test_latency/base ./reports/asap7/mul_array_test_latency/base
+cp ./results/asap7/mul_array_test_latency/base/1_1_yosys.v ./results/asap7/mul_array_test_latency/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/asap7/mul_array_test_latency/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef, created 24 layers, 9 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef, created 212 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 21
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.016, 200.070).
+[INFO IFP-0001] Added 1110 rows of 5555 site asap7sc7p5t.
+[INFO RSZ-0026] Removed 0 buffers.
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 3 u^2 0% utilization.
+Elapsed time: 0:01.40[h:]min:sec. CPU time: user 1.32 sys 0.08 (100%). Peak memory: 214148KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+place_pins -hor_layers M4 -ver_layers M5 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:01.40[h:]min:sec. CPU time: user 1.33 sys 0.07 (100%). Peak memory: 211820KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/asap7/mul_array_test_latency/base/2_2_floorplan_io.odb ./results/asap7/mul_array_test_latency/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.15[h:]min:sec. CPU time: user 0.11 sys 0.03 (99%). Peak memory: 100220KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+No macros found: Skipping macro_placement
+Elapsed time: 0:01.39[h:]min:sec. CPU time: user 1.31 sys 0.07 (100%). Peak memory: 209924KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+Tap and End Cap cell insertion
+  TAP Cell          : TAPCELL_ASAP7_75t_R
+  ENDCAP Cell       : TAPCELL_ASAP7_75t_R
+  Halo Around Macro : 2 2
+  TAP Cell Distance : 25
+[INFO TAP-0004] Inserted 2220 endcaps.
+[INFO TAP-0005] Inserted 6672 tapcells.
+Elapsed time: 0:01.39[h:]min:sec. CPU time: user 1.32 sys 0.07 (99%). Peak memory: 213636KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[INFO PDN-0001] Inserting grid: top
+Elapsed time: 0:03.29[h:]min:sec. CPU time: user 3.20 sys 0.09 (100%). Peak memory: 244208KB.
+cp ./results/asap7/mul_array_test_latency/base/2_6_floorplan_pdn.odb ./results/asap7/mul_array_test_latency/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              8913
+[INFO GPL-0007] NumPlaceInstances:           21
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                     26
+[INFO GPL-0011] NumPins:                     70
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:           3.383 um^2
+[INFO GPL-0019] Util:                     0.004 %
+[INFO GPL-0020] StdInstsArea:             3.383 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    585548
+[INFO GPL-0032] FillerInit:NumGNets:         26
+[INFO GPL-0033] FillerInit:NumGPins:         70
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        0.161 um^2
+[INFO GPL-0025] IdealBinArea:             0.161 um^2
+[INFO GPL-0026] IdealBinCnt:             558134
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              8913
+[INFO GPL-0007] NumPlaceInstances:           21
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                     26
+[INFO GPL-0011] NumPins:                     61
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:           3.383 um^2
+[INFO GPL-0019] Util:                     0.004 %
+[INFO GPL-0020] StdInstsArea:             3.383 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    298640
+[INFO GPL-0032] FillerInit:NumGNets:         26
+[INFO GPL-0033] FillerInit:NumGPins:         61
+[INFO GPL-0023] TargetDensity:            0.510
+[INFO GPL-0024] AvrgPlaceInstArea:        0.161 um^2
+[INFO GPL-0025] IdealBinArea:             0.316 um^2
+[INFO GPL-0026] IdealBinCnt:             284659
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.500 HPWL: 15211
+[NesterovSolve] Iter:   10 overflow: 0.604 HPWL: 2899
+[NesterovSolve] Iter:   20 overflow: 0.615 HPWL: 2730
+[NesterovSolve] Iter:   30 overflow: 0.617 HPWL: 2715
+[NesterovSolve] Iter:   40 overflow: 0.617 HPWL: 2711
+[NesterovSolve] Iter:   50 overflow: 0.617 HPWL: 2706
+[NesterovSolve] Iter:   60 overflow: 0.617 HPWL: 2707
+[NesterovSolve] Iter:   70 overflow: 0.617 HPWL: 2712
+[NesterovSolve] Iter:   80 overflow: 0.618 HPWL: 2709
+[NesterovSolve] Iter:   90 overflow: 0.618 HPWL: 2706
+[NesterovSolve] Iter:  100 overflow: 0.618 HPWL: 2711
+[NesterovSolve] Iter:  110 overflow: 0.618 HPWL: 2710
+[NesterovSolve] Iter:  120 overflow: 0.618 HPWL: 2707
+[NesterovSolve] Iter:  130 overflow: 0.618 HPWL: 2707
+[NesterovSolve] Iter:  140 overflow: 0.618 HPWL: 2709
+[NesterovSolve] Iter:  150 overflow: 0.618 HPWL: 2717
+[NesterovSolve] Iter:  160 overflow: 0.616 HPWL: 3021
+[NesterovSolve] Iter:  170 overflow: 0.614 HPWL: 3389
+[NesterovSolve] Iter:  180 overflow: 0.611 HPWL: 3891
+[NesterovSolve] Iter:  190 overflow: 0.607 HPWL: 4494
+[NesterovSolve] Iter:  200 overflow: 0.600 HPWL: 5390
+[NesterovSolve] Iter:  210 overflow: 0.585 HPWL: 6851
+[NesterovSolve] Iter:  220 overflow: 0.565 HPWL: 9040
+[NesterovSolve] Iter:  230 overflow: 0.550 HPWL: 11382
+[NesterovSolve] Iter:  240 overflow: 0.530 HPWL: 14900
+[NesterovSolve] Iter:  250 overflow: 0.504 HPWL: 21356
+[NesterovSolve] Iter:  260 overflow: 0.489 HPWL: 27116
+[NesterovSolve] Iter:  270 overflow: 0.507 HPWL: 23659
+[NesterovSolve] Iter:  280 overflow: 0.515 HPWL: 20672
+[NesterovSolve] Iter:  290 overflow: 0.516 HPWL: 20433
+[NesterovSolve] Iter:  300 overflow: 0.508 HPWL: 21356
+[NesterovSolve] Iter:  310 overflow: 0.522 HPWL: 17183
+[NesterovSolve] Iter:  320 overflow: 0.484 HPWL: 27945
+[NesterovSolve] Iter:  330 overflow: 0.526 HPWL: 18015
+[NesterovSolve] Iter:  340 overflow: 0.484 HPWL: 25553
+[NesterovSolve] Iter:  350 overflow: 0.373 HPWL: 44573
+[NesterovSolve] Iter:  360 overflow: 0.474 HPWL: 27632
+[NesterovSolve] Iter:  370 overflow: 0.525 HPWL: 16311
+[NesterovSolve] Iter:  380 overflow: 0.472 HPWL: 29682
+[NesterovSolve] Iter:  390 overflow: 0.504 HPWL: 24599
+[NesterovSolve] Iter:  400 overflow: 0.514 HPWL: 20242
+[NesterovSolve] Iter:  410 overflow: 0.520 HPWL: 21367
+[NesterovSolve] Iter:  420 overflow: 0.508 HPWL: 23009
+[NesterovSolve] Iter:  430 overflow: 0.225 HPWL: 55812
+[NesterovSolve] Finished with Overflow: 0.079069
+Elapsed time: 1:24.52[h:]min:sec. CPU time: user 242.10 sys 0.32 (286%). Peak memory: 393828KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers M4 -ver_layers M5
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           20780
+[INFO PPL-0002] Number of I/O             9
+[INFO PPL-0003] Number of I/O w/sink      9
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 1357.68 um.
+Elapsed time: 0:01.51[h:]min:sec. CPU time: user 1.41 sys 0.10 (99%). Peak memory: 231780KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              8913
+[INFO GPL-0007] NumPlaceInstances:           21
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                     26
+[INFO GPL-0011] NumPins:                     70
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:           3.383 um^2
+[INFO GPL-0019] Util:                     0.004 %
+[INFO GPL-0020] StdInstsArea:             3.383 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    585548
+[INFO GPL-0032] FillerInit:NumGNets:         26
+[INFO GPL-0033] FillerInit:NumGPins:         70
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        0.161 um^2
+[INFO GPL-0025] IdealBinArea:             0.161 um^2
+[INFO GPL-0026] IdealBinCnt:             558134
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+global_placement -density 0.5100188671074284 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              8913
+[INFO GPL-0007] NumPlaceInstances:           21
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                     26
+[INFO GPL-0011] NumPins:                     70
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:           3.383 um^2
+[INFO GPL-0019] Util:                     0.004 %
+[INFO GPL-0020] StdInstsArea:             3.383 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000004 HPWL: 1473665
+[InitialPlace]  Iter: 2 CG residual: 0.00000007 HPWL: 33570
+[InitialPlace]  Iter: 3 CG residual: 0.00000008 HPWL: 33783
+[InitialPlace]  Iter: 4 CG residual: 0.00000011 HPWL: 33113
+[InitialPlace]  Iter: 5 CG residual: 0.00000010 HPWL: 33804
+[INFO GPL-0031] FillerInit:NumGCells:    298640
+[INFO GPL-0032] FillerInit:NumGNets:         26
+[INFO GPL-0033] FillerInit:NumGPins:         70
+[INFO GPL-0023] TargetDensity:            0.510
+[INFO GPL-0024] AvrgPlaceInstArea:        0.161 um^2
+[INFO GPL-0025] IdealBinArea:             0.316 um^2
+[INFO GPL-0026] IdealBinCnt:             284659
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.682 HPWL: 18972
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 6.44e-12
+[INFO GPL-0103] Timing-driven: weighted 0 nets.
+[NesterovSolve] Iter:   10 overflow: 0.697 HPWL: 16638
+[NesterovSolve] Iter:   20 overflow: 0.699 HPWL: 16651
+[NesterovSolve] Iter:   30 overflow: 0.700 HPWL: 16629
+[NesterovSolve] Iter:   40 overflow: 0.699 HPWL: 16653
+[NesterovSolve] Iter:   50 overflow: 0.700 HPWL: 16641
+[NesterovSolve] Iter:   60 overflow: 0.700 HPWL: 16639
+[NesterovSolve] Iter:   70 overflow: 0.700 HPWL: 16649
+[NesterovSolve] Iter:   80 overflow: 0.700 HPWL: 16644
+[NesterovSolve] Iter:   90 overflow: 0.700 HPWL: 16644
+[NesterovSolve] Iter:  100 overflow: 0.700 HPWL: 16642
+[NesterovSolve] Iter:  110 overflow: 0.699 HPWL: 16641
+[NesterovSolve] Iter:  120 overflow: 0.700 HPWL: 16639
+[NesterovSolve] Iter:  130 overflow: 0.700 HPWL: 16640
+[NesterovSolve] Iter:  140 overflow: 0.700 HPWL: 16643
+[NesterovSolve] Iter:  150 overflow: 0.701 HPWL: 16655
+[NesterovSolve] Iter:  160 overflow: 0.707 HPWL: 16664
+[NesterovSolve] Iter:  170 overflow: 0.706 HPWL: 16692
+[NesterovSolve] Iter:  180 overflow: 0.703 HPWL: 16832
+[NesterovSolve] Iter:  190 overflow: 0.700 HPWL: 17393
+[NesterovSolve] Iter:  200 overflow: 0.695 HPWL: 18223
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 6.6e-12
+[INFO GPL-0103] Timing-driven: weighted 0 nets.
+[NesterovSolve] Iter:  210 overflow: 0.692 HPWL: 19394
+[NesterovSolve] Snapshot saved at iter = 210
+[NesterovSolve] Iter:  220 overflow: 0.696 HPWL: 20794
+[NesterovSolve] Iter:  230 overflow: 0.711 HPWL: 22515
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 5.25e-12
+[INFO GPL-0103] Timing-driven: weighted 0 nets.
+[NesterovSolve] Iter:  240 overflow: 0.717 HPWL: 21554
+[NesterovSolve] Iter:  250 overflow: 0.563 HPWL: 35329
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.01e-12
+[INFO GPL-0103] Timing-driven: weighted 2 nets.
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) (  540  540 ) DBU
+[INFO GPL-0038] TileCnt:     925  925
+[INFO GPL-0040] NumTiles: 855625
+[INFO GPL-0081] TotalRouteOverflow: 0.0
+[INFO GPL-0082] OverflowTileCnt: 0
+[INFO GPL-0083] 0.5%RC: 0.6098902761782963
+[INFO GPL-0084] 1.0%RC: 0.60300879667501
+[INFO GPL-0085] 2.0%RC: 0.5892451714397988
+[INFO GPL-0086] 5.0%RC: 0.5762125821469358
+[INFO GPL-0087] FinalRC: 0.60644954
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -4.04e-12
+[INFO GPL-0103] Timing-driven: weighted 0 nets.
+[NesterovSolve] Iter:  260 overflow: 0.153 HPWL: 62364
+[NesterovSolve] Iter:  270 overflow: 0.493 HPWL: 35062
+[NesterovSolve] Iter:  280 overflow: 0.671 HPWL: 21324
+[NesterovSolve] Iter:  290 overflow: 0.692 HPWL: 19856
+[NesterovSolve] Iter:  300 overflow: 0.700 HPWL: 21653
+[NesterovSolve] Iter:  310 overflow: 0.715 HPWL: 21945
+[NesterovSolve] Iter:  320 overflow: 0.710 HPWL: 21924
+[NesterovSolve] Iter:  330 overflow: 0.670 HPWL: 25886
+[NesterovSolve] Iter:  340 overflow: 0.604 HPWL: 29425
+[NesterovSolve] Iter:  350 overflow: 0.710 HPWL: 19066
+[NesterovSolve] Iter:  360 overflow: 0.709 HPWL: 19586
+[NesterovSolve] Iter:  370 overflow: 0.618 HPWL: 27440
+[NesterovSolve] Iter:  380 overflow: 0.698 HPWL: 17234
+[NesterovSolve] Iter:  390 overflow: 0.651 HPWL: 28633
+[NesterovSolve] Iter:  400 overflow: 0.500 HPWL: 35552
+[NesterovSolve] Iter:  410 overflow: 0.342 HPWL: 53043
+[NesterovSolve] Iter:  420 overflow: 0.345 HPWL: 62147
+[NesterovSolve] Iter:  430 overflow: 0.456 HPWL: 38607
+[NesterovSolve] Iter:  440 overflow: 0.410 HPWL: 44231
+[NesterovSolve] Iter:  450 overflow: 0.375 HPWL: 50089
+[NesterovSolve] Iter:  460 overflow: 0.363 HPWL: 51914
+[NesterovSolve] Iter:  470 overflow: 0.357 HPWL: 54614
+[NesterovSolve] Iter:  480 overflow: 0.328 HPWL: 58910
+[NesterovSolve] Iter:  490 overflow: 0.316 HPWL: 67243
+[ERROR GPL-0307] RePlAce divergence detected. Re-run with a smaller max_phi_cof value.
+Error: global_place.tcl, 43 GPL-0307
+Command exited with non-zero status 1
+Elapsed time: 1:48.79[h:]min:sec. CPU time: user 302.92 sys 0.69 (279%). Peak memory: 1259260KB.

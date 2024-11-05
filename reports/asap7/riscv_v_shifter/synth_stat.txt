@@ -1,0 +1,61 @@
+
+21. Printing statistics.
+
+=== riscv_v_shifter ===
+
+   Number of wires:               4861
+   Number of wire bits:           5314
+   Number of public wires:           8
+   Number of public wire bits:     461
+   Number of ports:                  8
+   Number of port bits:            461
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4981
+     AND2x2_ASAP7_75t_R            528
+     AND2x4_ASAP7_75t_R              3
+     AND3x1_ASAP7_75t_R            345
+     AND3x4_ASAP7_75t_R              1
+     AND4x1_ASAP7_75t_R             53
+     AND5x1_ASAP7_75t_R              9
+     AO211x2_ASAP7_75t_R            41
+     AO21x1_ASAP7_75t_R            612
+     AO221x1_ASAP7_75t_R           160
+     AO222x2_ASAP7_75t_R            30
+     AO22x1_ASAP7_75t_R             91
+     AO22x2_ASAP7_75t_R              2
+     AO31x2_ASAP7_75t_R             35
+     AO32x1_ASAP7_75t_R            113
+     AO33x2_ASAP7_75t_R              6
+     AOI211x1_ASAP7_75t_R           73
+     AOI21x1_ASAP7_75t_R           225
+     AOI221x1_ASAP7_75t_R           50
+     AOI22x1_ASAP7_75t_R            32
+     BUFx2_ASAP7_75t_R             403
+     BUFx3_ASAP7_75t_R              35
+     BUFx4f_ASAP7_75t_R              2
+     BUFx6f_ASAP7_75t_R              6
+     INVx1_ASAP7_75t_R              79
+     NAND2x1_ASAP7_75t_R           280
+     NAND2x2_ASAP7_75t_R             1
+     NAND3x1_ASAP7_75t_R            18
+     NOR2x1_ASAP7_75t_R            175
+     NOR3x1_ASAP7_75t_R             30
+     OA211x2_ASAP7_75t_R           300
+     OA21x2_ASAP7_75t_R            326
+     OA221x2_ASAP7_75t_R            20
+     OA222x2_ASAP7_75t_R             7
+     OA22x2_ASAP7_75t_R             64
+     OA31x2_ASAP7_75t_R             81
+     OA33x2_ASAP7_75t_R              7
+     OAI21x1_ASAP7_75t_R           166
+     OAI22x1_ASAP7_75t_R            31
+     OR2x2_ASAP7_75t_R             193
+     OR3x1_ASAP7_75t_R             275
+     OR4x1_ASAP7_75t_R              66
+     OR5x1_ASAP7_75t_R               7
+
+   Chip area for module '\riscv_v_shifter': 522.736740
+     of which used for sequential elements: 0.000000 (0.00%)
+

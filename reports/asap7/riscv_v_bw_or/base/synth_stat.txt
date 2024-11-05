@@ -1,0 +1,58 @@
+
+22. Printing statistics.
+
+=== riscv_v_bw_or ===
+
+   Number of wires:                828
+   Number of wire bits:           1281
+   Number of public wires:           9
+   Number of public wire bits:     462
+   Number of ports:                  9
+   Number of port bits:            462
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                947
+     AND2x2_ASAP7_75t_R             38
+     AND3x1_ASAP7_75t_R             20
+     AND4x1_ASAP7_75t_R              6
+     AND4x2_ASAP7_75t_R              1
+     AO211x2_ASAP7_75t_R             2
+     AO21x1_ASAP7_75t_R            130
+     AO21x2_ASAP7_75t_R              1
+     AO221x1_ASAP7_75t_R            65
+     AO222x2_ASAP7_75t_R            56
+     AO22x1_ASAP7_75t_R             35
+     AO31x2_ASAP7_75t_R              6
+     AO32x1_ASAP7_75t_R             29
+     AOI211x1_ASAP7_75t_R            4
+     AOI21x1_ASAP7_75t_R            17
+     AOI221x1_ASAP7_75t_R            8
+     AOI22x1_ASAP7_75t_R            16
+     BUFx12f_ASAP7_75t_R             1
+     BUFx2_ASAP7_75t_R              85
+     BUFx3_ASAP7_75t_R              17
+     BUFx4f_ASAP7_75t_R              4
+     BUFx6f_ASAP7_75t_R              5
+     INVx1_ASAP7_75t_R              15
+     INVx2_ASAP7_75t_R               1
+     NAND2x1_ASAP7_75t_R            31
+     NAND2x2_ASAP7_75t_R             1
+     NAND3x1_ASAP7_75t_R             2
+     NOR2x1_ASAP7_75t_R              8
+     NOR3x1_ASAP7_75t_R              3
+     OA211x2_ASAP7_75t_R            22
+     OA21x2_ASAP7_75t_R            118
+     OA22x2_ASAP7_75t_R              7
+     OA31x2_ASAP7_75t_R              9
+     OA33x2_ASAP7_75t_R              2
+     OAI21x1_ASAP7_75t_R            22
+     OAI22x1_ASAP7_75t_R             1
+     OR2x2_ASAP7_75t_R              58
+     OR3x1_ASAP7_75t_R              57
+     OR4x1_ASAP7_75t_R              28
+     OR5x1_ASAP7_75t_R              16
+
+   Chip area for module '\riscv_v_bw_or': 102.643200
+     of which used for sequential elements: 0.000000 (0.00%)
+

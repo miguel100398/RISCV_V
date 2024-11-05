@@ -1,0 +1,273 @@
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 8.39
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: src_data[116] (input port clocked by clk)
+Endpoint: result[116] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 ^ input external delay
+     1    0.01    0.00    0.00    4.00 ^ src_data[116] (in)
+                                         src_data[116] (net)
+                  0.00    0.00    4.00 ^ input25/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_3)
+     5    0.07    0.20    0.19    4.19 ^ input25/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_3)
+                                         net25 (net)
+                  0.20    0.00    4.19 ^ _0715_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+     1    0.01    0.10    0.08    4.28 v _0715_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _0099_ (net)
+                  0.10    0.00    4.28 v _0720_/A1 (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+     1    0.00    0.11    0.09    4.37 ^ _0720_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+                                         net153 (net)
+                  0.11    0.00    4.37 ^ output153/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.00    0.07    0.55    4.92 ^ output153/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         result[116] (net)
+                  0.07    0.00    4.92 ^ result[116] (out)
+                                  4.92   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -4.00   -4.00   output external delay
+                                 -4.00   data required time
+-----------------------------------------------------------------------------
+                                 -4.00   data required time
+                                 -4.92   data arrival time
+-----------------------------------------------------------------------------
+                                  8.92   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: osize_vec[4] (input port clocked by clk)
+Endpoint: result[77] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+     1    0.01    0.00    0.00    4.00 v osize_vec[4] (in)
+                                         osize_vec[4] (net)
+                  0.00    0.00    4.00 v input6/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.03    0.24    0.76    4.76 v input6/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         net6 (net)
+                  0.24    0.00    4.76 v _0612_/A1 (gf180mcu_fd_sc_mcu9t5v0__nor2_4)
+    21    0.38    1.24    0.75    5.51 ^ _0612_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor2_4)
+                                         _0014_ (net)
+                  1.24    0.00    5.51 ^ load_slew267/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    15    0.37    0.18    0.32    5.82 ^ load_slew267/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net267 (net)
+                  0.18    0.00    5.82 ^ load_slew266/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    26    0.51    0.21    0.23    6.05 ^ load_slew266/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net266 (net)
+                  0.21    0.00    6.05 ^ load_slew265/I (gf180mcu_fd_sc_mcu9t5v0__buf_20)
+    25    0.61    0.24    0.23    6.29 ^ load_slew265/Z (gf180mcu_fd_sc_mcu9t5v0__buf_20)
+                                         net265 (net)
+                  0.24    0.00    6.29 ^ load_slew264/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    21    0.43    0.18    0.23    6.52 ^ load_slew264/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net264 (net)
+                  0.18    0.00    6.52 ^ load_slew263/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    25    0.39    0.17    0.21    6.73 ^ load_slew263/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net263 (net)
+                  0.17    0.00    6.73 ^ _1194_/A2 (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+     1    0.01    0.29    0.10    6.82 v _1194_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+                                         net237 (net)
+                  0.29    0.00    6.82 v output237/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.01    0.17    0.79    7.61 v output237/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         result[77] (net)
+                  0.17    0.00    7.61 v result[77] (out)
+                                  7.61   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                 -7.61   data arrival time
+-----------------------------------------------------------------------------
+                                  8.39   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: osize_vec[4] (input port clocked by clk)
+Endpoint: result[77] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+     1    0.01    0.00    0.00    4.00 v osize_vec[4] (in)
+                                         osize_vec[4] (net)
+                  0.00    0.00    4.00 v input6/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.03    0.24    0.76    4.76 v input6/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         net6 (net)
+                  0.24    0.00    4.76 v _0612_/A1 (gf180mcu_fd_sc_mcu9t5v0__nor2_4)
+    21    0.38    1.24    0.75    5.51 ^ _0612_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor2_4)
+                                         _0014_ (net)
+                  1.24    0.00    5.51 ^ load_slew267/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    15    0.37    0.18    0.32    5.82 ^ load_slew267/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net267 (net)
+                  0.18    0.00    5.82 ^ load_slew266/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    26    0.51    0.21    0.23    6.05 ^ load_slew266/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net266 (net)
+                  0.21    0.00    6.05 ^ load_slew265/I (gf180mcu_fd_sc_mcu9t5v0__buf_20)
+    25    0.61    0.24    0.23    6.29 ^ load_slew265/Z (gf180mcu_fd_sc_mcu9t5v0__buf_20)
+                                         net265 (net)
+                  0.24    0.00    6.29 ^ load_slew264/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    21    0.43    0.18    0.23    6.52 ^ load_slew264/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net264 (net)
+                  0.18    0.00    6.52 ^ load_slew263/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+    25    0.39    0.17    0.21    6.73 ^ load_slew263/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_20)
+                                         net263 (net)
+                  0.17    0.00    6.73 ^ _1194_/A2 (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+     1    0.01    0.29    0.10    6.82 v _1194_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+                                         net237 (net)
+                  0.29    0.00    6.82 v output237/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.01    0.17    0.79    7.61 v output237/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         result[77] (net)
+                  0.17    0.00    7.61 v result[77] (out)
+                                  7.61   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                 -7.61   data arrival time
+-----------------------------------------------------------------------------
+                                  8.39   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+1.560676097869873
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+2.799999952316284
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.5574
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.3888586163520813
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.4104999899864197
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.9473
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+7.6147
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+8.3853
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+110.119900
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          4.75e-03   3.11e-03   2.10e-07   7.85e-03 100.0%
+Clock                  0.00e+00   0.00e+00   1.33e-07   1.33e-07   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.75e-03   3.11e-03   3.43e-07   7.85e-03 100.0%
+                          60.5%      39.5%       0.0%

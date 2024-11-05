@@ -1,0 +1,150 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2351.23
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: is_compare (input port clocked by clk)
+Endpoint: mask_result_valid[5] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 ^ input external delay
+     9    7.40    0.00    0.00 1000.00 ^ is_compare (in)
+                                         is_compare (net)
+                  0.88    0.28 1000.28 ^ _457_/A1 (AOI21x1_ASAP7_75t_R)
+     2    1.31    8.44    6.35 1006.63 v _457_/Y (AOI21x1_ASAP7_75t_R)
+                                         mask_result_valid[5] (net)
+                  8.44    0.04 1006.67 v mask_result_valid[5] (out)
+                               1006.67   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                       -1000.00 -1000.00   output external delay
+                               -1000.00   data required time
+-----------------------------------------------------------------------------
+                               -1000.00   data required time
+                               -1006.67   data arrival time
+-----------------------------------------------------------------------------
+                               2006.67   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: use_mask (input port clocked by clk)
+Endpoint: mask_merge_qual[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+    12   48.81    0.00    0.00 1000.00 v use_mask (in)
+                                         use_mask (net)
+                461.60  145.62 1145.62 v _361_/A (INVx1_ASAP7_75t_R)
+    30   22.72  250.18  191.50 1337.11 ^ _361_/Y (INVx1_ASAP7_75t_R)
+                                         _090_ (net)
+                250.48    5.05 1342.17 ^ _390_/B (OR3x1_ASAP7_75t_R)
+     1    0.70   12.09   33.30 1375.47 ^ _390_/Y (OR3x1_ASAP7_75t_R)
+                                         _117_ (net)
+                 12.09    0.01 1375.48 ^ _391_/C (AND3x1_ASAP7_75t_R)
+     2   40.13  286.24  104.22 1479.70 ^ _391_/Y (AND3x1_ASAP7_75t_R)
+                                         mask_result_valid[0] (net)
+                485.76  127.94 1607.65 ^ _394_/A (NOR2x1_ASAP7_75t_R)
+     1    0.06   53.55   41.13 1648.77 v _394_/Y (NOR2x1_ASAP7_75t_R)
+                                         mask_merge_qual[0] (net)
+                 53.55    0.00 1648.77 v mask_merge_qual[0] (out)
+                               1648.77   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1648.77   data arrival time
+-----------------------------------------------------------------------------
+                               2351.23   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: use_mask (input port clocked by clk)
+Endpoint: mask_merge_qual[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+    12   48.81    0.00    0.00 1000.00 v use_mask (in)
+                                         use_mask (net)
+                461.60  145.62 1145.62 v _361_/A (INVx1_ASAP7_75t_R)
+    30   22.72  250.18  191.50 1337.11 ^ _361_/Y (INVx1_ASAP7_75t_R)
+                                         _090_ (net)
+                250.48    5.05 1342.17 ^ _390_/B (OR3x1_ASAP7_75t_R)
+     1    0.70   12.09   33.30 1375.47 ^ _390_/Y (OR3x1_ASAP7_75t_R)
+                                         _117_ (net)
+                 12.09    0.01 1375.48 ^ _391_/C (AND3x1_ASAP7_75t_R)
+     2   40.13  286.24  104.22 1479.70 ^ _391_/Y (AND3x1_ASAP7_75t_R)
+                                         mask_result_valid[0] (net)
+                485.76  127.94 1607.65 ^ _394_/A (NOR2x1_ASAP7_75t_R)
+     1    0.06   53.55   41.13 1648.77 v _394_/Y (NOR2x1_ASAP7_75t_R)
+                                         mask_merge_qual[0] (net)
+                 53.55    0.00 1648.77 v mask_merge_qual[0] (out)
+                               1648.77   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1648.77   data arrival time
+-----------------------------------------------------------------------------
+                               2351.23   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          7.14e-06   8.29e-06   3.99e-08   1.55e-05 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  7.14e-06   8.29e-06   3.99e-08   1.55e-05 100.0%
+                          46.2%      53.6%       0.3%

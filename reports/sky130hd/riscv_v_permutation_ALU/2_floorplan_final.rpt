@@ -1,0 +1,141 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 35.27
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: is_v2i (input port clocked by clk)
+Endpoint: integer_data_out[10] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+    34    0.08    0.00    0.00   12.00 v is_v2i (in)
+                                         is_v2i (net)
+                  0.00    0.00   12.00 v _063_/A (sky130_fd_sc_hd__nand2_1)
+     1    0.00    0.03    0.03   12.03 ^ _063_/Y (sky130_fd_sc_hd__nand2_1)
+                                         _008_ (net)
+                  0.03    0.00   12.03 ^ _065_/A2 (sky130_fd_sc_hd__o21ai_0)
+     1    0.00    0.01    0.04   12.07 v _065_/Y (sky130_fd_sc_hd__o21ai_0)
+                                         integer_data_out[10] (net)
+                  0.01    0.00   12.07 v integer_data_out[10] (out)
+                                 12.07   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                        -12.00  -12.00   output external delay
+                                -12.00   data required time
+-----------------------------------------------------------------------------
+                                -12.00   data required time
+                                -12.07   data arrival time
+-----------------------------------------------------------------------------
+                                 24.07   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: osize_vector[3] (input port clocked by clk)
+Endpoint: integer_data_out[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+     3    0.01    0.00    0.00   12.00 v osize_vector[3] (in)
+                                         osize_vector[3] (net)
+                  0.00    0.00   12.00 v _056_/A (sky130_fd_sc_hd__or3_1)
+     8    0.02    0.14    0.45   12.45 v _056_/X (sky130_fd_sc_hd__or3_1)
+                                         _002_ (net)
+                  0.14    0.00   12.45 v _060_/A3 (sky130_fd_sc_hd__o311a_1)
+     1    0.00    0.04    0.29   12.73 v _060_/X (sky130_fd_sc_hd__o311a_1)
+                                         integer_data_out[0] (net)
+                  0.04    0.00   12.73 v integer_data_out[0] (out)
+                                 12.73   data arrival time
+
+                  0.00   60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (ideal)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                -12.73   data arrival time
+-----------------------------------------------------------------------------
+                                 35.27   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: osize_vector[3] (input port clocked by clk)
+Endpoint: integer_data_out[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+     3    0.01    0.00    0.00   12.00 v osize_vector[3] (in)
+                                         osize_vector[3] (net)
+                  0.00    0.00   12.00 v _056_/A (sky130_fd_sc_hd__or3_1)
+     8    0.02    0.14    0.45   12.45 v _056_/X (sky130_fd_sc_hd__or3_1)
+                                         _002_ (net)
+                  0.14    0.00   12.45 v _060_/A3 (sky130_fd_sc_hd__o311a_1)
+     1    0.00    0.04    0.29   12.73 v _060_/X (sky130_fd_sc_hd__o311a_1)
+                                         integer_data_out[0] (net)
+                  0.04    0.00   12.73 v integer_data_out[0] (out)
+                                 12.73   data arrival time
+
+                  0.00   60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (ideal)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                -12.73   data arrival time
+-----------------------------------------------------------------------------
+                                 35.27   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          3.73e-06   6.00e-07   5.42e-10   4.34e-06 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.73e-06   6.00e-07   5.42e-10   4.34e-06 100.0%
+                          86.2%      13.8%       0.0%

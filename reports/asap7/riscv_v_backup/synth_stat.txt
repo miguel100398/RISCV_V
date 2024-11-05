@@ -1,0 +1,87 @@
+
+21. Printing statistics.
+
+=== riscv_v ===
+
+   Number of wires:             208738
+   Number of wire bits:         208993
+   Number of public wires:        4163
+   Number of public wire bits:    4418
+   Number of ports:                 18
+   Number of port bits:            273
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             208882
+     AND2x2_ASAP7_75t_R           8846
+     AND2x4_ASAP7_75t_R             12
+     AND2x6_ASAP7_75t_R              5
+     AND3x1_ASAP7_75t_R           8262
+     AND3x2_ASAP7_75t_R              9
+     AND3x4_ASAP7_75t_R              2
+     AND4x1_ASAP7_75t_R           1001
+     AND4x2_ASAP7_75t_R             20
+     AND5x1_ASAP7_75t_R            255
+     AND5x2_ASAP7_75t_R              3
+     AO211x2_ASAP7_75t_R           264
+     AO21x1_ASAP7_75t_R          20091
+     AO21x2_ASAP7_75t_R             11
+     AO221x1_ASAP7_75t_R          1873
+     AO221x2_ASAP7_75t_R            33
+     AO222x2_ASAP7_75t_R           518
+     AO22x1_ASAP7_75t_R           2269
+     AO22x2_ASAP7_75t_R              1
+     AO31x2_ASAP7_75t_R            439
+     AO32x1_ASAP7_75t_R           5186
+     AO33x2_ASAP7_75t_R            102
+     AOI211x1_ASAP7_75t_R          637
+     AOI21x1_ASAP7_75t_R          2286
+     AOI221x1_ASAP7_75t_R          333
+     AOI22x1_ASAP7_75t_R          1264
+     BUFx2_ASAP7_75t_R           20734
+     BUFx3_ASAP7_75t_R             101
+     BUFx4_ASAP7_75t_R              24
+     BUFx4f_ASAP7_75t_R             48
+     BUFx5_ASAP7_75t_R               7
+     BUFx6f_ASAP7_75t_R            118
+     BUFx8_ASAP7_75t_R              51
+     DFFASRHQNx1_ASAP7_75t_R       144
+     DFFHQNx1_ASAP7_75t_R         4719
+     INVx1_ASAP7_75t_R           10898
+     INVx2_ASAP7_75t_R               1
+     MAJx2_ASAP7_75t_R            8371
+     MAJx3_ASAP7_75t_R               1
+     NAND2x1_ASAP7_75t_R         19660
+     NAND2x2_ASAP7_75t_R            10
+     NAND3x1_ASAP7_75t_R           565
+     NAND3x2_ASAP7_75t_R             1
+     NOR2x1_ASAP7_75t_R           6265
+     NOR2x2_ASAP7_75t_R              1
+     NOR3x1_ASAP7_75t_R            505
+     OA211x2_ASAP7_75t_R         18461
+     OA21x2_ASAP7_75t_R          11809
+     OA221x2_ASAP7_75t_R            47
+     OA222x2_ASAP7_75t_R           228
+     OA22x2_ASAP7_75t_R            825
+     OA31x2_ASAP7_75t_R            491
+     OA33x2_ASAP7_75t_R            255
+     OAI21x1_ASAP7_75t_R          2980
+     OAI22x1_ASAP7_75t_R           472
+     OR2x2_ASAP7_75t_R            4728
+     OR2x4_ASAP7_75t_R              10
+     OR2x6_ASAP7_75t_R               1
+     OR3x1_ASAP7_75t_R           10456
+     OR3x2_ASAP7_75t_R              10
+     OR3x4_ASAP7_75t_R               2
+     OR4x1_ASAP7_75t_R            1159
+     OR4x2_ASAP7_75t_R              15
+     OR5x1_ASAP7_75t_R             244
+     OR5x2_ASAP7_75t_R               2
+     TIEHIx1_ASAP7_75t_R             1
+     XNOR2x1_ASAP7_75t_R             4
+     XNOR2x2_ASAP7_75t_R         23632
+     XOR2x2_ASAP7_75t_R           7104
+
+   Chip area for module '\riscv_v': 22978.575720
+     of which used for sequential elements: 1430.647920 (6.23%)
+

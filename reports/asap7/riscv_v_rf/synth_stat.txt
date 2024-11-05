@@ -1,0 +1,55 @@
+
+21. Printing statistics.
+
+=== riscv_v_rf ===
+
+   Number of wires:              44688
+   Number of wire bits:          45261
+   Number of public wires:        4109
+   Number of public wire bits:    4682
+   Number of ports:                 13
+   Number of port bits:            586
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              45091
+     AND2x2_ASAP7_75t_R           2396
+     AND2x4_ASAP7_75t_R              1
+     AND3x1_ASAP7_75t_R           1145
+     AND5x1_ASAP7_75t_R            164
+     AND5x2_ASAP7_75t_R              1
+     AO21x1_ASAP7_75t_R           5354
+     AO221x1_ASAP7_75t_R           331
+     AO222x2_ASAP7_75t_R             6
+     AO22x1_ASAP7_75t_R             93
+     AO32x1_ASAP7_75t_R             18
+     AOI211x1_ASAP7_75t_R            3
+     AOI21x1_ASAP7_75t_R             2
+     AOI221x1_ASAP7_75t_R            1
+     BUFx2_ASAP7_75t_R            5694
+     BUFx3_ASAP7_75t_R             143
+     BUFx4f_ASAP7_75t_R              1
+     BUFx6f_ASAP7_75t_R              7
+     DFFHQNx1_ASAP7_75t_R         4096
+     INVx1_ASAP7_75t_R            3117
+     INVx2_ASAP7_75t_R               2
+     NAND2x1_ASAP7_75t_R          8323
+     NOR2x1_ASAP7_75t_R           1534
+     NOR2x2_ASAP7_75t_R              1
+     OA211x2_ASAP7_75t_R          8211
+     OA21x2_ASAP7_75t_R            936
+     OA221x2_ASAP7_75t_R             2
+     OA22x2_ASAP7_75t_R              1
+     OA31x2_ASAP7_75t_R            330
+     OA33x2_ASAP7_75t_R           1094
+     OAI21x1_ASAP7_75t_R            72
+     OAI22x1_ASAP7_75t_R           125
+     OR2x2_ASAP7_75t_R             291
+     OR3x1_ASAP7_75t_R            1459
+     OR4x1_ASAP7_75t_R              85
+     OR5x1_ASAP7_75t_R              37
+     XNOR2x2_ASAP7_75t_R            15
+
+   Chip area for module '\riscv_v_rf': 4964.956560
+     of which used for sequential elements: 1194.393600 (24.06%)
+

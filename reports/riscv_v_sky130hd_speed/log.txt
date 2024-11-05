@@ -1,0 +1,1913 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -o objects/sky130hd/riscv_v/base/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/sky130hd/riscv_v/base/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+mkdir -p results/sky130hd/riscv_v/base/
+echo 100.0 > results/sky130hd/riscv_v/base/clock_period.txt
+mkdir -p ./results/sky130hd/riscv_v/base ./logs/sky130hd/riscv_v/base ./reports/sky130hd/riscv_v/base ./objects/sky130hd/riscv_v/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/sky130hd/riscv_v/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/sky130hd/riscv_v/base/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+58. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/cells_clkgate_hd.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/sky130hd/riscv_v/base/clock_period.txt
+Setting clock period to 100.0
+59. Executing HIERARCHY pass (managing design hierarchy).
+60. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v'.
+60.1. Analyzing design hierarchy..
+60.2. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_memory'.
+60.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_execute'.
+60.4. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_decode'.
+60.5. Analyzing design hierarchy..
+60.6. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_rf'.
+60.7. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_rf_ctrl'.
+60.8. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_csr'.
+60.9. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_csr_ctrl'.
+60.10. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_ctrl'.
+60.11. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_swizzle'.
+Warning: Replacing memory \data_swizzle with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_swizzle.v:32
+60.12. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bypass'.
+60.13. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_decode_element'.
+Warning: Replacing memory \valid_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_decode_element.v:262
+Warning: Replacing memory \merge_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_decode_element.v:234
+Warning: Replacing memory \is_reduct_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_decode_element.v:177
+60.14. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_exe_alu'.
+60.15. Analyzing design hierarchy..
+60.16. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_permutation_ALU'.
+60.17. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_arithmetic_ALU'.
+60.18. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_logic_ALU'.
+60.19. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_A4EAF_A7C6B'.
+60.20. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_EE621_F935D'.
+60.21. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_C9449'.
+60.22. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_300C0'.
+60.23. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_EA379'.
+60.24. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_1F582_5645A'.
+60.25. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_C3F9D_39151'.
+60.26. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_A8A75'.
+60.27. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_7EB58'.
+60.28. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_300B3_9090A'.
+60.29. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_C9449'.
+60.30. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_E6BB0_71521'.
+60.31. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_E6BB0_71521'.
+60.32. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_969A4_CCEB1'.
+60.33. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_969A4_CCEB1'.
+60.34. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_63257_B3D37'.
+60.35. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_96DA9_C2B4E'.
+60.36. Analyzing design hierarchy..
+60.37. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_shifter'.
+Warning: Replacing memory \mux_shift_block with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_shifter.v:171, ./designs/src/riscv_v/convert_to_v/riscv_v_shifter.v:158, ./designs/src/riscv_v/convert_to_v/riscv_v_shifter.v:138, ./designs/src/riscv_v/convert_to_v/riscv_v_shifter.v:125
+60.38. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_xor'.
+60.39. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_or'.
+60.40. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_and'.
+60.41. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_extend'.
+Warning: Replacing memory \src_ext_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_extend.v:53
+60.42. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_mul'.
+Warning: Replacing memory \srcB_sign_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_mul.v:93
+Warning: Replacing memory \srcA_sign_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_mul.v:92
+60.43. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_adder'.
+Warning: Replacing memory \result_set_greater_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:295
+Warning: Replacing memory \result_set_less_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:294
+Warning: Replacing memory \result_set_nequal_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:293
+Warning: Replacing memory \result_set_equal_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:292
+Warning: Replacing memory \zf_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:270
+Warning: Replacing memory \flags_mask_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_adder.v:229
+60.44. Analyzing design hierarchy..
+60.45. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.46. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+60.47. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_twos_comp_sel'.
+Warning: Replacing memory \complement_ext_osize with list of registers. See ./designs/src/riscv_v/convert_to_v/riscv_v_twos_comp_sel.v:40
+60.48. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_128bits'.
+./designs/src/riscv_v/convert_to_v/vedic_mul_unsigned_128bits.v:166: Warning: Range [1279:640] select out of bounds on signal `\prev_result_mul_ha_hb': Setting 384 MSB bits to undef.
+60.49. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_twos_comp_sel'.
+60.50. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_and'.
+60.51. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_or'.
+60.52. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_xor'.
+60.53. Executing AST frontend in derive mode using pre-parsed AST for module `\shifter'.
+60.54. Analyzing design hierarchy..
+60.55. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.56. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_64bits'.
+60.57. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.58. Analyzing design hierarchy..
+60.59. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+60.60. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.61. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.62. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_32bits'.
+60.63. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.64. Analyzing design hierarchy..
+60.65. Executing AST frontend in derive mode using pre-parsed AST for module `\behavioral_adder'.
+60.66. Executing AST frontend in derive mode using pre-parsed AST for module `\behavioral_adder'.
+60.67. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.68. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_16bits'.
+60.69. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.70. Analyzing design hierarchy..
+60.71. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.72. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_8bits'.
+60.73. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.74. Analyzing design hierarchy..
+60.75. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_4bits'.
+60.76. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.77. Analyzing design hierarchy..
+60.78. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.79. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.80. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_2bits'.
+60.81. Analyzing design hierarchy..
+60.82. Executing AST frontend in derive mode using pre-parsed AST for module `\multiplier_2bit'.
+Warning: Replacing memory \partial with list of registers. See ./designs/src/riscv_v/convert_to_v/multiplier_2bit.v:21
+60.83. Analyzing design hierarchy..
+60.84. Executing AST frontend in derive mode using pre-parsed AST for module `\half_adder'.
+60.85. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.86. Analyzing design hierarchy..
+60.87. Analyzing design hierarchy..
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_logic_ALU because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_permutation_ALU because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_exe_alu because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_decode_element because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_bypass because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_swizzle because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_ctrl because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_csr because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_rf\RD_ASYNC=1'1\REG_INPUTS=1'0\USE_BYPASS=1'1 because it contains processes (run 'proc' command first).
+Warning: Ignoring module multiplier_2bit because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_4bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_8bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_16bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_32bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_64bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_128bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_mul because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_shifter because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_twos_comp_sel\BLOCK_WIDTH=s32'00000000000000000000000000010000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_adder because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_twos_comp_sel\BLOCK_WIDTH=s32'00000000000000000000000000001000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_extend because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\shifter\WIDTH=s32'00000000000000000000000000001000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$bc7794a3be0ebc5361b6e14a3e2778c05284a1fa\riscv_v_stage_96DA9_C2B4E because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$2146347be6a9291281141c11ae06b78a5225aa18\riscv_v_stage_63257_B3D37 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$9e949b9bffcb9d058dc19aa5601422ad5176c498\riscv_v_stage_969A4_CCEB1 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$266c03143c54df1c5adf4fb754caa2bfb30aec62\riscv_v_stage_969A4_CCEB1 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$a4a107c8fd8bbbb154137ac64da59878dc940c06\riscv_v_stage_E6BB0_71521 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$81cda7e927670c58dd35f63665b91a63979e2586\riscv_v_stage_E6BB0_71521 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_C9449\NUM_STAGES=s32'00000000000000000000000000000011 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$7cb81b2a58a0ce3b23aac10cc1e4ce73effc8cd8\riscv_v_stage_300B3_9090A because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_7EB58\NUM_STAGES=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_A8A75\NUM_STAGES=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$66f095aa6b745ec1c33aa614deef06d74992a802\riscv_v_stage_C3F9D_39151 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$433693f630673d0138e5544704a879f7986b6287\riscv_v_stage_1F582_5645A because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_EA379\NUM_STAGES=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_300C0\NUM_STAGES=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_C9449\NUM_STAGES=s32'00000000000000000000000000000001 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$b0230628c117cc5e1d7c014133e13870b792ff24\riscv_v_stage_EE621_F935D because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$71bc36355404bda2cb143f978c0a68e4506de527\riscv_v_stage_A4EAF_A7C6B because it contains processes (run 'proc' command first).
+62. Executing RTLIL backend.
+Warnings: 58 unique messages, 64 total
+End of script. Logfile hash: d4cea9bda6, CPU: user 0.93s system 0.06s, MEM: 79.50 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 74% 1x hierarchy (0 sec), 12% 2x read_liberty (0 sec), ...
+Elapsed time: 0:01.06[h:]min:sec. CPU time: user 0.99 sys 0.06 (100%). Peak memory: 82304KB.
+mkdir -p ./results/sky130hd/riscv_v/base ./logs/sky130hd/riscv_v/base ./reports/sky130hd/riscv_v/base
+(export VERILOG_FILES=./results/sky130hd/riscv_v/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/sky130hd/riscv_v/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (100%). Peak memory: 12928KB.
+mkdir -p ./results/sky130hd/riscv_v/base ./logs/sky130hd/riscv_v/base ./reports/sky130hd/riscv_v/base ./objects/sky130hd/riscv_v/base
+(export VERILOG_FILES=./results/sky130hd/riscv_v/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/sky130hd/riscv_v/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/sky130hd/riscv_v/base/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/cells_clkgate_hd.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/sky130hd/riscv_v/base/clock_period.txt
+Setting clock period to 100.0
+synth -top riscv_v -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4. Executing SYNTH pass.
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+4.1.1. Analyzing design hierarchy..
+4.1.2. Analyzing design hierarchy..
+4.2. Executing PROC pass (convert processes to netlists).
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Warning: Async reset value `\rst_val' is not constant!
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+4.3. Executing FLATTEN pass (flatten design).
+4.4. Executing OPT_EXPR pass (perform const folding).
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.6. Executing CHECK pass (checking for obvious problems).
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+4.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.8. Executing OPT_EXPR pass (perform const folding).
+4.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.12. Executing OPT_MERGE pass (detect identical cells).
+4.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.15. Executing OPT_EXPR pass (perform const folding).
+4.7.16. Finished OPT passes. (There is nothing left to do.)
+4.8. Executing FSM pass (extract and optimize FSM).
+4.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+4.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+4.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+4.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+4.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+4.9. Executing OPT pass (performing simple optimizations).
+4.9.1. Executing OPT_EXPR pass (perform const folding).
+4.9.2. Executing OPT_MERGE pass (detect identical cells).
+4.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.5. Executing OPT_MERGE pass (detect identical cells).
+4.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.8. Executing OPT_EXPR pass (perform const folding).
+4.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.12. Executing OPT_MERGE pass (detect identical cells).
+4.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.15. Executing OPT_EXPR pass (perform const folding).
+4.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+4.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.19. Executing OPT_MERGE pass (detect identical cells).
+4.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.22. Executing OPT_EXPR pass (perform const folding).
+4.9.23. Finished OPT passes. (There is nothing left to do.)
+4.10. Executing WREDUCE pass (reducing word size of cells).
+4.11. Executing PEEPOPT pass (run peephole optimizers).
+4.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.13. Executing ALUMACC pass (create $alu and $macc cells).
+4.14. Executing SHARE pass (SAT-based resource sharing).
+4.15. Executing OPT pass (performing simple optimizations).
+4.15.1. Executing OPT_EXPR pass (perform const folding).
+4.15.2. Executing OPT_MERGE pass (detect identical cells).
+4.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.15.5. Executing OPT_MERGE pass (detect identical cells).
+4.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.15.8. Executing OPT_EXPR pass (perform const folding).
+4.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.15.12. Executing OPT_MERGE pass (detect identical cells).
+4.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.15.15. Executing OPT_EXPR pass (perform const folding).
+4.15.16. Finished OPT passes. (There is nothing left to do.)
+4.16. Executing MEMORY pass.
+4.16.1. Executing OPT_MEM pass (optimize memories).
+4.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+4.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+4.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+4.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+4.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+4.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+4.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+4.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+5. Executing SYNTH pass.
+5.1. Executing OPT pass (performing simple optimizations).
+5.1.1. Executing OPT_EXPR pass (perform const folding).
+5.1.2. Executing OPT_MERGE pass (detect identical cells).
+5.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.1.5. Rerunning OPT passes. (Removed registers in this run.)
+5.1.6. Executing OPT_EXPR pass (perform const folding).
+5.1.7. Executing OPT_MERGE pass (detect identical cells).
+5.1.8. Executing OPT_DFF pass (perform DFF optimizations).
+5.1.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.1.10. Finished fast OPT passes.
+5.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+5.3. Executing OPT pass (performing simple optimizations).
+5.3.1. Executing OPT_EXPR pass (perform const folding).
+5.3.2. Executing OPT_MERGE pass (detect identical cells).
+5.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.5. Executing OPT_MERGE pass (detect identical cells).
+5.3.6. Executing OPT_SHARE pass.
+5.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.9. Executing OPT_EXPR pass (perform const folding).
+5.3.10. Rerunning OPT passes. (Maybe there is more to do..)
+5.3.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.13. Executing OPT_MERGE pass (detect identical cells).
+5.3.14. Executing OPT_SHARE pass.
+5.3.15. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.17. Executing OPT_EXPR pass (perform const folding).
+5.3.18. Finished OPT passes. (There is nothing left to do.)
+5.4. Executing TECHMAP pass (map to technology primitives).
+5.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+5.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+5.4.3. Continuing TECHMAP pass.
+5.4.18. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.19. Executing OPT_EXPR pass (perform const folding).
+5.4.25. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.26. Executing OPT_EXPR pass (perform const folding).
+5.4.32. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.33. Executing OPT_EXPR pass (perform const folding).
+5.4.39. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.40. Executing OPT_EXPR pass (perform const folding).
+5.4.46. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.47. Executing OPT_EXPR pass (perform const folding).
+5.4.53. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.54. Executing OPT_EXPR pass (perform const folding).
+5.4.60. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.61. Executing OPT_EXPR pass (perform const folding).
+5.4.67. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.68. Executing OPT_EXPR pass (perform const folding).
+5.4.74. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.75. Executing OPT_EXPR pass (perform const folding).
+5.4.81. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.82. Executing OPT_EXPR pass (perform const folding).
+5.4.88. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.89. Executing OPT_EXPR pass (perform const folding).
+5.4.95. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.96. Executing OPT_EXPR pass (perform const folding).
+5.4.102. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.103. Executing OPT_EXPR pass (perform const folding).
+5.4.109. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.110. Executing OPT_EXPR pass (perform const folding).
+5.4.116. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.117. Executing OPT_EXPR pass (perform const folding).
+5.4.118. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.119. Executing OPT_EXPR pass (perform const folding).
+5.4.218. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4.219. Executing OPT_EXPR pass (perform const folding).
+5.5. Executing OPT pass (performing simple optimizations).
+5.5.1. Executing OPT_EXPR pass (perform const folding).
+5.5.2. Executing OPT_MERGE pass (detect identical cells).
+5.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.5.5. Finished fast OPT passes.
+5.6. Executing ABC pass (technology mapping using ABC).
+5.6.1. Extracting gate netlist of module `\riscv_v' to `<abc-temp-dir>/input.blif'..
+5.7. Executing OPT pass (performing simple optimizations).
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+5.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.7.5. Finished fast OPT passes.
+5.8. Executing HIERARCHY pass (managing design hierarchy).
+5.8.1. Analyzing design hierarchy..
+5.8.2. Analyzing design hierarchy..
+5.9. Printing statistics.
+5.10. Executing CHECK pass (checking for obvious problems).
+6. Executing OPT pass (performing simple optimizations).
+6.1. Executing OPT_EXPR pass (perform const folding).
+6.2. Executing OPT_MERGE pass (detect identical cells).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.5. Executing OPT_MERGE pass (detect identical cells).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.8. Executing OPT_EXPR pass (perform const folding).
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.12. Executing OPT_MERGE pass (detect identical cells).
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.15. Executing OPT_EXPR pass (perform const folding).
+6.16. Finished OPT passes. (There is nothing left to do.)
+7. Executing TECHMAP pass (map to technology primitives).
+7.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/cells_latch_hd.v
+7.2. Continuing TECHMAP pass.
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+9. Executing OPT pass (performing simple optimizations).
+9.1. Executing OPT_EXPR pass (perform const folding).
+9.2. Executing OPT_MERGE pass (detect identical cells).
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.5. Executing OPT_MERGE pass (detect identical cells).
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.8. Executing OPT_EXPR pass (perform const folding).
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.12. Executing OPT_MERGE pass (detect identical cells).
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.15. Executing OPT_EXPR pass (perform const folding).
+9.16. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/sky130hd/riscv_v/base/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -constr ./objects/sky130hd/riscv_v/base/abc.constr -dont_use sky130_fd_sc_hd__probe_p_8 -dont_use sky130_fd_sc_hd__probec_p_8 -dont_use sky130_fd_sc_hd__lpflow_bleeder_1 -dont_use sky130_fd_sc_hd__lpflow_clkbufkapwr_1 -dont_use sky130_fd_sc_hd__lpflow_clkbufkapwr_16 -dont_use sky130_fd_sc_hd__lpflow_clkbufkapwr_2 -dont_use sky130_fd_sc_hd__lpflow_clkbufkapwr_4 -dont_use sky130_fd_sc_hd__lpflow_clkbufkapwr_8 -dont_use sky130_fd_sc_hd__lpflow_clkinvkapwr_1 -dont_use sky130_fd_sc_hd__lpflow_clkinvkapwr_16 -dont_use sky130_fd_sc_hd__lpflow_clkinvkapwr_2 -dont_use sky130_fd_sc_hd__lpflow_clkinvkapwr_4 -dont_use sky130_fd_sc_hd__lpflow_clkinvkapwr_8 -dont_use sky130_fd_sc_hd__lpflow_decapkapwr_12 -dont_use sky130_fd_sc_hd__lpflow_decapkapwr_3 -dont_use sky130_fd_sc_hd__lpflow_decapkapwr_4 -dont_use sky130_fd_sc_hd__lpflow_decapkapwr_6 -dont_use sky130_fd_sc_hd__lpflow_decapkapwr_8 -dont_use sky130_fd_sc_hd__lpflow_inputiso0n_1 -dont_use sky130_fd_sc_hd__lpflow_inputiso0p_1 -dont_use sky130_fd_sc_hd__lpflow_inputiso1n_1 -dont_use sky130_fd_sc_hd__lpflow_inputiso1p_1 -dont_use sky130_fd_sc_hd__lpflow_inputisolatch_1 -dont_use sky130_fd_sc_hd__lpflow_isobufsrc_1 -dont_use sky130_fd_sc_hd__lpflow_isobufsrc_16 -dont_use sky130_fd_sc_hd__lpflow_isobufsrc_2 -dont_use sky130_fd_sc_hd__lpflow_isobufsrc_4 -dont_use sky130_fd_sc_hd__lpflow_isobufsrc_8 -dont_use sky130_fd_sc_hd__lpflow_isobufsrckapwr_16 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2 -dont_use sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4 -D 100.0
+10. Executing ABC pass (technology mapping using ABC).
+10.1. Extracting gate netlist of module `\riscv_v' to `<abc-temp-dir>/input.blif'..
+10.1.1. Executing ABC.
+10.1.2. Re-integrating ABC results.
+11. Executing SETUNDEF pass (replace undef values with defined constants).
+12. Executing SPLITNETS pass (splitting up multi-bit signals).
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+14. Executing HILOMAP pass (mapping to constant drivers).
+15. Executing INSBUF pass (insert buffer cells for connected wires).
+16. Executing CHECK pass (checking for obvious problems).
+17. Printing statistics.
+18. Executing Verilog backend.
+exec cp ./designs/sky130hd/riscv_v/constraint.sdc ./results/sky130hd/riscv_v/base/1_synth.sdc
+Warnings: 27 unique messages, 258 total
+End of script. Logfile hash: 98a566ba5a, CPU: user 674.00s system 9.72s, MEM: 21810.81 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 69% 2x abc (1548 sec), 9% 130x opt_expr (203 sec), ...
+Elapsed time: 37:12.28[h:]min:sec. CPU time: user 2219.69 sys 12.49 (99%). Peak memory: 22334272KB.
+mkdir -p ./results/sky130hd/riscv_v/base ./logs/sky130hd/riscv_v/base ./reports/sky130hd/riscv_v/base
+cp ./results/sky130hd/riscv_v/base/1_1_yosys.v ./results/sky130hd/riscv_v/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/sky130hd/riscv_v/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef, created 13 layers, 25 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+Master sky130_ef_sc_hd__decap_12 is loaded but not used in the design
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 179837
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.100, 201.280).
+[INFO IFP-0001] Added 477 rows of 2825 site unithd.
+[INFO RSZ-0026] Removed 14172 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 1199422 u^2 71% utilization.
+Elapsed time: 0:43.13[h:]min:sec. CPU time: user 42.77 sys 0.35 (99%). Peak memory: 822284KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+place_pins -hor_layers met3 -ver_layers met2 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:01.41[h:]min:sec. CPU time: user 1.20 sys 0.21 (99%). Peak memory: 423256KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/sky130hd/riscv_v/base/2_2_floorplan_io.odb ./results/sky130hd/riscv_v/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.19[h:]min:sec. CPU time: user 0.11 sys 0.08 (100%). Peak memory: 100292KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+No macros found: Skipping macro_placement
+Elapsed time: 0:01.51[h:]min:sec. CPU time: user 1.26 sys 0.25 (99%). Peak memory: 420284KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[INFO TAP-0005] Inserted 22513 tapcells.
+Elapsed time: 0:01.28[h:]min:sec. CPU time: user 1.09 sys 0.19 (99%). Peak memory: 326716KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[INFO PDN-0001] Inserting grid: grid
+Elapsed time: 0:04.38[h:]min:sec. CPU time: user 4.15 sys 0.22 (99%). Peak memory: 515104KB.
+cp ./results/sky130hd/riscv_v/base/2_6_floorplan_pdn.odb ./results/sky130hd/riscv_v/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0006] NumInstances:            188178
+[INFO GPL-0007] NumPlaceInstances:       165665
+[INFO GPL-0008] NumFixedInstances:        22513
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 165776
+[INFO GPL-0011] NumPins:                 616742
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0016] CoreArea:            1686023.280 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    28168.266 um^2
+[INFO GPL-0018] PlaceInstsArea:      1199421.590 um^2
+[INFO GPL-0019] Util:                    72.348 %
+[INFO GPL-0020] StdInstsArea:        1199421.590 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    234966
+[INFO GPL-0032] FillerInit:NumGNets:     165776
+[INFO GPL-0033] FillerInit:NumGPins:     616742
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        7.240 um^2
+[INFO GPL-0025] IdealBinArea:             7.240 um^2
+[INFO GPL-0026] IdealBinCnt:             232874
+[INFO GPL-0027] TotalBinArea:        1686023.280 um^2
+[INFO GPL-0028] BinCnt:       256    256
+[INFO GPL-0029] BinSize: (  5.077  5.069 )
+[INFO GPL-0030] NumBins: 65536
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0006] NumInstances:            188178
+[INFO GPL-0007] NumPlaceInstances:       165665
+[INFO GPL-0008] NumFixedInstances:        22513
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 165776
+[INFO GPL-0011] NumPins:                 616469
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0016] CoreArea:            1686023.280 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    28168.266 um^2
+[INFO GPL-0018] PlaceInstsArea:      1199421.590 um^2
+[INFO GPL-0019] Util:                    72.348 %
+[INFO GPL-0020] StdInstsArea:        1199421.590 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    202822
+[INFO GPL-0032] FillerInit:NumGNets:     165776
+[INFO GPL-0033] FillerInit:NumGPins:     616469
+[INFO GPL-0023] TargetDensity:            0.872
+[INFO GPL-0024] AvrgPlaceInstArea:        7.240 um^2
+[INFO GPL-0025] IdealBinArea:             8.305 um^2
+[INFO GPL-0026] IdealBinCnt:             203006
+[INFO GPL-0027] TotalBinArea:        1686023.280 um^2
+[INFO GPL-0028] BinCnt:       256    256
+[INFO GPL-0029] BinSize: (  5.077  5.069 )
+[INFO GPL-0030] NumBins: 65536
+[NesterovSolve] Iter:    1 overflow: 1.000 HPWL: 334183547
+[NesterovSolve] Iter:   10 overflow: 0.999 HPWL: 187069373
+[NesterovSolve] Iter:   20 overflow: 0.999 HPWL: 180516101
+[NesterovSolve] Iter:   30 overflow: 0.999 HPWL: 178540169
+[NesterovSolve] Iter:   40 overflow: 0.999 HPWL: 177716165
+[NesterovSolve] Iter:   50 overflow: 0.999 HPWL: 177225795
+[NesterovSolve] Iter:   60 overflow: 0.999 HPWL: 176977006
+[NesterovSolve] Iter:   70 overflow: 0.999 HPWL: 176882461
+[NesterovSolve] Iter:   80 overflow: 0.999 HPWL: 176849563
+[NesterovSolve] Iter:   90 overflow: 0.999 HPWL: 177265037
+[NesterovSolve] Iter:  100 overflow: 0.999 HPWL: 178946655
+[NesterovSolve] Iter:  110 overflow: 0.999 HPWL: 183622468
+[NesterovSolve] Iter:  120 overflow: 0.999 HPWL: 193838266
+[NesterovSolve] Iter:  130 overflow: 0.999 HPWL: 214823512
+[NesterovSolve] Iter:  140 overflow: 0.998 HPWL: 256372594
+[NesterovSolve] Iter:  150 overflow: 0.997 HPWL: 336535377
+[NesterovSolve] Iter:  160 overflow: 0.996 HPWL: 448234903
+[NesterovSolve] Iter:  170 overflow: 0.993 HPWL: 564896574
+[NesterovSolve] Iter:  180 overflow: 0.989 HPWL: 685625617
+[NesterovSolve] Iter:  190 overflow: 0.983 HPWL: 824457987
+[NesterovSolve] Iter:  200 overflow: 0.975 HPWL: 1001613251
+[NesterovSolve] Iter:  210 overflow: 0.964 HPWL: 1226009812
+[NesterovSolve] Iter:  220 overflow: 0.949 HPWL: 1495313327
+[NesterovSolve] Iter:  230 overflow: 0.929 HPWL: 1796694338
+[NesterovSolve] Iter:  240 overflow: 0.906 HPWL: 2112105466
+[NesterovSolve] Iter:  250 overflow: 0.879 HPWL: 2429733983
+[NesterovSolve] Iter:  260 overflow: 0.849 HPWL: 2744929499
+[NesterovSolve] Iter:  270 overflow: 0.816 HPWL: 3049038885
+[NesterovSolve] Iter:  280 overflow: 0.779 HPWL: 3345891655
+[NesterovSolve] Iter:  290 overflow: 0.739 HPWL: 3648816158
+[NesterovSolve] Iter:  300 overflow: 0.693 HPWL: 3947832521
+[NesterovSolve] Iter:  310 overflow: 0.643 HPWL: 4253983012
+[NesterovSolve] Iter:  320 overflow: 0.598 HPWL: 4551752756
+[NesterovSolve] Iter:  330 overflow: 0.547 HPWL: 4789591731
+[NesterovSolve] Iter:  340 overflow: 0.507 HPWL: 4781563113
+[NesterovSolve] Iter:  350 overflow: 0.468 HPWL: 4801722067
+[NesterovSolve] Iter:  360 overflow: 0.442 HPWL: 4806056155
+[NesterovSolve] Iter:  370 overflow: 0.409 HPWL: 4692624202
+[NesterovSolve] Iter:  380 overflow: 0.366 HPWL: 4868235423
+[NesterovSolve] Iter:  390 overflow: 0.339 HPWL: 4704256320
+[NesterovSolve] Iter:  400 overflow: 0.318 HPWL: 4604228957
+[NesterovSolve] Iter:  410 overflow: 0.290 HPWL: 4546920024
+[NesterovSolve] Iter:  420 overflow: 0.265 HPWL: 4476548173
+[NesterovSolve] Iter:  430 overflow: 0.242 HPWL: 4417845361
+[NesterovSolve] Iter:  440 overflow: 0.218 HPWL: 4378262294
+[NesterovSolve] Iter:  450 overflow: 0.194 HPWL: 4345703988
+[NesterovSolve] Iter:  460 overflow: 0.171 HPWL: 4321402610
+[NesterovSolve] Iter:  470 overflow: 0.150 HPWL: 4306015129
+[NesterovSolve] Iter:  480 overflow: 0.131 HPWL: 4296039827
+[NesterovSolve] Iter:  490 overflow: 0.112 HPWL: 4290472402
+[NesterovSolve] Finished with Overflow: 0.099046
+Elapsed time: 0:48.02[h:]min:sec. CPU time: user 140.71 sys 0.49 (294%). Peak memory: 684896KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers met3 -ver_layers met2
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           5464
+[INFO PPL-0002] Number of I/O             273
+[INFO PPL-0003] Number of I/O w/sink      245
+[INFO PPL-0004] Number of I/O w/o sink    28
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 125545.45 um.
+Elapsed time: 0:01.53[h:]min:sec. CPU time: user 1.29 sys 0.23 (99%). Peak memory: 444920KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0006] NumInstances:            188178
+[INFO GPL-0007] NumPlaceInstances:       165665
+[INFO GPL-0008] NumFixedInstances:        22513
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 165776
+[INFO GPL-0011] NumPins:                 616742
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0016] CoreArea:            1686023.280 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    28168.266 um^2
+[INFO GPL-0018] PlaceInstsArea:      1199421.590 um^2
+[INFO GPL-0019] Util:                    72.348 %
+[INFO GPL-0020] StdInstsArea:        1199421.590 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    234966
+[INFO GPL-0032] FillerInit:NumGNets:     165776
+[INFO GPL-0033] FillerInit:NumGPins:     616742
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        7.240 um^2
+[INFO GPL-0025] IdealBinArea:             7.240 um^2
+[INFO GPL-0026] IdealBinCnt:             232874
+[INFO GPL-0027] TotalBinArea:        1686023.280 um^2
+[INFO GPL-0028] BinCnt:       256    256
+[INFO GPL-0029] BinSize: (  5.077  5.069 )
+[INFO GPL-0030] NumBins: 65536
+global_placement -density 0.8717390096187592 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0006] NumInstances:            188178
+[INFO GPL-0007] NumPlaceInstances:       165665
+[INFO GPL-0008] NumFixedInstances:        22513
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 165776
+[INFO GPL-0011] NumPins:                 616742
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.100 201.280 ) ( 1499.600 1498.720 ) um
+[INFO GPL-0016] CoreArea:            1686023.280 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    28168.266 um^2
+[INFO GPL-0018] PlaceInstsArea:      1199421.590 um^2
+[INFO GPL-0019] Util:                    72.348 %
+[INFO GPL-0020] StdInstsArea:        1199421.590 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00319811 HPWL: 5376237088
+[InitialPlace]  Iter: 2 CG residual: 0.00146769 HPWL: 1425384834
+[InitialPlace]  Iter: 3 CG residual: 0.00122278 HPWL: 1422659934
+[InitialPlace]  Iter: 4 CG residual: 0.00077865 HPWL: 1425164712
+[InitialPlace]  Iter: 5 CG residual: 0.00114834 HPWL: 1417951873
+[InitialPlace]  Iter: 6 CG residual: 0.00108628 HPWL: 1420208707
+[InitialPlace]  Iter: 7 CG residual: 0.00146665 HPWL: 1415441767
+[InitialPlace]  Iter: 8 CG residual: 0.00125413 HPWL: 1417802183
+[InitialPlace]  Iter: 9 CG residual: 0.00117589 HPWL: 1412304209
+[InitialPlace]  Iter: 10 CG residual: 0.00105462 HPWL: 1414467621
+[InitialPlace]  Iter: 11 CG residual: 0.00116566 HPWL: 1409944993
+[InitialPlace]  Iter: 12 CG residual: 0.00060696 HPWL: 1412405581
+[InitialPlace]  Iter: 13 CG residual: 0.00080619 HPWL: 1407486826
+[InitialPlace]  Iter: 14 CG residual: 0.00064741 HPWL: 1409796553
+[InitialPlace]  Iter: 15 CG residual: 0.00133374 HPWL: 1405210593
+[InitialPlace]  Iter: 16 CG residual: 0.00157819 HPWL: 1408620990
+[InitialPlace]  Iter: 17 CG residual: 0.00116814 HPWL: 1403184628
+[InitialPlace]  Iter: 18 CG residual: 0.00106665 HPWL: 1405037217
+[InitialPlace]  Iter: 19 CG residual: 0.00062218 HPWL: 1400097825
+[InitialPlace]  Iter: 20 CG residual: 0.00105319 HPWL: 1401764503
+[INFO GPL-0031] FillerInit:NumGCells:    202822
+[INFO GPL-0032] FillerInit:NumGNets:     165776
+[INFO GPL-0033] FillerInit:NumGPins:     616742
+[INFO GPL-0023] TargetDensity:            0.872
+[INFO GPL-0024] AvrgPlaceInstArea:        7.240 um^2
+[INFO GPL-0025] IdealBinArea:             8.305 um^2
+[INFO GPL-0026] IdealBinCnt:             203006
+[INFO GPL-0027] TotalBinArea:        1686023.280 um^2
+[INFO GPL-0028] BinCnt:       256    256
+[INFO GPL-0029] BinSize: (  5.077  5.069 )
+[INFO GPL-0030] NumBins: 65536
+[NesterovSolve] Iter:    1 overflow: 0.997 HPWL: 477143392
+[NesterovSolve] Iter:   10 overflow: 0.991 HPWL: 693752452
+[NesterovSolve] Iter:   20 overflow: 0.988 HPWL: 656982041
+[NesterovSolve] Iter:   30 overflow: 0.985 HPWL: 677399201
+[NesterovSolve] Iter:   40 overflow: 0.981 HPWL: 699125282
+[NesterovSolve] Iter:   50 overflow: 0.978 HPWL: 725394465
+[NesterovSolve] Iter:   60 overflow: 0.974 HPWL: 755595735
+[NesterovSolve] Iter:   70 overflow: 0.971 HPWL: 791256473
+[NesterovSolve] Iter:   80 overflow: 0.969 HPWL: 829912707
+[NesterovSolve] Iter:   90 overflow: 0.967 HPWL: 867816667
+[NesterovSolve] Iter:  100 overflow: 0.967 HPWL: 903031621
+[NesterovSolve] Iter:  110 overflow: 0.966 HPWL: 934996654
+[NesterovSolve] Iter:  120 overflow: 0.966 HPWL: 963839166
+[NesterovSolve] Iter:  130 overflow: 0.966 HPWL: 989921617
+[NesterovSolve] Iter:  140 overflow: 0.966 HPWL: 1013465272
+[NesterovSolve] Iter:  150 overflow: 0.966 HPWL: 1036160201
+[NesterovSolve] Iter:  160 overflow: 0.966 HPWL: 1061645812
+[NesterovSolve] Iter:  170 overflow: 0.965 HPWL: 1095385870
+[NesterovSolve] Iter:  180 overflow: 0.964 HPWL: 1140981427
+[NesterovSolve] Iter:  190 overflow: 0.962 HPWL: 1197162182
+[NesterovSolve] Iter:  200 overflow: 0.959 HPWL: 1265547800
+[NesterovSolve] Iter:  210 overflow: 0.955 HPWL: 1355157629
+[NesterovSolve] Iter:  220 overflow: 0.949 HPWL: 1479320431
+[NesterovSolve] Iter:  230 overflow: 0.940 HPWL: 1650927351
+[NesterovSolve] Iter:  240 overflow: 0.925 HPWL: 1878557314
+[NesterovSolve] Iter:  250 overflow: 0.904 HPWL: 2161085759
+[NesterovSolve] Iter:  260 overflow: 0.879 HPWL: 2497046784
+[NesterovSolve] Iter:  270 overflow: 0.851 HPWL: 2875875932
+[NesterovSolve] Iter:  280 overflow: 0.821 HPWL: 3260178299
+[NesterovSolve] Iter:  290 overflow: 0.787 HPWL: 3649510056
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 4.43e-08
+[INFO GPL-0103] Timing-driven: weighted 16577 nets.
+[NesterovSolve] Iter:  300 overflow: 0.752 HPWL: 3821018972
+[NesterovSolve] Iter:  310 overflow: 0.714 HPWL: 3994664322
+[NesterovSolve] Iter:  320 overflow: 0.671 HPWL: 4161295450
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 3.72e-08
+[INFO GPL-0103] Timing-driven: weighted 16577 nets.
+[NesterovSolve] Iter:  330 overflow: 0.618 HPWL: 4478497357
+[NesterovSolve] Snapshot saved at iter = 332
+[NesterovSolve] Iter:  340 overflow: 0.561 HPWL: 4847764359
+[NesterovSolve] Iter:  350 overflow: 0.517 HPWL: 5237471315
+[NesterovSolve] Iter:  360 overflow: 0.490 HPWL: 5192400172
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 3.81e-08
+[INFO GPL-0103] Timing-driven: weighted 16577 nets.
+[NesterovSolve] Iter:  370 overflow: 0.455 HPWL: 5091361001
+[NesterovSolve] Iter:  380 overflow: 0.416 HPWL: 5601310239
+[NesterovSolve] Iter:  390 overflow: 0.397 HPWL: 5059838482
+[NesterovSolve] Iter:  400 overflow: 0.350 HPWL: 5483438494
+[NesterovSolve] Iter:  410 overflow: 0.326 HPWL: 5159398256
+[NesterovSolve] Iter:  420 overflow: 0.311 HPWL: 4989212274
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 6900 6900 ) DBU
+[INFO GPL-0038] TileCnt:     217  217
+[INFO GPL-0040] NumTiles: 47089
+[INFO GPL-0081] TotalRouteOverflow: 3033.992927670479
+[INFO GPL-0082] OverflowTileCnt: 13146
+[INFO GPL-0083] 0.5%RC: 1.9027077515246504
+[INFO GPL-0084] 1.0%RC: 1.8068084709203927
+[INFO GPL-0085] 2.0%RC: 1.7024462988675273
+[INFO GPL-0086] 5.0%RC: 1.5546570504546924
+[INFO GPL-0087] FinalRC: 1.8547581
+[INFO GPL-0078] FinalRC lower than minRC (1e+30), min RC updated.
+[INFO GPL-0045] InflatedAreaDelta:   1771041.867 um^2
+[INFO GPL-0046] TargetDensity:            0.872
+Revert Routability Procedure. Target density higher than max, or minRC max violations.
+[INFO GPL-0080] minRcViolatedCnt: 0
+[INFO GPL-0047] SavedMinRC: 1.8548
+[INFO GPL-0048] SavedTargetDensity: 0.8717
+[NesterovSolve] Revert back to snapshot coordi
+[NesterovSolve] Iter:  430 overflow: 0.567 HPWL: 4811938096
+[NesterovSolve] Iter:  440 overflow: 0.529 HPWL: 5125346479
+[NesterovSolve] Iter:  450 overflow: 0.508 HPWL: 5136298714
+[NesterovSolve] Iter:  460 overflow: 0.485 HPWL: 4867126718
+[NesterovSolve] Iter:  470 overflow: 0.451 HPWL: 5243561643
+[NesterovSolve] Iter:  480 overflow: 0.434 HPWL: 5046771759
+[NesterovSolve] Iter:  490 overflow: 0.400 HPWL: 5043881377
+[NesterovSolve] Iter:  500 overflow: 0.376 HPWL: 5162694082
+[NesterovSolve] Iter:  510 overflow: 0.347 HPWL: 5063959838
+[NesterovSolve] Iter:  520 overflow: 0.332 HPWL: 4856875232
+[NesterovSolve] Iter:  530 overflow: 0.302 HPWL: 4912346487
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 4.19e-08
+[INFO GPL-0103] Timing-driven: weighted 16577 nets.
+[NesterovSolve] Iter:  540 overflow: 0.280 HPWL: 4806334658
+[NesterovSolve] Iter:  550 overflow: 0.256 HPWL: 4710881726
+[NesterovSolve] Iter:  560 overflow: 0.231 HPWL: 4655897261
+[NesterovSolve] Iter:  570 overflow: 0.208 HPWL: 4613977104
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 4.26e-08
+[INFO GPL-0103] Timing-driven: weighted 16577 nets.
+[NesterovSolve] Iter:  580 overflow: 0.184 HPWL: 4583552509
+[NesterovSolve] Iter:  590 overflow: 0.162 HPWL: 4563802662
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 4.19e-08
+[INFO GPL-0103] Timing-driven: weighted 16577 nets.
+[NesterovSolve] Iter:  600 overflow: 0.141 HPWL: 4551769477
+[NesterovSolve] Iter:  610 overflow: 0.121 HPWL: 4543770079
+[NesterovSolve] Iter:  620 overflow: 0.105 HPWL: 4540672376
+[NesterovSolve] Finished with Overflow: 0.098420
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 1227590 u^2 73% utilization.
+Elapsed time: 10:54.64[h:]min:sec. CPU time: user 814.11 sys 1.90 (124%). Peak memory: 2289220KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 82 input buffers.
+[INFO RSZ-0028] Inserted 162 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 2154um.
+[INFO RSZ-0034] Found 34034 slew violations.
+[INFO RSZ-0036] Found 955 capacitance violations.
+[INFO RSZ-0038] Inserted 3776 buffers in 34038 nets.
+[INFO RSZ-0039] Resized 49598 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 1686264 u^2 100% utilization.
+Instance count before 188178, after 192198
+Pin count before 616469, after 624509
+Elapsed time: 1:59.04[h:]min:sec. CPU time: user 118.34 sys 0.69 (99%). Peak memory: 1431060KB.
+Running detail_place.tcl, stage 3_5_place_dp
+[INFO DPL-0034] Detailed placement failed on the following 8144 instances:
+[INFO DPL-0035]  _329205_
+[INFO DPL-0035]  _329205_
+[INFO DPL-0035]  _329205_
+[INFO DPL-0035]  _324626_
+[INFO DPL-0035]  _322313_
+[INFO DPL-0035]  _322313_
+[INFO DPL-0035]  _322313_
+[INFO DPL-0035]  _326451_
+[INFO DPL-0035]  _329776_
+[INFO DPL-0035]  _329776_
+[INFO DPL-0035]  _329790_
+[INFO DPL-0035]  _329790_
+[INFO DPL-0035]  _329790_
+[INFO DPL-0035]  _329790_
+[INFO DPL-0035]  _322310_
+[INFO DPL-0035]  _322310_
+[INFO DPL-0035]  _325866_
+[INFO DPL-0035]  _329763_
+[INFO DPL-0035]  _329763_
+[INFO DPL-0035]  _324990_
+[INFO DPL-0035]  _324990_
+[INFO DPL-0035]  _324754_
+[INFO DPL-0035]  _324758_
+[INFO DPL-0035]  _322557_
+[INFO DPL-0035]  _330155_
+[INFO DPL-0035]  _330155_
+[INFO DPL-0035]  _330155_
+[INFO DPL-0035]  _330051_
+[INFO DPL-0035]  _329076_
+[INFO DPL-0035]  _329076_
+[INFO DPL-0035]  _325881_
+[INFO DPL-0035]  _326530_
+[INFO DPL-0035]  _329956_
+[INFO DPL-0035]  _329956_
+[INFO DPL-0035]  _329978_
+[INFO DPL-0035]  _329978_
+[INFO DPL-0035]  _329978_
+[INFO DPL-0035]  _329978_
+[INFO DPL-0035]  _324975_
+[INFO DPL-0035]  _330059_
+[INFO DPL-0035]  _330059_
+[INFO DPL-0035]  _330059_
+[INFO DPL-0035]  _329067_
+[INFO DPL-0035]  _329067_
+[INFO DPL-0035]  _329067_
+[INFO DPL-0035]  _329961_
+[INFO DPL-0035]  _330056_
+[INFO DPL-0035]  _322400_
+[INFO DPL-0035]  _330036_
+[INFO DPL-0035]  _324799_
+[INFO DPL-0035]  _328938_
+[INFO DPL-0035]  _328938_
+[INFO DPL-0035]  _330425_
+[INFO DPL-0035]  _330425_
+[INFO DPL-0035]  _330425_
+[INFO DPL-0035]  _324794_
+[INFO DPL-0035]  _324794_
+[INFO DPL-0035]  _330421_
+[INFO DPL-0035]  _330427_
+[INFO DPL-0035]  _329914_
+[INFO DPL-0035]  _329914_
+[INFO DPL-0035]  _330535_
+[INFO DPL-0035]  _330535_
+[INFO DPL-0035]  _330535_
+[INFO DPL-0035]  _330535_
+[INFO DPL-0035]  _324806_
+[INFO DPL-0035]  _324806_
+[INFO DPL-0035]  _324806_
+[INFO DPL-0035]  _324813_
+[INFO DPL-0035]  _324872_
+[INFO DPL-0035]  _324872_
+[INFO DPL-0035]  _324873_
+[INFO DPL-0035]  _324873_
+[INFO DPL-0035]  _325887_
+[INFO DPL-0035]  _325887_
+[INFO DPL-0035]  _324864_
+[INFO DPL-0035]  _330821_
+[INFO DPL-0035]  _324874_
+[INFO DPL-0035]  _172176_
+[INFO DPL-0035]  _172176_
+[INFO DPL-0035]  _172176_
+[INFO DPL-0035]  _330608_
+[INFO DPL-0035]  _322809_
+[INFO DPL-0035]  _330565_
+[INFO DPL-0035]  _330565_
+[INFO DPL-0035]  _330565_
+[INFO DPL-0035]  _325890_
+[INFO DPL-0035]  _330930_
+[INFO DPL-0035]  _330930_
+[INFO DPL-0035]  _330826_
+[INFO DPL-0035]  _328874_
+[INFO DPL-0035]  _328874_
+[INFO DPL-0035]  _329016_
+[INFO DPL-0035]  _329016_
+[INFO DPL-0035]  _325402_
+[INFO DPL-0035]  _325402_
+[INFO DPL-0035]  _325402_
+[INFO DPL-0035]  _327011_
+[INFO DPL-0035]  _327011_
+[INFO DPL-0035]  _328881_
+[INFO DPL-0035]  _322800_
+[INFO DPL-0035]  _322800_
+[INFO DPL-0035]  _325406_
+[INFO DPL-0035]  _172196_
+[INFO DPL-0035]  _172196_
+[INFO DPL-0035]  _325609_
+[INFO DPL-0035]  _325609_
+[INFO DPL-0035]  _329296_
+[INFO DPL-0035]  _322825_
+[INFO DPL-0035]  _328654_
+[INFO DPL-0035]  _328654_
+[INFO DPL-0035]  _329594_
+[INFO DPL-0035]  _329594_
+[INFO DPL-0035]  _329594_
+[INFO DPL-0035]  _326387_
+[INFO DPL-0035]  _326387_
+[INFO DPL-0035]  _296377_
+[INFO DPL-0035]  _281401_
+[INFO DPL-0035]  _281401_
+[INFO DPL-0035]  _289224_
+[INFO DPL-0035]  _289224_
+[INFO DPL-0035]  _289653_
+[INFO DPL-0035]  _289614_
+[INFO DPL-0035]  _288998_
+[INFO DPL-0035]  _288989_
+[INFO DPL-0035]  _288989_
+[INFO DPL-0035]  _288996_
+[INFO DPL-0035]  _289013_
+[INFO DPL-0035]  _289013_
+[INFO DPL-0035]  _303125_
+[INFO DPL-0035]  _303125_
+[INFO DPL-0035]  _303125_
+[INFO DPL-0035]  _303127_
+[INFO DPL-0035]  _303127_
+[INFO DPL-0035]  _183600_
+[INFO DPL-0035]  _304172_
+[INFO DPL-0035]  _181266_
+[INFO DPL-0035]  _303989_
+[INFO DPL-0035]  _303989_
+[INFO DPL-0035]  _182594_
+[INFO DPL-0035]  _181258_
+[INFO DPL-0035]  _320004_
+[INFO DPL-0035]  _320004_
+[INFO DPL-0035]  _303868_
+[INFO DPL-0035]  _181325_
+[INFO DPL-0035]  _181326_
+[INFO DPL-0035]  _181327_
+[INFO DPL-0035]  _181327_
+[INFO DPL-0035]  _181256_
+[INFO DPL-0035]  _180796_
+[INFO DPL-0035]  _331847_
+[INFO DPL-0035]  _331847_
+[INFO DPL-0035]  _303779_
+[INFO DPL-0035]  _303779_
+[INFO DPL-0035]  _303779_
+[INFO DPL-0035]  _303779_
+[INFO DPL-0035]  _304010_
+[INFO DPL-0035]  _304010_
+[INFO DPL-0035]  _181365_
+[INFO DPL-0035]  _331838_
+[INFO DPL-0035]  _331838_
+[INFO DPL-0035]  _331838_
+[INFO DPL-0035]  _331838_
+[INFO DPL-0035]  _303940_
+[INFO DPL-0035]  _303940_
+[INFO DPL-0035]  _303856_
+[INFO DPL-0035]  _303856_
+[INFO DPL-0035]  _303856_
+[INFO DPL-0035]  _331463_
+[INFO DPL-0035]  _331463_
+[INFO DPL-0035]  _182429_
+[INFO DPL-0035]  _179858_
+[INFO DPL-0035]  _331480_
+[INFO DPL-0035]  _331480_
+[INFO DPL-0035]  _320108_
+[INFO DPL-0035]  _320108_
+[INFO DPL-0035]  _320108_
+[INFO DPL-0035]  _320108_
+[INFO DPL-0035]  _320108_
+[INFO DPL-0035]  _303724_
+[INFO DPL-0035]  _303724_
+[INFO DPL-0035]  _303724_
+[INFO DPL-0035]  _328968_
+[INFO DPL-0035]  _328968_
+[INFO DPL-0035]  _328968_
+[INFO DPL-0035]  _304564_
+[INFO DPL-0035]  _304564_
+[INFO DPL-0035]  _303242_
+[INFO DPL-0035]  _303242_
+[INFO DPL-0035]  _303242_
+[INFO DPL-0035]  _331954_
+[INFO DPL-0035]  _331954_
+[INFO DPL-0035]  _331957_
+[INFO DPL-0035]  _331957_
+[INFO DPL-0035]  _331957_
+[INFO DPL-0035]  _225615_
+[INFO DPL-0035]  _225615_
+[INFO DPL-0035]  _183490_
+[INFO DPL-0035]  _183490_
+[INFO DPL-0035]  _179367_
+[INFO DPL-0035]  _179367_
+[INFO DPL-0035]  _179817_
+[INFO DPL-0035]  _179322_
+[INFO DPL-0035]  _179740_
+[INFO DPL-0035]  _179337_
+[INFO DPL-0035]  _329832_
+[INFO DPL-0035]  _329832_
+[INFO DPL-0035]  _178556_
+[INFO DPL-0035]  _178556_
+[INFO DPL-0035]  _328491_
+[INFO DPL-0035]  _328491_
+[INFO DPL-0035]  _328491_
+[INFO DPL-0035]  _178902_
+[INFO DPL-0035]  _321978_
+[INFO DPL-0035]  _321978_
+[INFO DPL-0035]  _322076_
+[INFO DPL-0035]  _324647_
+[INFO DPL-0035]  _324647_
+[INFO DPL-0035]  _324647_
+[INFO DPL-0035]  _324675_
+[INFO DPL-0035]  _324675_
+[INFO DPL-0035]  _178834_
+[INFO DPL-0035]  _178834_
+[INFO DPL-0035]  _172245_
+[INFO DPL-0035]  _179939_
+[INFO DPL-0035]  _179939_
+[INFO DPL-0035]  _330989_
+[INFO DPL-0035]  _330989_
+[INFO DPL-0035]  _326431_
+[INFO DPL-0035]  _325942_
+[INFO DPL-0035]  _325942_
+[INFO DPL-0035]  _325942_
+[INFO DPL-0035]  _325855_
+[INFO DPL-0035]  _322195_
+[INFO DPL-0035]  _322195_
+[INFO DPL-0035]  _328780_
+[INFO DPL-0035]  _328780_
+[INFO DPL-0035]  _328780_
+[INFO DPL-0035]  _324404_
+[INFO DPL-0035]  _324404_
+[INFO DPL-0035]  _324404_
+[INFO DPL-0035]  _329409_
+[INFO DPL-0035]  _329409_
+[INFO DPL-0035]  _329409_
+[INFO DPL-0035]  _324893_
+[INFO DPL-0035]  _324893_
+[INFO DPL-0035]  _325007_
+[INFO DPL-0035]  _326522_
+[INFO DPL-0035]  _330981_
+[INFO DPL-0035]  _330981_
+[INFO DPL-0035]  _325870_
+[INFO DPL-0035]  _325870_
+[INFO DPL-0035]  _323913_
+[INFO DPL-0035]  _323913_
+[INFO DPL-0035]  _329518_
+[INFO DPL-0035]  _329518_
+[INFO DPL-0035]  _329518_
+[INFO DPL-0035]  _329518_
+[INFO DPL-0035]  _329518_
+[INFO DPL-0035]  _324796_
+[INFO DPL-0035]  _324796_
+[INFO DPL-0035]  _329663_
+[INFO DPL-0035]  _329663_
+[INFO DPL-0035]  _329830_
+[INFO DPL-0035]  _329830_
+[INFO DPL-0035]  _329765_
+[INFO DPL-0035]  _326785_
+[INFO DPL-0035]  _326785_
+[INFO DPL-0035]  _324808_
+[INFO DPL-0035]  _324831_
+[INFO DPL-0035]  _329217_
+[INFO DPL-0035]  _329217_
+[INFO DPL-0035]  _329365_
+[INFO DPL-0035]  _329365_
+[INFO DPL-0035]  _329219_
+[INFO DPL-0035]  _329791_
+[INFO DPL-0035]  _329791_
+[INFO DPL-0035]  _325926_
+[INFO DPL-0035]  _329789_
+[INFO DPL-0035]  _323833_
+[INFO DPL-0035]  _324803_
+[INFO DPL-0035]  _324803_
+[INFO DPL-0035]  _324803_
+[INFO DPL-0035]  _329793_
+[INFO DPL-0035]  _329793_
+[INFO DPL-0035]  _329884_
+[INFO DPL-0035]  _329884_
+[INFO DPL-0035]  _325930_
+[INFO DPL-0035]  _325930_
+[INFO DPL-0035]  _325930_
+[INFO DPL-0035]  _329060_
+[INFO DPL-0035]  _329060_
+[INFO DPL-0035]  _325132_
+[INFO DPL-0035]  _325132_
+[INFO DPL-0035]  _329748_
+[INFO DPL-0035]  _329748_
+[INFO DPL-0035]  _329748_
+[INFO DPL-0035]  _326542_
+[INFO DPL-0035]  _326542_
+[INFO DPL-0035]  _325337_
+[INFO DPL-0035]  _325337_
+[INFO DPL-0035]  _325337_
+[INFO DPL-0035]  _322529_
+[INFO DPL-0035]  _322529_
+[INFO DPL-0035]  _329065_
+[INFO DPL-0035]  _324795_
+[INFO DPL-0035]  _324795_
+[INFO DPL-0035]  _326539_
+[INFO DPL-0035]  _330058_
+[INFO DPL-0035]  _325319_
+[INFO DPL-0035]  _325319_
+[INFO DPL-0035]  _324807_
+[INFO DPL-0035]  _330444_
+[INFO DPL-0035]  _330444_
+[INFO DPL-0035]  _327527_
+[INFO DPL-0035]  _327527_
+[INFO DPL-0035]  _329911_
+[INFO DPL-0035]  _329911_
+[INFO DPL-0035]  _327524_
+[INFO DPL-0035]  _327524_
+[INFO DPL-0035]  _324764_
+[INFO DPL-0035]  _324764_
+[INFO DPL-0035]  _324764_
+[INFO DPL-0035]  _325682_
+[INFO DPL-0035]  _325682_
+[INFO DPL-0035]  _330660_
+[INFO DPL-0035]  _330660_
+[INFO DPL-0035]  _324856_
+[INFO DPL-0035]  _329856_
+[INFO DPL-0035]  _329856_
+[INFO DPL-0035]  _326161_
+[INFO DPL-0035]  _326161_
+[INFO DPL-0035]  _326161_
+[INFO DPL-0035]  _326161_
+[INFO DPL-0035]  _330829_
+[INFO DPL-0035]  _330829_
+[INFO DPL-0035]  _325398_
+[INFO DPL-0035]  _325403_
+[INFO DPL-0035]  _325382_
+[INFO DPL-0035]  _325405_
+[INFO DPL-0035]  _328145_
+[INFO DPL-0035]  _328145_
+[INFO DPL-0035]  _328145_
+[INFO DPL-0035]  _327418_
+[INFO DPL-0035]  _322824_
+[INFO DPL-0035]  _322824_
+[INFO DPL-0035]  _328139_
+[INFO DPL-0035]  _326958_
+[INFO DPL-0035]  _326958_
+[INFO DPL-0035]  input77
+[INFO DPL-0035]  input29
+[INFO DPL-0035]  input29
+[INFO DPL-0035]  _297195_
+[INFO DPL-0035]  _297195_
+[INFO DPL-0035]  _297195_
+[INFO DPL-0035]  _297195_
+[INFO DPL-0035]  _297182_
+[INFO DPL-0035]  _297182_
+[INFO DPL-0035]  _297182_
+[INFO DPL-0035]  _297182_
+[INFO DPL-0035]  _328398_
+[INFO DPL-0035]  _328398_
+[INFO DPL-0035]  _280541_
+[INFO DPL-0035]  _280541_
+[INFO DPL-0035]  _280541_
+[INFO DPL-0035]  _287363_
+[INFO DPL-0035]  _287363_
+[INFO DPL-0035]  _319560_
+[INFO DPL-0035]  _319560_
+[INFO DPL-0035]  _319560_
+[INFO DPL-0035]  _275339_
+[INFO DPL-0035]  _275339_
+[INFO DPL-0035]  _275339_
+[INFO DPL-0035]  _282797_
+[INFO DPL-0035]  _275042_
+[INFO DPL-0035]  _280534_
+[INFO DPL-0035]  _280534_
+[INFO DPL-0035]  _293505_
+[INFO DPL-0035]  _293505_
+[INFO DPL-0035]  _293505_
+[INFO DPL-0035]  _319589_
+[INFO DPL-0035]  _293475_
+[INFO DPL-0035]  _293475_
+[INFO DPL-0035]  _293475_
+[INFO DPL-0035]  _293448_
+[INFO DPL-0035]  _293448_
+[INFO DPL-0035]  _282882_
+[INFO DPL-0035]  _319585_
+[INFO DPL-0035]  _319607_
+[INFO DPL-0035]  _319610_
+[INFO DPL-0035]  _305876_
+[INFO DPL-0035]  _305876_
+[INFO DPL-0035]  _293320_
+[INFO DPL-0035]  _293320_
+[INFO DPL-0035]  _293374_
+[INFO DPL-0035]  _293374_
+[INFO DPL-0035]  _306658_
+[INFO DPL-0035]  _306658_
+[INFO DPL-0035]  _306658_
+[INFO DPL-0035]  _285029_
+[INFO DPL-0035]  _285029_
+[INFO DPL-0035]  _285029_
+[INFO DPL-0035]  _285029_
+[INFO DPL-0035]  _293388_
+[INFO DPL-0035]  _293388_
+[INFO DPL-0035]  _293388_
+[INFO DPL-0035]  _282795_
+[INFO DPL-0035]  _282795_
+[INFO DPL-0035]  _282795_
+[INFO DPL-0035]  _281164_
+[INFO DPL-0035]  _305814_
+[INFO DPL-0035]  _305814_
+[INFO DPL-0035]  _281420_
+[INFO DPL-0035]  _281420_
+[INFO DPL-0035]  _281420_
+[INFO DPL-0035]  _281420_
+[INFO DPL-0035]  _281161_
+[INFO DPL-0035]  _305631_
+[INFO DPL-0035]  _305631_
+[INFO DPL-0035]  _305647_
+[INFO DPL-0035]  _305647_
+[INFO DPL-0035]  _305647_
+[INFO DPL-0035]  _305647_
+[INFO DPL-0035]  _289790_
+[INFO DPL-0035]  _289790_
+[INFO DPL-0035]  _289790_
+[INFO DPL-0035]  _289790_
+[INFO DPL-0035]  _330578_
+[INFO DPL-0035]  _330578_
+[INFO DPL-0035]  _305817_
+[INFO DPL-0035]  _305817_
+[INFO DPL-0035]  _285771_
+[INFO DPL-0035]  _285771_
+[INFO DPL-0035]  _319656_
+[INFO DPL-0035]  _319656_
+[INFO DPL-0035]  _319656_
+[INFO DPL-0035]  _319655_
+[INFO DPL-0035]  _319655_
+[INFO DPL-0035]  _284945_
+[INFO DPL-0035]  _284945_
+[INFO DPL-0035]  _284945_
+[INFO DPL-0035]  _284945_
+[INFO DPL-0035]  _297701_
+[INFO DPL-0035]  _297701_
+[INFO DPL-0035]  _297701_
+[INFO DPL-0035]  _275101_
+[INFO DPL-0035]  _275101_
+[INFO DPL-0035]  _297720_
+[INFO DPL-0035]  _297720_
+[INFO DPL-0035]  _297720_
+[INFO DPL-0035]  _287940_
+[INFO DPL-0035]  _285540_
+[INFO DPL-0035]  _296459_
+[INFO DPL-0035]  _296459_
+[INFO DPL-0035]  _282605_
+[INFO DPL-0035]  _282605_
+[INFO DPL-0035]  _296467_
+[INFO DPL-0035]  _296467_
+[INFO DPL-0035]  _320377_
+[INFO DPL-0035]  _320377_
+[INFO DPL-0035]  _241609_
+[INFO DPL-0035]  _241609_
+[INFO DPL-0035]  _241609_
+[INFO DPL-0035]  _285713_
+[INFO DPL-0035]  _285713_
+[INFO DPL-0035]  _305964_
+[INFO DPL-0035]  _305964_
+[INFO DPL-0035]  _296444_
+[INFO DPL-0035]  _296444_
+[INFO DPL-0035]  _306373_
+[INFO DPL-0035]  _306373_
+[INFO DPL-0035]  _296425_
+[INFO DPL-0035]  _282331_
+[INFO DPL-0035]  _282331_
+[INFO DPL-0035]  _282331_
+[INFO DPL-0035]  _282358_
+[INFO DPL-0035]  _282358_
+[INFO DPL-0035]  _282358_
+[INFO DPL-0035]  _285138_
+[INFO DPL-0035]  _285138_
+[INFO DPL-0035]  _285138_
+[INFO DPL-0035]  _285119_
+[INFO DPL-0035]  _285119_
+[INFO DPL-0035]  _319747_
+[INFO DPL-0035]  _319747_
+[INFO DPL-0035]  _319747_
+[INFO DPL-0035]  _285552_
+[INFO DPL-0035]  _285552_
+[INFO DPL-0035]  _320334_
+[INFO DPL-0035]  _320334_
+[INFO DPL-0035]  _320334_
+[INFO DPL-0035]  _320334_
+[INFO DPL-0035]  _285589_
+[INFO DPL-0035]  _285589_
+[INFO DPL-0035]  _285589_
+[INFO DPL-0035]  _285589_
+[INFO DPL-0035]  _289718_
+[INFO DPL-0035]  _289718_
+[INFO DPL-0035]  _289718_
+[INFO DPL-0035]  _289445_
+[INFO DPL-0035]  _289445_
+[INFO DPL-0035]  _288125_
+[INFO DPL-0035]  _328420_
+[INFO DPL-0035]  _328420_
+[INFO DPL-0035]  _328420_
+[INFO DPL-0035]  _320344_
+[INFO DPL-0035]  _320344_
+[INFO DPL-0035]  _320344_
+[INFO DPL-0035]  _289456_
+[INFO DPL-0035]  _289456_
+[INFO DPL-0035]  _288566_
+[INFO DPL-0035]  _288566_
+[INFO DPL-0035]  _288566_
+[INFO DPL-0035]  _288566_
+[INFO DPL-0035]  _288117_
+[INFO DPL-0035]  _288117_
+[INFO DPL-0035]  _288620_
+[INFO DPL-0035]  _288620_
+[INFO DPL-0035]  _289322_
+[INFO DPL-0035]  _289322_
+[INFO DPL-0035]  _289322_
+[INFO DPL-0035]  _289386_
+[INFO DPL-0035]  _289386_
+[INFO DPL-0035]  _289386_
+[INFO DPL-0035]  _289301_
+[INFO DPL-0035]  _281340_
+[INFO DPL-0035]  _281340_
+[INFO DPL-0035]  _288617_
+[INFO DPL-0035]  _288617_
+[INFO DPL-0035]  _281392_
+[INFO DPL-0035]  _284862_
+[INFO DPL-0035]  _284862_
+[INFO DPL-0035]  _282200_
+[INFO DPL-0035]  _282200_
+[INFO DPL-0035]  _282200_
+[INFO DPL-0035]  _288541_
+[INFO DPL-0035]  _288541_
+[INFO DPL-0035]  _288541_
+[INFO DPL-0035]  _296548_
+[INFO DPL-0035]  _296548_
+[INFO DPL-0035]  _288513_
+[INFO DPL-0035]  _302725_
+[INFO DPL-0035]  _302725_
+[INFO DPL-0035]  _302725_
+[INFO DPL-0035]  _296726_
+[INFO DPL-0035]  _296726_
+[INFO DPL-0035]  _302219_
+[INFO DPL-0035]  _302219_
+[INFO DPL-0035]  _302219_
+[INFO DPL-0035]  _295267_
+[INFO DPL-0035]  _295267_
+[INFO DPL-0035]  _295267_
+[INFO DPL-0035]  _297663_
+[INFO DPL-0035]  _281215_
+[INFO DPL-0035]  _281215_
+[INFO DPL-0035]  _281215_
+[INFO DPL-0035]  _301650_
+[INFO DPL-0035]  _301650_
+[INFO DPL-0035]  _301650_
+[INFO DPL-0035]  _296630_
+[INFO DPL-0035]  _296630_
+[INFO DPL-0035]  _295544_
+[INFO DPL-0035]  _295544_
+[INFO DPL-0035]  _209561_
+[INFO DPL-0035]  _209561_
+[INFO DPL-0035]  _209561_
+[INFO DPL-0035]  _301702_
+[INFO DPL-0035]  _301702_
+[INFO DPL-0035]  _301702_
+[INFO DPL-0035]  _285685_
+[INFO DPL-0035]  _285682_
+[INFO DPL-0035]  _183598_
+[INFO DPL-0035]  _301691_
+[INFO DPL-0035]  _281685_
+[INFO DPL-0035]  _281685_
+[INFO DPL-0035]  _281685_
+[INFO DPL-0035]  _281685_
+[INFO DPL-0035]  _289774_
+[INFO DPL-0035]  _289774_
+[INFO DPL-0035]  _289774_
+[INFO DPL-0035]  _299161_
+[INFO DPL-0035]  _299161_
+[INFO DPL-0035]  _304930_
+[INFO DPL-0035]  _304930_
+[INFO DPL-0035]  _304930_
+[INFO DPL-0035]  _331660_
+[INFO DPL-0035]  _331660_
+[INFO DPL-0035]  _331660_
+[INFO DPL-0035]  _213205_
+[INFO DPL-0035]  _213205_
+[INFO DPL-0035]  _299153_
+[INFO DPL-0035]  _299153_
+[INFO DPL-0035]  _329875_
+[INFO DPL-0035]  _329875_
+[INFO DPL-0035]  _325528_
+[INFO DPL-0035]  _325528_
+[INFO DPL-0035]  _329717_
+[INFO DPL-0035]  _329717_
+[INFO DPL-0035]  _329717_
+[INFO DPL-0035]  _329717_
+[INFO DPL-0035]  _329720_
+[INFO DPL-0035]  _329094_
+[INFO DPL-0035]  _329094_
+[INFO DPL-0035]  _329052_
+[INFO DPL-0035]  _288736_
+[INFO DPL-0035]  _288736_
+[INFO DPL-0035]  _331297_
+[INFO DPL-0035]  _331297_
+[INFO DPL-0035]  _288225_
+[INFO DPL-0035]  _288160_
+[INFO DPL-0035]  _301566_
+[INFO DPL-0035]  _301566_
+[INFO DPL-0035]  _301566_
+[INFO DPL-0035]  _329147_
+[INFO DPL-0035]  _329147_
+[INFO DPL-0035]  _326982_
+[INFO DPL-0035]  _326982_
+[INFO DPL-0035]  _326982_
+[INFO DPL-0035]  _301601_
+[INFO DPL-0035]  _329348_
+[INFO DPL-0035]  _329348_
+[INFO DPL-0035]  _329348_
+[INFO DPL-0035]  _303398_
+[INFO DPL-0035]  _303398_
+[INFO DPL-0035]  _331500_
+[INFO DPL-0035]  _331500_
+[INFO DPL-0035]  _329187_
+[INFO DPL-0035]  _329187_
+[INFO DPL-0035]  _288782_
+[INFO DPL-0035]  _326490_
+[INFO DPL-0035]  _301181_
+[INFO DPL-0035]  _301181_
+[INFO DPL-0035]  _331298_
+[INFO DPL-0035]  _289076_
+[INFO DPL-0035]  _288289_
+[INFO DPL-0035]  _288289_
+[INFO DPL-0035]  _288289_
+[INFO DPL-0035]  _301195_
+[INFO DPL-0035]  _301195_
+[INFO DPL-0035]  _258776_
+[INFO DPL-0035]  _258776_
+[INFO DPL-0035]  _258776_
+[INFO DPL-0035]  _326987_
+[INFO DPL-0035]  _326987_
+[INFO DPL-0035]  _326987_
+[INFO DPL-0035]  _301200_
+[INFO DPL-0035]  _301200_
+[INFO DPL-0035]  _181921_
+[INFO DPL-0035]  _181921_
+[INFO DPL-0035]  _177113_
+[INFO DPL-0035]  _330918_
+[INFO DPL-0035]  _330918_
+[INFO DPL-0035]  _330918_
+[INFO DPL-0035]  _302933_
+[INFO DPL-0035]  _302933_
+[INFO DPL-0035]  _181576_
+[INFO DPL-0035]  _181576_
+[INFO DPL-0035]  _331541_
+[INFO DPL-0035]  _330704_
+[INFO DPL-0035]  _332195_
+[INFO DPL-0035]  _304144_
+[INFO DPL-0035]  _304144_
+[INFO DPL-0035]  _303320_
+[INFO DPL-0035]  _303320_
+[INFO DPL-0035]  _303320_
+[INFO DPL-0035]  _304802_
+[INFO DPL-0035]  _304802_
+[INFO DPL-0035]  _304805_
+[INFO DPL-0035]  _180432_
+[INFO DPL-0035]  _180432_
+[INFO DPL-0035]  _331611_
+[INFO DPL-0035]  _331611_
+[INFO DPL-0035]  _331611_
+[INFO DPL-0035]  _181964_
+[INFO DPL-0035]  _181964_
+[INFO DPL-0035]  _330025_
+[INFO DPL-0035]  _330025_
+[INFO DPL-0035]  _328404_
+[INFO DPL-0035]  _328404_
+[INFO DPL-0035]  _303435_
+[INFO DPL-0035]  _303435_
+[INFO DPL-0035]  _303884_
+[INFO DPL-0035]  _303884_
+[INFO DPL-0035]  _180512_
+[INFO DPL-0035]  _180512_
+[INFO DPL-0035]  _180512_
+[INFO DPL-0035]  _303830_
+[INFO DPL-0035]  _303830_
+[INFO DPL-0035]  _303747_
+[INFO DPL-0035]  _328996_
+[INFO DPL-0035]  _328996_
+[INFO DPL-0035]  _181876_
+[INFO DPL-0035]  _181876_
+[INFO DPL-0035]  _182233_
+[INFO DPL-0035]  _181300_
+[INFO DPL-0035]  _181300_
+[INFO DPL-0035]  _181300_
+[INFO DPL-0035]  _320131_
+[INFO DPL-0035]  _320131_
+[INFO DPL-0035]  _320131_
+[INFO DPL-0035]  _328472_
+[INFO DPL-0035]  _328472_
+[INFO DPL-0035]  _332138_
+[INFO DPL-0035]  _332138_
+[INFO DPL-0035]  _331845_
+[INFO DPL-0035]  _331845_
+[INFO DPL-0035]  _303770_
+[INFO DPL-0035]  _303770_
+[INFO DPL-0035]  _303860_
+[INFO DPL-0035]  _324291_
+[INFO DPL-0035]  _324291_
+[INFO DPL-0035]  _331582_
+[INFO DPL-0035]  _331582_
+[INFO DPL-0035]  _331582_
+[INFO DPL-0035]  _181166_
+[INFO DPL-0035]  _304775_
+[INFO DPL-0035]  _304775_
+[INFO DPL-0035]  _304904_
+[INFO DPL-0035]  _304769_
+[INFO DPL-0035]  _304769_
+[INFO DPL-0035]  _303566_
+[INFO DPL-0035]  _303566_
+[INFO DPL-0035]  _329545_
+[INFO DPL-0035]  _329545_
+[INFO DPL-0035]  _329545_
+[INFO DPL-0035]  _304284_
+[INFO DPL-0035]  _304284_
+[INFO DPL-0035]  _331132_
+[INFO DPL-0035]  _304766_
+[INFO DPL-0035]  _331363_
+[INFO DPL-0035]  _331363_
+[INFO DPL-0035]  _331363_
+[INFO DPL-0035]  _180747_
+[INFO DPL-0035]  _180747_
+[INFO DPL-0035]  _303561_
+[INFO DPL-0035]  _303559_
+[INFO DPL-0035]  _327489_
+[INFO DPL-0035]  _327489_
+[INFO DPL-0035]  _331243_
+[INFO DPL-0035]  _331243_
+[INFO DPL-0035]  _181547_
+[INFO DPL-0035]  _181547_
+[INFO DPL-0035]  _181547_
+[INFO DPL-0035]  _304672_
+[INFO DPL-0035]  _304672_
+[INFO DPL-0035]  _180516_
+[INFO DPL-0035]  _180516_
+[INFO DPL-0035]  _304587_
+[INFO DPL-0035]  _304587_
+[INFO DPL-0035]  _330961_
+[INFO DPL-0035]  _330961_
+[INFO DPL-0035]  _330961_
+[INFO DPL-0035]  _303495_
+[INFO DPL-0035]  _330786_
+[INFO DPL-0035]  _183194_
+[INFO DPL-0035]  _183194_
+[INFO DPL-0035]  _304580_
+[INFO DPL-0035]  _180152_
+[INFO DPL-0035]  _330901_
+[INFO DPL-0035]  _330901_
+[INFO DPL-0035]  _330901_
+[INFO DPL-0035]  _304566_
+[INFO DPL-0035]  _328829_
+[INFO DPL-0035]  _328829_
+[INFO DPL-0035]  _328829_
+[INFO DPL-0035]  _181287_
+[INFO DPL-0035]  _181287_
+[INFO DPL-0035]  _330202_
+[INFO DPL-0035]  _181155_
+[INFO DPL-0035]  _328969_
+[INFO DPL-0035]  _328969_
+[INFO DPL-0035]  _320094_
+[INFO DPL-0035]  _320094_
+[INFO DPL-0035]  _331212_
+[INFO DPL-0035]  _331212_
+[INFO DPL-0035]  _329819_
+[INFO DPL-0035]  _180011_
+[INFO DPL-0035]  _181026_
+[INFO DPL-0035]  _180529_
+[INFO DPL-0035]  _181616_
+[INFO DPL-0035]  _181616_
+[INFO DPL-0035]  _324257_
+[INFO DPL-0035]  _324257_
+[INFO DPL-0035]  _324257_
+[INFO DPL-0035]  _179231_
+[INFO DPL-0035]  _179231_
+[INFO DPL-0035]  _179231_
+[INFO DPL-0035]  _182032_
+[INFO DPL-0035]  _182489_
+[INFO DPL-0035]  _182489_
+[INFO DPL-0035]  _182489_
+[INFO DPL-0035]  _182687_
+[INFO DPL-0035]  _182687_
+[INFO DPL-0035]  _182391_
+[INFO DPL-0035]  _180564_
+[INFO DPL-0035]  _180564_
+[INFO DPL-0035]  _320077_
+[INFO DPL-0035]  _320077_
+[INFO DPL-0035]  _179295_
+[INFO DPL-0035]  _180696_
+[INFO DPL-0035]  _180696_
+[INFO DPL-0035]  _180696_
+[INFO DPL-0035]  _180696_
+[INFO DPL-0035]  _180696_
+[INFO DPL-0035]  _180174_
+[INFO DPL-0035]  _180174_
+[INFO DPL-0035]  _304433_
+[INFO DPL-0035]  _304433_
+[INFO DPL-0035]  _304433_
+[INFO DPL-0035]  _304433_
+[INFO DPL-0035]  _331123_
+[INFO DPL-0035]  _331123_
+[INFO DPL-0035]  _331123_
+[INFO DPL-0035]  _326970_
+[INFO DPL-0035]  _326970_
+[INFO DPL-0035]  _326970_
+[INFO DPL-0035]  _180278_
+[INFO DPL-0035]  _181658_
+[INFO DPL-0035]  _181658_
+[INFO DPL-0035]  _181658_
+[INFO DPL-0035]  _324679_
+[INFO DPL-0035]  _324679_
+[INFO DPL-0035]  _324679_
+[INFO DPL-0035]  _331868_
+[INFO DPL-0035]  _179035_
+[INFO DPL-0035]  _179035_
+[INFO DPL-0035]  _179035_
+[INFO DPL-0035]  _328042_
+[INFO DPL-0035]  _328042_
+[INFO DPL-0035]  _326629_
+[INFO DPL-0035]  _326629_
+[INFO DPL-0035]  _326629_
+[INFO DPL-0035]  _180265_
+[INFO DPL-0035]  _180265_
+[INFO DPL-0035]  _180576_
+[INFO DPL-0035]  _180576_
+[INFO DPL-0035]  _172254_
+[INFO DPL-0035]  _172254_
+[INFO DPL-0035]  _172254_
+[INFO DPL-0035]  _180634_
+[INFO DPL-0035]  _180634_
+[INFO DPL-0035]  _180634_
+[INFO DPL-0035]  _172282_
+[INFO DPL-0035]  _172282_
+[INFO DPL-0035]  _172282_
+[INFO DPL-0035]  _179529_
+[INFO DPL-0035]  _322275_
+[INFO DPL-0035]  _322275_
+[INFO DPL-0035]  _324221_
+[INFO DPL-0035]  _324221_
+[INFO DPL-0035]  _324221_
+[INFO DPL-0035]  _328672_
+[INFO DPL-0035]  _328672_
+[INFO DPL-0035]  _328672_
+[INFO DPL-0035]  _328672_
+[INFO DPL-0035]  _328672_
+[INFO DPL-0035]  _321980_
+[INFO DPL-0035]  _321980_
+[INFO DPL-0035]  _322719_
+[INFO DPL-0035]  _322719_
+[INFO DPL-0035]  _172249_
+[INFO DPL-0035]  _172249_
+[INFO DPL-0035]  _326715_
+[INFO DPL-0035]  _326715_
+[INFO DPL-0035]  _322365_
+[INFO DPL-0035]  _322140_
+[INFO DPL-0035]  _179223_
+[INFO DPL-0035]  _179223_
+[INFO DPL-0035]  _179223_
+[INFO DPL-0035]  _181485_
+[INFO DPL-0035]  _181485_
+[INFO DPL-0035]  _178621_
+[INFO DPL-0035]  _178621_
+[INFO DPL-0035]  _178621_
+[INFO DPL-0035]  _178250_
+[INFO DPL-0035]  _179215_
+[INFO DPL-0035]  _332116_
+[INFO DPL-0035]  _332116_
+[INFO DPL-0035]  _332116_
+[INFO DPL-0035]  _180321_
+[INFO DPL-0035]  _180321_
+[INFO DPL-0035]  _328793_
+[INFO DPL-0035]  _328793_
+[INFO DPL-0035]  _330297_
+[INFO DPL-0035]  _179794_
+[INFO DPL-0035]  _179794_
+[INFO DPL-0035]  _179794_
+[INFO DPL-0035]  _179826_
+[INFO DPL-0035]  _179826_
+[INFO DPL-0035]  _180645_
+[INFO DPL-0035]  _179148_
+[INFO DPL-0035]  _331095_
+[INFO DPL-0035]  _331095_
+[INFO DPL-0035]  _331095_
+[INFO DPL-0035]  _179868_
+[INFO DPL-0035]  _179868_
+[INFO DPL-0035]  _180215_
+[INFO DPL-0035]  _180215_
+[INFO DPL-0035]  _179557_
+[INFO DPL-0035]  _179557_
+[INFO DPL-0035]  _179557_
+[INFO DPL-0035]  _178514_
+[INFO DPL-0035]  _328782_
+[INFO DPL-0035]  _328782_
+[INFO DPL-0035]  _320069_
+[INFO DPL-0035]  _320069_
+[INFO DPL-0035]  _322303_
+[INFO DPL-0035]  _322303_
+[INFO DPL-0035]  _322303_
+[INFO DPL-0035]  _322851_
+[INFO DPL-0035]  _322851_
+[INFO DPL-0035]  _322698_
+[INFO DPL-0035]  _329681_
+[INFO DPL-0035]  _329681_
+[INFO DPL-0035]  _329681_
+[INFO DPL-0035]  _329681_
+[INFO DPL-0035]  _329520_
+[INFO DPL-0035]  _329520_
+[INFO DPL-0035]  _329520_
+[INFO DPL-0035]  _327053_
+[INFO DPL-0035]  _327053_
+[INFO DPL-0035]  _178741_
+[INFO DPL-0035]  _323727_
+[INFO DPL-0035]  _329078_
+[INFO DPL-0035]  _171086_
+[INFO DPL-0035]  _171086_
+[INFO DPL-0035]  _178785_
+[INFO DPL-0035]  _178747_
+[INFO DPL-0035]  _178747_
+[INFO DPL-0035]  _178747_
+[INFO DPL-0035]  _178786_
+[INFO DPL-0035]  _178786_
+[INFO DPL-0035]  _181054_
+[INFO DPL-0035]  _181054_
+[INFO DPL-0035]  _322292_
+[INFO DPL-0035]  _322292_
+[INFO DPL-0035]  _322292_
+[INFO DPL-0035]  _322292_
+[INFO DPL-0035]  _181467_
+[INFO DPL-0035]  _326615_
+[INFO DPL-0035]  _322630_
+[INFO DPL-0035]  _322630_
+[INFO DPL-0035]  _322630_
+[INFO DPL-0035]  _322630_
+[INFO DPL-0035]  _326032_
+[INFO DPL-0035]  _326032_
+[INFO DPL-0035]  _326592_
+[INFO DPL-0035]  _322537_
+[INFO DPL-0035]  _322537_
+[INFO DPL-0035]  _325009_
+[INFO DPL-0035]  _325009_
+[INFO DPL-0035]  _322481_
+[INFO DPL-0035]  _329783_
+[INFO DPL-0035]  _329783_
+[INFO DPL-0035]  _321531_
+[INFO DPL-0035]  _321531_
+[INFO DPL-0035]  _321531_
+[INFO DPL-0035]  _329899_
+[INFO DPL-0035]  _177947_
+[INFO DPL-0035]  _177947_
+[INFO DPL-0035]  _179222_
+[INFO DPL-0035]  _322337_
+[INFO DPL-0035]  _329965_
+[INFO DPL-0035]  _329965_
+[INFO DPL-0035]  _322793_
+[INFO DPL-0035]  _322793_
+[INFO DPL-0035]  _322793_
+[INFO DPL-0035]  _325042_
+[INFO DPL-0035]  _325042_
+[INFO DPL-0035]  _322625_
+[INFO DPL-0035]  _323920_
+[INFO DPL-0035]  _323920_
+[INFO DPL-0035]  _324445_
+[INFO DPL-0035]  _322333_
+[INFO DPL-0035]  _329742_
+[INFO DPL-0035]  _325335_
+[INFO DPL-0035]  _324465_
+[INFO DPL-0035]  _324480_
+[INFO DPL-0035]  _324480_
+[INFO DPL-0035]  _329924_
+[INFO DPL-0035]  _325082_
+[INFO DPL-0035]  _325082_
+[INFO DPL-0035]  _322797_
+[INFO DPL-0035]  _322797_
+[INFO DPL-0035]  _325084_
+[INFO DPL-0035]  _325084_
+[INFO DPL-0035]  _325346_
+[INFO DPL-0035]  _325346_
+[INFO DPL-0035]  _325343_
+[INFO DPL-0035]  _322306_
+[INFO DPL-0035]  _322306_
+[INFO DPL-0035]  _325802_
+[INFO DPL-0035]  _325802_
+[INFO DPL-0035]  _325640_
+[INFO DPL-0035]  _325640_
+[INFO DPL-0035]  _325640_
+[INFO DPL-0035]  _325680_
+[INFO DPL-0035]  _330732_
+[INFO DPL-0035]  _330732_
+[INFO DPL-0035]  _325632_
+[INFO DPL-0035] message limit reached, this message will no longer print
+[ERROR DPL-0036] Detailed placement failed.
+Error: detail_place.tcl, 37 DPL-0036
+Command exited with non-zero status 1
+Elapsed time: 33:55.90[h:]min:sec. CPU time: user 2035.53 sys 0.29 (99%). Peak memory: 547452KB.

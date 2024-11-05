@@ -1,0 +1,428 @@
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2952.71
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_vstart.internal_data[12]$_DFFE_PP0P_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     1    1.09    0.00    0.00 1000.00 v rst (in)
+                                         rst (net)
+                  0.02    0.01 1000.01 v input19/A (BUFx6f_ASAP7_75t_R)
+     1    8.80   11.15   12.94 1012.95 v input19/Y (BUFx6f_ASAP7_75t_R)
+                                         net19 (net)
+                 11.16    0.21 1013.16 v _310_/A (CKINVDCx20_ASAP7_75t_R)
+    49   51.37   26.03   10.22 1023.38 ^ _310_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         _049_ (net)
+                 26.03    0.31 1023.68 ^ stage_vstart.internal_data[12]$_DFFE_PP0P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               1023.68   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ stage_vstart.internal_data[12]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         13.76   13.76   library removal time
+                                 13.76   data required time
+-----------------------------------------------------------------------------
+                                 13.76   data required time
+                               -1023.68   data arrival time
+-----------------------------------------------------------------------------
+                               1009.92   slack (MET)
+
+
+Startpoint: stage_vstart.internal_data[13]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: stage_vstart.internal_data[13]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ stage_vstart.internal_data[13]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1    0.54   11.88   34.54   34.54 ^ stage_vstart.internal_data[13]$_DFFE_PP0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         _021_ (net)
+                 11.88    0.00   34.54 ^ _326_/A (INVx1_ASAP7_75t_R)
+     2    0.98    8.00    6.98   41.52 v _326_/Y (INVx1_ASAP7_75t_R)
+                                         net149 (net)
+                  8.00    0.00   41.52 v _208_/C (AND3x1_ASAP7_75t_R)
+     1    0.55    5.76   13.37   54.89 v _208_/Y (AND3x1_ASAP7_75t_R)
+                                         _142_ (net)
+                  5.76    0.00   54.89 v _209_/B (AO21x1_ASAP7_75t_R)
+     1    0.65    6.21   12.41   67.30 v _209_/Y (AO21x1_ASAP7_75t_R)
+                                         _077_ (net)
+                  6.21    0.01   67.31 v stage_vstart.internal_data[13]$_DFFE_PP0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                 67.31   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ stage_vstart.internal_data[13]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          9.27    9.27   library hold time
+                                  9.27   data required time
+-----------------------------------------------------------------------------
+                                  9.27   data required time
+                                -67.31   data arrival time
+-----------------------------------------------------------------------------
+                                 58.04   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_vsstatus.internal_data[21]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     1    1.38    0.00    0.00 1000.00 v rst (in)
+                                         rst (net)
+                  0.03    0.01 1000.01 v input19/A (BUFx6f_ASAP7_75t_R)
+     1   13.35   15.14   14.95 1014.96 v input19/Y (BUFx6f_ASAP7_75t_R)
+                                         net19 (net)
+                 15.15    0.32 1015.28 v _310_/A (CKINVDCx20_ASAP7_75t_R)
+    49   63.78   32.41   12.25 1027.53 ^ _310_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         _049_ (net)
+                 57.22   15.85 1043.38 ^ stage_vsstatus.internal_data[21]$_DFFE_PP0P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               1043.38   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                               5000.00 ^ stage_vsstatus.internal_data[21]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -5.01 4994.99   library recovery time
+                               4994.99   data required time
+-----------------------------------------------------------------------------
+                               4994.99   data required time
+                               -1043.38   data arrival time
+-----------------------------------------------------------------------------
+                               3951.61   slack (MET)
+
+
+Startpoint: vec_data_in_exe[0] (input port clocked by clk)
+Endpoint: csr_wr_data_vxsat_exe (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     1    0.62    0.00    0.00 1000.00 v vec_data_in_exe[0] (in)
+                                         vec_data_in_exe[0] (net)
+                  0.01    0.00 1000.00 v input21/A (BUFx2_ASAP7_75t_R)
+     6    3.36   12.02   14.45 1014.45 v input21/Y (BUFx2_ASAP7_75t_R)
+                                         net21 (net)
+                 12.05    0.35 1014.81 v _303_/A1 (AO22x1_ASAP7_75t_R)
+     1    0.77    8.27   20.10 1034.91 v _303_/Y (AO22x1_ASAP7_75t_R)
+                                         net111 (net)
+                  8.27    0.02 1034.93 v output111/A (BUFx2_ASAP7_75t_R)
+     1    0.07    3.75   12.36 1047.29 v output111/Y (BUFx2_ASAP7_75t_R)
+                                         csr_wr_data_vxsat_exe (net)
+                  3.75    0.00 1047.29 v csr_wr_data_vxsat_exe (out)
+                               1047.29   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1047.29   data arrival time
+-----------------------------------------------------------------------------
+                               2952.71   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_vsstatus.internal_data[21]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     1    1.38    0.00    0.00 1000.00 v rst (in)
+                                         rst (net)
+                  0.03    0.01 1000.01 v input19/A (BUFx6f_ASAP7_75t_R)
+     1   13.35   15.14   14.95 1014.96 v input19/Y (BUFx6f_ASAP7_75t_R)
+                                         net19 (net)
+                 15.15    0.32 1015.28 v _310_/A (CKINVDCx20_ASAP7_75t_R)
+    49   63.78   32.41   12.25 1027.53 ^ _310_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         _049_ (net)
+                 57.22   15.85 1043.38 ^ stage_vsstatus.internal_data[21]$_DFFE_PP0P_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               1043.38   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                               5000.00 ^ stage_vsstatus.internal_data[21]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -5.01 4994.99   library recovery time
+                               4994.99   data required time
+-----------------------------------------------------------------------------
+                               4994.99   data required time
+                               -1043.38   data arrival time
+-----------------------------------------------------------------------------
+                               3951.61   slack (MET)
+
+
+Startpoint: vec_data_in_exe[0] (input port clocked by clk)
+Endpoint: csr_wr_data_vxsat_exe (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     1    0.62    0.00    0.00 1000.00 v vec_data_in_exe[0] (in)
+                                         vec_data_in_exe[0] (net)
+                  0.01    0.00 1000.00 v input21/A (BUFx2_ASAP7_75t_R)
+     6    3.36   12.02   14.45 1014.45 v input21/Y (BUFx2_ASAP7_75t_R)
+                                         net21 (net)
+                 12.05    0.35 1014.81 v _303_/A1 (AO22x1_ASAP7_75t_R)
+     1    0.77    8.27   20.10 1034.91 v _303_/Y (AO22x1_ASAP7_75t_R)
+                                         net111 (net)
+                  8.27    0.02 1034.93 v output111/A (BUFx2_ASAP7_75t_R)
+     1    0.07    3.75   12.36 1047.29 v output111/Y (BUFx2_ASAP7_75t_R)
+                                         csr_wr_data_vxsat_exe (net)
+                  3.75    0.00 1047.29 v csr_wr_data_vxsat_exe (out)
+                               1047.29   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -1047.29   data arrival time
+-----------------------------------------------------------------------------
+                               2952.71   slack (MET)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+209.82777404785156
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.6557
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+41.06683349609375
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+46.08000183105469
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.8912
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+resizer report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: vec_stage_wr_vsstatus.internal_data[1]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: vec_stage_wr_vsstatus.internal_data[1]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ vec_stage_wr_vsstatus.internal_data[1]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  51.96   51.96 v vec_stage_wr_vsstatus.internal_data[1]$_DFFE_PP0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+  13.91   65.88 ^ _243_/Y (NAND2x1_ASAP7_75t_R)
+  20.52   86.40 ^ _244_/Y (OA211x2_ASAP7_75t_R)
+   0.01   86.41 ^ vec_stage_wr_vsstatus.internal_data[1]$_DFFE_PP0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+          86.41   data arrival time
+
+5000.00 5000.00   clock clk (rise edge)
+   0.00 5000.00   clock network delay (ideal)
+   0.00 5000.00   clock reconvergence pessimism
+        5000.00 ^ vec_stage_wr_vsstatus.internal_data[1]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+ -14.81 4985.19   library setup time
+        4985.19   data required time
+---------------------------------------------------------
+        4985.19   data required time
+         -86.41   data arrival time
+---------------------------------------------------------
+        4898.78   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: stage_vstart.internal_data[13]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: stage_vstart.internal_data[13]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ stage_vstart.internal_data[13]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+  34.54   34.54 ^ stage_vstart.internal_data[13]$_DFFE_PP0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+   6.98   41.52 v _326_/Y (INVx1_ASAP7_75t_R)
+  13.37   54.89 v _208_/Y (AND3x1_ASAP7_75t_R)
+  12.41   67.30 v _209_/Y (AO21x1_ASAP7_75t_R)
+   0.01   67.31 v stage_vstart.internal_data[13]$_DFFE_PP0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+          67.31   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ stage_vstart.internal_data[13]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+   9.27    9.27   library hold time
+           9.27   data required time
+---------------------------------------------------------
+           9.27   data required time
+         -67.31   data arrival time
+---------------------------------------------------------
+          58.04   slack (MET)
+
+
+
+==========================================================================
+resizer critical path target clock latency max path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer critical path target clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+1047.2916
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+2952.7083
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+281.937552
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.20e-05   6.38e-07   4.84e-09   1.26e-05  59.1%
+Combinational          5.15e-06   3.59e-06   1.92e-08   8.76e-06  40.9%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.72e-05   4.22e-06   2.40e-08   2.14e-05 100.0%
+                          80.2%      19.7%       0.1%

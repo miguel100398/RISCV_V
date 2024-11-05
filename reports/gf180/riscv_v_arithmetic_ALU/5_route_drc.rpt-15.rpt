@@ -1,0 +1,27 @@
+  violation type: Metal Spacing
+    srcs: net:_071889_ net:_117581_ 
+    bbox = ( 5033.42, 2098.7 ) - ( 5033.42, 2098.97 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:net1280 net:_117107_ 
+    bbox = ( 5026.14, 2834.54 ) - ( 5026.14, 2834.81 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_023186_ net:_023192_ 
+    bbox = ( 4225.87, 3102.34 ) - ( 4225.9, 3102.58 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_088536_ net:_105920_ 
+    bbox = ( 5519.5, 3469.58 ) - ( 5519.55, 3469.82 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:net631 net:_055934_ 
+    bbox = ( 4731.58, 4709.42 ) - ( 4731.58, 4709.69 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_098735_ net:_142449_ 
+    bbox = ( 6138.86, 2239.82 ) - ( 6138.91, 2240.06 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_029935_ net:net1163 
+    bbox = ( 3708.99, 3344.26 ) - ( 3709.02, 3344.5 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_047336_ net:_047340_ 
+    bbox = ( 3706.75, 3560.3 ) - ( 3706.78, 3560.54 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_044160_ net:_044171_ 
+    bbox = ( 3831.07, 3818.02 ) - ( 3831.1, 3818.26 ) on Layer Metal2

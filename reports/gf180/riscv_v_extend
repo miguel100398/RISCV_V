@@ -1,0 +1,22 @@
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0006] NumInstances:            162383
+[INFO GPL-0007] NumPlaceInstances:       160700
+[INFO GPL-0008] NumFixedInstances:         1683
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 161028
+[INFO GPL-0011] NumPins:                 595597
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0016] CoreArea:            1682827.776 um^2
+[INFO GPL-0017] NonPlaceInstsArea:     9500.198 um^2
+[INFO GPL-0018] PlaceInstsArea:      6158790.086 um^2
+[INFO GPL-0019] Util:                   368.056 %
+[INFO GPL-0020] StdInstsArea:        6158790.086 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[ERROR GPL-0301] Utilization 368.056 % exceeds 100%.
+Error: set_place_density.tcl, 12 GPL-0301
+Command exited with non-zero status 1
+Elapsed time: 0:01.69[h:]min:sec. CPU time: user 1.51 sys 0.17 (100%). Peak memory: 428844KB.

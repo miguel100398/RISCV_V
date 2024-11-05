@@ -1,0 +1,144 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns -250617.89
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns -178.27
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack -178.27
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: regs[3043]$_DFF_P_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: regs[3043]$_DFF_P_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ regs[3043]$_DFF_P_/CK (DFF_X1)
+     5    5.41    0.01    0.08    0.08 v regs[3043]$_DFF_P_/Q (DFF_X1)
+                                         regs[3043] (net)
+                  0.01    0.00    0.08 v _45995_/A1 (NAND2_X1)
+     1    1.73    0.01    0.01    0.10 ^ _45995_/ZN (NAND2_X1)
+                                         _16250_ (net)
+                  0.01    0.00    0.10 ^ _45996_/A (OAI21_X1)
+     1    1.10    0.01    0.01    0.11 v _45996_/ZN (OAI21_X1)
+                                         regs_nxt[3043] (net)
+                  0.01    0.00    0.11 v regs[3043]$_DFF_P_/D (DFF_X1)
+                                  0.11   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ regs[3043]$_DFF_P_/CK (DFF_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.11   data arrival time
+-----------------------------------------------------------------------------
+                                  0.11   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: wr_addr[0] (input port clocked by clk)
+Endpoint: regs[1684]$_DFF_P_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          6.00    6.00 v input external delay
+  2053 4649.11    0.00    0.00    6.00 v wr_addr[0] (in)
+                                         wr_addr[0] (net)
+                 25.02   20.47   26.47 v _42579_/A1 (NOR3_X1)
+   145  576.39    3.61  180.30  206.76 ^ _42579_/ZN (NOR3_X1)
+                                         _14367_ (net)
+                  3.80    1.00  207.77 ^ _42626_/S (MUX2_X1)
+     1    1.09    1.55    0.00  207.77 v _42626_/Z (MUX2_X1)
+                                         regs_nxt[1684] (net)
+                  1.55    0.00  207.77 v regs[1684]$_DFF_P_/D (DFF_X1)
+                                207.77   data arrival time
+
+                  0.00   30.00   30.00   clock clk (rise edge)
+                          0.00   30.00   clock network delay (ideal)
+                          0.00   30.00   clock reconvergence pessimism
+                                 30.00 ^ regs[1684]$_DFF_P_/CK (DFF_X1)
+                         -0.51   29.49   library setup time
+                                 29.49   data required time
+-----------------------------------------------------------------------------
+                                 29.49   data required time
+                               -207.77   data arrival time
+-----------------------------------------------------------------------------
+                               -178.27   slack (VIOLATED)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: wr_addr[0] (input port clocked by clk)
+Endpoint: regs[1684]$_DFF_P_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          6.00    6.00 v input external delay
+  2053 4649.11    0.00    0.00    6.00 v wr_addr[0] (in)
+                                         wr_addr[0] (net)
+                 25.02   20.47   26.47 v _42579_/A1 (NOR3_X1)
+   145  576.39    3.61  180.30  206.76 ^ _42579_/ZN (NOR3_X1)
+                                         _14367_ (net)
+                  3.80    1.00  207.77 ^ _42626_/S (MUX2_X1)
+     1    1.09    1.55    0.00  207.77 v _42626_/Z (MUX2_X1)
+                                         regs_nxt[1684] (net)
+                  1.55    0.00  207.77 v regs[1684]$_DFF_P_/D (DFF_X1)
+                                207.77   data arrival time
+
+                  0.00   30.00   30.00   clock clk (rise edge)
+                          0.00   30.00   clock network delay (ideal)
+                          0.00   30.00   clock reconvergence pessimism
+                                 30.00 ^ regs[1684]$_DFF_P_/CK (DFF_X1)
+                         -0.51   29.49   library setup time
+                                 29.49   data required time
+-----------------------------------------------------------------------------
+                                 29.49   data required time
+                               -207.77   data arrival time
+-----------------------------------------------------------------------------
+                               -178.27   slack (VIOLATED)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.49e-03   3.31e-04   3.24e-04   2.14e-03  17.7%
+Combinational          7.89e-03   1.31e-03   7.74e-04   9.98e-03  82.3%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  9.38e-03   1.64e-03   1.10e-03   1.21e-02 100.0%
+                          77.4%      13.5%       9.1%

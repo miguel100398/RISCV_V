@@ -1,0 +1,252 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 11.12
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_imm.internal_data[5]$_DFFE_PP0P_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+     1    0.01    0.00    0.00    4.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    4.00 v _233_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+    44    0.43    1.58    0.92    4.92 ^ _233_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _000_ (net)
+                  1.58    0.00    4.92 ^ stage_imm.internal_data[5]$_DFFE_PP0P_/RN (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                                  4.92   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ stage_imm.internal_data[5]$_DFFE_PP0P_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                          0.47    0.47   library removal time
+                                  0.47   data required time
+-----------------------------------------------------------------------------
+                                  0.47   data required time
+                                 -4.92   data arrival time
+-----------------------------------------------------------------------------
+                                  4.45   slack (MET)
+
+
+Startpoint: stage_is_set_nequal.internal_data[1]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: stage_is_set_nequal.internal_data[1]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ stage_is_set_nequal.internal_data[1]$_DFFE_PP0P_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+     2    0.01    0.07    0.37    0.37 v stage_is_set_nequal.internal_data[1]$_DFFE_PP0P_/Q (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                                         is_set_nequal_exe (net)
+                  0.07    0.00    0.37 v _383_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     1    0.01    0.09    0.07    0.44 ^ _383_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _180_ (net)
+                  0.09    0.00    0.44 ^ _385_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     1    0.00    0.05    0.04    0.48 v _385_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _029_ (net)
+                  0.05    0.00    0.48 v stage_is_set_nequal.internal_data[1]$_DFFE_PP0P_/D (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                                  0.48   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ stage_is_set_nequal.internal_data[1]$_DFFE_PP0P_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                          0.04    0.04   library hold time
+                                  0.04   data required time
+-----------------------------------------------------------------------------
+                                  0.04   data required time
+                                 -0.48   data arrival time
+-----------------------------------------------------------------------------
+                                  0.44   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_imm.internal_data[5]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+     1    0.01    0.00    0.00    4.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    4.00 v _233_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+    44    0.43    1.58    0.92    4.92 ^ _233_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _000_ (net)
+                  1.58    0.00    4.92 ^ stage_imm.internal_data[5]$_DFFE_PP0P_/RN (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                                  4.92   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                                 20.00 ^ stage_imm.internal_data[5]$_DFFE_PP0P_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                         -0.51   19.49   library recovery time
+                                 19.49   data required time
+-----------------------------------------------------------------------------
+                                 19.49   data required time
+                                 -4.92   data arrival time
+-----------------------------------------------------------------------------
+                                 14.58   slack (MET)
+
+
+Startpoint: instruction_id[28] (input port clocked by clk)
+Endpoint: int_rf_wr_en_id (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+    14    0.14    0.00    0.00    4.00 v instruction_id[28] (in)
+                                         instruction_id[28] (net)
+                  0.00    0.00    4.00 v _227_/A2 (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+     5    0.05    0.11    0.21    4.21 v _227_/Z (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+                                         _054_ (net)
+                  0.11    0.00    4.21 v _228_/A3 (gf180mcu_fd_sc_mcu9t5v0__or3_4)
+     4    0.04    0.12    0.28    4.49 v _228_/Z (gf180mcu_fd_sc_mcu9t5v0__or3_4)
+                                         _055_ (net)
+                  0.12    0.00    4.49 v _230_/A1 (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+     2    0.02    0.08    0.19    4.69 v _230_/Z (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+                                         _057_ (net)
+                  0.08    0.00    4.69 v _232_/A3 (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+     2    0.01    0.25    0.19    4.88 ^ _232_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+                                         int_rf_wr_en_id (net)
+                  0.25    0.00    4.88 ^ int_rf_wr_en_id (out)
+                                  4.88   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                 -4.88   data arrival time
+-----------------------------------------------------------------------------
+                                 11.12   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_imm.internal_data[5]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+     1    0.01    0.00    0.00    4.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    4.00 v _233_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+    44    0.43    1.58    0.92    4.92 ^ _233_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _000_ (net)
+                  1.58    0.00    4.92 ^ stage_imm.internal_data[5]$_DFFE_PP0P_/RN (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                                  4.92   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                                 20.00 ^ stage_imm.internal_data[5]$_DFFE_PP0P_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffrnq_2)
+                         -0.51   19.49   library recovery time
+                                 19.49   data required time
+-----------------------------------------------------------------------------
+                                 19.49   data required time
+                                 -4.92   data arrival time
+-----------------------------------------------------------------------------
+                                 14.58   slack (MET)
+
+
+Startpoint: instruction_id[28] (input port clocked by clk)
+Endpoint: int_rf_wr_en_id (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+    14    0.14    0.00    0.00    4.00 v instruction_id[28] (in)
+                                         instruction_id[28] (net)
+                  0.00    0.00    4.00 v _227_/A2 (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+     5    0.05    0.11    0.21    4.21 v _227_/Z (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+                                         _054_ (net)
+                  0.11    0.00    4.21 v _228_/A3 (gf180mcu_fd_sc_mcu9t5v0__or3_4)
+     4    0.04    0.12    0.28    4.49 v _228_/Z (gf180mcu_fd_sc_mcu9t5v0__or3_4)
+                                         _055_ (net)
+                  0.12    0.00    4.49 v _230_/A1 (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+     2    0.02    0.08    0.19    4.69 v _230_/Z (gf180mcu_fd_sc_mcu9t5v0__or2_4)
+                                         _057_ (net)
+                  0.08    0.00    4.69 v _232_/A3 (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+     2    0.01    0.25    0.19    4.88 ^ _232_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+                                         int_rf_wr_en_id (net)
+                  0.25    0.00    4.88 ^ int_rf_wr_en_id (out)
+                                  4.88   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                 -4.88   data arrival time
+-----------------------------------------------------------------------------
+                                 11.12   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.05e-03   9.83e-06   2.52e-08   2.06e-03  71.4%
+Combinational          5.96e-04   2.29e-04   4.59e-08   8.25e-04  28.6%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.65e-03   2.39e-04   7.11e-08   2.89e-03 100.0%
+                          91.7%       8.3%       0.0%

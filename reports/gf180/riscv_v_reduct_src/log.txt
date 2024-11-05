@@ -1,0 +1,1614 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz -o objects/gf180/riscv_v_reduct_src/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 12
+Writing replaced file: objects/gf180/riscv_v_reduct_src/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+mkdir -p results/gf180/riscv_v_reduct_src/base/
+echo 20.0 > results/gf180/riscv_v_reduct_src/base/clock_period.txt
+mkdir -p ./results/gf180/riscv_v_reduct_src/base ./logs/gf180/riscv_v_reduct_src/base ./reports/gf180/riscv_v_reduct_src/base ./objects/gf180/riscv_v_reduct_src/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_reduct_src/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_reduct_src/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/gf180/riscv_v_reduct_src/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/gf180/riscv_v_reduct_src/base/clock_period.txt
+Setting clock period to 20.0
+58. Executing HIERARCHY pass (managing design hierarchy).
+59. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+59.1. Analyzing design hierarchy..
+59.2. Analyzing design hierarchy..
+60. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+61. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 81df9b732f, CPU: user 0.25s system 0.03s, MEM: 71.88 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 76% 2x read_liberty (0 sec), 19% 112x read_verilog (0 sec), ...
+Elapsed time: 0:00.34[h:]min:sec. CPU time: user 0.30 sys 0.03 (99%). Peak memory: 74752KB.
+mkdir -p ./results/gf180/riscv_v_reduct_src/base ./logs/gf180/riscv_v_reduct_src/base ./reports/gf180/riscv_v_reduct_src/base
+(export VERILOG_FILES=./results/gf180/riscv_v_reduct_src/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_reduct_src/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.25 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (80%). Peak memory: 13056KB.
+mkdir -p ./results/gf180/riscv_v_reduct_src/base ./logs/gf180/riscv_v_reduct_src/base ./reports/gf180/riscv_v_reduct_src/base ./objects/gf180/riscv_v_reduct_src/base
+(export VERILOG_FILES=./results/gf180/riscv_v_reduct_src/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_reduct_src/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/gf180/riscv_v_reduct_src/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/gf180/riscv_v_reduct_src/base/clock_period.txt
+Setting clock period to 20.0
+synth -top riscv_v_reduct_src -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+3. Executing SYNTH pass.
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+3.1.1. Analyzing design hierarchy..
+3.1.2. Analyzing design hierarchy..
+3.2. Executing PROC pass (convert processes to netlists).
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+3.3. Executing FLATTEN pass (flatten design).
+3.4. Executing OPT_EXPR pass (perform const folding).
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.6. Executing CHECK pass (checking for obvious problems).
+3.7. Executing OPT pass (performing simple optimizations).
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+3.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.7.8. Executing OPT_EXPR pass (perform const folding).
+3.7.9. Finished OPT passes. (There is nothing left to do.)
+3.8. Executing FSM pass (extract and optimize FSM).
+3.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+3.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+3.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+3.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+3.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+3.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+3.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+3.9. Executing OPT pass (performing simple optimizations).
+3.9.1. Executing OPT_EXPR pass (perform const folding).
+3.9.2. Executing OPT_MERGE pass (detect identical cells).
+3.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.9.5. Executing OPT_MERGE pass (detect identical cells).
+3.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.9.8. Executing OPT_EXPR pass (perform const folding).
+3.9.9. Finished OPT passes. (There is nothing left to do.)
+3.10. Executing WREDUCE pass (reducing word size of cells).
+3.11. Executing PEEPOPT pass (run peephole optimizers).
+3.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.13. Executing ALUMACC pass (create $alu and $macc cells).
+3.14. Executing SHARE pass (SAT-based resource sharing).
+3.15. Executing OPT pass (performing simple optimizations).
+3.15.1. Executing OPT_EXPR pass (perform const folding).
+3.15.2. Executing OPT_MERGE pass (detect identical cells).
+3.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.15.5. Executing OPT_MERGE pass (detect identical cells).
+3.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.15.8. Executing OPT_EXPR pass (perform const folding).
+3.15.9. Finished OPT passes. (There is nothing left to do.)
+3.16. Executing MEMORY pass.
+3.16.1. Executing OPT_MEM pass (optimize memories).
+3.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+3.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+3.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+3.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+3.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+3.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+3.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+3.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+4. Executing SYNTH pass.
+4.1. Executing OPT pass (performing simple optimizations).
+4.1.1. Executing OPT_EXPR pass (perform const folding).
+4.1.2. Executing OPT_MERGE pass (detect identical cells).
+4.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.1.5. Finished fast OPT passes.
+4.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+4.3. Executing OPT pass (performing simple optimizations).
+4.3.1. Executing OPT_EXPR pass (perform const folding).
+4.3.2. Executing OPT_MERGE pass (detect identical cells).
+4.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.3.5. Executing OPT_MERGE pass (detect identical cells).
+4.3.6. Executing OPT_SHARE pass.
+4.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+4.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.3.9. Executing OPT_EXPR pass (perform const folding).
+4.3.10. Finished OPT passes. (There is nothing left to do.)
+4.4. Executing TECHMAP pass (map to technology primitives).
+4.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+4.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4.4.3. Continuing TECHMAP pass.
+4.5. Executing OPT pass (performing simple optimizations).
+4.5.1. Executing OPT_EXPR pass (perform const folding).
+4.5.2. Executing OPT_MERGE pass (detect identical cells).
+4.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.5.5. Finished fast OPT passes.
+4.6. Executing ABC pass (technology mapping using ABC).
+4.6.1. Extracting gate netlist of module `\riscv_v_reduct_src' to `<abc-temp-dir>/input.blif'..
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.5. Finished fast OPT passes.
+4.8. Executing HIERARCHY pass (managing design hierarchy).
+4.8.1. Analyzing design hierarchy..
+4.8.2. Analyzing design hierarchy..
+4.9. Printing statistics.
+4.10. Executing CHECK pass (checking for obvious problems).
+5. Executing OPT pass (performing simple optimizations).
+5.1. Executing OPT_EXPR pass (perform const folding).
+5.2. Executing OPT_MERGE pass (detect identical cells).
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.5. Executing OPT_MERGE pass (detect identical cells).
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.8. Executing OPT_EXPR pass (perform const folding).
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.12. Executing OPT_MERGE pass (detect identical cells).
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.15. Executing OPT_EXPR pass (perform const folding).
+5.16. Finished OPT passes. (There is nothing left to do.)
+6. Executing TECHMAP pass (map to technology primitives).
+6.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/cells_latch.v
+6.2. Continuing TECHMAP pass.
+7. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4' - skipping.
+7.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+8. Executing OPT pass (performing simple optimizations).
+8.1. Executing OPT_EXPR pass (perform const folding).
+8.2. Executing OPT_MERGE pass (detect identical cells).
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.5. Executing OPT_MERGE pass (detect identical cells).
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.8. Executing OPT_EXPR pass (perform const folding).
+8.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/gf180/riscv_v_reduct_src/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib -constr ./objects/gf180/riscv_v_reduct_src/base/abc.constr -dont_use *_1 -D 20.0
+9. Executing ABC pass (technology mapping using ABC).
+9.1. Extracting gate netlist of module `\riscv_v_reduct_src' to `<abc-temp-dir>/input.blif'..
+9.1.1. Executing ABC.
+9.1.2. Re-integrating ABC results.
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+11. Executing SPLITNETS pass (splitting up multi-bit signals).
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+13. Executing HILOMAP pass (mapping to constant drivers).
+14. Executing INSBUF pass (insert buffer cells for connected wires).
+15. Executing CHECK pass (checking for obvious problems).
+16. Printing statistics.
+17. Executing Verilog backend.
+exec cp ./designs/gf180/riscv_v_reduct_src/constraint.sdc ./results/gf180/riscv_v_reduct_src/base/1_synth.sdc
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: c150b5c302, CPU: user 0.81s system 0.04s, MEM: 66.25 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 46% 2x abc (0 sec), 13% 2x stat (0 sec), ...
+Elapsed time: 0:01.61[h:]min:sec. CPU time: user 1.52 sys 0.09 (100%). Peak memory: 68608KB.
+mkdir -p ./results/gf180/riscv_v_reduct_src/base ./logs/gf180/riscv_v_reduct_src/base ./reports/gf180/riscv_v_reduct_src/base
+cp ./results/gf180/riscv_v_reduct_src/base/1_1_yosys.v ./results/gf180/riscv_v_reduct_src/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/gf180/riscv_v_reduct_src/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via1 :"
+  	EOLENCLOSURE 0.34 0.06 ;"
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via2 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via3 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via4 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_tech.lef, created 13 layers, 60 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_sc.lef, created 229 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 542
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.480, 201.600).
+[INFO IFP-0001] Added 257 rows of 2320 site GF018hv5v_green_sc9.
+[INFO RSZ-0026] Removed 63 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1ohm
+ voltage 1v
+ current 1mA
+ power 1uW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 18425 u^2 1% utilization.
+Elapsed time: 0:00.98[h:]min:sec. CPU time: user 0.94 sys 0.04 (100%). Peak memory: 145744KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers Metal3 -ver_layers Metal4 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:00.68[h:]min:sec. CPU time: user 0.64 sys 0.04 (99%). Peak memory: 141908KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/gf180/riscv_v_reduct_src/base/2_2_floorplan_io.odb ./results/gf180/riscv_v_reduct_src/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.15[h:]min:sec. CPU time: user 0.12 sys 0.03 (100%). Peak memory: 100308KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:00.68[h:]min:sec. CPU time: user 0.63 sys 0.05 (99%). Peak memory: 141144KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[WARNING TAP-0014] endcap_cpp option is deprecated.
+[INFO TAP-0004] Inserted 514 endcaps.
+[INFO TAP-0005] Inserted 1683 tapcells.
+Elapsed time: 0:00.68[h:]min:sec. CPU time: user 0.64 sys 0.04 (100%). Peak memory: 141844KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: block
+Elapsed time: 0:02.31[h:]min:sec. CPU time: user 2.24 sys 0.06 (99%). Peak memory: 169176KB.
+cp ./results/gf180/riscv_v_reduct_src/base/2_6_floorplan_pdn.odb ./results/gf180/riscv_v_reduct_src/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0006] NumInstances:              2162
+[INFO GPL-0007] NumPlaceInstances:          479
+[INFO GPL-0008] NumFixedInstances:         1683
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    747
+[INFO GPL-0011] NumPins:                   2360
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0016] CoreArea:            1682827.776 um^2
+[INFO GPL-0017] NonPlaceInstsArea:     9500.198 um^2
+[INFO GPL-0018] PlaceInstsArea:       18424.627 um^2
+[INFO GPL-0019] Util:                     1.101 %
+[INFO GPL-0020] StdInstsArea:         18424.627 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:     44227
+[INFO GPL-0032] FillerInit:NumGNets:        747
+[INFO GPL-0033] FillerInit:NumGPins:       2360
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:       38.465 um^2
+[INFO GPL-0025] IdealBinArea:            38.465 um^2
+[INFO GPL-0026] IdealBinCnt:              43749
+[INFO GPL-0027] TotalBinArea:        1682827.776 um^2
+[INFO GPL-0028] BinCnt:       128    128
+[INFO GPL-0029] BinSize: ( 10.150 10.120 )
+[INFO GPL-0030] NumBins: 16384
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0006] NumInstances:              2162
+[INFO GPL-0007] NumPlaceInstances:          479
+[INFO GPL-0008] NumFixedInstances:         1683
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    747
+[INFO GPL-0011] NumPins:                   1964
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0016] CoreArea:            1682827.776 um^2
+[INFO GPL-0017] NonPlaceInstsArea:     9500.198 um^2
+[INFO GPL-0018] PlaceInstsArea:       18424.627 um^2
+[INFO GPL-0019] Util:                     1.101 %
+[INFO GPL-0020] StdInstsArea:         18424.627 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:     22795
+[INFO GPL-0032] FillerInit:NumGNets:        747
+[INFO GPL-0033] FillerInit:NumGPins:       1964
+[INFO GPL-0023] TargetDensity:            0.516
+[INFO GPL-0024] AvrgPlaceInstArea:       38.465 um^2
+[INFO GPL-0025] IdealBinArea:            74.616 um^2
+[INFO GPL-0026] IdealBinCnt:              22553
+[INFO GPL-0027] TotalBinArea:        1682827.776 um^2
+[INFO GPL-0028] BinCnt:       128    128
+[INFO GPL-0029] BinSize: ( 10.150 10.120 )
+[INFO GPL-0030] NumBins: 16384
+[NesterovSolve] Iter:    1 overflow: 0.988 HPWL: 3027728
+[NesterovSolve] Iter:   10 overflow: 0.977 HPWL: 1614396
+[NesterovSolve] Iter:   20 overflow: 0.977 HPWL: 1504693
+[NesterovSolve] Iter:   30 overflow: 0.977 HPWL: 1514966
+[NesterovSolve] Iter:   40 overflow: 0.977 HPWL: 1508422
+[NesterovSolve] Iter:   50 overflow: 0.977 HPWL: 1509673
+[NesterovSolve] Iter:   60 overflow: 0.977 HPWL: 1509780
+[NesterovSolve] Iter:   70 overflow: 0.977 HPWL: 1511029
+[NesterovSolve] Iter:   80 overflow: 0.977 HPWL: 1513930
+[NesterovSolve] Iter:   90 overflow: 0.977 HPWL: 1519683
+[NesterovSolve] Iter:  100 overflow: 0.977 HPWL: 1531242
+[NesterovSolve] Iter:  110 overflow: 0.977 HPWL: 1550244
+[NesterovSolve] Iter:  120 overflow: 0.977 HPWL: 1584527
+[NesterovSolve] Iter:  130 overflow: 0.977 HPWL: 1642982
+[NesterovSolve] Iter:  140 overflow: 0.976 HPWL: 1740137
+[NesterovSolve] Iter:  150 overflow: 0.968 HPWL: 1893154
+[NesterovSolve] Iter:  160 overflow: 0.955 HPWL: 2089573
+[NesterovSolve] Iter:  170 overflow: 0.953 HPWL: 2323822
+[NesterovSolve] Iter:  180 overflow: 0.951 HPWL: 2578111
+[NesterovSolve] Iter:  190 overflow: 0.951 HPWL: 2782749
+[NesterovSolve] Iter:  200 overflow: 0.947 HPWL: 2985824
+[NesterovSolve] Iter:  210 overflow: 0.931 HPWL: 3312821
+[NesterovSolve] Iter:  220 overflow: 0.900 HPWL: 4508697
+[NesterovSolve] Iter:  230 overflow: 0.872 HPWL: 5560785
+[NesterovSolve] Iter:  240 overflow: 0.827 HPWL: 5382396
+[NesterovSolve] Iter:  250 overflow: 0.807 HPWL: 6128234
+[NesterovSolve] Iter:  260 overflow: 0.770 HPWL: 6552798
+[NesterovSolve] Iter:  270 overflow: 0.746 HPWL: 7587618
+[NesterovSolve] Iter:  280 overflow: 0.702 HPWL: 8453282
+[NesterovSolve] Iter:  290 overflow: 0.659 HPWL: 9425788
+[NesterovSolve] Iter:  300 overflow: 0.629 HPWL: 10545095
+[NesterovSolve] Iter:  310 overflow: 0.576 HPWL: 11521283
+[NesterovSolve] Iter:  320 overflow: 0.523 HPWL: 12733804
+[NesterovSolve] Iter:  330 overflow: 0.475 HPWL: 13908621
+[NesterovSolve] Iter:  340 overflow: 0.434 HPWL: 14791719
+[NesterovSolve] Iter:  350 overflow: 0.384 HPWL: 15622371
+[NesterovSolve] Iter:  360 overflow: 0.342 HPWL: 16472507
+[NesterovSolve] Iter:  370 overflow: 0.309 HPWL: 17168126
+[NesterovSolve] Iter:  380 overflow: 0.268 HPWL: 17969137
+[NesterovSolve] Iter:  390 overflow: 0.226 HPWL: 18390072
+[NesterovSolve] Iter:  400 overflow: 0.188 HPWL: 18543175
+[NesterovSolve] Iter:  410 overflow: 0.158 HPWL: 18507440
+[NesterovSolve] Iter:  420 overflow: 0.135 HPWL: 18386611
+[NesterovSolve] Iter:  430 overflow: 0.116 HPWL: 17922006
+[NesterovSolve] Finished with Overflow: 0.099453
+Elapsed time: 0:04.45[h:]min:sec. CPU time: user 29.27 sys 0.07 (659%). Peak memory: 177988KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers Metal3 -ver_layers Metal4
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           5356
+[INFO PPL-0002] Number of I/O             396
+[INFO PPL-0003] Number of I/O w/sink      386
+[INFO PPL-0004] Number of I/O w/o sink    10
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 248302.20 um.
+Elapsed time: 0:00.92[h:]min:sec. CPU time: user 0.86 sys 0.06 (100%). Peak memory: 167576KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0006] NumInstances:              2162
+[INFO GPL-0007] NumPlaceInstances:          479
+[INFO GPL-0008] NumFixedInstances:         1683
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    747
+[INFO GPL-0011] NumPins:                   2360
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0016] CoreArea:            1682827.776 um^2
+[INFO GPL-0017] NonPlaceInstsArea:     9500.198 um^2
+[INFO GPL-0018] PlaceInstsArea:       18424.627 um^2
+[INFO GPL-0019] Util:                     1.101 %
+[INFO GPL-0020] StdInstsArea:         18424.627 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:     44227
+[INFO GPL-0032] FillerInit:NumGNets:        747
+[INFO GPL-0033] FillerInit:NumGPins:       2360
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:       38.465 um^2
+[INFO GPL-0025] IdealBinArea:            38.465 um^2
+[INFO GPL-0026] IdealBinCnt:              43749
+[INFO GPL-0027] TotalBinArea:        1682827.776 um^2
+[INFO GPL-0028] BinCnt:       128    128
+[INFO GPL-0029] BinSize: ( 10.150 10.120 )
+[INFO GPL-0030] NumBins: 16384
+global_placement -density 0.5155053858086467 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0006] NumInstances:              2162
+[INFO GPL-0007] NumPlaceInstances:          479
+[INFO GPL-0008] NumFixedInstances:         1683
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    747
+[INFO GPL-0011] NumPins:                   2360
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0016] CoreArea:            1682827.776 um^2
+[INFO GPL-0017] NonPlaceInstsArea:     9500.198 um^2
+[INFO GPL-0018] PlaceInstsArea:       18424.627 um^2
+[INFO GPL-0019] Util:                     1.101 %
+[INFO GPL-0020] StdInstsArea:         18424.627 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000011 HPWL: 519612981
+[InitialPlace]  Iter: 2 CG residual: 0.00000456 HPWL: 506536618
+[InitialPlace]  Iter: 3 CG residual: 0.00001497 HPWL: 368362867
+[InitialPlace]  Iter: 4 CG residual: 0.00000095 HPWL: 178470026
+[InitialPlace]  Iter: 5 CG residual: 0.00000028 HPWL: 123621283
+[INFO GPL-0031] FillerInit:NumGCells:     22795
+[INFO GPL-0032] FillerInit:NumGNets:        747
+[INFO GPL-0033] FillerInit:NumGPins:       2360
+[INFO GPL-0023] TargetDensity:            0.516
+[INFO GPL-0024] AvrgPlaceInstArea:       38.465 um^2
+[INFO GPL-0025] IdealBinArea:            74.616 um^2
+[INFO GPL-0026] IdealBinCnt:              22553
+[INFO GPL-0027] TotalBinArea:        1682827.776 um^2
+[INFO GPL-0028] BinCnt:       128    128
+[INFO GPL-0029] BinSize: ( 10.150 10.120 )
+[INFO GPL-0030] NumBins: 16384
+[NesterovSolve] Iter:    1 overflow: 0.669 HPWL: 102231658
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.07e-08
+[INFO GPL-0103] Timing-driven: weighted 73 nets.
+[NesterovSolve] Iter:   10 overflow: 0.665 HPWL: 94819622
+[NesterovSolve] Iter:   20 overflow: 0.675 HPWL: 93267570
+[NesterovSolve] Iter:   30 overflow: 0.675 HPWL: 92800162
+[NesterovSolve] Iter:   40 overflow: 0.675 HPWL: 93010489
+[NesterovSolve] Iter:   50 overflow: 0.675 HPWL: 92926955
+[NesterovSolve] Iter:   60 overflow: 0.675 HPWL: 92928383
+[NesterovSolve] Iter:   70 overflow: 0.675 HPWL: 92956085
+[NesterovSolve] Iter:   80 overflow: 0.675 HPWL: 92925098
+[NesterovSolve] Iter:   90 overflow: 0.675 HPWL: 92942055
+[NesterovSolve] Iter:  100 overflow: 0.675 HPWL: 92927804
+[NesterovSolve] Iter:  110 overflow: 0.675 HPWL: 92922986
+[NesterovSolve] Iter:  120 overflow: 0.675 HPWL: 92921409
+[NesterovSolve] Iter:  130 overflow: 0.674 HPWL: 92932607
+[NesterovSolve] Iter:  140 overflow: 0.674 HPWL: 92951158
+[NesterovSolve] Iter:  150 overflow: 0.673 HPWL: 92954349
+[NesterovSolve] Iter:  160 overflow: 0.672 HPWL: 92983827
+[NesterovSolve] Iter:  170 overflow: 0.671 HPWL: 92988779
+[NesterovSolve] Iter:  180 overflow: 0.670 HPWL: 92931616
+[NesterovSolve] Iter:  190 overflow: 0.667 HPWL: 93039183
+[NesterovSolve] Iter:  200 overflow: 0.662 HPWL: 93157279
+[NesterovSolve] Iter:  210 overflow: 0.656 HPWL: 93278544
+[NesterovSolve] Iter:  220 overflow: 0.646 HPWL: 93487767
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.09e-08
+[INFO GPL-0103] Timing-driven: weighted 73 nets.
+[NesterovSolve] Iter:  230 overflow: 0.630 HPWL: 94263569
+[NesterovSolve] Iter:  240 overflow: 0.605 HPWL: 94743808
+[NesterovSolve] Snapshot saved at iter = 242
+[NesterovSolve] Iter:  250 overflow: 0.578 HPWL: 95371769
+[NesterovSolve] Iter:  260 overflow: 0.545 HPWL: 96464581
+[NesterovSolve] Iter:  270 overflow: 0.505 HPWL: 97760618
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.09e-08
+[INFO GPL-0103] Timing-driven: weighted 73 nets.
+[NesterovSolve] Iter:  280 overflow: 0.455 HPWL: 99397628
+[NesterovSolve] Iter:  290 overflow: 0.400 HPWL: 100826715
+[NesterovSolve] Iter:  300 overflow: 0.338 HPWL: 102833533
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 16800 16800 ) DBU
+[INFO GPL-0038] TileCnt:     178  178
+[INFO GPL-0040] NumTiles: 31684
+[INFO GPL-0081] TotalRouteOverflow: 0.0
+[INFO GPL-0082] OverflowTileCnt: 0
+[INFO GPL-0083] 0.5%RC: 0.6821509176080331
+[INFO GPL-0084] 1.0%RC: 0.6484214024212834
+[INFO GPL-0085] 2.0%RC: 0.6211788671249847
+[INFO GPL-0086] 5.0%RC: 0.5925353543991546
+[INFO GPL-0087] FinalRC: 0.6652862
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  310 overflow: 0.283 HPWL: 104512215
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.09e-08
+[INFO GPL-0103] Timing-driven: weighted 74 nets.
+[NesterovSolve] Iter:  320 overflow: 0.237 HPWL: 106335102
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.09e-08
+[INFO GPL-0103] Timing-driven: weighted 73 nets.
+[NesterovSolve] Iter:  330 overflow: 0.199 HPWL: 107894836
+[NesterovSolve] Iter:  340 overflow: 0.161 HPWL: 109079150
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.09e-08
+[INFO GPL-0103] Timing-driven: weighted 73 nets.
+[NesterovSolve] Iter:  350 overflow: 0.128 HPWL: 109645806
+[NesterovSolve] Iter:  360 overflow: 0.106 HPWL: 109602847
+[NesterovSolve] Finished with Overflow: 0.099400
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 30826 u^2 2% utilization.
+Elapsed time: 0:06.18[h:]min:sec. CPU time: user 28.24 sys 0.25 (460%). Peak memory: 556116KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 250 input buffers.
+[INFO RSZ-0028] Inserted 128 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 119881um.
+[INFO RSZ-0039] Resized 144 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 46462 u^2 3% utilization.
+Instance count before 2676, after 3054
+Pin count before 1964, after 2720
+Elapsed time: 0:01.62[h:]min:sec. CPU time: user 1.37 sys 0.24 (100%). Peak memory: 497120KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement      24514.9 u
+average displacement        8.0 u
+max displacement           86.2 u
+original HPWL           56354.0 u
+legalized HPWL          78268.7 u
+delta HPWL                   39 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 3054 cells, 396 terminals, 1125 edges, 3116 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 3450, edges 1125, pins 3116
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 50400 10080 units.
+[INFO DPO-0320] Collected 2593 fixed cells.
+[INFO DPO-0318] Collected 857 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (400960, 403200) - (2998240, 2993760)
+[INFO DPO-0310] Assigned 857 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 1.559296e+08.
+[INFO DPO-0301] Pass   2 of matching; objective is 1.535097e+08.
+[INFO DPO-0302] End of matching; objective is 1.534627e+08, improvement is 1.58 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 1.515869e+08.
+[INFO DPO-0306] Pass   2 of global swaps; hpwl is 1.511176e+08.
+[INFO DPO-0307] End of global swaps; objective is 1.511176e+08, improvement is 1.53 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 1.507195e+08.
+[INFO DPO-0309] End of vertical swaps; objective is 1.507195e+08, improvement is 0.26 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 1.478806e+08.
+[INFO DPO-0304] Pass   2 of reordering; objective is 1.472380e+08.
+[INFO DPO-0305] End of reordering; objective is 1.472380e+08, improvement is 2.31 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 17140 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 17140, swaps 3430, moves  1014 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.472380e+08, Scratch cost 1.453082e+08, Incremental cost 1.453082e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.453082e+08.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 1.31 percent.
+[INFO DPO-0332] End of pass, Generator displacement called 17140 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 34280, swaps 6719, moves  2013 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.453082e+08, Scratch cost 1.445748e+08, Incremental cost 1.445748e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.445748e+08.
+[INFO DPO-0327] Pass   2 of random improver; improvement in cost is 0.50 percent.
+[INFO DPO-0328] End of random improver; improvement is 1.808793 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 425 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 413 cell flips.
+[INFO DPO-0384] End of flipping; objective is 1.416096e+08, improvement is 2.05 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL            78268.7 u
+Final HPWL               70721.9 u
+Delta HPWL                  -9.6 %
+
+[INFO DPL-0020] Mirrored 26 instances
+[INFO DPL-0021] HPWL before           70721.9 u
+[INFO DPL-0022] HPWL after            70677.4 u
+[INFO DPL-0023] HPWL delta               -0.1 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+No registers in design
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 46462 u^2 3% utilization.
+Elapsed time: 0:01.65[h:]min:sec. CPU time: user 1.55 sys 0.10 (99%). Peak memory: 256220KB.
+cp ./results/gf180/riscv_v_reduct_src/base/3_5_place_dp.odb ./results/gf180/riscv_v_reduct_src/base/3_place.odb
+cp ./results/gf180/riscv_v_reduct_src/base/2_floorplan.sdc ./results/gf180/riscv_v_reduct_src/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[INFO CTS-0051] Sink buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    gf180mcu_fd_sc_mcu9t5v0__clkbuf_20
+[INFO CTS-0049] Characterization buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO RSZ-0058] Using max wire length 119881um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           70677.4 u
+legalized HPWL          72614.0 u
+delta HPWL                    3 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           72614.0 u
+legalized HPWL          72614.0 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+No registers in design
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 46462 u^2 3% utilization.
+Elapsed time: 0:02.48[h:]min:sec. CPU time: user 2.14 sys 0.33 (99%). Peak memory: 652952KB.
+cp ./results/gf180/riscv_v_reduct_src/base/4_1_cts.odb ./results/gf180/riscv_v_reduct_src/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/gf180/riscv_v_reduct_src/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: Metal1
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.5600  line-2-Via Pitch: 0.4750
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.9000  line-2-Via Pitch: 0.8200
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 98
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 7492
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal     476684        235345          50.63%
+Metal2     Vertical       476684        281423          40.96%
+Metal3     Horizontal     476684        284439          40.33%
+Metal4     Vertical       476684        242687          49.09%
+Metal5     Horizontal     286046        144288          49.56%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 3270
+[INFO GRT-0198] Via related Steiner nodes: 121
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 4626
+[INFO GRT-0112] Final usage 3D: 22833
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+Metal1          235345          2301            0.98%             0 /  0 /  0
+Metal2          281423          4198            1.49%             0 /  0 /  0
+Metal3          284439          1843            0.65%             0 /  0 /  0
+Metal4          242687           595            0.25%             0 /  0 /  0
+Metal5          144288            18            0.01%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total          1188182          8955            0.75%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 99296 um
+[INFO GRT-0014] Routed nets: 1115
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 119881um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           72614.0 u
+legalized HPWL          72614.0 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           72614.0 u
+legalized HPWL          72614.0 u
+delta HPWL                    0 %
+
+Repair antennas...
+[INFO GRT-0012] Found 2 antenna violations.
+[INFO GRT-0015] Inserted 22 diodes.
+[INFO GRT-0012] Found 2 antenna violations.
+[INFO GRT-0015] Inserted 22 diodes.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO GRT-0015] Inserted 11 diodes.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO GRT-0015] Inserted 11 diodes.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO GRT-0015] Inserted 11 diodes.
+[INFO ANT-0002] Found 1 net violations.
+[INFO ANT-0001] Found 1 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+No registers in design
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 46897 u^2 3% utilization.
+[INFO FLW-0007] clock clk period 20.000000
+[INFO FLW-0008] Clock clk period 10.089
+[INFO FLW-0009] Clock clk slack 9.380
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO FLW-0011] Path endpoint count 205
+Elapsed time: 0:03.66[h:]min:sec. CPU time: user 7.93 sys 0.32 (225%). Peak memory: 661020KB.
+Running detail_route.tcl, stage 5_2_route
+[WARNING STA-0450] virtual clock clk can not be propagated.
+detailed_route -output_drc ./reports/gf180/riscv_v_reduct_src/base/5_route_drc.rpt -output_maze ./results/gf180/riscv_v_reduct_src/base/maze.log -bottom_routing_layer Metal1 -top_routing_layer Metal5 -disable_via_gen -save_guide_updates -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+
+Units:                2000
+Number of layers:     11
+Number of macros:     229
+Number of vias:       64
+Number of viarulegen: 18
+
+[INFO DRT-0150] Reading design.
+
+Design:                   riscv_v_reduct_src
+Die area:                 ( 0 0 ) ( 3000000 3000000 )
+Number of track patterns: 10
+Number of DEF vias:       0
+Number of components:     3131
+Number of terminals:      396
+Number of snets:          2
+Number of nets:           1125
+
+[INFO DRT-0167] List of default vias:
+  Layer Via1
+    default via: Via1_HV
+  Layer Via2
+    default via: Via2_VH
+  Layer Via3
+    default via: Via3_HV
+  Layer Via4
+    default via: Via4_1_VH
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 50.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Poly2.
+[INFO DRT-0024]   Complete CON.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0033] Poly2 shape region query size = 0.
+[INFO DRT-0033] CON shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 38110.
+[INFO DRT-0033] Via1 shape region query size = 29928.
+[INFO DRT-0033] Metal2 shape region query size = 276834.
+[INFO DRT-0033] Via2 shape region query size = 261870.
+[INFO DRT-0033] Metal3 shape region query size = 523931.
+[INFO DRT-0033] Via3 shape region query size = 261870.
+[INFO DRT-0033] Metal4 shape region query size = 262945.
+[INFO DRT-0033] Via4 shape region query size = 12992.
+[INFO DRT-0033] Metal5 shape region query size = 840.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 137 pins.
+[INFO DRT-0081]   Complete 44 unique inst patterns.
+[INFO DRT-0084]   Complete 361 groups.
+#scanned instances     = 3131
+#unique  instances     = 50
+#stdCellGenAp          = 1756
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 1138
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2720
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:11, elapsed time = 00:00:01, memory = 274.27 (MB), peak = 285.97 (MB)
+
+[INFO DRT-0157] Number of guides:     6728
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 178 STEP 16800 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 178 STEP 16800 ;
+[INFO DRT-0028]   Complete Poly2.
+[INFO DRT-0028]   Complete CON.
+[INFO DRT-0028]   Complete Metal1.
+[INFO DRT-0028]   Complete Via1.
+[INFO DRT-0028]   Complete Metal2.
+[INFO DRT-0028]   Complete Via2.
+[INFO DRT-0028]   Complete Metal3.
+[INFO DRT-0028]   Complete Via3.
+[INFO DRT-0028]   Complete Metal4.
+[INFO DRT-0028]   Complete Via4.
+[INFO DRT-0028]   Complete Metal5.
+[WARNING DRT-0225] net61 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _011_ 65 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _015_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net46 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _061_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _063_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net41 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net36 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _179_ 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net11 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net10 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net9 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net8 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net7 73 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _326_ 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net64 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net67 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net69 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net70 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net72 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net73 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net82 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net83 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net84 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net85 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net90 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net99 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net101 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net104 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net126 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net139 1 pin not visited, fall back to feedthrough mode.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete Poly2 (guide).
+[INFO DRT-0035]   Complete CON (guide).
+[INFO DRT-0035]   Complete Metal1 (guide).
+[INFO DRT-0035]   Complete Via1 (guide).
+[INFO DRT-0035]   Complete Metal2 (guide).
+[INFO DRT-0035]   Complete Via2 (guide).
+[INFO DRT-0035]   Complete Metal3 (guide).
+[INFO DRT-0035]   Complete Via3 (guide).
+[INFO DRT-0035]   Complete Metal4 (guide).
+[INFO DRT-0035]   Complete Via4 (guide).
+[INFO DRT-0035]   Complete Metal5 (guide).
+[INFO DRT-0036] Poly2 guide region query size = 0.
+[INFO DRT-0036] CON guide region query size = 0.
+[INFO DRT-0036] Metal1 guide region query size = 2424.
+[INFO DRT-0036] Via1 guide region query size = 0.
+[INFO DRT-0036] Metal2 guide region query size = 1626.
+[INFO DRT-0036] Via2 guide region query size = 0.
+[INFO DRT-0036] Metal3 guide region query size = 650.
+[INFO DRT-0036] Via3 guide region query size = 0.
+[INFO DRT-0036] Metal4 guide region query size = 234.
+[INFO DRT-0036] Via4 guide region query size = 0.
+[INFO DRT-0036] Metal5 guide region query size = 2.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 1860 vertical wires in 4 frboxes and 3076 horizontal wires in 4 frboxes.
+[INFO DRT-0186] Done with 500 vertical wires in 4 frboxes and 1242 horizontal wires in 4 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:00, memory = 470.61 (MB), peak = 470.61 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 470.61 (MB), peak = 470.61 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 470.86 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 471.73 (MB).
+    Completing 30% with 451 violations.
+    elapsed time = 00:00:20, memory = 496.09 (MB).
+    Completing 40% with 451 violations.
+    elapsed time = 00:00:20, memory = 496.09 (MB).
+    Completing 50% with 451 violations.
+    elapsed time = 00:00:29, memory = 513.59 (MB).
+    Completing 60% with 753 violations.
+    elapsed time = 00:00:29, memory = 513.59 (MB).
+    Completing 70% with 753 violations.
+    elapsed time = 00:00:29, memory = 513.59 (MB).
+    Completing 80% with 1223 violations.
+    elapsed time = 00:00:45, memory = 518.46 (MB).
+    Completing 90% with 1223 violations.
+    elapsed time = 00:00:45, memory = 518.46 (MB).
+    Completing 100% with 1509 violations.
+    elapsed time = 00:00:47, memory = 518.84 (MB).
+[INFO DRT-0199]   Number of violations = 1875.
+Viol/Layer      Metal1   Via1 Metal2   Via2 Metal3 Metal4
+Cut Spacing          0      6      0      0      0      0
+Metal Spacing      368      0     56      0      3      0
+NS Metal             4      0      0      0      0      0
+Recheck            174      0    155      0     35      2
+Short              728     29    288      9     17      1
+[INFO DRT-0267] cpu time = 00:01:28, elapsed time = 00:00:47, memory = 818.59 (MB), peak = 818.59 (MB)
+Total wire length = 80724 um.
+Total wire length on LAYER Metal1 = 8607 um.
+Total wire length on LAYER Metal2 = 37905 um.
+Total wire length on LAYER Metal3 = 27389 um.
+Total wire length on LAYER Metal4 = 6651 um.
+Total wire length on LAYER Metal5 = 170 um.
+Total number of vias = 6822.
+Up-via summary (total 6822):
+
+---------------
+  Poly2       0
+ Metal1    3327
+ Metal2    3082
+ Metal3     407
+ Metal4       6
+---------------
+           6822
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 1875 violations.
+    elapsed time = 00:00:00, memory = 818.59 (MB).
+    Completing 20% with 1875 violations.
+    elapsed time = 00:00:00, memory = 818.59 (MB).
+    Completing 30% with 1717 violations.
+    elapsed time = 00:00:05, memory = 847.84 (MB).
+    Completing 40% with 1717 violations.
+    elapsed time = 00:00:05, memory = 847.84 (MB).
+    Completing 50% with 1717 violations.
+    elapsed time = 00:00:12, memory = 862.71 (MB).
+    Completing 60% with 1403 violations.
+    elapsed time = 00:00:12, memory = 862.71 (MB).
+    Completing 70% with 1403 violations.
+    elapsed time = 00:00:12, memory = 862.71 (MB).
+    Completing 80% with 790 violations.
+    elapsed time = 00:00:15, memory = 862.71 (MB).
+    Completing 90% with 790 violations.
+    elapsed time = 00:00:15, memory = 862.71 (MB).
+    Completing 100% with 161 violations.
+    elapsed time = 00:00:17, memory = 862.71 (MB).
+[INFO DRT-0199]   Number of violations = 161.
+Viol/Layer      Metal1 Metal2 Metal3 Metal4
+Metal Spacing        6     19      1      0
+NS Metal             0      3      0      0
+Short               24     91     16      1
+[INFO DRT-0267] cpu time = 00:00:43, elapsed time = 00:00:17, memory = 862.71 (MB), peak = 862.71 (MB)
+Total wire length = 80017 um.
+Total wire length on LAYER Metal1 = 8025 um.
+Total wire length on LAYER Metal2 = 37051 um.
+Total wire length on LAYER Metal3 = 27971 um.
+Total wire length on LAYER Metal4 = 6812 um.
+Total wire length on LAYER Metal5 = 156 um.
+Total number of vias = 6475.
+Up-via summary (total 6475):
+
+---------------
+  Poly2       0
+ Metal1    3054
+ Metal2    2996
+ Metal3     419
+ Metal4       6
+---------------
+           6475
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 161 violations.
+    elapsed time = 00:00:00, memory = 862.71 (MB).
+    Completing 20% with 161 violations.
+    elapsed time = 00:00:00, memory = 862.71 (MB).
+    Completing 30% with 159 violations.
+    elapsed time = 00:00:01, memory = 862.71 (MB).
+    Completing 40% with 159 violations.
+    elapsed time = 00:00:01, memory = 862.71 (MB).
+    Completing 50% with 159 violations.
+    elapsed time = 00:00:01, memory = 862.71 (MB).
+    Completing 60% with 142 violations.
+    elapsed time = 00:00:10, memory = 870.09 (MB).
+    Completing 70% with 142 violations.
+    elapsed time = 00:00:10, memory = 870.09 (MB).
+    Completing 80% with 151 violations.
+    elapsed time = 00:00:15, memory = 870.09 (MB).
+    Completing 90% with 151 violations.
+    elapsed time = 00:00:15, memory = 870.09 (MB).
+    Completing 100% with 111 violations.
+    elapsed time = 00:00:23, memory = 871.21 (MB).
+[INFO DRT-0199]   Number of violations = 111.
+Viol/Layer      Metal1 Metal2 Metal3
+Metal Spacing        7     17      0
+Short               21     58      8
+[INFO DRT-0267] cpu time = 00:00:43, elapsed time = 00:00:24, memory = 871.21 (MB), peak = 871.21 (MB)
+Total wire length = 79968 um.
+Total wire length on LAYER Metal1 = 8019 um.
+Total wire length on LAYER Metal2 = 37091 um.
+Total wire length on LAYER Metal3 = 27863 um.
+Total wire length on LAYER Metal4 = 6836 um.
+Total wire length on LAYER Metal5 = 156 um.
+Total number of vias = 6439.
+Up-via summary (total 6439):
+
+---------------
+  Poly2       0
+ Metal1    3056
+ Metal2    2987
+ Metal3     390
+ Metal4       6
+---------------
+           6439
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 111 violations.
+    elapsed time = 00:00:00, memory = 871.21 (MB).
+    Completing 20% with 111 violations.
+    elapsed time = 00:00:00, memory = 871.21 (MB).
+    Completing 30% with 94 violations.
+    elapsed time = 00:00:11, memory = 895.45 (MB).
+    Completing 40% with 94 violations.
+    elapsed time = 00:00:11, memory = 895.45 (MB).
+    Completing 50% with 94 violations.
+    elapsed time = 00:00:11, memory = 895.45 (MB).
+    Completing 60% with 60 violations.
+    elapsed time = 00:00:11, memory = 895.45 (MB).
+    Completing 70% with 60 violations.
+    elapsed time = 00:00:11, memory = 895.45 (MB).
+    Completing 80% with 23 violations.
+    elapsed time = 00:00:13, memory = 916.95 (MB).
+    Completing 90% with 23 violations.
+    elapsed time = 00:00:13, memory = 916.95 (MB).
+    Completing 100% with 3 violations.
+    elapsed time = 00:00:13, memory = 916.95 (MB).
+[INFO DRT-0199]   Number of violations = 3.
+Viol/Layer      Metal3
+Short                3
+[INFO DRT-0267] cpu time = 00:00:18, elapsed time = 00:00:13, memory = 916.95 (MB), peak = 916.95 (MB)
+Total wire length = 79949 um.
+Total wire length on LAYER Metal1 = 7207 um.
+Total wire length on LAYER Metal2 = 35870 um.
+Total wire length on LAYER Metal3 = 28661 um.
+Total wire length on LAYER Metal4 = 7943 um.
+Total wire length on LAYER Metal5 = 266 um.
+Total number of vias = 6646.
+Up-via summary (total 6646):
+
+---------------
+  Poly2       0
+ Metal1    3072
+ Metal2    3038
+ Metal3     516
+ Metal4      20
+---------------
+           6646
+
+
+[INFO DRT-0195] Start 4th optimization iteration.
+    Completing 10% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 20% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 30% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 40% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 50% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 60% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 70% with 3 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 916.95 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 916.95 (MB), peak = 916.95 (MB)
+Total wire length = 79949 um.
+Total wire length on LAYER Metal1 = 7207 um.
+Total wire length on LAYER Metal2 = 35870 um.
+Total wire length on LAYER Metal3 = 28631 um.
+Total wire length on LAYER Metal4 = 7946 um.
+Total wire length on LAYER Metal5 = 292 um.
+Total number of vias = 6652.
+Up-via summary (total 6652):
+
+---------------
+  Poly2       0
+ Metal1    3072
+ Metal2    3038
+ Metal3     520
+ Metal4      22
+---------------
+           6652
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 79949 um.
+Total wire length on LAYER Metal1 = 7207 um.
+Total wire length on LAYER Metal2 = 35870 um.
+Total wire length on LAYER Metal3 = 28631 um.
+Total wire length on LAYER Metal4 = 7946 um.
+Total wire length on LAYER Metal5 = 292 um.
+Total number of vias = 6652.
+Up-via summary (total 6652):
+
+---------------
+  Poly2       0
+ Metal1    3072
+ Metal2    3038
+ Metal3     520
+ Metal4      22
+---------------
+           6652
+
+
+[INFO DRT-0267] cpu time = 00:03:15, elapsed time = 00:01:42, memory = 916.95 (MB), peak = 916.95 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Elapsed time: 1:47.02[h:]min:sec. CPU time: user 213.01 sys 0.47 (199%). Peak memory: 939852KB.
+Running fillcell.tcl, stage 5_3_fillcell
+[WARNING STA-0450] virtual clock clk can not be propagated.
+filler_placement gf180mcu_fd_sc_mcu9t5v0__fill_64 gf180mcu_fd_sc_mcu9t5v0__fill_32 gf180mcu_fd_sc_mcu9t5v0__fill_16 gf180mcu_fd_sc_mcu9t5v0__fill_8 gf180mcu_fd_sc_mcu9t5v0__fill_4 gf180mcu_fd_sc_mcu9t5v0__fill_2 gf180mcu_fd_sc_mcu9t5v0__fill_1
+[INFO DPL-0001] Placed 12353 filler instances.
+Elapsed time: 0:01.08[h:]min:sec. CPU time: user 0.98 sys 0.09 (100%). Peak memory: 258648KB.
+cp ./results/gf180/riscv_v_reduct_src/base/5_3_fillcell.odb ./results/gf180/riscv_v_reduct_src/base/5_route.odb
+cp ./results/gf180/riscv_v_reduct_src/base/4_cts.sdc ./results/gf180/riscv_v_reduct_src/base/5_route.sdc
+Running density_fill.tcl, stage 6_1_fill
+exec cp ./results/gf180/riscv_v_reduct_src/base/5_route.odb ./results/gf180/riscv_v_reduct_src/base/6_1_fill.odb
+Elapsed time: 0:00.82[h:]min:sec. CPU time: user 0.74 sys 0.08 (100%). Peak memory: 171992KB.
+cp ./results/gf180/riscv_v_reduct_src/base/5_route.sdc ./results/gf180/riscv_v_reduct_src/base/6_1_fill.sdc
+Running final_report.tcl, stage 6_report
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/openROAD/rcx/gf180mcu_1p5m_1tm_9k_sp_smim_OPTB_bst.rules ...
+[INFO RCX-0436] RC segment generation riscv_v_reduct_src (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 3156 rc segments
+[INFO RCX-0439] Coupling Cap extraction riscv_v_reduct_src ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 13% of 16333 wires extracted
+[INFO RCX-0442] 72% of 16333 wires extracted
+[INFO RCX-0442] 100% of 16333 wires extracted
+[INFO RCX-0045] Extract 1125 nets, 4271 rsegs, 4271 caps, 10326 ccs
+[INFO RCX-0443] 1125 nets finished
+IR drop analysis for power nets is skipped because PWR_NETS_VOLTAGES is undefined
+IR drop analysis for ground nets is skipped because GND_NETS_VOLTAGES is undefined
+Cell type report:                       Count       Area
+  Endcap cell                             514    2901.43
+  Fill cell                             12353 1635930.78
+  Tap cell                               1683    9500.20
+  Antenna cell                             77     434.65
+  Buffer                                    8     299.17
+  Timing Repair Buffer                    378   15105.48
+  Inverter                                 25     524.97
+  Multi-Input combinational cell          446   18131.10
+  Total                                 15484 1682827.78
+Report metrics stage 6, finish...
+No registers in design
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 46897 u^2 3% utilization.
+Elapsed time: 0:02.91[h:]min:sec. CPU time: user 2.77 sys 0.16 (100%). Peak memory: 272936KB.
+cp ./results/gf180/riscv_v_reduct_src/base/5_route.sdc ./results/gf180/riscv_v_reduct_src/base/6_final.sdc
+cp /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_tech.lef ./objects/gf180/riscv_v_reduct_src/base/klayout_tech.lef
+sed 's,<lef-files>.*</lef-files>,<lef-files>../../../../../tools/openROAD/flow/objects/gf180/riscv_v_reduct_src/base/klayout_tech.lef</lef-files> <lef-files>../../../../../tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_sc.lef</lef-files>,g' /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/KLayout/gf180mcu_5LM_1TM_9K_9t.lyt > ./objects/gf180/riscv_v_reduct_src/base/klayout.lyt
+sed -i 's,<map-file>.*</map-file>,<map-file>/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/*map</map-file>,g' ./objects/gf180/riscv_v_reduct_src/base/klayout.lyt
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' stdbuf -o L /usr/bin/klayout -zz -rd design_name=riscv_v_reduct_src \
+        -rd in_def=./results/gf180/riscv_v_reduct_src/base/6_final.def \
+        -rd in_files="/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__antenna.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__endcap.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_32.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_64.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_32.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_64.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__filltie.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__hold.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tieh.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tiel.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_4.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/gf180/riscv_v_reduct_src/base/6_1_merged.gds \
+        -rd tech_file=./objects/gf180/riscv_v_reduct_src/base/klayout.lyt \
+        -rd layer_map=/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap \
+        -r /home/ubuntu/mbucio/tools/openROAD/flow/util/def2stream.py) 2>&1 | tee ./logs/gf180/riscv_v_reduct_src/base/6_1_merge.log
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 12: purpose VIAFILL ignored for layer Metal1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 13: purpose VIAFILLOPC ignored for layer Metal1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 16: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 24: purpose VIAFILL ignored for layer Via1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 25: purpose VIAFILLOPC ignored for layer Via1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 37: purpose VIAFILL ignored for layer Metal2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 38: purpose VIAFILLOPC ignored for layer Metal2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 41: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 49: purpose VIAFILL ignored for layer Via2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 50: purpose VIAFILLOPC ignored for layer Via2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 62: purpose VIAFILL ignored for layer Metal3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 63: purpose VIAFILLOPC ignored for layer Metal3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 66: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 74: purpose VIAFILL ignored for layer Via3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 75: purpose VIAFILLOPC ignored for layer Via3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 87: purpose VIAFILL ignored for layer Metal4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 88: purpose VIAFILLOPC ignored for layer Metal4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 91: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 99: purpose VIAFILL ignored for layer Via4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 100: purpose VIAFILLOPC ignored for layer Via4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 112: purpose VIAFILL ignored for layer Metal5
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 113: purpose VIAFILLOPC ignored for layer Metal5
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 116: NAME record ignored for purpose: SPNET
+Warning: No mapping for purpose 'OUTLINE' - layer is ignored
+[INFO] Reporting cells prior to loading DEF ...
+[INFO] Reading DEF ...
+[INFO] Clearing cells...
+[INFO] Merging GDS/OAS files...
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__antenna.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__endcap.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_32.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_64.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_32.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_64.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__filltie.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__hold.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tieh.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tiel.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_4.gds
+[INFO] Copying toplevel cell 'riscv_v_reduct_src'
+[INFO] Checking for missing cell from GDS/OAS...
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] Checking for orphan cell in the final layout...
+[INFO] No orphan cells
+[INFO] Writing out GDS/OAS './results/gf180/riscv_v_reduct_src/base/6_1_merged.gds'
+Elapsed time: 0:22.51[h:]min:sec. CPU time: user 22.33 sys 0.17 (99%). Peak memory: 478176KB.
+cp results/gf180/riscv_v_reduct_src/base/6_1_merged.gds results/gf180/riscv_v_reduct_src/base/6_final.gds
+./logs/gf180/riscv_v_reduct_src/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                    1             67
+1_1_yosys_canonicalize                       0             73
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                                0            142
+2_2_floorplan_io                             0            138
+2_3_floorplan_tdms                           0             97
+2_4_floorplan_macro                          0            137
+2_5_floorplan_tapcell                        0            138
+2_6_floorplan_pdn                            2            165
+3_1_place_gp_skip_io                         4            173
+3_2_place_iop                                0            163
+3_3_place_gp                                 6            543
+3_4_place_resized                            1            485
+3_5_place_dp                                 1            250
+4_1_cts                                      2            637
+5_1_grt                                      3            645
+5_2_route                                  107            917
+5_3_fillcell                                 1            252
+6_1_fill                                     0            167
+6_1_merge                                   22            466
+6_report                                     2            266
+Total                                      152            917

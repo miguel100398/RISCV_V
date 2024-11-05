@@ -1,0 +1,31 @@
+
+16. Printing statistics.
+
+=== riscv_v_swizzle ===
+
+   Number of wires:                602
+   Number of wire bits:            860
+   Number of public wires:           4
+   Number of public wire bits:     262
+   Number of ports:                  4
+   Number of port bits:            262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                726
+     gf180mcu_fd_sc_mcu9t5v0__and2_2    128
+     gf180mcu_fd_sc_mcu9t5v0__aoi22_2    256
+     gf180mcu_fd_sc_mcu9t5v0__buf_12      2
+     gf180mcu_fd_sc_mcu9t5v0__buf_2     12
+     gf180mcu_fd_sc_mcu9t5v0__buf_3     13
+     gf180mcu_fd_sc_mcu9t5v0__buf_4      5
+     gf180mcu_fd_sc_mcu9t5v0__buf_8      2
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_8     50
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_2    128
+     gf180mcu_fd_sc_mcu9t5v0__inv_3      1
+     gf180mcu_fd_sc_mcu9t5v0__nor2_4      1
+     gf180mcu_fd_sc_mcu9t5v0__oai22_2    128
+
+   Chip area for module '\riscv_v_swizzle': 28421.568000
+     of which used for sequential elements: 0.000000 (0.00%)
+

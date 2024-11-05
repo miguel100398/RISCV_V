@@ -1,0 +1,4 @@
+
+15. Executing CHECK pass (checking for obvious problems).
+Checking module riscv_v_swizzle...
+Found and reported 0 problems.

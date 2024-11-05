@@ -1,0 +1,12 @@
+  violation type: Metal Spacing
+    srcs: net:rf_wr_data_wb[25] net:VSS 
+    bbox = ( 378.456, 499.793 ) - ( 378.456, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:rf_rd_data_srcb_id[37] net:VSS 
+    bbox = ( 324.48, 499.793 ) - ( 324.504, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:rf_rd_data_srca_id[19] net:VSS 
+    bbox = ( 329.856, 499.793 ) - ( 329.88, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:rf_rd_data_srca_exe[114] net:VSS 
+    bbox = ( 335.256, 499.793 ) - ( 335.256, 499.861 ) on Layer M5

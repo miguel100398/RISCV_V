@@ -1,0 +1,6 @@
+  violation type: Metal Spacing
+    srcs: net:net631 net:_055934_ 
+    bbox = ( 4731.55, 4709.42 ) - ( 4731.58, 4709.66 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:_023186_ net:_023192_ 
+    bbox = ( 4225.9, 3102.31 ) - ( 4225.9, 3102.58 ) on Layer Metal2

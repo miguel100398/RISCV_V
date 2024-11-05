@@ -1,0 +1,1494 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib -o objects/nangate45/riscv_v_rf_ctrl/base/lib/NangateOpenCellLibrary_typical.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/nangate45/riscv_v_rf_ctrl/base/lib/NangateOpenCellLibrary_typical.lib
+mkdir -p results/nangate45/riscv_v_rf_ctrl/base/
+echo 15.0 > results/nangate45/riscv_v_rf_ctrl/base/clock_period.txt
+mkdir -p ./results/nangate45/riscv_v_rf_ctrl/base ./logs/nangate45/riscv_v_rf_ctrl/base ./reports/nangate45/riscv_v_rf_ctrl/base ./objects/nangate45/riscv_v_rf_ctrl/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_rf_ctrl/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_rf_ctrl/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/nangate45/riscv_v_rf_ctrl/base/lib/NangateOpenCellLibrary_typical.lib
+58. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_rf_ctrl/base/clock_period.txt
+Setting clock period to 15.0
+59. Executing HIERARCHY pass (managing design hierarchy).
+60. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_rf_ctrl'.
+60.1. Analyzing design hierarchy..
+60.2. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_300B3_9090A'.
+60.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_C9449'.
+60.4. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_E6BB0_71521'.
+60.5. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_E6BB0_71521'.
+60.6. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_969A4_CCEB1'.
+60.7. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_969A4_CCEB1'.
+60.8. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_63257_B3D37'.
+60.9. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_stage_96DA9_C2B4E'.
+60.10. Analyzing design hierarchy..
+60.11. Analyzing design hierarchy..
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module $paramod$2146347be6a9291281141c11ae06b78a5225aa18\riscv_v_stage_63257_B3D37 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$9e949b9bffcb9d058dc19aa5601422ad5176c498\riscv_v_stage_969A4_CCEB1 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$266c03143c54df1c5adf4fb754caa2bfb30aec62\riscv_v_stage_969A4_CCEB1 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$a4a107c8fd8bbbb154137ac64da59878dc940c06\riscv_v_stage_E6BB0_71521 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$81cda7e927670c58dd35f63665b91a63979e2586\riscv_v_stage_E6BB0_71521 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_stage_C9449\NUM_STAGES=s32'00000000000000000000000000000011 because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$7cb81b2a58a0ce3b23aac10cc1e4ce73effc8cd8\riscv_v_stage_300B3_9090A because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod$bc7794a3be0ebc5361b6e14a3e2778c05284a1fa\riscv_v_stage_96DA9_C2B4E because it contains processes (run 'proc' command first).
+62. Executing RTLIL backend.
+Warnings: 8 unique messages, 8 total
+End of script. Logfile hash: eeecbc5860, CPU: user 0.14s system 0.01s, MEM: 44.25 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 50% 2x read_liberty (0 sec), 35% 114x read_verilog (0 sec), ...
+Elapsed time: 0:00.21[h:]min:sec. CPU time: user 0.19 sys 0.01 (99%). Peak memory: 46336KB.
+mkdir -p ./results/nangate45/riscv_v_rf_ctrl/base ./logs/nangate45/riscv_v_rf_ctrl/base ./reports/nangate45/riscv_v_rf_ctrl/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_rf_ctrl/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_rf_ctrl/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.00 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (100%). Peak memory: 12928KB.
+mkdir -p ./results/nangate45/riscv_v_rf_ctrl/base ./logs/nangate45/riscv_v_rf_ctrl/base ./reports/nangate45/riscv_v_rf_ctrl/base ./objects/nangate45/riscv_v_rf_ctrl/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_rf_ctrl/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_rf_ctrl/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/nangate45/riscv_v_rf_ctrl/base/lib/NangateOpenCellLibrary_typical.lib
+3. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_rf_ctrl/base/clock_period.txt
+Setting clock period to 15.0
+synth -top riscv_v_rf_ctrl -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4. Executing SYNTH pass.
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+4.1.1. Analyzing design hierarchy..
+4.1.2. Analyzing design hierarchy..
+4.2. Executing PROC pass (convert processes to netlists).
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Warning: Async reset value `\rst_val' is not constant!
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+4.3. Executing FLATTEN pass (flatten design).
+4.4. Executing OPT_EXPR pass (perform const folding).
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.6. Executing CHECK pass (checking for obvious problems).
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+4.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.8. Executing OPT_EXPR pass (perform const folding).
+4.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.12. Executing OPT_MERGE pass (detect identical cells).
+4.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.15. Executing OPT_EXPR pass (perform const folding).
+4.7.16. Finished OPT passes. (There is nothing left to do.)
+4.8. Executing FSM pass (extract and optimize FSM).
+4.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+4.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+4.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+4.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+4.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+4.9. Executing OPT pass (performing simple optimizations).
+4.9.1. Executing OPT_EXPR pass (perform const folding).
+4.9.2. Executing OPT_MERGE pass (detect identical cells).
+4.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.5. Executing OPT_MERGE pass (detect identical cells).
+4.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.8. Executing OPT_EXPR pass (perform const folding).
+4.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.12. Executing OPT_MERGE pass (detect identical cells).
+4.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.15. Executing OPT_EXPR pass (perform const folding).
+4.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+4.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.19. Executing OPT_MERGE pass (detect identical cells).
+4.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.22. Executing OPT_EXPR pass (perform const folding).
+4.9.23. Finished OPT passes. (There is nothing left to do.)
+4.10. Executing WREDUCE pass (reducing word size of cells).
+4.11. Executing PEEPOPT pass (run peephole optimizers).
+4.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.13. Executing ALUMACC pass (create $alu and $macc cells).
+4.14. Executing SHARE pass (SAT-based resource sharing).
+4.15. Executing OPT pass (performing simple optimizations).
+4.15.1. Executing OPT_EXPR pass (perform const folding).
+4.15.2. Executing OPT_MERGE pass (detect identical cells).
+4.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.15.5. Executing OPT_MERGE pass (detect identical cells).
+4.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.15.8. Executing OPT_EXPR pass (perform const folding).
+4.15.9. Finished OPT passes. (There is nothing left to do.)
+4.16. Executing MEMORY pass.
+4.16.1. Executing OPT_MEM pass (optimize memories).
+4.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+4.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+4.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+4.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+4.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+4.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+4.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+4.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+5. Executing SYNTH pass.
+5.1. Executing OPT pass (performing simple optimizations).
+5.1.1. Executing OPT_EXPR pass (perform const folding).
+5.1.2. Executing OPT_MERGE pass (detect identical cells).
+5.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.1.5. Finished fast OPT passes.
+5.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+5.3. Executing OPT pass (performing simple optimizations).
+5.3.1. Executing OPT_EXPR pass (perform const folding).
+5.3.2. Executing OPT_MERGE pass (detect identical cells).
+5.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.5. Executing OPT_MERGE pass (detect identical cells).
+5.3.6. Executing OPT_SHARE pass.
+5.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.9. Executing OPT_EXPR pass (perform const folding).
+5.3.10. Finished OPT passes. (There is nothing left to do.)
+5.4. Executing TECHMAP pass (map to technology primitives).
+5.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+5.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+5.4.3. Continuing TECHMAP pass.
+5.5. Executing OPT pass (performing simple optimizations).
+5.5.1. Executing OPT_EXPR pass (perform const folding).
+5.5.2. Executing OPT_MERGE pass (detect identical cells).
+5.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.5.5. Finished fast OPT passes.
+5.6. Executing ABC pass (technology mapping using ABC).
+5.6.1. Extracting gate netlist of module `\riscv_v_rf_ctrl' to `<abc-temp-dir>/input.blif'..
+5.7. Executing OPT pass (performing simple optimizations).
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+5.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.7.5. Finished fast OPT passes.
+5.8. Executing HIERARCHY pass (managing design hierarchy).
+5.8.1. Analyzing design hierarchy..
+5.8.2. Analyzing design hierarchy..
+5.9. Printing statistics.
+5.10. Executing CHECK pass (checking for obvious problems).
+6. Executing OPT pass (performing simple optimizations).
+6.1. Executing OPT_EXPR pass (perform const folding).
+6.2. Executing OPT_MERGE pass (detect identical cells).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.5. Executing OPT_MERGE pass (detect identical cells).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.8. Executing OPT_EXPR pass (perform const folding).
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.12. Executing OPT_MERGE pass (detect identical cells).
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.15. Executing OPT_EXPR pass (perform const folding).
+6.16. Finished OPT passes. (There is nothing left to do.)
+7. Executing TECHMAP pass (map to technology primitives).
+7.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_latch.v
+7.2. Continuing TECHMAP pass.
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+9. Executing OPT pass (performing simple optimizations).
+9.1. Executing OPT_EXPR pass (perform const folding).
+9.2. Executing OPT_MERGE pass (detect identical cells).
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.5. Executing OPT_MERGE pass (detect identical cells).
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.8. Executing OPT_EXPR pass (perform const folding).
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.12. Executing OPT_MERGE pass (detect identical cells).
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.15. Executing OPT_EXPR pass (perform const folding).
+9.16. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/nangate45/riscv_v_rf_ctrl/base/lib/NangateOpenCellLibrary_typical.lib -constr ./objects/nangate45/riscv_v_rf_ctrl/base/abc.constr -dont_use TAPCELL_X1 -dont_use FILLCELL_X1 -dont_use AOI211_X1 -dont_use OAI211_X1 -D 15.0
+10. Executing ABC pass (technology mapping using ABC).
+10.1. Extracting gate netlist of module `\riscv_v_rf_ctrl' to `<abc-temp-dir>/input.blif'..
+10.1.1. Executing ABC.
+10.1.2. Re-integrating ABC results.
+11. Executing SETUNDEF pass (replace undef values with defined constants).
+12. Executing SPLITNETS pass (splitting up multi-bit signals).
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+14. Executing HILOMAP pass (mapping to constant drivers).
+15. Executing INSBUF pass (insert buffer cells for connected wires).
+16. Executing CHECK pass (checking for obvious problems).
+17. Printing statistics.
+18. Executing Verilog backend.
+exec cp ./designs/nangate45/riscv_v_rf_ctrl/constraint.sdc ./results/nangate45/riscv_v_rf_ctrl/base/1_synth.sdc
+Warnings: 9 unique messages, 87 total
+End of script. Logfile hash: e5c87a0553, CPU: user 0.51s system 0.02s, MEM: 41.62 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 44% 2x abc (0 sec), 11% 21x opt_clean (0 sec), ...
+Elapsed time: 0:01.01[h:]min:sec. CPU time: user 0.96 sys 0.04 (99%). Peak memory: 43264KB.
+mkdir -p ./results/nangate45/riscv_v_rf_ctrl/base ./logs/nangate45/riscv_v_rf_ctrl/base ./reports/nangate45/riscv_v_rf_ctrl/base
+cp ./results/nangate45/riscv_v_rf_ctrl/base/1_1_yosys.v ./results/nangate45/riscv_v_rf_ctrl/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/nangate45/riscv_v_rf_ctrl/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 1530
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.070, 200.200).
+[INFO IFP-0001] Added 2714 rows of 19999 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO RSZ-0026] Removed 112 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 4499 u^2 0% utilization.
+Elapsed time: 0:00.75[h:]min:sec. CPU time: user 0.71 sys 0.04 (100%). Peak memory: 133828KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+place_pins -hor_layers metal5 -ver_layers metal6 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:00.34[h:]min:sec. CPU time: user 0.29 sys 0.04 (100%). Peak memory: 126788KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/nangate45/riscv_v_rf_ctrl/base/2_2_floorplan_io.odb ./results/nangate45/riscv_v_rf_ctrl/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.14[h:]min:sec. CPU time: user 0.11 sys 0.03 (100%). Peak memory: 100292KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+No macros found: Skipping macro_placement
+Elapsed time: 0:00.33[h:]min:sec. CPU time: user 0.29 sys 0.03 (100%). Peak memory: 124228KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[INFO TAP-0004] Inserted 5428 endcaps.
+[INFO TAP-0005] Inserted 42098 tapcells.
+Elapsed time: 0:00.43[h:]min:sec. CPU time: user 0.38 sys 0.05 (99%). Peak memory: 143552KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[INFO PDN-0001] Inserting grid: grid
+Elapsed time: 0:04.38[h:]min:sec. CPU time: user 4.25 sys 0.12 (99%). Peak memory: 218876KB.
+cp ./results/nangate45/riscv_v_rf_ctrl/base/2_6_floorplan_pdn.odb ./results/nangate45/riscv_v_rf_ctrl/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             48944
+[INFO GPL-0007] NumPlaceInstances:         1418
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   2614
+[INFO GPL-0011] NumPins:                   6861
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        4499.124 um^2
+[INFO GPL-0019] Util:                     0.031 %
+[INFO GPL-0020] StdInstsArea:          4499.124 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:   4577357
+[INFO GPL-0032] FillerInit:NumGNets:       2614
+[INFO GPL-0033] FillerInit:NumGPins:       6861
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        3.173 um^2
+[INFO GPL-0025] IdealBinArea:             3.173 um^2
+[INFO GPL-0026] IdealBinCnt:            4550383
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             48944
+[INFO GPL-0007] NumPlaceInstances:         1418
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   2614
+[INFO GPL-0011] NumPins:                   5699
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        4499.124 um^2
+[INFO GPL-0019] Util:                     0.031 %
+[INFO GPL-0020] StdInstsArea:          4499.124 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:   4165537
+[INFO GPL-0032] FillerInit:NumGNets:       2614
+[INFO GPL-0033] FillerInit:NumGPins:       5699
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        3.173 um^2
+[INFO GPL-0025] IdealBinArea:             3.487 um^2
+[INFO GPL-0026] IdealBinCnt:            4140991
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      1024   1024
+[INFO GPL-0029] BinSize: (  3.711  3.711 )
+[INFO GPL-0030] NumBins: 1048576
+[NesterovSolve] Iter:    1 overflow: 0.989 HPWL: 4889696
+[NesterovSolve] Iter:   10 overflow: 0.987 HPWL: 4021766
+[NesterovSolve] Iter:   20 overflow: 0.988 HPWL: 4015821
+[NesterovSolve] Iter:   30 overflow: 0.988 HPWL: 4014458
+[NesterovSolve] Iter:   40 overflow: 0.988 HPWL: 4012574
+[NesterovSolve] Iter:   50 overflow: 0.988 HPWL: 4010982
+[NesterovSolve] Iter:   60 overflow: 0.988 HPWL: 4009538
+[NesterovSolve] Iter:   70 overflow: 0.988 HPWL: 4008300
+[NesterovSolve] Iter:   80 overflow: 0.988 HPWL: 4007369
+[NesterovSolve] Iter:   90 overflow: 0.988 HPWL: 4007260
+[NesterovSolve] Iter:  100 overflow: 0.988 HPWL: 4007399
+[NesterovSolve] Iter:  110 overflow: 0.987 HPWL: 4007776
+[NesterovSolve] Iter:  120 overflow: 0.987 HPWL: 4007900
+[NesterovSolve] Iter:  130 overflow: 0.987 HPWL: 4008464
+[NesterovSolve] Iter:  140 overflow: 0.986 HPWL: 4010384
+[NesterovSolve] Iter:  150 overflow: 0.986 HPWL: 4015193
+[NesterovSolve] Iter:  160 overflow: 0.985 HPWL: 4023889
+[NesterovSolve] Iter:  170 overflow: 0.983 HPWL: 4038250
+[NesterovSolve] Iter:  180 overflow: 0.981 HPWL: 4107129
+[NesterovSolve] Iter:  190 overflow: 0.979 HPWL: 4323952
+[NesterovSolve] Iter:  200 overflow: 0.976 HPWL: 4708235
+[NesterovSolve] Iter:  210 overflow: 0.969 HPWL: 5398795
+[NesterovSolve] Iter:  220 overflow: 0.963 HPWL: 6315724
+[NesterovSolve] Iter:  230 overflow: 0.940 HPWL: 7212792
+[NesterovSolve] Iter:  240 overflow: 0.901 HPWL: 7925510
+[NesterovSolve] Iter:  250 overflow: 0.797 HPWL: 6422780
+[NesterovSolve] Iter:  260 overflow: 0.661 HPWL: 5167026
+[NesterovSolve] Iter:  270 overflow: 0.563 HPWL: 4586343
+[NesterovSolve] Iter:  280 overflow: 0.549 HPWL: 4978734
+[NesterovSolve] Iter:  290 overflow: 0.600 HPWL: 7420345
+[NesterovSolve] Iter:  300 overflow: 0.624 HPWL: 10155041
+[NesterovSolve] Iter:  310 overflow: 0.613 HPWL: 6208883
+[NesterovSolve] Iter:  320 overflow: 0.466 HPWL: 7758916
+[NesterovSolve] Iter:  330 overflow: 0.319 HPWL: 6954804
+[NesterovSolve] Iter:  340 overflow: 0.259 HPWL: 6518269
+[NesterovSolve] Iter:  350 overflow: 0.244 HPWL: 9636973
+[NesterovSolve] Iter:  360 overflow: 0.265 HPWL: 6089921
+[NesterovSolve] Iter:  370 overflow: 0.238 HPWL: 9121132
+[NesterovSolve] Iter:  380 overflow: 0.261 HPWL: 8194474
+[NesterovSolve] Iter:  390 overflow: 0.227 HPWL: 6648702
+[NesterovSolve] Iter:  400 overflow: 0.171 HPWL: 6617794
+[NesterovSolve] Iter:  410 overflow: 0.150 HPWL: 7145255
+[NesterovSolve] Iter:  420 overflow: 0.111 HPWL: 8102281
+[NesterovSolve] Finished with Overflow: 0.099056
+Elapsed time: 16:46.70[h:]min:sec. CPU time: user 1110.77 sys 1.69 (110%). Peak memory: 1641688KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers metal5 -ver_layers metal6
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           28564
+[INFO PPL-0002] Number of I/O             1162
+[INFO PPL-0003] Number of I/O w/sink      1162
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 2284692.75 um.
+Elapsed time: 0:00.95[h:]min:sec. CPU time: user 0.86 sys 0.09 (100%). Peak memory: 201408KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             48944
+[INFO GPL-0007] NumPlaceInstances:         1418
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   2614
+[INFO GPL-0011] NumPins:                   6861
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        4499.124 um^2
+[INFO GPL-0019] Util:                     0.031 %
+[INFO GPL-0020] StdInstsArea:          4499.124 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:   4577357
+[INFO GPL-0032] FillerInit:NumGNets:       2614
+[INFO GPL-0033] FillerInit:NumGPins:       6861
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        3.173 um^2
+[INFO GPL-0025] IdealBinArea:             3.173 um^2
+[INFO GPL-0026] IdealBinCnt:            4550383
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+global_placement -density 0.9100311895186315 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             48944
+[INFO GPL-0007] NumPlaceInstances:         1418
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   2614
+[INFO GPL-0011] NumPins:                   6861
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        4499.124 um^2
+[INFO GPL-0019] Util:                     0.031 %
+[INFO GPL-0020] StdInstsArea:          4499.124 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00040386 HPWL: 4589092014
+[InitialPlace]  Iter: 2 CG residual: 0.00002613 HPWL: 2265961141
+[InitialPlace]  Iter: 3 CG residual: 0.00001224 HPWL: 1921992593
+[InitialPlace]  Iter: 4 CG residual: 0.00000409 HPWL: 1654644654
+[InitialPlace]  Iter: 5 CG residual: 0.00000136 HPWL: 1573549892
+[INFO GPL-0031] FillerInit:NumGCells:   4165537
+[INFO GPL-0032] FillerInit:NumGNets:       2614
+[INFO GPL-0033] FillerInit:NumGPins:       6861
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        3.173 um^2
+[INFO GPL-0025] IdealBinArea:             3.487 um^2
+[INFO GPL-0026] IdealBinCnt:            4140991
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      1024   1024
+[INFO GPL-0029] BinSize: (  3.711  3.711 )
+[INFO GPL-0030] NumBins: 1048576
+[NesterovSolve] Iter:    1 overflow: 0.183 HPWL: 1524534372
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.05e-08
+[INFO GPL-0103] Timing-driven: weighted 261 nets.
+[NesterovSolve] Snapshot saved at iter = 0
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 4200 4200 ) DBU
+[INFO GPL-0038] TileCnt:    1904 1904
+[INFO GPL-0040] NumTiles: 3625216
+[INFO GPL-0081] TotalRouteOverflow: 6.917361378669739
+[INFO GPL-0082] OverflowTileCnt: 69
+[INFO GPL-0083] 0.5%RC: 0.4796660618954475
+[INFO GPL-0084] 1.0%RC: 0.4673034147854802
+[INFO GPL-0085] 2.0%RC: 0.46006690491463315
+[INFO GPL-0086] 5.0%RC: 0.4433133339243434
+[INFO GPL-0087] FinalRC: 0.47348472
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:   10 overflow: 0.181 HPWL: 1523666606
+[NesterovSolve] Iter:   20 overflow: 0.178 HPWL: 1522124937
+[NesterovSolve] Iter:   30 overflow: 0.173 HPWL: 1519841892
+[NesterovSolve] Iter:   40 overflow: 0.171 HPWL: 1516779572
+[NesterovSolve] Iter:   50 overflow: 0.171 HPWL: 1512934774
+[NesterovSolve] Iter:   60 overflow: 0.173 HPWL: 1507883196
+[NesterovSolve] Iter:   70 overflow: 0.172 HPWL: 1501583161
+[NesterovSolve] Iter:   80 overflow: 0.172 HPWL: 1494124075
+[NesterovSolve] Iter:   90 overflow: 0.184 HPWL: 1486665136
+[NesterovSolve] Iter:  100 overflow: 0.190 HPWL: 1480178694
+[NesterovSolve] Iter:  110 overflow: 0.199 HPWL: 1474297699
+[NesterovSolve] Iter:  120 overflow: 0.207 HPWL: 1470688522
+[NesterovSolve] Iter:  130 overflow: 0.208 HPWL: 1468685576
+[NesterovSolve] Iter:  140 overflow: 0.211 HPWL: 1467519435
+[NesterovSolve] Iter:  150 overflow: 0.211 HPWL: 1466836434
+[NesterovSolve] Iter:  160 overflow: 0.209 HPWL: 1466821480
+[NesterovSolve] Iter:  170 overflow: 0.209 HPWL: 1466823308
+[NesterovSolve] Iter:  180 overflow: 0.209 HPWL: 1466825918
+[NesterovSolve] Iter:  190 overflow: 0.209 HPWL: 1466834149
+[NesterovSolve] Iter:  200 overflow: 0.210 HPWL: 1466857790
+[NesterovSolve] Iter:  210 overflow: 0.210 HPWL: 1466908860
+[NesterovSolve] Iter:  220 overflow: 0.210 HPWL: 1466999072
+[NesterovSolve] Iter:  230 overflow: 0.210 HPWL: 1467139898
+[NesterovSolve] Iter:  240 overflow: 0.210 HPWL: 1467372743
+[NesterovSolve] Iter:  250 overflow: 0.209 HPWL: 1467977367
+[NesterovSolve] Iter:  260 overflow: 0.208 HPWL: 1469079931
+[NesterovSolve] Iter:  270 overflow: 0.205 HPWL: 1470191569
+[NesterovSolve] Iter:  280 overflow: 0.200 HPWL: 1472627643
+[NesterovSolve] Iter:  290 overflow: 0.196 HPWL: 1473692367
+[NesterovSolve] Iter:  300 overflow: 0.199 HPWL: 1470297237
+[NesterovSolve] Iter:  310 overflow: 0.202 HPWL: 1467735960
+[NesterovSolve] Iter:  320 overflow: 0.202 HPWL: 1470498158
+[NesterovSolve] Iter:  330 overflow: 0.189 HPWL: 1475307449
+[NesterovSolve] Iter:  340 overflow: 0.193 HPWL: 1468508286
+[NesterovSolve] Iter:  350 overflow: 0.188 HPWL: 1473421360
+[NesterovSolve] Iter:  360 overflow: 0.187 HPWL: 1470049936
+[NesterovSolve] Iter:  370 overflow: 0.185 HPWL: 1468994605
+[NesterovSolve] Iter:  380 overflow: 0.181 HPWL: 1469048357
+[NesterovSolve] Iter:  390 overflow: 0.177 HPWL: 1468652247
+[NesterovSolve] Iter:  400 overflow: 0.172 HPWL: 1468682972
+[NesterovSolve] Iter:  410 overflow: 0.166 HPWL: 1468891794
+[NesterovSolve] Iter:  420 overflow: 0.162 HPWL: 1469431522
+[NesterovSolve] Iter:  430 overflow: 0.153 HPWL: 1470507257
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.04e-08
+[INFO GPL-0103] Timing-driven: weighted 261 nets.
+[NesterovSolve] Iter:  440 overflow: 0.130 HPWL: 1472638024
+[NesterovSolve] Iter:  450 overflow: 0.116 HPWL: 1472720179
+[NesterovSolve] Finished with Overflow: 0.098156
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 17141 u^2 0% utilization.
+Elapsed time: 17:22.78[h:]min:sec. CPU time: user 1149.46 sys 2.74 (110%). Peak memory: 4168404KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 505 input buffers.
+[INFO RSZ-0028] Inserted 656 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 640um.
+[INFO RSZ-0034] Found 414 slew violations.
+[INFO RSZ-0036] Found 153 capacitance violations.
+[INFO RSZ-0037] Found 344 long wires.
+[INFO RSZ-0038] Inserted 1005 buffers in 754 nets.
+[INFO RSZ-0039] Resized 223 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 26265 u^2 0% utilization.
+Instance count before 48944, after 51110
+Pin count before 5699, after 10031
+Elapsed time: 0:02.87[h:]min:sec. CPU time: user 2.70 sys 0.17 (100%). Peak memory: 340284KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement      13346.6 u
+average displacement        0.3 u
+max displacement           15.7 u
+original HPWL          742193.5 u
+legalized HPWL         752461.0 u
+delta HPWL                    1 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 51110 cells, 1162 terminals, 4780 edges, 11193 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 52272, edges 4780, pins 11193
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 14000 2800 units.
+[INFO DPO-0320] Collected 48688 fixed cells.
+[INFO DPO-0318] Collected 3584 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (400140, 400400) - (7999380, 7999600)
+[INFO DPO-0310] Assigned 3584 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 1.503929e+09.
+[INFO DPO-0302] End of matching; objective is 1.501590e+09, improvement is 0.16 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 1.499765e+09.
+[INFO DPO-0307] End of global swaps; objective is 1.499765e+09, improvement is 0.12 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 1.499334e+09.
+[INFO DPO-0309] End of vertical swaps; objective is 1.499334e+09, improvement is 0.03 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 1.496732e+09.
+[INFO DPO-0305] End of reordering; objective is 1.496732e+09, improvement is 0.17 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 71680 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 71680, swaps 9608, moves 17492 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.486335e+09, Scratch cost 1.483852e+09, Incremental cost 1.483852e+09, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.483852e+09.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.17 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.167064 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 1847 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 2009 cell flips.
+[INFO DPO-0384] End of flipping; objective is 1.481906e+09, improvement is 0.83 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           752461.0 u
+Final HPWL              740871.3 u
+Delta HPWL                  -1.5 %
+
+[INFO DPL-0020] Mirrored 46 instances
+[INFO DPL-0021] HPWL before          740871.3 u
+[INFO DPL-0022] HPWL after           740856.7 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 26265 u^2 0% utilization.
+Elapsed time: 0:18.88[h:]min:sec. CPU time: user 14.64 sys 4.23 (99%). Peak memory: 7979240KB.
+cp ./results/nangate45/riscv_v_rf_ctrl/base/3_5_place_dp.odb ./results/nangate45/riscv_v_rf_ctrl/base/3_place.odb
+cp ./results/nangate45/riscv_v_rf_ctrl/base/2_floorplan.sdc ./results/nangate45/riscv_v_rf_ctrl/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 690 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 690.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from clustering size of 10 and clustering diameter of 50.
+[INFO CTS-0019]  Total number of sinks after clustering: 127.
+[INFO CTS-0024]  Normalized sink region: [(281.207, 273.334), (570.947, 571.128)].
+[INFO CTS-0025]     Width:  289.7398.
+[INFO CTS-0026]     Height: 297.7944.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 64
+    Sub-region size: 289.7398 X 148.8972
+[INFO CTS-0034]     Segment length (rounded): 74.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 32
+    Sub-region size: 144.8699 X 148.8972
+[INFO CTS-0034]     Segment length (rounded): 72.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 16
+    Sub-region size: 144.8699 X 74.4486
+[INFO CTS-0034]     Segment length (rounded): 38.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 8
+    Sub-region size: 72.4350 X 74.4486
+[INFO CTS-0034]     Segment length (rounded): 36.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 127.
+[INFO CTS-0018]     Created 166 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 8.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 9.
+[INFO CTS-0015]     Created 166 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:16, 3:27, 4:7, 5:7, 6:8, 7:22, 8:30, 9:16, 10:2, 13:1, 16:1..
+[INFO CTS-0017]     Max level of the clock tree: 4.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 797
+[INFO CTS-0100]  Leaf buffers 121
+[INFO CTS-0101]  Average sink wire length 3814.93 um
+[INFO CTS-0102]  Path depth 8 - 9
+[INFO CTS-0207]  Leaf load cells 107
+[INFO RSZ-0058] Using max wire length 640um.
+[INFO RSZ-0047] Found 1 long wires.
+[INFO RSZ-0048] Inserted 3 buffers in 1 nets.
+Placement Analysis
+---------------------------------
+total displacement       1123.2 u
+average displacement        0.0 u
+max displacement            8.9 u
+original HPWL          757311.6 u
+legalized HPWL         764807.4 u
+delta HPWL                    1 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          764807.4 u
+legalized HPWL         764807.4 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 26588 u^2 0% utilization.
+Elapsed time: 0:20.58[h:]min:sec. CPU time: user 17.81 sys 2.76 (99%). Peak memory: 8065640KB.
+cp ./results/nangate45/riscv_v_rf_ctrl/base/4_1_cts.odb ./results/nangate45/riscv_v_rf_ctrl/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/nangate45/riscv_v_rf_ctrl/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 170 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 256
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical     39892608      25249755          36.71%
+metal3     Horizontal   54399184      32623129          40.03%
+metal4     Vertical     25387936      14173612          44.17%
+metal5     Horizontal   25387936      14500860          42.88%
+metal6     Vertical     25387936      14488552          42.93%
+metal7     Horizontal    7254240       3235649          55.40%
+metal8     Vertical      7254240       3625215          50.03%
+metal9     Horizontal    3627120       3621409          0.16%
+metal10    Vertical      3627120       3621409          0.16%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 20284
+[INFO GRT-0198] Via related Steiner nodes: 294
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 28401
+[INFO GRT-0112] Final usage 3D: 449846
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2        25249755        175935            0.70%             0 /  0 /  0
+metal3        32623129        178375            0.55%             0 /  0 /  0
+metal4        14173612          6491            0.05%             0 /  0 /  0
+metal5        14500860          1336            0.01%             0 /  0 /  0
+metal6        14488552          1657            0.01%             0 /  0 /  0
+metal7         3235649           108            0.00%             0 /  0 /  0
+metal8         3625215           262            0.01%             0 /  0 /  0
+metal9         3621409           239            0.01%             0 /  0 /  0
+metal10        3621409           240            0.01%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total        115139590        364643            0.32%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 787533 um
+[INFO GRT-0014] Routed nets: 4259
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 640um.
+[INFO RSZ-0037] Found 6 long wires.
+[INFO RSZ-0038] Inserted 3 buffers in 3 nets.
+[INFO RSZ-0039] Resized 1 instances.
+Placement Analysis
+---------------------------------
+total displacement          2.1 u
+average displacement        0.0 u
+max displacement            1.7 u
+original HPWL          764811.3 u
+legalized HPWL         764812.9 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          764812.9 u
+legalized HPWL         764812.9 u
+delta HPWL                    0 %
+
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 26597 u^2 0% utilization.
+[INFO FLW-0007] clock clk period 15.000000
+[INFO FLW-0008] Clock clk period 4.422
+[INFO FLW-0009] Clock clk slack 10.345
+[INFO FLW-0011] Path endpoint count 2210
+Elapsed time: 0:43.75[h:]min:sec. CPU time: user 44.30 sys 4.05 (110%). Peak memory: 10560252KB.
+Running detail_route.tcl, stage 5_2_route
+detailed_route -output_drc ./reports/nangate45/riscv_v_rf_ctrl/base/5_route_drc.rpt -output_maze ./results/nangate45/riscv_v_rf_ctrl/base/maze.log -bottom_routing_layer metal2 -top_routing_layer metal10 -save_guide_updates -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                2000
+Number of layers:     21
+Number of macros:     135
+Number of vias:       33
+Number of viarulegen: 19
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net net505 has 224 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net1639 has 256 pins which may impact routing performance. Consider optimization.
+
+Design:                   riscv_v_rf_ctrl
+Die area:                 ( 0 0 ) ( 8000000 8000000 )
+Number of track patterns: 20
+Number of DEF vias:       0
+Number of components:     51389
+Number of terminals:      1162
+Number of snets:          2
+Number of nets:           4952
+
+[INFO DRT-0167] List of default vias:
+  Layer via2
+    default via: via2_5
+  Layer via3
+    default via: via3_2
+  Layer via4
+    default via: via4_0
+  Layer via5
+    default via: via5_0
+  Layer via6
+    default via: via6_0
+  Layer via7
+    default via: via7_0
+  Layer via8
+    default via: via8_0
+  Layer via9
+    default via: via9_0
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 41.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete active.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete metal1.
+[INFO DRT-0024]   Complete via1.
+[INFO DRT-0024]   Complete metal2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete metal3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete metal4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete metal5.
+[INFO DRT-0024]   Complete via5.
+[INFO DRT-0024]   Complete metal6.
+[INFO DRT-0024]   Complete via6.
+[INFO DRT-0024]   Complete metal7.
+[INFO DRT-0024]   Complete via7.
+[INFO DRT-0024]   Complete metal8.
+[INFO DRT-0024]   Complete via8.
+[INFO DRT-0024]   Complete metal9.
+[INFO DRT-0024]   Complete via9.
+[INFO DRT-0024]   Complete metal10.
+[INFO DRT-0033] active shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] metal1 shape region query size = 500949.
+[INFO DRT-0033] via1 shape region query size = 553860.
+[INFO DRT-0033] metal2 shape region query size = 369240.
+[INFO DRT-0033] via2 shape region query size = 553860.
+[INFO DRT-0033] metal3 shape region query size = 369240.
+[INFO DRT-0033] via3 shape region query size = 553860.
+[INFO DRT-0033] metal4 shape region query size = 202028.
+[INFO DRT-0033] via4 shape region query size = 172720.
+[INFO DRT-0033] metal5 shape region query size = 35144.
+[INFO DRT-0033] via5 shape region query size = 172720.
+[INFO DRT-0033] metal6 shape region query size = 35106.
+[INFO DRT-0033] via6 shape region query size = 69088.
+[INFO DRT-0033] metal7 shape region query size = 17526.
+[INFO DRT-0033] via7 shape region query size = 0.
+[INFO DRT-0033] metal8 shape region query size = 0.
+[INFO DRT-0033] via8 shape region query size = 0.
+[INFO DRT-0033] metal9 shape region query size = 0.
+[INFO DRT-0033] via9 shape region query size = 0.
+[INFO DRT-0033] metal10 shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 87 pins.
+[INFO DRT-0081]   Complete 37 unique inst patterns.
+[INFO DRT-0084]   Complete 2200 groups.
+#scanned instances     = 51389
+#unique  instances     = 41
+#stdCellGenAp          = 1176
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 912
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 10482
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:33, elapsed time = 00:00:04, memory = 453.88 (MB), peak = 457.53 (MB)
+
+[INFO DRT-0157] Number of guides:     33371
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 1904 STEP 4200 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 1904 STEP 4200 ;
+[INFO DRT-0028]   Complete active.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete metal1.
+[INFO DRT-0028]   Complete via1.
+[INFO DRT-0028]   Complete metal2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete metal3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete metal4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete metal5.
+[INFO DRT-0028]   Complete via5.
+[INFO DRT-0028]   Complete metal6.
+[INFO DRT-0028]   Complete via6.
+[INFO DRT-0028]   Complete metal7.
+[INFO DRT-0028]   Complete via7.
+[INFO DRT-0028]   Complete metal8.
+[INFO DRT-0028]   Complete via8.
+[INFO DRT-0028]   Complete metal9.
+[INFO DRT-0028]   Complete via9.
+[INFO DRT-0028]   Complete metal10.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete active (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete metal1 (guide).
+[INFO DRT-0035]   Complete via1 (guide).
+[INFO DRT-0035]   Complete metal2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete metal3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete metal4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete metal5 (guide).
+[INFO DRT-0035]   Complete via5 (guide).
+[INFO DRT-0035]   Complete metal6 (guide).
+[INFO DRT-0035]   Complete via6 (guide).
+[INFO DRT-0035]   Complete metal7 (guide).
+[INFO DRT-0035]   Complete via7 (guide).
+[INFO DRT-0035]   Complete metal8 (guide).
+[INFO DRT-0035]   Complete via8 (guide).
+[INFO DRT-0035]   Complete metal9 (guide).
+[INFO DRT-0035]   Complete via9 (guide).
+[INFO DRT-0035]   Complete metal10 (guide).
+[INFO DRT-0036] active guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] metal1 guide region query size = 9145.
+[INFO DRT-0036] via1 guide region query size = 0.
+[INFO DRT-0036] metal2 guide region query size = 8738.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] metal3 guide region query size = 5390.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] metal4 guide region query size = 1493.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] metal5 guide region query size = 1282.
+[INFO DRT-0036] via5 guide region query size = 0.
+[INFO DRT-0036] metal6 guide region query size = 622.
+[INFO DRT-0036] via6 guide region query size = 0.
+[INFO DRT-0036] metal7 guide region query size = 26.
+[INFO DRT-0036] via7 guide region query size = 0.
+[INFO DRT-0036] metal8 guide region query size = 19.
+[INFO DRT-0036] via8 guide region query size = 0.
+[INFO DRT-0036] metal9 guide region query size = 12.
+[INFO DRT-0036] via9 guide region query size = 0.
+[INFO DRT-0036] metal10 guide region query size = 5.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 10877 vertical wires in 39 frboxes and 15855 horizontal wires in 39 frboxes.
+[INFO DRT-0186] Done with 1936 vertical wires in 39 frboxes and 1662 horizontal wires in 39 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:09, elapsed time = 00:00:01, memory = 528.63 (MB), peak = 528.63 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 763.38 (MB), peak = 763.38 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 939.00 (MB).
+    Completing 20% with 15 violations.
+    elapsed time = 00:00:04, memory = 1008.63 (MB).
+    Completing 30% with 15 violations.
+    elapsed time = 00:00:05, memory = 1008.75 (MB).
+    Completing 40% with 49 violations.
+    elapsed time = 00:00:07, memory = 1037.25 (MB).
+    Completing 50% with 74 violations.
+    elapsed time = 00:00:11, memory = 1046.00 (MB).
+    Completing 60% with 74 violations.
+    elapsed time = 00:00:11, memory = 1046.00 (MB).
+    Completing 70% with 83 violations.
+    elapsed time = 00:00:16, memory = 1052.13 (MB).
+    Completing 80% with 152 violations.
+    elapsed time = 00:00:19, memory = 1070.13 (MB).
+    Completing 90% with 184 violations.
+    elapsed time = 00:00:21, memory = 1091.50 (MB).
+    Completing 100% with 281 violations.
+    elapsed time = 00:00:27, memory = 1110.63 (MB).
+[INFO DRT-0199]   Number of violations = 387.
+Viol/Layer      metal1   via1 metal2 metal3   via4 metal5
+Cut Spacing          0      0      0      0      4      0
+Metal Spacing       10      0     21      0      0      0
+Recheck              0      0     87     18      0      1
+Short                2      1    203     40      0      0
+[INFO DRT-0267] cpu time = 00:03:12, elapsed time = 00:00:27, memory = 1247.00 (MB), peak = 1247.00 (MB)
+Total wire length = 768666 um.
+Total wire length on LAYER metal1 = 0 um.
+Total wire length on LAYER metal2 = 370586 um.
+Total wire length on LAYER metal3 = 374122 um.
+Total wire length on LAYER metal4 = 13601 um.
+Total wire length on LAYER metal5 = 3912 um.
+Total wire length on LAYER metal6 = 4671 um.
+Total wire length on LAYER metal7 = 222 um.
+Total wire length on LAYER metal8 = 547 um.
+Total wire length on LAYER metal9 = 504 um.
+Total wire length on LAYER metal10 = 499 um.
+Total number of vias = 23993.
+Up-via summary (total 23993):
+
+----------------
+ active        0
+ metal1     9793
+ metal2    10509
+ metal3     1652
+ metal4     1312
+ metal5      653
+ metal6       28
+ metal7       22
+ metal8       15
+ metal9        9
+----------------
+           23993
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 387 violations.
+    elapsed time = 00:00:00, memory = 1247.00 (MB).
+    Completing 20% with 347 violations.
+    elapsed time = 00:00:04, memory = 1247.00 (MB).
+    Completing 30% with 307 violations.
+    elapsed time = 00:00:06, memory = 1247.00 (MB).
+    Completing 40% with 286 violations.
+    elapsed time = 00:00:09, memory = 1247.00 (MB).
+    Completing 50% with 261 violations.
+    elapsed time = 00:00:12, memory = 1247.00 (MB).
+    Completing 60% with 197 violations.
+    elapsed time = 00:00:13, memory = 1247.00 (MB).
+    Completing 70% with 178 violations.
+    elapsed time = 00:00:17, memory = 1250.38 (MB).
+    Completing 80% with 162 violations.
+    elapsed time = 00:00:20, memory = 1267.25 (MB).
+    Completing 90% with 135 violations.
+    elapsed time = 00:00:22, memory = 1267.25 (MB).
+    Completing 100% with 67 violations.
+    elapsed time = 00:00:27, memory = 1271.13 (MB).
+[INFO DRT-0199]   Number of violations = 67.
+Viol/Layer      metal2 metal3   via4
+Cut Spacing          0      0      1
+Metal Spacing       15      0      0
+Short               47      4      0
+[INFO DRT-0267] cpu time = 00:03:21, elapsed time = 00:00:27, memory = 1277.13 (MB), peak = 1277.13 (MB)
+Total wire length = 768430 um.
+Total wire length on LAYER metal1 = 0 um.
+Total wire length on LAYER metal2 = 370508 um.
+Total wire length on LAYER metal3 = 374087 um.
+Total wire length on LAYER metal4 = 13599 um.
+Total wire length on LAYER metal5 = 3828 um.
+Total wire length on LAYER metal6 = 4638 um.
+Total wire length on LAYER metal7 = 217 um.
+Total wire length on LAYER metal8 = 547 um.
+Total wire length on LAYER metal9 = 504 um.
+Total wire length on LAYER metal10 = 499 um.
+Total number of vias = 24087.
+Up-via summary (total 24087):
+
+----------------
+ active        0
+ metal1     9792
+ metal2    10597
+ metal3     1661
+ metal4     1308
+ metal5      655
+ metal6       28
+ metal7       22
+ metal8       15
+ metal9        9
+----------------
+           24087
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 67 violations.
+    elapsed time = 00:00:00, memory = 1277.13 (MB).
+    Completing 20% with 66 violations.
+    elapsed time = 00:00:01, memory = 1277.13 (MB).
+    Completing 30% with 57 violations.
+    elapsed time = 00:00:01, memory = 1122.74 (MB).
+    Completing 40% with 57 violations.
+    elapsed time = 00:00:01, memory = 1122.74 (MB).
+    Completing 50% with 57 violations.
+    elapsed time = 00:00:01, memory = 1122.74 (MB).
+    Completing 60% with 41 violations.
+    elapsed time = 00:00:02, memory = 1122.74 (MB).
+    Completing 70% with 34 violations.
+    elapsed time = 00:00:03, memory = 1122.74 (MB).
+    Completing 80% with 33 violations.
+    elapsed time = 00:00:03, memory = 1122.74 (MB).
+    Completing 90% with 33 violations.
+    elapsed time = 00:00:03, memory = 1122.74 (MB).
+    Completing 100% with 33 violations.
+    elapsed time = 00:00:03, memory = 1122.74 (MB).
+[INFO DRT-0199]   Number of violations = 33.
+Viol/Layer      metal2 metal3
+Metal Spacing        2      1
+Short               29      1
+[INFO DRT-0267] cpu time = 00:00:08, elapsed time = 00:00:03, memory = 1275.99 (MB), peak = 1277.13 (MB)
+Total wire length = 768406 um.
+Total wire length on LAYER metal1 = 0 um.
+Total wire length on LAYER metal2 = 370462 um.
+Total wire length on LAYER metal3 = 374048 um.
+Total wire length on LAYER metal4 = 13600 um.
+Total wire length on LAYER metal5 = 3844 um.
+Total wire length on LAYER metal6 = 4681 um.
+Total wire length on LAYER metal7 = 219 um.
+Total wire length on LAYER metal8 = 546 um.
+Total wire length on LAYER metal9 = 504 um.
+Total wire length on LAYER metal10 = 499 um.
+Total number of vias = 24047.
+Up-via summary (total 24047):
+
+----------------
+ active        0
+ metal1     9792
+ metal2    10558
+ metal3     1658
+ metal4     1310
+ metal5      655
+ metal6       28
+ metal7       22
+ metal8       15
+ metal9        9
+----------------
+           24047
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 33 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 20% with 33 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 30% with 33 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 40% with 33 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 50% with 30 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 60% with 30 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 70% with 30 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 80% with 23 violations.
+    elapsed time = 00:00:00, memory = 1275.99 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:01, memory = 1275.99 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:01, memory = 1275.99 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:01, memory = 1128.70 (MB), peak = 1277.13 (MB)
+Total wire length = 768400 um.
+Total wire length on LAYER metal1 = 0 um.
+Total wire length on LAYER metal2 = 370374 um.
+Total wire length on LAYER metal3 = 374059 um.
+Total wire length on LAYER metal4 = 13662 um.
+Total wire length on LAYER metal5 = 3846 um.
+Total wire length on LAYER metal6 = 4688 um.
+Total wire length on LAYER metal7 = 219 um.
+Total wire length on LAYER metal8 = 546 um.
+Total wire length on LAYER metal9 = 504 um.
+Total wire length on LAYER metal10 = 499 um.
+Total number of vias = 24078.
+Up-via summary (total 24078):
+
+----------------
+ active        0
+ metal1     9792
+ metal2    10566
+ metal3     1681
+ metal4     1310
+ metal5      655
+ metal6       28
+ metal7       22
+ metal8       15
+ metal9        9
+----------------
+           24078
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 768400 um.
+Total wire length on LAYER metal1 = 0 um.
+Total wire length on LAYER metal2 = 370374 um.
+Total wire length on LAYER metal3 = 374059 um.
+Total wire length on LAYER metal4 = 13662 um.
+Total wire length on LAYER metal5 = 3846 um.
+Total wire length on LAYER metal6 = 4688 um.
+Total wire length on LAYER metal7 = 219 um.
+Total wire length on LAYER metal8 = 546 um.
+Total wire length on LAYER metal9 = 504 um.
+Total wire length on LAYER metal10 = 499 um.
+Total number of vias = 24078.
+Up-via summary (total 24078):
+
+----------------
+ active        0
+ metal1     9792
+ metal2    10566
+ metal3     1681
+ metal4     1310
+ metal5      655
+ metal6       28
+ metal7       22
+ metal8       15
+ metal9        9
+----------------
+           24078
+
+
+[INFO DRT-0267] cpu time = 00:06:45, elapsed time = 00:00:59, memory = 1128.70 (MB), peak = 1277.13 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Elapsed time: 1:11.09[h:]min:sec. CPU time: user 455.52 sys 1.02 (642%). Peak memory: 1307780KB.
+Running fillcell.tcl, stage 5_3_fillcell
+filler_placement FILLCELL_X1 FILLCELL_X2 FILLCELL_X4 FILLCELL_X8 FILLCELL_X16 FILLCELL_X32
+[INFO DPL-0001] Placed 1808905 filler instances.
+Elapsed time: 0:23.96[h:]min:sec. CPU time: user 19.21 sys 4.74 (99%). Peak memory: 8834240KB.
+cp ./results/nangate45/riscv_v_rf_ctrl/base/5_3_fillcell.odb ./results/nangate45/riscv_v_rf_ctrl/base/5_route.odb
+cp ./results/nangate45/riscv_v_rf_ctrl/base/4_cts.sdc ./results/nangate45/riscv_v_rf_ctrl/base/5_route.sdc
+Running density_fill.tcl, stage 6_1_fill
+exec cp ./results/nangate45/riscv_v_rf_ctrl/base/5_route.odb ./results/nangate45/riscv_v_rf_ctrl/base/6_1_fill.odb
+Elapsed time: 0:03.53[h:]min:sec. CPU time: user 2.83 sys 0.70 (100%). Peak memory: 966980KB.
+cp ./results/nangate45/riscv_v_rf_ctrl/base/5_route.sdc ./results/nangate45/riscv_v_rf_ctrl/base/6_1_fill.sdc
+Running final_report.tcl, stage 6_report
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation riscv_v_rf_ctrl (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 16139 rc segments
+[INFO RCX-0439] Coupling Cap extraction riscv_v_rf_ctrl ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 4% of 24144 wires extracted
+[INFO RCX-0442] 20% of 24144 wires extracted
+[INFO RCX-0442] 28% of 24144 wires extracted
+[INFO RCX-0442] 33% of 24144 wires extracted
+[INFO RCX-0442] 38% of 24144 wires extracted
+[INFO RCX-0442] 55% of 24144 wires extracted
+[INFO RCX-0442] 65% of 24144 wires extracted
+[INFO RCX-0442] 75% of 24144 wires extracted
+[INFO RCX-0442] 80% of 24144 wires extracted
+[INFO RCX-0442] 100% of 24144 wires extracted
+[INFO RCX-0045] Extract 4952 nets, 20401 rsegs, 20401 caps, 28557 ccs
+[INFO RCX-0443] 4952 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Supply voltage   : 1.10e+00 V
+Worstcase voltage: 1.10e+00 V
+Average voltage  : 1.10e+00 V
+Average IR drop  : 8.87e-06 V
+Worstcase IR drop: 4.53e-04 V
+Percentage drop  : 0.04 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 8.38e-04 V
+Average voltage  : 1.11e-05 V
+Average IR drop  : 1.11e-05 V
+Worstcase IR drop: 8.38e-04 V
+Percentage drop  : 0.08 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                           1808905 14411161.27
+  Tap cell                              47526   12641.92
+  Clock buffer                            221     280.36
+  Timing Repair Buffer                   2169    8992.13
+  Inverter                                  2      17.56
+  Clock inverter                           55      42.83
+  Sequential cell                         690    3297.60
+  Multi-Input combinational cell          726    1324.41
+  Total                               1860294 14437758.08
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 26597 u^2 0% utilization.
+Elapsed time: 5:06.67[h:]min:sec. CPU time: user 301.57 sys 5.05 (99%). Peak memory: 6767756KB.
+cp ./results/nangate45/riscv_v_rf_ctrl/base/5_route.sdc ./results/nangate45/riscv_v_rf_ctrl/base/6_final.sdc
+cp /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef ./objects/nangate45/riscv_v_rf_ctrl/base/klayout_tech.lef
+sed 's,<lef-files>.*</lef-files>,<lef-files>../../../../../tools/openROAD/flow/objects/nangate45/riscv_v_rf_ctrl/base/klayout_tech.lef</lef-files> <lef-files>../../../../../tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef</lef-files>,g' /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/FreePDK45.lyt > ./objects/nangate45/riscv_v_rf_ctrl/base/klayout.lyt
+sed -i 's,<map-file>.*</map-file>,<map-file>/home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/*map</map-file>,g' ./objects/nangate45/riscv_v_rf_ctrl/base/klayout.lyt
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' stdbuf -o L /usr/bin/klayout -zz -rd design_name=riscv_v_rf_ctrl \
+        -rd in_def=./results/nangate45/riscv_v_rf_ctrl/base/6_final.def \
+        -rd in_files="/home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/gds/NangateOpenCellLibrary.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/nangate45/riscv_v_rf_ctrl/base/6_1_merged.gds \
+        -rd tech_file=./objects/nangate45/riscv_v_rf_ctrl/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/ubuntu/mbucio/tools/openROAD/flow/util/def2stream.py) 2>&1 | tee ./logs/nangate45/riscv_v_rf_ctrl/base/6_1_merge.log
+[INFO] Reporting cells prior to loading DEF ...
+[INFO] Reading DEF ...
+[INFO] Clearing cells...
+[INFO] Merging GDS/OAS files...
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/gds/NangateOpenCellLibrary.gds
+[INFO] Copying toplevel cell 'riscv_v_rf_ctrl'
+[INFO] Checking for missing cell from GDS/OAS...
+[INFO] Found GDS_ALLOW_EMPTY variable.
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] Checking for orphan cell in the final layout...
+[INFO] No orphan cells
+[INFO] Writing out GDS/OAS './results/nangate45/riscv_v_rf_ctrl/base/6_1_merged.gds'
+Elapsed time: 0:23.46[h:]min:sec. CPU time: user 22.06 sys 1.39 (99%). Peak memory: 3723856KB.
+cp results/nangate45/riscv_v_rf_ctrl/base/6_1_merged.gds results/nangate45/riscv_v_rf_ctrl/base/6_final.gds
+./logs/nangate45/riscv_v_rf_ctrl/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                    1             42
+1_1_yosys_canonicalize                       0             45
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                                0            130
+2_2_floorplan_io                             0            123
+2_3_floorplan_tdms                           0             97
+2_4_floorplan_macro                          0            121
+2_5_floorplan_tapcell                        0            140
+2_6_floorplan_pdn                            4            213
+3_1_place_gp_skip_io                      1006           1603
+3_2_place_iop                                0            196
+3_3_place_gp                              1042           4070
+3_4_place_resized                            2            332
+3_5_place_dp                                18           7792
+4_1_cts                                     20           7876
+5_1_grt                                     43          10312
+5_2_route                                   71           1277
+5_3_fillcell                                23           8627
+6_1_fill                                     3            944
+6_1_merge                                   23           3636
+6_report                                   306           6609
+Total                                     2562          10312

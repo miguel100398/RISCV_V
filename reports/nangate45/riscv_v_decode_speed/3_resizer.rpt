@@ -1,0 +1,574 @@
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 7.24
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: v_csr_ctrl.stage_vl.internal_data[13]$_DFFE_PP0P_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    5.91    0.00    0.00    3.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    3.00 v input260/A (BUF_X8)
+     1   54.04    0.01    0.02    3.02 v input260/Z (BUF_X8)
+                                         net260 (net)
+                  0.02    0.02    3.04 v _30491_/A (INV_X32)
+   121  282.50    0.01    0.02    3.05 ^ _30491_/ZN (INV_X32)
+                                         _00269_ (net)
+                  0.12    0.10    3.15 ^ v_csr_ctrl.stage_vl.internal_data[13]$_DFFE_PP0P_/RN (DFFR_X1)
+                                  3.15   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ v_csr_ctrl.stage_vl.internal_data[13]$_DFFE_PP0P_/CK (DFFR_X1)
+                          0.33    0.33   library removal time
+                                  0.33   data required time
+-----------------------------------------------------------------------------
+                                  0.33   data required time
+                                 -3.15   data arrival time
+-----------------------------------------------------------------------------
+                                  2.82   slack (MET)
+
+
+Startpoint: v_rf.regs[1437]$_DFF_P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: v_rf.regs[1437]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ v_rf.regs[1437]$_DFF_P_/CK (DFF_X1)
+     5    5.68    0.01    0.09    0.09 v v_rf.regs[1437]$_DFF_P_/Q (DFF_X1)
+                                         v_rf.regs[1437] (net)
+                  0.01    0.00    0.09 v _50966_/A (INV_X1)
+     1    1.75    0.01    0.01    0.10 ^ _50966_/ZN (INV_X1)
+                                         _20094_ (net)
+                  0.01    0.00    0.10 ^ _50968_/A1 (OAI22_X1)
+     1    1.12    0.00    0.01    0.11 v _50968_/ZN (OAI22_X1)
+                                         v_rf.regs_nxt[1437] (net)
+                  0.00    0.00    0.11 v v_rf.regs[1437]$_DFF_P_/D (DFF_X1)
+                                  0.11   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ v_rf.regs[1437]$_DFF_P_/CK (DFF_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.11   data arrival time
+-----------------------------------------------------------------------------
+                                  0.11   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: v_rf_ctrl.stage_rf_wr_en.internal_data[28]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    5.91    0.00    0.00    3.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    3.00 v input260/A (BUF_X8)
+     1   54.04    0.01    0.02    3.02 v input260/Z (BUF_X8)
+                                         net260 (net)
+                  0.02    0.02    3.04 v _30491_/A (INV_X32)
+   121  282.50    0.01    0.02    3.05 ^ _30491_/ZN (INV_X32)
+                                         _00269_ (net)
+                  0.08    0.06    3.11 ^ max_length3051/A (BUF_X32)
+    13   73.99    0.01    0.03    3.14 ^ max_length3051/Z (BUF_X32)
+                                         net3051 (net)
+                  0.05    0.04    3.18 ^ wire3050/A (BUF_X16)
+     1   60.41    0.01    0.03    3.21 ^ wire3050/Z (BUF_X16)
+                                         net3050 (net)
+                  0.05    0.04    3.25 ^ wire3049/A (BUF_X32)
+    32  139.29    0.01    0.03    3.28 ^ wire3049/Z (BUF_X32)
+                                         net3049 (net)
+                  0.13    0.10    3.39 ^ max_length3048/A (BUF_X8)
+     2   65.89    0.02    0.04    3.42 ^ max_length3048/Z (BUF_X8)
+                                         net3048 (net)
+                  0.07    0.06    3.48 ^ wire3047/A (BUF_X16)
+     9   83.19    0.01    0.03    3.52 ^ wire3047/Z (BUF_X16)
+                                         net3047 (net)
+                  0.07    0.05    3.57 ^ wire3046/A (BUF_X8)
+     1   44.66    0.01    0.03    3.60 ^ wire3046/Z (BUF_X8)
+                                         net3046 (net)
+                  0.04    0.03    3.63 ^ wire3045/A (BUF_X16)
+     1   80.89    0.01    0.03    3.66 ^ wire3045/Z (BUF_X16)
+                                         net3045 (net)
+                  0.10    0.08    3.75 ^ wire3044/A (BUF_X32)
+    18   96.27    0.01    0.03    3.77 ^ wire3044/Z (BUF_X32)
+                                         net3044 (net)
+                  0.12    0.10    3.87 ^ v_rf_ctrl.stage_rf_wr_en.internal_data[28]$_DFFE_PP0P_/RN (DFFR_X1)
+                                  3.87   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                                 15.00 ^ v_rf_ctrl.stage_rf_wr_en.internal_data[28]$_DFFE_PP0P_/CK (DFFR_X1)
+                          0.03   15.03   library recovery time
+                                 15.03   data required time
+-----------------------------------------------------------------------------
+                                 15.03   data required time
+                                 -3.87   data arrival time
+-----------------------------------------------------------------------------
+                                 11.16   slack (MET)
+
+
+Startpoint: syn_addr[1] (input port clocked by clk)
+Endpoint: syn_data[110] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1   23.72    0.00    0.00    3.00 v syn_addr[1] (in)
+                                         syn_addr[1] (net)
+                  0.00    0.00    3.00 v input262/A (BUF_X32)
+     1   60.57    0.00    0.02    3.02 v input262/Z (BUF_X32)
+                                         net262 (net)
+                  0.06    0.05    3.07 v wire3120/A (BUF_X16)
+     1   68.56    0.01    0.05    3.12 v wire3120/Z (BUF_X16)
+                                         net3120 (net)
+                  0.07    0.06    3.18 v wire3119/A (BUF_X32)
+   145  362.59    0.01    0.05    3.22 v wire3119/Z (BUF_X32)
+                                         net3119 (net)
+                  0.08    0.06    3.29 v max_length3118/A (BUF_X32)
+    81  224.69    0.01    0.05    3.34 v max_length3118/Z (BUF_X32)
+                                         net3118 (net)
+                  0.08    0.07    3.41 v wire3117/A (BUF_X32)
+    52  191.65    0.01    0.05    3.45 v wire3117/Z (BUF_X32)
+                                         net3117 (net)
+                  0.17    0.14    3.59 v max_length3116/A (BUF_X32)
+    95  232.42    0.01    0.07    3.67 v max_length3116/Z (BUF_X32)
+                                         net3116 (net)
+                  0.09    0.07    3.74 v max_length3115/A (BUF_X32)
+   129  342.81    0.01    0.05    3.79 v max_length3115/Z (BUF_X32)
+                                         net3115 (net)
+                  0.13    0.10    3.90 v max_length3112/A (BUF_X32)
+   172  367.68    0.01    0.06    3.96 v max_length3112/Z (BUF_X32)
+                                         net3112 (net)
+                  0.07    0.05    4.01 v _41887_/S (MUX2_X1)
+     1    0.96    0.01    0.07    4.08 v _41887_/Z (MUX2_X1)
+                                         _11616_ (net)
+                  0.01    0.00    4.08 v _41888_/B (MUX2_X1)
+     1    1.23    0.01    0.06    4.14 v _41888_/Z (MUX2_X1)
+                                         _11617_ (net)
+                  0.01    0.00    4.14 v _41892_/A (MUX2_X1)
+     1    1.11    0.01    0.06    4.20 v _41892_/Z (MUX2_X1)
+                                         _11621_ (net)
+                  0.01    0.00    4.20 v _41893_/B (MUX2_X1)
+     1    1.67    0.01    0.06    4.26 v _41893_/Z (MUX2_X1)
+                                         _11622_ (net)
+                  0.01    0.00    4.26 v _41894_/B (MUX2_X2)
+     1   57.26    0.03    0.08    4.34 v _41894_/Z (MUX2_X2)
+                                         net982 (net)
+                  0.07    0.05    4.40 v wire1362/A (BUF_X16)
+     1   53.18    0.01    0.05    4.44 v wire1362/Z (BUF_X16)
+                                         net1362 (net)
+                  0.05    0.04    4.48 v wire1361/A (BUF_X16)
+     1   77.70    0.01    0.04    4.53 v wire1361/Z (BUF_X16)
+                                         net1361 (net)
+                  0.10    0.08    4.60 v wire1360/A (BUF_X32)
+     1   56.18    0.01    0.05    4.66 v wire1360/Z (BUF_X32)
+                                         net1360 (net)
+                  0.06    0.05    4.70 v output982/A (BUF_X2)
+     1   17.88    0.01    0.05    4.76 v output982/Z (BUF_X2)
+                                         syn_data[110] (net)
+                  0.01    0.01    4.76 v syn_data[110] (out)
+                                  4.76   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -4.76   data arrival time
+-----------------------------------------------------------------------------
+                                  7.24   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: v_rf_ctrl.stage_rf_wr_en.internal_data[28]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    5.91    0.00    0.00    3.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    3.00 v input260/A (BUF_X8)
+     1   54.04    0.01    0.02    3.02 v input260/Z (BUF_X8)
+                                         net260 (net)
+                  0.02    0.02    3.04 v _30491_/A (INV_X32)
+   121  282.50    0.01    0.02    3.05 ^ _30491_/ZN (INV_X32)
+                                         _00269_ (net)
+                  0.08    0.06    3.11 ^ max_length3051/A (BUF_X32)
+    13   73.99    0.01    0.03    3.14 ^ max_length3051/Z (BUF_X32)
+                                         net3051 (net)
+                  0.05    0.04    3.18 ^ wire3050/A (BUF_X16)
+     1   60.41    0.01    0.03    3.21 ^ wire3050/Z (BUF_X16)
+                                         net3050 (net)
+                  0.05    0.04    3.25 ^ wire3049/A (BUF_X32)
+    32  139.29    0.01    0.03    3.28 ^ wire3049/Z (BUF_X32)
+                                         net3049 (net)
+                  0.13    0.10    3.39 ^ max_length3048/A (BUF_X8)
+     2   65.89    0.02    0.04    3.42 ^ max_length3048/Z (BUF_X8)
+                                         net3048 (net)
+                  0.07    0.06    3.48 ^ wire3047/A (BUF_X16)
+     9   83.19    0.01    0.03    3.52 ^ wire3047/Z (BUF_X16)
+                                         net3047 (net)
+                  0.07    0.05    3.57 ^ wire3046/A (BUF_X8)
+     1   44.66    0.01    0.03    3.60 ^ wire3046/Z (BUF_X8)
+                                         net3046 (net)
+                  0.04    0.03    3.63 ^ wire3045/A (BUF_X16)
+     1   80.89    0.01    0.03    3.66 ^ wire3045/Z (BUF_X16)
+                                         net3045 (net)
+                  0.10    0.08    3.75 ^ wire3044/A (BUF_X32)
+    18   96.27    0.01    0.03    3.77 ^ wire3044/Z (BUF_X32)
+                                         net3044 (net)
+                  0.12    0.10    3.87 ^ v_rf_ctrl.stage_rf_wr_en.internal_data[28]$_DFFE_PP0P_/RN (DFFR_X1)
+                                  3.87   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                                 15.00 ^ v_rf_ctrl.stage_rf_wr_en.internal_data[28]$_DFFE_PP0P_/CK (DFFR_X1)
+                          0.03   15.03   library recovery time
+                                 15.03   data required time
+-----------------------------------------------------------------------------
+                                 15.03   data required time
+                                 -3.87   data arrival time
+-----------------------------------------------------------------------------
+                                 11.16   slack (MET)
+
+
+Startpoint: syn_addr[1] (input port clocked by clk)
+Endpoint: syn_data[110] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1   23.72    0.00    0.00    3.00 v syn_addr[1] (in)
+                                         syn_addr[1] (net)
+                  0.00    0.00    3.00 v input262/A (BUF_X32)
+     1   60.57    0.00    0.02    3.02 v input262/Z (BUF_X32)
+                                         net262 (net)
+                  0.06    0.05    3.07 v wire3120/A (BUF_X16)
+     1   68.56    0.01    0.05    3.12 v wire3120/Z (BUF_X16)
+                                         net3120 (net)
+                  0.07    0.06    3.18 v wire3119/A (BUF_X32)
+   145  362.59    0.01    0.05    3.22 v wire3119/Z (BUF_X32)
+                                         net3119 (net)
+                  0.08    0.06    3.29 v max_length3118/A (BUF_X32)
+    81  224.69    0.01    0.05    3.34 v max_length3118/Z (BUF_X32)
+                                         net3118 (net)
+                  0.08    0.07    3.41 v wire3117/A (BUF_X32)
+    52  191.65    0.01    0.05    3.45 v wire3117/Z (BUF_X32)
+                                         net3117 (net)
+                  0.17    0.14    3.59 v max_length3116/A (BUF_X32)
+    95  232.42    0.01    0.07    3.67 v max_length3116/Z (BUF_X32)
+                                         net3116 (net)
+                  0.09    0.07    3.74 v max_length3115/A (BUF_X32)
+   129  342.81    0.01    0.05    3.79 v max_length3115/Z (BUF_X32)
+                                         net3115 (net)
+                  0.13    0.10    3.90 v max_length3112/A (BUF_X32)
+   172  367.68    0.01    0.06    3.96 v max_length3112/Z (BUF_X32)
+                                         net3112 (net)
+                  0.07    0.05    4.01 v _41887_/S (MUX2_X1)
+     1    0.96    0.01    0.07    4.08 v _41887_/Z (MUX2_X1)
+                                         _11616_ (net)
+                  0.01    0.00    4.08 v _41888_/B (MUX2_X1)
+     1    1.23    0.01    0.06    4.14 v _41888_/Z (MUX2_X1)
+                                         _11617_ (net)
+                  0.01    0.00    4.14 v _41892_/A (MUX2_X1)
+     1    1.11    0.01    0.06    4.20 v _41892_/Z (MUX2_X1)
+                                         _11621_ (net)
+                  0.01    0.00    4.20 v _41893_/B (MUX2_X1)
+     1    1.67    0.01    0.06    4.26 v _41893_/Z (MUX2_X1)
+                                         _11622_ (net)
+                  0.01    0.00    4.26 v _41894_/B (MUX2_X2)
+     1   57.26    0.03    0.08    4.34 v _41894_/Z (MUX2_X2)
+                                         net982 (net)
+                  0.07    0.05    4.40 v wire1362/A (BUF_X16)
+     1   53.18    0.01    0.05    4.44 v wire1362/Z (BUF_X16)
+                                         net1362 (net)
+                  0.05    0.04    4.48 v wire1361/A (BUF_X16)
+     1   77.70    0.01    0.04    4.53 v wire1361/Z (BUF_X16)
+                                         net1361 (net)
+                  0.10    0.08    4.60 v wire1360/A (BUF_X32)
+     1   56.18    0.01    0.05    4.66 v wire1360/Z (BUF_X32)
+                                         net1360 (net)
+                  0.06    0.05    4.70 v output982/A (BUF_X2)
+     1   17.88    0.01    0.05    4.76 v output982/Z (BUF_X2)
+                                         syn_data[110] (net)
+                  0.01    0.01    4.76 v syn_data[110] (out)
+                                  4.76   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -4.76   data arrival time
+-----------------------------------------------------------------------------
+                                  7.24   slack (MET)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+0.07272645086050034
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3663
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.15764977037906647
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+63.32400131225586
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.0025
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+resizer report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: v_rf_ctrl.stage_rf_wr_addr.internal_data[15]$_DFFE_PN_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: v_rf.regs[1353]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ v_rf_ctrl.stage_rf_wr_addr.internal_data[15]$_DFFE_PN_/CK (DFF_X2)
+   0.20    0.20 ^ v_rf_ctrl.stage_rf_wr_addr.internal_data[15]$_DFFE_PN_/Q (DFF_X2)
+   0.06    0.26 ^ wire2482/Z (BUF_X8)
+   0.06    0.32 ^ max_cap2481/Z (BUF_X16)
+   0.02    0.34 ^ max_cap2480/Z (BUF_X32)
+   0.03    0.37 ^ max_cap2479/Z (BUF_X16)
+   0.09    0.46 ^ max_cap2474/Z (BUF_X16)
+   0.05    0.51 ^ wire2473/Z (BUF_X16)
+   0.05    0.56 v _46045_/ZN (NAND2_X4)
+   0.04    0.60 v max_length1805/Z (BUF_X16)
+   0.06    0.65 v wire1804/Z (BUF_X16)
+   0.11    0.76 v wire1803/Z (BUF_X16)
+   0.14    0.90 v max_length1802/Z (BUF_X16)
+   0.17    1.07 v _50070_/ZN (OR4_X2)
+   0.07    1.14 ^ _50071_/ZN (NAND2_X4)
+   0.06    1.20 v _50518_/ZN (NAND2_X4)
+   0.04    1.24 v max_length1408/Z (BUF_X16)
+   0.07    1.31 v wire1405/Z (BUF_X16)
+   0.14    1.45 v max_length1404/Z (BUF_X16)
+   0.05    1.50 v wire1403/Z (BUF_X16)
+   0.06    1.57 ^ _50744_/ZN (NAND2_X1)
+   0.02    1.59 v _50746_/ZN (OAI21_X1)
+   0.00    1.59 v v_rf.regs[1353]$_DFF_P_/D (DFF_X1)
+           1.59   data arrival time
+
+  15.00   15.00   clock clk (rise edge)
+   0.00   15.00   clock network delay (ideal)
+   0.00   15.00   clock reconvergence pessimism
+          15.00 ^ v_rf.regs[1353]$_DFF_P_/CK (DFF_X1)
+  -0.05   14.95   library setup time
+          14.95   data required time
+---------------------------------------------------------
+          14.95   data required time
+          -1.59   data arrival time
+---------------------------------------------------------
+          13.37   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: v_rf.regs[1437]$_DFF_P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: v_rf.regs[1437]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ v_rf.regs[1437]$_DFF_P_/CK (DFF_X1)
+   0.09    0.09 v v_rf.regs[1437]$_DFF_P_/Q (DFF_X1)
+   0.01    0.10 ^ _50966_/ZN (INV_X1)
+   0.01    0.11 v _50968_/ZN (OAI22_X1)
+   0.00    0.11 v v_rf.regs[1437]$_DFF_P_/D (DFF_X1)
+           0.11   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00   clock reconvergence pessimism
+           0.00 ^ v_rf.regs[1437]$_DFF_P_/CK (DFF_X1)
+   0.00    0.00   library hold time
+           0.00   data required time
+---------------------------------------------------------
+           0.00   data required time
+          -0.11   data arrival time
+---------------------------------------------------------
+           0.11   slack (MET)
+
+
+
+==========================================================================
+resizer critical path target clock latency max path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer critical path target clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+4.7640
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+7.2360
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+151.889169
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.27e-03   1.72e-03   4.08e-04   6.40e-03  31.4%
+Combinational          7.21e-03   5.08e-03   1.69e-03   1.40e-02  68.6%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.15e-02   6.80e-03   2.09e-03   2.04e-02 100.0%
+                          56.4%      33.4%      10.3%

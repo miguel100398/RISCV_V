@@ -1,0 +1,24 @@
+./logs/gf180/riscv_v_csr_ctrl/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                    1             65
+1_1_yosys_canonicalize                       0             73
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                                0            141
+2_2_floorplan_io                             0            137
+2_3_floorplan_tdms                           0             98
+2_4_floorplan_macro                          0            137
+2_5_floorplan_tapcell                        0            137
+2_6_floorplan_pdn                            2            164
+3_1_place_gp_skip_io                         3            171
+3_2_place_iop                                0            163
+3_3_place_gp                                 4            539
+3_4_place_resized                            1            484
+3_5_place_dp                                 1            248
+4_1_cts                                      2            635
+5_1_grt                                      2            633
+5_2_route                                   32            781
+5_3_fillcell                                 1            250
+6_1_fill                                     0            167
+6_1_merge                                   21            465
+6_report                                     2            261
+Total                                       72            781

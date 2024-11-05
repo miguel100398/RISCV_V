@@ -1,0 +1,153 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 33.68
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: src[32] (input port clocked by clk)
+Endpoint: result[0] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+     1    0.00    0.00    0.00   12.00 v src[32] (in)
+                                         src[32] (net)
+                  0.00    0.00   12.00 v _282_/A (sky130_fd_sc_hd__nand2_1)
+     1    0.00    0.04    0.03   12.03 ^ _282_/Y (sky130_fd_sc_hd__nand2_1)
+                                         _014_ (net)
+                  0.04    0.00   12.03 ^ _283_/B (sky130_fd_sc_hd__nor2_1)
+     1    0.00    0.01    0.02   12.05 v _283_/Y (sky130_fd_sc_hd__nor2_1)
+                                         result[0] (net)
+                  0.01    0.00   12.05 v result[0] (out)
+                                 12.05   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                        -12.00  -12.00   output external delay
+                                -12.00   data required time
+-----------------------------------------------------------------------------
+                                -12.00   data required time
+                                -12.05   data arrival time
+-----------------------------------------------------------------------------
+                                 24.05   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: src[47] (input port clocked by clk)
+Endpoint: result[120] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+    14    0.03    0.00    0.00   12.00 v src[47] (in)
+                                         src[47] (net)
+                  0.00    0.00   12.00 v _305_/A2 (sky130_fd_sc_hd__a22o_1)
+     5    0.01    0.08    0.25   12.25 v _305_/X (sky130_fd_sc_hd__a22o_1)
+                                         _036_ (net)
+                  0.08    0.00   12.25 v _309_/A1 (sky130_fd_sc_hd__o21ai_1)
+    41    0.10    1.76    1.35   13.60 ^ _309_/Y (sky130_fd_sc_hd__o21ai_1)
+                                         _040_ (net)
+                  1.76    0.00   13.60 ^ _386_/A (sky130_fd_sc_hd__nand3_1)
+     8    0.02    0.46    0.45   14.05 v _386_/Y (sky130_fd_sc_hd__nand3_1)
+                                         result[127] (net)
+                  0.46    0.00   14.05 v _657_/A (sky130_fd_sc_hd__buf_4)
+     1    0.00    0.03    0.28   14.32 v _657_/X (sky130_fd_sc_hd__buf_4)
+                                         result[120] (net)
+                  0.03    0.00   14.32 v result[120] (out)
+                                 14.32   data arrival time
+
+                  0.00   60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (ideal)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                -14.32   data arrival time
+-----------------------------------------------------------------------------
+                                 33.68   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: src[47] (input port clocked by clk)
+Endpoint: result[120] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+    14    0.03    0.00    0.00   12.00 v src[47] (in)
+                                         src[47] (net)
+                  0.00    0.00   12.00 v _305_/A2 (sky130_fd_sc_hd__a22o_1)
+     5    0.01    0.08    0.25   12.25 v _305_/X (sky130_fd_sc_hd__a22o_1)
+                                         _036_ (net)
+                  0.08    0.00   12.25 v _309_/A1 (sky130_fd_sc_hd__o21ai_1)
+    41    0.10    1.76    1.35   13.60 ^ _309_/Y (sky130_fd_sc_hd__o21ai_1)
+                                         _040_ (net)
+                  1.76    0.00   13.60 ^ _386_/A (sky130_fd_sc_hd__nand3_1)
+     8    0.02    0.46    0.45   14.05 v _386_/Y (sky130_fd_sc_hd__nand3_1)
+                                         result[127] (net)
+                  0.46    0.00   14.05 v _657_/A (sky130_fd_sc_hd__buf_4)
+     1    0.00    0.03    0.28   14.32 v _657_/X (sky130_fd_sc_hd__buf_4)
+                                         result[120] (net)
+                  0.03    0.00   14.32 v result[120] (out)
+                                 14.32   data arrival time
+
+                  0.00   60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (ideal)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                -14.32   data arrival time
+-----------------------------------------------------------------------------
+                                 33.68   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          9.47e-06   5.46e-06   9.05e-10   1.49e-05 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  9.47e-06   5.46e-06   9.05e-10   1.49e-05 100.0%
+                          63.4%      36.6%       0.0%

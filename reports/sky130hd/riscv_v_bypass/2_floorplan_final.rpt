@@ -1,0 +1,168 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 33.44
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: is_scalar (input port clocked by clk)
+Endpoint: srca_byp[24] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 ^ input external delay
+   103    0.25    0.00    0.00   12.00 ^ is_scalar (in)
+                                         is_scalar (net)
+                  0.00    0.00   12.00 ^ _2234_/A1 (sky130_fd_sc_hd__a21oi_1)
+     1    0.00    0.02    0.02   12.02 v _2234_/Y (sky130_fd_sc_hd__a21oi_1)
+                                         srca_byp[24] (net)
+                  0.02    0.00   12.02 v srca_byp[24] (out)
+                                 12.02   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                        -12.00  -12.00   output external delay
+                                -12.00   data required time
+-----------------------------------------------------------------------------
+                                -12.00   data required time
+                                -12.02   data arrival time
+-----------------------------------------------------------------------------
+                                 24.02   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rf_rd_addr_srca_exe[1] (input port clocked by clk)
+Endpoint: srca_byp[105] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+     2    0.01    0.00    0.00   12.00 v rf_rd_addr_srca_exe[1] (in)
+                                         rf_rd_addr_srca_exe[1] (net)
+                  0.00    0.00   12.00 v _1534_/A (sky130_fd_sc_hd__xnor2_1)
+     2    0.01    0.19    0.18   12.18 ^ _1534_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _0062_ (net)
+                  0.19    0.00   12.18 ^ _1540_/C (sky130_fd_sc_hd__and3_1)
+    43    0.12    1.20    0.99   13.17 ^ _1540_/X (sky130_fd_sc_hd__and3_1)
+                                         _0068_ (net)
+                  1.20    0.00   13.17 ^ _1703_/B (sky130_fd_sc_hd__and3_1)
+     8    0.04    0.39    0.55   13.72 ^ _1703_/X (sky130_fd_sc_hd__and3_1)
+                                         _0226_ (net)
+                  0.39    0.00   13.72 ^ _1743_/S (sky130_fd_sc_hd__mux2_4)
+     1    0.01    0.06    0.35   14.06 v _1743_/X (sky130_fd_sc_hd__mux2_4)
+                                         _0265_ (net)
+                  0.06    0.00   14.06 v _1744_/A1 (sky130_fd_sc_hd__mux2i_4)
+     3    0.01    0.18    0.15   14.21 ^ _1744_/Y (sky130_fd_sc_hd__mux2i_4)
+                                         _0266_ (net)
+                  0.18    0.00   14.21 ^ _1746_/A2 (sky130_fd_sc_hd__a21oi_1)
+     1    0.00    0.09    0.09   14.30 v _1746_/Y (sky130_fd_sc_hd__a21oi_1)
+                                         _0268_ (net)
+                  0.09    0.00   14.30 v _1747_/A3 (sky130_fd_sc_hd__o32a_1)
+     1    0.00    0.04    0.27   14.56 v _1747_/X (sky130_fd_sc_hd__o32a_1)
+                                         srca_byp[105] (net)
+                  0.04    0.00   14.56 v srca_byp[105] (out)
+                                 14.56   data arrival time
+
+                  0.00   60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (ideal)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                -14.56   data arrival time
+-----------------------------------------------------------------------------
+                                 33.44   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rf_rd_addr_srca_exe[1] (input port clocked by clk)
+Endpoint: srca_byp[105] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         12.00   12.00 v input external delay
+     2    0.01    0.00    0.00   12.00 v rf_rd_addr_srca_exe[1] (in)
+                                         rf_rd_addr_srca_exe[1] (net)
+                  0.00    0.00   12.00 v _1534_/A (sky130_fd_sc_hd__xnor2_1)
+     2    0.01    0.19    0.18   12.18 ^ _1534_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _0062_ (net)
+                  0.19    0.00   12.18 ^ _1540_/C (sky130_fd_sc_hd__and3_1)
+    43    0.12    1.20    0.99   13.17 ^ _1540_/X (sky130_fd_sc_hd__and3_1)
+                                         _0068_ (net)
+                  1.20    0.00   13.17 ^ _1703_/B (sky130_fd_sc_hd__and3_1)
+     8    0.04    0.39    0.55   13.72 ^ _1703_/X (sky130_fd_sc_hd__and3_1)
+                                         _0226_ (net)
+                  0.39    0.00   13.72 ^ _1743_/S (sky130_fd_sc_hd__mux2_4)
+     1    0.01    0.06    0.35   14.06 v _1743_/X (sky130_fd_sc_hd__mux2_4)
+                                         _0265_ (net)
+                  0.06    0.00   14.06 v _1744_/A1 (sky130_fd_sc_hd__mux2i_4)
+     3    0.01    0.18    0.15   14.21 ^ _1744_/Y (sky130_fd_sc_hd__mux2i_4)
+                                         _0266_ (net)
+                  0.18    0.00   14.21 ^ _1746_/A2 (sky130_fd_sc_hd__a21oi_1)
+     1    0.00    0.09    0.09   14.30 v _1746_/Y (sky130_fd_sc_hd__a21oi_1)
+                                         _0268_ (net)
+                  0.09    0.00   14.30 v _1747_/A3 (sky130_fd_sc_hd__o32a_1)
+     1    0.00    0.04    0.27   14.56 v _1747_/X (sky130_fd_sc_hd__o32a_1)
+                                         srca_byp[105] (net)
+                  0.04    0.00   14.56 v srca_byp[105] (out)
+                                 14.56   data arrival time
+
+                  0.00   60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (ideal)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                -14.56   data arrival time
+-----------------------------------------------------------------------------
+                                 33.44   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          2.92e-05   2.16e-05   4.98e-09   5.08e-05 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.92e-05   2.16e-05   4.98e-09   5.08e-05 100.0%
+                          57.4%      42.6%       0.0%

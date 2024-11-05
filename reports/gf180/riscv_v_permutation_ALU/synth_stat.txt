@@ -1,0 +1,35 @@
+
+16. Printing statistics.
+
+=== riscv_v_permutation_ALU ===
+
+   Number of wires:                 66
+   Number of wire bits:            566
+   Number of public wires:           8
+   Number of public wire bits:     508
+   Number of ports:                  8
+   Number of port bits:            508
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                234
+     gf180mcu_fd_sc_mcu9t5v0__and2_2    128
+     gf180mcu_fd_sc_mcu9t5v0__aoi21_2      8
+     gf180mcu_fd_sc_mcu9t5v0__aoi22_4      1
+     gf180mcu_fd_sc_mcu9t5v0__buf_2     14
+     gf180mcu_fd_sc_mcu9t5v0__buf_3      1
+     gf180mcu_fd_sc_mcu9t5v0__buf_4      1
+     gf180mcu_fd_sc_mcu9t5v0__buf_8      4
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_2     17
+     gf180mcu_fd_sc_mcu9t5v0__dlya_4     16
+     gf180mcu_fd_sc_mcu9t5v0__inv_2      2
+     gf180mcu_fd_sc_mcu9t5v0__nand2_2     15
+     gf180mcu_fd_sc_mcu9t5v0__nand3_2      1
+     gf180mcu_fd_sc_mcu9t5v0__nor4_4      1
+     gf180mcu_fd_sc_mcu9t5v0__oai21_2      7
+     gf180mcu_fd_sc_mcu9t5v0__oai22_2     17
+     gf180mcu_fd_sc_mcu9t5v0__oai31_4      1
+
+   Chip area for module '\riscv_v_permutation_ALU': 7163.251200
+     of which used for sequential elements: 0.000000 (0.00%)
+

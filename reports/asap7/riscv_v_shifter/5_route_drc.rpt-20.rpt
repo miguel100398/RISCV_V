@@ -1,0 +1,3 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:srcb[64] 
+    bbox = ( 335.328, 499.793 ) - ( 335.352, 499.861 ) on Layer M5

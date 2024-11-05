@@ -1,0 +1,237 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 6.69
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_vtype.internal_data[9]$_DFFE_PP0P_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    1.76    0.00    0.00    3.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    3.00 v _205_/A (INV_X1)
+    49  469.86    0.45    0.44    3.44 ^ _205_/ZN (INV_X1)
+                                         _000_ (net)
+                  2.89    2.32    5.76 ^ stage_vtype.internal_data[9]$_DFFE_PP0P_/RN (DFFR_X1)
+                                  5.76   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ stage_vtype.internal_data[9]$_DFFE_PP0P_/CK (DFFR_X1)
+                          3.80    3.80   library removal time
+                                  3.80   data required time
+-----------------------------------------------------------------------------
+                                  3.80   data required time
+                                 -5.76   data arrival time
+-----------------------------------------------------------------------------
+                                  1.96   slack (MET)
+
+
+Startpoint: stage_vstart.internal_data[11]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: stage_vstart.internal_data[11]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ stage_vstart.internal_data[11]$_DFFE_PP0P_/CK (DFFR_X1)
+     2    1.13    0.01    0.10    0.10 ^ stage_vstart.internal_data[11]$_DFFE_PP0P_/Q (DFFR_X1)
+                                         vstart_exe[4] (net)
+                  0.01    0.00    0.10 ^ _247_/A (MUX2_X1)
+     1    1.36    0.01    0.03    0.13 ^ _247_/Z (MUX2_X1)
+                                         _026_ (net)
+                  0.01    0.00    0.13 ^ stage_vstart.internal_data[11]$_DFFE_PP0P_/D (DFFR_X1)
+                                  0.13   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ stage_vstart.internal_data[11]$_DFFE_PP0P_/CK (DFFR_X1)
+                          0.01    0.01   library hold time
+                                  0.01   data required time
+-----------------------------------------------------------------------------
+                                  0.01   data required time
+                                 -0.13   data arrival time
+-----------------------------------------------------------------------------
+                                  0.13   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_vtype.internal_data[9]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    1.76    0.00    0.00    3.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    3.00 v _205_/A (INV_X1)
+    49  469.86    0.45    0.44    3.44 ^ _205_/ZN (INV_X1)
+                                         _000_ (net)
+                  2.89    2.32    5.76 ^ stage_vtype.internal_data[9]$_DFFE_PP0P_/RN (DFFR_X1)
+                                  5.76   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                                 15.00 ^ stage_vtype.internal_data[9]$_DFFE_PP0P_/CK (DFFR_X1)
+                         -0.64   14.36   library recovery time
+                                 14.36   data required time
+-----------------------------------------------------------------------------
+                                 14.36   data required time
+                                 -5.76   data arrival time
+-----------------------------------------------------------------------------
+                                  8.60   slack (MET)
+
+
+Startpoint: vec_data_in_exe[0] (input port clocked by clk)
+Endpoint: csr_wr_data_vl_exe[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+     6   10.87    0.00    0.00    3.00 ^ vec_data_in_exe[0] (in)
+                                         vec_data_in_exe[0] (net)
+                  0.00    0.00    3.00 ^ _283_/B2 (AOI22_X1)
+     1    1.96    0.02    0.02    3.02 v _283_/ZN (AOI22_X1)
+                                         _078_ (net)
+                  0.02    0.00    3.02 v _284_/A (INV_X1)
+     1  340.56    0.46    0.48    3.50 ^ _284_/ZN (INV_X1)
+                                         csr_wr_data_vl_exe[0] (net)
+                  2.25    1.81    5.31 ^ csr_wr_data_vl_exe[0] (out)
+                                  5.31   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -5.31   data arrival time
+-----------------------------------------------------------------------------
+                                  6.69   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: stage_vtype.internal_data[9]$_DFFE_PP0P_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    1.76    0.00    0.00    3.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00    3.00 v _205_/A (INV_X1)
+    49  469.86    0.45    0.44    3.44 ^ _205_/ZN (INV_X1)
+                                         _000_ (net)
+                  2.89    2.32    5.76 ^ stage_vtype.internal_data[9]$_DFFE_PP0P_/RN (DFFR_X1)
+                                  5.76   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                                 15.00 ^ stage_vtype.internal_data[9]$_DFFE_PP0P_/CK (DFFR_X1)
+                         -0.64   14.36   library recovery time
+                                 14.36   data required time
+-----------------------------------------------------------------------------
+                                 14.36   data required time
+                                 -5.76   data arrival time
+-----------------------------------------------------------------------------
+                                  8.60   slack (MET)
+
+
+Startpoint: vec_data_in_exe[0] (input port clocked by clk)
+Endpoint: csr_wr_data_vl_exe[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+     6   10.87    0.00    0.00    3.00 ^ vec_data_in_exe[0] (in)
+                                         vec_data_in_exe[0] (net)
+                  0.00    0.00    3.00 ^ _283_/B2 (AOI22_X1)
+     1    1.96    0.02    0.02    3.02 v _283_/ZN (AOI22_X1)
+                                         _078_ (net)
+                  0.02    0.00    3.02 v _284_/A (INV_X1)
+     1  340.56    0.46    0.48    3.50 ^ _284_/ZN (INV_X1)
+                                         csr_wr_data_vl_exe[0] (net)
+                  2.25    1.81    5.31 ^ csr_wr_data_vl_exe[0] (out)
+                                  5.31   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -5.31   data arrival time
+-----------------------------------------------------------------------------
+                                  6.69   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.89e-05   1.57e-05   4.18e-06   3.88e-05  64.8%
+Combinational          5.37e-06   1.16e-05   4.03e-06   2.10e-05  35.2%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.42e-05   2.73e-05   8.21e-06   5.98e-05 100.0%
+                          40.5%      45.7%      13.7%

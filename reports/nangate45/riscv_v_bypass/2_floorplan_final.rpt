@@ -1,0 +1,162 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 8.27
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: is_scalar (input port clocked by clk)
+Endpoint: srca_byp[0] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+    75  127.50    0.00    0.00    3.00 ^ is_scalar (in)
+                                         is_scalar (net)
+                  0.00    0.00    3.00 ^ _1516_/A1 (OAI22_X1)
+     1    0.00    0.00    0.00    3.00 v _1516_/ZN (OAI22_X1)
+                                         srca_byp[0] (net)
+                  0.00    0.00    3.00 v srca_byp[0] (out)
+                                  3.00   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -3.00   -3.00   output external delay
+                                 -3.00   data required time
+-----------------------------------------------------------------------------
+                                 -3.00   data required time
+                                 -3.00   data arrival time
+-----------------------------------------------------------------------------
+                                  6.00   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: is_scalar_vec (input port clocked by clk)
+Endpoint: srca_byp[80] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+    48   75.99    0.00    0.00    3.00 v is_scalar_vec (in)
+                                         is_scalar_vec (net)
+                  0.00    0.00    3.00 v _1489_/A (INV_X1)
+    89  141.03    0.32    0.34    3.34 ^ _1489_/ZN (INV_X1)
+                                         _0060_ (net)
+                  0.32    0.00    3.34 ^ _1521_/A1 (NAND3_X1)
+     7   10.38    0.09    0.10    3.45 v _1521_/ZN (NAND3_X1)
+                                         _0091_ (net)
+                  0.09    0.00    3.45 v _1522_/B1 (AOI21_X1)
+    14   23.35    0.12    0.17    3.62 ^ _1522_/ZN (AOI21_X1)
+                                         _0092_ (net)
+                  0.12    0.00    3.62 ^ _2549_/A (AOI221_X1)
+     1    1.50    0.03    0.02    3.64 v _2549_/ZN (AOI221_X1)
+                                         _1014_ (net)
+                  0.03    0.00    3.64 v _2550_/A (AOI221_X1)
+     1    1.63    0.04    0.08    3.72 ^ _2550_/ZN (AOI221_X1)
+                                         _1015_ (net)
+                  0.04    0.00    3.72 ^ _2553_/A (AOI21_X1)
+     1    0.00    0.04    0.01    3.73 v _2553_/ZN (AOI21_X1)
+                                         srca_byp[80] (net)
+                  0.04    0.00    3.73 v srca_byp[80] (out)
+                                  3.73   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -3.73   data arrival time
+-----------------------------------------------------------------------------
+                                  8.27   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: is_scalar_vec (input port clocked by clk)
+Endpoint: srca_byp[80] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+    48   75.99    0.00    0.00    3.00 v is_scalar_vec (in)
+                                         is_scalar_vec (net)
+                  0.00    0.00    3.00 v _1489_/A (INV_X1)
+    89  141.03    0.32    0.34    3.34 ^ _1489_/ZN (INV_X1)
+                                         _0060_ (net)
+                  0.32    0.00    3.34 ^ _1521_/A1 (NAND3_X1)
+     7   10.38    0.09    0.10    3.45 v _1521_/ZN (NAND3_X1)
+                                         _0091_ (net)
+                  0.09    0.00    3.45 v _1522_/B1 (AOI21_X1)
+    14   23.35    0.12    0.17    3.62 ^ _1522_/ZN (AOI21_X1)
+                                         _0092_ (net)
+                  0.12    0.00    3.62 ^ _2549_/A (AOI221_X1)
+     1    1.50    0.03    0.02    3.64 v _2549_/ZN (AOI221_X1)
+                                         _1014_ (net)
+                  0.03    0.00    3.64 v _2550_/A (AOI221_X1)
+     1    1.63    0.04    0.08    3.72 ^ _2550_/ZN (AOI221_X1)
+                                         _1015_ (net)
+                  0.04    0.00    3.72 ^ _2553_/A (AOI21_X1)
+     1    0.00    0.04    0.01    3.73 v _2553_/ZN (AOI21_X1)
+                                         srca_byp[80] (net)
+                  0.04    0.00    3.73 v srca_byp[80] (out)
+                                  3.73   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -3.73   data arrival time
+-----------------------------------------------------------------------------
+                                  8.27   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          3.84e-05   2.38e-05   4.79e-05   1.10e-04 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.84e-05   2.38e-05   4.79e-05   1.10e-04 100.0%
+                          34.9%      21.6%      43.5%

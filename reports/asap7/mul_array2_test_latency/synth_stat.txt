@@ -1,0 +1,28 @@
+
+21. Printing statistics.
+
+=== mul_array_test_latency ===
+
+   Number of wires:                 21
+   Number of wire bits:             26
+   Number of public wires:           8
+   Number of public wire bits:      13
+   Number of ports:                  4
+   Number of port bits:              9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     AO21x1_ASAP7_75t_R              1
+     DFFHQNx1_ASAP7_75t_R            8
+     INVx1_ASAP7_75t_R               6
+     NOR2x1_ASAP7_75t_R              1
+     NOR2x2_ASAP7_75t_R              1
+     OA21x2_ASAP7_75t_R              1
+     OAI21x1_ASAP7_75t_R             1
+     OR3x1_ASAP7_75t_R               1
+     XNOR2x2_ASAP7_75t_R             1
+
+   Chip area for module '\mul_array_test_latency': 3.382560
+     of which used for sequential elements: 2.332800 (68.97%)
+

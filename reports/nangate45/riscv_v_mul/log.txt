@@ -1,0 +1,1418 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib -o objects/nangate45/riscv_v_bw_xor/base/lib/NangateOpenCellLibrary_typical.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/nangate45/riscv_v_bw_xor/base/lib/NangateOpenCellLibrary_typical.lib
+mkdir -p results/nangate45/riscv_v_bw_xor/base/
+echo 15.0 > results/nangate45/riscv_v_bw_xor/base/clock_period.txt
+mkdir -p ./results/nangate45/riscv_v_bw_xor/base ./logs/nangate45/riscv_v_bw_xor/base ./reports/nangate45/riscv_v_bw_xor/base ./objects/nangate45/riscv_v_bw_xor/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_bw_xor/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_bw_xor/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/nangate45/riscv_v_bw_xor/base/lib/NangateOpenCellLibrary_typical.lib
+58. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_bw_xor/base/clock_period.txt
+Setting clock period to 15.0
+59. Executing HIERARCHY pass (managing design hierarchy).
+60. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_xor'.
+60.1. Analyzing design hierarchy..
+60.2. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_xor'.
+60.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+60.4. Analyzing design hierarchy..
+60.5. Analyzing design hierarchy..
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+62. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 9ec4991174, CPU: user 0.15s system 0.01s, MEM: 44.00 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 50% 2x read_liberty (0 sec), 33% 114x read_verilog (0 sec), ...
+Elapsed time: 0:00.22[h:]min:sec. CPU time: user 0.20 sys 0.01 (100%). Peak memory: 46336KB.
+mkdir -p ./results/nangate45/riscv_v_bw_xor/base ./logs/nangate45/riscv_v_bw_xor/base ./reports/nangate45/riscv_v_bw_xor/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_bw_xor/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_bw_xor/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (80%). Peak memory: 12928KB.
+mkdir -p ./results/nangate45/riscv_v_bw_xor/base ./logs/nangate45/riscv_v_bw_xor/base ./reports/nangate45/riscv_v_bw_xor/base ./objects/nangate45/riscv_v_bw_xor/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_bw_xor/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_bw_xor/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/nangate45/riscv_v_bw_xor/base/lib/NangateOpenCellLibrary_typical.lib
+3. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_bw_xor/base/clock_period.txt
+Setting clock period to 15.0
+synth -top riscv_v_bw_xor -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4. Executing SYNTH pass.
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+4.1.1. Analyzing design hierarchy..
+4.1.2. Analyzing design hierarchy..
+4.2. Executing PROC pass (convert processes to netlists).
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+4.3. Executing FLATTEN pass (flatten design).
+4.4. Executing OPT_EXPR pass (perform const folding).
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.6. Executing CHECK pass (checking for obvious problems).
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+4.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.8. Executing OPT_EXPR pass (perform const folding).
+4.7.9. Finished OPT passes. (There is nothing left to do.)
+4.8. Executing FSM pass (extract and optimize FSM).
+4.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+4.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+4.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+4.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+4.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+4.9. Executing OPT pass (performing simple optimizations).
+4.9.1. Executing OPT_EXPR pass (perform const folding).
+4.9.2. Executing OPT_MERGE pass (detect identical cells).
+4.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.5. Executing OPT_MERGE pass (detect identical cells).
+4.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.8. Executing OPT_EXPR pass (perform const folding).
+4.9.9. Finished OPT passes. (There is nothing left to do.)
+4.10. Executing WREDUCE pass (reducing word size of cells).
+4.11. Executing PEEPOPT pass (run peephole optimizers).
+4.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.13. Executing ALUMACC pass (create $alu and $macc cells).
+4.14. Executing SHARE pass (SAT-based resource sharing).
+4.15. Executing OPT pass (performing simple optimizations).
+4.15.1. Executing OPT_EXPR pass (perform const folding).
+4.15.2. Executing OPT_MERGE pass (detect identical cells).
+4.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.15.5. Executing OPT_MERGE pass (detect identical cells).
+4.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.15.8. Executing OPT_EXPR pass (perform const folding).
+4.15.9. Finished OPT passes. (There is nothing left to do.)
+4.16. Executing MEMORY pass.
+4.16.1. Executing OPT_MEM pass (optimize memories).
+4.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+4.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+4.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+4.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+4.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+4.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+4.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+4.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+5. Executing SYNTH pass.
+5.1. Executing OPT pass (performing simple optimizations).
+5.1.1. Executing OPT_EXPR pass (perform const folding).
+5.1.2. Executing OPT_MERGE pass (detect identical cells).
+5.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.1.5. Finished fast OPT passes.
+5.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+5.3. Executing OPT pass (performing simple optimizations).
+5.3.1. Executing OPT_EXPR pass (perform const folding).
+5.3.2. Executing OPT_MERGE pass (detect identical cells).
+5.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.5. Executing OPT_MERGE pass (detect identical cells).
+5.3.6. Executing OPT_SHARE pass.
+5.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.9. Executing OPT_EXPR pass (perform const folding).
+5.3.10. Finished OPT passes. (There is nothing left to do.)
+5.4. Executing TECHMAP pass (map to technology primitives).
+5.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+5.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+5.4.3. Continuing TECHMAP pass.
+5.5. Executing OPT pass (performing simple optimizations).
+5.5.1. Executing OPT_EXPR pass (perform const folding).
+5.5.2. Executing OPT_MERGE pass (detect identical cells).
+5.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.5.5. Finished fast OPT passes.
+5.6. Executing ABC pass (technology mapping using ABC).
+5.6.1. Extracting gate netlist of module `\riscv_v_bw_xor' to `<abc-temp-dir>/input.blif'..
+5.7. Executing OPT pass (performing simple optimizations).
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+5.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.7.5. Finished fast OPT passes.
+5.8. Executing HIERARCHY pass (managing design hierarchy).
+5.8.1. Analyzing design hierarchy..
+5.8.2. Analyzing design hierarchy..
+5.9. Printing statistics.
+5.10. Executing CHECK pass (checking for obvious problems).
+6. Executing OPT pass (performing simple optimizations).
+6.1. Executing OPT_EXPR pass (perform const folding).
+6.2. Executing OPT_MERGE pass (detect identical cells).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.5. Executing OPT_MERGE pass (detect identical cells).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.8. Executing OPT_EXPR pass (perform const folding).
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.12. Executing OPT_MERGE pass (detect identical cells).
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.15. Executing OPT_EXPR pass (perform const folding).
+6.16. Finished OPT passes. (There is nothing left to do.)
+7. Executing TECHMAP pass (map to technology primitives).
+7.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_latch.v
+7.2. Continuing TECHMAP pass.
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+9. Executing OPT pass (performing simple optimizations).
+9.1. Executing OPT_EXPR pass (perform const folding).
+9.2. Executing OPT_MERGE pass (detect identical cells).
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.5. Executing OPT_MERGE pass (detect identical cells).
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.8. Executing OPT_EXPR pass (perform const folding).
+9.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/nangate45/riscv_v_bw_xor/base/lib/NangateOpenCellLibrary_typical.lib -constr ./objects/nangate45/riscv_v_bw_xor/base/abc.constr -dont_use TAPCELL_X1 -dont_use FILLCELL_X1 -dont_use AOI211_X1 -dont_use OAI211_X1 -D 15.0
+10. Executing ABC pass (technology mapping using ABC).
+10.1. Extracting gate netlist of module `\riscv_v_bw_xor' to `<abc-temp-dir>/input.blif'..
+10.1.1. Executing ABC.
+10.1.2. Re-integrating ABC results.
+11. Executing SETUNDEF pass (replace undef values with defined constants).
+12. Executing SPLITNETS pass (splitting up multi-bit signals).
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+14. Executing HILOMAP pass (mapping to constant drivers).
+15. Executing INSBUF pass (insert buffer cells for connected wires).
+16. Executing CHECK pass (checking for obvious problems).
+17. Printing statistics.
+18. Executing Verilog backend.
+exec cp ./designs/nangate45/riscv_v_bw_xor/constraint.sdc ./results/nangate45/riscv_v_bw_xor/base/1_synth.sdc
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: c9b43da847, CPU: user 0.54s system 0.02s, MEM: 40.75 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 83% 2x abc (2 sec), 2% 17x opt_clean (0 sec), ...
+Elapsed time: 0:03.20[h:]min:sec. CPU time: user 3.14 sys 0.05 (99%). Peak memory: 42368KB.
+mkdir -p ./results/nangate45/riscv_v_bw_xor/base ./logs/nangate45/riscv_v_bw_xor/base ./reports/nangate45/riscv_v_bw_xor/base
+cp ./results/nangate45/riscv_v_bw_xor/base/1_1_yosys.v ./results/nangate45/riscv_v_bw_xor/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/nangate45/riscv_v_bw_xor/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 2401
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.070, 200.200).
+[INFO IFP-0001] Added 2714 rows of 19999 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO RSZ-0026] Removed 168 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 2869 u^2 0% utilization.
+Elapsed time: 0:00.86[h:]min:sec. CPU time: user 0.82 sys 0.03 (100%). Peak memory: 132932KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers metal5 -ver_layers metal6 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:00.33[h:]min:sec. CPU time: user 0.30 sys 0.02 (100%). Peak memory: 125636KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/nangate45/riscv_v_bw_xor/base/2_2_floorplan_io.odb ./results/nangate45/riscv_v_bw_xor/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.14[h:]min:sec. CPU time: user 0.11 sys 0.03 (100%). Peak memory: 100932KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:00.33[h:]min:sec. CPU time: user 0.28 sys 0.04 (100%). Peak memory: 123960KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO TAP-0004] Inserted 5428 endcaps.
+[INFO TAP-0005] Inserted 42098 tapcells.
+Elapsed time: 0:00.44[h:]min:sec. CPU time: user 0.39 sys 0.05 (99%). Peak memory: 142144KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: grid
+Elapsed time: 0:04.28[h:]min:sec. CPU time: user 4.19 sys 0.09 (100%). Peak memory: 217564KB.
+cp ./results/nangate45/riscv_v_bw_xor/base/2_6_floorplan_pdn.odb ./results/nangate45/riscv_v_bw_xor/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             49759
+[INFO GPL-0007] NumPlaceInstances:         2233
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   2567
+[INFO GPL-0011] NumPins:                   9100
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        2869.076 um^2
+[INFO GPL-0019] Util:                     0.020 %
+[INFO GPL-0020] StdInstsArea:          2869.076 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  11695314
+[INFO GPL-0032] FillerInit:NumGNets:       2567
+[INFO GPL-0033] FillerInit:NumGPins:       9100
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        1.285 um^2
+[INFO GPL-0025] IdealBinArea:             1.285 um^2
+[INFO GPL-0026] IdealBinCnt:           11236899
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             49759
+[INFO GPL-0007] NumPlaceInstances:         2233
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   2567
+[INFO GPL-0011] NumPins:                   8638
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        2869.076 um^2
+[INFO GPL-0019] Util:                     0.020 %
+[INFO GPL-0020] StdInstsArea:          2869.076 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  10642960
+[INFO GPL-0032] FillerInit:NumGNets:       2567
+[INFO GPL-0033] FillerInit:NumGPins:       8638
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        1.285 um^2
+[INFO GPL-0025] IdealBinArea:             1.412 um^2
+[INFO GPL-0026] IdealBinCnt:           10225801
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[NesterovSolve] Iter:    1 overflow: 0.990 HPWL: 4321783
+[NesterovSolve] Iter:   10 overflow: 0.994 HPWL: 1809610
+[NesterovSolve] Iter:   20 overflow: 0.991 HPWL: 1760768
+[NesterovSolve] Iter:   30 overflow: 0.991 HPWL: 1742577
+[NesterovSolve] Iter:   40 overflow: 0.990 HPWL: 1737301
+[NesterovSolve] Iter:   50 overflow: 0.990 HPWL: 1736423
+[NesterovSolve] Iter:   60 overflow: 0.991 HPWL: 1736725
+[NesterovSolve] Iter:   70 overflow: 0.991 HPWL: 1736899
+[NesterovSolve] Iter:   80 overflow: 0.991 HPWL: 1736950
+[NesterovSolve] Iter:   90 overflow: 0.991 HPWL: 1736639
+[NesterovSolve] Iter:  100 overflow: 0.991 HPWL: 1736298
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     [INFO DPL-0034] Detailed placement failed on the following 7812 instances:
+[INFO DPL-0035]  _297173_
+[INFO DPL-0035]  _297173_
+[INFO DPL-0035]  _297173_
+[INFO DPL-0035]  _297173_
+[INFO DPL-0035]  _347636_
+[INFO DPL-0035]  _342311_
+[INFO DPL-0035]  _342311_
+[INFO DPL-0035]  _344842_
+[INFO DPL-0035]  _341510_
+[INFO DPL-0035]  _340969_
+[INFO DPL-0035]  _340627_
+[INFO DPL-0035]  _343242_
+[INFO DPL-0035]  _343242_
+[INFO DPL-0035]  _340792_
+[INFO DPL-0035]  _340792_
+[INFO DPL-0035]  _343012_
+[INFO DPL-0035]  _342559_
+[INFO DPL-0035]  _342559_
+[INFO DPL-0035]  _340772_
+[INFO DPL-0035]  _342442_
+[INFO DPL-0035]  _340612_
+[INFO DPL-0035]  _340612_
+[INFO DPL-0035]  _340612_
+[INFO DPL-0035]  _342611_
+[INFO DPL-0035]  _299296_
+[INFO DPL-0035]  _297098_
+[INFO DPL-0035]  _297098_
+[INFO DPL-0035]  _340655_
+[INFO DPL-0035]  _340655_
+[INFO DPL-0035]  _298515_
+[INFO DPL-0035]  _298515_
+[INFO DPL-0035]  _343442_
+[INFO DPL-0035]  _296190_
+[INFO DPL-0035]  _296190_
+[INFO DPL-0035]  _297901_
+[INFO DPL-0035]  _297901_
+[INFO DPL-0035]  _297889_
+[INFO DPL-0035]  _297762_
+[INFO DPL-0035]  _297762_
+[INFO DPL-0035]  _299911_
+[INFO DPL-0035]  _340641_
+[INFO DPL-0035]  _342911_
+[INFO DPL-0035]  _342444_
+[INFO DPL-0035]  _342849_
+[INFO DPL-0035]  _342849_
+[INFO DPL-0035]  _342849_
+[INFO DPL-0035]  _296151_
+[INFO DPL-0035]  _296151_
+[INFO DPL-0035]  _342948_
+[INFO DPL-0035]  _342948_
+[INFO DPL-0035]  _340801_
+[INFO DPL-0035]  _340801_
+[INFO DPL-0035]  _340754_
+[INFO DPL-0035]  _340754_
+[INFO DPL-0035]  _340754_
+[INFO DPL-0035]  _342686_
+[INFO DPL-0035]  _296260_
+[INFO DPL-0035]  _296677_
+[INFO DPL-0035]  _296677_
+[INFO DPL-0035]  _340723_
+[INFO DPL-0035]  _343578_
+[INFO DPL-0035]  _296272_
+[INFO DPL-0035]  _296128_
+[INFO DPL-0035]  _296128_
+[INFO DPL-0035]  _347519_
+[INFO DPL-0035]  _347519_
+[INFO DPL-0035]  _343371_
+[INFO DPL-0035]  _343394_
+[INFO DPL-0035]  _343394_
+[INFO DPL-0035]  _343049_
+[INFO DPL-0035]  _296308_
+[INFO DPL-0035]  _342879_
+[INFO DPL-0035]  _342879_
+[INFO DPL-0035]  _343467_
+[INFO DPL-0035]  _343467_
+[INFO DPL-0035]  _342763_
+[INFO DPL-0035]  _342625_
+[INFO DPL-0035]  _296999_
+[INFO DPL-0035]  _296999_
+[INFO DPL-0035]  _342450_
+[INFO DPL-0035]  _342483_
+[INFO DPL-0035]  _342481_
+[INFO DPL-0035]  _296554_
+[INFO DPL-0035]  _297010_
+[INFO DPL-0035]  _296558_
+[INFO DPL-0035]  _296558_
+[INFO DPL-0035]  _342464_
+[INFO DPL-0035]  _342464_
+[INFO DPL-0035]  _286859_
+[INFO DPL-0035]  _286859_
+[INFO DPL-0035]  _286859_
+[INFO DPL-0035]  _286859_
+[INFO DPL-0035]  _205527_
+[INFO DPL-0035]  _205527_
+[INFO DPL-0035]  _295990_
+[INFO DPL-0035]  _295990_
+[INFO DPL-0035]  _205480_
+[INFO DPL-0035]  _205480_
+[INFO DPL-0035]  _205480_
+[INFO DPL-0035]  _296402_
+[INFO DPL-0035]  _296423_
+[INFO DPL-0035]  _296423_
+[INFO DPL-0035]  _296423_
+[INFO DPL-0035]  _295973_
+[INFO DPL-0035]  _295973_
+[INFO DPL-0035]  _205436_
+[INFO DPL-0035]  _205436_
+[INFO DPL-0035]  _205504_
+[INFO DPL-0035]  _207634_
+[INFO DPL-0035]  _296438_
+[INFO DPL-0035]  _296438_
+[INFO DPL-0035]  _296438_
+[INFO DPL-0035]  _207651_
+[INFO DPL-0035]  _207651_
+[INFO DPL-0035]  _207697_
+[INFO DPL-0035]  _295671_
+[INFO DPL-0035]  _287394_
+[INFO DPL-0035]  _287392_
+[INFO DPL-0035]  _287392_
+[INFO DPL-0035]  _287392_
+[INFO DPL-0035]  _287392_
+[INFO DPL-0035]  _287313_
+[INFO DPL-0035]  _287313_
+[INFO DPL-0035]  _287313_
+[INFO DPL-0035]  _206531_
+[INFO DPL-0035]  _287504_
+[INFO DPL-0035]  _206086_
+[INFO DPL-0035]  _206086_
+[INFO DPL-0035]  _327489_
+[INFO DPL-0035]  _287470_
+[INFO DPL-0035]  _287513_
+[INFO DPL-0035]  _287506_
+[INFO DPL-0035]  _287506_
+[INFO DPL-0035]  _296360_
+[INFO DPL-0035]  _296360_
+[INFO DPL-0035]  _287490_
+[INFO DPL-0035]  _287490_
+[INFO DPL-0035]  _327542_
+[INFO DPL-0035]  _327542_
+[INFO DPL-0035]  _327509_
+[INFO DPL-0035]  _287519_
+[INFO DPL-0035]  _287519_
+[INFO DPL-0035]  _287519_
+[INFO DPL-0035]  _287494_
+[INFO DPL-0035]  _287494_
+[INFO DPL-0035]  _287494_
+[INFO DPL-0035]  _291386_
+[INFO DPL-0035]  _327593_
+[INFO DPL-0035]  _327675_
+[INFO DPL-0035]  _327570_
+[INFO DPL-0035]  _207609_
+[INFO DPL-0035]  _207609_
+[INFO DPL-0035]  _207609_
+[INFO DPL-0035]  _287212_
+[INFO DPL-0035]  _287212_
+[INFO DPL-0035]  _291332_
+[INFO DPL-0035]  _291332_
+[INFO DPL-0035]  _327501_
+[INFO DPL-0035]  _327501_
+[INFO DPL-0035]  _206251_
+[INFO DPL-0035]  _207601_
+[INFO DPL-0035]  _245727_
+[INFO DPL-0035]  _245727_
+[INFO DPL-0035]  _268533_
+[INFO DPL-0035]  _206384_
+[INFO DPL-0035]  _206384_
+[INFO DPL-0035]  _206127_
+[INFO DPL-0035]  _327620_
+[INFO DPL-0035]  _327523_
+[INFO DPL-0035]  _327523_
+[INFO DPL-0035]  _206024_
+[INFO DPL-0035]  _327515_
+[INFO DPL-0035]  _327466_
+[INFO DPL-0035]  _327741_
+[INFO DPL-0035]  _327835_
+[INFO DPL-0035]  _287171_
+[INFO DPL-0035]  _287171_
+[INFO DPL-0035]  _327437_
+[INFO DPL-0035]  _327437_
+[INFO DPL-0035]  _245812_
+[INFO DPL-0035]  _207593_
+[INFO DPL-0035]  _207593_
+[INFO DPL-0035]  _327436_
+[INFO DPL-0035]  _327436_
+[INFO DPL-0035]  _268543_
+[INFO DPL-0035]  _245548_
+[INFO DPL-0035]  _245548_
+[INFO DPL-0035]  _268551_
+[INFO DPL-0035]  _245565_
+[INFO DPL-0035]  _299492_
+[INFO DPL-0035]  _299492_
+[INFO DPL-0035]  _299494_
+[INFO DPL-0035]  _299494_
+[INFO DPL-0035]  _371768_
+[INFO DPL-0035]  _299966_
+[INFO DPL-0035]  _296966_
+[INFO DPL-0035]  _296966_
+[INFO DPL-0035]  _348245_
+[INFO DPL-0035]  _348245_
+[INFO DPL-0035]  _347977_
+[INFO DPL-0035]  _333916_
+[INFO DPL-0035]  _333916_
+[INFO DPL-0035]  _333708_
+[INFO DPL-0035]  _333708_
+[INFO DPL-0035]  _347991_
+[INFO DPL-0035]  _348222_
+[INFO DPL-0035]  _348222_
+[INFO DPL-0035]  _346953_
+[INFO DPL-0035]  _346765_
+[INFO DPL-0035]  _346765_
+[INFO DPL-0035]  _340054_
+[INFO DPL-0035]  _340054_
+[INFO DPL-0035]  _340064_
+[INFO DPL-0035]  _346771_
+[INFO DPL-0035]  _346771_
+[INFO DPL-0035]  _340014_
+[INFO DPL-0035]  _340014_
+[INFO DPL-0035]  _346779_
+[INFO DPL-0035]  _346779_
+[INFO DPL-0035]  _346803_
+[INFO DPL-0035]  _296982_
+[INFO DPL-0035]  _296982_
+[INFO DPL-0035]  _296984_
+[INFO DPL-0035]  _334236_
+[INFO DPL-0035]  _334236_
+[INFO DPL-0035]  _334299_
+[INFO DPL-0035]  _346791_
+[INFO DPL-0035]  _334515_
+[INFO DPL-0035]  _334515_
+[INFO DPL-0035]  _299407_
+[INFO DPL-0035]  _299407_
+[INFO DPL-0035]  _340309_
+[INFO DPL-0035]  _340309_
+[INFO DPL-0035]  _346656_
+[INFO DPL-0035]  _346656_
+[INFO DPL-0035]  _346656_
+[INFO DPL-0035]  _343710_
+[INFO DPL-0035]  _340324_
+[INFO DPL-0035]  _340286_
+[INFO DPL-0035]  _334263_
+[INFO DPL-0035]  _340245_
+[INFO DPL-0035]  _340245_
+[INFO DPL-0035]  _340260_
+[INFO DPL-0035]  _340260_
+[INFO DPL-0035]  _293312_
+[INFO DPL-0035]  _293312_
+[INFO DPL-0035]  _334456_
+[INFO DPL-0035]  _334655_
+[INFO DPL-0035]  _373073_
+[INFO DPL-0035]  _334184_
+[INFO DPL-0035]  _334184_
+[INFO DPL-0035]  _334184_
+[INFO DPL-0035]  _298622_
+[INFO DPL-0035]  _298622_
+[INFO DPL-0035]  _348140_
+[INFO DPL-0035]  _348140_
+[INFO DPL-0035]  _344821_
+[INFO DPL-0035]  _344821_
+[INFO DPL-0035]  _347242_
+[INFO DPL-0035]  _347242_
+[INFO DPL-0035]  _334122_
+[INFO DPL-0035]  _334122_
+[INFO DPL-0035]  _334122_
+[INFO DPL-0035]  _297401_
+[INFO DPL-0035]  _373043_
+[INFO DPL-0035]  _373043_
+[INFO DPL-0035]  _334604_
+[INFO DPL-0035]  _297464_
+[INFO DPL-0035]  _334488_
+[INFO DPL-0035]  _334488_
+[INFO DPL-0035]  _347220_
+[INFO DPL-0035]  _347220_
+[INFO DPL-0035]  _348012_
+[INFO DPL-0035]  _348012_
+[INFO DPL-0035]  _297362_
+[INFO DPL-0035]  _347218_
+[INFO DPL-0035]  _347218_
+[INFO DPL-0035]  _297281_
+[INFO DPL-0035]  _341793_
+[INFO DPL-0035]  _373421_
+[INFO DPL-0035]  _334405_
+[INFO DPL-0035]  _334405_
+[INFO DPL-0035]  _334405_
+[INFO DPL-0035]  _373143_
+[INFO DPL-0035]  _341919_
+[INFO DPL-0035]  _348028_
+[INFO DPL-0035]  _297279_
+[INFO DPL-0035]  _296798_
+[INFO DPL-0035]  _296798_
+[INFO DPL-0035]  _347897_
+[INFO DPL-0035]  _334830_
+[INFO DPL-0035]  _334830_
+[INFO DPL-0035]  _342025_
+[INFO DPL-0035]  _342025_
+[INFO DPL-0035]  _299437_
+[INFO DPL-0035]  _347487_
+[INFO DPL-0035]  _347487_
+[INFO DPL-0035]  _342002_
+[INFO DPL-0035]  _342002_
+[INFO DPL-0035]  _341995_
+[INFO DPL-0035]  _344515_
+[INFO DPL-0035]  _297419_
+[INFO DPL-0035]  _297419_
+[INFO DPL-0035]  _297419_
+[INFO DPL-0035]  _297419_
+[INFO DPL-0035]  _341704_
+[INFO DPL-0035]  _341704_
+[INFO DPL-0035]  _342234_
+[INFO DPL-0035]  _342234_
+[INFO DPL-0035]  _342231_
+[INFO DPL-0035]  _297458_
+[INFO DPL-0035]  _297457_
+[INFO DPL-0035]  _366495_
+[INFO DPL-0035]  _366495_
+[INFO DPL-0035]  _343643_
+[INFO DPL-0035]  _343643_
+[INFO DPL-0035]  _343676_
+[INFO DPL-0035]  _343676_
+[INFO DPL-0035]  _343676_
+[INFO DPL-0035]  _342217_
+[INFO DPL-0035]  _372608_
+[INFO DPL-0035]  _341679_
+[INFO DPL-0035]  _341679_
+[INFO DPL-0035]  _366488_
+[INFO DPL-0035]  _366488_
+[INFO DPL-0035]  _366488_
+[INFO DPL-0035]  _366488_
+[INFO DPL-0035]  _342213_
+[INFO DPL-0035]  _297203_
+[INFO DPL-0035]  _297203_
+[INFO DPL-0035]  _342566_
+[INFO DPL-0035]  _366737_
+[INFO DPL-0035]  _366737_
+[INFO DPL-0035]  _366737_
+[INFO DPL-0035]  _340929_
+[INFO DPL-0035]  _297179_
+[INFO DPL-0035]  _373084_
+[INFO DPL-0035]  _373084_
+[INFO DPL-0035]  _373084_
+[INFO DPL-0035]  _299368_
+[INFO DPL-0035]  _298679_
+[INFO DPL-0035]  _298679_
+[INFO DPL-0035]  _298679_
+[INFO DPL-0035]  _343575_
+[INFO DPL-0035]  _343021_
+[INFO DPL-0035]  _343021_
+[INFO DPL-0035]  _298690_
+[INFO DPL-0035]  _298690_
+[INFO DPL-0035]  _298690_
+[INFO DPL-0035]  _299197_
+[INFO DPL-0035]  _342933_
+[INFO DPL-0035]  _297495_
+[INFO DPL-0035]  _299263_
+[INFO DPL-0035]  _299209_
+[INFO DPL-0035]  _299209_
+[INFO DPL-0035]  _343553_
+[INFO DPL-0035]  _344841_
+[INFO DPL-0035]  _344841_
+[INFO DPL-0035]  _299078_
+[INFO DPL-0035]  _298999_
+[INFO DPL-0035]  _299326_
+[INFO DPL-0035]  _299326_
+[INFO DPL-0035]  _340859_
+[INFO DPL-0035]  _340859_
+[INFO DPL-0035]  _340859_
+[INFO DPL-0035]  _299095_
+[INFO DPL-0035]  _299095_
+[INFO DPL-0035]  _299904_
+[INFO DPL-0035]  _299904_
+[INFO DPL-0035]  _299325_
+[INFO DPL-0035]  _343238_
+[INFO DPL-0035]  _372750_
+[INFO DPL-0035]  _299902_
+[INFO DPL-0035]  _299205_
+[INFO DPL-0035]  _299205_
+[INFO DPL-0035]  _298951_
+[INFO DPL-0035]  _298951_
+[INFO DPL-0035]  _373320_
+[INFO DPL-0035]  _373320_
+[INFO DPL-0035]  _340842_
+[INFO DPL-0035]  _340842_
+[INFO DPL-0035]  _343184_
+[INFO DPL-0035]  _343184_
+[INFO DPL-0035]  _372540_
+[INFO DPL-0035]  _373272_
+[INFO DPL-0035]  _373272_
+[INFO DPL-0035]  _297513_
+[INFO DPL-0035]  _297513_
+[INFO DPL-0035]  _205766_
+[INFO DPL-0035]  _299009_
+[INFO DPL-0035]  _299009_
+[INFO DPL-0035]  _299056_
+[INFO DPL-0035]  _298562_
+[INFO DPL-0035]  _297848_
+[INFO DPL-0035]  _334261_
+[INFO DPL-0035]  _334261_
+[INFO DPL-0035]  _344126_
+[INFO DPL-0035]  _344126_
+[INFO DPL-0035]  _372500_
+[INFO DPL-0035]  _372500_
+[INFO DPL-0035]  _372500_
+[INFO DPL-0035]  _297896_
+[INFO DPL-0035]  _297896_
+[INFO DPL-0035]  _341231_
+[INFO DPL-0035]  _341231_
+[INFO DPL-0035]  _343107_
+[INFO DPL-0035]  _343533_
+[INFO DPL-0035]  _299052_
+[INFO DPL-0035]  _299052_
+[INFO DPL-0035]  _295441_
+[INFO DPL-0035]  _295441_
+[INFO DPL-0035]  _295441_
+[INFO DPL-0035]  _343546_
+[INFO DPL-0035]  _284686_
+[INFO DPL-0035]  _284686_
+[INFO DPL-0035]  _284686_
+[INFO DPL-0035]  _295162_
+[INFO DPL-0035]  _298976_
+[INFO DPL-0035]  _297874_
+[INFO DPL-0035]  _297874_
+[INFO DPL-0035]  _372634_
+[INFO DPL-0035]  _372634_
+[INFO DPL-0035]  _297910_
+[INFO DPL-0035]  _297764_
+[INFO DPL-0035]  _372899_
+[INFO DPL-0035]  _372899_
+[INFO DPL-0035]  _373240_
+[INFO DPL-0035]  _342399_
+[INFO DPL-0035]  _342399_
+[INFO DPL-0035]  _372781_
+[INFO DPL-0035]  _372656_
+[INFO DPL-0035]  _372656_
+[INFO DPL-0035]  _295170_
+[INFO DPL-0035]  _295170_
+[INFO DPL-0035]  _299014_
+[INFO DPL-0035]  _299014_
+[INFO DPL-0035]  _299013_
+[INFO DPL-0035]  _297729_
+[INFO DPL-0035]  _342892_
+[INFO DPL-0035]  _342892_
+[INFO DPL-0035]  _342892_
+[INFO DPL-0035]  _292880_
+[INFO DPL-0035]  _292880_
+[INFO DPL-0035]  _292880_
+[INFO DPL-0035]  _292880_
+[INFO DPL-0035]  _292880_
+[INFO DPL-0035]  _292880_
+[INFO DPL-0035]  _295148_
+[INFO DPL-0035]  _343056_
+[INFO DPL-0035]  _342891_
+[INFO DPL-0035]  _292837_
+[INFO DPL-0035]  _292837_
+[INFO DPL-0035]  _343054_
+[INFO DPL-0035]  _343054_
+[INFO DPL-0035]  _299069_
+[INFO DPL-0035]  _299069_
+[INFO DPL-0035]  _299069_
+[INFO DPL-0035]  _372620_
+[INFO DPL-0035]  _372620_
+[INFO DPL-0035]  _299019_
+[INFO DPL-0035]  _299019_
+[INFO DPL-0035]  _297666_
+[INFO DPL-0035]  _297791_
+[INFO DPL-0035]  _297791_
+[INFO DPL-0035]  _297803_
+[INFO DPL-0035]  _297803_
+[INFO DPL-0035]  _298922_
+[INFO DPL-0035]  _298922_
+[INFO DPL-0035]  _298922_
+[INFO DPL-0035]  _299119_
+[INFO DPL-0035]  _299138_
+[INFO DPL-0035]  _284810_
+[INFO DPL-0035]  _284810_
+[INFO DPL-0035]  _284810_
+[INFO DPL-0035]  _297783_
+[INFO DPL-0035]  _342785_
+[INFO DPL-0035]  _295429_
+[INFO DPL-0035]  _295429_
+[INFO DPL-0035]  _284775_
+[INFO DPL-0035]  _295428_
+[INFO DPL-0035]  _372693_
+[INFO DPL-0035]  _342646_
+[INFO DPL-0035]  _286766_
+[INFO DPL-0035]  _342637_
+[INFO DPL-0035]  _342637_
+[INFO DPL-0035]  _298943_
+[INFO DPL-0035]  _298943_
+[INFO DPL-0035]  _298943_
+[INFO DPL-0035]  _297753_
+[INFO DPL-0035]  _297753_
+[INFO DPL-0035]  _297753_
+[INFO DPL-0035]  _297753_
+[INFO DPL-0035]  _322762_
+[INFO DPL-0035]  _298843_
+[INFO DPL-0035]  _342828_
+[INFO DPL-0035]  _298942_
+[INFO DPL-0035]  _298942_
+[INFO DPL-0035]  _322894_
+[INFO DPL-0035]  _322894_
+[INFO DPL-0035]  _343455_
+[INFO DPL-0035]  _343455_
+[INFO DPL-0035]  _343455_
+[INFO DPL-0035]  _343455_
+[INFO DPL-0035]  _322944_
+[INFO DPL-0035]  _322944_
+[INFO DPL-0035]  _322944_
+[INFO DPL-0035]  _341203_
+[INFO DPL-0035]  _298852_
+[INFO DPL-0035]  _286884_
+[INFO DPL-0035]  _286884_
+[INFO DPL-0035]  _286884_
+[INFO DPL-0035]  _286884_
+[INFO DPL-0035]  _322773_
+[INFO DPL-0035]  _297191_
+[INFO DPL-0035]  _248710_
+[INFO DPL-0035]  _248710_
+[INFO DPL-0035]  _297684_
+[INFO DPL-0035]  _297684_
+[INFO DPL-0035]  _286971_
+[INFO DPL-0035]  _300937_
+[INFO DPL-0035]  _300937_
+[INFO DPL-0035]  _297031_
+[INFO DPL-0035]  _342703_
+[INFO DPL-0035]  _254793_
+[INFO DPL-0035]  _286926_
+[INFO DPL-0035]  _286926_
+[INFO DPL-0035]  _296921_
+[INFO DPL-0035]  _254750_
+[INFO DPL-0035]  _254750_
+[INFO DPL-0035]  _296696_
+[INFO DPL-0035]  _298811_
+[INFO DPL-0035]  _296721_
+[INFO DPL-0035]  _296721_
+[INFO DPL-0035]  _269106_
+[INFO DPL-0035]  _269106_
+[INFO DPL-0035]  _250997_
+[INFO DPL-0035]  _250905_
+[INFO DPL-0035]  _250905_
+[INFO DPL-0035]  _254685_
+[INFO DPL-0035]  _254685_
+[INFO DPL-0035]  _250900_
+[INFO DPL-0035]  _250900_
+[INFO DPL-0035]  _253983_
+[INFO DPL-0035]  _286918_
+[INFO DPL-0035]  _286918_
+[INFO DPL-0035]  _253989_
+[INFO DPL-0035]  _322808_
+[INFO DPL-0035]  _322808_
+[INFO DPL-0035]  _322808_
+[INFO DPL-0035]  _287585_
+[INFO DPL-0035]  _291145_
+[INFO DPL-0035]  _254732_
+[INFO DPL-0035]  _287610_
+[INFO DPL-0035]  _254720_
+[INFO DPL-0035]  _250950_
+[INFO DPL-0035]  _252385_
+[INFO DPL-0035]  _252385_
+[INFO DPL-0035]  _252384_
+[INFO DPL-0035]  _250951_
+[INFO DPL-0035]  _250951_
+[INFO DPL-0035]  _291158_
+[INFO DPL-0035]  _291158_
+[INFO DPL-0035]  _250942_
+[INFO DPL-0035]  _287793_
+[INFO DPL-0035]  _205337_
+[INFO DPL-0035]  _252466_
+[INFO DPL-0035]  _252466_
+[INFO DPL-0035]  _252466_
+[INFO DPL-0035]  _296422_
+[INFO DPL-0035]  _205478_
+[INFO DPL-0035]  _252374_
+[INFO DPL-0035]  _252374_
+[INFO DPL-0035]  _299864_
+[INFO DPL-0035]  _299864_
+[INFO DPL-0035]  _249689_
+[INFO DPL-0035]  _249690_
+[INFO DPL-0035]  _205644_
+[INFO DPL-0035]  _295890_
+[INFO DPL-0035]  _295890_
+[INFO DPL-0035]  _252377_
+[INFO DPL-0035]  _205658_
+[INFO DPL-0035]  _205658_
+[INFO DPL-0035]  _252640_
+[INFO DPL-0035]  _252640_
+[INFO DPL-0035]  _252640_
+[INFO DPL-0035]  _252640_
+[INFO DPL-0035]  _252435_
+[INFO DPL-0035]  _295883_
+[INFO DPL-0035]  _295883_
+[INFO DPL-0035]  _295883_
+[INFO DPL-0035]  _252395_
+[INFO DPL-0035]  _287270_
+[INFO DPL-0035]  _287270_
+[INFO DPL-0035]  _287270_
+[INFO DPL-0035]  _207645_
+[INFO DPL-0035]  _296001_
+[INFO DPL-0035]  _295945_
+[INFO DPL-0035]  _295945_
+[INFO DPL-0035]  _295945_
+[INFO DPL-0035]  _252431_
+[INFO DPL-0035]  _252431_
+[INFO DPL-0035]  _252343_
+[INFO DPL-0035]  _252696_
+[INFO DPL-0035]  _287620_
+[INFO DPL-0035]  _287378_
+[INFO DPL-0035]  _287378_
+[INFO DPL-0035]  _287672_
+[INFO DPL-0035]  _287672_
+[INFO DPL-0035]  _287672_
+[INFO DPL-0035]  _295696_
+[INFO DPL-0035]  _287085_
+[INFO DPL-0035]  _287085_
+[INFO DPL-0035]  _287085_
+[INFO DPL-0035]  _207712_
+[INFO DPL-0035]  _295687_
+[INFO DPL-0035]  _295687_
+[INFO DPL-0035]  _252495_
+[INFO DPL-0035]  _252495_
+[INFO DPL-0035]  _285227_
+[INFO DPL-0035]  _285227_
+[INFO DPL-0035]  _295511_
+[INFO DPL-0035]  _295511_
+[INFO DPL-0035]  _287375_
+[INFO DPL-0035]  _287358_
+[INFO DPL-0035]  _207726_
+[INFO DPL-0035]  _252504_
+[INFO DPL-0035]  _287417_
+[INFO DPL-0035]  _244606_
+[INFO DPL-0035]  _244606_
+[INFO DPL-0035]  _254843_
+[INFO DPL-0035]  _254843_
+[INFO DPL-0035]  _248883_
+[INFO DPL-0035]  _248883_
+[INFO DPL-0035]  _248883_
+[INFO DPL-0035]  _295811_
+[INFO DPL-0035]  _295811_
+[INFO DPL-0035]  _285326_
+[INFO DPL-0035]  _328469_
+[INFO DPL-0035]  _295633_
+[INFO DPL-0035]  _295633_
+[INFO DPL-0035]  _252668_
+[INFO DPL-0035]  _253297_
+[INFO DPL-0035]  _295824_
+[INFO DPL-0035]  _328492_
+[INFO DPL-0035]  _287460_
+[INFO DPL-0035]  _295779_
+[INFO DPL-0035]  _295779_
+[INFO DPL-0035]  _248995_
+[INFO DPL-0035]  _248995_
+[INFO DPL-0035]  _206148_
+[INFO DPL-0035]  _206148_
+[INFO DPL-0035]  _287322_
+[INFO DPL-0035]  _287322_
+[INFO DPL-0035]  _287572_
+[INFO DPL-0035]  _287572_
+[INFO DPL-0035]  _328481_
+[INFO DPL-0035]  _328481_
+[INFO DPL-0035]  _328639_
+[INFO DPL-0035]  _328639_
+[INFO DPL-0035]  _328639_
+[INFO DPL-0035]  _274094_
+[INFO DPL-0035]  _274094_
+[INFO DPL-0035]  _253396_
+[INFO DPL-0035]  _253396_
+[INFO DPL-0035]  _285398_
+[INFO DPL-0035]  _285398_
+[INFO DPL-0035]  _295194_
+[INFO DPL-0035]  _253401_
+[INFO DPL-0035]  _206437_
+[INFO DPL-0035]  _253365_
+[INFO DPL-0035]  _253365_
+[INFO DPL-0035]  _287543_
+[INFO DPL-0035]  _206201_
+[INFO DPL-0035]  _206201_
+[INFO DPL-0035]  _206206_
+[INFO DPL-0035]  _206206_
+[INFO DPL-0035]  _245699_
+[INFO DPL-0035]  _245699_
+[INFO DPL-0035]  _207573_
+[INFO DPL-0035]  _207573_
+[INFO DPL-0035]  _253198_
+[INFO DPL-0035]  _248849_
+[INFO DPL-0035]  _248849_
+[INFO DPL-0035]  _245710_
+[INFO DPL-0035]  _249255_
+[INFO DPL-0035]  _249255_
+[INFO DPL-0035]  _249250_
+[INFO DPL-0035]  _249250_
+[INFO DPL-0035]  _248764_
+[INFO DPL-0035]  _206336_
+[INFO DPL-0035]  _206336_
+[INFO DPL-0035]  _249259_
+[INFO DPL-0035]  _249259_
+[INFO DPL-0035]  _249259_
+[INFO DPL-0035]  _249259_
+[INFO DPL-0035]  _249257_
+[INFO DPL-0035]  _249094_
+[INFO DPL-0035]  _249094_
+[INFO DPL-0035]  _327755_
+[INFO DPL-0035]  _327755_
+[INFO DPL-0035]  _327599_
+[INFO DPL-0035]  _245692_
+[INFO DPL-0035]  _245692_
+[INFO DPL-0035]  _206032_
+[INFO DPL-0035]  _206032_
+[INFO DPL-0035]  _248753_
+[INFO DPL-0035]  _248753_
+[INFO DPL-0035]  _248255_
+[INFO DPL-0035]  _248255_
+[INFO DPL-0035]  _206252_
+[INFO DPL-0035]  _206243_
+[INFO DPL-0035]  _328558_
+[INFO DPL-0035]  _249273_
+[INFO DPL-0035]  _206278_
+[INFO DPL-0035]  _205350_
+[INFO DPL-0035]  _249341_
+[INFO DPL-0035]  _248310_
+[INFO DPL-0035]  _249340_
+[INFO DPL-0035]  _249231_
+[INFO DPL-0035]  _206988_
+[INFO DPL-0035]  _206945_
+[INFO DPL-0035]  _206945_
+[INFO DPL-0035]  _253108_
+[INFO DPL-0035]  _253133_
+[INFO DPL-0035]  _253133_
+[INFO DPL-0035]  _248262_
+[INFO DPL-0035]  _327524_
+[INFO DPL-0035]  _327524_
+[INFO DPL-0035]  _327524_
+[INFO DPL-0035]  _327662_
+[INFO DPL-0035]  _291480_
+[INFO DPL-0035]  _291480_
+[INFO DPL-0035]  _206097_
+[INFO DPL-0035]  _291482_
+[INFO DPL-0035]  _291482_
+[INFO DPL-0035]  _253134_
+[INFO DPL-0035]  _206122_
+[INFO DPL-0035]  _206122_
+[INFO DPL-0035]  _268675_
+[INFO DPL-0035]  _268675_
+[INFO DPL-0035]  _268544_
+[INFO DPL-0035]  _206107_
+[INFO DPL-0035]  _297773_
+[INFO DPL-0035]  _206814_
+[INFO DPL-0035]  _206814_
+[INFO DPL-0035]  _248483_
+[INFO DPL-0035]  _248483_
+[INFO DPL-0035]  _207577_
+[INFO DPL-0035]  _268574_
+[INFO DPL-0035]  _268574_
+[INFO DPL-0035]  _248462_
+[INFO DPL-0035]  _248462_
+[INFO DPL-0035]  _249570_
+[INFO DPL-0035]  _249570_
+[INFO DPL-0035]  _253115_
+[INFO DPL-0035]  _253115_
+[INFO DPL-0035]  _253115_
+[INFO DPL-0035]  _206227_
+[INFO DPL-0035]  _242638_
+[INFO DPL-0035]  _245904_
+[INFO DPL-0035]  _245904_
+[INFO DPL-0035]  _245904_
+[INFO DPL-0035]  _252975_
+[INFO DPL-0035]  _252975_
+[INFO DPL-0035]  _253280_
+[INFO DPL-0035]  _253280_
+[INFO DPL-0035]  _253280_
+[INFO DPL-0035]  _205887_
+[INFO DPL-0035]  _248693_
+[INFO DPL-0035]  _248693_
+[INFO DPL-0035]  _327807_
+[INFO DPL-0035]  _327807_
+[INFO DPL-0035]  _327796_
+[INFO DPL-0035]  _327796_
+[INFO DPL-0035]  _248349_
+[INFO DPL-0035]  _268382_
+[INFO DPL-0035]  _268382_
+[INFO DPL-0035]  _245564_
+[INFO DPL-0035]  _291240_
+[INFO DPL-0035]  _291240_
+[INFO DPL-0035]  _291240_
+[INFO DPL-0035]  _255612_
+[INFO DPL-0035]  _255612_
+[INFO DPL-0035]  _327711_
+[INFO DPL-0035]  _327711_
+[INFO DPL-0035]  _248341_
+[INFO DPL-0035]  _328942_
+[INFO DPL-0035]  _245877_
+[INFO DPL-0035]  _245877_
+[INFO DPL-0035]  _248331_
+[INFO DPL-0035]  _327203_
+[INFO DPL-0035]  _327203_
+[INFO DPL-0035]  _327203_
+[INFO DPL-0035]  _327203_
+[INFO DPL-0035]  _335391_
+[INFO DPL-0035]  _221341_
+[INFO DPL-0035]  _221341_
+[INFO DPL-0035]  _221341_
+[INFO DPL-0035]  _221514_
+[INFO DPL-0035]  _335527_
+[INFO DPL-0035]  _335527_
+[INFO DPL-0035]  _335527_
+[INFO DPL-0035]  _335544_
+[INFO DPL-0035]  _335544_
+[INFO DPL-0035]  _338508_
+[INFO DPL-0035]  _338508_
+[INFO DPL-0035]  _338517_
+[INFO DPL-0035]  _338517_
+[INFO DPL-0035]  _333767_
+[INFO DPL-0035]  _333767_
+[INFO DPL-0035]  _335625_
+[INFO DPL-0035]  _335625_
+[INFO DPL-0035]  _335625_
+[INFO DPL-0035]  _338325_
+[INFO DPL-0035]  _333769_
+[INFO DPL-0035]  _335647_
+[INFO DPL-0035]  _335647_
+[INFO DPL-0035]  _335653_
+[INFO DPL-0035]  _335653_
+[INFO DPL-0035]  _338585_
+[INFO DPL-0035]  _338316_
+[INFO DPL-0035]  _338316_
+[INFO DPL-0035]  _338228_
+[INFO DPL-0035]  _335658_
+[INFO DPL-0035]  _335639_
+[INFO DPL-0035]  _335639_
+[INFO DPL-0035]  _335641_
+[INFO DPL-0035]  _335641_
+[INFO DPL-0035]  _335640_
+[INFO DPL-0035]  _338299_
+[INFO DPL-0035]  _338360_
+[INFO DPL-0035]  _338444_
+[INFO DPL-0035]  _338444_
+[INFO DPL-0035]  _338444_
+[INFO DPL-0035]  _338445_
+[INFO DPL-0035]  _338594_
+[INFO DPL-0035]  _338594_
+[INFO DPL-0035]  _338257_
+[INFO DPL-0035]  _336885_
+[INFO DPL-0035]  _336885_
+[INFO DPL-0035]  _338246_
+[INFO DPL-0035]  _335758_
+[INFO DPL-0035]  _338402_
+[INFO DPL-0035]  _338402_
+[INFO DPL-0035]  _338402_
+[INFO DPL-0035]  _338715_
+[INFO DPL-0035]  _338715_
+[INFO DPL-0035]  _338339_
+[INFO DPL-0035]  _338832_
+[INFO DPL-0035]  _338903_
+[INFO DPL-0035]  _338387_
+[INFO DPL-0035]  _338933_
+[INFO DPL-0035]  _338366_
+[INFO DPL-0035]  _338366_
+[INFO DPL-0035]  _338409_
+[INFO DPL-0035]  _338409_
+[INFO DPL-0035]  _294980_
+[INFO DPL-0035]  _294980_
+[INFO DPL-0035]  _338354_
+[INFO DPL-0035]  _338359_
+[INFO DPL-0035]  _338462_
+[INFO DPL-0035]  _338462_
+[INFO DPL-0035]  _338481_
+[INFO DPL-0035]  _338940_
+[INFO DPL-0035]  _338739_
+[INFO DPL-0035]  _338739_
+[INFO DPL-0035]  _338458_
+[INFO DPL-0035]  _338708_
+[INFO DPL-0035]  _338708_
+[INFO DPL-0035]  _338708_
+[INFO DPL-0035]  _293811_
+[INFO DPL-0035]  _293811_
+[INFO DPL-0035]  _295096_
+[INFO DPL-0035]  _338612_
+[INFO DPL-0035]  _338612_
+[INFO DPL-0035]  wire3023
+[INFO DPL-0035]  _338943_
+[INFO DPL-0035]  _338734_
+[INFO DPL-0035]  _339011_
+[INFO DPL-0035]  _339011_
+[INFO DPL-0035]  _339011_
+[INFO DPL-0035]  _338938_
+[INFO DPL-0035]  _338725_
+[INFO DPL-0035]  _338746_
+[INFO DPL-0035]  _339012_
+[INFO DPL-0035]  _338485_
+[INFO DPL-0035]  _338807_
+[INFO DPL-0035]  _338807_
+[INFO DPL-0035]  _338807_
+[INFO DPL-0035]  _338807_
+[INFO DPL-0035]  _295090_
+[INFO DPL-0035]  _295090_
+[INFO DPL-0035]  _236098_
+[INFO DPL-0035]  _236098_
+[INFO DPL-0035]  _338375_
+[INFO DPL-0035]  _338375_
+[INFO DPL-0035]  _338864_
+[INFO DPL-0035]  _338890_
+[INFO DPL-0035]  _338890_
+[INFO DPL-0035]  _338890_
+[INFO DPL-0035]  _236274_
+[INFO DPL-0035]  _236274_
+[INFO DPL-0035]  _337857_
+[INFO DPL-0035]  _338866_
+[INFO DPL-0035]  _338876_
+[INFO DPL-0035]  _236117_
+[INFO DPL-0035]  _236101_
+[INFO DPL-0035]  _337615_
+[INFO DPL-0035]  _299774_
+[INFO DPL-0035]  _337864_
+[INFO DPL-0035]  _337864_
+[INFO DPL-0035]  _338370_
+[INFO DPL-0035]  _338370_
+[INFO DPL-0035]  _294068_
+[INFO DPL-0035]  _236182_
+[INFO DPL-0035]  _236182_
+[INFO DPL-0035]  _236181_
+[INFO DPL-0035]  _236181_
+[INFO DPL-0035]  _347324_
+[INFO DPL-0035]  _347324_
+[INFO DPL-0035]  _338272_
+[INFO DPL-0035]  _236421_
+[INFO DPL-0035]  _338368_
+[INFO DPL-0035]  _236120_
+[INFO DPL-0035]  _236120_
+[INFO DPL-0035]  _293851_
+[INFO DPL-0035]  _293852_
+[INFO DPL-0035]  _236054_
+[INFO DPL-0035]  _337822_
+[INFO DPL-0035]  _337837_
+[INFO DPL-0035]  max_cap886
+[INFO DPL-0035]  _292121_
+[INFO DPL-0035]  _338821_
+[INFO DPL-0035]  _338821_
+[INFO DPL-0035]  _338991_
+[INFO DPL-0035]  _338991_
+[INFO DPL-0035]  _337623_
+[INFO DPL-0035]  _337623_
+[INFO DPL-0035]  _347428_
+[INFO DPL-0035]  max_cap853
+[INFO DPL-0035]  _337581_
+[INFO DPL-0035]  _337846_
+[INFO DPL-0035]  _347460_
+[INFO DPL-0035]  _347460_
+[INFO DPL-0035]  _337839_
+[INFO DPL-0035]  _337829_
+[INFO DPL-0035]  _339168_
+[INFO DPL-0035]  _337838_
+[INFO DPL-0035]  _339179_
+[INFO DPL-0035]  _337819_
+[INFO DPL-0035]  _337819_
+[INFO DPL-0035]  _337626_
+[INFO DPL-0035]  _337626_
+[INFO DPL-0035]  _339174_
+[INFO DPL-0035]  _293848_
+[INFO DPL-0035]  _294001_
+[INFO DPL-0035]  _347432_
+[INFO DPL-0035]  _347432_
+[INFO DPL-0035]  _293833_
+[INFO DPL-0035]  _338772_
+[INFO DPL-0035]  _338776_
+[INFO DPL-0035]  _337848_
+[INFO DPL-0035]  _337848_
+[INFO DPL-0035]  _337735_
+[INFO DPL-0035]  _338777_
+[INFO DPL-0035]  _337728_
+[INFO DPL-0035]  _347707_
+[INFO DPL-0035]  _339193_
+[INFO DPL-0035]  _338763_
+[INFO DPL-0035]  _338759_
+[INFO DPL-0035]  _338764_
+[INFO DPL-0035]  max_cap3025
+[INFO DPL-0035]  _344734_
+[INFO DPL-0035]  _344734_
+[INFO DPL-0035]  _344735_
+[INFO DPL-0035]  _294254_
+[INFO DPL-0035]  _294251_
+[INFO DPL-0035]  _347257_
+[INFO DPL-0035]  _347257_
+[INFO DPL-0035]  _347257_
+[INFO DPL-0035]  _347249_
+[INFO DPL-0035]  _344737_
+[INFO DPL-0035]  _344737_
+[INFO DPL-0035]  _294249_
+[INFO DPL-0035]  _312728_
+[INFO DPL-0035]  _312728_
+[INFO DPL-0035]  _337773_
+[INFO DPL-0035]  _337773_
+[INFO DPL-0035]  _337773_
+[INFO DPL-0035]  _347352_
+[INFO DPL-0035]  _333992_
+[INFO DPL-0035]  _333657_
+[INFO DPL-0035]  _333657_
+[INFO DPL-0035]  _344669_
+[INFO DPL-0035]  _344669_
+[INFO DPL-0035]  _337777_
+[INFO DPL-0035]  _294238_
+[INFO DPL-0035]  _294238_
+[INFO DPL-0035]  _294234_
+[INFO DPL-0035]  _337758_
+[INFO DPL-0035] message limit reached, this message will no longer print
+[ERROR DPL-0036] Detailed placement failed.
+Error: detail_place.tcl, 37 DPL-0036
+Command exited with non-zero status 1
+Elapsed time: 37:48.76[h:]min:sec. CPU time: user 2265.52 sys 2.96 (99%). Peak memory: 7997104KB.

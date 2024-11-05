@@ -1,0 +1,61 @@
+
+17. Printing statistics.
+
+=== riscv_v_decode_element ===
+
+   Number of wires:                286
+   Number of wire bits:            973
+   Number of public wires:          26
+   Number of public wire bits:     713
+   Number of ports:                 25
+   Number of port bits:            712
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                649
+     AND2_X1                        16
+     AND2_X2                         1
+     AND3_X1                        10
+     AOI211_X2                       2
+     AOI21_X1                       22
+     AOI221_X1                       9
+     AOI221_X2                       7
+     AOI22_X1                       21
+     BUF_X1                        308
+     BUF_X2                          7
+     BUF_X4                          4
+     CLKBUF_X1                       3
+     INV_X1                         41
+     INV_X2                          1
+     LOGIC0_X1                       1
+     LOGIC1_X1                       1
+     MUX2_X1                         9
+     NAND2_X1                       31
+     NAND2_X2                        1
+     NAND3_X1                       13
+     NAND4_X1                       11
+     NOR2_X1                        27
+     NOR2_X2                         4
+     NOR3_X1                        30
+     NOR3_X4                         1
+     NOR4_X1                         4
+     NOR4_X2                         2
+     NOR4_X4                         2
+     OAI211_X2                       1
+     OAI21_X1                       31
+     OAI21_X4                        1
+     OAI221_X1                       2
+     OAI22_X1                        5
+     OAI33_X1                        3
+     OR2_X1                          7
+     OR2_X4                          1
+     OR3_X1                          4
+     OR3_X2                          1
+     OR4_X1                          1
+     OR4_X2                          1
+     OR4_X4                          1
+     XOR2_X1                         1
+
+   Chip area for module '\riscv_v_decode_element': 642.390000
+     of which used for sequential elements: 0.000000 (0.00%)
+

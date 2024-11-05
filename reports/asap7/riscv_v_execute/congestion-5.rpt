@@ -1,0 +1,32 @@
+violation type: Horizontal congestion
+	srcs: net:net855 net:net838 net:net524 net:net382 net:net236 net:_070106_ net:_070108_ net:_082826_ net:_111184_ net:_111217_ net:_117685_ net:_117707_ net:_118818_ net:net4289 net:net3789 net:int_data_exe[13] net:int_data_result_exe[15] net:mask_exe[9] net:mask_merge_exe[15] net:mask_merge_exe[4] net:mask_merge_exe[9] net:rf_wr_data_mem[12] 
+	congestion information: capacity:21 usage:22 overflow:1
+	bbox = ( 498.42, 265.14 ) - ( 498.96, 265.68) on Layer -
+violation type: Vertical congestion
+	srcs: net:_008658_ net:_008769_ net:_010212_ net:_010545_ net:_028083_ net:net855 net:net838 net:net834 net:net619 net:net525 net:_062038_ net:_062039_ net:net125 net:net94 net:net89 net:net78 net:net76 net:_075610_ net:_077810_ net:_116981_ net:_130720_ net:int_data_result_exe[11] net:mask_merge_exe[14] 
+	congestion information: capacity:22 usage:23 overflow:1
+	bbox = ( 496.8, 265.68 ) - ( 497.34, 266.22) on Layer -
+violation type: Vertical congestion
+	srcs: net:_011988_ net:net497 net:net496 net:net401 net:net389 net:net385 net:net356 net:net355 net:net351 net:net317 net:net259 net:net228 net:net226 net:net225 net:_108478_ net:net4485 net:net4289 net:net3789 net:_129202_ net:rf_wr_data_mem[92] 
+	congestion information: capacity:19 usage:20 overflow:1
+	bbox = ( 497.34, 272.16 ) - ( 497.88, 272.7) on Layer -
+violation type: Vertical congestion
+	srcs: net:_010212_ net:net846 net:net581 net:net579 net:net530 net:net528 net:net488 net:net398 net:net389 net:net385 net:net363 net:net359 net:net332 net:net331 net:net328 net:net294 net:net209 net:net73 net:net72 net:_070106_ net:_070108_ net:_077821_ net:net4289 net:net3804 net:int_data_result_exe[12] 
+	congestion information: capacity:24 usage:25 overflow:1
+	bbox = ( 497.88, 267.3 ) - ( 498.42, 267.84) on Layer -
+violation type: Vertical congestion
+	srcs: net:net648 net:net645 net:net584 net:net581 net:net423 net:net418 net:net412 net:net399 net:net396 net:net383 net:net374 net:net370 net:net359 net:net353 net:net352 net:net296 net:net291 net:net243 net:net227 net:_108819_ net:_109171_ net:_112405_ net:_120061_ net:rf_wr_data_mem[43] net:rf_wr_data_wb[88] 
+	congestion information: capacity:24 usage:25 overflow:1
+	bbox = ( 497.88, 278.1 ) - ( 498.42, 278.64) on Layer -
+violation type: Vertical congestion
+	srcs: net:net840 net:net616 net:net549 net:net535 net:net526 net:net519 net:net512 net:net498 net:net338 net:_062024_ net:_062034_ net:net200 net:net186 net:net162 net:net135 net:net134 net:net124 net:net116 net:net16 net:_070106_ net:net4773 net:net4094 net:rf_rd_addr_srca_exe[1] net:rf_wr_addr_exe[4] net:rf_wr_data_mem[1] 
+	congestion information: capacity:24 usage:25 overflow:1
+	bbox = ( 498.42, 256.5 ) - ( 498.96, 257.04) on Layer -
+violation type: Vertical congestion
+	srcs: net:_041070_ net:net616 net:net549 net:net535 net:net526 net:net519 net:net512 net:net498 net:net338 net:_062024_ net:_062034_ net:net200 net:net186 net:net162 net:net135 net:net134 net:net124 net:net123 net:net116 net:net104 net:net16 net:_070106_ net:net4773 net:net4094 net:rf_wr_addr_wb[4] 
+	congestion information: capacity:24 usage:25 overflow:1
+	bbox = ( 498.42, 257.58 ) - ( 498.96, 258.12) on Layer -
+violation type: Vertical congestion
+	srcs: net:net651 net:net616 net:net582 net:net498 net:net426 net:net425 net:net375 net:net373 net:net372 net:net367 net:net365 net:net364 net:net361 net:net314 net:net292 net:net262 net:_112394_ net:_115430_ net:net3804 net:net3786 net:_122019_ net:rf_wr_data_mem[4] net:rf_wr_data_mem[55] net:rf_wr_data_wb[107] net:rf_wr_data_wb[1] 
+	congestion information: capacity:24 usage:25 overflow:1
+	bbox = ( 498.42, 278.1 ) - ( 498.96, 278.64) on Layer -

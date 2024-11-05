@@ -1,0 +1,27 @@
+
+17. Printing statistics.
+
+=== riscv_v_csr ===
+
+   Number of wires:                 65
+   Number of wire bits:            135
+   Number of public wires:          59
+   Number of public wire bits:     129
+   Number of ports:                 22
+   Number of port bits:             92
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 90
+     sky130_fd_sc_hd__buf_4         10
+     sky130_fd_sc_hd__buf_6          4
+     sky130_fd_sc_hd__conb_1         1
+     sky130_fd_sc_hd__dfrtp_1       34
+     sky130_fd_sc_hd__dfstp_2        3
+     sky130_fd_sc_hd__inv_1          1
+     sky130_fd_sc_hd__mux2_2        27
+     sky130_fd_sc_hd__mux2_4        10
+
+   Chip area for module '\riscv_v_csr': 1511.449600
+     of which used for sequential elements: 929.641600 (61.51%)
+

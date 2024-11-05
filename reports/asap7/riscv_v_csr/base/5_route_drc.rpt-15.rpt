@@ -1,0 +1,9 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:vxrm_data_out[0] 
+    bbox = ( 351.552, 499.793 ) - ( 351.576, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:vl_data_out[2] 
+    bbox = ( 351.456, 499.793 ) - ( 351.48, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:vtype_data_in[0] 
+    bbox = ( 346.176, 499.793 ) - ( 346.176, 499.861 ) on Layer M5

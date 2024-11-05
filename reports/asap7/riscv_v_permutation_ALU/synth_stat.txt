@@ -1,0 +1,30 @@
+
+21. Printing statistics.
+
+=== riscv_v_permutation_ALU ===
+
+   Number of wires:                 40
+   Number of wire bits:            540
+   Number of public wires:           8
+   Number of public wire bits:     508
+   Number of ports:                  8
+   Number of port bits:            508
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                208
+     AND2x2_ASAP7_75t_R            135
+     AND3x1_ASAP7_75t_R              1
+     AND3x2_ASAP7_75t_R              8
+     AO21x1_ASAP7_75t_R              7
+     AO22x1_ASAP7_75t_R              8
+     AO22x2_ASAP7_75t_R             10
+     BUFx2_ASAP7_75t_R              34
+     BUFx3_ASAP7_75t_R               2
+     OA31x2_ASAP7_75t_R              1
+     OR4x2_ASAP7_75t_R               1
+     OR5x1_ASAP7_75t_R               1
+
+   Chip area for module '\riscv_v_permutation_ALU': 18.939420
+     of which used for sequential elements: 0.000000 (0.00%)
+

@@ -1,0 +1,90 @@
+
+17. Printing statistics.
+
+=== riscv_v_adder ===
+
+   Number of wires:               6823
+   Number of wire bits:           7336
+   Number of public wires:          25
+   Number of public wire bits:     538
+   Number of ports:                 25
+   Number of port bits:            538
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6974
+     AND2_X1                       302
+     AND2_X2                         3
+     AND2_X4                         1
+     AND3_X1                        81
+     AND3_X2                         2
+     AND3_X4                         1
+     AND4_X1                        56
+     AND4_X2                         1
+     AOI211_X2                      66
+     AOI211_X4                       3
+     AOI21_X1                      436
+     AOI21_X2                       28
+     AOI21_X4                        2
+     AOI221_X1                     181
+     AOI221_X2                      30
+     AOI221_X4                       2
+     AOI222_X1                      10
+     AOI222_X2                       3
+     AOI22_X1                      100
+     AOI22_X2                        3
+     AOI22_X4                        3
+     BUF_X1                        363
+     BUF_X2                         53
+     BUF_X4                         28
+     BUF_X8                          2
+     CLKBUF_X1                      51
+     CLKBUF_X2                       2
+     INV_X1                        288
+     INV_X2                          1
+     MUX2_X1                       461
+     MUX2_X2                         2
+     NAND2_X1                     1075
+     NAND2_X2                        1
+     NAND2_X4                        1
+     NAND3_X1                      243
+     NAND3_X2                        2
+     NAND4_X1                       91
+     NAND4_X2                        2
+     NAND4_X4                        1
+     NOR2_X1                       822
+     NOR2_X2                         7
+     NOR3_X1                       221
+     NOR3_X2                         8
+     NOR3_X4                         1
+     NOR4_X1                        83
+     NOR4_X2                        15
+     NOR4_X4                         1
+     OAI211_X2                      76
+     OAI211_X4                       1
+     OAI21_X1                      518
+     OAI21_X2                       25
+     OAI21_X4                        5
+     OAI221_X1                     221
+     OAI221_X2                      12
+     OAI221_X4                       3
+     OAI222_X1                      22
+     OAI222_X2                       1
+     OAI222_X4                       1
+     OAI22_X1                      110
+     OAI22_X2                        6
+     OAI33_X1                       48
+     OR2_X1                        164
+     OR2_X2                          4
+     OR3_X1                         68
+     OR3_X2                          1
+     OR3_X4                          3
+     OR4_X1                         35
+     OR4_X2                          8
+     XNOR2_X1                      455
+     XNOR2_X2                        2
+     XOR2_X1                        46
+
+   Chip area for module '\riscv_v_adder': 8242.276000
+     of which used for sequential elements: 0.000000 (0.00%)
+

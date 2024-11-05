@@ -1,0 +1,16 @@
+violation type: Horizontal congestion
+	srcs: net:_0060_ net:net198 net:_0135_ net:net91 net:net73 net:_0447_ net:net25 net:_0595_ net:net5 net:net4 net:result[67] net:src_data[105] net:src_data[33] net:src_data[69] net:net351 net:net522 
+	congestion information: capacity:15 usage:16 overflow:1
+	bbox = ( 3990, 2060.1 ) - ( 3992.1, 2062.2) on Layer -
+violation type: Horizontal congestion
+	srcs: net:net2 net:_0019_ net:net192 net:net175 net:net152 net:_0261_ net:net81 net:_0505_ net:_0510_ net:_0548_ net:net16 net:_0627_ net:_0630_ net:_0631_ net:src_data[12] net:net351 
+	congestion information: capacity:15 usage:16 overflow:1
+	bbox = ( 3992.1, 2053.8 ) - ( 3994.2, 2055.9) on Layer -
+violation type: Horizontal congestion
+	srcs: net:net198 net:_0135_ net:_0269_ net:net91 net:net82 net:net73 net:_0447_ net:net38 net:net12 net:_0673_ net:_0700_ net:net5 net:result[67] net:src_data[105] net:src_data[33] net:src_data[69] 
+	congestion information: capacity:15 usage:16 overflow:1
+	bbox = ( 3992.1, 2060.1 ) - ( 3994.2, 2062.2) on Layer -
+violation type: Horizontal congestion
+	srcs: net:_0051_ net:net104 net:net91 net:net82 net:net73 net:_0447_ net:net46 net:net38 net:net12 net:_0673_ net:_0699_ net:net3 net:result[67] net:src_data[105] net:src_data[33] net:src_data[69] 
+	congestion information: capacity:15 usage:16 overflow:1
+	bbox = ( 3994.2, 2060.1 ) - ( 3996.3, 2062.2) on Layer -

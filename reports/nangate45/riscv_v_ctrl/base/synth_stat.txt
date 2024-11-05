@@ -1,0 +1,59 @@
+
+17. Printing statistics.
+
+=== riscv_v_ctrl ===
+
+   Number of wires:                325
+   Number of wire bits:            380
+   Number of public wires:          49
+   Number of public wire bits:     104
+   Number of ports:                 49
+   Number of port bits:            104
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                300
+     AND2_X1                         6
+     AND3_X1                         3
+     AND4_X2                         1
+     AOI21_X1                       16
+     AOI21_X2                        1
+     AOI221_X1                       2
+     AOI22_X1                        2
+     BUF_X1                         28
+     BUF_X2                          4
+     BUF_X4                          7
+     CLKBUF_X1                       1
+     DFFR_X1                        44
+     INV_X1                         24
+     INV_X2                          2
+     LOGIC0_X1                       1
+     MUX2_X1                        14
+     NAND2_X1                       34
+     NAND3_X1                        9
+     NAND3_X4                        1
+     NAND4_X1                        6
+     NAND4_X4                        1
+     NOR2_X1                        19
+     NOR2_X2                         1
+     NOR3_X1                        11
+     NOR4_X1                         6
+     NOR4_X2                         3
+     NOR4_X4                         1
+     OAI21_X1                       25
+     OAI21_X4                        1
+     OAI22_X1                        5
+     OAI33_X1                        6
+     OR2_X1                          2
+     OR2_X2                          1
+     OR2_X4                          4
+     OR3_X1                          1
+     OR3_X2                          1
+     OR3_X4                          1
+     OR4_X1                          3
+     OR4_X2                          1
+     OR4_X4                          1
+
+   Chip area for module '\riscv_v_ctrl': 530.404000
+     of which used for sequential elements: 234.080000 (44.13%)
+

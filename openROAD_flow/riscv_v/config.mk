@@ -1,9 +1,12 @@
-export DESIGN_NICKNAME = RISCV_V
+export DESIGN_NICKNAME = riscv_v
 export DESIGN_NAME = riscv_v
 export PLATFORM    = sky130hd
 
-export DIE_AREA    = 0.0 0.0 68000 68000
-export CORE_AREA   = 200 200 66000 66000
+export WRITE_INT_RESULTS = 1
+export DELETE_INT_RESULTS = 0
+
+export DIE_AREA    = 0.0 0.0 1500 1500
+export CORE_AREA   = 200 200 1500 1500
 
 export SKIP_ANTENNA_REPAIR_POST_DRT = 1
 
@@ -66,12 +69,13 @@ export VERILOG_FILES = ./designs/src/$(DESIGN_NICKNAME)/convert_to_v/riscv_v_sta
 
 export SDC_FILE      = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
 
-export SYNTH_STRATEGY = AREA 4
+export SYNTH_STRATEGY = SPEED 4
 
 # Adders degrade ibex setup repair
 export ADDER_MAP_FILE :=
 
-export PLACE_DENSITY_LB_ADDON = 0.2
+export PLACE_DENSITY = 0.5
+export PLACE_DENSITY_LB_ADDON = 0.5
 export TNS_END_PERCENT = 100
 
 export FASTROUTE_TCL = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/fastroute.tcl

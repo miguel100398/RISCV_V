@@ -1,0 +1,100 @@
+
+16. Printing statistics.
+
+=== riscv_v_mul ===
+
+   Number of wires:             171818
+   Number of wire bits:         172267
+   Number of public wires:           7
+   Number of public wire bits:     456
+   Number of ports:                  7
+   Number of port bits:            456
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             171939
+     gf180mcu_fd_sc_mcu9t5v0__and2_2  21554
+     gf180mcu_fd_sc_mcu9t5v0__and2_4     56
+     gf180mcu_fd_sc_mcu9t5v0__and3_2   6444
+     gf180mcu_fd_sc_mcu9t5v0__and3_4     44
+     gf180mcu_fd_sc_mcu9t5v0__and4_2   1829
+     gf180mcu_fd_sc_mcu9t5v0__and4_4     21
+     gf180mcu_fd_sc_mcu9t5v0__aoi211_2   4267
+     gf180mcu_fd_sc_mcu9t5v0__aoi211_4     49
+     gf180mcu_fd_sc_mcu9t5v0__aoi21_2  14834
+     gf180mcu_fd_sc_mcu9t5v0__aoi21_4     44
+     gf180mcu_fd_sc_mcu9t5v0__aoi221_2   1462
+     gf180mcu_fd_sc_mcu9t5v0__aoi221_4     28
+     gf180mcu_fd_sc_mcu9t5v0__aoi222_2    260
+     gf180mcu_fd_sc_mcu9t5v0__aoi222_4      3
+     gf180mcu_fd_sc_mcu9t5v0__aoi22_2   4839
+     gf180mcu_fd_sc_mcu9t5v0__aoi22_4     11
+     gf180mcu_fd_sc_mcu9t5v0__buf_12     31
+     gf180mcu_fd_sc_mcu9t5v0__buf_16     10
+     gf180mcu_fd_sc_mcu9t5v0__buf_2   8719
+     gf180mcu_fd_sc_mcu9t5v0__buf_20      2
+     gf180mcu_fd_sc_mcu9t5v0__buf_3    401
+     gf180mcu_fd_sc_mcu9t5v0__buf_4    331
+     gf180mcu_fd_sc_mcu9t5v0__buf_8    103
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_16      1
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_2   1500
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_3     15
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_4     47
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_8     74
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_2   5519
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_3      2
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_4      1
+     gf180mcu_fd_sc_mcu9t5v0__dlya_2      3
+     gf180mcu_fd_sc_mcu9t5v0__dlya_4      2
+     gf180mcu_fd_sc_mcu9t5v0__inv_2     33
+     gf180mcu_fd_sc_mcu9t5v0__inv_3      7
+     gf180mcu_fd_sc_mcu9t5v0__inv_4      1
+     gf180mcu_fd_sc_mcu9t5v0__mux2_2   4875
+     gf180mcu_fd_sc_mcu9t5v0__mux2_4     47
+     gf180mcu_fd_sc_mcu9t5v0__mux4_2      5
+     gf180mcu_fd_sc_mcu9t5v0__nand2_2  19625
+     gf180mcu_fd_sc_mcu9t5v0__nand2_4     23
+     gf180mcu_fd_sc_mcu9t5v0__nand3_2   1936
+     gf180mcu_fd_sc_mcu9t5v0__nand3_4      7
+     gf180mcu_fd_sc_mcu9t5v0__nand4_2    489
+     gf180mcu_fd_sc_mcu9t5v0__nand4_4      7
+     gf180mcu_fd_sc_mcu9t5v0__nor2_2   7540
+     gf180mcu_fd_sc_mcu9t5v0__nor2_4     15
+     gf180mcu_fd_sc_mcu9t5v0__nor3_2   1725
+     gf180mcu_fd_sc_mcu9t5v0__nor3_4     29
+     gf180mcu_fd_sc_mcu9t5v0__nor4_2    535
+     gf180mcu_fd_sc_mcu9t5v0__nor4_4     10
+     gf180mcu_fd_sc_mcu9t5v0__oai211_2   3883
+     gf180mcu_fd_sc_mcu9t5v0__oai211_4     27
+     gf180mcu_fd_sc_mcu9t5v0__oai21_2  12378
+     gf180mcu_fd_sc_mcu9t5v0__oai21_4     31
+     gf180mcu_fd_sc_mcu9t5v0__oai221_2   1223
+     gf180mcu_fd_sc_mcu9t5v0__oai221_4      5
+     gf180mcu_fd_sc_mcu9t5v0__oai222_2    153
+     gf180mcu_fd_sc_mcu9t5v0__oai222_4      1
+     gf180mcu_fd_sc_mcu9t5v0__oai22_2   3445
+     gf180mcu_fd_sc_mcu9t5v0__oai22_4      3
+     gf180mcu_fd_sc_mcu9t5v0__oai31_2   2762
+     gf180mcu_fd_sc_mcu9t5v0__oai31_4     45
+     gf180mcu_fd_sc_mcu9t5v0__oai32_2   1438
+     gf180mcu_fd_sc_mcu9t5v0__oai32_4     11
+     gf180mcu_fd_sc_mcu9t5v0__oai33_2    196
+     gf180mcu_fd_sc_mcu9t5v0__oai33_4      5
+     gf180mcu_fd_sc_mcu9t5v0__or2_2   5646
+     gf180mcu_fd_sc_mcu9t5v0__or2_4     17
+     gf180mcu_fd_sc_mcu9t5v0__or3_2   4817
+     gf180mcu_fd_sc_mcu9t5v0__or3_4     34
+     gf180mcu_fd_sc_mcu9t5v0__or4_2   1666
+     gf180mcu_fd_sc_mcu9t5v0__or4_4     23
+     gf180mcu_fd_sc_mcu9t5v0__xnor2_2  11916
+     gf180mcu_fd_sc_mcu9t5v0__xnor2_4    219
+     gf180mcu_fd_sc_mcu9t5v0__xnor3_2   6172
+     gf180mcu_fd_sc_mcu9t5v0__xnor3_4     84
+     gf180mcu_fd_sc_mcu9t5v0__xor2_2   3956
+     gf180mcu_fd_sc_mcu9t5v0__xor2_4     80
+     gf180mcu_fd_sc_mcu9t5v0__xor3_2   2264
+     gf180mcu_fd_sc_mcu9t5v0__xor3_4     24
+
+   Chip area for module '\riscv_v_mul': 6434795.404812
+     of which used for sequential elements: 0.000000 (0.00%)
+

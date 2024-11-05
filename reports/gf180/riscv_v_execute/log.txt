@@ -1,0 +1,519 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz -o objects/gf180/riscv_v_execute/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 12
+Writing replaced file: objects/gf180/riscv_v_execute/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+mkdir -p results/gf180/riscv_v_execute/base/
+echo 100.0 > results/gf180/riscv_v_execute/base/clock_period.txt
+mkdir -p ./results/gf180/riscv_v_execute/base ./logs/gf180/riscv_v_execute/base ./reports/gf180/riscv_v_execute/base ./objects/gf180/riscv_v_execute/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_execute/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_execute/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/gf180/riscv_v_execute/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/gf180/riscv_v_execute/base/clock_period.txt
+Setting clock period to 100.0
+58. Executing HIERARCHY pass (managing design hierarchy).
+59. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_execute'.
+59.1. Analyzing design hierarchy..
+59.2. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_swizzle'.
+Warning: Replacing memory \data_swizzle with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_swizzle.v:32
+59.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bypass'.
+59.4. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_decode_element'.
+Warning: Replacing memory \valid_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_decode_element.v:262
+Warning: Replacing memory \merge_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_decode_element.v:234
+Warning: Replacing memory \is_reduct_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_decode_element.v:177
+59.5. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_exe_alu'.
+59.6. Analyzing design hierarchy..
+59.7. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_permutation_ALU'.
+59.8. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_arithmetic_ALU'.
+59.9. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_logic_ALU'.
+59.10. Analyzing design hierarchy..
+59.11. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_shifter'.
+Warning: Replacing memory \mux_shift_block with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_shifter.v:171, ./designs/src/riscv_v_execute/convert_to_v/riscv_v_shifter.v:158, ./designs/src/riscv_v_execute/convert_to_v/riscv_v_shifter.v:138, ./designs/src/riscv_v_execute/convert_to_v/riscv_v_shifter.v:125
+59.12. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_xor'.
+59.13. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_or'.
+59.14. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bw_and'.
+59.15. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_extend'.
+Warning: Replacing memory \src_ext_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_extend.v:53
+59.16. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_mul'.
+Warning: Replacing memory \srcB_sign_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_mul.v:93
+Warning: Replacing memory \srcA_sign_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_mul.v:92
+59.17. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_adder'.
+Warning: Replacing memory \result_set_greater_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:295
+Warning: Replacing memory \result_set_less_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:294
+Warning: Replacing memory \result_set_nequal_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:293
+Warning: Replacing memory \result_set_equal_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:292
+Warning: Replacing memory \zf_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:270
+Warning: Replacing memory \flags_mask_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_adder.v:229
+59.18. Analyzing design hierarchy..
+59.19. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.20. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+59.21. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_twos_comp_sel'.
+Warning: Replacing memory \complement_ext_osize with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/riscv_v_twos_comp_sel.v:40
+59.22. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_128bits'.
+./designs/src/riscv_v_execute/convert_to_v/vedic_mul_unsigned_128bits.v:166: Warning: Range [1279:640] select out of bounds on signal `\prev_result_mul_ha_hb': Setting 384 MSB bits to undef.
+59.23. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_twos_comp_sel'.
+59.24. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_and'.
+59.25. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_or'.
+59.26. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_bitwise_xor'.
+59.27. Executing AST frontend in derive mode using pre-parsed AST for module `\shifter'.
+59.28. Analyzing design hierarchy..
+59.29. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.30. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_64bits'.
+59.31. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.32. Analyzing design hierarchy..
+59.33. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+59.34. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.35. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.36. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_32bits'.
+59.37. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.38. Analyzing design hierarchy..
+59.39. Executing AST frontend in derive mode using pre-parsed AST for module `\behavioral_adder'.
+59.40. Executing AST frontend in derive mode using pre-parsed AST for module `\behavioral_adder'.
+59.41. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.42. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_16bits'.
+59.43. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.44. Analyzing design hierarchy..
+59.45. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.46. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_8bits'.
+59.47. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.48. Analyzing design hierarchy..
+59.49. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_4bits'.
+59.50. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.51. Analyzing design hierarchy..
+59.52. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.53. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.54. Executing AST frontend in derive mode using pre-parsed AST for module `\vedic_mul_unsigned_2bits'.
+59.55. Analyzing design hierarchy..
+59.56. Executing AST frontend in derive mode using pre-parsed AST for module `\multiplier_2bit'.
+Warning: Replacing memory \partial with list of registers. See ./designs/src/riscv_v_execute/convert_to_v/multiplier_2bit.v:21
+59.57. Analyzing design hierarchy..
+59.58. Executing AST frontend in derive mode using pre-parsed AST for module `\half_adder'.
+59.59. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.60. Analyzing design hierarchy..
+59.61. Analyzing design hierarchy..
+60. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module multiplier_2bit because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_4bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_8bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_16bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_32bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_64bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module vedic_mul_unsigned_128bits because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_mul because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_shifter because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_twos_comp_sel\BLOCK_WIDTH=s32'00000000000000000000000000010000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_adder because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\riscv_v_twos_comp_sel\BLOCK_WIDTH=s32'00000000000000000000000000001000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_extend because it contains processes (run 'proc' command first).
+Warning: Ignoring module $paramod\shifter\WIDTH=s32'00000000000000000000000000001000 because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_logic_ALU because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_permutation_ALU because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_exe_alu because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_decode_element because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_bypass because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_swizzle because it contains processes (run 'proc' command first).
+61. Executing RTLIL backend.
+Warnings: 38 unique messages, 44 total
+End of script. Logfile hash: f24841ecce, CPU: user 0.96s system 0.03s, MEM: 72.50 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 66% 1x hierarchy (0 sec), 21% 2x read_liberty (0 sec), ...
+Elapsed time: 0:01.07[h:]min:sec. CPU time: user 1.02 sys 0.04 (99%). Peak memory: 75136KB.
+mkdir -p ./results/gf180/riscv_v_execute/base ./logs/gf180/riscv_v_execute/base ./reports/gf180/riscv_v_execute/base
+(export VERILOG_FILES=./results/gf180/riscv_v_execute/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_execute/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.38 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (80%). Peak memory: 13184KB.
+mkdir -p ./results/gf180/riscv_v_execute/base ./logs/gf180/riscv_v_execute/base ./reports/gf180/riscv_v_execute/base ./objects/gf180/riscv_v_execute/base
+(export VERILOG_FILES=./results/gf180/riscv_v_execute/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_execute/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/gf180/riscv_v_execute/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/gf180/riscv_v_execute/base/clock_period.txt
+Setting clock period to 100.0
+synth -top riscv_v_execute -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+3. Executing SYNTH pass.
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+3.1.1. Analyzing design hierarchy..
+3.1.2. Analyzing design hierarchy..
+3.2. Executing PROC pass (convert processes to netlists).
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+3.3. Executing FLATTEN pass (flatten design).
+3.4. Executing OPT_EXPR pass (perform const folding).
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.6. Executing CHECK pass (checking for obvious problems).
+3.7. Executing OPT pass (performing simple optimizations).
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+3.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.7.8. Executing OPT_EXPR pass (perform const folding).
+3.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+3.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.7.12. Executing OPT_MERGE pass (detect identical cells).
+3.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+3.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.7.15. Executing OPT_EXPR pass (perform const folding).
+3.7.16. Finished OPT passes. (There is nothing left to do.)
+3.8. Executing FSM pass (extract and optimize FSM).
+3.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+3.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+3.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+3.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+3.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+3.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+3.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+3.9. Executing OPT pass (performing simple optimizations).
+3.9.1. Executing OPT_EXPR pass (perform const folding).
+3.9.2. Executing OPT_MERGE pass (detect identical cells).
+3.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.9.5. Executing OPT_MERGE pass (detect identical cells).
+3.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.9.8. Executing OPT_EXPR pass (perform const folding).
+3.9.9. Finished OPT passes. (There is nothing left to do.)
+3.10. Executing WREDUCE pass (reducing word size of cells).
+3.11. Executing PEEPOPT pass (run peephole optimizers).
+3.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.13. Executing ALUMACC pass (create $alu and $macc cells).
+3.14. Executing SHARE pass (SAT-based resource sharing).
+3.15. Executing OPT pass (performing simple optimizations).
+3.15.1. Executing OPT_EXPR pass (perform const folding).
+3.15.2. Executing OPT_MERGE pass (detect identical cells).
+3.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.15.5. Executing OPT_MERGE pass (detect identical cells).
+3.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.15.8. Executing OPT_EXPR pass (perform const folding).
+3.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+3.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.15.12. Executing OPT_MERGE pass (detect identical cells).
+3.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+3.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.15.15. Executing OPT_EXPR pass (perform const folding).
+3.15.16. Finished OPT passes. (There is nothing left to do.)
+3.16. Executing MEMORY pass.
+3.16.1. Executing OPT_MEM pass (optimize memories).
+3.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+3.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+3.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+3.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+3.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+3.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+3.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+3.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+4. Executing SYNTH pass.
+4.1. Executing OPT pass (performing simple optimizations).
+4.1.1. Executing OPT_EXPR pass (perform const folding).
+4.1.2. Executing OPT_MERGE pass (detect identical cells).
+4.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.1.5. Finished fast OPT passes.
+4.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+4.3. Executing OPT pass (performing simple optimizations).
+4.3.1. Executing OPT_EXPR pass (perform const folding).
+4.3.2. Executing OPT_MERGE pass (detect identical cells).
+4.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.3.5. Executing OPT_MERGE pass (detect identical cells).
+4.3.6. Executing OPT_SHARE pass.
+4.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+4.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.3.9. Executing OPT_EXPR pass (perform const folding).
+4.3.10. Rerunning OPT passes. (Maybe there is more to do..)
+4.3.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.3.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.3.13. Executing OPT_MERGE pass (detect identical cells).
+4.3.14. Executing OPT_SHARE pass.
+4.3.15. Executing OPT_DFF pass (perform DFF optimizations).
+4.3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.3.17. Executing OPT_EXPR pass (perform const folding).
+4.3.18. Finished OPT passes. (There is nothing left to do.)
+4.4. Executing TECHMAP pass (map to technology primitives).
+4.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+4.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4.4.3. Continuing TECHMAP pass.
+4.4.35. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.4.36. Executing OPT_EXPR pass (perform const folding).
+4.5. Executing OPT pass (performing simple optimizations).
+4.5.1. Executing OPT_EXPR pass (perform const folding).
+4.5.2. Executing OPT_MERGE pass (detect identical cells).
+4.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.5.5. Finished fast OPT passes.
+4.6. Executing ABC pass (technology mapping using ABC).
+4.6.1. Extracting gate netlist of module `\riscv_v_execute' to `<abc-temp-dir>/input.blif'..
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.5. Finished fast OPT passes.
+4.8. Executing HIERARCHY pass (managing design hierarchy).
+4.8.1. Analyzing design hierarchy..
+4.8.2. Analyzing design hierarchy..
+4.9. Printing statistics.
+4.10. Executing CHECK pass (checking for obvious problems).
+5. Executing OPT pass (performing simple optimizations).
+5.1. Executing OPT_EXPR pass (perform const folding).
+5.2. Executing OPT_MERGE pass (detect identical cells).
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.5. Executing OPT_MERGE pass (detect identical cells).
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.8. Executing OPT_EXPR pass (perform const folding).
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.12. Executing OPT_MERGE pass (detect identical cells).
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.15. Executing OPT_EXPR pass (perform const folding).
+5.16. Finished OPT passes. (There is nothing left to do.)
+6. Executing TECHMAP pass (map to technology primitives).
+6.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/cells_latch.v
+6.2. Continuing TECHMAP pass.
+7. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4' - skipping.
+7.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+8. Executing OPT pass (performing simple optimizations).
+8.1. Executing OPT_EXPR pass (perform const folding).
+8.2. Executing OPT_MERGE pass (detect identical cells).
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.5. Executing OPT_MERGE pass (detect identical cells).
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.8. Executing OPT_EXPR pass (perform const folding).
+8.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/gf180/riscv_v_execute/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib -constr ./objects/gf180/riscv_v_execute/base/abc.constr -dont_use *_1 -D 100.0
+9. Executing ABC pass (technology mapping using ABC).
+9.1. Extracting gate netlist of module `\riscv_v_execute' to `<abc-temp-dir>/input.blif'..
+9.1.1. Executing ABC.
+9.1.2. Re-integrating ABC results.
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+11. Executing SPLITNETS pass (splitting up multi-bit signals).
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+13. Executing HILOMAP pass (mapping to constant drivers).
+14. Executing INSBUF pass (insert buffer cells for connected wires).
+15. Executing CHECK pass (checking for obvious problems).
+16. Printing statistics.
+17. Executing Verilog backend.
+exec cp ./designs/gf180/riscv_v_execute/constraint.sdc ./results/gf180/riscv_v_execute/base/1_synth.sdc
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: a0b481429f, CPU: user 240.07s system 3.68s, MEM: 7825.22 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 87% 2x abc (1673 sec), 4% 29x opt_clean (88 sec), ...
+Elapsed time: 31:56.60[h:]min:sec. CPU time: user 1910.02 sys 6.46 (99%). Peak memory: 8013028KB.
+mkdir -p ./results/gf180/riscv_v_execute/base ./logs/gf180/riscv_v_execute/base ./reports/gf180/riscv_v_execute/base
+cp ./results/gf180/riscv_v_execute/base/1_1_yosys.v ./results/gf180/riscv_v_execute/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/gf180/riscv_v_execute/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via1 :"
+  	EOLENCLOSURE 0.34 0.06 ;"
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via2 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via3 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via4 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_tech.lef, created 13 layers, 60 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_sc.lef, created 229 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 171177
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.480, 201.600).
+[INFO IFP-0001] Added 257 rows of 2320 site GF018hv5v_green_sc9.
+[INFO RSZ-0026] Removed 11614 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1ohm
+ voltage 1v
+ current 1mA
+ power 1uW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 6122282 u^2 364% utilization.
+Elapsed time: 0:44.13[h:]min:sec. CPU time: user 43.76 sys 0.36 (99%). Peak memory: 774056KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+place_pins -hor_layers Metal3 -ver_layers Metal4 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:01.55[h:]min:sec. CPU time: user 1.34 sys 0.21 (100%). Peak memory: 385352KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/gf180/riscv_v_execute/base/2_2_floorplan_io.odb ./results/gf180/riscv_v_execute/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.19[h:]min:sec. CPU time: user 0.12 sys 0.07 (100%). Peak memory: 100972KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+No macros found: Skipping macro_placement
+Elapsed time: 0:01.65[h:]min:sec. CPU time: user 1.43 sys 0.22 (100%). Peak memory: 384624KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING TAP-0014] endcap_cpp option is deprecated.
+[INFO TAP-0004] Inserted 514 endcaps.
+[INFO TAP-0005] Inserted 1683 tapcells.
+Elapsed time: 0:01.36[h:]min:sec. CPU time: user 1.18 sys 0.17 (100%). Peak memory: 292104KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[INFO PDN-0001] Inserting grid: block
+Elapsed time: 0:04.06[h:]min:sec. CPU time: user 3.84 sys 0.21 (99%). Peak memory: 413064KB.
+cp ./results/gf180/riscv_v_execute/base/2_6_floorplan_pdn.odb ./results/gf180/riscv_v_execute/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0006] NumInstances:            161246
+[INFO GPL-0007] NumPlaceInstances:       159563
+[INFO GPL-0008] NumFixedInstances:         1683
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 160261
+[INFO GPL-0011] NumPins:                 583091
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1500.000 1500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 1499.680 1496.880 ) um
+[INFO GPL-0016] CoreArea:            1682827.776 um^2
+[INFO GPL-0017] NonPlaceInstsArea:     9500.198 um^2
+[INFO GPL-0018] PlaceInstsArea:      6122282.342 um^2
+[INFO GPL-0019] Util:                   365.875 %
+[INFO GPL-0020] StdInstsArea:        6122282.342 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[ERROR GPL-0301] Utilization 365.875 % exceeds 100%.
+Error: set_place_density.tcl, 12 GPL-0301
+Command exited with non-zero status 1
+Elapsed time: 0:01.73[h:]min:sec. CPU time: user 1.51 sys 0.21 (99%). Peak memory: 426376KB.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       790 |       0 |      13 |      477 |    343 |   309 | -1468.217 |  -191735.7 |    149 | result[143]
+      800 |       0 |      13 |      477 |    345 |   317 | -1452.014 |  -185608.6 |    149 | result[143]
+      810 |       0 |      14 |      479 |    348 |   322 | -1471.501 |  -185756.3 |    149 | result[143]
+      820 |       0 |      16 |      481 |    352 |   325 | -1485.763 |  -185976.9 |    149 | result[143]
+      830 |       0 |      16 |      486 |    355 |   330 | -1450.224 |  -185472.2 |    149 | result[143]
+      840 |       0 |      16 |      489 |    360 |   334 | -1463.099 |  -185638.6 |    149 | result[143]
+      850 |       0 |      16 |      491 |    365 |   338 | -1445.391 |  -185426.1 |    149 | result[143]
+      860 |       0 |      18 |      493 |    369 |   341 | -1469.981 |  -185734.8 |    149 | result[143]
+      870 |       0 |      18 |      523 |    369 |   341 | -1469.898 |  -185733.7 |    149 | result[143]
+      880 |       0 |      18 |      553 |    369 |   341 | -1469.890 |  -185733.5 |    149 | result[143]
+      890 |       0 |      18 |      574 |    371 |   341 | -1473.353 |  -185782.0 |    149 | result[143]
+      896 |       0 |      16 |      522 |    364 |   336 | -1548.824 |  -188035.8 |    149 | result[143]
+      900 |       0 |      17 |      525 |    365 |   336 | -1529.016 |  -187200.2 |    149 | result[143]
+      910 |       0 |      17 |      541 |    366 |   337 | -1519.740 |  -186865.6 |    149 | result[143]
+      920 |       0 |      17 |      561 |    366 |   337 | -1519.740 |  -186865.6 |    149 | result[143]
+      930 |       0 |      18 |      575 |    366 |   339 | -1510.494 |  -186854.5 |    149 | result[143]
+      940 |       0 |      18 |      581 |    373 |   339 | -1471.511 |  -185756.2 |    149 | result[143]
+      950 |       0 |      19 |      589 |    376 |   343 | -1442.944 |  -185413.6 |    149 | result[143]
+      960 |       0 |      19 |      593 |    384 |   343 | -1429.104 |  -185363.5 |    149 | result[143]
+      970 |       0 |      20 |      593 |    387 |   349 | -1432.014 |  -184982.7 |    149 | result[143]
+      980 |       0 |      20 |      597 |    394 |   350 | -1423.341 |  -184852.0 |    149 | result[143]
+      990 |       0 |      20 |      599 |    401 |   352 | -1422.392 |  -184473.7 |    149 | result[143]
+     1000 |       0 |      20 |      605 |    402 |   359 | -1419.275 |  -184761.8 |    149 | result[143]
+     1010 |       0 |      20 |      607 |    406 |   364 | -1419.275 |  -184615.1 |    149 | result[143]
+     1020 |       0 |      21 |      614 |    406 |   371 | -1419.275 |  -184750.2 |    149 | result[143]
+     1030 |       0 |      23 |      618 |    408 |   375 | -1417.837 |  -184097.8 |    149 | result[143]
+     1040 |       0 |      23 |      618 |    410 |   383 | -1426.372 |  -183859.0 |    149 | result[143]
+     1050 |       0 |      24 |      620 |    415 |   386 | -1414.805 |  -182885.9 |    149 | result[143]
+     1060 |       0 |      24 |      652 |    415 |   387 | -1407.724 |  -182879.5 |    149 | result[143]
+     1070 |       0 |      25 |      652 |    415 |   396 | -1415.355 |  -184037.1 |    149 | result[143]
+     1080 |       0 |      25 |      652 |    415 |   406 | -1408.707 |  -183148.7 |    149 | result[143]
+     1090 |       0 |      26 |      652 |    415 |   415 | -1408.651 |  -183143.1 |    149 | result[143]
+     1100 |       0 |      26 |      657 |    419 |   419 | -1413.512 |  -181662.7 |    149 | result[143]
+     1110 |       0 |      26 |      657 |    419 |   429 | -1417.165 |  -181682.5 |    149 | result[143]
+     1120 |       0 |      27 |      660 |    420 |   436 | -1406.190 |  -181643.5 |    149 | result[143]
+     1130 |       0 |      29 |      660 |    420 |   444 | -1406.759 |  -181644.7 |    149 | result[143]
+     1140 |       0 |      29 |      660 |    421 |   453 | -1402.237 |  -181575.8 |    149 | result[143]

@@ -1,0 +1,84 @@
+  violation type: Metal Spacing
+    srcs: net:syn_data[122] net:VSS 
+    bbox = ( 356.976, 399.861 ) - ( 357.024, 399.893 ) on Layer M5
+  violation type: Short
+    srcs: net:syn_data[12] net:VSS 
+    bbox = ( 356.855, 399.733 ) - ( 356.857, 399.893 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:syn_data[25] net:VSS 
+    bbox = ( 297.567, 399.882 ) - ( 297.568, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[25] net:VSS 
+    bbox = ( 297.576, 399.877 ) - ( 297.6, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[25] net:VSS 
+    bbox = ( 297.567, 399.882 ) - ( 297.568, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[92] net:VSS 
+    bbox = ( 319.167, 399.882 ) - ( 319.168, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[92] net:VSS 
+    bbox = ( 319.176, 399.877 ) - ( 319.2, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[92] net:VSS 
+    bbox = ( 319.167, 399.882 ) - ( 319.168, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[2] net:VSS 
+    bbox = ( 302.808, 399.877 ) - ( 302.856, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[2] net:VSS 
+    bbox = ( 302.819, 399.882 ) - ( 302.864, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:instruction_id[14] net:VSS 
+    bbox = ( 308.264, 399.882 ) - ( 308.291, 399.888 ) on Layer M4
+  violation type: Short
+    srcs: net:instruction_id[14] net:VSS 
+    bbox = ( 308.256, 399.877 ) - ( 308.28, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:instruction_id[14] net:VSS 
+    bbox = ( 308.264, 399.882 ) - ( 308.291, 399.888 ) on Layer M4
+  violation type: Lef58EolKeepOut
+    srcs: net:instruction_id[14] net:VSS 
+    bbox = ( 308.256, 399.877 ) - ( 308.256, 399.893 ) on Layer M5
+  violation type: Lef58CutSpacingTable
+    srcs: net:instruction_id[14] net:VSS 
+    bbox = ( 308.275, 399.882 ) - ( 308.28, 399.888 ) on Layer V4
+  violation type: Metal Spacing
+    srcs: net:int_rf_rd_data_id[29] net:VSS 
+    bbox = ( 313.717, 399.882 ) - ( 313.768, 399.888 ) on Layer M4
+  violation type: Short
+    srcs: net:int_rf_rd_data_id[29] net:VSS 
+    bbox = ( 313.728, 399.877 ) - ( 313.752, 399.893 ) on Layer M5
+  violation type: Lef58CutSpacingTable
+    srcs: net:int_rf_rd_data_id[29] net:VSS 
+    bbox = ( 313.733, 399.882 ) - ( 313.752, 399.888 ) on Layer V4
+  violation type: Lef58CutSpacingTable
+    srcs: net:int_rf_rd_data_id[29] net:VSS 
+    bbox = ( 313.699, 399.882 ) - ( 313.728, 399.888 ) on Layer V4
+  violation type: Metal Spacing
+    srcs: net:ext_wr_vl_id net:VSS 
+    bbox = ( 346.064, 399.882 ) - ( 346.115, 399.888 ) on Layer M4
+  violation type: Short
+    srcs: net:ext_wr_vl_id net:VSS 
+    bbox = ( 346.08, 399.877 ) - ( 346.104, 399.893 ) on Layer M5
+  violation type: Lef58CutSpacingTable
+    srcs: net:ext_wr_vl_id net:VSS 
+    bbox = ( 346.08, 399.882 ) - ( 346.099, 399.888 ) on Layer V4
+  violation type: Lef58CutSpacingTable
+    srcs: net:ext_wr_vl_id net:VSS 
+    bbox = ( 346.104, 399.882 ) - ( 346.133, 399.888 ) on Layer V4
+  violation type: Metal Spacing
+    srcs: net:ext_data_in_exe[1] net:VSS 
+    bbox = ( 351.541, 399.882 ) - ( 351.568, 399.888 ) on Layer M4
+  violation type: Short
+    srcs: net:ext_data_in_exe[1] net:VSS 
+    bbox = ( 351.552, 399.877 ) - ( 351.576, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:ext_data_in_exe[1] net:VSS 
+    bbox = ( 351.541, 399.882 ) - ( 351.568, 399.888 ) on Layer M4
+  violation type: Lef58EolKeepOut
+    srcs: net:ext_data_in_exe[1] net:VSS 
+    bbox = ( 351.576, 399.877 ) - ( 351.576, 399.893 ) on Layer M5
+  violation type: Lef58CutSpacingTable
+    srcs: net:ext_data_in_exe[1] net:VSS 
+    bbox = ( 351.552, 399.882 ) - ( 351.557, 399.888 ) on Layer V4

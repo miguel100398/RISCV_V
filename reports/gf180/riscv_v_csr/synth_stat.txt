@@ -1,0 +1,28 @@
+
+16. Printing statistics.
+
+=== riscv_v_csr ===
+
+   Number of wires:                 63
+   Number of wire bits:            133
+   Number of public wires:          59
+   Number of public wire bits:     129
+   Number of ports:                 22
+   Number of port bits:             92
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 88
+     gf180mcu_fd_sc_mcu9t5v0__buf_12      1
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_8      1
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_2      1
+     gf180mcu_fd_sc_mcu9t5v0__dffrnq_2     34
+     gf180mcu_fd_sc_mcu9t5v0__dffsnq_2      3
+     gf180mcu_fd_sc_mcu9t5v0__dlya_4     10
+     gf180mcu_fd_sc_mcu9t5v0__mux2_2     36
+     gf180mcu_fd_sc_mcu9t5v0__mux2_4      1
+     gf180mcu_fd_sc_mcu9t5v0__tiel      1
+
+   Chip area for module '\riscv_v_csr': 5842.368000
+     of which used for sequential elements: 3575.980800 (61.21%)
+

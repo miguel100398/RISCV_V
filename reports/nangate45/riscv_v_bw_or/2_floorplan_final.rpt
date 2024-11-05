@@ -1,0 +1,189 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 7.96
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: srca[150] (input port clocked by clk)
+Endpoint: result[118] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+     1    1.64    0.00    0.00    3.00 ^ srca[150] (in)
+                                         srca[150] (net)
+                  0.00    0.00    3.00 ^ _2095_/A1 (AOI222_X1)
+     2    3.06    0.01    0.01    3.01 v _2095_/ZN (AOI222_X1)
+                                         _0415_ (net)
+                  0.01    0.00    3.01 v _2101_/A (OAI221_X1)
+     1    0.00    0.01    0.02    3.03 ^ _2101_/ZN (OAI221_X1)
+                                         result[118] (net)
+                  0.01    0.00    3.03 ^ result[118] (out)
+                                  3.03   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -3.00   -3.00   output external delay
+                                 -3.00   data required time
+-----------------------------------------------------------------------------
+                                 -3.00   data required time
+                                 -3.03   data arrival time
+-----------------------------------------------------------------------------
+                                  6.03   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: osize_vector[0] (input port clocked by clk)
+Endpoint: result[124] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+    10   21.38    0.00    0.00    3.00 ^ osize_vector[0] (in)
+                                         osize_vector[0] (net)
+                  0.00    0.00    3.00 ^ _1105_/A (INV_X1)
+     3    4.42    0.01    0.01    3.01 v _1105_/ZN (INV_X1)
+                                         _0545_ (net)
+                  0.01    0.00    3.01 v _1106_/A2 (NOR2_X1)
+    57   94.92    0.45    0.50    3.51 ^ _1106_/ZN (NOR2_X1)
+                                         _0546_ (net)
+                  0.45    0.00    3.51 ^ _1164_/A2 (NAND2_X1)
+    15   22.70    0.10    0.14    3.65 v _1164_/ZN (NAND2_X1)
+                                         _0603_ (net)
+                  0.10    0.00    3.65 v _1166_/C1 (OAI221_X1)
+     5   11.49    0.08    0.12    3.77 ^ _1166_/ZN (OAI221_X1)
+                                         _0605_ (net)
+                  0.08    0.00    3.77 ^ _1193_/A2 (NOR4_X2)
+     5    7.38    0.02    0.02    3.79 v _1193_/ZN (NOR4_X2)
+                                         _0631_ (net)
+                  0.02    0.00    3.79 v _1194_/B2 (AOI21_X1)
+     3    4.90    0.04    0.05    3.85 ^ _1194_/ZN (AOI21_X1)
+                                         _0632_ (net)
+                  0.04    0.00    3.85 ^ _2146_/A3 (NOR3_X1)
+     1    1.57    0.07    0.02    3.86 v _2146_/ZN (NOR3_X1)
+                                         _0456_ (net)
+                  0.07    0.00    3.86 v _2149_/B1 (AOI221_X1)
+     3    3.26    0.05    0.10    3.96 ^ _2149_/ZN (AOI221_X1)
+                                         result[92] (net)
+                  0.05    0.00    3.96 ^ _2155_/B1 (AOI221_X1)
+     1    1.55    0.04    0.03    4.00 v _2155_/ZN (AOI221_X1)
+                                         _0464_ (net)
+                  0.04    0.00    4.00 v _2156_/B2 (OAI22_X1)
+     1    0.00    0.06    0.05    4.04 ^ _2156_/ZN (OAI22_X1)
+                                         result[124] (net)
+                  0.06    0.00    4.04 ^ result[124] (out)
+                                  4.04   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -4.04   data arrival time
+-----------------------------------------------------------------------------
+                                  7.96   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: osize_vector[0] (input port clocked by clk)
+Endpoint: result[124] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+    10   21.38    0.00    0.00    3.00 ^ osize_vector[0] (in)
+                                         osize_vector[0] (net)
+                  0.00    0.00    3.00 ^ _1105_/A (INV_X1)
+     3    4.42    0.01    0.01    3.01 v _1105_/ZN (INV_X1)
+                                         _0545_ (net)
+                  0.01    0.00    3.01 v _1106_/A2 (NOR2_X1)
+    57   94.92    0.45    0.50    3.51 ^ _1106_/ZN (NOR2_X1)
+                                         _0546_ (net)
+                  0.45    0.00    3.51 ^ _1164_/A2 (NAND2_X1)
+    15   22.70    0.10    0.14    3.65 v _1164_/ZN (NAND2_X1)
+                                         _0603_ (net)
+                  0.10    0.00    3.65 v _1166_/C1 (OAI221_X1)
+     5   11.49    0.08    0.12    3.77 ^ _1166_/ZN (OAI221_X1)
+                                         _0605_ (net)
+                  0.08    0.00    3.77 ^ _1193_/A2 (NOR4_X2)
+     5    7.38    0.02    0.02    3.79 v _1193_/ZN (NOR4_X2)
+                                         _0631_ (net)
+                  0.02    0.00    3.79 v _1194_/B2 (AOI21_X1)
+     3    4.90    0.04    0.05    3.85 ^ _1194_/ZN (AOI21_X1)
+                                         _0632_ (net)
+                  0.04    0.00    3.85 ^ _2146_/A3 (NOR3_X1)
+     1    1.57    0.07    0.02    3.86 v _2146_/ZN (NOR3_X1)
+                                         _0456_ (net)
+                  0.07    0.00    3.86 v _2149_/B1 (AOI221_X1)
+     3    3.26    0.05    0.10    3.96 ^ _2149_/ZN (AOI221_X1)
+                                         result[92] (net)
+                  0.05    0.00    3.96 ^ _2155_/B1 (AOI221_X1)
+     1    1.55    0.04    0.03    4.00 v _2155_/ZN (AOI221_X1)
+                                         _0464_ (net)
+                  0.04    0.00    4.00 v _2156_/B2 (OAI22_X1)
+     1    0.00    0.06    0.05    4.04 ^ _2156_/ZN (OAI22_X1)
+                                         result[124] (net)
+                  0.06    0.00    4.04 ^ result[124] (out)
+                                  4.04   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -4.04   data arrival time
+-----------------------------------------------------------------------------
+                                  7.96   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          3.52e-05   3.17e-05   3.01e-05   9.70e-05 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.52e-05   3.17e-05   3.01e-05   9.70e-05 100.0%
+                          36.3%      32.6%      31.0%

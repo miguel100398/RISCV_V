@@ -1,0 +1,56 @@
+
+21. Printing statistics.
+
+=== riscv_v_decode_element ===
+
+   Number of wires:                268
+   Number of wire bits:            955
+   Number of public wires:          26
+   Number of public wire bits:     713
+   Number of ports:                 25
+   Number of port bits:            712
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                631
+     AND2x2_ASAP7_75t_R             28
+     AND3x1_ASAP7_75t_R             20
+     AND4x2_ASAP7_75t_R              1
+     AND5x1_ASAP7_75t_R              1
+     AO21x1_ASAP7_75t_R             29
+     AO221x1_ASAP7_75t_R             7
+     AO222x2_ASAP7_75t_R             1
+     AO22x1_ASAP7_75t_R              6
+     AO32x1_ASAP7_75t_R             13
+     AOI211x1_ASAP7_75t_R            4
+     AOI21x1_ASAP7_75t_R            11
+     AOI221x1_ASAP7_75t_R            3
+     AOI22x1_ASAP7_75t_R             4
+     BUFx2_ASAP7_75t_R             315
+     BUFx3_ASAP7_75t_R               4
+     BUFx6f_ASAP7_75t_R              3
+     INVx1_ASAP7_75t_R              24
+     INVx2_ASAP7_75t_R               2
+     NAND2x1_ASAP7_75t_R            23
+     NAND2x2_ASAP7_75t_R             1
+     NOR2x1_ASAP7_75t_R             22
+     NOR2x2_ASAP7_75t_R              1
+     NOR3x1_ASAP7_75t_R              3
+     OA211x2_ASAP7_75t_R            22
+     OA21x2_ASAP7_75t_R             29
+     OA221x2_ASAP7_75t_R             1
+     OA22x2_ASAP7_75t_R              9
+     OAI21x1_ASAP7_75t_R             8
+     OAI22x1_ASAP7_75t_R             1
+     OR2x2_ASAP7_75t_R               9
+     OR3x1_ASAP7_75t_R              14
+     OR4x1_ASAP7_75t_R               6
+     OR4x2_ASAP7_75t_R               1
+     OR5x1_ASAP7_75t_R               2
+     TIEHIx1_ASAP7_75t_R             1
+     TIELOx1_ASAP7_75t_R             1
+     XOR2x2_ASAP7_75t_R              1
+
+   Chip area for module '\riscv_v_decode_element': 54.645840
+     of which used for sequential elements: 0.000000 (0.00%)
+

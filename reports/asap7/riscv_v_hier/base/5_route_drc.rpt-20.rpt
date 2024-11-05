@@ -1,0 +1,45 @@
+  violation type: Metal Spacing
+    srcs: net:syn_data[114] net:VSS 
+    bbox = ( 340.767, 399.882 ) - ( 340.768, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[114] net:VSS 
+    bbox = ( 340.776, 399.877 ) - ( 340.8, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[114] net:VSS 
+    bbox = ( 340.767, 399.882 ) - ( 340.768, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[71] net:VSS 
+    bbox = ( 356.864, 399.882 ) - ( 356.867, 399.888 ) on Layer M4
+  violation type: Short
+    srcs: net:syn_data[71] net:VSS 
+    bbox = ( 356.855, 399.877 ) - ( 356.857, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[71] net:VSS 
+    bbox = ( 356.864, 399.882 ) - ( 356.867, 399.888 ) on Layer M4
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[71] net:VSS 
+    bbox = ( 356.856, 399.877 ) - ( 356.856, 399.893 ) on Layer M5
+  violation type: Lef58CutSpacingTable
+    srcs: net:syn_data[71] net:VSS 
+    bbox = ( 356.856, 399.882 ) - ( 356.875, 399.888 ) on Layer V4
+  violation type: Metal Spacing
+    srcs: net:syn_data[74] net:VSS 
+    bbox = ( 313.776, 399.877 ) - ( 313.824, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[74] net:VSS 
+    bbox = ( 313.768, 399.882 ) - ( 313.813, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[122] net:VSS 
+    bbox = ( 335.376, 399.877 ) - ( 335.424, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[122] net:VSS 
+    bbox = ( 335.368, 399.882 ) - ( 335.413, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[98] net:VSS 
+    bbox = ( 383.967, 399.882 ) - ( 383.968, 399.888 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:syn_data[98] net:VSS 
+    bbox = ( 383.976, 399.877 ) - ( 384, 399.893 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:syn_data[98] net:VSS 
+    bbox = ( 383.967, 399.882 ) - ( 383.968, 399.888 ) on Layer M4

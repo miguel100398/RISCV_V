@@ -1,0 +1,71 @@
+
+16. Printing statistics.
+
+=== riscv_v_decode ===
+
+   Number of wires:              20211
+   Number of wire bits:          21302
+   Number of public wires:        8415
+   Number of public wire bits:    9506
+   Number of ports:                 78
+   Number of port bits:           1169
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              21015
+     gf180mcu_fd_sc_mcu9t5v0__and2_2    197
+     gf180mcu_fd_sc_mcu9t5v0__and2_4      2
+     gf180mcu_fd_sc_mcu9t5v0__and3_2     79
+     gf180mcu_fd_sc_mcu9t5v0__and4_2     72
+     gf180mcu_fd_sc_mcu9t5v0__aoi211_2     23
+     gf180mcu_fd_sc_mcu9t5v0__aoi21_2    106
+     gf180mcu_fd_sc_mcu9t5v0__aoi221_2     28
+     gf180mcu_fd_sc_mcu9t5v0__aoi222_2      7
+     gf180mcu_fd_sc_mcu9t5v0__aoi222_4      1
+     gf180mcu_fd_sc_mcu9t5v0__aoi22_2    168
+     gf180mcu_fd_sc_mcu9t5v0__buf_12      5
+     gf180mcu_fd_sc_mcu9t5v0__buf_2   1182
+     gf180mcu_fd_sc_mcu9t5v0__buf_3    294
+     gf180mcu_fd_sc_mcu9t5v0__buf_4    340
+     gf180mcu_fd_sc_mcu9t5v0__buf_8     29
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_2    524
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_8      9
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_2    166
+     gf180mcu_fd_sc_mcu9t5v0__dffq_2   4719
+     gf180mcu_fd_sc_mcu9t5v0__dffrnq_2    187
+     gf180mcu_fd_sc_mcu9t5v0__dffsnq_2      3
+     gf180mcu_fd_sc_mcu9t5v0__dlya_4     49
+     gf180mcu_fd_sc_mcu9t5v0__inv_2      3
+     gf180mcu_fd_sc_mcu9t5v0__inv_4      1
+     gf180mcu_fd_sc_mcu9t5v0__mux2_2   5898
+     gf180mcu_fd_sc_mcu9t5v0__mux4_2   4128
+     gf180mcu_fd_sc_mcu9t5v0__nand2_2    279
+     gf180mcu_fd_sc_mcu9t5v0__nand3_2     55
+     gf180mcu_fd_sc_mcu9t5v0__nand4_2     10
+     gf180mcu_fd_sc_mcu9t5v0__nand4_4      1
+     gf180mcu_fd_sc_mcu9t5v0__nor2_2    166
+     gf180mcu_fd_sc_mcu9t5v0__nor2_4      1
+     gf180mcu_fd_sc_mcu9t5v0__nor3_2     66
+     gf180mcu_fd_sc_mcu9t5v0__nor4_2    207
+     gf180mcu_fd_sc_mcu9t5v0__oai211_2     21
+     gf180mcu_fd_sc_mcu9t5v0__oai21_2     69
+     gf180mcu_fd_sc_mcu9t5v0__oai221_2     38
+     gf180mcu_fd_sc_mcu9t5v0__oai222_2      2
+     gf180mcu_fd_sc_mcu9t5v0__oai22_2   1270
+     gf180mcu_fd_sc_mcu9t5v0__oai31_2     53
+     gf180mcu_fd_sc_mcu9t5v0__oai31_4     69
+     gf180mcu_fd_sc_mcu9t5v0__oai32_2     89
+     gf180mcu_fd_sc_mcu9t5v0__oai32_4      1
+     gf180mcu_fd_sc_mcu9t5v0__oai33_2      1
+     gf180mcu_fd_sc_mcu9t5v0__or2_2    124
+     gf180mcu_fd_sc_mcu9t5v0__or2_4      1
+     gf180mcu_fd_sc_mcu9t5v0__or3_2    101
+     gf180mcu_fd_sc_mcu9t5v0__or3_4      1
+     gf180mcu_fd_sc_mcu9t5v0__or4_2    153
+     gf180mcu_fd_sc_mcu9t5v0__or4_4      1
+     gf180mcu_fd_sc_mcu9t5v0__tiel      1
+     gf180mcu_fd_sc_mcu9t5v0__xnor2_2     15
+
+   Chip area for module '\riscv_v_decode': 1284914.534400
+     of which used for sequential elements: 417825.273600 (32.52%)
+

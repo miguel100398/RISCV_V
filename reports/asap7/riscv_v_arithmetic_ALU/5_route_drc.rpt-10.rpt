@@ -1,0 +1,6 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:srca[112] 
+    bbox = ( 362.304, 499.793 ) - ( 362.328, 499.813 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:srca[112] 
+    bbox = ( 362.304, 499.793 ) - ( 362.328, 499.813 ) on Layer M5

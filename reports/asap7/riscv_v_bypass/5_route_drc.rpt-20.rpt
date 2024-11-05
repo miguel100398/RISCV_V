@@ -1,0 +1,6 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:mask_byp[14] 
+    bbox = ( 329.952, 499.793 ) - ( 329.976, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:mask_merge_byp[10] 
+    bbox = ( 335.256, 499.793 ) - ( 335.256, 499.861 ) on Layer M5

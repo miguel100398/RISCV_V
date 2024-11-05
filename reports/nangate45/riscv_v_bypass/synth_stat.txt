@@ -1,0 +1,73 @@
+
+17. Printing statistics.
+
+=== riscv_v_bypass ===
+
+   Number of wires:               1375
+   Number of wire bits:           2286
+   Number of public wires:          26
+   Number of public wire bits:     937
+   Number of ports:                 26
+   Number of port bits:            937
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1637
+     AND2_X1                        35
+     AND2_X2                         1
+     AND3_X1                         8
+     AND3_X2                         2
+     AOI211_X2                       6
+     AOI21_X1                      152
+     AOI21_X2                        1
+     AOI21_X4                        1
+     AOI221_X1                      49
+     AOI221_X2                       8
+     AOI222_X1                       2
+     AOI222_X2                       2
+     AOI22_X1                       38
+     BUF_X1                         64
+     BUF_X2                         23
+     BUF_X4                         16
+     BUF_X8                          3
+     CLKBUF_X1                      21
+     INV_X1                         89
+     INV_X2                          1
+     MUX2_X1                       472
+     MUX2_X2                         1
+     NAND2_X1                      101
+     NAND2_X2                        4
+     NAND2_X4                        1
+     NAND3_X1                       21
+     NAND3_X2                       14
+     NAND3_X4                        2
+     NAND4_X1                       12
+     NOR2_X1                       124
+     NOR2_X2                         2
+     NOR2_X4                         1
+     NOR3_X1                        21
+     NOR3_X2                         4
+     NOR4_X1                         5
+     NOR4_X2                         3
+     OAI211_X2                       8
+     OAI21_X1                      105
+     OAI21_X2                        5
+     OAI21_X4                        1
+     OAI221_X1                      29
+     OAI221_X2                       1
+     OAI221_X4                       1
+     OAI222_X1                       3
+     OAI22_X1                       58
+     OAI22_X2                       16
+     OAI22_X4                        1
+     OAI33_X1                       14
+     OR2_X1                         38
+     OR3_X1                         13
+     XNOR2_X1                       12
+     XNOR2_X2                       10
+     XOR2_X1                        11
+     XOR2_X2                         1
+
+   Chip area for module '\riscv_v_bypass': 2238.922000
+     of which used for sequential elements: 0.000000 (0.00%)
+

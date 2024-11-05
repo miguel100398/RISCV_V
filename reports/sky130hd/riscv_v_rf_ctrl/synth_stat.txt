@@ -1,0 +1,32 @@
+
+17. Printing statistics.
+
+=== riscv_v_rf_ctrl ===
+
+   Number of wires:                902
+   Number of wire bits:           2036
+   Number of public wires:          94
+   Number of public wire bits:    1228
+   Number of ports:                 28
+   Number of port bits:           1162
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1530
+     sky130_fd_sc_hd__buf_2          3
+     sky130_fd_sc_hd__buf_4         32
+     sky130_fd_sc_hd__buf_6         74
+     sky130_fd_sc_hd__buf_8          1
+     sky130_fd_sc_hd__clkbuf_1       3
+     sky130_fd_sc_hd__dfrtp_1       67
+     sky130_fd_sc_hd__dfxtp_1      623
+     sky130_fd_sc_hd__inv_1          1
+     sky130_fd_sc_hd__mux2_2       625
+     sky130_fd_sc_hd__mux2_4        30
+     sky130_fd_sc_hd__mux2i_1       35
+     sky130_fd_sc_hd__nand2b_4       1
+     sky130_fd_sc_hd__nor2_1        35
+
+   Chip area for module '\riscv_v_rf_ctrl': 23251.049600
+     of which used for sequential elements: 14148.569600 (60.85%)
+

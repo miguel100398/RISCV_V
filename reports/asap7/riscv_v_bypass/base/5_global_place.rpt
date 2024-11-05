@@ -1,0 +1,156 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 1685.70
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rf_wr_data_mem[109] (input port clocked by clk)
+Endpoint: srcb_byp[109] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 ^ input external delay
+     2    1.64    0.00    0.00 1000.00 ^ rf_wr_data_mem[109] (in)
+                                         rf_wr_data_mem[109] (net)
+                  0.08    0.02 1000.02 ^ _3010_/A1 (OA21x2_ASAP7_75t_R)
+     1    0.15    4.28   12.05 1012.07 ^ _3010_/Y (OA21x2_ASAP7_75t_R)
+                                         srcb_byp[109] (net)
+                  4.28    0.00 1012.07 ^ srcb_byp[109] (out)
+                               1012.07   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                       -1000.00 -1000.00   output external delay
+                               -1000.00   data required time
+-----------------------------------------------------------------------------
+                               -1000.00   data required time
+                               -1012.07   data arrival time
+-----------------------------------------------------------------------------
+                               2012.07   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rf_wr_addr_wb[0] (input port clocked by clk)
+Endpoint: srcb_byp[115] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     6    7.80    0.00    0.00 1000.00 v rf_wr_addr_wb[0] (in)
+                                         rf_wr_addr_wb[0] (net)
+                  2.87    0.91 1000.91 v _2963_/A (XNOR2x2_ASAP7_75t_R)
+     1    0.63    7.48   22.07 1022.97 ^ _2963_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _1188_ (net)
+                  7.48    0.01 1022.98 ^ _2965_/D (AND5x1_ASAP7_75t_R)
+   144  143.68 1072.67  304.18 1327.16 ^ _2965_/Y (AND5x1_ASAP7_75t_R)
+                                         _1190_ (net)
+               1343.20  268.13 1595.30 ^ _3023_/B (NAND2x1_ASAP7_75t_R)
+     8   39.36  625.77  460.18 2055.47 v _3023_/Y (NAND2x1_ASAP7_75t_R)
+                                         _1234_ (net)
+                637.94   48.28 2103.76 v _3034_/B1 (AO221x1_ASAP7_75t_R)
+     1    0.71   30.17   79.25 2183.01 v _3034_/Y (AO221x1_ASAP7_75t_R)
+                                         _1242_ (net)
+                 30.17    0.01 2183.02 v _3035_/B (OA21x2_ASAP7_75t_R)
+     1   34.79   76.93   42.98 2225.99 v _3035_/Y (OA21x2_ASAP7_75t_R)
+                                         srcb_byp[115] (net)
+                289.78   88.30 2314.30 v srcb_byp[115] (out)
+                               2314.30   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -2314.30   data arrival time
+-----------------------------------------------------------------------------
+                               1685.70   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rf_wr_addr_wb[0] (input port clocked by clk)
+Endpoint: srcb_byp[115] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1000.00 1000.00 v input external delay
+     6    7.80    0.00    0.00 1000.00 v rf_wr_addr_wb[0] (in)
+                                         rf_wr_addr_wb[0] (net)
+                  2.87    0.91 1000.91 v _2963_/A (XNOR2x2_ASAP7_75t_R)
+     1    0.63    7.48   22.07 1022.97 ^ _2963_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _1188_ (net)
+                  7.48    0.01 1022.98 ^ _2965_/D (AND5x1_ASAP7_75t_R)
+   144  143.68 1072.67  304.18 1327.16 ^ _2965_/Y (AND5x1_ASAP7_75t_R)
+                                         _1190_ (net)
+               1343.20  268.13 1595.30 ^ _3023_/B (NAND2x1_ASAP7_75t_R)
+     8   39.36  625.77  460.18 2055.47 v _3023_/Y (NAND2x1_ASAP7_75t_R)
+                                         _1234_ (net)
+                637.94   48.28 2103.76 v _3034_/B1 (AO221x1_ASAP7_75t_R)
+     1    0.71   30.17   79.25 2183.01 v _3034_/Y (AO221x1_ASAP7_75t_R)
+                                         _1242_ (net)
+                 30.17    0.01 2183.02 v _3035_/B (OA21x2_ASAP7_75t_R)
+     1   34.79   76.93   42.98 2225.99 v _3035_/Y (OA21x2_ASAP7_75t_R)
+                                         srcb_byp[115] (net)
+                289.78   88.30 2314.30 v srcb_byp[115] (out)
+                               2314.30   data arrival time
+
+                  0.00 5000.00 5000.00   clock clk (rise edge)
+                          0.00 5000.00   clock network delay (ideal)
+                          0.00 5000.00   clock reconvergence pessimism
+                       -1000.00 4000.00   output external delay
+                               4000.00   data required time
+-----------------------------------------------------------------------------
+                               4000.00   data required time
+                               -2314.30   data arrival time
+-----------------------------------------------------------------------------
+                               1685.70   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          2.96e-05   7.32e-05   1.28e-07   1.03e-04 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.96e-05   7.32e-05   1.28e-07   1.03e-04 100.0%
+                          28.8%      71.1%       0.1%

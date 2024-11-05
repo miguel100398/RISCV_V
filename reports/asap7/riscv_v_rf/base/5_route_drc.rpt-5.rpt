@@ -1,0 +1,27 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_out_A[102] 
+    bbox = ( 319.104, 499.793 ) - ( 319.128, 499.829 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_out_A[78] 
+    bbox = ( 313.656, 499.793 ) - ( 313.656, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_out_B[75] 
+    bbox = ( 313.728, 499.793 ) - ( 313.752, 499.829 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_out_A[119] 
+    bbox = ( 340.704, 499.793 ) - ( 340.728, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_in[51] 
+    bbox = ( 324.48, 499.793 ) - ( 324.504, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_in[117] 
+    bbox = ( 346.08, 499.793 ) - ( 346.104, 499.829 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:data_in[118] 
+    bbox = ( 346.176, 499.793 ) - ( 346.176, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:rd_addr_A[1] 
+    bbox = ( 383.904, 499.793 ) - ( 383.928, 499.813 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:rd_addr_A[1] 
+    bbox = ( 383.904, 499.793 ) - ( 383.928, 499.813 ) on Layer M5

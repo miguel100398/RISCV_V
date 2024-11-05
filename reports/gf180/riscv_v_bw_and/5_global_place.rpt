@@ -1,0 +1,201 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 4.20
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: srcb[138] (input port clocked by clk)
+Endpoint: result[106] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 ^ input external delay
+     2    0.02    0.00    0.00    4.00 ^ srcb[138] (in)
+                                         srcb[138] (net)
+                  0.00    0.00    4.00 ^ _2283_/A1 (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+     1    0.01    0.06    0.04    4.04 v _2283_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+                                         _0291_ (net)
+                  0.06    0.00    4.04 v _2447_/A1 (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+     1    0.00    0.07    0.05    4.10 ^ _2447_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+                                         result[106] (net)
+                  0.07    0.00    4.10 ^ result[106] (out)
+                                  4.10   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -4.00   -4.00   output external delay
+                                 -4.00   data required time
+-----------------------------------------------------------------------------
+                                 -4.00   data required time
+                                 -4.10   data arrival time
+-----------------------------------------------------------------------------
+                                  8.10   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: osize_vector[0] (input port clocked by clk)
+Endpoint: result[123] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 ^ input external delay
+     7    0.12    0.00    0.00    4.00 ^ osize_vector[0] (in)
+                                         osize_vector[0] (net)
+                  0.00    0.00    4.00 ^ _1403_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+    90    1.51    5.57    3.32    7.32 ^ _1403_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         _0846_ (net)
+                  5.57    0.00    7.32 ^ _1823_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+    23    0.50    1.97    1.04    8.36 ^ _1823_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         _1247_ (net)
+                  1.97    0.00    8.36 ^ _2483_/A1 (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+     1    0.03    0.19    0.39    8.75 ^ _2483_/Z (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+                                         _0479_ (net)
+                  0.19    0.00    8.75 ^ _2493_/A1 (gf180mcu_fd_sc_mcu9t5v0__oai21_4)
+     5    0.08    0.26    0.13    8.88 v _2493_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai21_4)
+                                         _0489_ (net)
+                  0.26    0.00    8.88 v _2534_/A1 (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+     4    0.14    0.95    0.60    9.48 ^ _2534_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+                                         result[43] (net)
+                  0.95    0.00    9.48 ^ _2597_/B1 (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+     1    0.01    0.61    0.19    9.67 v _2597_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+                                         _0588_ (net)
+                  0.61    0.00    9.67 v _2598_/B (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+     1    0.01    0.40    0.29    9.96 ^ _2598_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+                                         _0589_ (net)
+                  0.40    0.00    9.96 ^ _2599_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+     2    0.11    0.43    0.37   10.34 ^ _2599_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         result[75] (net)
+                  0.43    0.00   10.34 ^ _2600_/C1 (gf180mcu_fd_sc_mcu9t5v0__aoi222_2)
+     2    0.04    1.36    0.23   10.57 v _2600_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi222_2)
+                                         _0590_ (net)
+                  1.36    0.00   10.57 v _2716_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand4_2)
+     2    0.03    0.47    0.44   11.00 ^ _2716_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand4_2)
+                                         _0687_ (net)
+                  0.47    0.00   11.00 ^ _2808_/B1 (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+     1    0.01    0.62    0.18   11.18 v _2808_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+                                         _0763_ (net)
+                  0.62    0.00   11.18 v _2810_/B1 (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+     1    0.09    0.81    0.62   11.80 ^ _2810_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+                                         result[123] (net)
+                  0.81    0.00   11.80 ^ result[123] (out)
+                                 11.80   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                -11.80   data arrival time
+-----------------------------------------------------------------------------
+                                  4.20   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: osize_vector[0] (input port clocked by clk)
+Endpoint: result[123] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 ^ input external delay
+     7    0.12    0.00    0.00    4.00 ^ osize_vector[0] (in)
+                                         osize_vector[0] (net)
+                  0.00    0.00    4.00 ^ _1403_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+    90    1.51    5.57    3.32    7.32 ^ _1403_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         _0846_ (net)
+                  5.57    0.00    7.32 ^ _1823_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+    23    0.50    1.97    1.04    8.36 ^ _1823_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         _1247_ (net)
+                  1.97    0.00    8.36 ^ _2483_/A1 (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+     1    0.03    0.19    0.39    8.75 ^ _2483_/Z (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+                                         _0479_ (net)
+                  0.19    0.00    8.75 ^ _2493_/A1 (gf180mcu_fd_sc_mcu9t5v0__oai21_4)
+     5    0.08    0.26    0.13    8.88 v _2493_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai21_4)
+                                         _0489_ (net)
+                  0.26    0.00    8.88 v _2534_/A1 (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+     4    0.14    0.95    0.60    9.48 ^ _2534_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor2_2)
+                                         result[43] (net)
+                  0.95    0.00    9.48 ^ _2597_/B1 (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+     1    0.01    0.61    0.19    9.67 v _2597_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+                                         _0588_ (net)
+                  0.61    0.00    9.67 v _2598_/B (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+     1    0.01    0.40    0.29    9.96 ^ _2598_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+                                         _0589_ (net)
+                  0.40    0.00    9.96 ^ _2599_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+     2    0.11    0.43    0.37   10.34 ^ _2599_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         result[75] (net)
+                  0.43    0.00   10.34 ^ _2600_/C1 (gf180mcu_fd_sc_mcu9t5v0__aoi222_2)
+     2    0.04    1.36    0.23   10.57 v _2600_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi222_2)
+                                         _0590_ (net)
+                  1.36    0.00   10.57 v _2716_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand4_2)
+     2    0.03    0.47    0.44   11.00 ^ _2716_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand4_2)
+                                         _0687_ (net)
+                  0.47    0.00   11.00 ^ _2808_/B1 (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+     1    0.01    0.62    0.18   11.18 v _2808_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+                                         _0763_ (net)
+                  0.62    0.00   11.18 v _2810_/B1 (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+     1    0.09    0.81    0.62   11.80 ^ _2810_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai22_2)
+                                         result[123] (net)
+                  0.81    0.00   11.80 ^ result[123] (out)
+                                 11.80   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                -11.80   data arrival time
+-----------------------------------------------------------------------------
+                                  4.20   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          9.33e-03   5.71e-03   3.02e-07   1.50e-02 100.0%
+Clock                  0.00e+00   0.00e+00   1.33e-07   1.33e-07   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  9.33e-03   5.71e-03   4.35e-07   1.50e-02 100.0%
+                          62.0%      38.0%       0.0%

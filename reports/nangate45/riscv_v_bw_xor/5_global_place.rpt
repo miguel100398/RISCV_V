@@ -1,0 +1,171 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns -1603.54
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns -18.77
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack -18.77
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: srcb[155] (input port clocked by clk)
+Endpoint: result[123] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    1.68    0.00    0.00    3.00 v srcb[155] (in)
+                                         srcb[155] (net)
+                  0.00    0.00    3.00 v _4601_/A1 (NAND2_X1)
+     1    2.25    0.01    0.01    3.01 ^ _4601_/ZN (NAND2_X1)
+                                         _1646_ (net)
+                  0.01    0.00    3.01 ^ _4617_/A (XNOR2_X1)
+     1    0.22    0.01    0.01    3.02 v _4617_/ZN (XNOR2_X1)
+                                         result[123] (net)
+                  0.01    0.00    3.02 v result[123] (out)
+                                  3.02   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -3.00   -3.00   output external delay
+                                 -3.00   data required time
+-----------------------------------------------------------------------------
+                                 -3.00   data required time
+                                 -3.02   data arrival time
+-----------------------------------------------------------------------------
+                                  6.02   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: is_xor (input port clocked by clk)
+Endpoint: result[55] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+    79  523.55    0.00    0.00    3.00 ^ is_xor (in)
+                                         is_xor (net)
+                  2.14    1.75    4.75 ^ _2275_/A (INV_X1)
+    30  455.82    3.44    4.21    8.96 v _2275_/ZN (INV_X1)
+                                         _1703_ (net)
+                  3.52    0.62    9.58 v _2308_/A1 (NOR2_X1)
+    34  412.84    1.46   15.08   24.66 ^ _2308_/ZN (NOR2_X1)
+                                         _1735_ (net)
+                  2.38    1.47   26.13 ^ _3180_/A2 (AOI22_X1)
+     6   95.00    1.01    1.89   28.02 v _3180_/ZN (AOI22_X1)
+                                         _0305_ (net)
+                  1.03    0.20   28.22 v _3202_/A2 (AND2_X1)
+     3    5.12    0.04    0.28   28.50 v _3202_/ZN (AND2_X1)
+                                         _0326_ (net)
+                  0.04    0.00   28.50 v _3229_/A2 (NAND3_X1)
+     3    5.23    0.06    0.04   28.54 ^ _3229_/ZN (NAND3_X1)
+                                         _0353_ (net)
+                  0.06    0.00   28.54 ^ _3238_/A2 (NAND2_X1)
+     3    4.25    0.02    0.03   28.57 v _3238_/ZN (NAND2_X1)
+                                         _0361_ (net)
+                  0.02    0.00   28.57 v _3239_/A (INV_X1)
+     3  335.98    0.45    0.47   29.04 ^ _3239_/ZN (INV_X1)
+                                         result[55] (net)
+                  2.15    1.73   30.77 ^ result[55] (out)
+                                 30.77   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                -30.77   data arrival time
+-----------------------------------------------------------------------------
+                                -18.77   slack (VIOLATED)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: is_xor (input port clocked by clk)
+Endpoint: result[55] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+    79  523.55    0.00    0.00    3.00 ^ is_xor (in)
+                                         is_xor (net)
+                  2.14    1.75    4.75 ^ _2275_/A (INV_X1)
+    30  455.82    3.44    4.21    8.96 v _2275_/ZN (INV_X1)
+                                         _1703_ (net)
+                  3.52    0.62    9.58 v _2308_/A1 (NOR2_X1)
+    34  412.84    1.46   15.08   24.66 ^ _2308_/ZN (NOR2_X1)
+                                         _1735_ (net)
+                  2.38    1.47   26.13 ^ _3180_/A2 (AOI22_X1)
+     6   95.00    1.01    1.89   28.02 v _3180_/ZN (AOI22_X1)
+                                         _0305_ (net)
+                  1.03    0.20   28.22 v _3202_/A2 (AND2_X1)
+     3    5.12    0.04    0.28   28.50 v _3202_/ZN (AND2_X1)
+                                         _0326_ (net)
+                  0.04    0.00   28.50 v _3229_/A2 (NAND3_X1)
+     3    5.23    0.06    0.04   28.54 ^ _3229_/ZN (NAND3_X1)
+                                         _0353_ (net)
+                  0.06    0.00   28.54 ^ _3238_/A2 (NAND2_X1)
+     3    4.25    0.02    0.03   28.57 v _3238_/ZN (NAND2_X1)
+                                         _0361_ (net)
+                  0.02    0.00   28.57 v _3239_/A (INV_X1)
+     3  335.98    0.45    0.47   29.04 ^ _3239_/ZN (INV_X1)
+                                         result[55] (net)
+                  2.15    1.73   30.77 ^ result[55] (out)
+                                 30.77   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                -30.77   data arrival time
+-----------------------------------------------------------------------------
+                                -18.77   slack (VIOLATED)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          2.15e-04   2.09e-04   6.68e-05   4.91e-04 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.15e-04   2.09e-04   6.68e-05   4.91e-04 100.0%
+                          43.8%      42.6%      13.6%

@@ -1,0 +1,2366 @@
+mkdir -p ./results/asap7/riscv_v_swizzle/base ./logs/asap7/riscv_v_swizzle/base ./reports/asap7/riscv_v_swizzle/base ./objects/asap7/riscv_v_swizzle/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/riscv_v_swizzle/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+58. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+59. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+60. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+61. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+62. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_clkgate_R.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/asap7/riscv_v_swizzle/base/clock_period.txt
+Setting clock period to 5000.0
+63. Executing HIERARCHY pass (managing design hierarchy).
+64. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_swizzle'.
+Warning: Replacing memory \data_swizzle with list of registers. See ./designs/src/riscv_v_swizzle/convert_to_v/riscv_v_swizzle.v:32
+64.1. Analyzing design hierarchy..
+64.2. Analyzing design hierarchy..
+65. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_swizzle because it contains processes (run 'proc' command first).
+66. Executing RTLIL backend.
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: ff4ec4e357, CPU: user 0.54s system 0.03s, MEM: 82.62 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 88% 6x read_liberty (0 sec), 8% 114x read_verilog (0 sec), ...
+Elapsed time: 0:00.62[h:]min:sec. CPU time: user 0.58 sys 0.04 (100%). Peak memory: 85888KB.
+mkdir -p ./results/asap7/riscv_v_swizzle/base ./logs/asap7/riscv_v_swizzle/base ./reports/asap7/riscv_v_swizzle/base
+(export VERILOG_FILES=./results/asap7/riscv_v_swizzle/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/riscv_v_swizzle/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.25 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (80%). Peak memory: 12928KB.
+mkdir -p ./results/asap7/riscv_v_swizzle/base ./logs/asap7/riscv_v_swizzle/base ./reports/asap7/riscv_v_swizzle/base ./objects/asap7/riscv_v_swizzle/base
+(export VERILOG_FILES=./results/asap7/riscv_v_swizzle/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/riscv_v_swizzle/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+3. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+4. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+5. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+6. Executing Liberty frontend: ./objects/asap7/riscv_v_swizzle/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+7. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_clkgate_R.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/asap7/riscv_v_swizzle/base/clock_period.txt
+Setting clock period to 5000.0
+synth -top riscv_v_swizzle -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+8. Executing SYNTH pass.
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+8.1.1. Analyzing design hierarchy..
+8.1.2. Analyzing design hierarchy..
+8.2. Executing PROC pass (convert processes to netlists).
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+8.3. Executing FLATTEN pass (flatten design).
+8.4. Executing OPT_EXPR pass (perform const folding).
+8.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.6. Executing CHECK pass (checking for obvious problems).
+8.7. Executing OPT pass (performing simple optimizations).
+8.7.1. Executing OPT_EXPR pass (perform const folding).
+8.7.2. Executing OPT_MERGE pass (detect identical cells).
+8.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.7.5. Executing OPT_MERGE pass (detect identical cells).
+8.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.7.8. Executing OPT_EXPR pass (perform const folding).
+8.7.9. Finished OPT passes. (There is nothing left to do.)
+8.8. Executing FSM pass (extract and optimize FSM).
+8.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+8.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+8.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+8.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+8.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+8.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+8.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+8.9. Executing OPT pass (performing simple optimizations).
+8.9.1. Executing OPT_EXPR pass (perform const folding).
+8.9.2. Executing OPT_MERGE pass (detect identical cells).
+8.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.9.5. Executing OPT_MERGE pass (detect identical cells).
+8.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.9.8. Executing OPT_EXPR pass (perform const folding).
+8.9.9. Finished OPT passes. (There is nothing left to do.)
+8.10. Executing WREDUCE pass (reducing word size of cells).
+8.11. Executing PEEPOPT pass (run peephole optimizers).
+8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.13. Executing ALUMACC pass (create $alu and $macc cells).
+8.14. Executing SHARE pass (SAT-based resource sharing).
+8.15. Executing OPT pass (performing simple optimizations).
+8.15.1. Executing OPT_EXPR pass (perform const folding).
+8.15.2. Executing OPT_MERGE pass (detect identical cells).
+8.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.15.5. Executing OPT_MERGE pass (detect identical cells).
+8.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.15.8. Executing OPT_EXPR pass (perform const folding).
+8.15.9. Finished OPT passes. (There is nothing left to do.)
+8.16. Executing MEMORY pass.
+8.16.1. Executing OPT_MEM pass (optimize memories).
+8.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+8.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+8.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+8.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+8.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+8.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+8.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+8.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+9. Executing SYNTH pass.
+9.1. Executing OPT pass (performing simple optimizations).
+9.1.1. Executing OPT_EXPR pass (perform const folding).
+9.1.2. Executing OPT_MERGE pass (detect identical cells).
+9.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.1.5. Finished fast OPT passes.
+9.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+9.3. Executing OPT pass (performing simple optimizations).
+9.3.1. Executing OPT_EXPR pass (perform const folding).
+9.3.2. Executing OPT_MERGE pass (detect identical cells).
+9.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.3.5. Executing OPT_MERGE pass (detect identical cells).
+9.3.6. Executing OPT_SHARE pass.
+9.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+9.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.3.9. Executing OPT_EXPR pass (perform const folding).
+9.3.10. Finished OPT passes. (There is nothing left to do.)
+9.4. Executing TECHMAP pass (map to technology primitives).
+9.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+9.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+9.4.3. Continuing TECHMAP pass.
+9.5. Executing OPT pass (performing simple optimizations).
+9.5.1. Executing OPT_EXPR pass (perform const folding).
+9.5.2. Executing OPT_MERGE pass (detect identical cells).
+9.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.5.5. Finished fast OPT passes.
+9.6. Executing ABC pass (technology mapping using ABC).
+9.6.1. Extracting gate netlist of module `\riscv_v_swizzle' to `<abc-temp-dir>/input.blif'..
+9.7. Executing OPT pass (performing simple optimizations).
+9.7.1. Executing OPT_EXPR pass (perform const folding).
+9.7.2. Executing OPT_MERGE pass (detect identical cells).
+9.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.7.5. Finished fast OPT passes.
+9.8. Executing HIERARCHY pass (managing design hierarchy).
+9.8.1. Analyzing design hierarchy..
+9.8.2. Analyzing design hierarchy..
+9.9. Printing statistics.
+9.10. Executing CHECK pass (checking for obvious problems).
+10. Executing OPT pass (performing simple optimizations).
+10.1. Executing OPT_EXPR pass (perform const folding).
+10.2. Executing OPT_MERGE pass (detect identical cells).
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+10.5. Executing OPT_MERGE pass (detect identical cells).
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+10.8. Executing OPT_EXPR pass (perform const folding).
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+10.12. Executing OPT_MERGE pass (detect identical cells).
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+10.15. Executing OPT_EXPR pass (perform const folding).
+10.16. Finished OPT passes. (There is nothing left to do.)
+11. Executing TECHMAP pass (map to technology primitives).
+11.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+11.2. Continuing TECHMAP pass.
+12. Executing TECHMAP pass (map to technology primitives).
+12.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_latch_R.v
+12.2. Continuing TECHMAP pass.
+13. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+13.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+14. Executing OPT pass (performing simple optimizations).
+14.1. Executing OPT_EXPR pass (perform const folding).
+14.2. Executing OPT_MERGE pass (detect identical cells).
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+14.5. Executing OPT_MERGE pass (detect identical cells).
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+14.8. Executing OPT_EXPR pass (perform const folding).
+14.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/asap7/riscv_v_swizzle/base/lib/merged.lib -constr ./objects/asap7/riscv_v_swizzle/base/abc.constr -dont_use *x1p*_ASAP7* -dont_use *xp*_ASAP7* -dont_use SDF* -dont_use ICG* -D 5000.0
+15. Executing ABC pass (technology mapping using ABC).
+15.1. Extracting gate netlist of module `\riscv_v_swizzle' to `<abc-temp-dir>/input.blif'..
+15.1.1. Executing ABC.
+15.1.2. Re-integrating ABC results.
+16. Executing SETUNDEF pass (replace undef values with defined constants).
+17. Executing SPLITNETS pass (splitting up multi-bit signals).
+18. Executing OPT_CLEAN pass (remove unused cells and wires).
+19. Executing HILOMAP pass (mapping to constant drivers).
+20. Executing INSBUF pass (insert buffer cells for connected wires).
+21. Executing CHECK pass (checking for obvious problems).
+22. Printing statistics.
+23. Executing Verilog backend.
+exec cp ./designs/asap7/riscv_v_swizzle/constraint.sdc ./results/asap7/riscv_v_swizzle/base/1_synth.sdc
+End of script. Logfile hash: dcb843c6fd, CPU: user 1.66s system 0.09s, MEM: 138.50 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 35% 2x abc (0 sec), 18% 6x read_liberty (0 sec), ...
+Elapsed time: 0:02.78[h:]min:sec. CPU time: user 2.63 sys 0.15 (100%). Peak memory: 141824KB.
+mkdir -p ./results/asap7/riscv_v_swizzle/base ./logs/asap7/riscv_v_swizzle/base ./reports/asap7/riscv_v_swizzle/base
+cp ./results/asap7/riscv_v_swizzle/base/1_1_yosys.v ./results/asap7/riscv_v_swizzle/base/1_synth.v
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef, created 24 layers, 9 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef, created 212 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 470
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.016, 200.070).
+[INFO IFP-0001] Added 1110 rows of 5555 site asap7sc7p5t.
+[INFO RSZ-0026] Removed 84 buffers.
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 54 u^2 0% utilization.
+Elapsed time: 0:01.76[h:]min:sec. CPU time: user 1.68 sys 0.07 (100%). Peak memory: 216548KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers M4 -ver_layers M5 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:01.37[h:]min:sec. CPU time: user 1.28 sys 0.08 (99%). Peak memory: 213104KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/asap7/riscv_v_swizzle/base/2_2_floorplan_io.odb ./results/asap7/riscv_v_swizzle/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.15[h:]min:sec. CPU time: user 0.11 sys 0.03 (100%). Peak memory: 100072KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:01.37[h:]min:sec. CPU time: user 1.29 sys 0.07 (99%). Peak memory: 211368KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+Tap and End Cap cell insertion
+  TAP Cell          : TAPCELL_ASAP7_75t_R
+  ENDCAP Cell       : TAPCELL_ASAP7_75t_R
+  Halo Around Macro : 2 2
+  TAP Cell Distance : 25
+[INFO TAP-0004] Inserted 2220 endcaps.
+[INFO TAP-0005] Inserted 6672 tapcells.
+Elapsed time: 0:01.38[h:]min:sec. CPU time: user 1.31 sys 0.07 (99%). Peak memory: 215016KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: top
+Elapsed time: 0:03.27[h:]min:sec. CPU time: user 3.15 sys 0.10 (99%). Peak memory: 245200KB.
+cp ./results/asap7/riscv_v_swizzle/base/2_6_floorplan_pdn.odb ./results/asap7/riscv_v_swizzle/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              9278
+[INFO GPL-0007] NumPlaceInstances:          386
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    520
+[INFO GPL-0011] NumPins:                   2315
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:          54.223 um^2
+[INFO GPL-0019] Util:                     0.060 %
+[INFO GPL-0020] StdInstsArea:            54.223 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    636028
+[INFO GPL-0032] FillerInit:NumGNets:        520
+[INFO GPL-0033] FillerInit:NumGPins:       2315
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        0.140 um^2
+[INFO GPL-0025] IdealBinArea:             0.140 um^2
+[INFO GPL-0026] IdealBinCnt:             639983
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              9278
+[INFO GPL-0007] NumPlaceInstances:          386
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    520
+[INFO GPL-0011] NumPins:                   2053
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:          54.223 um^2
+[INFO GPL-0019] Util:                     0.060 %
+[INFO GPL-0020] StdInstsArea:            54.223 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    324567
+[INFO GPL-0032] FillerInit:NumGNets:        520
+[INFO GPL-0033] FillerInit:NumGPins:       2053
+[INFO GPL-0023] TargetDensity:            0.510
+[INFO GPL-0024] AvrgPlaceInstArea:        0.140 um^2
+[INFO GPL-0025] IdealBinArea:             0.275 um^2
+[INFO GPL-0026] IdealBinCnt:             326584
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.949 HPWL: 279860
+[NesterovSolve] Iter:   10 overflow: 0.967 HPWL: 58198
+[NesterovSolve] Iter:   20 overflow: 0.969 HPWL: 56186
+[NesterovSolve] Iter:   30 overflow: 0.969 HPWL: 55826
+[NesterovSolve] Iter:   40 overflow: 0.969 HPWL: 55820
+[NesterovSolve] Iter:   50 overflow: 0.969 HPWL: 55667
+[NesterovSolve] Iter:   60 overflow: 0.969 HPWL: 55724
+[NesterovSolve] Iter:   70 overflow: 0.969 HPWL: 55767
+[NesterovSolve] Iter:   80 overflow: 0.969 HPWL: 55991
+[NesterovSolve] Iter:   90 overflow: 0.969 HPWL: 56045
+[NesterovSolve] Iter:  100 overflow: 0.969 HPWL: 56296
+[NesterovSolve] Iter:  110 overflow: 0.969 HPWL: 56753
+[NesterovSolve] Iter:  120 overflow: 0.969 HPWL: 57442
+[NesterovSolve] Iter:  130 overflow: 0.968 HPWL: 58569
+[NesterovSolve] Iter:  140 overflow: 0.967 HPWL: 60246
+[NesterovSolve] Iter:  150 overflow: 0.966 HPWL: 62496
+[NesterovSolve] Iter:  160 overflow: 0.966 HPWL: 65440
+[NesterovSolve] Iter:  170 overflow: 0.965 HPWL: 68154
+[NesterovSolve] Iter:  180 overflow: 0.964 HPWL: 68381
+[NesterovSolve] Iter:  190 overflow: 0.961 HPWL: 64013
+[NesterovSolve] Iter:  200 overflow: 0.923 HPWL: 81595
+[NesterovSolve] Iter:  210 overflow: 0.884 HPWL: 99700
+[NesterovSolve] Iter:  220 overflow: 0.880 HPWL: 91547
+[NesterovSolve] Iter:  230 overflow: 0.844 HPWL: 102383
+[NesterovSolve] Iter:  240 overflow: 0.841 HPWL: 106357
+[NesterovSolve] Iter:  250 overflow: 0.840 HPWL: 110100
+[NesterovSolve] Iter:  260 overflow: 0.826 HPWL: 125814
+[NesterovSolve] Iter:  270 overflow: 0.811 HPWL: 141061
+[NesterovSolve] Iter:  280 overflow: 0.783 HPWL: 191743
+[NesterovSolve] Iter:  290 overflow: 0.744 HPWL: 257478
+[NesterovSolve] Iter:  300 overflow: 0.696 HPWL: 309848
+[NesterovSolve] Iter:  310 overflow: 0.651 HPWL: 363854
+[NesterovSolve] Iter:  320 overflow: 0.581 HPWL: 568599
+[NesterovSolve] Iter:  330 overflow: 0.558 HPWL: 574415
+[NesterovSolve] Iter:  340 overflow: 0.477 HPWL: 487883
+[NesterovSolve] Iter:  350 overflow: 0.464 HPWL: 483949
+[NesterovSolve] Iter:  360 overflow: 0.411 HPWL: 510200
+[NesterovSolve] Iter:  370 overflow: 0.352 HPWL: 544574
+[NesterovSolve] Iter:  380 overflow: 0.302 HPWL: 562193
+[NesterovSolve] Iter:  390 overflow: 0.250 HPWL: 564611
+[NesterovSolve] Iter:  400 overflow: 0.211 HPWL: 570633
+[NesterovSolve] Iter:  410 overflow: 0.172 HPWL: 581722
+[NesterovSolve] Iter:  420 overflow: 0.146 HPWL: 589738
+[NesterovSolve] Iter:  430 overflow: 0.116 HPWL: 596107
+[NesterovSolve] Finished with Overflow: 0.097853
+Elapsed time: 1:06.62[h:]min:sec. CPU time: user 129.29 sys 0.35 (194%). Peak memory: 406420KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers M4 -ver_layers M5
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           20780
+[INFO PPL-0002] Number of I/O             262
+[INFO PPL-0003] Number of I/O w/sink      262
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 40447.34 um.
+Elapsed time: 0:01.56[h:]min:sec. CPU time: user 1.46 sys 0.09 (99%). Peak memory: 233608KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              9278
+[INFO GPL-0007] NumPlaceInstances:          386
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    520
+[INFO GPL-0011] NumPins:                   2315
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:          54.223 um^2
+[INFO GPL-0019] Util:                     0.060 %
+[INFO GPL-0020] StdInstsArea:            54.223 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    636028
+[INFO GPL-0032] FillerInit:NumGNets:        520
+[INFO GPL-0033] FillerInit:NumGPins:       2315
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        0.140 um^2
+[INFO GPL-0025] IdealBinArea:             0.140 um^2
+[INFO GPL-0026] IdealBinCnt:             639983
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+global_placement -density 0.5103024429897778 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:              9278
+[INFO GPL-0007] NumPlaceInstances:          386
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    520
+[INFO GPL-0011] NumPins:                   2315
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:          54.223 um^2
+[INFO GPL-0019] Util:                     0.060 %
+[INFO GPL-0020] StdInstsArea:            54.223 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000009 HPWL: 40935077
+[InitialPlace]  Iter: 2 CG residual: 0.00000008 HPWL: 24520868
+[InitialPlace]  Iter: 3 CG residual: 0.00000007 HPWL: 11246824
+[InitialPlace]  Iter: 4 CG residual: 0.00000010 HPWL: 9202435
+[InitialPlace]  Iter: 5 CG residual: 0.00000012 HPWL: 8316955
+[INFO GPL-0031] FillerInit:NumGCells:    324567
+[INFO GPL-0032] FillerInit:NumGNets:        520
+[INFO GPL-0033] FillerInit:NumGPins:       2315
+[INFO GPL-0023] TargetDensity:            0.510
+[INFO GPL-0024] AvrgPlaceInstArea:        0.140 um^2
+[INFO GPL-0025] IdealBinArea:             0.275 um^2
+[INFO GPL-0026] IdealBinCnt:             326584
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.602 HPWL: 7642760
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 2.69e-09
+[INFO GPL-0103] Timing-driven: weighted 37 nets.
+[NesterovSolve] Iter:   10 overflow: 0.643 HPWL: 7526371
+[NesterovSolve] Iter:   20 overflow: 0.645 HPWL: 7444047
+[NesterovSolve] Iter:   30 overflow: 0.764 HPWL: 7268462
+[NesterovSolve] Iter:   40 overflow: 0.639 HPWL: 7450558
+[NesterovSolve] Iter:   50 overflow: 0.698 HPWL: 7318517
+[NesterovSolve] Iter:   60 overflow: 0.659 HPWL: 7375007
+[NesterovSolve] Iter:   70 overflow: 0.683 HPWL: 7326593
+[NesterovSolve] Iter:   80 overflow: 0.671 HPWL: 7352618
+[NesterovSolve] Iter:   90 overflow: 0.673 HPWL: 7323280
+[NesterovSolve] Iter:  100 overflow: 0.676 HPWL: 7345039
+[NesterovSolve] Iter:  110 overflow: 0.670 HPWL: 7333740
+[NesterovSolve] Iter:  120 overflow: 0.678 HPWL: 7338439
+[NesterovSolve] Iter:  130 overflow: 0.667 HPWL: 7331790
+[NesterovSolve] Iter:  140 overflow: 0.679 HPWL: 7337991
+[NesterovSolve] Iter:  150 overflow: 0.666 HPWL: 7335177
+[NesterovSolve] Iter:  160 overflow: 0.681 HPWL: 7336452
+[NesterovSolve] Iter:  170 overflow: 0.667 HPWL: 7342161
+[NesterovSolve] Iter:  180 overflow: 0.680 HPWL: 7343838
+[NesterovSolve] Iter:  190 overflow: 0.667 HPWL: 7343367
+[NesterovSolve] Iter:  200 overflow: 0.672 HPWL: 7354003
+[NesterovSolve] Iter:  210 overflow: 0.670 HPWL: 7331315
+[NesterovSolve] Iter:  220 overflow: 0.660 HPWL: 7347368
+[NesterovSolve] Iter:  230 overflow: 0.663 HPWL: 7334270
+[NesterovSolve] Iter:  240 overflow: 0.636 HPWL: 7345894
+[NesterovSolve] Iter:  250 overflow: 0.645 HPWL: 7347162
+[NesterovSolve] Iter:  260 overflow: 0.619 HPWL: 7348762
+[NesterovSolve] Iter:  270 overflow: 0.600 HPWL: 7363330
+[NesterovSolve] Snapshot saved at iter = 270
+[NesterovSolve] Iter:  280 overflow: 0.572 HPWL: 7363332
+[NesterovSolve] Iter:  290 overflow: 0.542 HPWL: 7364518
+[NesterovSolve] Iter:  300 overflow: 0.495 HPWL: 7355198
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 2.7e-09
+[INFO GPL-0103] Timing-driven: weighted 37 nets.
+[NesterovSolve] Iter:  310 overflow: 0.447 HPWL: 7436589
+[NesterovSolve] Iter:  320 overflow: 0.393 HPWL: 7432214
+[NesterovSolve] Iter:  330 overflow: 0.351 HPWL: 7431168
+[NesterovSolve] Iter:  340 overflow: 0.297 HPWL: 7452348
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) (  540  540 ) DBU
+[INFO GPL-0038] TileCnt:     925  925
+[INFO GPL-0040] NumTiles: 855625
+[INFO GPL-0081] TotalRouteOverflow: 0.0
+[INFO GPL-0082] OverflowTileCnt: 0
+[INFO GPL-0083] 0.5%RC: 0.6113685208326413
+[INFO GPL-0084] 1.0%RC: 0.604001934142178
+[INFO GPL-0085] 2.0%RC: 0.5903544494475041
+[INFO GPL-0086] 5.0%RC: 0.5769131472131813
+[INFO GPL-0087] FinalRC: 0.6076852
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 2.69e-09
+[INFO GPL-0103] Timing-driven: weighted 37 nets.
+[NesterovSolve] Iter:  350 overflow: 0.262 HPWL: 7485381
+[NesterovSolve] Iter:  360 overflow: 0.221 HPWL: 7505646
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 2.69e-09
+[INFO GPL-0103] Timing-driven: weighted 37 nets.
+[NesterovSolve] Iter:  370 overflow: 0.181 HPWL: 7529953
+[NesterovSolve] Iter:  380 overflow: 0.149 HPWL: 7543426
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 2.69e-09
+[INFO GPL-0103] Timing-driven: weighted 37 nets.
+[NesterovSolve] Iter:  390 overflow: 0.123 HPWL: 7556776
+[NesterovSolve] Iter:  400 overflow: 0.099 HPWL: 7566262
+[NesterovSolve] Finished with Overflow: 0.098848
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 314 u^2 0% utilization.
+Elapsed time: 1:04.88[h:]min:sec. CPU time: user 122.58 sys 0.71 (190%). Peak memory: 1270732KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 134 input buffers.
+[INFO RSZ-0028] Inserted 128 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0034] Found 20 slew violations.
+[INFO RSZ-0037] Found 20 long wires.
+[INFO RSZ-0038] Inserted 20 buffers in 20 nets.
+[INFO RSZ-0039] Resized 130 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 340 u^2 0% utilization.
+Instance count before 9278, after 9560
+Pin count before 2053, after 2617
+Elapsed time: 0:02.52[h:]min:sec. CPU time: user 2.29 sys 0.23 (100%). Peak memory: 497488KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement        604.2 u
+average displacement        0.1 u
+max displacement            3.7 u
+original HPWL            7588.2 u
+legalized HPWL           8209.7 u
+delta HPWL                    8 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 9560 cells, 262 terminals, 802 edges, 2879 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 9822, edges 802, pins 2879
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 1350 270 units.
+[INFO DPO-0320] Collected 9154 fixed cells.
+[INFO DPO-0318] Collected 668 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (200016, 200070) - (499932, 499770)
+[INFO DPO-0310] Assigned 668 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 8.180406e+06.
+[INFO DPO-0302] End of matching; objective is 8.161433e+06, improvement is 0.23 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 8.130505e+06.
+[INFO DPO-0307] End of global swaps; objective is 8.130505e+06, improvement is 0.38 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 8.125180e+06.
+[INFO DPO-0309] End of vertical swaps; objective is 8.125180e+06, improvement is 0.07 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 8.054751e+06.
+[INFO DPO-0305] End of reordering; objective is 8.054751e+06, improvement is 0.87 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 13360 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 13360, swaps 3234, moves  2092 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 7.886739e+06, Scratch cost 7.818018e+06, Incremental cost 7.818018e+06, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 7.818018e+06.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.87 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.871349 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 357 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 306 cell flips.
+[INFO DPO-0384] End of flipping; objective is 7.941258e+06, improvement is 0.62 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL             8209.7 u
+Final HPWL                7937.6 u
+Delta HPWL                  -3.3 %
+
+[INFO DPL-0020] Mirrored 8 instances
+[INFO DPL-0021] HPWL before            7937.6 u
+[INFO DPL-0022] HPWL after             7936.6 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+No registers in design
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 340 u^2 0% utilization.
+Elapsed time: 0:03.65[h:]min:sec. CPU time: user 3.21 sys 0.43 (99%). Peak memory: 1127660KB.
+cp ./results/asap7/riscv_v_swizzle/base/3_5_place_dp.odb ./results/asap7/riscv_v_swizzle/base/3_place.odb
+cp ./results/asap7/riscv_v_swizzle/base/2_floorplan.sdc ./results/asap7/riscv_v_swizzle/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0051] Sink buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFx24_ASAP7_75t_R
+[INFO CTS-0049] Characterization buffer is BUFx24_ASAP7_75t_R.
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO RSZ-0058] Using max wire length 162um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            7936.6 u
+legalized HPWL           8022.1 u
+delta HPWL                    1 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            8022.1 u
+legalized HPWL           8022.1 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+No registers in design
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 340 u^2 0% utilization.
+Elapsed time: 0:05.25[h:]min:sec. CPU time: user 4.63 sys 0.61 (99%). Peak memory: 1440144KB.
+cp ./results/asap7/riscv_v_swizzle/base/4_1_cts.odb ./results/asap7/riscv_v_swizzle/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/asap7/riscv_v_swizzle/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: M1
+[INFO GRT-0021] Max routing layer: M9
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M8      Track-Pitch = 0.0800  line-2-Via Pitch: 0.0800
+[INFO GRT-0088] Layer M9      Track-Pitch = 0.0800  line-2-Via Pitch: 0.0800
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 130
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 3305
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical     12846400       4930062          61.62%
+M2         Horizontal   11135150       6229682          44.05%
+M3         Vertical     12846400       7638568          40.54%
+M4         Horizontal    9421125       5957420          36.77%
+M5         Vertical      9421125       5833324          38.08%
+M6         Horizontal    6852400       4062296          40.72%
+M7         Vertical      6852400       4278120          37.57%
+M8         Horizontal    5140225       2568720          50.03%
+M9         Vertical      5140225       2568720          50.03%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 5309
+[INFO GRT-0198] Via related Steiner nodes: 142
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 6896
+[INFO GRT-0112] Final usage 3D: 36073
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+M1             4930062             0            0.00%             0 /  0 /  0
+M2             6229682          6463            0.10%             0 /  0 /  0
+M3             7638568          6881            0.09%             0 /  0 /  0
+M4             5957420          1597            0.03%             0 /  0 /  0
+M5             5833324           140            0.00%             0 /  0 /  0
+M6             4062296           206            0.01%             0 /  0 /  0
+M7             4278120             3            0.00%             0 /  0 /  0
+M8             2568720            95            0.00%             0 /  0 /  0
+M9             2568720             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total         44066912         15385            0.03%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 9668 um
+[INFO GRT-0014] Routed nets: 802
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0034] Found 2 slew violations.
+[INFO RSZ-0038] Inserted 1 buffers in 1 nets.
+Placement Analysis
+---------------------------------
+total displacement         12.5 u
+average displacement        0.0 u
+max displacement            0.8 u
+original HPWL            8028.8 u
+legalized HPWL           8044.3 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL            8044.3 u
+legalized HPWL           8044.3 u
+delta HPWL                    0 %
+
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+No registers in design
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 340 u^2 0% utilization.
+[INFO FLW-0007] clock clk period 5000.000000
+[INFO FLW-0008] Clock clk period 2243.234
+[INFO FLW-0009] Clock clk slack 2638.701
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO FLW-0011] Path endpoint count 128
+Elapsed time: 0:09.40[h:]min:sec. CPU time: user 11.07 sys 0.83 (126%). Peak memory: 2007340KB.
+Running detail_route.tcl, stage 5_2_route
+[WARNING STA-0450] virtual clock clk can not be propagated.
+detailed_route -output_drc ./reports/asap7/riscv_v_swizzle/base/5_route_drc.rpt -output_maze ./results/asap7/riscv_v_swizzle/base/maze.log -bottom_routing_layer M1 -top_routing_layer M9 -save_guide_updates -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     212
+Number of vias:       14
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net net5 has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net4 has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net3 has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net2 has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net1 has 130 pins which may impact routing performance. Consider optimization.
+
+Design:                   riscv_v_swizzle
+Die area:                 ( 0 0 ) ( 500000 500000 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     9561
+Number of terminals:      262
+Number of snets:          2
+Number of nets:           803
+
+[INFO DRT-0167] List of default vias:
+  Layer V1
+    default via: VIA12
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 30.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 30970.
+[INFO DRT-0033] V1 shape region query size = 9256852.
+[INFO DRT-0033] M2 shape region query size = 64438.
+[INFO DRT-0033] V2 shape region query size = 186648.
+[INFO DRT-0033] M3 shape region query size = 186648.
+[INFO DRT-0033] V3 shape region query size = 124432.
+[INFO DRT-0033] M4 shape region query size = 124452.
+[INFO DRT-0033] V4 shape region query size = 124432.
+[INFO DRT-0033] M5 shape region query size = 68842.
+[INFO DRT-0033] V5 shape region query size = 12544.
+[INFO DRT-0033] M6 shape region query size = 6384.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 93 pins.
+[INFO DRT-0081]   Complete 26 unique inst patterns.
+[INFO DRT-0084]   Complete 333 groups.
+#scanned instances     = 9561
+#unique  instances     = 30
+#stdCellGenAp          = 828
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 788
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2619
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:08, elapsed time = 00:00:01, memory = 567.63 (MB), peak = 903.33 (MB)
+
+[INFO DRT-0157] Number of guides:     7986
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 925 STEP 540 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 925 STEP 540 ;
+[INFO DRT-0028]   Complete Active.
+[INFO DRT-0028]   Complete V0.
+[INFO DRT-0028]   Complete M1.
+[INFO DRT-0028]   Complete V1.
+[INFO DRT-0028]   Complete M2.
+[INFO DRT-0028]   Complete V2.
+[INFO DRT-0028]   Complete M3.
+[INFO DRT-0028]   Complete V3.
+[INFO DRT-0028]   Complete M4.
+[INFO DRT-0028]   Complete V4.
+[INFO DRT-0028]   Complete M5.
+[INFO DRT-0028]   Complete V5.
+[INFO DRT-0028]   Complete M6.
+[INFO DRT-0028]   Complete V6.
+[INFO DRT-0028]   Complete M7.
+[INFO DRT-0028]   Complete V7.
+[INFO DRT-0028]   Complete M8.
+[INFO DRT-0028]   Complete V8.
+[INFO DRT-0028]   Complete M9.
+[INFO DRT-0028]   Complete V9.
+[INFO DRT-0028]   Complete Pad.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete Active (guide).
+[INFO DRT-0035]   Complete V0 (guide).
+[INFO DRT-0035]   Complete M1 (guide).
+[INFO DRT-0035]   Complete V1 (guide).
+[INFO DRT-0035]   Complete M2 (guide).
+[INFO DRT-0035]   Complete V2 (guide).
+[INFO DRT-0035]   Complete M3 (guide).
+[INFO DRT-0035]   Complete V3 (guide).
+[INFO DRT-0035]   Complete M4 (guide).
+[INFO DRT-0035]   Complete V4 (guide).
+[INFO DRT-0035]   Complete M5 (guide).
+[INFO DRT-0035]   Complete V5 (guide).
+[INFO DRT-0035]   Complete M6 (guide).
+[INFO DRT-0035]   Complete V6 (guide).
+[INFO DRT-0035]   Complete M7 (guide).
+[INFO DRT-0035]   Complete V7 (guide).
+[INFO DRT-0035]   Complete M8 (guide).
+[INFO DRT-0035]   Complete V8 (guide).
+[INFO DRT-0035]   Complete M9 (guide).
+[INFO DRT-0035]   Complete V9 (guide).
+[INFO DRT-0035]   Complete Pad (guide).
+[INFO DRT-0036] Active guide region query size = 0.
+[INFO DRT-0036] V0 guide region query size = 0.
+[INFO DRT-0036] M1 guide region query size = 2413.
+[INFO DRT-0036] V1 guide region query size = 0.
+[INFO DRT-0036] M2 guide region query size = 2126.
+[INFO DRT-0036] V2 guide region query size = 0.
+[INFO DRT-0036] M3 guide region query size = 1285.
+[INFO DRT-0036] V3 guide region query size = 0.
+[INFO DRT-0036] M4 guide region query size = 430.
+[INFO DRT-0036] V4 guide region query size = 0.
+[INFO DRT-0036] M5 guide region query size = 275.
+[INFO DRT-0036] V5 guide region query size = 0.
+[INFO DRT-0036] M6 guide region query size = 16.
+[INFO DRT-0036] V6 guide region query size = 0.
+[INFO DRT-0036] M7 guide region query size = 6.
+[INFO DRT-0036] V7 guide region query size = 0.
+[INFO DRT-0036] M8 guide region query size = 3.
+[INFO DRT-0036] V8 guide region query size = 0.
+[INFO DRT-0036] M9 guide region query size = 0.
+[INFO DRT-0036] V9 guide region query size = 0.
+[INFO DRT-0036] Pad guide region query size = 0.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 3979 vertical wires in 19 frboxes and 2575 horizontal wires in 19 frboxes.
+[INFO DRT-0186] Done with 547 vertical wires in 19 frboxes and 781 horizontal wires in 19 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:28, elapsed time = 00:00:05, memory = 1395.47 (MB), peak = 1395.47 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1395.47 (MB), peak = 1395.47 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 1395.72 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:02, memory = 1830.53 (MB).
+    Completing 30% with 87 violations.
+    elapsed time = 00:00:05, memory = 1426.60 (MB).
+    Completing 40% with 87 violations.
+    elapsed time = 00:00:05, memory = 1426.60 (MB).
+    Completing 50% with 217 violations.
+    elapsed time = 00:00:20, memory = 1472.38 (MB).
+    Completing 60% with 217 violations.
+    elapsed time = 00:00:21, memory = 1472.40 (MB).
+    Completing 70% with 217 violations.
+    elapsed time = 00:00:25, memory = 1824.10 (MB).
+    Completing 80% with 282 violations.
+    elapsed time = 00:00:30, memory = 1570.99 (MB).
+    Completing 90% with 282 violations.
+    elapsed time = 00:00:30, memory = 1570.99 (MB).
+    Completing 100% with 423 violations.
+    elapsed time = 00:00:53, memory = 1624.50 (MB).
+[INFO DRT-0199]   Number of violations = 660.
+Viol/Layer          M1     M2     M3     V3     M4     V4     M5     V5     M6     V6     M7     M8
+CutSpcTbl            0      0      0      1      0      0      0      0      0      0      0      0
+EOL                  0     42      2      0      2      0      5      0      0      0      0      0
+Metal Spacing        1      8      8      0      2      0      9      0      0      0      0      0
+Min Step             0      0      0      0      0      0      0      0      0      0      0      4
+Recheck             26    117     74      0     13      0      5      0      2      0      0      0
+Rect Only            0      0      0      0      0      0      0      0      0      0      4      0
+Short               10     25      4      0      0      1      2      1      3      1      0      0
+eolKeepOut           0    267      6      0     12      0      3      0      0      0      0      0
+[INFO DRT-0267] cpu time = 00:04:16, elapsed time = 00:00:54, memory = 1994.12 (MB), peak = 2140.34 (MB)
+Total wire length = 8760 um.
+Total wire length on LAYER M1 = 14 um.
+Total wire length on LAYER M2 = 3341 um.
+Total wire length on LAYER M3 = 3952 um.
+Total wire length on LAYER M4 = 1109 um.
+Total wire length on LAYER M5 = 198 um.
+Total wire length on LAYER M6 = 100 um.
+Total wire length on LAYER M7 = 1 um.
+Total wire length on LAYER M8 = 42 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8804.
+Up-via summary (total 8804):
+
+---------------
+ Active       0
+     M1    2865
+     M2    4290
+     M3    1205
+     M4     392
+     M5      34
+     M6      10
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8804
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 660 violations.
+    elapsed time = 00:00:00, memory = 1994.12 (MB).
+    Completing 20% with 660 violations.
+    elapsed time = 00:00:04, memory = 2330.41 (MB).
+    Completing 30% with 534 violations.
+    elapsed time = 00:00:12, memory = 2158.87 (MB).
+    Completing 40% with 534 violations.
+    elapsed time = 00:00:12, memory = 2158.87 (MB).
+    Completing 50% with 436 violations.
+    elapsed time = 00:00:29, memory = 2292.52 (MB).
+    Completing 60% with 436 violations.
+    elapsed time = 00:00:29, memory = 2292.46 (MB).
+    Completing 70% with 436 violations.
+    elapsed time = 00:00:33, memory = 2633.05 (MB).
+    Completing 80% with 269 violations.
+    elapsed time = 00:00:41, memory = 2317.70 (MB).
+    Completing 90% with 269 violations.
+    elapsed time = 00:00:41, memory = 2317.70 (MB).
+    Completing 100% with 146 violations.
+    elapsed time = 00:01:00, memory = 2219.15 (MB).
+[INFO DRT-0199]   Number of violations = 146.
+Viol/Layer          M1     M2     M3     V3     M5
+CutSpcTbl            0      0      0      1      0
+EOL                  0     14      1      0      3
+Metal Spacing        1      0      5      0     10
+Short                1     15      2      0      1
+eolKeepOut           0     87      3      0      2
+[INFO DRT-0267] cpu time = 00:05:55, elapsed time = 00:01:00, memory = 2222.15 (MB), peak = 2839.79 (MB)
+Total wire length = 8729 um.
+Total wire length on LAYER M1 = 11 um.
+Total wire length on LAYER M2 = 3301 um.
+Total wire length on LAYER M3 = 3944 um.
+Total wire length on LAYER M4 = 1125 um.
+Total wire length on LAYER M5 = 200 um.
+Total wire length on LAYER M6 = 100 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 42 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8514.
+Up-via summary (total 8514):
+
+---------------
+ Active       0
+     M1    2825
+     M2    4064
+     M3    1216
+     M4     355
+     M5      34
+     M6      12
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8514
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 146 violations.
+    elapsed time = 00:00:00, memory = 2222.15 (MB).
+    Completing 20% with 146 violations.
+    elapsed time = 00:00:00, memory = 2222.15 (MB).
+    Completing 30% with 115 violations.
+    elapsed time = 00:00:08, memory = 2222.05 (MB).
+    Completing 40% with 115 violations.
+    elapsed time = 00:00:08, memory = 2222.05 (MB).
+    Completing 50% with 105 violations.
+    elapsed time = 00:00:10, memory = 2222.05 (MB).
+    Completing 60% with 105 violations.
+    elapsed time = 00:00:10, memory = 2222.05 (MB).
+    Completing 70% with 105 violations.
+    elapsed time = 00:00:10, memory = 2222.05 (MB).
+    Completing 80% with 122 violations.
+    elapsed time = 00:00:21, memory = 2216.65 (MB).
+    Completing 90% with 122 violations.
+    elapsed time = 00:00:21, memory = 2216.65 (MB).
+    Completing 100% with 134 violations.
+    elapsed time = 00:00:26, memory = 2216.71 (MB).
+[INFO DRT-0199]   Number of violations = 134.
+Viol/Layer          M1     M2     M3     M4     V4     M5
+CutSpcTbl            0      0      0      0      1      0
+EOL                  0     15      1      0      0      4
+Metal Spacing        0      1      3      0      0      7
+Short                1      9      0      2      0      1
+eolKeepOut           0     75      3      8      0      3
+[INFO DRT-0267] cpu time = 00:00:52, elapsed time = 00:00:26, memory = 2216.71 (MB), peak = 2839.79 (MB)
+Total wire length = 8730 um.
+Total wire length on LAYER M1 = 10 um.
+Total wire length on LAYER M2 = 3308 um.
+Total wire length on LAYER M3 = 3938 um.
+Total wire length on LAYER M4 = 1119 um.
+Total wire length on LAYER M5 = 209 um.
+Total wire length on LAYER M6 = 100 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 39 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8510.
+Up-via summary (total 8510):
+
+---------------
+ Active       0
+     M1    2814
+     M2    4065
+     M3    1221
+     M4     364
+     M5      28
+     M6      10
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8510
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 134 violations.
+    elapsed time = 00:00:00, memory = 2216.71 (MB).
+    Completing 20% with 134 violations.
+    elapsed time = 00:00:00, memory = 2216.71 (MB).
+    Completing 30% with 111 violations.
+    elapsed time = 00:00:02, memory = 2216.55 (MB).
+    Completing 40% with 111 violations.
+    elapsed time = 00:00:02, memory = 2216.55 (MB).
+    Completing 50% with 85 violations.
+    elapsed time = 00:00:26, memory = 2160.26 (MB).
+    Completing 60% with 85 violations.
+    elapsed time = 00:00:26, memory = 2160.26 (MB).
+    Completing 70% with 85 violations.
+    elapsed time = 00:00:26, memory = 2160.26 (MB).
+    Completing 80% with 63 violations.
+    elapsed time = 00:00:28, memory = 2160.26 (MB).
+    Completing 90% with 63 violations.
+    elapsed time = 00:00:28, memory = 2160.26 (MB).
+    Completing 100% with 33 violations.
+    elapsed time = 00:00:46, memory = 2160.03 (MB).
+[INFO DRT-0199]   Number of violations = 33.
+Viol/Layer          M2     M3     V3     M4     M5
+CutSpcTbl            0      0      1      0      0
+EOL                  2      0      0      0      3
+Metal Spacing        0      3      0      0      7
+Short                1      0      0      1      1
+eolKeepOut          12      0      0      0      2
+[INFO DRT-0267] cpu time = 00:01:09, elapsed time = 00:00:46, memory = 2160.03 (MB), peak = 2839.79 (MB)
+Total wire length = 8731 um.
+Total wire length on LAYER M1 = 8 um.
+Total wire length on LAYER M2 = 3207 um.
+Total wire length on LAYER M3 = 3914 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 234 um.
+Total wire length on LAYER M6 = 107 um.
+Total wire length on LAYER M7 = 3 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8633.
+Up-via summary (total 8633):
+
+---------------
+ Active       0
+     M1    2769
+     M2    3885
+     M3    1487
+     M4     426
+     M5      44
+     M6      14
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8633
+
+
+[INFO DRT-0195] Start 4th optimization iteration.
+    Completing 10% with 33 violations.
+    elapsed time = 00:00:00, memory = 2160.03 (MB).
+    Completing 20% with 33 violations.
+    elapsed time = 00:00:00, memory = 2160.03 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 50% with 21 violations.
+    elapsed time = 00:00:07, memory = 2160.36 (MB).
+    Completing 60% with 21 violations.
+    elapsed time = 00:00:07, memory = 2160.36 (MB).
+    Completing 70% with 21 violations.
+    elapsed time = 00:00:07, memory = 2160.36 (MB).
+    Completing 80% with 21 violations.
+    elapsed time = 00:00:08, memory = 2160.45 (MB).
+    Completing 90% with 21 violations.
+    elapsed time = 00:00:08, memory = 2160.45 (MB).
+    Completing 100% with 15 violations.
+    elapsed time = 00:00:11, memory = 2160.45 (MB).
+[INFO DRT-0199]   Number of violations = 15.
+Viol/Layer          M3     M5
+EOL                  0      4
+Metal Spacing        1      7
+Short                0      1
+eolKeepOut           0      2
+[INFO DRT-0267] cpu time = 00:00:16, elapsed time = 00:00:11, memory = 2160.45 (MB), peak = 2839.79 (MB)
+Total wire length = 8727 um.
+Total wire length on LAYER M1 = 8 um.
+Total wire length on LAYER M2 = 3204 um.
+Total wire length on LAYER M3 = 3908 um.
+Total wire length on LAYER M4 = 1218 um.
+Total wire length on LAYER M5 = 239 um.
+Total wire length on LAYER M6 = 105 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8607.
+Up-via summary (total 8607):
+
+---------------
+ Active       0
+     M1    2770
+     M2    3862
+     M3    1486
+     M4     433
+     M5      38
+     M6      10
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8607
+
+
+[INFO DRT-0195] Start 5th optimization iteration.
+    Completing 10% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.45 (MB).
+    Completing 20% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.45 (MB).
+    Completing 30% with 15 violations.
+    elapsed time = 00:00:02, memory = 2160.23 (MB).
+    Completing 40% with 15 violations.
+    elapsed time = 00:00:02, memory = 2160.23 (MB).
+    Completing 50% with 15 violations.
+    elapsed time = 00:00:02, memory = 2160.23 (MB).
+    Completing 60% with 15 violations.
+    elapsed time = 00:00:02, memory = 2160.23 (MB).
+    Completing 70% with 15 violations.
+    elapsed time = 00:00:02, memory = 2160.23 (MB).
+    Completing 80% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.23 (MB).
+    Completing 90% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.23 (MB).
+    Completing 100% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.23 (MB).
+[INFO DRT-0199]   Number of violations = 15.
+Viol/Layer          M5
+EOL                  2
+Metal Spacing        7
+Short                2
+eolKeepOut           4
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:03, memory = 2160.23 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 8 um.
+Total wire length on LAYER M2 = 3200 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1220 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 107 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2768
+     M2    3851
+     M3    1482
+     M4     438
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 6th optimization iteration.
+    Completing 10% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.23 (MB).
+    Completing 20% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.23 (MB).
+    Completing 30% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 40% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 50% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 60% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 70% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 80% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.46 (MB).
+    Completing 90% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.46 (MB).
+    Completing 100% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.46 (MB).
+[INFO DRT-0199]   Number of violations = 15.
+Viol/Layer          M5
+EOL                  4
+Metal Spacing        6
+Short                2
+eolKeepOut           3
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:03, memory = 2160.46 (MB), peak = 2839.79 (MB)
+Total wire length = 8729 um.
+Total wire length on LAYER M1 = 8 um.
+Total wire length on LAYER M2 = 3198 um.
+Total wire length on LAYER M3 = 3907 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 241 um.
+Total wire length on LAYER M6 = 111 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8605.
+Up-via summary (total 8605):
+
+---------------
+ Active       0
+     M1    2768
+     M2    3849
+     M3    1482
+     M4     440
+     M5      44
+     M6      14
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8605
+
+
+[INFO DRT-0195] Start 7th optimization iteration.
+    Completing 10% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.46 (MB).
+    Completing 20% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.46 (MB).
+    Completing 30% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.41 (MB).
+    Completing 40% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.41 (MB).
+    Completing 50% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.41 (MB).
+    Completing 60% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.41 (MB).
+    Completing 70% with 15 violations.
+    elapsed time = 00:00:01, memory = 2160.41 (MB).
+    Completing 80% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.28 (MB).
+    Completing 90% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.28 (MB).
+    Completing 100% with 15 violations.
+    elapsed time = 00:00:03, memory = 2160.28 (MB).
+[INFO DRT-0199]   Number of violations = 15.
+Viol/Layer          M5
+EOL                  3
+Metal Spacing        6
+Short                2
+eolKeepOut           4
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:03, memory = 2160.28 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3198 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 3 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8605.
+Up-via summary (total 8605):
+
+---------------
+ Active       0
+     M1    2766
+     M2    3847
+     M3    1478
+     M4     440
+     M5      48
+     M6      18
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8605
+
+
+[INFO DRT-0195] Start 8th optimization iteration.
+    Completing 10% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.28 (MB).
+    Completing 20% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.28 (MB).
+    Completing 30% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.35 (MB).
+    Completing 40% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.35 (MB).
+    Completing 50% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.35 (MB).
+    Completing 60% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.35 (MB).
+    Completing 70% with 15 violations.
+    elapsed time = 00:00:00, memory = 2160.35 (MB).
+    Completing 80% with 13 violations.
+    elapsed time = 00:00:02, memory = 2160.24 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:02, memory = 2160.24 (MB).
+    Completing 100% with 13 violations.
+    elapsed time = 00:00:02, memory = 2160.24 (MB).
+[INFO DRT-0199]   Number of violations = 13.
+Viol/Layer          M5
+EOL                  3
+Metal Spacing        7
+Short                1
+eolKeepOut           2
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:02, memory = 2160.24 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1217 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 3 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8615.
+Up-via summary (total 8615):
+
+---------------
+ Active       0
+     M1    2766
+     M2    3847
+     M3    1484
+     M4     444
+     M5      48
+     M6      18
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8615
+
+
+[INFO DRT-0195] Start 9th optimization iteration.
+    Completing 10% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.24 (MB).
+    Completing 20% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.24 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.25 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.25 (MB).
+    Completing 50% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.25 (MB).
+    Completing 60% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.25 (MB).
+    Completing 70% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.25 (MB).
+    Completing 80% with 13 violations.
+    elapsed time = 00:00:02, memory = 2160.14 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:02, memory = 2160.14 (MB).
+    Completing 100% with 13 violations.
+    elapsed time = 00:00:02, memory = 2160.14 (MB).
+[INFO DRT-0199]   Number of violations = 13.
+Viol/Layer          M5
+EOL                  2
+Metal Spacing        7
+Short                1
+eolKeepOut           3
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:02, memory = 2160.14 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3905 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 114 um.
+Total wire length on LAYER M7 = 3 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8611.
+Up-via summary (total 8611):
+
+---------------
+ Active       0
+     M1    2766
+     M2    3847
+     M3    1480
+     M4     442
+     M5      48
+     M6      20
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8611
+
+
+[INFO DRT-0195] Start 10th optimization iteration.
+    Completing 10% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.14 (MB).
+    Completing 20% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.14 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.18 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.18 (MB).
+    Completing 50% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.18 (MB).
+    Completing 60% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.18 (MB).
+    Completing 70% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.18 (MB).
+    Completing 80% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.20 (MB).
+    Completing 90% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.20 (MB).
+    Completing 100% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.20 (MB).
+[INFO DRT-0199]   Number of violations = 9.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        7
+eolKeepOut           1
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:01, memory = 2160.20 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 114 um.
+Total wire length on LAYER M7 = 3 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3847
+     M3    1480
+     M4     444
+     M5      48
+     M6      18
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 11th optimization iteration.
+    Completing 10% with 9 violations.
+    elapsed time = 00:00:00, memory = 2160.20 (MB).
+    Completing 20% with 9 violations.
+    elapsed time = 00:00:00, memory = 2160.20 (MB).
+    Completing 30% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 40% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 50% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 60% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 70% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.34 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.27 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.27 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.27 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:02, memory = 2160.27 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3849
+     M3    1482
+     M4     444
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 12th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.27 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.27 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.38 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.38 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.38 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.38 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.38 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:02, memory = 2160.36 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3849
+     M3    1482
+     M4     444
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 13th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.27 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.27 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.27 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.27 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.27 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.40 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.40 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.40 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:03, memory = 2160.40 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3849
+     M3    1482
+     M4     444
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 14th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.40 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.40 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.40 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.40 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.40 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.40 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 2160.40 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.40 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.40 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.40 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:03, memory = 2160.40 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3849
+     M3    1482
+     M4     444
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 15th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.40 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.40 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.17 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.17 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 2160.17 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:03, memory = 2160.17 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3849
+     M3    1482
+     M4     444
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 16th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.17 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.28 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.28 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:03, memory = 2160.28 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:03, memory = 2160.28 (MB), peak = 2839.79 (MB)
+Total wire length = 8728 um.
+Total wire length on LAYER M1 = 7 um.
+Total wire length on LAYER M2 = 3197 um.
+Total wire length on LAYER M3 = 3906 um.
+Total wire length on LAYER M4 = 1216 um.
+Total wire length on LAYER M5 = 242 um.
+Total wire length on LAYER M6 = 113 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 40 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8609.
+Up-via summary (total 8609):
+
+---------------
+ Active       0
+     M1    2764
+     M2    3849
+     M3    1482
+     M4     444
+     M5      46
+     M6      16
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8609
+
+
+[INFO DRT-0195] Start 17th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.28 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 2160.28 (MB).
+    Completing 30% with 10 violations.
+    elapsed time = 00:00:08, memory = 2160.30 (MB).
+    Completing 40% with 10 violations.
+    elapsed time = 00:00:08, memory = 2160.30 (MB).
+    Completing 50% with 10 violations.
+    elapsed time = 00:00:09, memory = 2160.30 (MB).
+    Completing 60% with 10 violations.
+    elapsed time = 00:00:09, memory = 2160.30 (MB).
+    Completing 70% with 10 violations.
+    elapsed time = 00:00:09, memory = 2160.30 (MB).
+    Completing 80% with 18 violations.
+    elapsed time = 00:00:15, memory = 2160.29 (MB).
+    Completing 90% with 18 violations.
+    elapsed time = 00:00:15, memory = 2160.29 (MB).
+    Completing 100% with 18 violations.
+    elapsed time = 00:00:15, memory = 2160.29 (MB).
+[INFO DRT-0199]   Number of violations = 18.
+Viol/Layer          M2     M4     M5
+EOL                  0      0      2
+Metal Spacing        0      0      6
+Short                0      2      0
+eolKeepOut           3      3      2
+[INFO DRT-0267] cpu time = 00:00:30, elapsed time = 00:00:16, memory = 2160.29 (MB), peak = 2839.79 (MB)
+Total wire length = 8719 um.
+Total wire length on LAYER M1 = 6 um.
+Total wire length on LAYER M2 = 3114 um.
+Total wire length on LAYER M3 = 3892 um.
+Total wire length on LAYER M4 = 1273 um.
+Total wire length on LAYER M5 = 256 um.
+Total wire length on LAYER M6 = 138 um.
+Total wire length on LAYER M7 = 1 um.
+Total wire length on LAYER M8 = 36 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8660.
+Up-via summary (total 8660):
+
+---------------
+ Active       0
+     M1    2731
+     M2    3781
+     M3    1572
+     M4     485
+     M5      73
+     M6      10
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8660
+
+
+[INFO DRT-0195] Start 18th optimization iteration.
+    Completing 10% with 18 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 20% with 18 violations.
+    elapsed time = 00:00:00, memory = 2160.29 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 50% with 10 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 60% with 10 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 70% with 10 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 80% with 9 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 90% with 9 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 100% with 9 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+[INFO DRT-0199]   Number of violations = 9.
+Viol/Layer          M4     M5
+Metal Spacing        0      6
+Short                1      0
+eolKeepOut           0      2
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:03, memory = 2160.36 (MB), peak = 2839.79 (MB)
+Total wire length = 8717 um.
+Total wire length on LAYER M1 = 6 um.
+Total wire length on LAYER M2 = 3113 um.
+Total wire length on LAYER M3 = 3889 um.
+Total wire length on LAYER M4 = 1275 um.
+Total wire length on LAYER M5 = 256 um.
+Total wire length on LAYER M6 = 138 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 36 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8650.
+Up-via summary (total 8650):
+
+---------------
+ Active       0
+     M1    2731
+     M2    3769
+     M3    1569
+     M4     484
+     M5      75
+     M6      14
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8650
+
+
+[INFO DRT-0195] Start 19th optimization iteration.
+    Completing 10% with 9 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 20% with 9 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 30% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.36 (MB).
+    Completing 40% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.36 (MB).
+    Completing 50% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.36 (MB).
+    Completing 60% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.36 (MB).
+    Completing 70% with 9 violations.
+    elapsed time = 00:00:01, memory = 2160.36 (MB).
+    Completing 80% with 9 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 90% with 9 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+    Completing 100% with 9 violations.
+    elapsed time = 00:00:02, memory = 2160.36 (MB).
+[INFO DRT-0199]   Number of violations = 9.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        6
+eolKeepOut           2
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:02, memory = 2160.36 (MB), peak = 2839.79 (MB)
+Total wire length = 8717 um.
+Total wire length on LAYER M1 = 6 um.
+Total wire length on LAYER M2 = 3113 um.
+Total wire length on LAYER M3 = 3889 um.
+Total wire length on LAYER M4 = 1274 um.
+Total wire length on LAYER M5 = 256 um.
+Total wire length on LAYER M6 = 138 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 36 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8652.
+Up-via summary (total 8652):
+
+---------------
+ Active       0
+     M1    2731
+     M2    3769
+     M3    1571
+     M4     484
+     M5      75
+     M6      14
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8652
+
+
+[INFO DRT-0195] Start 20th optimization iteration.
+    Completing 10% with 9 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 20% with 9 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 30% with 5 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 40% with 5 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 50% with 5 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 60% with 5 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:00, memory = 2160.36 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:01, memory = 2160.29 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:01, memory = 2160.29 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:01, memory = 2160.29 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:01, memory = 2160.29 (MB), peak = 2839.79 (MB)
+Total wire length = 8717 um.
+Total wire length on LAYER M1 = 6 um.
+Total wire length on LAYER M2 = 3112 um.
+Total wire length on LAYER M3 = 3889 um.
+Total wire length on LAYER M4 = 1272 um.
+Total wire length on LAYER M5 = 256 um.
+Total wire length on LAYER M6 = 141 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 36 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8648.
+Up-via summary (total 8648):
+
+---------------
+ Active       0
+     M1    2731
+     M2    3767
+     M3    1567
+     M4     484
+     M5      77
+     M6      14
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8648
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 8717 um.
+Total wire length on LAYER M1 = 6 um.
+Total wire length on LAYER M2 = 3112 um.
+Total wire length on LAYER M3 = 3889 um.
+Total wire length on LAYER M4 = 1272 um.
+Total wire length on LAYER M5 = 256 um.
+Total wire length on LAYER M6 = 141 um.
+Total wire length on LAYER M7 = 2 um.
+Total wire length on LAYER M8 = 36 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 8648.
+Up-via summary (total 8648):
+
+---------------
+ Active       0
+     M1    2731
+     M2    3767
+     M3    1567
+     M4     484
+     M5      77
+     M6      14
+     M7       8
+     M8       0
+     M9       0
+---------------
+           8648
+
+
+[INFO DRT-0267] cpu time = 00:14:21, elapsed time = 00:04:18, memory = 2160.29 (MB), peak = 2839.79 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Elapsed time: 4:30.01[h:]min:sec. CPU time: user 878.45 sys 28.28 (335%). Peak memory: 2907944KB.
+Running fillcell.tcl, stage 5_3_fillcell
+[WARNING STA-0450] virtual clock clk can not be propagated.
+filler_placement FILLERxp5_ASAP7_75t_R FILLER_ASAP7_75t_R DECAPx1_ASAP7_75t_R DECAPx2_ASAP7_75t_R DECAPx4_ASAP7_75t_R DECAPx6_ASAP7_75t_R DECAPx10_ASAP7_75t_R
+[INFO DPL-0001] Placed 288759 filler instances.
+Elapsed time: 0:04.60[h:]min:sec. CPU time: user 4.02 sys 0.52 (98%). Peak memory: 1264572KB.
+cp ./results/asap7/riscv_v_swizzle/base/5_3_fillcell.odb ./results/asap7/riscv_v_swizzle/base/5_route.odb
+cp ./results/asap7/riscv_v_swizzle/base/4_cts.sdc ./results/asap7/riscv_v_swizzle/base/5_route.sdc
+Running density_fill.tcl, stage 6_1_fill
+exec cp ./results/asap7/riscv_v_swizzle/base/5_route.odb ./results/asap7/riscv_v_swizzle/base/6_1_fill.odb
+Elapsed time: 0:02.17[h:]min:sec. CPU time: user 1.78 sys 0.25 (93%). Peak memory: 359656KB.
+cp ./results/asap7/riscv_v_swizzle/base/5_route.sdc ./results/asap7/riscv_v_swizzle/base/6_1_fill.sdc
+Running final_report.tcl, stage 6_report
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation riscv_v_swizzle (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 6601 rc segments
+[INFO RCX-0439] Coupling Cap extraction riscv_v_swizzle ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 4% of 71817 wires extracted
+[INFO RCX-0442] 15% of 71817 wires extracted
+[INFO RCX-0442] 26% of 71817 wires extracted
+[INFO RCX-0442] 37% of 71817 wires extracted
+[INFO RCX-0442] 48% of 71817 wires extracted
+[INFO RCX-0442] 58% of 71817 wires extracted
+[INFO RCX-0442] 69% of 71817 wires extracted
+[INFO RCX-0442] 95% of 71817 wires extracted
+[INFO RCX-0442] 99% of 71817 wires extracted
+[INFO RCX-0045] Extract 803 nets, 7404 rsegs, 7404 caps, 10939 ccs
+[INFO RCX-0443] 803 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.70e-01 V
+Average voltage  : 7.70e-01 V
+Average IR drop  : 2.74e-05 V
+Worstcase IR drop: 3.23e-04 V
+Percentage drop  : 0.04 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 2.97e-04 V
+Average voltage  : 2.69e-05 V
+Average IR drop  : 2.69e-05 V
+Worstcase IR drop: 2.97e-04 V
+Percentage drop  : 0.04 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                            288759   89560.86
+  Tap cell                               8892     259.29
+  Timing Repair Buffer                    283      28.21
+  Inverter                                  1       0.04
+  Multi-Input combinational cell          385      52.60
+  Total                                298320   89901.01
+Report metrics stage 6, finish...
+No registers in design
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 340 u^2 0% utilization.
+Elapsed time: 4:06.19[h:]min:sec. CPU time: user 243.23 sys 2.71 (99%). Peak memory: 4649232KB.
+cp ./results/asap7/riscv_v_swizzle/base/5_route.sdc ./results/asap7/riscv_v_swizzle/base/6_final.sdc
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' stdbuf -o L /usr/bin/klayout -zz -rd design_name=riscv_v_swizzle \
+        -rd in_def=./results/asap7/riscv_v_swizzle/base/6_final.def \
+        -rd in_files="/home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/gds/asap7sc7p5t_28_R_220121a.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/asap7/riscv_v_swizzle/base/6_1_merged.gds \
+        -rd tech_file=./objects/asap7/riscv_v_swizzle/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/ubuntu/mbucio/tools/openROAD/flow/util/def2stream.py) 2>&1 | tee ./logs/asap7/riscv_v_swizzle/base/6_1_merge.log
+[INFO] Reporting cells prior to loading DEF ...
+[INFO] Reading DEF ...
+[INFO] Clearing cells...
+[INFO] Merging GDS/OAS files...
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/gds/asap7sc7p5t_28_R_220121a.gds
+[INFO] Copying toplevel cell 'riscv_v_swizzle'
+[INFO] Checking for missing cell from GDS/OAS...
+[INFO] Found GDS_ALLOW_EMPTY variable.
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] Checking for orphan cell in the final layout...
+[INFO] No orphan cells
+[INFO] Writing out GDS/OAS './results/asap7/riscv_v_swizzle/base/6_1_merged.gds'
+Elapsed time: 0:04.77[h:]min:sec. CPU time: user 4.44 sys 0.33 (99%). Peak memory: 912272KB.
+cp results/asap7/riscv_v_swizzle/base/6_1_merged.gds results/asap7/riscv_v_swizzle/base/6_final.gds
+./logs/asap7/riscv_v_swizzle/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                    2            138
+1_1_yosys_canonicalize                       0             83
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                                1            211
+2_2_floorplan_io                             1            208
+2_3_floorplan_tdms                           0             97
+2_4_floorplan_macro                          1            206
+2_5_floorplan_tapcell                        1            209
+2_6_floorplan_pdn                            3            239
+3_1_place_gp_skip_io                        66            396
+3_2_place_iop                                1            228
+3_3_place_gp                                64           1240
+3_4_place_resized                            2            485
+3_5_place_dp                                 3           1101
+4_1_cts                                      5           1406
+5_1_grt                                      9           1960
+5_2_route                                  270           2839
+5_3_fillcell                                 4           1234
+6_1_fill                                     2            351
+6_1_merge                                    4            890
+6_report                                   246           4540
+Total                                      685           4540

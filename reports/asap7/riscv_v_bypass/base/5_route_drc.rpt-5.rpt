@@ -1,0 +1,69 @@
+  violation type: Metal Spacing
+    srcs: net:VSS net:integer_data[28] 
+    bbox = ( 351.552, 499.793 ) - ( 351.576, 499.813 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:integer_data[28] 
+    bbox = ( 351.552, 499.793 ) - ( 351.576, 499.813 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:VSS net:integer_data[28] 
+    bbox = ( 351.576, 499.793 ) - ( 351.576, 499.813 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:srca[55] net:VSS 
+    bbox = ( 351.456, 499.793 ) - ( 351.48, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:integer_data[1] 
+    bbox = ( 346.176, 499.793 ) - ( 346.176, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:rf_wr_data_mem[27] 
+    bbox = ( 346.08, 499.793 ) - ( 346.104, 499.813 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:rf_wr_data_mem[27] 
+    bbox = ( 346.08, 499.793 ) - ( 346.104, 499.813 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:rf_wr_data_wb[14] 
+    bbox = ( 340.704, 499.793 ) - ( 340.728, 499.813 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:rf_wr_data_wb[14] 
+    bbox = ( 340.704, 499.793 ) - ( 340.728, 499.813 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:rf_wr_data_wb[84] 
+    bbox = ( 356.928, 499.793 ) - ( 356.952, 499.813 ) on Layer M5
+  violation type: Short
+    srcs: net:VSS net:srca[116] 
+    bbox = ( 356.855, 499.669 ) - ( 356.857, 499.793 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:rf_wr_data_wb[84] 
+    bbox = ( 356.928, 499.793 ) - ( 356.952, 499.813 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:srca[76] 
+    bbox = ( 362.304, 499.793 ) - ( 362.328, 499.829 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:integer_data[3] 
+    bbox = ( 329.856, 499.793 ) - ( 329.88, 499.829 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:mask_byp[14] 
+    bbox = ( 329.952, 499.793 ) - ( 329.976, 499.861 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:VSS net:integer_data[3] 
+    bbox = ( 329.856, 499.793 ) - ( 329.856, 499.829 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:mask_merge_byp[10] 
+    bbox = ( 335.256, 499.793 ) - ( 335.256, 499.861 ) on Layer M5
+  violation type: Metal Spacing
+    srcs: net:VSS net:rf_wr_data_mem[0] 
+    bbox = ( 335.328, 499.793 ) - ( 335.352, 499.813 ) on Layer M5
+  violation type: Lef58SpacingEndOfLine
+    srcs: net:VSS net:rf_wr_data_mem[0] 
+    bbox = ( 335.328, 499.793 ) - ( 335.352, 499.813 ) on Layer M5
+  violation type: Short
+    srcs: net:srcb_byp[29] net:srcb_byp[30] 
+    bbox = ( 367.513, 499.872 ) - ( 367.619, 499.896 ) on Layer M4
+  violation type: Metal Spacing
+    srcs: net:VSS net:srcb_byp[30] 
+    bbox = ( 367.68, 499.793 ) - ( 367.704, 499.861 ) on Layer M5
+  violation type: Short
+    srcs: net:VSS net:srcb_byp[31] 
+    bbox = ( 367.775, 499.792 ) - ( 367.777, 499.793 ) on Layer M5
+  violation type: Lef58EolKeepOut
+    srcs: net:VSS net:srcb_byp[31] 
+    bbox = ( 367.776, 499.792 ) - ( 367.776, 499.793 ) on Layer M5

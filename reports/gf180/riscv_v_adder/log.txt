@@ -1,0 +1,2591 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz -o objects/gf180/riscv_v_adder/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib.gz
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 12
+Writing replaced file: objects/gf180/riscv_v_adder/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+mkdir -p results/gf180/riscv_v_adder/base/
+echo 100.0 > results/gf180/riscv_v_adder/base/clock_period.txt
+mkdir -p ./results/gf180/riscv_v_adder/base ./logs/gf180/riscv_v_adder/base ./reports/gf180/riscv_v_adder/base ./objects/gf180/riscv_v_adder/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_adder/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/gf180/riscv_v_adder/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/gf180/riscv_v_adder/base/clock_period.txt
+Setting clock period to 100.0
+58. Executing HIERARCHY pass (managing design hierarchy).
+59. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_adder'.
+Warning: Replacing memory \result_set_greater_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:295
+Warning: Replacing memory \result_set_less_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:294
+Warning: Replacing memory \result_set_nequal_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:293
+Warning: Replacing memory \result_set_equal_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:292
+Warning: Replacing memory \zf_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:270
+Warning: Replacing memory \flags_mask_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:229
+59.1. Analyzing design hierarchy..
+59.2. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+59.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+59.4. Analyzing design hierarchy..
+59.5. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+59.6. Analyzing design hierarchy..
+59.7. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+59.8. Analyzing design hierarchy..
+59.9. Analyzing design hierarchy..
+60. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_adder because it contains processes (run 'proc' command first).
+61. Executing RTLIL backend.
+Warnings: 8 unique messages, 8 total
+End of script. Logfile hash: 1937a25abb, CPU: user 0.38s system 0.03s, MEM: 72.38 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 53% 2x read_liberty (0 sec), 28% 1x hierarchy (0 sec), ...
+Elapsed time: 0:00.47[h:]min:sec. CPU time: user 0.44 sys 0.03 (99%). Peak memory: 75520KB.
+mkdir -p ./results/gf180/riscv_v_adder/base ./logs/gf180/riscv_v_adder/base ./reports/gf180/riscv_v_adder/base
+(export VERILOG_FILES=./results/gf180/riscv_v_adder/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_adder/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (100%). Peak memory: 13184KB.
+mkdir -p ./results/gf180/riscv_v_adder/base ./logs/gf180/riscv_v_adder/base ./reports/gf180/riscv_v_adder/base ./objects/gf180/riscv_v_adder/base
+(export VERILOG_FILES=./results/gf180/riscv_v_adder/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/gf180/riscv_v_adder/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/gf180/riscv_v_adder/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/gf180/riscv_v_adder/base/clock_period.txt
+Setting clock period to 100.0
+synth -top riscv_v_adder -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+3. Executing SYNTH pass.
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+3.1.1. Analyzing design hierarchy..
+3.1.2. Analyzing design hierarchy..
+3.2. Executing PROC pass (convert processes to netlists).
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+3.3. Executing FLATTEN pass (flatten design).
+3.4. Executing OPT_EXPR pass (perform const folding).
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.6. Executing CHECK pass (checking for obvious problems).
+3.7. Executing OPT pass (performing simple optimizations).
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+3.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.7.8. Executing OPT_EXPR pass (perform const folding).
+3.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+3.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.7.12. Executing OPT_MERGE pass (detect identical cells).
+3.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+3.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.7.15. Executing OPT_EXPR pass (perform const folding).
+3.7.16. Finished OPT passes. (There is nothing left to do.)
+3.8. Executing FSM pass (extract and optimize FSM).
+3.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+3.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+3.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+3.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+3.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+3.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+3.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+3.9. Executing OPT pass (performing simple optimizations).
+3.9.1. Executing OPT_EXPR pass (perform const folding).
+3.9.2. Executing OPT_MERGE pass (detect identical cells).
+3.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.9.5. Executing OPT_MERGE pass (detect identical cells).
+3.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.9.8. Executing OPT_EXPR pass (perform const folding).
+3.9.9. Finished OPT passes. (There is nothing left to do.)
+3.10. Executing WREDUCE pass (reducing word size of cells).
+3.11. Executing PEEPOPT pass (run peephole optimizers).
+3.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.13. Executing ALUMACC pass (create $alu and $macc cells).
+3.14. Executing SHARE pass (SAT-based resource sharing).
+3.15. Executing OPT pass (performing simple optimizations).
+3.15.1. Executing OPT_EXPR pass (perform const folding).
+3.15.2. Executing OPT_MERGE pass (detect identical cells).
+3.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+3.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+3.15.5. Executing OPT_MERGE pass (detect identical cells).
+3.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+3.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.15.8. Executing OPT_EXPR pass (perform const folding).
+3.15.9. Finished OPT passes. (There is nothing left to do.)
+3.16. Executing MEMORY pass.
+3.16.1. Executing OPT_MEM pass (optimize memories).
+3.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+3.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+3.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+3.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+3.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+3.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+3.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+3.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+3.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+4. Executing SYNTH pass.
+4.1. Executing OPT pass (performing simple optimizations).
+4.1.1. Executing OPT_EXPR pass (perform const folding).
+4.1.2. Executing OPT_MERGE pass (detect identical cells).
+4.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.1.5. Finished fast OPT passes.
+4.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+4.3. Executing OPT pass (performing simple optimizations).
+4.3.1. Executing OPT_EXPR pass (perform const folding).
+4.3.2. Executing OPT_MERGE pass (detect identical cells).
+4.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.3.5. Executing OPT_MERGE pass (detect identical cells).
+4.3.6. Executing OPT_SHARE pass.
+4.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+4.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.3.9. Executing OPT_EXPR pass (perform const folding).
+4.3.10. Finished OPT passes. (There is nothing left to do.)
+4.4. Executing TECHMAP pass (map to technology primitives).
+4.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+4.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4.4.3. Continuing TECHMAP pass.
+4.5. Executing OPT pass (performing simple optimizations).
+4.5.1. Executing OPT_EXPR pass (perform const folding).
+4.5.2. Executing OPT_MERGE pass (detect identical cells).
+4.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.5.5. Finished fast OPT passes.
+4.6. Executing ABC pass (technology mapping using ABC).
+4.6.1. Extracting gate netlist of module `\riscv_v_adder' to `<abc-temp-dir>/input.blif'..
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.5. Finished fast OPT passes.
+4.8. Executing HIERARCHY pass (managing design hierarchy).
+4.8.1. Analyzing design hierarchy..
+4.8.2. Analyzing design hierarchy..
+4.9. Printing statistics.
+4.10. Executing CHECK pass (checking for obvious problems).
+5. Executing OPT pass (performing simple optimizations).
+5.1. Executing OPT_EXPR pass (perform const folding).
+5.2. Executing OPT_MERGE pass (detect identical cells).
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.5. Executing OPT_MERGE pass (detect identical cells).
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.8. Executing OPT_EXPR pass (perform const folding).
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.12. Executing OPT_MERGE pass (detect identical cells).
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.15. Executing OPT_EXPR pass (perform const folding).
+5.16. Finished OPT passes. (There is nothing left to do.)
+6. Executing TECHMAP pass (map to technology primitives).
+6.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/cells_latch.v
+6.2. Continuing TECHMAP pass.
+7. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2' - skipping.
+Warning: Found unsupported expression 'D&!SE|SE&SI' in pin attribute of cell 'gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4' - skipping.
+7.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+8. Executing OPT pass (performing simple optimizations).
+8.1. Executing OPT_EXPR pass (perform const folding).
+8.2. Executing OPT_MERGE pass (detect identical cells).
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.5. Executing OPT_MERGE pass (detect identical cells).
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.8. Executing OPT_EXPR pass (perform const folding).
+8.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/gf180/riscv_v_adder/base/lib/gf180mcu_fd_sc_mcu9t5v0__ff_n40C_5v50.lib -constr ./objects/gf180/riscv_v_adder/base/abc.constr -dont_use *_1 -D 100.0
+9. Executing ABC pass (technology mapping using ABC).
+9.1. Extracting gate netlist of module `\riscv_v_adder' to `<abc-temp-dir>/input.blif'..
+9.1.1. Executing ABC.
+9.1.2. Re-integrating ABC results.
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+11. Executing SPLITNETS pass (splitting up multi-bit signals).
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+13. Executing HILOMAP pass (mapping to constant drivers).
+14. Executing INSBUF pass (insert buffer cells for connected wires).
+15. Executing CHECK pass (checking for obvious problems).
+16. Printing statistics.
+17. Executing Verilog backend.
+exec cp ./designs/gf180/riscv_v_adder/constraint.sdc ./results/gf180/riscv_v_adder/base/1_synth.sdc
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: 276b2b5c64, CPU: user 2.27s system 0.06s, MEM: 80.88 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 84% 2x abc (11 sec), 3% 18x opt_clean (0 sec), ...
+Elapsed time: 0:14.14[h:]min:sec. CPU time: user 14.00 sys 0.13 (99%). Peak memory: 83456KB.
+mkdir -p ./results/gf180/riscv_v_adder/base ./logs/gf180/riscv_v_adder/base ./reports/gf180/riscv_v_adder/base
+cp ./results/gf180/riscv_v_adder/base/1_1_yosys.v ./results/gf180/riscv_v_adder/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/gf180/riscv_v_adder/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via1 :"
+  	EOLENCLOSURE 0.34 0.06 ;"
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via2 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via3 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via4 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_tech.lef, created 13 layers, 60 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_sc.lef, created 229 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 6574
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.480, 201.600).
+[INFO IFP-0001] Added 1299 rows of 11695 site GF018hv5v_green_sc9.
+[INFO RSZ-0026] Removed 399 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1ohm
+ voltage 1v
+ current 1mA
+ power 1uW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 232947 u^2 1% utilization.
+Elapsed time: 0:02.48[h:]min:sec. CPU time: user 2.42 sys 0.06 (100%). Peak memory: 169196KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers Metal3 -ver_layers Metal4 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:00.72[h:]min:sec. CPU time: user 0.67 sys 0.05 (100%). Peak memory: 151424KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/gf180/riscv_v_adder/base/2_2_floorplan_io.odb ./results/gf180/riscv_v_adder/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.15[h:]min:sec. CPU time: user 0.11 sys 0.04 (100%). Peak memory: 100592KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:00.73[h:]min:sec. CPU time: user 0.67 sys 0.06 (99%). Peak memory: 149996KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[WARNING TAP-0014] endcap_cpp option is deprecated.
+[INFO TAP-0004] Inserted 2598 endcaps.
+[INFO TAP-0005] Inserted 42282 tapcells.
+Elapsed time: 0:00.82[h:]min:sec. CPU time: user 0.74 sys 0.07 (100%). Peak memory: 165236KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: block
+Elapsed time: 1:38.14[h:]min:sec. CPU time: user 97.47 sys 0.66 (99%). Peak memory: 807752KB.
+cp ./results/gf180/riscv_v_adder/base/2_6_floorplan_pdn.odb ./results/gf180/riscv_v_adder/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0006] NumInstances:             48457
+[INFO GPL-0007] NumPlaceInstances:         6175
+[INFO GPL-0008] NumFixedInstances:        42282
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6537
+[INFO GPL-0011] NumPins:                  23599
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 6750.000 6750.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0016] CoreArea:            42877350.432 um^2
+[INFO GPL-0017] NonPlaceInstsArea:   238673.434 um^2
+[INFO GPL-0018] PlaceInstsArea:      232946.784 um^2
+[INFO GPL-0019] Util:                     0.546 %
+[INFO GPL-0020] StdInstsArea:        232946.784 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:   1173061
+[INFO GPL-0032] FillerInit:NumGNets:       6537
+[INFO GPL-0033] FillerInit:NumGPins:      23599
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:       37.724 um^2
+[INFO GPL-0025] IdealBinArea:            37.724 um^2
+[INFO GPL-0026] IdealBinCnt:            1136601
+[INFO GPL-0027] TotalBinArea:        42877350.432 um^2
+[INFO GPL-0028] BinCnt:      1024   1024
+[INFO GPL-0029] BinSize: (  6.396  6.394 )
+[INFO GPL-0030] NumBins: 1048576
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0006] NumInstances:             48457
+[INFO GPL-0007] NumPlaceInstances:         6175
+[INFO GPL-0008] NumFixedInstances:        42282
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6537
+[INFO GPL-0011] NumPins:                  23061
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 6750.000 6750.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0016] CoreArea:            42877350.432 um^2
+[INFO GPL-0017] NonPlaceInstsArea:   238673.434 um^2
+[INFO GPL-0018] PlaceInstsArea:      232946.784 um^2
+[INFO GPL-0019] Util:                     0.546 %
+[INFO GPL-0020] StdInstsArea:        232946.784 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    601351
+[INFO GPL-0032] FillerInit:NumGNets:       6537
+[INFO GPL-0033] FillerInit:NumGPins:      23061
+[INFO GPL-0023] TargetDensity:            0.513
+[INFO GPL-0024] AvrgPlaceInstArea:       37.724 um^2
+[INFO GPL-0025] IdealBinArea:            73.575 um^2
+[INFO GPL-0026] IdealBinCnt:             582771
+[INFO GPL-0027] TotalBinArea:        42877350.432 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: ( 12.791 12.787 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.998 HPWL: 45847353
+[NesterovSolve] Iter:   10 overflow: 0.997 HPWL: 31484348
+[NesterovSolve] Iter:   20 overflow: 0.997 HPWL: 31087685
+[NesterovSolve] Iter:   30 overflow: 0.997 HPWL: 31109640
+[NesterovSolve] Iter:   40 overflow: 0.997 HPWL: 31116204
+[NesterovSolve] Iter:   50 overflow: 0.997 HPWL: 31101085
+[NesterovSolve] Iter:   60 overflow: 0.997 HPWL: 31103800
+[NesterovSolve] Iter:   70 overflow: 0.997 HPWL: 31107505
+[NesterovSolve] Iter:   80 overflow: 0.997 HPWL: 31105348
+[NesterovSolve] Iter:   90 overflow: 0.997 HPWL: 31108405
+[NesterovSolve] Iter:  100 overflow: 0.997 HPWL: 31116111
+[NesterovSolve] Iter:  110 overflow: 0.997 HPWL: 31131939
+[NesterovSolve] Iter:  120 overflow: 0.997 HPWL: 31164085
+[NesterovSolve] Iter:  130 overflow: 0.997 HPWL: 31233212
+[NesterovSolve] Iter:  140 overflow: 0.997 HPWL: 31380646
+[NesterovSolve] Iter:  150 overflow: 0.997 HPWL: 31651547
+[NesterovSolve] Iter:  160 overflow: 0.997 HPWL: 32175105
+[NesterovSolve] Iter:  170 overflow: 0.997 HPWL: 33476372
+[NesterovSolve] Iter:  180 overflow: 0.996 HPWL: 38348047
+[NesterovSolve] Iter:  190 overflow: 0.990 HPWL: 56502058
+[NesterovSolve] Iter:  200 overflow: 0.985 HPWL: 88245089
+[NesterovSolve] Iter:  210 overflow: 0.978 HPWL: 117168528
+[NesterovSolve] Iter:  220 overflow: 0.971 HPWL: 144359579
+[NesterovSolve] Iter:  230 overflow: 0.957 HPWL: 181512582
+[NesterovSolve] Iter:  240 overflow: 0.939 HPWL: 216946789
+[NesterovSolve] Iter:  250 overflow: 0.921 HPWL: 250197121
+[NesterovSolve] Iter:  260 overflow: 0.895 HPWL: 304544545
+[NesterovSolve] Iter:  270 overflow: 0.868 HPWL: 358919780
+[NesterovSolve] Iter:  280 overflow: 0.834 HPWL: 395910446
+[NesterovSolve] Iter:  290 overflow: 0.793 HPWL: 458116322
+[NesterovSolve] Iter:  300 overflow: 0.748 HPWL: 491900996
+[NesterovSolve] Iter:  310 overflow: 0.700 HPWL: 533014974
+[NesterovSolve] Iter:  320 overflow: 0.649 HPWL: 585769948
+[NesterovSolve] Iter:  330 overflow: 0.594 HPWL: 623256586
+[NesterovSolve] Iter:  340 overflow: 0.537 HPWL: 655979778
+[NesterovSolve] Iter:  350 overflow: 0.476 HPWL: 684691671
+[NesterovSolve] Iter:  360 overflow: 0.424 HPWL: 709790252
+[NesterovSolve] Iter:  370 overflow: 0.372 HPWL: 728071009
+[NesterovSolve] Iter:  380 overflow: 0.327 HPWL: 748791358
+[NesterovSolve] Iter:  390 overflow: 0.296 HPWL: 756979041
+[NesterovSolve] Iter:  400 overflow: 0.267 HPWL: 769787020
+[NesterovSolve] Iter:  410 overflow: 0.235 HPWL: 778286255
+[NesterovSolve] Iter:  420 overflow: 0.210 HPWL: 789685608
+[NesterovSolve] Iter:  430 overflow: 0.183 HPWL: 803734417
+[NesterovSolve] Iter:  440 overflow: 0.157 HPWL: 817775638
+[NesterovSolve] Iter:  450 overflow: 0.135 HPWL: 832156306
+[NesterovSolve] Iter:  460 overflow: 0.115 HPWL: 839582778
+[NesterovSolve] Iter:  470 overflow: 0.109 HPWL: 793247203
+[NesterovSolve] Finished with Overflow: 0.099006
+Elapsed time: 2:25.18[h:]min:sec. CPU time: user 288.14 sys 1.19 (199%). Peak memory: 1145864KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers Metal3 -ver_layers Metal4
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           24108
+[INFO PPL-0002] Number of I/O             538
+[INFO PPL-0003] Number of I/O w/sink      503
+[INFO PPL-0004] Number of I/O w/o sink    35
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 1599454.12 um.
+Elapsed time: 0:04.92[h:]min:sec. CPU time: user 4.31 sys 0.60 (99%). Peak memory: 789336KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0006] NumInstances:             48457
+[INFO GPL-0007] NumPlaceInstances:         6175
+[INFO GPL-0008] NumFixedInstances:        42282
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6537
+[INFO GPL-0011] NumPins:                  23599
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 6750.000 6750.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0016] CoreArea:            42877350.432 um^2
+[INFO GPL-0017] NonPlaceInstsArea:   238673.434 um^2
+[INFO GPL-0018] PlaceInstsArea:      232946.784 um^2
+[INFO GPL-0019] Util:                     0.546 %
+[INFO GPL-0020] StdInstsArea:        232946.784 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:   1173061
+[INFO GPL-0032] FillerInit:NumGNets:       6537
+[INFO GPL-0033] FillerInit:NumGPins:      23599
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:       37.724 um^2
+[INFO GPL-0025] IdealBinArea:            37.724 um^2
+[INFO GPL-0026] IdealBinCnt:            1136601
+[INFO GPL-0027] TotalBinArea:        42877350.432 um^2
+[INFO GPL-0028] BinCnt:      1024   1024
+[INFO GPL-0029] BinSize: (  6.396  6.394 )
+[INFO GPL-0030] NumBins: 1048576
+global_placement -density 0.5127316368650645 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.560  5.040 ) um
+[INFO GPL-0004] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0006] NumInstances:             48457
+[INFO GPL-0007] NumPlaceInstances:         6175
+[INFO GPL-0008] NumFixedInstances:        42282
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6537
+[INFO GPL-0011] NumPins:                  23599
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 6750.000 6750.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.480 201.600 ) ( 6749.680 6748.560 ) um
+[INFO GPL-0016] CoreArea:            42877350.432 um^2
+[INFO GPL-0017] NonPlaceInstsArea:   238673.434 um^2
+[INFO GPL-0018] PlaceInstsArea:      232946.784 um^2
+[INFO GPL-0019] Util:                     0.546 %
+[INFO GPL-0020] StdInstsArea:        232946.784 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000030 HPWL: 4117467654
+[InitialPlace]  Iter: 2 CG residual: 0.00000194 HPWL: 3648050487
+[InitialPlace]  Iter: 3 CG residual: 0.00000108 HPWL: 3648476686
+[InitialPlace]  Iter: 4 CG residual: 0.00000075 HPWL: 3649028893
+[InitialPlace]  Iter: 5 CG residual: 0.00000040 HPWL: 3649232646
+[INFO GPL-0031] FillerInit:NumGCells:    601351
+[INFO GPL-0032] FillerInit:NumGNets:       6537
+[INFO GPL-0033] FillerInit:NumGPins:      23599
+[INFO GPL-0023] TargetDensity:            0.513
+[INFO GPL-0024] AvrgPlaceInstArea:       37.724 um^2
+[INFO GPL-0025] IdealBinArea:            73.575 um^2
+[INFO GPL-0026] IdealBinCnt:             582771
+[INFO GPL-0027] TotalBinArea:        42877350.432 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: ( 12.791 12.787 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.925 HPWL: 3666749191
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.51e-08
+[INFO GPL-0103] Timing-driven: weighted 653 nets.
+[NesterovSolve] Iter:   10 overflow: 0.747 HPWL: 3835090284
+[NesterovSolve] Iter:   20 overflow: 0.710 HPWL: 3779398529
+[NesterovSolve] Iter:   30 overflow: 0.699 HPWL: 3779315308
+[NesterovSolve] Iter:   40 overflow: 0.700 HPWL: 3787660122
+[NesterovSolve] Iter:   50 overflow: 0.702 HPWL: 3796145277
+[NesterovSolve] Iter:   60 overflow: 0.704 HPWL: 3805690889
+[NesterovSolve] Iter:   70 overflow: 0.702 HPWL: 3815410551
+[NesterovSolve] Iter:   80 overflow: 0.700 HPWL: 3822230625
+[NesterovSolve] Iter:   90 overflow: 0.699 HPWL: 3825934077
+[NesterovSolve] Iter:  100 overflow: 0.699 HPWL: 3827111909
+[NesterovSolve] Iter:  110 overflow: 0.700 HPWL: 3826900620
+[NesterovSolve] Iter:  120 overflow: 0.700 HPWL: 3826205915
+[NesterovSolve] Iter:  130 overflow: 0.700 HPWL: 3823958703
+[NesterovSolve] Iter:  140 overflow: 0.699 HPWL: 3821495225
+[NesterovSolve] Iter:  150 overflow: 0.699 HPWL: 3818755713
+[NesterovSolve] Iter:  160 overflow: 0.699 HPWL: 3817944516
+[NesterovSolve] Iter:  170 overflow: 0.699 HPWL: 3817688904
+[NesterovSolve] Iter:  180 overflow: 0.697 HPWL: 3819726239
+[NesterovSolve] Iter:  190 overflow: 0.695 HPWL: 3824954253
+[NesterovSolve] Iter:  200 overflow: 0.691 HPWL: 3834228420
+[NesterovSolve] Iter:  210 overflow: 0.685 HPWL: 3850454732
+[NesterovSolve] Iter:  220 overflow: 0.680 HPWL: 3852540246
+[NesterovSolve] Iter:  230 overflow: 0.672 HPWL: 3836747392
+[NesterovSolve] Iter:  240 overflow: 0.658 HPWL: 3834059955
+[NesterovSolve] Iter:  250 overflow: 0.637 HPWL: 3871694089
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.42e-08
+[INFO GPL-0103] Timing-driven: weighted 653 nets.
+[NesterovSolve] Iter:  260 overflow: 0.615 HPWL: 3846451554
+[NesterovSolve] Snapshot saved at iter = 264
+[NesterovSolve] Iter:  270 overflow: 0.580 HPWL: 3888940773
+[NesterovSolve] Iter:  280 overflow: 0.547 HPWL: 3861817719
+[NesterovSolve] Iter:  290 overflow: 0.506 HPWL: 3863127305
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.38e-08
+[INFO GPL-0103] Timing-driven: weighted 652 nets.
+[NesterovSolve] Iter:  300 overflow: 0.459 HPWL: 3865800113
+[NesterovSolve] Iter:  310 overflow: 0.410 HPWL: 3872806774
+[NesterovSolve] Iter:  320 overflow: 0.361 HPWL: 3878893949
+[NesterovSolve] Iter:  330 overflow: 0.322 HPWL: 3892086292
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 16800 16800 ) DBU
+[INFO GPL-0038] TileCnt:     803  803
+[INFO GPL-0040] NumTiles: 644809
+[INFO GPL-0081] TotalRouteOverflow: 0.1976557970046997
+[INFO GPL-0082] OverflowTileCnt: 3
+[INFO GPL-0083] 0.5%RC: 0.7113733936280243
+[INFO GPL-0084] 1.0%RC: 0.6720185697328251
+[INFO GPL-0085] 2.0%RC: 0.6401284817504247
+[INFO GPL-0086] 5.0%RC: 0.6063953713060946
+[INFO GPL-0087] FinalRC: 0.691696
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  340 overflow: 0.292 HPWL: 3899027001
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.3e-08
+[INFO GPL-0103] Timing-driven: weighted 653 nets.
+[NesterovSolve] Iter:  350 overflow: 0.262 HPWL: 3911138448
+[NesterovSolve] Iter:  360 overflow: 0.236 HPWL: 3922689250
+[NesterovSolve] Iter:  370 overflow: 0.208 HPWL: 3936058747
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.26e-08
+[INFO GPL-0103] Timing-driven: weighted 652 nets.
+[NesterovSolve] Iter:  380 overflow: 0.180 HPWL: 3952281210
+[NesterovSolve] Iter:  390 overflow: 0.154 HPWL: 3966492931
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 1.25e-08
+[INFO GPL-0103] Timing-driven: weighted 652 nets.
+[NesterovSolve] Iter:  400 overflow: 0.132 HPWL: 3979766237
+[NesterovSolve] Iter:  410 overflow: 0.115 HPWL: 3964734747
+[NesterovSolve] Iter:  420 overflow: 0.106 HPWL: 3930731902
+[NesterovSolve] Finished with Overflow: 0.099534
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 486285 u^2 1% utilization.
+Elapsed time: 2:45.41[h:]min:sec. CPU time: user 322.05 sys 1.52 (195%). Peak memory: 1807424KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 327 input buffers.
+[INFO RSZ-0028] Inserted 176 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 119881um.
+[INFO RSZ-0034] Found 36 slew violations.
+[INFO RSZ-0036] Found 5 capacitance violations.
+[INFO RSZ-0038] Inserted 13 buffers in 36 nets.
+[INFO RSZ-0039] Resized 1642 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 581982 u^2 1% utilization.
+Instance count before 51055, after 51571
+Pin count before 23061, after 24093
+Elapsed time: 0:09.35[h:]min:sec. CPU time: user 8.56 sys 0.78 (100%). Peak memory: 1117624KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement      40541.5 u
+average displacement        0.8 u
+max displacement           71.7 u
+original HPWL         1974121.3 u
+legalized HPWL        1997528.4 u
+delta HPWL                    1 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 51571 cells, 538 terminals, 7053 edges, 24631 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 52109, edges 7053, pins 24631
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 50400 10080 units.
+[INFO DPO-0320] Collected 45418 fixed cells.
+[INFO DPO-0318] Collected 6691 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (400960, 403200) - (13498240, 13497120)
+[INFO DPO-0310] Assigned 6691 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 3.996685e+09.
+[INFO DPO-0302] End of matching; objective is 3.996245e+09, improvement is 0.01 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 3.983754e+09.
+[INFO DPO-0307] End of global swaps; objective is 3.983754e+09, improvement is 0.31 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 3.980823e+09.
+[INFO DPO-0309] End of vertical swaps; objective is 3.980823e+09, improvement is 0.07 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 3.978879e+09.
+[INFO DPO-0305] End of reordering; objective is 3.978879e+09, improvement is 0.05 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 133820 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 133820, swaps 18843, moves 31449 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 3.947270e+09, Scratch cost 3.938989e+09, Incremental cost 3.938989e+09, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 3.938989e+09.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.21 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.209777 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 3279 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 2297 cell flips.
+[INFO DPO-0384] End of flipping; objective is 3.947365e+09, improvement is 0.59 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL          1997528.4 u
+Final HPWL             1972383.1 u
+Delta HPWL                  -1.3 %
+
+[INFO DPL-0020] Mirrored 459 instances
+[INFO DPL-0021] HPWL before          1972383.1 u
+[INFO DPL-0022] HPWL after           1971918.2 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+No registers in design
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 581982 u^2 1% utilization.
+Elapsed time: 0:14.61[h:]min:sec. CPU time: user 12.80 sys 1.80 (99%). Peak memory: 2981640KB.
+cp ./results/gf180/riscv_v_adder/base/3_5_place_dp.odb ./results/gf180/riscv_v_adder/base/3_place.odb
+cp ./results/gf180/riscv_v_adder/base/2_floorplan.sdc ./results/gf180/riscv_v_adder/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[INFO CTS-0051] Sink buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    gf180mcu_fd_sc_mcu9t5v0__clkbuf_20
+[INFO CTS-0049] Characterization buffer is gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO RSZ-0058] Using max wire length 119881um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         1971918.2 u
+legalized HPWL        1984945.4 u
+delta HPWL                    1 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         1984945.4 u
+legalized HPWL        1984945.4 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+No registers in design
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 581982 u^2 1% utilization.
+Elapsed time: 0:14.61[h:]min:sec. CPU time: user 13.00 sys 1.60 (100%). Peak memory: 3344824KB.
+cp ./results/gf180/riscv_v_adder/base/4_1_cts.odb ./results/gf180/riscv_v_adder/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/gf180/riscv_v_adder/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: Metal1
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.5600  line-2-Via Pitch: 0.4750
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5600
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.9000  line-2-Via Pitch: 0.8200
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 332
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 47708
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal    9678559       4560666          52.88%
+Metal2     Vertical      9678559       5724144          40.86%
+Metal3     Horizontal    9678559       5800064          40.07%
+Metal4     Vertical      9678559       4738190          51.04%
+Metal5     Horizontal    5807296       2846300          50.99%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 23590
+[INFO GRT-0198] Via related Steiner nodes: 1969
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 34468
+[INFO GRT-0112] Final usage 3D: 353640
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+Metal1         4560666         67276            1.48%             0 /  0 /  0
+Metal2         5724144         95804            1.67%             0 /  0 /  0
+Metal3         5800064         61076            1.05%             0 /  0 /  0
+Metal4         4738190         24120            0.51%             0 /  0 /  0
+Metal5         2846300          1960            0.07%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total         23669364        250236            1.06%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 2311654 um
+[INFO GRT-0014] Routed nets: 7018
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 119881um.
+[INFO RSZ-0034] Found 8 slew violations.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         1984945.4 u
+legalized HPWL        1984945.4 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         1984945.4 u
+legalized HPWL        1984945.4 u
+delta HPWL                    0 %
+
+Repair antennas...
+[INFO GRT-0012] Found 127 antenna violations.
+[INFO GRT-0015] Inserted 1198 diodes.
+[INFO GRT-0012] Found 50 antenna violations.
+[INFO GRT-0015] Inserted 509 diodes.
+[INFO GRT-0012] Found 38 antenna violations.
+[INFO GRT-0015] Inserted 400 diodes.
+[INFO GRT-0012] Found 33 antenna violations.
+[INFO GRT-0015] Inserted 364 diodes.
+[INFO GRT-0012] Found 30 antenna violations.
+[INFO GRT-0015] Inserted 352 diodes.
+[INFO ANT-0002] Found 29 net violations.
+[INFO ANT-0001] Found 30 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+No registers in design
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 597917 u^2 1% utilization.
+[INFO FLW-0007] clock clk period 100.000000
+[INFO FLW-0008] Clock clk period 89.714
+[INFO FLW-0009] Clock clk slack 5.565
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO FLW-0011] Path endpoint count 2999
+Elapsed time: 0:48.59[h:]min:sec. CPU time: user 83.54 sys 2.08 (176%). Peak memory: 3823216KB.
+Running detail_route.tcl, stage 5_2_route
+[WARNING STA-0450] virtual clock clk can not be propagated.
+detailed_route -output_drc ./reports/gf180/riscv_v_adder/base/5_route_drc.rpt -output_maze ./results/gf180/riscv_v_adder/base/maze.log -bottom_routing_layer Metal1 -top_routing_layer Metal5 -disable_via_gen -save_guide_updates -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+
+Units:                2000
+Number of layers:     11
+Number of macros:     229
+Number of vias:       64
+Number of viarulegen: 18
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net net327 has 332 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net273 has 113 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _04419_ has 120 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _04562_ has 109 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net26 has 236 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net17 has 129 pins which may impact routing performance. Consider optimization.
+
+Design:                   riscv_v_adder
+Die area:                 ( 0 0 ) ( 13500000 13500000 )
+Number of track patterns: 10
+Number of DEF vias:       0
+Number of components:     54394
+Number of terminals:      538
+Number of snets:          2
+Number of nets:           7053
+
+[INFO       60 |       0 |       0 |        9 |     27 |    31 | -1393.801 |  -122555.9 |    128 | result[121]
+       70 |       0 |       0 |       18 |     30 |    35 | -1377.595 |  -121011.5 |    128 | result[121]
+       80 |       0 |       0 |       26 |     34 |    39 | -1365.093 |  -118857.6 |    128 | result[121]
+       90 |       0 |       0 |       43 |     37 |    44 | -1340.370 |  -116602.4 |    128 | result[121]
+      100 |       0 |       0 |       45 |     42 |    48 | -1346.341 |  -117366.8 |    128 | result[121]
+      110 |       0 |       0 |       47 |     45 |    54 | -1316.096 |  -113458.5 |    128 | result[121]
+      120 |       0 |       0 |       71 |     49 |    56 | -1294.513 |  -110695.9 |    128 | result[121]
+      130 |       0 |       0 |       73 |     55 |    59 | -1308.911 |  -111330.0 |    128 | result[121]
+      140 |       0 |       0 |       79 |     60 |    62 | -1321.893 |  -112250.1 |    128 | result[121]
+      150 |       0 |       0 |       79 |     65 |    67 | -1283.573 |  -109776.1 |    128 | result[121]
+      160 |       0 |       1 |       81 |     69 |    71 | -1265.797 |  -110327.8 |    128 | result[121]
+      170 |       0 |       1 |       90 |     71 |    77 | -1253.215 |  -108682.3 |    128 | result[121]
+      180 |       0 |       1 |       92 |     75 |    82 | -1240.812 |  -107421.2 |    128 | result[121]
+      190 |       0 |       1 |      106 |     78 |    86 | -1235.104 |  -106979.8 |    128 | result[121]
+unique inst patterns.
+[INFO DRT-0084]   Complete 4963 groups.
+#scanned instances     = 54394
+#unique  instances     = 160
+#stdCellGenAp          = 7811
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 4608
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 24093
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:05, elapsed time = 00:00:09, memory = 3330.75 (MB), peak = 3759.19 (MB)
+
+[INFO DRT-0157] Number of guides:     52520
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 803 STEP 16800 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 803 STEP 16800 ;
+[INFO DRT-0028]   Complete Poly2.
+[INFO DRT-0028]   Complete CON.
+[INFO DRT-0028]   Complete Metal1.
+[INFO DRT-0028]   Complete Via1.
+[INFO DRT-0028]   Complete Metal2.
+[INFO DRT-0028]   Complete Via2.
+[INFO DRT-0028]   Complete Metal3.
+[INFO DRT-0028]   Complete Via3.
+[INFO DRT-0028]   Complete Metal4.
+[INFO DRT-0028]   Complete Via4.
+[INFO DRT-0028]   Complete Metal5.
+[WARNING DRT-0225] _00000_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00002_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00006_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00007_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00010_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00011_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00012_ 26 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00016_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00027_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00031_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00034_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00039_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00049_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00051_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00052_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00053_ 19 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00078_ 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net347 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net346 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00085_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net345 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00108_ 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net342 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00114_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net341 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00126_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00127_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00130_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net337 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00141_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00145_ 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00152_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00161_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00165_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00214_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00216_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00222_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00227_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00252_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00257_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00259_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00262_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00273_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00274_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00277_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00283_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00285_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00286_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00294_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00308_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00310_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00332_ 62 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00334_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net331 55 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00336_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00345_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00372_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00377_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00380_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00387_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00395_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00396_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00408_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00415_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00424_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00425_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00427_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00429_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net330 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net327 329 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net326 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00435_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net322 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00468_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00487_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00494_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00497_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00499_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00508_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00516_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00522_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00532_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net314 19 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00535_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00542_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00545_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00548_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00555_ 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00565_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00567_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00579_ 25 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00581_ 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00598_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00615_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00619_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00636_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00675_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00680_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00682_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00688_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00702_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00710_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00712_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00715_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net303 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00724_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00731_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00733_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00735_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00738_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00757_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00759_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00764_ 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00767_ 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00771_ 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00782_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00785_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00788_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net292 23 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00802_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00804_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00806_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00810_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00812_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00819_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00823_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00834_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00848_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00849_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00853_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00889_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00894_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00912_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00913_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00916_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00919_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00942_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00943_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00945_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00946_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00948_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00949_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00952_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00954_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00955_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00985_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00986_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00987_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00991_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00993_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01002_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01015_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01053_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01062_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net288 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01077_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01084_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01099_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01108_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01114_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01116_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01136_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01141_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01145_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01149_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01151_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net273 58 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01154_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01161_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net270 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01181_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01183_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01184_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01185_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01191_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01192_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01195_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01198_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01207_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01248_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01249_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01253_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01267_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01285_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01292_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01295_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01300_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01305_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01310_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01319_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01324_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01325_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01349_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01357_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01359_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01371_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01384_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01385_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01392_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01432_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01433_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01474_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net253 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net252 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01496_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net249 23 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01502_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01506_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01508_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01513_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01523_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01530_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01532_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01539_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01545_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01547_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01553_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01555_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01556_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01558_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01568_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01571_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01587_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01588_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01590_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01598_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01606_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01613_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01620_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01622_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01623_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01629_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01640_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01651_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01663_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01665_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01684_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01685_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net237 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01693_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01695_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01707_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01719_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01722_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01741_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01744_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01747_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01751_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01763_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01764_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01769_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01778_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01786_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01788_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01805_ 55 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01819_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01822_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01830_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01843_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01850_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net221 38 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01900_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01901_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01902_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01903_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net216 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01913_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01925_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01936_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01945_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01972_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01977_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _01984_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02012_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02017_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02030_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net213 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02037_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02039_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02056_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02070_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02081_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02085_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02098_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02101_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02103_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02110_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02114_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02126_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02127_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02131_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02134_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02137_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02145_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02149_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02157_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02181_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02192_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02194_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net208 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02196_ 61 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net207 42 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net206 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02200_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02208_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02214_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02217_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02221_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net204 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02231_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02233_ 42 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02236_ 35 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02240_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02241_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02254_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02268_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02276_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02278_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net199 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02298_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02307_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02309_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02311_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02315_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net193 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02348_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02353_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02365_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02370_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02372_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02384_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02385_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02403_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02412_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02415_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02418_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02431_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02443_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02452_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net185 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02485_ 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02489_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02495_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02503_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02504_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net182 32 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02527_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02529_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02531_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02547_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02551_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02559_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02562_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02565_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02569_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02583_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02585_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02601_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02603_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02607_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02610_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02632_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02651_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02655_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net167 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02688_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02709_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02714_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02758_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02771_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02778_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02781_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02794_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02805_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02812_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02815_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02824_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02856_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02867_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02888_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02893_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02897_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02901_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02902_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02919_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02921_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02923_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02928_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02934_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net156 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02942_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02949_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02955_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02956_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02958_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02960_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02965_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02989_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02991_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02995_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _02996_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03005_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net151 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03016_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net148 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03039_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03040_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03043_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03045_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03059_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03065_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03068_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net142 23 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03104_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03113_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03114_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03118_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03119_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net140 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03170_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03175_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03186_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03199_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03224_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03226_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03236_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03237_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03269_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03270_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03278_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03282_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03299_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03301_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03308_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03313_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03325_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03346_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03354_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03355_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03362_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03370_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03373_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03392_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03395_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03397_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03398_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03428_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03433_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03435_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03458_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03498_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03514_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03515_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03516_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03538_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03543_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03545_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03549_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03550_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03581_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03585_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03587_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03601_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net117 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03618_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03620_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03621_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net116 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03624_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03633_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03635_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03636_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03640_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net115 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03655_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03657_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03685_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03688_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03696_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03706_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03714_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03715_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03719_ 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03727_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03733_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03741_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03742_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03755_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03756_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03767_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03776_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03777_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03789_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03802_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03806_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03816_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03822_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03836_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03837_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03846_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03862_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03865_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03895_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03902_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03910_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03913_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03914_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03918_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03951_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03952_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03954_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03974_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03977_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03987_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03997_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03999_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04000_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04011_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04012_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net397 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04041_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04048_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04055_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04065_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04073_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net76 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net75 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04089_ 19 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net73 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net392 48 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04126_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04127_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04142_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04162_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04166_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04172_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04186_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04191_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04197_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04201_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04213_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04216_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04232_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04240_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04251_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04254_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04259_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04267_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04294_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04296_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04300_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04319_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04326_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04329_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04343_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04344_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04360_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04378_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04389_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net68 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04395_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net67 20 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04406_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04409_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04419_ 113 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04424_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04437_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04445_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04446_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04448_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04487_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04500_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04502_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04505_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04507_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04513_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04518_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04523_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04525_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04546_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04562_ 95 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04572_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net58 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04601_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04619_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04624_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04629_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net56 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net55 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04645_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04655_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04657_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04659_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04679_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04680_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04682_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04696_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04703_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net51 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04715_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04738_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04740_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04743_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04745_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net47 18 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net46 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04769_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04771_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04792_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04813_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04814_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04837_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04878_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04881_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04883_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04896_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04900_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04901_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04921_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04937_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04952_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04963_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04965_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04968_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04969_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04972_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04973_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04975_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05037_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05102_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05138_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05156_ 30 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05157_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05166_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05178_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05179_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05189_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05203_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05204_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05242_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05245_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net35 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net34 59 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05256_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05263_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05289_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net33 38 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net32 51 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05306_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net31 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05313_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05318_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05322_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05324_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05325_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net28 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05327_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05330_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net27 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05333_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net26 124 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net25 42 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net24 56 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net23 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net22 55 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net17 111 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05389_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05393_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05400_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05435_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05460_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05476_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05573_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net4 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net3 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05658_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05856_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05895_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06013_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06101_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06112_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06123_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06126_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06127_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06129_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06178_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06179_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net368 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06196_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06197_ 20 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06205_ 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06213_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06214_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06215_ 42 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06218_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06220_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06223_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06224_ 41 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06230_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06231_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06232_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06234_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06235_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net359 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06243_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06258_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06261_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06263_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06265_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06267_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06269_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06273_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06274_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06276_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06282_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06284_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06287_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net357 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06296_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06297_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06300_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06303_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06304_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06306_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06313_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06316_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06325_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06329_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06331_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06346_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06347_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06349_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06358_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06368_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06374_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06375_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06376_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06383_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net417 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net420 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net435 53 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net440 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net444 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net446 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net447 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net448 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net449 55 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net452 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net457 54 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net462 54 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net463 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net474 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net475 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net504 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net505 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net506 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net507 30 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net508 40 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net509 39 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net510 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net511 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net512 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net513 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net514 39 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net515 35 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net516 28 pin not visited, fall back to feedthrough mode.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete Poly2 (guide).
+[INFO DRT-0035]   Complete CON (guide).
+[INFO DRT-0035]   Complete Metal1 (guide).
+[INFO DRT-0035]   Complete Via1 (guide).
+[INFO DRT-0035]   Complete Metal2 (guide).
+[INFO DRT-0035]   Complete Via2 (guide).
+[INFO DRT-0035]   Complete Metal3 (guide).
+[INFO DRT-0035]   Complete Via3 (guide).
+[INFO DRT-0035]   Complete Metal4 (guide).
+[INFO DRT-0035]   Complete Via4 (guide).
+[INFO DRT-0035]   Complete Metal5 (guide).
+[INFO DRT-0036] Poly2 guide region query size = 0.
+[INFO DRT-0036] CON guide region query size = 0.
+[INFO DRT-0036] Metal1 guide region query size = 21276.
+[INFO DRT-0036] Via1 guide region query size = 0.
+[INFO DRT-0036] Metal2 guide region query size = 13348.
+[INFO DRT-0036] Via2 guide region query size = 0.
+[INFO DRT-0036] Metal3 guide region query size = 3053.
+[INFO DRT-0036] Via3 guide region query size = 0.
+[INFO DRT-0036] Metal4 guide region query size = 534.
+[INFO DRT-0036] Via4 guide region query size = 0.
+[INFO DRT-0036] Metal5 guide region query size = 15.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 13882 vertical wires in 17 frboxes and 24344 horizontal wires in 17 frboxes.
+[INFO DRT-0186] Done with 3188 vertical wires in 17 frboxes and 10449 horizontal wires in 17 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:01:59, elapsed time = 00:00:21, memory = 4588.06 (MB), peak = 4640.06 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 4588.06 (MB), peak = 4640.06 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 85 violations.
+    elapsed time = 00:00:00, memory = 4472.52 (MB).
+    Completing 20% with 3118 violations.
+    elapsed time = 00:00:43, memory = 4479.72 (MB).
+    Completing 30% with 3436 violations.
+    elapsed time = 00:00:45, memory = 4479.72 (MB).
+    Completing 40% with 3556 violations.
+    elapsed time = 00:01:21, memory = 4609.22 (MB).
+    Completing 50% with 6732 violations.
+    elapsed time = 00:01:26, memory = 4625.72 (MB).
+    Completing 60% with 6965 violations.
+    elapsed time = 00:01:29, memory = 4625.72 (MB).
+    Completing 70% with 9817 violations.
+    elapsed time = 00:02:16, memory = 4630.04 (MB).
+    Completing 80% with 10071 violations.
+    elapsed time = 00:02:17, memory = 4630.04 (MB).
+    Completing 90% with 10186 violations.
+    elapsed time = 00:02:55, memory = 4630.04 (MB).
+    Completing 100% with 13301 violations.
+    elapsed time = 00:03:03, memory = 4630.04 (MB).
+[INFO DRT-0199]   Number of violations = 18739.
+Viol/Layer      Metal1   Via1 Metal2   Via2 Metal3   Via3 Metal4
+Cut Spacing          0     33      0      1      0      0      0
+Metal Spacing     3974      0    527      0     38      0      0
+NS Metal            30      0      2      0      0      0      0
+Recheck           1442      0   2346      0    501      0   1149
+Short             6204    214   1887    137    133     59     62
+[INFO DRT-0267] cpu time = 00:19:45, elapsed time = 00:03:04, memory = 4642.17 (MB), peak = 4712.77 (MB)
+Total wire length = 2132362 um.
+Total wire length on LAYER Metal1 = 406970 um.
+Total wire length on LAYER Metal2 = 842115 um.
+Total wire length on LAYER Metal3 = 658053 um.
+Total wire length on LAYER Metal4 = 202672 um.
+Total wire length on LAYER Metal5 = 22549 um.
+Total number of vias = 65162.
+Up-via summary (total 65162):
+
+----------------
+  Poly2        0
+ Metal1    38070
+ Metal2    25665
+ Metal3     1385
+ Metal4       42
+----------------
+           65162
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 18703 violations.
+    elapsed time = 00:00:00, memory = 4642.17 (MB).
+    Completing 20% with 14771 violations.
+    elapsed time = 00:00:28, memory = 4643.17 (MB).
+    Completing 30% with 14531 violations.
+    elapsed time = 00:00:30, memory = 4643.17 (MB).
+    Completing 40% with 14453 violations.
+    elapsed time = 00:00:52, memory = 4667.92 (MB).
+    Completing 50% with 10523 violations.
+    elapsed time = 00:00:56, memory = 4668.04 (MB).
+    Completing 60% with 10187 violations.
+    elapsed time = 00:00:59, memory = 4668.04 (MB).
+    Completing 70% with 5886 violations.
+    elapsed time = 00:01:29, memory = 4706.92 (MB).
+    Completing 80% with 5789 violations.
+    elapsed time = 00:01:30, memory = 4706.92 (MB).
+    Completing 90% with 5723 violations.
+    elapsed time = 00:01:53, memory = 4706.92 (MB).
+    Completing 100% with 1846 violations.
+    elapsed time = 00:01:57, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1846.
+Viol/Layer      Metal1 Metal2   Via2 Metal3
+Cut Spacing          0      0      1      0
+Metal Spacing      283    159      0      7
+NS Metal             0      2      0      0
+Short              805    506      0     83
+[INFO DRT-0267] cpu time = 00:12:40, elapsed time = 00:01:58, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2127321 um.
+Total wire length on LAYER Metal1 = 395733 um.
+Total wire length on LAYER Metal2 = 839161 um.
+Total wire length on LAYER Metal3 = 666063 um.
+Total wire length on LAYER Metal4 = 203717 um.
+Total wire length on LAYER Metal5 = 22646 um.
+Total number of vias = 63412.
+Up-via summary (total 63412):
+
+----------------
+  Poly2        0
+ Metal1    37202
+ Metal2    24580
+ Metal3     1580
+ Metal4       50
+----------------
+           63412
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 1830 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1768 violations.
+    elapsed time = 00:00:20, memory = 4706.92 (MB).
+    Completing 30% with 1738 violations.
+    elapsed time = 00:00:23, memory = 4706.92 (MB).
+    Completing 40% with 1735 violations.
+    elapsed time = 00:00:43, memory = 4706.92 (MB).
+    Completing 50% with 1642 violations.
+    elapsed time = 00:00:47, memory = 4706.92 (MB).
+    Completing 60% with 1641 violations.
+    elapsed time = 00:00:48, memory = 4706.92 (MB).
+    Completing 70% with 1631 violations.
+    elapsed time = 00:01:08, memory = 4706.92 (MB).
+    Completing 80% with 1624 violations.
+    elapsed time = 00:01:09, memory = 4706.92 (MB).
+    Completing 90% with 1636 violations.
+    elapsed time = 00:01:29, memory = 4706.92 (MB).
+    Completing 100% with 1557 violations.
+    elapsed time = 00:01:35, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1557.
+Viol/Layer      Metal1 Metal2 Metal3
+Metal Spacing      144    124      3
+Short              836    410     40
+[INFO DRT-0267] cpu time = 00:10:05, elapsed time = 00:01:35, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2127229 um.
+Total wire length on LAYER Metal1 = 395291 um.
+Total wire length on LAYER Metal2 = 838558 um.
+Total wire length on LAYER Metal3 = 666714 um.
+Total wire length on LAYER Metal4 = 203991 um.
+Total wire length on LAYER Metal5 = 22673 um.
+Total number of vias = 63108.
+Up-via summary (total 63108):
+
+----------------
+  Poly2        0
+ Metal1    36853
+ Metal2    24552
+ Metal3     1655
+ Metal4       48
+----------------
+           63108
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 1502 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1273 violations.
+    elapsed time = 00:00:04, memory = 4706.92 (MB).
+    Completing 30% with 1150 violations.
+    elapsed time = 00:00:06, memory = 4706.92 (MB).
+    Completing 40% with 1108 violations.
+    elapsed time = 00:00:09, memory = 4706.92 (MB).
+    Completing 50% with 807 violations.
+    elapsed time = 00:00:15, memory = 4706.92 (MB).
+    Completing 60% with 734 violations.
+    elapsed time = 00:00:15, memory = 4706.92 (MB).
+    Completing 70% with 544 violations.
+    elapsed time = 00:00:20, memory = 4706.92 (MB).
+    Completing 80% with 421 violations.
+    elapsed time = 00:00:20, memory = 4706.92 (MB).
+    Completing 90% with 385 violations.
+    elapsed time = 00:00:23, memory = 4706.92 (MB).
+    Completing 100% with 37 violations.
+    elapsed time = 00:00:27, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 37.
+Viol/Layer      Metal1 Metal2 Metal3
+Metal Spacing        0      1      2
+Short               14     11      9
+[INFO DRT-0267] cpu time = 00:01:54, elapsed time = 00:00:27, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126654 um.
+Total wire length on LAYER Metal1 = 363280 um.
+Total wire length on LAYER Metal2 = 828825 um.
+Total wire length on LAYER Metal3 = 698560 um.
+Total wire length on LAYER Metal4 = 213152 um.
+Total wire length on LAYER Metal5 = 22834 um.
+Total number of vias = 66532.
+Up-via summary (total 66532):
+
+----------------
+  Poly2        0
+ Metal1    37864
+ Metal2    26254
+ Metal3     2351
+ Metal4       63
+----------------
+           66532
+
+
+[INFO DRT-0195] Start 4th optimization iteration.
+    Completing 10% with 37 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 18 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 30% with 12 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 40% with 12 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 50% with 3 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 60% with 3 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 70% with 2 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 80% with 2 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 90% with 2 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer      Metal2
+Metal Spacing        1
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:03, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0195] Start 5th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer      Metal2
+Metal Spacing        1
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:03, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0195] Start 6th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:03, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer      Metal2
+Metal Spacing        1
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:03, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0195] Start 7th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:02, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer      Metal2
+Metal Spacing        1
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0195] Start 8th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:01, memory = 4706.92 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:01, memory = 4706.92 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:01, memory = 4706.92 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:01, memory = 4706.92 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:01, memory = 4706.92 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:01, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer      Metal2
+Metal Spacing        1
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:02, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0195] Start 9th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 70% with 0 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 4706.92 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:00, memory = 4706.92 (MB), peak = 4712.77 (MB)
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 2126650 um.
+Total wire length on LAYER Metal1 = 362602 um.
+Total wire length on LAYER Metal2 = 828723 um.
+Total wire length on LAYER Metal3 = 699202 um.
+Total wire length on LAYER Metal4 = 213261 um.
+Total wire length on LAYER Metal5 = 22859 um.
+Total number of vias = 66595.
+Up-via summary (total 66595):
+
+----------------
+  Poly2        0
+ Metal1    37890
+ Metal2    26281
+ Metal3     2357
+ Metal4       67
+----------------
+           66595
+
+
+[INFO DRT-0267] cpu time = 00:44:47, elapsed time = 00:07:20, memory = 4706.92 (MB), peak = 4712.77 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 25 net violations.
+[INFO ANT-0001] Found 27 pin violations.
+Elapsed time: 8:15.23[h:]min:sec. CPU time: user 2919.08 sys 4.54 (590%). Peak memory: 4825872KB.
+Running fillcell.tcl, stage 5_3_fillcell
+[WARNING STA-0450] virtual clock clk can not be propagated.
+filler_placement gf180mcu_fd_sc_mcu9t5v0__fill_64 gf180mcu_fd_sc_mcu9t5v0__fill_32 gf180mcu_fd_sc_mcu9t5v0__fill_16 gf180mcu_fd_sc_mcu9t5v0__fill_8 gf180mcu_fd_sc_mcu9t5v0__fill_4 gf180mcu_fd_sc_mcu9t5v0__fill_2 gf180mcu_fd_sc_mcu9t5v0__fill_1
+[INFO DPL-0001] Placed 309539 filler instances.
+Elapsed time: 0:10.70[h:]min:sec. CPU time: user 8.84 sys 1.86 (100%). Peak memory: 3086088KB.
+cp ./results/gf180/riscv_v_adder/base/5_3_fillcell.odb ./results/gf180/riscv_v_adder/base/5_route.odb
+cp ./results/gf180/riscv_v_adder/base/4_cts.sdc ./results/gf180/riscv_v_adder/base/5_route.sdc
+Running density_fill.tcl, stage 6_1_fill
+exec cp ./results/gf180/riscv_v_adder/base/5_route.odb ./results/gf180/riscv_v_adder/base/6_1_fill.odb
+Elapsed time: 0:03.73[h:]min:sec. CPU time: user 2.92 sys 0.81 (100%). Peak memory: 903024KB.
+cp ./results/gf180/riscv_v_adder/base/5_route.sdc ./results/gf180/riscv_v_adder/base/6_1_fill.sdc
+Running final_report.tcl, stage 6_report
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/openROAD/rcx/gf180mcu_1p5m_1tm_9k_sp_smim_OPTB_bst.rules ...
+[INFO RCX-0436] RC segment generation riscv_v_adder (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 38938 rc segments
+[INFO RCX-0439] Coupling Cap extraction riscv_v_adder ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 9% of 278468 wires extracted
+[INFO RCX-0442] 15% of 278468 wires extracted
+[INFO RCX-0442] 21% of 278468 wires extracted
+[INFO RCX-0442] 27% of 278468 wires extracted
+[INFO RCX-0442] 37% of 278468 wires extracted
+[INFO RCX-0442] 54% of 278468 wires extracted
+[INFO RCX-0442] 60% of 278468 wires extracted
+[INFO RCX-0442] 66% of 278468 wires extracted
+[INFO RCX-0442] 72% of 278468 wires extracted
+[INFO RCX-0442] 77% of 278468 wires extracted
+[INFO RCX-0442] 84% of 278468 wires extracted
+[INFO RCX-0442] 99% of 278468 wires extracted
+[INFO RCX-0442] 100% of 278468 wires extracted
+[INFO RCX-0045] Extract 7053 nets, 45956 rsegs, 45956 caps, 96933 ccs
+[INFO RCX-0443] 7053 nets finished
+IR drop analysis for power nets is skipped because PWR_NETS_VOLTAGES is undefined
+IR drop analysis for ground nets is skipped because GND_NETS_VOLTAGES is undefined
+Cell type report:                       Count       Area
+  Endcap cell                            2598   14665.19
+  Fill cell                            309539 42279433.46
+  Tap cell                              42282  238673.43
+  Antenna cell                           2823   15935.27
+  Timing Repair Buffer                    516   54314.27
+  Inverter                                239    6130.25
+  Multi-Input combinational cell         5936  268198.56
+  Total                                363933 42877350.43
+Report metrics stage 6, finish...
+No registers in design
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 597917 u^2 1% utilization.
+Elapsed time: 0:41.74[h:]min:sec. CPU time: user 35.05 sys 1.76 (88%). Peak memory: 2022480KB.
+cp ./results/gf180/riscv_v_adder/base/5_route.sdc ./results/gf180/riscv_v_adder/base/6_final.sdc
+cp /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_tech.lef ./objects/gf180/riscv_v_adder/base/klayout_tech.lef
+sed 's,<lef-files>.*</lef-files>,<lef-files>../../../../../tools/openROAD/flow/objects/gf180/riscv_v_adder/base/klayout_tech.lef</lef-files> <lef-files>../../../../../tools/openROAD/flow/platforms/gf180/lef/gf180mcu_5LM_1TM_9K_9t_sc.lef</lef-files>,g' /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/KLayout/gf180mcu_5LM_1TM_9K_9t.lyt > ./objects/gf180/riscv_v_adder/base/klayout.lyt
+sed -i 's,<map-file>.*</map-file>,<map-file>/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/*map</map-file>,g' ./objects/gf180/riscv_v_adder/base/klayout.lyt
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' stdbuf -o L /usr/bin/klayout -zz -rd design_name=riscv_v_adder \
+        -rd in_def=./results/gf180/riscv_v_adder/base/6_final.def \
+        -rd in_files="/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__antenna.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__endcap.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_32.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_64.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_32.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_64.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__filltie.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__hold.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_20.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_12.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_16.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_3.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_8.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tieh.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tiel.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_4.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_1.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_2.gds /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_4.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/gf180/riscv_v_adder/base/6_1_merged.gds \
+        -rd tech_file=./objects/gf180/riscv_v_adder/base/klayout.lyt \
+        -rd layer_map=/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap \
+        -r /home/ubuntu/mbucio/tools/openROAD/flow/util/def2stream.py) 2>&1 | tee ./logs/gf180/riscv_v_adder/base/6_1_merge.log
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 12: purpose VIAFILL ignored for layer Metal1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 13: purpose VIAFILLOPC ignored for layer Metal1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 16: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 24: purpose VIAFILL ignored for layer Via1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 25: purpose VIAFILLOPC ignored for layer Via1
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 37: purpose VIAFILL ignored for layer Metal2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 38: purpose VIAFILLOPC ignored for layer Metal2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 41: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 49: purpose VIAFILL ignored for layer Via2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 50: purpose VIAFILLOPC ignored for layer Via2
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 62: purpose VIAFILL ignored for layer Metal3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 63: purpose VIAFILLOPC ignored for layer Metal3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 66: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 74: purpose VIAFILL ignored for layer Via3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 75: purpose VIAFILLOPC ignored for layer Via3
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 87: purpose VIAFILL ignored for layer Metal4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 88: purpose VIAFILLOPC ignored for layer Metal4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 91: NAME record ignored for purpose: SPNET
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 99: purpose VIAFILL ignored for layer Via4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 100: purpose VIAFILLOPC ignored for layer Via4
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 112: purpose VIAFILL ignored for layer Metal5
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 113: purpose VIAFILLOPC ignored for layer Metal5
+Warning: Reading layer map file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_5LM_1TM_9K_9t_edi2gds.layermap, line 116: NAME record ignored for purpose: SPNET
+Warning: No mapping for purpose 'OUTLINE' - layer is ignored
+[INFO] Reporting cells prior to loading DEF ...
+[INFO] Reading DEF ...
+[INFO] Clearing cells...
+[INFO] Merging GDS/OAS files...
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addf_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__addh_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__and4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__antenna.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi211_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi21_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi221_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi222_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__aoi22_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__buf_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__bufz_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkbuf_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__clkinv_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffnsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dffsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlya_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyb_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyc_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__dlyd_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__endcap.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_32.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_64.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fill_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_32.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_64.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__fillcap_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__filltie.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__hold.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtn_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__icgtp_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_20.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__inv_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_12.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_16.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_3.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__invz_8.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__latsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__mux4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nand4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__nor4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai211_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai21_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai221_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai222_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai22_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai31_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai32_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__oai33_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__or4_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffrsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__sdffsnq_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tieh.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__tiel.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xnor3_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor2_4.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_1.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_2.gds
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/gf180/gds/9t/gf180mcu_fd_sc_mcu9t5v0__xor3_4.gds
+[INFO] Copying toplevel cell 'riscv_v_adder'
+[INFO] Checking for missing cell from GDS/OAS...
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] Checking for orphan cell in the final layout...
+[INFO] No orphan cells
+[INFO] Writing out GDS/OAS './results/gf180/riscv_v_adder/base/6_1_merged.gds'
+Elapsed time: 14:34.92[h:]min:sec. CPU time: user 849.41 sys 25.36 (99%). Peak memory: 2362088KB.
+cp results/gf180/riscv_v_adder/base/6_1_merged.gds results/gf180/riscv_v_adder/base/6_final.gds
+./logs/gf180/riscv_v_adder/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                   14             81
+1_1_yosys_canonicalize                       0             73
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                                2            165
+2_2_floorplan_io                             0            147
+2_3_floorplan_tdms                           0             98
+2_4_floorplan_macro                          0            146
+2_5_floorplan_tapcell                        0            161
+2_6_floorplan_pdn                           98            788
+3_1_place_gp_skip_io                       145           1119
+3_2_place_iop                                4            770
+3_3_place_gp                               165           1765
+3_4_place_resized                            9           1091
+3_5_place_dp                                14           2911
+4_1_cts                                     14           3266
+5_1_grt                                     48           3733
+5_2_route                                  495           4712
+5_3_fillcell                                10           3013
+6_1_fill                                     3            881
+6_1_merge                                  874           2306
+6_report                                    41           1975
+Total                                     1936           4712

@@ -1,0 +1,168 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 10.43
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: use_mask (input port clocked by clk)
+Endpoint: srcb_alu[2] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 ^ input external delay
+    19    0.23    0.00    0.00    4.00 ^ use_mask (in)
+                                         use_mask (net)
+                  0.00    0.00    4.00 ^ _573_/A1 (gf180mcu_fd_sc_mcu9t5v0__aoi22_2)
+     1    0.00    0.03    0.03    4.03 v _573_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi22_2)
+                                         srcb_alu[2] (net)
+                  0.03    0.00    4.03 v srcb_alu[2] (out)
+                                  4.03   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -4.00   -4.00   output external delay
+                                 -4.00   data required time
+-----------------------------------------------------------------------------
+                                 -4.00   data required time
+                                 -4.03   data arrival time
+-----------------------------------------------------------------------------
+                                  8.03   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: vtype[5] (input port clocked by clk)
+Endpoint: srca_alu[5] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+    13    0.18    0.00    0.00    4.00 v vtype[5] (in)
+                                         vtype[5] (net)
+                  0.00    0.00    4.00 v _249_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+    13    0.14    0.52    0.30    4.30 ^ _249_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _005_ (net)
+                  0.52    0.00    4.30 ^ _251_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     6    0.09    0.37    0.27    4.58 v _251_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _007_ (net)
+                  0.37    0.00    4.58 v _256_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     7    0.03    0.21    0.21    4.78 ^ _256_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         is_greater_osize_vector[3] (net)
+                  0.21    0.00    4.78 ^ _257_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+     4    0.05    0.22    0.18    4.96 v _257_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         is_less_osize_vector[2] (net)
+                  0.22    0.00    4.96 v _550_/A1 (gf180mcu_fd_sc_mcu9t5v0__oai32_4)
+     2    0.03    0.46    0.28    5.24 ^ _550_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai32_4)
+                                         _228_ (net)
+                  0.46    0.00    5.24 ^ _553_/A3 (gf180mcu_fd_sc_mcu9t5v0__nor3_2)
+     2    0.02    0.25    0.17    5.40 v _553_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor3_2)
+                                         _231_ (net)
+                  0.25    0.00    5.40 v _555_/A3 (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+     1    0.00    0.19    0.17    5.57 ^ _555_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+                                         srca_alu[5] (net)
+                  0.19    0.00    5.57 ^ srca_alu[5] (out)
+                                  5.57   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                 -5.57   data arrival time
+-----------------------------------------------------------------------------
+                                 10.43   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: vtype[5] (input port clocked by clk)
+Endpoint: srca_alu[5] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          4.00    4.00 v input external delay
+    13    0.18    0.00    0.00    4.00 v vtype[5] (in)
+                                         vtype[5] (net)
+                  0.00    0.00    4.00 v _249_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+    13    0.14    0.52    0.30    4.30 ^ _249_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _005_ (net)
+                  0.52    0.00    4.30 ^ _251_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     6    0.09    0.37    0.27    4.58 v _251_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _007_ (net)
+                  0.37    0.00    4.58 v _256_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     7    0.03    0.21    0.21    4.78 ^ _256_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         is_greater_osize_vector[3] (net)
+                  0.21    0.00    4.78 ^ _257_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+     4    0.05    0.22    0.18    4.96 v _257_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         is_less_osize_vector[2] (net)
+                  0.22    0.00    4.96 v _550_/A1 (gf180mcu_fd_sc_mcu9t5v0__oai32_4)
+     2    0.03    0.46    0.28    5.24 ^ _550_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai32_4)
+                                         _228_ (net)
+                  0.46    0.00    5.24 ^ _553_/A3 (gf180mcu_fd_sc_mcu9t5v0__nor3_2)
+     2    0.02    0.25    0.17    5.40 v _553_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor3_2)
+                                         _231_ (net)
+                  0.25    0.00    5.40 v _555_/A3 (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+     1    0.00    0.19    0.17    5.57 ^ _555_/ZN (gf180mcu_fd_sc_mcu9t5v0__nor4_2)
+                                         srca_alu[5] (net)
+                  0.19    0.00    5.57 ^ srca_alu[5] (out)
+                                  5.57   data arrival time
+
+                  0.00   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                          0.00   20.00   clock reconvergence pessimism
+                         -4.00   16.00   output external delay
+                                 16.00   data required time
+-----------------------------------------------------------------------------
+                                 16.00   data required time
+                                 -5.57   data arrival time
+-----------------------------------------------------------------------------
+                                 10.43   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          4.27e-03   4.84e-04   1.50e-07   4.76e-03 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.27e-03   4.84e-04   1.50e-07   4.76e-03 100.0%
+                          89.8%      10.2%       0.0%

@@ -1,0 +1,2850 @@
+mkdir -p ./results/asap7/riscv_v_adder/base ./logs/asap7/riscv_v_adder/base ./reports/asap7/riscv_v_adder/base ./objects/asap7/riscv_v_adder/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/riscv_v_adder/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+58. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+59. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+60. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+61. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+62. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_clkgate_R.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/asap7/riscv_v_adder/base/clock_period.txt
+Setting clock period to 5000.0
+63. Executing HIERARCHY pass (managing design hierarchy).
+64. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_adder'.
+Warning: Replacing memory \result_set_greater_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:295
+Warning: Replacing memory \result_set_less_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:294
+Warning: Replacing memory \result_set_nequal_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:293
+Warning: Replacing memory \result_set_equal_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:292
+Warning: Replacing memory \zf_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:270
+Warning: Replacing memory \flags_mask_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:229
+64.1. Analyzing design hierarchy..
+64.2. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+64.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+64.4. Analyzing design hierarchy..
+64.5. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+64.6. Analyzing design hierarchy..
+64.7. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+./designs/src/riscv_v_adder/convert_to_v/full_adder.v:51: Warning: Identifier `\C' is implicitly declared.
+./designs/src/riscv_v_adder/convert_to_v/full_adder.v:51: Warning: Range select out of bounds on signal `\C': Setting result bit to undef.
+64.8. Analyzing design hierarchy..
+64.9. Analyzing design hierarchy..
+65. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_adder because it contains processes (run 'proc' command first).
+66. Executing RTLIL backend.
+Warnings: 10 unique messages, 10 total
+End of script. Logfile hash: 3843303277, CPU: user 0.66s system 0.04s, MEM: 82.88 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 75% 6x read_liberty (0 sec), 15% 1x hierarchy (0 sec), ...
+Elapsed time: 0:00.76[h:]min:sec. CPU time: user 0.71 sys 0.04 (100%). Peak memory: 86016KB.
+mkdir -p ./results/asap7/riscv_v_adder/base ./logs/asap7/riscv_v_adder/base ./reports/asap7/riscv_v_adder/base
+(export VERILOG_FILES=./results/asap7/riscv_v_adder/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/riscv_v_adder/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.00[h:]min:sec. CPU time: user 0.00 sys 0.00 (80%). Peak memory: 12928KB.
+mkdir -p ./results/asap7/riscv_v_adder/base ./logs/asap7/riscv_v_adder/base ./reports/asap7/riscv_v_adder/base ./objects/asap7/riscv_v_adder/base
+(export VERILOG_FILES=./results/asap7/riscv_v_adder/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/asap7/riscv_v_adder/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_AO_RVT_FF_nldm_211120.lib
+3. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_INVBUF_RVT_FF_nldm_220122.lib
+4. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_OA_RVT_FF_nldm_211120.lib
+5. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_SIMPLE_RVT_FF_nldm_211120.lib
+6. Executing Liberty frontend: ./objects/asap7/riscv_v_adder/base/lib/asap7sc7p5t_SEQ_RVT_FF_nldm_220123.lib
+7. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_clkgate_R.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/asap7/riscv_v_adder/base/clock_period.txt
+Setting clock period to 5000.0
+synth -top riscv_v_adder -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+8. Executing SYNTH pass.
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+8.1.1. Analyzing design hierarchy..
+8.1.2. Analyzing design hierarchy..
+8.2. Executing PROC pass (convert processes to netlists).
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+8.3. Executing FLATTEN pass (flatten design).
+8.4. Executing OPT_EXPR pass (perform const folding).
+8.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.6. Executing CHECK pass (checking for obvious problems).
+8.7. Executing OPT pass (performing simple optimizations).
+8.7.1. Executing OPT_EXPR pass (perform const folding).
+8.7.2. Executing OPT_MERGE pass (detect identical cells).
+8.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.7.5. Executing OPT_MERGE pass (detect identical cells).
+8.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.7.8. Executing OPT_EXPR pass (perform const folding).
+8.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+8.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.7.12. Executing OPT_MERGE pass (detect identical cells).
+8.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+8.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.7.15. Executing OPT_EXPR pass (perform const folding).
+8.7.16. Finished OPT passes. (There is nothing left to do.)
+8.8. Executing FSM pass (extract and optimize FSM).
+8.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+8.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+8.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+8.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+8.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+8.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+8.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+8.9. Executing OPT pass (performing simple optimizations).
+8.9.1. Executing OPT_EXPR pass (perform const folding).
+8.9.2. Executing OPT_MERGE pass (detect identical cells).
+8.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.9.5. Executing OPT_MERGE pass (detect identical cells).
+8.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.9.8. Executing OPT_EXPR pass (perform const folding).
+8.9.9. Finished OPT passes. (There is nothing left to do.)
+8.10. Executing WREDUCE pass (reducing word size of cells).
+8.11. Executing PEEPOPT pass (run peephole optimizers).
+8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.13. Executing ALUMACC pass (create $alu and $macc cells).
+8.14. Executing SHARE pass (SAT-based resource sharing).
+8.15. Executing OPT pass (performing simple optimizations).
+8.15.1. Executing OPT_EXPR pass (perform const folding).
+8.15.2. Executing OPT_MERGE pass (detect identical cells).
+8.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+8.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+8.15.5. Executing OPT_MERGE pass (detect identical cells).
+8.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+8.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.15.8. Executing OPT_EXPR pass (perform const folding).
+8.15.9. Finished OPT passes. (There is nothing left to do.)
+8.16. Executing MEMORY pass.
+8.16.1. Executing OPT_MEM pass (optimize memories).
+8.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+8.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+8.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+8.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+8.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+8.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+8.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+8.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+8.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+9. Executing SYNTH pass.
+9.1. Executing OPT pass (performing simple optimizations).
+9.1.1. Executing OPT_EXPR pass (perform const folding).
+9.1.2. Executing OPT_MERGE pass (detect identical cells).
+9.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.1.5. Finished fast OPT passes.
+9.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+9.3. Executing OPT pass (performing simple optimizations).
+9.3.1. Executing OPT_EXPR pass (perform const folding).
+9.3.2. Executing OPT_MERGE pass (detect identical cells).
+9.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.3.5. Executing OPT_MERGE pass (detect identical cells).
+9.3.6. Executing OPT_SHARE pass.
+9.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+9.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.3.9. Executing OPT_EXPR pass (perform const folding).
+9.3.10. Finished OPT passes. (There is nothing left to do.)
+9.4. Executing TECHMAP pass (map to technology primitives).
+9.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+9.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+9.4.3. Continuing TECHMAP pass.
+9.5. Executing OPT pass (performing simple optimizations).
+9.5.1. Executing OPT_EXPR pass (perform const folding).
+9.5.2. Executing OPT_MERGE pass (detect identical cells).
+9.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.5.5. Finished fast OPT passes.
+9.6. Executing ABC pass (technology mapping using ABC).
+9.6.1. Extracting gate netlist of module `\riscv_v_adder' to `<abc-temp-dir>/input.blif'..
+9.7. Executing OPT pass (performing simple optimizations).
+9.7.1. Executing OPT_EXPR pass (perform const folding).
+9.7.2. Executing OPT_MERGE pass (detect identical cells).
+9.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+9.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.7.5. Finished fast OPT passes.
+9.8. Executing HIERARCHY pass (managing design hierarchy).
+9.8.1. Analyzing design hierarchy..
+9.8.2. Analyzing design hierarchy..
+9.9. Printing statistics.
+9.10. Executing CHECK pass (checking for obvious problems).
+10. Executing OPT pass (performing simple optimizations).
+10.1. Executing OPT_EXPR pass (perform const folding).
+10.2. Executing OPT_MERGE pass (detect identical cells).
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+10.5. Executing OPT_MERGE pass (detect identical cells).
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+10.8. Executing OPT_EXPR pass (perform const folding).
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+10.12. Executing OPT_MERGE pass (detect identical cells).
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+10.15. Executing OPT_EXPR pass (perform const folding).
+10.16. Finished OPT passes. (There is nothing left to do.)
+11. Executing TECHMAP pass (map to technology primitives).
+11.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+11.2. Continuing TECHMAP pass.
+12. Executing TECHMAP pass (map to technology primitives).
+12.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/yoSys/cells_latch_R.v
+12.2. Continuing TECHMAP pass.
+13. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+13.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+14. Executing OPT pass (performing simple optimizations).
+14.1. Executing OPT_EXPR pass (perform const folding).
+14.2. Executing OPT_MERGE pass (detect identical cells).
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+14.5. Executing OPT_MERGE pass (detect identical cells).
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+14.8. Executing OPT_EXPR pass (perform const folding).
+14.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/asap7/riscv_v_adder/base/lib/merged.lib -constr ./objects/asap7/riscv_v_adder/base/abc.constr -dont_use *x1p*_ASAP7* -dont_use *xp*_ASAP7* -dont_use SDF* -dont_use ICG* -D 5000.0
+15. Executing ABC pass (technology mapping using ABC).
+15.1. Extracting gate netlist of module `\riscv_v_adder' to `<abc-temp-dir>/input.blif'..
+15.1.1. Executing ABC.
+15.1.2. Re-integrating ABC results.
+16. Executing SETUNDEF pass (replace undef values with defined constants).
+17. Executing SPLITNETS pass (splitting up multi-bit signals).
+18. Executing OPT_CLEAN pass (remove unused cells and wires).
+19. Executing HILOMAP pass (mapping to constant drivers).
+20. Executing INSBUF pass (insert buffer cells for connected wires).
+21. Executing CHECK pass (checking for obvious problems).
+22. Printing statistics.
+23. Executing Verilog backend.
+exec cp ./designs/asap7/riscv_v_adder/constraint.sdc ./results/asap7/riscv_v_adder/base/1_synth.sdc
+End of script. Logfile hash: 7018244e4b, CPU: user 2.87s system 0.11s, MEM: 149.38 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 70% 2x abc (6 sec), 5% 6x read_liberty (0 sec), ...
+Elapsed time: 0:09.82[h:]min:sec. CPU time: user 9.63 sys 0.19 (100%). Peak memory: 152960KB.
+mkdir -p ./results/asap7/riscv_v_adder/base ./logs/asap7/riscv_v_adder/base ./reports/asap7/riscv_v_adder/base
+cp ./results/asap7/riscv_v_adder/base/1_1_yosys.v ./results/asap7/riscv_v_adder/base/1_synth.v
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef, created 24 layers, 9 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef, created 212 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 4725
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.016, 200.070).
+[INFO IFP-0001] Added 1110 rows of 5555 site asap7sc7p5t.
+[INFO RSZ-0026] Removed 481 buffers.
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 464 u^2 1% utilization.
+Elapsed time: 0:03.91[h:]min:sec. CPU time: user 3.83 sys 0.07 (99%). Peak memory: 235500KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers M4 -ver_layers M5 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:01.40[h:]min:sec. CPU time: user 1.32 sys 0.07 (100%). Peak memory: 220140KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/asap7/riscv_v_adder/base/2_2_floorplan_io.odb ./results/asap7/riscv_v_adder/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.15[h:]min:sec. CPU time: user 0.11 sys 0.03 (100%). Peak memory: 100332KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:01.39[h:]min:sec. CPU time: user 1.31 sys 0.08 (100%). Peak memory: 217968KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+Tap and End Cap cell insertion
+  TAP Cell          : TAPCELL_ASAP7_75t_R
+  ENDCAP Cell       : TAPCELL_ASAP7_75t_R
+  Halo Around Macro : 2 2
+  TAP Cell Distance : 25
+[INFO TAP-0004] Inserted 2220 endcaps.
+[INFO TAP-0005] Inserted 6672 tapcells.
+Elapsed time: 0:01.41[h:]min:sec. CPU time: user 1.33 sys 0.08 (100%). Peak memory: 219152KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: top
+Elapsed time: 0:03.31[h:]min:sec. CPU time: user 3.19 sys 0.10 (99%). Peak memory: 250580KB.
+cp ./results/asap7/riscv_v_adder/base/2_6_floorplan_pdn.odb ./results/asap7/riscv_v_adder/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:             13136
+[INFO GPL-0007] NumPlaceInstances:         4244
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   4734
+[INFO GPL-0011] NumPins:                  17649
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:         464.213 um^2
+[INFO GPL-0019] Util:                     0.518 %
+[INFO GPL-0020] StdInstsArea:           464.213 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    834111
+[INFO GPL-0032] FillerInit:NumGNets:       4734
+[INFO GPL-0033] FillerInit:NumGPins:      17649
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        0.109 um^2
+[INFO GPL-0025] IdealBinArea:             0.109 um^2
+[INFO GPL-0026] IdealBinCnt:             821914
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:             13136
+[INFO GPL-0007] NumPlaceInstances:         4244
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   4734
+[INFO GPL-0011] NumPins:                  17111
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:         464.213 um^2
+[INFO GPL-0019] Util:                     0.518 %
+[INFO GPL-0020] StdInstsArea:           464.213 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    427519
+[INFO GPL-0032] FillerInit:NumGNets:       4734
+[INFO GPL-0033] FillerInit:NumGPins:      17111
+[INFO GPL-0023] TargetDensity:            0.513
+[INFO GPL-0024] AvrgPlaceInstArea:        0.109 um^2
+[INFO GPL-0025] IdealBinArea:             0.213 um^2
+[INFO GPL-0026] IdealBinCnt:             421304
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.990 HPWL: 3054150
+[NesterovSolve] Iter:   10 overflow: 0.994 HPWL: 646289
+[NesterovSolve] Iter:   20 overflow: 0.994 HPWL: 603705
+[NesterovSolve] Iter:   30 overflow: 0.994 HPWL: 599650
+[NesterovSolve] Iter:   40 overflow: 0.994 HPWL: 598564
+[NesterovSolve] Iter:   50 overflow: 0.994 HPWL: 598241
+[NesterovSolve] Iter:   60 overflow: 0.994 HPWL: 598302
+[NesterovSolve] Iter:   70 overflow: 0.994 HPWL: 598822
+[NesterovSolve] Iter:   80 overflow: 0.994 HPWL: 600146
+[NesterovSolve] Iter:   90 overflow: 0.994 HPWL: 603170
+[NesterovSolve] Iter:  100 overflow: 0.994 HPWL: 609133
+[NesterovSolve] Iter:  110 overflow: 0.994 HPWL: 622997
+[NesterovSolve] Iter:  120 overflow: 0.993 HPWL: 659901
+[NesterovSolve] Iter:  130 overflow: 0.991 HPWL: 759847
+[NesterovSolve] Iter:  140 overflow: 0.990 HPWL: 939670
+[NesterovSolve] Iter:  150 overflow: 0.988 HPWL: 1208381
+[NesterovSolve] Iter:  160 overflow: 0.979 HPWL: 1753888
+[NesterovSolve] Iter:  170 overflow: 0.967 HPWL: 2374876
+[NesterovSolve] Iter:  180 overflow: 0.957 HPWL: 2772364
+[NesterovSolve] Iter:  190 overflow: 0.943 HPWL: 3279837
+[NesterovSolve] Iter:  200 overflow: 0.921 HPWL: 3925590
+[NesterovSolve] Iter:  210 overflow: 0.896 HPWL: 4703255
+[NesterovSolve] Iter:  220 overflow: 0.865 HPWL: 5405404
+[NesterovSolve] Iter:  230 overflow: 0.829 HPWL: 6235429
+[NesterovSolve] Iter:  240 overflow: 0.790 HPWL: 6995803
+[NesterovSolve] Iter:  250 overflow: 0.746 HPWL: 7907303
+[NesterovSolve] Iter:  260 overflow: 0.698 HPWL: 8694073
+[NesterovSolve] Iter:  270 overflow: 0.645 HPWL: 9479877
+[NesterovSolve] Iter:  280 overflow: 0.587 HPWL: 10249317
+[NesterovSolve] Iter:  290 overflow: 0.531 HPWL: 11031855
+[NesterovSolve] Iter:  300 overflow: 0.472 HPWL: 11728707
+[NesterovSolve] Iter:  310 overflow: 0.425 HPWL: 12197008
+[NesterovSolve] Iter:  320 overflow: 0.381 HPWL: 12547649
+[NesterovSolve] Iter:  330 overflow: 0.335 HPWL: 12784867
+[NesterovSolve] Iter:  340 overflow: 0.304 HPWL: 12941232
+[NesterovSolve] Iter:  350 overflow: 0.271 HPWL: 13150166
+[NesterovSolve] Iter:  360 overflow: 0.240 HPWL: 13358417
+[NesterovSolve] Iter:  370 overflow: 0.209 HPWL: 13658969
+[NesterovSolve] Iter:  380 overflow: 0.187 HPWL: 13513285
+[NesterovSolve] Iter:  390 overflow: 0.162 HPWL: 13187203
+[NesterovSolve] Iter:  400 overflow: 0.140 HPWL: 13249846
+[NesterovSolve] Iter:  410 overflow: 0.120 HPWL: 13305291
+[NesterovSolve] Iter:  420 overflow: 0.103 HPWL: 13350082
+[NesterovSolve] Finished with Overflow: 0.098902
+Elapsed time: 1:15.46[h:]min:sec. CPU time: user 135.46 sys 0.33 (179%). Peak memory: 459892KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers M4 -ver_layers M5
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           20780
+[INFO PPL-0002] Number of I/O             538
+[INFO PPL-0003] Number of I/O w/sink      471
+[INFO PPL-0004] Number of I/O w/o sink    67
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 69309.00 um.
+Elapsed time: 0:01.57[h:]min:sec. CPU time: user 1.45 sys 0.11 (99%). Peak memory: 240036KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:             13136
+[INFO GPL-0007] NumPlaceInstances:         4244
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   4734
+[INFO GPL-0011] NumPins:                  17649
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:         464.213 um^2
+[INFO GPL-0019] Util:                     0.518 %
+[INFO GPL-0020] StdInstsArea:           464.213 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:    834111
+[INFO GPL-0032] FillerInit:NumGNets:       4734
+[INFO GPL-0033] FillerInit:NumGPins:      17649
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        0.109 um^2
+[INFO GPL-0025] IdealBinArea:             0.109 um^2
+[INFO GPL-0026] IdealBinCnt:             821914
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+global_placement -density 0.5125892665144056 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.054  0.270 ) um
+[INFO GPL-0004] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0006] NumInstances:             13136
+[INFO GPL-0007] NumPlaceInstances:         4244
+[INFO GPL-0008] NumFixedInstances:         8892
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   4734
+[INFO GPL-0011] NumPins:                  17649
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 500.000 500.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.016 200.070 ) ( 499.986 499.770 ) um
+[INFO GPL-0016] CoreArea:             89901.009 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      259.291 um^2
+[INFO GPL-0018] PlaceInstsArea:         464.213 um^2
+[INFO GPL-0019] Util:                     0.518 %
+[INFO GPL-0020] StdInstsArea:           464.213 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000009 HPWL: 84890431
+[InitialPlace]  Iter: 2 CG residual: 0.00000011 HPWL: 79194613
+[InitialPlace]  Iter: 3 CG residual: 0.00000009 HPWL: 78956130
+[InitialPlace]  Iter: 4 CG residual: 0.00000012 HPWL: 78961835
+[InitialPlace]  Iter: 5 CG residual: 0.00000011 HPWL: 78888524
+[INFO GPL-0031] FillerInit:NumGCells:    427519
+[INFO GPL-0032] FillerInit:NumGNets:       4734
+[INFO GPL-0033] FillerInit:NumGPins:      17649
+[INFO GPL-0023] TargetDensity:            0.513
+[INFO GPL-0024] AvrgPlaceInstArea:        0.109 um^2
+[INFO GPL-0025] IdealBinArea:             0.213 um^2
+[INFO GPL-0026] IdealBinCnt:             421304
+[INFO GPL-0027] TotalBinArea:         89901.009 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  0.586  0.586 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.856 HPWL: 79806219
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.71e-09
+[INFO GPL-0103] Timing-driven: weighted 473 nets.
+[NesterovSolve] Iter:   10 overflow: 0.741 HPWL: 80235513
+[NesterovSolve] Iter:   20 overflow: 0.709 HPWL: 80180930
+[NesterovSolve] Iter:   30 overflow: 0.709 HPWL: 80269933
+[NesterovSolve] Iter:   40 overflow: 0.710 HPWL: 80379142
+[NesterovSolve] Iter:   50 overflow: 0.709 HPWL: 80483109
+[NesterovSolve] Iter:   60 overflow: 0.712 HPWL: 80623518
+[NesterovSolve] Iter:   70 overflow: 0.716 HPWL: 80818404
+[NesterovSolve] Iter:   80 overflow: 0.720 HPWL: 81016709
+[NesterovSolve] Iter:   90 overflow: 0.721 HPWL: 81191650
+[NesterovSolve] Iter:  100 overflow: 0.723 HPWL: 81336182
+[NesterovSolve] Iter:  110 overflow: 0.725 HPWL: 81460338
+[NesterovSolve] Iter:  120 overflow: 0.726 HPWL: 81570990
+[NesterovSolve] Iter:  130 overflow: 0.728 HPWL: 81677543
+[NesterovSolve] Iter:  140 overflow: 0.729 HPWL: 81783860
+[NesterovSolve] Iter:  150 overflow: 0.729 HPWL: 81889356
+[NesterovSolve] Iter:  160 overflow: 0.727 HPWL: 81945920
+[NesterovSolve] Iter:  170 overflow: 0.726 HPWL: 82013579
+[NesterovSolve] Iter:  180 overflow: 0.721 HPWL: 82013922
+[NesterovSolve] Iter:  190 overflow: 0.714 HPWL: 81920733
+[NesterovSolve] Iter:  200 overflow: 0.706 HPWL: 81576805
+[NesterovSolve] Iter:  210 overflow: 0.690 HPWL: 81188207
+[NesterovSolve] Iter:  220 overflow: 0.667 HPWL: 81007457
+[NesterovSolve] Iter:  230 overflow: 0.637 HPWL: 80340495
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.47e-09
+[INFO GPL-0103] Timing-driven: weighted 472 nets.
+[NesterovSolve] Iter:  240 overflow: 0.596 HPWL: 80127750
+[NesterovSolve] Snapshot saved at iter = 239
+[NesterovSolve] Iter:  250 overflow: 0.552 HPWL: 79571414
+[NesterovSolve] Iter:  260 overflow: 0.505 HPWL: 79433851
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.29e-09
+[INFO GPL-0103] Timing-driven: weighted 467 nets.
+[NesterovSolve] Iter:  270 overflow: 0.454 HPWL: 79491462
+[NesterovSolve] Iter:  280 overflow: 0.409 HPWL: 79501095
+[NesterovSolve] Iter:  290 overflow: 0.363 HPWL: 79489331
+[NesterovSolve] Iter:  300 overflow: 0.321 HPWL: 79580454
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) (  540  540 ) DBU
+[INFO GPL-0038] TileCnt:     925  925
+[INFO GPL-0040] NumTiles: 855625
+[INFO GPL-0081] TotalRouteOverflow: 0.0
+[INFO GPL-0082] OverflowTileCnt: 0
+[INFO GPL-0083] 0.5%RC: 0.6378794080828305
+[INFO GPL-0084] 1.0%RC: 0.6244794309619878
+[INFO GPL-0085] 2.0%RC: 0.6102819077660561
+[INFO GPL-0086] 5.0%RC: 0.5881279929326453
+[INFO GPL-0087] FinalRC: 0.6311794
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  310 overflow: 0.294 HPWL: 79655239
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.34e-09
+[INFO GPL-0103] Timing-driven: weighted 466 nets.
+[NesterovSolve] Iter:  320 overflow: 0.258 HPWL: 79808421
+[NesterovSolve] Iter:  330 overflow: 0.234 HPWL: 79997610
+[NesterovSolve] Iter:  340 overflow: 0.202 HPWL: 80310814
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.38e-09
+[INFO GPL-0103] Timing-driven: weighted 463 nets.
+[NesterovSolve] Iter:  350 overflow: 0.173 HPWL: 80704343
+[NesterovSolve] Iter:  360 overflow: 0.165 HPWL: 79810698
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -3.27e-09
+[INFO GPL-0103] Timing-driven: weighted 462 nets.
+[NesterovSolve] Iter:  370 overflow: 0.142 HPWL: 79807893
+[NesterovSolve] Iter:  380 overflow: 0.124 HPWL: 79836494
+[NesterovSolve] Iter:  390 overflow: 0.108 HPWL: 79876044
+[NesterovSolve] Finished with Overflow: 0.099272
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 724 u^2 1% utilization.
+Elapsed time: 1:34.29[h:]min:sec. CPU time: user 149.88 sys 0.72 (159%). Peak memory: 1346500KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 295 input buffers.
+[INFO RSZ-0028] Inserted 176 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0034] Found 187 slew violations.
+[INFO RSZ-0037] Found 52 long wires.
+[INFO RSZ-0038] Inserted 80 buffers in 227 nets.
+[INFO RSZ-0039] Resized 1267 instances.
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 128 tie TIELOx1_ASAP7_75t_R instances.
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 865 u^2 1% utilization.
+Instance count before 13136, after 13814
+Pin count before 17111, after 18340
+Elapsed time: 0:06.66[h:]min:sec. CPU time: user 6.39 sys 0.27 (99%). Peak memory: 510404KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement       1497.1 u
+average displacement        0.1 u
+max displacement            3.2 u
+original HPWL           80864.8 u
+legalized HPWL          81839.3 u
+delta HPWL                    1 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 13814 cells, 538 terminals, 5412 edges, 18878 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 14352, edges 5412, pins 18878
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 1350 270 units.
+[INFO DPO-0320] Collected 9430 fixed cells.
+[INFO DPO-0318] Collected 4922 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (200016, 200070) - (499932, 499770)
+[INFO DPO-0310] Assigned 4922 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 8.185526e+07.
+[INFO DPO-0302] End of matching; objective is 8.184442e+07, improvement is 0.01 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 8.166686e+07.
+[INFO DPO-0307] End of global swaps; objective is 8.166686e+07, improvement is 0.22 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 8.161085e+07.
+[INFO DPO-0309] End of vertical swaps; objective is 8.161085e+07, improvement is 0.07 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 8.156730e+07.
+[INFO DPO-0305] End of reordering; objective is 8.156730e+07, improvement is 0.05 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 98440 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 98440, swaps 13691, moves 28091 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 8.134226e+07, Scratch cost 8.118974e+07, Incremental cost 8.118974e+07, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 8.118974e+07.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.19 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.187506 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 2436 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 1310 cell flips.
+[INFO DPO-0384] End of flipping; objective is 8.101252e+07, improvement is 0.49 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL            81839.3 u
+Final HPWL               80950.5 u
+Delta HPWL                  -1.1 %
+
+[INFO DPL-0020] Mirrored 461 instances
+[INFO DPL-0021] HPWL before           80950.5 u
+[INFO DPL-0022] HPWL after            80938.5 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+No registers in design
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 865 u^2 1% utilization.
+Elapsed time: 0:07.78[h:]min:sec. CPU time: user 7.32 sys 0.44 (99%). Peak memory: 1137388KB.
+cp ./results/asap7/riscv_v_adder/base/3_5_place_dp.odb ./results/asap7/riscv_v_adder/base/3_place.odb
+cp ./results/asap7/riscv_v_adder/base/2_floorplan.sdc ./results/asap7/riscv_v_adder/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0051] Sink buffer is BUFx24_ASAP7_75t_R.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFx24_ASAP7_75t_R
+[INFO CTS-0049] Characterization buffer is BUFx24_ASAP7_75t_R.
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO RSZ-0058] Using max wire length 162um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL           80938.5 u
+legalized HPWL          81403.7 u
+delta HPWL                    1 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0094] Found 152 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 152 out of 152 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |    WNS   |   TNS      |  Viol  | Worst
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |            | Endpts | Endpt
+---------------------------------------------------------------------------------------------------
+        0 |       0 |       0 |        0 |      0 |     0 | -3288.947 |  -450466.8 |    152 | result[119]
+       10 |       0 |       0 |        3 |      4 |     4 | -3126.352 |  -427792.0 |    152 | result[119]
+       20 |       0 |       0 |        8 |      7 |     9 | -2979.021 |  -406884.8 |    152 | result[119]
+       30 |       0 |       0 |       18 |      8 |    15 | -2863.688 |  -389770.6 |    152 | result[119]
+       40 |       0 |       0 |       22 |     12 |    19 | -2799.812 |  -380564.8 |    152 | result[119]
+       50 |       0 |       0 |       45 |     13 |    20 | -2674.289 |  -361924.8 |    152 | result[119]
+       60 |       0 |       0 |       51 |     16 |    24 | -2602.578 |  -351393.5 |    152 | result[119]
+       70 |       0 |       0 |       55 |     21 |    27 | -2556.332 |  -345391.5 |    152 | result[119]
+       80 |       0 |       0 |       58 |     27 |    29 | -2517.781 |  -339836.3 |    152 | result[119]
+       90 |       0 |       0 |       60 |     33 |    31 | -2491.524 |  -336097.4 |    152 | result[119]
+      100 |       0 |       0 |       76 |     35 |    32 | -2497.111 |  -335385.9 |    152 | result[119]
+      110 |       0 |       1 |       76 |     41 |    35 | -2451.693 |  -328613.2 |    152 | result[119]
+      120 |       0 |       3 |       86 |     42 |    38 | -2401.793 |  -321278.5 |    152 | result[119]
+      130 |       0 |       3 |       98 |     42 |    38 | -2396.907 |  -320550.7 |    152 | result[119]
+      140 |       0 |       3 |      108 |     42 |    38 | -2396.907 |  -320550.7 |    152 | result[119]
+      150 |       0 |       3 |      118 |     42 |    38 | -2396.907 |  -320550.7 |    152 | result[119]
+      160 |       0 |       3 |      128 |     42 |    38 | -2396.907 |  -320550.7 |    152 | result[119]
+      170 |       0 |       3 |      138 |     42 |    38 | -2396.907 |  -320550.7 |    152 | result[119]
+      171 |       0 |       3 |       89 |     42 |    38 | -2396.907 |  -320550.7 |    152 | result[119]
+      180 |       0 |       3 |       92 |     45 |    40 | -2380.188 |  -318670.2 |    152 | result[125]
+      190 |       0 |       3 |      102 |     45 |    40 | -2380.188 |  -318670.2 |    152 | result[125]
+      200 |       0 |       3 |      112 |     45 |    40 | -2380.188 |  -318670.2 |    152 | result[125]
+      210 |       0 |       3 |      122 |     45 |    40 | -2380.188 |  -318670.2 |    152 | result[125]
+      220 |       0 |       3 |      132 |     45 |    40 | -2380.188 |  -318670.2 |    152 | result[125]
+      227 |       0 |       3 |       89 |     45 |    40 | -2380.188 |  -318670.2 |    152 | result[125]
+      230 |       0 |       4 |       89 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      240 |       0 |       4 |       99 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      250 |       0 |       4 |      109 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      260 |       0 |       4 |      119 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      270 |       0 |       4 |      129 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      280 |       0 |       4 |      139 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      280 |       0 |       4 |       89 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      290 |       0 |       4 |       98 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      300 |       0 |       4 |      108 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      310 |       0 |       4 |      118 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      320 |       0 |       4 |      128 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      330 |       0 |       4 |      138 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      331 |       0 |       4 |       89 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      340 |       0 |       4 |       97 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      350 |       0 |       4 |      107 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      360 |       0 |       4 |      117 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      370 |       0 |       4 |      127 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      380 |       0 |       4 |      137 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      382 |       0 |       4 |       89 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      390 |       0 |       4 |       96 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      400 |       0 |       4 |      106 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      410 |       0 |       4 |      116 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      420 |       0 |       4 |      126 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      430 |       0 |       4 |      136 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      433 |       0 |       4 |       89 |     46 |    40 | -2378.457 |  -317742.5 |    152 | result[125]
+      440 |       0 |       5 |       92 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      450 |       0 |       5 |      102 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      460 |       0 |       5 |      112 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      470 |       0 |       5 |      122 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      480 |       0 |       5 |      132 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      487 |       0 |       5 |       89 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      490 |       0 |       5 |       91 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      500 |       0 |       5 |      101 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      510 |       0 |       5 |      111 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      520 |       0 |       5 |      121 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      530 |       0 |       5 |      131 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      538 |       0 |       5 |       89 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      540 |       0 |       5 |       90 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      550 |       0 |       5 |      100 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      560 |       0 |       5 |      110 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      570 |       0 |       5 |      120 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      580 |       0 |       5 |      130 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      589 |       0 |       5 |       89 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      590 |       0 |       5 |       89 |     48 |    40 | -2365.055 |  -315935.9 |    152 | result[125]
+      600 |       0 |       6 |       95 |     50 |    41 | -2372.984 |  -317318.6 |    152 | result[119]
+      610 |       0 |       6 |      105 |     50 |    41 | -2372.984 |  -317318.6 |    152 | result[119]
+      620 |       0 |       6 |      115 |     50 |    41 | -2372.984 |  -317318.6 |    152 | result[119]
+      630 |       0 |       6 |      125 |     50 |    41 | -2372.984 |  -317318.6 |    152 | result[119]
+      640 |       0 |       6 |      135 |     50 |    41 | -2372.984 |  -317318.6 |    152 | result[119]
+      642 |       0 |       5 |       89 |     49 |    41 | -2378.518 |  -318227.8 |    152 | result[125]
+      650 |       0 |       5 |       95 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      660 |       0 |       5 |      105 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      670 |       0 |       5 |      115 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      680 |       0 |       5 |      125 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      690 |       0 |       5 |      135 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      694 |       0 |       5 |       89 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      700 |       0 |       5 |       94 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      710 |       0 |       5 |      104 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      720 |       0 |       5 |      114 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      730 |       0 |       5 |      124 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      740 |       0 |       5 |      134 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      745 |       0 |       5 |       89 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      750 |       0 |       5 |       93 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      760 |       0 |       5 |      103 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      770 |       0 |       5 |      113 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      780 |       0 |       5 |      123 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      790 |       0 |       5 |      133 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      796 |       0 |       5 |       89 |     49 |    42 | -2378.518 |  -318225.7 |    152 | result[125]
+      800 |       0 |       5 |       91 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      810 |       0 |       5 |      101 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      820 |       0 |       5 |      111 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      830 |       0 |       5 |      121 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      840 |       0 |       5 |      131 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      848 |       0 |       5 |       89 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      850 |       0 |       5 |       90 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      860 |       0 |       5 |      100 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      870 |       0 |       5 |      110 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      880 |       0 |       5 |      120 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      890 |       0 |       5 |      130 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      899 |       0 |       5 |       89 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      900 |       0 |       5 |       89 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      910 |       0 |       5 |       99 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      920 |       0 |       5 |      109 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      930 |       0 |       5 |      119 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      940 |       0 |       5 |      129 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      950 |       0 |       5 |      139 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      950 |       0 |       5 |       89 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      960 |       0 |       5 |       98 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      970 |       0 |       5 |      108 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      980 |       0 |       5 |      118 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+      990 |       0 |       5 |      128 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1000 |       0 |       5 |      138 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1001 |       0 |       5 |       89 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1010 |       0 |       5 |       97 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1020 |       0 |       5 |      107 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1030 |       0 |       5 |      117 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1040 |       0 |       5 |      127 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1050 |       0 |       5 |      137 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1052 |       0 |       5 |       89 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1060 |       0 |       5 |       96 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1070 |       0 |       5 |      106 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1080 |       0 |       5 |      116 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1090 |       0 |       5 |      126 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1100 |       0 |       5 |      136 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1100 |       0 |       5 |      136 |     49 |    43 | -2378.518 |  -318221.3 |    152 | result[125]
+     1110 |       0 |       6 |      142 |     50 |    44 | -2372.805 |  -316904.6 |    152 | result[119]
+     1120 |       0 |       6 |      152 |     50 |    44 | -2372.805 |  -316904.6 |    152 | result[119]
+     1130 |       0 |       6 |      162 |     50 |    44 | -2372.805 |  -316904.6 |    152 | result[119]
+     1140 |       0 |       6 |      172 |     50 |    44 | -2372.805 |  -316904.6 |    152 | result[119]
+     1150 |       0 |       6 |      182 |     50 |    44 | -2372.805 |  -316904.6 |    152 | result[119]
+     1154 |       0 |       6 |      136 |     50 |    44 | -2372.805 |  -316904.6 |    152 | result[119]
+     1160 |       0 |       6 |      140 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1170 |       0 |       6 |      150 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1180 |       0 |       6 |      160 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1190 |       0 |       6 |      170 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1200 |       0 |       6 |      180 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1206 |       0 |       6 |      136 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1210 |       0 |       6 |      139 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1220 |       0 |       6 |      149 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1230 |       0 |       6 |      159 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1240 |       0 |       6 |      169 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1250 |       0 |       6 |      179 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1257 |       0 |       6 |      136 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1260 |       0 |       6 |      138 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1270 |       0 |       6 |      148 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1280 |       0 |       6 |      158 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1290 |       0 |       6 |      168 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1300 |       0 |       6 |      178 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1300 |       0 |       6 |      178 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1310 |       0 |       6 |      187 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1320 |       0 |       6 |      197 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1330 |       0 |       6 |      207 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1340 |       0 |       6 |      217 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1350 |       0 |       6 |      227 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1351 |       0 |       6 |      178 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1360 |       0 |       6 |      186 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1370 |       0 |       6 |      196 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1380 |       0 |       6 |      206 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1390 |       0 |       6 |      216 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1400 |       0 |       6 |      226 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+     1400 |       0 |       6 |      226 |     50 |    45 | -2372.805 |  -316902.5 |    152 | result[119]
+    1400* |       0 |       6 |      226 |     50 |    45 | -2372.805 |  -316902.5 |    149 | result[119]
+    1410* |       0 |      15 |      226 |     50 |    45 | -2330.122 |  -310891.6 |    149 | result[119]
+    1410* |       0 |      16 |      226 |     50 |    45 | -2327.793 |  -310548.3 |    149 | result[119]
+    1414* |       0 |      19 |      226 |     50 |    45 | -2320.103 |  -309401.9 |    149 | result[119]
+    1416* |       0 |      20 |      226 |     50 |    45 | -2320.103 |  -309401.4 |    149 | result[119]
+    1418* |       0 |      21 |      226 |     50 |    45 | -2320.103 |  -309400.8 |    149 | result[119]
+    1420* |       0 |      22 |      226 |     50 |    45 | -2320.103 |  -309400.2 |    149 | result[119]
+    1420* |       0 |      22 |      226 |     50 |    45 | -2320.103 |  -309400.2 |    149 | result[119]
+    1422* |       0 |      23 |      226 |     50 |    45 | -2320.103 |  -309399.6 |    149 | result[119]
+    1424* |       0 |      24 |      226 |     50 |    45 | -2320.103 |  -309399.1 |    149 | result[119]
+    1426* |       0 |      25 |      226 |     50 |    45 | -2320.103 |  -309398.5 |    149 | result[119]
+    1428* |       0 |      26 |      226 |     50 |    45 | -2320.103 |  -309398.0 |    149 | result[119]
+    1430* |       0 |      27 |      226 |     50 |    45 | -2320.103 |  -309397.4 |    149 | result[119]
+    1430* |       0 |      27 |      226 |     50 |    45 | -2320.103 |  -309397.4 |    149 | result[119]
+    1432* |       0 |      28 |      226 |     50 |    45 | -2320.103 |  -309396.9 |    149 | result[119]
+    1434* |       0 |      29 |      226 |     50 |    45 | -2320.103 |  -309396.2 |    149 | result[119]
+    1436* |       0 |      30 |      226 |     50 |    45 | -2320.103 |  -309395.6 |    149 | result[119]
+    1438* |       0 |      31 |      226 |     50 |    45 | -2320.103 |  -309394.9 |    149 | result[119]
+    1440* |       0 |      32 |      226 |     50 |    45 | -2320.103 |  -309394.2 |    149 | result[119]
+    1440* |       0 |      32 |      226 |     50 |    45 | -2320.103 |  -309394.2 |    149 | result[119]
+    1442* |       0 |      33 |      226 |     50 |    45 | -2318.378 |  -308778.2 |    149 | result[119]
+    1444* |       0 |      34 |      226 |     50 |    45 | -2318.378 |  -308777.6 |    149 | result[119]
+    1446* |       0 |      35 |      226 |     50 |    45 | -2318.378 |  -308776.8 |    149 | result[119]
+    1447* |       0 |      35 |      226 |     50 |    45 | -2318.378 |  -308776.8 |    149 | result[119]
+    1449* |       0 |      36 |      226 |     50 |    45 | -2318.378 |  -308776.2 |    149 | result[119]
+    1450* |       0 |      36 |      226 |     50 |    45 | -2318.378 |  -308776.2 |    149 | result[119]
+    1451* |       0 |      37 |      226 |     50 |    45 | -2318.378 |  -308775.7 |    149 | result[119]
+    1453* |       0 |      38 |      226 |     50 |    45 | -2318.378 |  -308775.0 |    149 | result[119]
+    1455* |       0 |      39 |      226 |     50 |    45 | -2318.378 |  -308774.4 |    149 | result[119]
+    1456* |       0 |      39 |      226 |     50 |    45 | -2318.378 |  -308774.4 |    149 | result[119]
+    1457* |       0 |      39 |      226 |     50 |    45 | -2318.378 |  -308774.4 |    149 | result[119]
+    1459* |       0 |      40 |      226 |     50 |    45 | -2318.378 |  -308773.7 |    149 | result[119]
+    1460* |       0 |      40 |      226 |     50 |    45 | -2318.378 |  -308773.7 |    149 | result[119]
+    1461* |       0 |      41 |      226 |     50 |    45 | -2318.378 |  -308772.9 |    149 | result[119]
+    1463* |       0 |      42 |      226 |     50 |    45 | -2318.378 |  -308772.2 |    149 | result[119]
+    1465* |       0 |      43 |      226 |     50 |    45 | -2318.378 |  -308771.6 |    149 | result[119]
+    1467* |       0 |      44 |      226 |     50 |    45 | -2318.378 |  -308770.8 |    149 | result[119]
+    1468* |       0 |      44 |      226 |     50 |    45 | -2318.378 |  -308770.8 |    149 | result[119]
+    1470* |       0 |      45 |      226 |     50 |    45 | -2318.378 |  -308770.0 |    149 | result[119]
+    1470* |       0 |      45 |      226 |     50 |    45 | -2318.378 |  -308770.0 |    149 | result[119]
+    1471* |       0 |      45 |      226 |     50 |    45 | -2318.378 |  -308770.0 |    149 | result[119]
+    1473* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -308769.3 |    149 | result[119]
+    1474* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.5 |    149 | result[119]
+    1475* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.5 |    149 | result[119]
+    1476* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.5 |    149 | result[119]
+    1477* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.5 |    149 | result[119]
+    1478* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.5 |    149 | result[119]
+    1479* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1480* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1480* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1481* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1482* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1483* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1484* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1485* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1486* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1487* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1488* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1489* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1490* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1490* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1491* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1492* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1493* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1494* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1495* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1496* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1497* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1498* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1499* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1500* |       0 |      46 |      226 |     50 |    45 | -2318.378 |  -310067.4 |    149 | result[119]
+    1503* |       0 |      48 |      226 |     50 |    45 | -2318.378 |  -310040.7 |    149 | result[119]
+    1504* |       0 |      48 |      226 |     50 |    45 | -2318.378 |  -310040.8 |    149 | result[119]
+    1506* |       0 |      49 |      226 |     50 |    45 | -2318.378 |  -310040.2 |    149 | result[119]
+    1508* |       0 |      50 |      226 |     50 |    45 | -2318.378 |  -310039.5 |    149 | result[119]
+    1509* |       0 |      50 |      226 |     50 |    45 | -2318.378 |  -310039.6 |    149 | result[119]
+    1510* |       0 |      50 |      226 |     50 |    45 | -2318.378 |  -310039.6 |    149 | result[119]
+    1511* |       0 |      51 |      226 |     50 |    45 | -2318.378 |  -310038.9 |    149 | result[119]
+    1513* |       0 |      52 |      226 |     50 |    45 | -2318.378 |  -310038.2 |    149 | result[119]
+    1515* |       0 |      53 |      226 |     50 |    45 | -2318.378 |  -310037.6 |    149 | result[119]
+    1516* |       0 |      53 |      226 |     50 |    45 | -2318.378 |  -310037.7 |    149 | result[119]
+    1518* |       0 |      54 |      226 |     50 |    45 | -2318.378 |  -310036.9 |    149 | result[119]
+    1520* |       0 |      55 |      226 |     50 |    45 | -2318.378 |  -310036.2 |    149 | result[119]
+    1520* |       0 |      55 |      226 |     50 |    45 | -2318.378 |  -310036.2 |    149 | result[119]
+    1522* |       0 |      56 |      226 |     50 |    45 | -2318.378 |  -310035.5 |    149 | result[119]
+    1525* |       0 |      58 |      226 |     50 |    45 | -2318.378 |  -310009.8 |    149 | result[119]
+    1528* |       0 |      60 |      226 |     50 |    45 | -2318.378 |  -309988.0 |    149 | result[119]
+    1530* |       0 |      61 |      226 |     50 |    45 | -2318.378 |  -309987.3 |    149 | result[119]
+    1530* |       0 |      61 |      226 |     50 |    45 | -2318.378 |  -309987.4 |    149 | result[119]
+    1532* |       0 |      62 |      226 |     50 |    45 | -2318.378 |  -309986.7 |    149 | result[119]
+    1534* |       0 |      63 |      226 |     50 |    45 | -2318.378 |  -309986.2 |    149 | result[119]
+    1536* |       0 |      64 |      226 |     50 |    45 | -2318.378 |  -309985.5 |    149 | result[119]
+    1538* |       0 |      65 |      226 |     50 |    45 | -2318.378 |  -309984.8 |    149 | result[119]
+    1540* |       0 |      66 |      226 |     50 |    45 | -2318.378 |  -309984.1 |    149 | result[119]
+    1540* |       0 |      66 |      226 |     50 |    45 | -2318.378 |  -309984.2 |    149 | result[119]
+    1542* |       0 |      67 |      226 |     50 |    45 | -2318.378 |  -309983.5 |    149 | result[119]
+    1543* |       0 |      67 |      226 |     50 |    45 | -2318.378 |  -309983.5 |    149 | result[119]
+    1544* |       0 |      67 |      226 |     50 |    45 | -2318.378 |  -309983.5 |    149 | result[119]
+    1546* |       0 |      68 |      226 |     50 |    45 | -2318.378 |  -309983.0 |    149 | result[119]
+    1547* |       0 |      68 |      226 |     50 |    45 | -2318.378 |  -309983.0 |    149 | result[119]
+    1548* |       0 |      68 |      226 |     50 |    45 | -2318.378 |  -309983.1 |    149 | result[119]
+    1550* |       0 |      69 |      226 |     50 |    45 | -2318.378 |  -309982.5 |    149 | result[119]
+    1550* |       0 |      69 |      226 |     50 |    45 | -2318.378 |  -309982.5 |    149 | result[119]
+    1552* |       0 |      70 |      226 |     50 |    45 | -2318.378 |  -309981.9 |    149 | result[119]
+    1554* |       0 |      71 |      226 |     50 |    45 | -2318.378 |  -309981.4 |    149 | result[119]
+    1555* |       0 |      71 |      226 |     50 |    45 | -2318.378 |  -309981.4 |    149 | result[119]
+    1557* |       0 |      72 |      226 |     50 |    45 | -2318.378 |  -309980.8 |    149 | result[119]
+    1559* |       0 |      73 |      226 |     50 |    45 | -2318.378 |  -309980.2 |    149 | result[119]
+    1560* |       0 |      73 |      226 |     50 |    45 | -2318.378 |  -309980.2 |    149 | result[119]
+    1561* |       0 |      74 |      226 |     50 |    45 | -2318.378 |  -309979.5 |    149 | result[119]
+    1563* |       0 |      75 |      226 |     50 |    45 | -2318.378 |  -309978.8 |    149 | result[119]
+    1564* |       0 |      75 |      226 |     50 |    45 | -2318.378 |  -309978.8 |    149 | result[119]
+    1566* |       0 |      76 |      226 |     50 |    45 | -2318.378 |  -309978.1 |    149 | result[119]
+    1568* |       0 |      77 |      226 |     50 |    45 | -2318.378 |  -309977.3 |    149 | result[119]
+    1570* |       0 |      78 |      226 |     50 |    45 | -2318.378 |  -309976.6 |    149 | result[119]
+    1570* |       0 |      78 |      226 |     50 |    45 | -2318.378 |  -309976.5 |    149 | result[119]
+    1572* |       0 |      79 |      226 |     50 |    45 | -2318.378 |  -309975.9 |    149 | result[119]
+    1574* |       0 |      80 |      226 |     50 |    45 | -2318.378 |  -309975.3 |    149 | result[119]
+    1576* |       0 |      81 |      226 |     50 |    45 | -2318.378 |  -309974.7 |    149 | result[119]
+    1578* |       0 |      82 |      226 |     50 |    45 | -2318.378 |  -309974.0 |    149 | result[119]
+    1580* |       0 |      83 |      226 |     50 |    45 | -2318.378 |  -309973.3 |    149 | result[119]
+    1580* |       0 |      83 |      226 |     50 |    45 | -2318.378 |  -309973.3 |    149 | result[119]
+    1582* |       0 |      84 |      226 |     50 |    45 | -2318.378 |  -309972.7 |    149 | result[119]
+    1584* |       0 |      85 |      226 |     50 |    45 | -2318.378 |  -309972.1 |    149 | result[119]
+    1586* |       0 |      86 |      226 |     50 |    45 | -2318.378 |  -309971.3 |    149 | result[119]
+    1588* |       0 |      87 |      226 |     50 |    45 | -2318.378 |  -309970.6 |    149 | result[119]
+    1590* |       0 |      88 |      226 |     50 |    45 | -2318.378 |  -309969.9 |    149 | result[119]
+    1590* |       0 |      88 |      226 |     50 |    45 | -2318.378 |  -309969.8 |    149 | result[119]
+    1592* |       0 |      89 |      226 |     50 |    45 | -2318.378 |  -309969.1 |    149 | result[119]
+    1594* |       0 |      90 |      226 |     50 |    45 | -2318.378 |  -309968.3 |    149 | result[119]
+    1596* |       0 |      91 |      226 |     50 |    45 | -2318.378 |  -309967.6 |    149 | result[119]
+    1598* |       0 |      92 |      226 |     50 |    45 | -2318.378 |  -309966.8 |    149 | result[119]
+    1600* |       0 |      93 |      226 |     50 |    45 | -2318.378 |  -309966.2 |    149 | result[119]
+    final |       0 |      93 |      226 |     50 |    45 | -2318.378 |  -309966.2 |    149 | result[119]
+---------------------------------------------------------------------------------------------------
+[INFO RSZ-0045] Inserted 201 buffers, 1 to split loads.
+[INFO RSZ-0041] Resized 93 instances.
+[INFO RSZ-0043] Swapped pins on 45 instances.
+[INFO RSZ-0049] Cloned 50 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement        408.6 u
+average displacement        0.0 u
+max displacement            4.1 u
+original HPWL           82883.5 u
+legalized HPWL          83247.9 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+No registers in design
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 888 u^2 1% utilization.
+Elapsed time: 13:36.92[h:]min:sec. CPU time: user 816.23 sys 0.63 (99%). Peak memory: 1463340KB.
+cp ./results/asap7/riscv_v_adder/base/4_1_cts.odb ./results/asap7/riscv_v_adder/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/asap7/riscv_v_adder/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: M1
+[INFO GRT-0021] Max routing layer: M9
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M8      Track-Pitch = 0.0800  line-2-Via Pitch: 0.0800
+[INFO GRT-0088] Layer M9      Track-Pitch = 0.0800  line-2-Via Pitch: 0.0800
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 161
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 23183
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical     12846400       4930062          61.62%
+M2         Horizontal   11135150       6229166          44.06%
+M3         Vertical     12846400       7638568          40.54%
+M4         Horizontal    9421125       5957420          36.77%
+M5         Vertical      9421125       5833324          38.08%
+M6         Horizontal    6852400       4062296          40.72%
+M7         Vertical      6852400       4278120          37.57%
+M8         Horizontal    5140225       2568720          50.03%
+M9         Vertical      5140225       2568720          50.03%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 36540
+[INFO GRT-0198] Via related Steiner nodes: 1471
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 49568
+[INFO GRT-0112] Final usage 3D: 312462
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+M1             4930062             0            0.00%             0 /  0 /  0
+M2             6229166         52145            0.84%             0 /  0 /  0
+M3             7638568         64578            0.85%             0 /  0 /  0
+M4             5957420         26235            0.44%             0 /  0 /  0
+M5             5833324         15126            0.26%             0 /  0 /  0
+M6             4062296          3427            0.08%             0 /  0 /  0
+M7             4278120          2188            0.05%             0 /  0 /  0
+M8             2568720            59            0.00%             0 /  0 /  0
+M9             2568720             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total         44066396        163758            0.37%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 98409 um
+[INFO GRT-0014] Routed nets: 5500
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0034] Found 4 slew violations.
+[INFO RSZ-0038] Inserted 3 buffers in 2 nets.
+[INFO RSZ-0039] Resized 1 instances.
+Placement Analysis
+---------------------------------
+total displacement          2.2 u
+average displacement        0.0 u
+max displacement            0.9 u
+original HPWL           83305.4 u
+legalized HPWL          83306.9 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0094] Found 149 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 149 out of 149 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |    WNS   |   TNS      |  Viol  | Worst
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |            | Endpts | Endpt
+---------------------------------------------------------------------------------------------------
+        0 |       0 |       0 |        0 |      0 |     0 | -2581.470 |  -347838.6 |    149 | result[119]
+       10 |       0 |       0 |        0 |      0 |     9 | -2590.258 |  -349044.8 |    149 | result[119]
+       20 |       0 |       0 |        7 |      0 |    14 | -2582.160 |  -347047.8 |    149 | result[119]
+       30 |       0 |       0 |       17 |      0 |    14 | -2582.160 |  -347047.8 |    149 | result[119]
+       40 |       0 |       0 |       27 |      0 |    14 | -2582.160 |  -347047.8 |    149 | result[119]
+       50 |       0 |       0 |       37 |      0 |    14 | -2582.160 |  -347047.8 |    149 | result[119]
+       51 |       0 |       0 |        2 |      0 |     0 | -2581.288 |  -347811.5 |    149 | result[119]
+       60 |       0 |       0 |       11 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+       70 |       0 |       0 |       21 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+       80 |       0 |       0 |       31 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+       90 |       0 |       0 |       41 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      100 |       0 |       0 |       51 |      0 |     0 | -2561.418 |  -344902.9 |    149 | result[119]
+      104 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      110 |       0 |       0 |       10 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      120 |       0 |       0 |       20 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      130 |       0 |       0 |       30 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      140 |       0 |       0 |       40 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      150 |       0 |       0 |       50 |      0 |     0 | -2561.418 |  -344878.6 |    149 | result[119]
+      155 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      160 |       0 |       0 |        9 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      170 |       0 |       0 |       19 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      180 |       0 |       0 |       29 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      190 |       0 |       0 |       39 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      200 |       0 |       0 |       49 |      0 |     0 | -2561.418 |  -344863.7 |    149 | result[119]
+      206 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      210 |       0 |       0 |        8 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      220 |       0 |       0 |       18 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      230 |       0 |       0 |       28 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      240 |       0 |       0 |       38 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      250 |       0 |       0 |       48 |      0 |     0 | -2561.418 |  -344851.6 |    149 | result[119]
+      257 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      260 |       0 |       0 |        7 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      270 |       0 |       0 |       17 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      280 |       0 |       0 |       27 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      290 |       0 |       0 |       37 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      300 |       0 |       0 |       47 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      308 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      310 |       0 |       0 |        6 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      320 |       0 |       0 |       16 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      330 |       0 |       0 |       26 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      340 |       0 |       0 |       36 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      350 |       0 |       0 |       46 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      359 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      360 |       0 |       0 |        5 |      0 |     0 | -2561.418 |  -344851.1 |    149 | result[119]
+      370 |       0 |       0 |       11 |      3 |     1 | -2565.490 |  -343031.2 |    149 | result[119]
+      380 |       0 |       0 |       21 |      3 |     1 | -2565.490 |  -343031.2 |    149 | result[119]
+      390 |       0 |       0 |       31 |      3 |     1 | -2565.490 |  -343031.2 |    149 | result[119]
+      400 |       0 |       0 |       41 |      3 |     1 | -2565.490 |  -343031.2 |    149 | result[119]
+      410 |       0 |       0 |       51 |      3 |     1 | -2565.490 |  -343082.8 |    149 | result[119]
+      413 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344455.2 |    149 | result[119]
+      420 |       0 |       0 |       11 |      2 |     1 | -2560.954 |  -344455.2 |    149 | result[119]
+      430 |       0 |       0 |       21 |      2 |     1 | -2560.954 |  -344455.2 |    149 | result[119]
+      440 |       0 |       0 |       31 |      2 |     1 | -2560.954 |  -344455.2 |    149 | result[119]
+      450 |       0 |       0 |       41 |      2 |     1 | -2560.954 |  -344455.2 |    149 | result[119]
+      460 |       0 |       0 |       51 |      2 |     1 | -2560.954 |  -344506.8 |    149 | result[119]
+      464 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344455.0 |    149 | result[119]
+      470 |       0 |       0 |       10 |      2 |     1 | -2560.954 |  -344455.0 |    149 | result[119]
+      480 |       0 |       0 |       20 |      2 |     1 | -2560.954 |  -344455.0 |    149 | result[119]
+      490 |       0 |       0 |       30 |      2 |     1 | -2560.954 |  -344455.0 |    149 | result[119]
+      500 |       0 |       0 |       40 |      2 |     1 | -2560.954 |  -344455.0 |    149 | result[119]
+      510 |       0 |       0 |       50 |      2 |     1 | -2560.954 |  -344482.4 |    149 | result[119]
+      515 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.8 |    149 | result[119]
+      520 |       0 |       0 |        9 |      2 |     1 | -2560.954 |  -344454.8 |    149 | result[119]
+      530 |       0 |       0 |       19 |      2 |     1 | -2560.954 |  -344454.8 |    149 | result[119]
+      540 |       0 |       0 |       29 |      2 |     1 | -2560.954 |  -344454.8 |    149 | result[119]
+      550 |       0 |       0 |       39 |      2 |     1 | -2560.954 |  -344454.8 |    149 | result[119]
+      560 |       0 |       0 |       49 |      2 |     1 | -2560.954 |  -344467.4 |    149 | result[119]
+      566 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.6 |    149 | result[119]
+      570 |       0 |       0 |        7 |      3 |     1 | -2565.490 |  -343030.6 |    149 | result[119]
+      580 |       0 |       0 |       17 |      3 |     1 | -2565.490 |  -343030.6 |    149 | result[119]
+      590 |       0 |       0 |       27 |      3 |     1 | -2565.490 |  -343030.6 |    149 | result[119]
+      600 |       0 |       0 |       37 |      3 |     1 | -2565.490 |  -343030.6 |    149 | result[119]
+      610 |       0 |       0 |       47 |      3 |     1 | -2565.490 |  -343030.6 |    149 | result[119]
+      617 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.6 |    149 | result[119]
+      620 |       0 |       0 |        5 |      3 |     2 | -2565.490 |  -343033.2 |    149 | result[119]
+      630 |       0 |       0 |       15 |      3 |     2 | -2565.490 |  -343033.2 |    149 | result[119]
+      640 |       0 |       0 |       25 |      3 |     2 | -2565.490 |  -343033.2 |    149 | result[119]
+      650 |       0 |       0 |       35 |      3 |     2 | -2565.490 |  -343033.2 |    149 | result[119]
+      660 |       0 |       0 |       45 |      3 |     2 | -2565.490 |  -343033.2 |    149 | result[119]
+      668 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.5 |    149 | result[119]
+      670 |       0 |       0 |        6 |      2 |     1 | -2560.954 |  -344454.5 |    149 | result[119]
+      680 |       0 |       0 |       16 |      2 |     1 | -2560.954 |  -344454.5 |    149 | result[119]
+      690 |       0 |       0 |       26 |      2 |     1 | -2560.954 |  -344454.5 |    149 | result[119]
+      700 |       0 |       0 |       36 |      2 |     1 | -2560.954 |  -344454.5 |    149 | result[119]
+      710 |       0 |       0 |       46 |      2 |     1 | -2560.954 |  -344454.5 |    149 | result[119]
+      719 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.3 |    149 | result[119]
+      720 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.3 |    149 | result[119]
+      730 |       0 |       0 |       15 |      2 |     1 | -2560.954 |  -344454.3 |    149 | result[119]
+      740 |       0 |       0 |       25 |      2 |     1 | -2560.954 |  -344454.3 |    149 | result[119]
+      750 |       0 |       0 |       35 |      2 |     1 | -2560.954 |  -344454.3 |    149 | result[119]
+      760 |       0 |       0 |       45 |      2 |     1 | -2560.954 |  -344454.3 |    149 | result[119]
+      770 |       0 |       0 |       55 |      2 |     1 | -2560.954 |  -344602.9 |    149 | result[119]
+      770 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.2 |    149 | result[119]
+      780 |       0 |       0 |       13 |      3 |     1 | -2565.490 |  -343030.1 |    149 | result[119]
+      790 |       0 |       0 |       23 |      3 |     1 | -2565.490 |  -343030.1 |    149 | result[119]
+      800 |       0 |       0 |       33 |      3 |     1 | -2565.490 |  -343030.1 |    149 | result[119]
+      810 |       0 |       0 |       43 |      3 |     1 | -2565.490 |  -343030.1 |    149 | result[119]
+      820 |       0 |       0 |       53 |      3 |     1 | -2565.490 |  -343130.2 |    149 | result[119]
+      821 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.1 |    149 | result[119]
+      830 |       0 |       0 |       12 |      3 |     1 | -2565.490 |  -343030.0 |    149 | result[119]
+      840 |       0 |       0 |       22 |      3 |     1 | -2565.490 |  -343030.0 |    149 | result[119]
+      850 |       0 |       0 |       32 |      3 |     1 | -2565.490 |  -343030.0 |    149 | result[119]
+      860 |       0 |       0 |       42 |      3 |     1 | -2565.490 |  -343030.0 |    149 | result[119]
+      870 |       0 |       0 |       52 |      3 |     1 | -2565.490 |  -343105.8 |    149 | result[119]
+      872 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344454.0 |    149 | result[119]
+      880 |       0 |       0 |       11 |      3 |     1 | -2565.490 |  -343029.8 |    149 | result[119]
+      890 |       0 |       0 |       21 |      3 |     1 | -2565.490 |  -343029.8 |    149 | result[119]
+      900 |       0 |       0 |       31 |      3 |     1 | -2565.490 |  -343029.8 |    149 | result[119]
+      910 |       0 |       0 |       41 |      3 |     1 | -2565.490 |  -343029.8 |    149 | result[119]
+      920 |       0 |       0 |       51 |      3 |     1 | -2565.490 |  -343081.5 |    149 | result[119]
+      923 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344453.9 |    149 | result[119]
+      930 |       0 |       0 |       11 |      2 |     1 | -2560.954 |  -344453.8 |    149 | result[119]
+      940 |       0 |       0 |       21 |      2 |     1 | -2560.954 |  -344453.8 |    149 | result[119]
+      950 |       0 |       0 |       31 |      2 |     1 | -2560.954 |  -344453.8 |    149 | result[119]
+      960 |       0 |       0 |       41 |      2 |     1 | -2560.954 |  -344453.8 |    149 | result[119]
+      970 |       0 |       0 |       51 |      2 |     1 | -2560.954 |  -344505.5 |    149 | result[119]
+      974 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344453.7 |    149 | result[119]
+      980 |       0 |       0 |        9 |      3 |     1 | -2565.490 |  -343029.6 |    149 | result[119]
+      990 |       0 |       0 |       19 |      3 |     1 | -2565.490 |  -343029.6 |    149 | result[119]
+     1000 |       0 |       0 |       29 |      3 |     1 | -2565.490 |  -343029.6 |    149 | result[119]
+     1010 |       0 |       0 |       39 |      3 |     1 | -2565.490 |  -343029.6 |    149 | result[119]
+     1020 |       0 |       0 |       49 |      3 |     1 | -2565.490 |  -343042.1 |    149 | result[119]
+     1025 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344453.6 |    149 | result[119]
+     1030 |       0 |       0 |        8 |      3 |     1 | -2565.490 |  -343029.5 |    149 | result[119]
+     1040 |       0 |       0 |       18 |      3 |     1 | -2565.490 |  -343029.5 |    149 | result[119]
+     1050 |       0 |       0 |       28 |      3 |     1 | -2565.490 |  -343029.5 |    149 | result[119]
+     1060 |       0 |       0 |       38 |      3 |     1 | -2565.490 |  -343029.5 |    149 | result[119]
+     1070 |       0 |       0 |       48 |      3 |     1 | -2565.490 |  -343029.9 |    149 | result[119]
+     1076 |       0 |       0 |        5 |      2 |     1 | -2560.954 |  -344453.5 |    149 | result[119]
+     1080 |       0 |       0 |        7 |      3 |     1 | -2565.490 |  -343029.3 |    149 | result[119]
+     1090 |       0 |       0 |       17 |      3 |     1 | -2565.490 |  -343029.3 |    149 | result[119]
+     1100 |       0 |       0 |       27 |      3 |     1 | -2565.490 |  -343029.3 |    149 | result[119]
+     1100 |       0 |       0 |       27 |      3 |     1 | -2565.490 |  -343029.3 |    149 | result[119]
+     1110 |       0 |       0 |       35 |      3 |     2 | -2565.490 |  -343031.3 |    149 | result[119]
+     1120 |       0 |       0 |       45 |      3 |     2 | -2565.490 |  -343031.3 |    149 | result[119]
+     1130 |       0 |       0 |       55 |      3 |     2 | -2565.490 |  -343179.9 |    149 | result[119]
+     1140 |       0 |       0 |       65 |      3 |     2 | -2565.490 |  -343422.1 |    149 | result[119]
+     1150 |       0 |       0 |       75 |      3 |     2 | -2565.490 |  -343664.3 |    149 | result[119]
+     1151 |       0 |       0 |       27 |      3 |     1 | -2565.490 |  -343029.0 |    149 | result[119]
+     1160 |       0 |       0 |       35 |      3 |     1 | -2565.490 |  -343028.9 |    149 | result[119]
+     1170 |       0 |       0 |       45 |      3 |     1 | -2565.490 |  -343028.9 |    149 | result[119]
+     1180 |       0 |       0 |       55 |      3 |     1 | -2565.490 |  -343177.5 |    149 | result[119]
+     1190 |       0 |       0 |       65 |      3 |     1 | -2565.490 |  -343419.8 |    149 | result[119]
+     1200 |       0 |       0 |       75 |      3 |     1 | -2565.490 |  -343662.0 |    149 | result[119]
+     1200 |       0 |       0 |       75 |      3 |     1 | -2565.490 |  -343662.0 |    149 | result[119]
+    final |       0 |       0 |       75 |      3 |     1 | -2565.490 |  -343662.0 |    151 | result[119]
+---------------------------------------------------------------------------------------------------
+[INFO RSZ-0045] Inserted 72 buffers, 1 to split loads.
+[INFO RSZ-0043] Swapped pins on 1 instances.
+[INFO RSZ-0049] Cloned 3 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement        286.0 u
+average displacement        0.0 u
+max displacement            3.6 u
+original HPWL           83407.2 u
+legalized HPWL          83612.7 u
+delta HPWL                    0 %
+
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+No registers in design
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 894 u^2 1% utilization.
+[INFO FLW-0007] clock clk period 5000.000000
+[INFO FLW-0008] Clock clk period 7189.352
+[INFO FLW-0009] Clock clk slack -2567.739
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO FLW-0011] Path endpoint count 176
+Elapsed time: 12:29.04[h:]min:sec. CPU time: user 750.27 sys 7.82 (101%). Peak memory: 2051644KB.
+Running detail_route.tcl, stage 5_2_route
+[WARNING STA-0450] virtual clock clk can not be propagated.
+detailed_route -output_drc ./reports/asap7/riscv_v_adder/base/5_route_drc.rpt -output_maze ./results/asap7/riscv_v_adder/base/maze.log -bottom_routing_layer M1 -top_routing_layer M9 -save_guide_updates -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                1000
+Number of layers:     21
+Number of macros:     212
+Number of vias:       14
+Number of viarulegen: 11
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net _0139_ has 114 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _0154_ has 134 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _0415_ has 118 pins which may impact routing performance. Consider optimization.
+
+Design:                   riscv_v_adder
+Die area:                 ( 0 0 ) ( 500000 500000 )
+Number of track patterns: 32
+Number of DEF vias:       0
+Number of components:     14143
+Number of terminals:      538
+Number of snets:          2
+Number of nets:           5741
+
+[INFO DRT-0167] List of default vias:
+  Layer V1
+    default via: VIA12
+  Layer V2
+    default via: VIA23
+  Layer V3
+    default via: VIA34
+  Layer V4
+    default via: VIA45
+  Layer V5
+    default via: VIA56
+  Layer V6
+    default via: VIA67
+  Layer V7
+    default via: VIA78
+  Layer V8
+    default via: VIA89
+  Layer V9
+    default via: VIA9Pad
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 270.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Active.
+[INFO DRT-0024]   Complete V0.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete V1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete V2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete V3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete V4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete V5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete V6.
+[INFO DRT-0024]   Complete M7.
+[INFO DRT-0024]   Complete V7.
+[INFO DRT-0024]   Complete M8.
+[INFO DRT-0024]   Complete V8.
+[INFO DRT-0024]   Complete M9.
+[INFO DRT-0024]   Complete V9.
+[INFO DRT-0024]   Complete Pad.
+[INFO DRT-0033] Active shape region query size = 0.
+[INFO DRT-0033] V0 shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 101059.
+[INFO DRT-0033] V1 shape region query size = 9259282.
+[INFO DRT-0033] M2 shape region query size = 65461.
+[INFO DRT-0033] V2 shape region query size = 186648.
+[INFO DRT-0033] M3 shape region query size = 186648.
+[INFO DRT-0033] V3 shape region query size = 124432.
+[INFO DRT-0033] M4 shape region query size = 124662.
+[INFO DRT-0033] V4 shape region query size = 124432.
+[INFO DRT-0033] M5 shape region query size = 68908.
+[INFO DRT-0033] V5 shape region query size = 12544.
+[INFO DRT-0033] M6 shape region query size = 6384.
+[INFO DRT-0033] V6 shape region query size = 0.
+[INFO DRT-0033] M7 shape region query size = 0.
+[INFO DRT-0033] V7 shape region query size = 0.
+[INFO DRT-0033] M8 shape region query size = 0.
+[INFO DRT-0033] V8 shape region query size = 0.
+[INFO DRT-0033] M9 shape region query size = 0.
+[INFO DRT-0033] V9 shape region query size = 0.
+[INFO DRT-0033] Pad shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0076]   Complete 1000 pins.
+[INFO DRT-0078]   Complete 1069 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0079]   Complete 200 unique inst patterns.
+[INFO DRT-0081]   Complete 266 unique inst patterns.
+[INFO DRT-0084]   Complete 3244 groups.
+#scanned instances     = 14143
+#unique  instances     = 270
+#stdCellGenAp          = 8304
+#stdCellValidPlanarAp  = 106
+#stdCellValidViaAp     = 6961
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 18939
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:21, elapsed time = 00:00:10, memory = 590.46 (MB), peak = 923.61 (MB)
+
+[INFO DRT-0157] Number of guides:     56082
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 925 STEP 540 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 925 STEP 540 ;
+[INFO DRT-0028]   Complete Active.
+[INFO DRT-0028]   Complete V0.
+[INFO DRT-0028]   Complete M1.
+[INFO DRT-0028]   Complete V1.
+[INFO DRT-0028]   Complete M2.
+[INFO DRT-0028]   Complete V2.
+[INFO DRT-0028]   Complete M3.
+[INFO DRT-0028]   Complete V3.
+[INFO DRT-0028]   Complete M4.
+[INFO DRT-0028]   Complete V4.
+[INFO DRT-0028]   Complete M5.
+[INFO DRT-0028]   Complete V5.
+[INFO DRT-0028]   Complete M6.
+[INFO DRT-0028]   Complete V6.
+[INFO DRT-0028]   Complete M7.
+[INFO DRT-0028]   Complete V7.
+[INFO DRT-0028]   Complete M8.
+[INFO DRT-0028]   Complete V8.
+[INFO DRT-0028]   Complete M9.
+[INFO DRT-0028]   Complete V9.
+[INFO DRT-0028]   Complete Pad.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete Active (guide).
+[INFO DRT-0035]   Complete V0 (guide).
+[INFO DRT-0035]   Complete M1 (guide).
+[INFO DRT-0035]   Complete V1 (guide).
+[INFO DRT-0035]   Complete M2 (guide).
+[INFO DRT-0035]   Complete V2 (guide).
+[INFO DRT-0035]   Complete M3 (guide).
+[INFO DRT-0035]   Complete V3 (guide).
+[INFO DRT-0035]   Complete M4 (guide).
+[INFO DRT-0035]   Complete V4 (guide).
+[INFO DRT-0035]   Complete M5 (guide).
+[INFO DRT-0035]   Complete V5 (guide).
+[INFO DRT-0035]   Complete M6 (guide).
+[INFO DRT-0035]   Complete V6 (guide).
+[INFO DRT-0035]   Complete M7 (guide).
+[INFO DRT-0035]   Complete V7 (guide).
+[INFO DRT-0035]   Complete M8 (guide).
+[INFO DRT-0035]   Complete V8 (guide).
+[INFO DRT-0035]   Complete M9 (guide).
+[INFO DRT-0035]   Complete V9 (guide).
+[INFO DRT-0035]   Complete Pad (guide).
+[INFO DRT-0036] Active guide region query size = 0.
+[INFO DRT-0036] V0 guide region query size = 0.
+[INFO DRT-0036] M1 guide region query size = 16516.
+[INFO DRT-0036] V1 guide region query size = 0.
+[INFO DRT-0036] M2 guide region query size = 15457.
+[INFO DRT-0036] V2 guide region query size = 0.
+[INFO DRT-0036] M3 guide region query size = 9970.
+[INFO DRT-0036] V3 guide region query size = 0.
+[INFO DRT-0036] M4 guide region query size = 2581.
+[INFO DRT-0036] V4 guide region query size = 0.
+[INFO DRT-0036] M5 guide region query size = 775.
+[INFO DRT-0036] V5 guide region query size = 0.
+[INFO DRT-0036] M6 guide region query size = 126.
+[INFO DRT-0036] V6 guide region query size = 0.
+[INFO DRT-0036] M7 guide region query size = 26.
+[INFO DRT-0036] V7 guide region query size = 0.
+[INFO DRT-0036] M8 guide region query size = 5.
+[INFO DRT-0036] V8 guide region query size = 0.
+[INFO DRT-0036] M9 guide region query size = 0.
+[INFO DRT-0036] V9 guide region query size = 0.
+[INFO DRT-0036] Pad guide region query size = 0.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 27287 vertical wires in 19 frboxes and 18169 horizontal wires in 19 frboxes.
+[INFO DRT-0186] Done with 3669 vertical wires in 19 frboxes and 4716 horizontal wires in 19 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:31, elapsed time = 00:00:07, memory = 1366.43 (MB), peak = 1465.24 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1366.43 (MB), peak = 1465.24 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 1366.80 (MB).
+    Completing 20% with 47 violations.
+    elapsed time = 00:00:16, memory = 2389.11 (MB).
+    Completing 30% with 344 violations.
+    elapsed time = 00:00:24, memory = 2399.00 (MB).
+    Completing 40% with 344 violations.
+    elapsed time = 00:00:24, memory = 2399.00 (MB).
+    Completing 50% with 714 violations.
+    elapsed time = 00:00:51, memory = 3038.89 (MB).
+    Completing 60% with 714 violations.
+    elapsed time = 00:00:52, memory = 2584.14 (MB).
+    Completing 70% with 838 violations.
+    elapsed time = 00:01:16, memory = 3047.36 (MB).
+    Completing 80% with 1138 violations.
+    elapsed time = 00:01:26, memory = 2698.46 (MB).
+    Completing 90% with 1138 violations.
+    elapsed time = 00:01:26, memory = 2698.46 (MB).
+    Completing 100% with 1619 violations.
+    elapsed time = 00:02:04, memory = 2855.58 (MB).
+[INFO DRT-0199]   Number of violations = 1968.
+Viol/Layer          M1     M2     V2     M3     V3     M4     V4     M5     V5     M6     V6     M7     V7     M8
+Cut Spacing          0      0      0      0      0      0      0      0      0      0      0      0      1      0
+CutSpcTbl            0      0      0      0      2      0      2      0      1      0      1      0      0      0
+EOL                  0    143      0     12      0      9      0      4      0      0      0      0      0      0
+Metal Spacing       82     32      0     76      0      4      0      6      0      0      0      1      0      0
+Min Step             0      0      0      0      0      0      0      0      0      0      0      0      0     22
+NS Metal             3      0      0      0      0      0      0      0      0      0      0      0      0      0
+Recheck             13    157      0    109      0     41      0     19      0     10      0      0      0      0
+Rect Only            0      0      0      0      0      0      0      0      0      0      0     16      0      0
+Short               40     88      1     22      0     11      4      2      3     17      6      0      1      0
+eolKeepOut           0    924      0     42      0     34      0      6      0      0      0      1      0      0
+[INFO DRT-0267] cpu time = 00:15:02, elapsed time = 00:02:05, memory = 3084.58 (MB), peak = 3486.69 (MB)
+Total wire length = 90196 um.
+Total wire length on LAYER M1 = 116 um.
+Total wire length on LAYER M2 = 27163 um.
+Total wire length on LAYER M3 = 35516 um.
+Total wire length on LAYER M4 = 15872 um.
+Total wire length on LAYER M5 = 8420 um.
+Total wire length on LAYER M6 = 1846 um.
+Total wire length on LAYER M7 = 1193 um.
+Total wire length on LAYER M8 = 67 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 63194.
+Up-via summary (total 63194):
+
+----------------
+ Active        0
+     M1    20227
+     M2    31911
+     M3     8882
+     M4     1829
+     M5      253
+     M6       68
+     M7       24
+     M8        0
+     M9        0
+----------------
+           63194
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 1968 violations.
+    elapsed time = 00:00:00, memory = 3084.58 (MB).
+    Completing 20% with 1958 violations.
+    elapsed time = 00:00:22, memory = 3582.77 (MB).
+    Completing 30% with 1574 violations.
+    elapsed time = 00:00:32, memory = 3138.08 (MB).
+    Completing 40% with 1574 violations.
+    elapsed time = 00:00:32, memory = 3138.08 (MB).
+    Completing 50% with 1176 violations.
+    elapsed time = 00:01:06, memory = 3696.00 (MB).
+    Completing 60% with 1176 violations.
+    elapsed time = 00:01:07, memory = 3195.60 (MB).
+    Completing 70% with 1092 violations.
+    elapsed time = 00:01:32, memory = 3663.78 (MB).
+    Completing 80% with 778 violations.
+    elapsed time = 00:01:42, memory = 3169.07 (MB).
+    Completing 90% with 778 violations.
+    elapsed time = 00:01:42, memory = 3169.07 (MB).
+    Completing 100% with 312 violations.
+    elapsed time = 00:02:18, memory = 3189.41 (MB).
+[INFO DRT-0199]   Number of violations = 343.
+Viol/Layer          M1     M2     M3     V3     M4     V4     M5
+CutSpcTbl            0      0      0      4      0      1      0
+EOL                  0     32      0      0      0      0      1
+Metal Spacing       32      7     23      0      0      0      6
+Recheck              0     18     12      0      1      0      0
+Short               14     16     12      0      2      0      0
+eolKeepOut           0    159      0      0      3      0      0
+[INFO DRT-0267] cpu time = 00:16:59, elapsed time = 00:02:19, memory = 3192.41 (MB), peak = 3887.72 (MB)
+Total wire length = 90086 um.
+Total wire length on LAYER M1 = 97 um.
+Total wire length on LAYER M2 = 26950 um.
+Total wire length on LAYER M3 = 35469 um.
+Total wire length on LAYER M4 = 16006 um.
+Total wire length on LAYER M5 = 8450 um.
+Total wire length on LAYER M6 = 1852 um.
+Total wire length on LAYER M7 = 1193 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61792.
+Up-via summary (total 61792):
+
+----------------
+ Active        0
+     M1    19915
+     M2    30883
+     M3     8825
+     M4     1847
+     M5      250
+     M6       52
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61792
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 343 violations.
+    elapsed time = 00:00:00, memory = 3192.41 (MB).
+    Completing 20% with 343 violations.
+    elapsed time = 00:00:10, memory = 3815.13 (MB).
+    Completing 30% with 341 violations.
+    elapsed time = 00:00:12, memory = 3192.49 (MB).
+    Completing 40% with 341 violations.
+    elapsed time = 00:00:12, memory = 3192.49 (MB).
+    Completing 50% with 358 violations.
+    elapsed time = 00:00:25, memory = 3192.50 (MB).
+    Completing 60% with 358 violations.
+    elapsed time = 00:00:25, memory = 3192.50 (MB).
+    Completing 70% with 359 violations.
+    elapsed time = 00:00:35, memory = 3826.09 (MB).
+    Completing 80% with 352 violations.
+    elapsed time = 00:00:39, memory = 3192.32 (MB).
+    Completing 90% with 352 violations.
+    elapsed time = 00:00:39, memory = 3192.32 (MB).
+    Completing 100% with 324 violations.
+    elapsed time = 00:00:55, memory = 3192.32 (MB).
+[INFO DRT-0199]   Number of violations = 348.
+Viol/Layer          M1     M2     M3     V3     M4     V4     M5
+CutSpcTbl            0      0      0      5      0      1      0
+EOL                  0     30      1      0      2      0      0
+Metal Spacing       39      7     19      0      2      0      5
+Recheck              0     10     12      0      2      0      0
+Short               11     11      7      0      1      0      1
+eolKeepOut           0    162      6      0     13      0      1
+[INFO DRT-0267] cpu time = 00:05:29, elapsed time = 00:00:55, memory = 3195.32 (MB), peak = 3956.85 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 91 um.
+Total wire length on LAYER M2 = 26897 um.
+Total wire length on LAYER M3 = 35455 um.
+Total wire length on LAYER M4 = 16032 um.
+Total wire length on LAYER M5 = 8467 um.
+Total wire length on LAYER M6 = 1863 um.
+Total wire length on LAYER M7 = 1192 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61769.
+Up-via summary (total 61769):
+
+----------------
+ Active        0
+     M1    19840
+     M2    30987
+     M3     8737
+     M4     1864
+     M5      269
+     M6       52
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61769
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 348 violations.
+    elapsed time = 00:00:00, memory = 3195.32 (MB).
+    Completing 20% with 340 violations.
+    elapsed time = 00:00:04, memory = 3929.88 (MB).
+    Completing 30% with 272 violations.
+    elapsed time = 00:00:05, memory = 3195.38 (MB).
+    Completing 40% with 272 violations.
+    elapsed time = 00:00:05, memory = 3195.38 (MB).
+    Completing 50% with 189 violations.
+    elapsed time = 00:00:11, memory = 3195.33 (MB).
+    Completing 60% with 189 violations.
+    elapsed time = 00:00:11, memory = 3195.33 (MB).
+    Completing 70% with 179 violations.
+    elapsed time = 00:00:15, memory = 3826.01 (MB).
+    Completing 80% with 115 violations.
+    elapsed time = 00:00:17, memory = 3195.47 (MB).
+    Completing 90% with 115 violations.
+    elapsed time = 00:00:17, memory = 3195.47 (MB).
+    Completing 100% with 10 violations.
+    elapsed time = 00:00:23, memory = 3195.44 (MB).
+[INFO DRT-0199]   Number of violations = 10.
+Viol/Layer          M2     M3     M5
+Metal Spacing        0      0      4
+Short                0      1      1
+eolKeepOut           3      0      1
+[INFO DRT-0267] cpu time = 00:02:01, elapsed time = 00:00:23, memory = 3195.44 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26750 um.
+Total wire length on LAYER M3 = 35389 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8536 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1193 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61759.
+Up-via summary (total 61759):
+
+----------------
+ Active        0
+     M1    19746
+     M2    30665
+     M3     8981
+     M4     2006
+     M5      285
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61759
+
+
+[INFO DRT-0195] Start 4th optimization iteration.
+    Completing 10% with 10 violations.
+    elapsed time = 00:00:00, memory = 3195.44 (MB).
+    Completing 20% with 10 violations.
+    elapsed time = 00:00:00, memory = 3195.44 (MB).
+    Completing 30% with 10 violations.
+    elapsed time = 00:00:00, memory = 3134.09 (MB).
+    Completing 40% with 10 violations.
+    elapsed time = 00:00:00, memory = 3134.09 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        5
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.15 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26750 um.
+Total wire length on LAYER M3 = 35390 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8536 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1193 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61757.
+Up-via summary (total 61757):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8982
+     M4     2008
+     M5      283
+     M6       54
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61757
+
+
+[INFO DRT-0195] Start 5th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.15 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.15 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.15 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.15 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.15 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.15 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.15 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:01, memory = 3134.15 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35392 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61759.
+Up-via summary (total 61759):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8980
+     M4     2004
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61759
+
+
+[INFO DRT-0195] Start 6th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.27 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.27 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.27 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.27 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:02, memory = 3134.27 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35392 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61759.
+Up-via summary (total 61759):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8980
+     M4     2004
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61759
+
+
+[INFO DRT-0195] Start 7th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.27 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.27 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.27 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.27 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:02, memory = 3134.27 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35392 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61759.
+Up-via summary (total 61759):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8980
+     M4     2004
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61759
+
+
+[INFO DRT-0195] Start 8th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.27 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.28 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.28 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.28 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.28 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.28 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35392 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61759.
+Up-via summary (total 61759):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8980
+     M4     2004
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61759
+
+
+[INFO DRT-0195] Start 9th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.28 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.28 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        6
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.30 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35392 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61759.
+Up-via summary (total 61759):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8980
+     M4     2004
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61759
+
+
+[INFO DRT-0195] Start 10th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        4
+Short                1
+eolKeepOut           1
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:00, memory = 3134.30 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26750 um.
+Total wire length on LAYER M3 = 35391 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1875 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61761.
+Up-via summary (total 61761):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30664
+     M3     8980
+     M4     2004
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61761
+
+
+[INFO DRT-0195] Start 11th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+Metal Spacing        4
+Short                1
+eolKeepOut           1
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:01, memory = 3134.30 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35390 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1876 um.
+Total wire length on LAYER M7 = 1195 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61761.
+Up-via summary (total 61761):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30662
+     M3     8980
+     M4     2006
+     M5      287
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61761
+
+
+[INFO DRT-0195] Start 12th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.30 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.30 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.30 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.30 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        5
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:01, memory = 3134.30 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35391 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1876 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61763.
+Up-via summary (total 61763):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30666
+     M3     8980
+     M4     2006
+     M5      287
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61763
+
+
+[INFO DRT-0195] Start 13th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:01, memory = 3134.30 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.30 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        5
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.30 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35391 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1876 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61763.
+Up-via summary (total 61763):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30666
+     M3     8980
+     M4     2006
+     M5      287
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61763
+
+
+[INFO DRT-0195] Start 14th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.30 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        5
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35391 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1876 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61763.
+Up-via summary (total 61763):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30666
+     M3     8980
+     M4     2006
+     M5      287
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61763
+
+
+[INFO DRT-0195] Start 15th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 30% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 40% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 50% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 90% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 100% with 6 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 6.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        5
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35391 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1876 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61763.
+Up-via summary (total 61763):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30666
+     M3     8980
+     M4     2006
+     M5      287
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61763
+
+
+[INFO DRT-0195] Start 16th optimization iteration.
+    Completing 10% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 20% with 6 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 30% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 40% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 50% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 60% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 80% with 5 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 90% with 5 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 100% with 5 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 5.
+Viol/Layer          M5
+EOL                  1
+Metal Spacing        4
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90066 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26749 um.
+Total wire length on LAYER M3 = 35391 um.
+Total wire length on LAYER M4 = 16168 um.
+Total wire length on LAYER M5 = 8533 um.
+Total wire length on LAYER M6 = 1876 um.
+Total wire length on LAYER M7 = 1194 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61757.
+Up-via summary (total 61757):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30666
+     M3     8978
+     M4     2006
+     M5      285
+     M6       54
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61757
+
+
+[INFO DRT-0195] Start 17th optimization iteration.
+    Completing 10% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 20% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 30% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 40% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 50% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 60% with 5 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:01, memory = 3134.31 (MB).
+    Completing 80% with 3 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 90% with 3 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+    Completing 100% with 3 violations.
+    elapsed time = 00:00:02, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 3.
+Viol/Layer          M5
+Metal Spacing        1
+Short                1
+eolKeepOut           1
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:02, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90063 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26731 um.
+Total wire length on LAYER M3 = 35393 um.
+Total wire length on LAYER M4 = 16187 um.
+Total wire length on LAYER M5 = 8531 um.
+Total wire length on LAYER M6 = 1873 um.
+Total wire length on LAYER M7 = 1192 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61739.
+Up-via summary (total 61739):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30660
+     M3     8970
+     M4     2002
+     M5      283
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61739
+
+
+[INFO DRT-0195] Start 18th optimization iteration.
+    Completing 10% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 20% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 30% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 40% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 50% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 60% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 70% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 80% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 90% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 100% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 3.
+Viol/Layer          M5
+Metal Spacing        1
+Short                1
+eolKeepOut           1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90063 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26731 um.
+Total wire length on LAYER M3 = 35393 um.
+Total wire length on LAYER M4 = 16187 um.
+Total wire length on LAYER M5 = 8531 um.
+Total wire length on LAYER M6 = 1873 um.
+Total wire length on LAYER M7 = 1192 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61739.
+Up-via summary (total 61739):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30660
+     M3     8970
+     M4     2002
+     M5      283
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61739
+
+
+[INFO DRT-0195] Start 19th optimization iteration.
+    Completing 10% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 20% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 30% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 40% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 50% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 60% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 70% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 80% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 90% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 100% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 3.
+Viol/Layer          M5
+Metal Spacing        1
+Short                1
+eolKeepOut           1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90063 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26731 um.
+Total wire length on LAYER M3 = 35393 um.
+Total wire length on LAYER M4 = 16187 um.
+Total wire length on LAYER M5 = 8531 um.
+Total wire length on LAYER M6 = 1873 um.
+Total wire length on LAYER M7 = 1192 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61739.
+Up-via summary (total 61739):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30660
+     M3     8970
+     M4     2002
+     M5      283
+     M6       56
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61739
+
+
+[INFO DRT-0195] Start 20th optimization iteration.
+    Completing 10% with 3 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 30% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 40% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 50% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 60% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 70% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 3134.31 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:00, memory = 3134.31 (MB), peak = 4068.17 (MB)
+Total wire length = 90064 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26731 um.
+Total wire length on LAYER M3 = 35393 um.
+Total wire length on LAYER M4 = 16188 um.
+Total wire length on LAYER M5 = 8531 um.
+Total wire length on LAYER M6 = 1873 um.
+Total wire length on LAYER M7 = 1192 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61745.
+Up-via summary (total 61745):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30660
+     M3     8972
+     M4     2004
+     M5      283
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61745
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 90064 um.
+Total wire length on LAYER M1 = 86 um.
+Total wire length on LAYER M2 = 26731 um.
+Total wire length on LAYER M3 = 35393 um.
+Total wire length on LAYER M4 = 16188 um.
+Total wire length on LAYER M5 = 8531 um.
+Total wire length on LAYER M6 = 1873 um.
+Total wire length on LAYER M7 = 1192 um.
+Total wire length on LAYER M8 = 65 um.
+Total wire length on LAYER M9 = 0 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 61745.
+Up-via summary (total 61745):
+
+----------------
+ Active        0
+     M1    19748
+     M2    30660
+     M3     8972
+     M4     2004
+     M5      283
+     M6       58
+     M7       20
+     M8        0
+     M9        0
+----------------
+           61745
+
+
+[INFO DRT-0267] cpu time = 00:40:14, elapsed time = 00:06:16, memory = 3134.31 (MB), peak = 4068.17 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Elapsed time: 6:40.63[h:]min:sec. CPU time: user 2478.60 sys 69.63 (636%). Peak memory: 4165804KB.
+Running fillcell.tcl, stage 5_3_fillcell
+[WARNING STA-0450] virtual clock clk can not be propagated.
+filler_placement FILLERxp5_ASAP7_75t_R FILLER_ASAP7_75t_R DECAPx1_ASAP7_75t_R DECAPx2_ASAP7_75t_R DECAPx4_ASAP7_75t_R DECAPx6_ASAP7_75t_R DECAPx10_ASAP7_75t_R
+[INFO DPL-0001] Placed 290798 filler instances.
+Elapsed time: 0:04.80[h:]min:sec. CPU time: user 4.03 sys 0.58 (96%). Peak memory: 1278124KB.
+cp ./results/asap7/riscv_v_adder/base/5_3_fillcell.odb ./results/asap7/riscv_v_adder/base/5_route.odb
+cp ./results/asap7/riscv_v_adder/base/4_cts.sdc ./results/asap7/riscv_v_adder/base/5_route.sdc
+Running density_fill.tcl, stage 6_1_fill
+exec cp ./results/asap7/riscv_v_adder/base/5_route.odb ./results/asap7/riscv_v_adder/base/6_1_fill.odb
+Elapsed time: 0:02.18[h:]min:sec. CPU time: user 1.80 sys 0.28 (95%). Peak memory: 372336KB.
+cp ./results/asap7/riscv_v_adder/base/5_route.sdc ./results/asap7/riscv_v_adder/base/6_1_fill.sdc
+Running final_report.tcl, stage 6_report
+[WARNING STA-0450] virtual clock clk can not be propagated.
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation riscv_v_adder (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 49767 rc segments
+[INFO RCX-0439] Coupling Cap extraction riscv_v_adder ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 9% of 116493 wires extracted
+[INFO RCX-0442] 16% of 116493 wires extracted
+[INFO RCX-0442] 22% of 116493 wires extracted
+[INFO RCX-0442] 30% of 116493 wires extracted
+[INFO RCX-0442] 59% of 116493 wires extracted
+[INFO RCX-0442] 66% of 116493 wires extracted
+[INFO RCX-0442] 79% of 116493 wires extracted
+[INFO RCX-0442] 90% of 116493 wires extracted
+[INFO RCX-0442] 99% of 116493 wires extracted
+[INFO RCX-0442] 100% of 116493 wires extracted
+[INFO RCX-0045] Extract 5741 nets, 55342 rsegs, 55342 caps, 81103 ccs
+[INFO RCX-0443] 5741 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.68e-01 V
+Average voltage  : 7.69e-01 V
+Average IR drop  : 5.12e-04 V
+Worstcase IR drop: 2.22e-03 V
+Percentage drop  : 0.29 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 2.27e-03 V
+Average voltage  : 5.23e-04 V
+Average IR drop  : 5.23e-04 V
+Worstcase IR drop: 2.27e-03 V
+Percentage drop  : 0.29 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                            290798   89007.02
+  Tap cell                               8892     259.29
+  Tie cell                                128       5.60
+  Timing Repair Buffer                    831     123.46
+  Inverter                                235      13.27
+  Multi-Input combinational cell         4057     492.37
+  Total                                304941   89901.01
+Report metrics stage 6, finish...
+No registers in design
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 894 u^2 1% utilization.
+Elapsed time: 4:28.82[h:]min:sec. CPU time: user 265.13 sys 2.77 (99%). Peak memory: 4481452KB.
+cp ./results/asap7/riscv_v_adder/base/5_route.sdc ./results/asap7/riscv_v_adder/base/6_final.sdc
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' stdbuf -o L /usr/bin/klayout -zz -rd design_name=riscv_v_adder \
+        -rd in_def=./results/asap7/riscv_v_adder/base/6_final.def \
+        -rd in_files="/home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/gds/asap7sc7p5t_28_R_220121a.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/asap7/riscv_v_adder/base/6_1_merged.gds \
+        -rd tech_file=./objects/asap7/riscv_v_adder/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/ubuntu/mbucio/tools/openROAD/flow/util/def2stream.py) 2>&1 | tee ./logs/asap7/riscv_v_adder/base/6_1_merge.log
+[INFO] Reporting cells prior to loading DEF ...
+[INFO] Reading DEF ...
+[INFO] Clearing cells...
+[INFO] Merging GDS/OAS files...
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/gds/asap7sc7p5t_28_R_220121a.gds
+[INFO] Copying toplevel cell 'riscv_v_adder'
+[INFO] Checking for missing cell from GDS/OAS...
+[INFO] Found GDS_ALLOW_EMPTY variable.
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] Checking for orphan cell in the final layout...
+[INFO] No orphan cells
+[INFO] Writing out GDS/OAS './results/asap7/riscv_v_adder/base/6_1_merged.gds'
+Elapsed time: 0:05.25[h:]min:sec. CPU time: user 4.88 sys 0.36 (99%). Peak memory: 942260KB.
+cp results/asap7/riscv_v_adder/base/6_1_merged.gds results/asap7/riscv_v_adder/base/6_final.gds
+./logs/asap7/riscv_v_adder/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                    9            149
+1_1_yosys_canonicalize                       0             84
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                                3            229
+2_2_floorplan_io                             1            214
+2_3_floorplan_tdms                           0             97
+2_4_floorplan_macro                          1            212
+2_5_floorplan_tapcell                        1            214
+2_6_floorplan_pdn                            3            244
+3_1_place_gp_skip_io                        75            449
+3_2_place_iop                                1            234
+3_3_place_gp                                94           1314
+3_4_place_resized                            6            498
+3_5_place_dp                                 7           1110
+4_1_cts                                    816           1429
+5_1_grt                                    749           2003
+5_2_route                                  400           4068
+5_3_fillcell                                 4           1248
+6_1_fill                                     2            363
+6_1_merge                                    5            920
+6_report                                   268           4376
+Total                                     2445           4376

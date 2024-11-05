@@ -1,0 +1,36 @@
+
+16. Printing statistics.
+
+=== riscv_v_reduct_src ===
+
+   Number of wires:                421
+   Number of wire bits:            810
+   Number of public wires:           7
+   Number of public wire bits:     396
+   Number of ports:                  7
+   Number of port bits:            396
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                542
+     gf180mcu_fd_sc_mcu9t5v0__and2_2     64
+     gf180mcu_fd_sc_mcu9t5v0__and2_4      2
+     gf180mcu_fd_sc_mcu9t5v0__aoi21_2     64
+     gf180mcu_fd_sc_mcu9t5v0__aoi222_2     48
+     gf180mcu_fd_sc_mcu9t5v0__aoi22_2    136
+     gf180mcu_fd_sc_mcu9t5v0__buf_2     16
+     gf180mcu_fd_sc_mcu9t5v0__buf_3     14
+     gf180mcu_fd_sc_mcu9t5v0__buf_4     25
+     gf180mcu_fd_sc_mcu9t5v0__buf_8      7
+     gf180mcu_fd_sc_mcu9t5v0__clkbuf_8      1
+     gf180mcu_fd_sc_mcu9t5v0__clkinv_2     12
+     gf180mcu_fd_sc_mcu9t5v0__dlya_4      8
+     gf180mcu_fd_sc_mcu9t5v0__inv_2     13
+     gf180mcu_fd_sc_mcu9t5v0__nand2_2     32
+     gf180mcu_fd_sc_mcu9t5v0__oai21_2     32
+     gf180mcu_fd_sc_mcu9t5v0__or2_2     67
+     gf180mcu_fd_sc_mcu9t5v0__or2_4      1
+
+   Chip area for module '\riscv_v_reduct_src': 20755.929600
+     of which used for sequential elements: 0.000000 (0.00%)
+

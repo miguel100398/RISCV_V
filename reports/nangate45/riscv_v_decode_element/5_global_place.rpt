@@ -1,0 +1,162 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 3.89
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: srca[92] (input port clocked by clk)
+Endpoint: srca_alu[124] (output port clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 ^ input external delay
+     1    2.23    0.00    0.00    3.00 ^ srca[92] (in)
+                                         srca[92] (net)
+                  0.00    0.00    3.00 ^ _729_/A (BUF_X1)
+     1    0.22    0.00    0.01    3.01 ^ _729_/Z (BUF_X1)
+                                         srca_alu[124] (net)
+                  0.00    0.00    3.01 ^ srca_alu[124] (out)
+                                  3.01   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                         -3.00   -3.00   output external delay
+                                 -3.00   data required time
+-----------------------------------------------------------------------------
+                                 -3.00   data required time
+                                 -3.01   data arrival time
+-----------------------------------------------------------------------------
+                                  6.01   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: vtype[5] (input port clocked by clk)
+Endpoint: mask_merge_qual[14] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+    18   40.61    0.00    0.00    3.00 v vtype[5] (in)
+                                         vtype[5] (net)
+                  0.01    0.01    3.01 v _284_/A3 (OR3_X1)
+     9   15.81    0.03    0.11    3.12 v _284_/ZN (OR3_X1)
+                                         _015_ (net)
+                  0.03    0.00    3.12 v _287_/A1 (AND2_X1)
+     3   11.02    0.01    0.05    3.17 v _287_/ZN (AND2_X1)
+                                         is_greater_osize_vector[1] (net)
+                  0.01    0.00    3.17 v _288_/A (INV_X2)
+     8   15.11    0.02    0.03    3.20 ^ _288_/ZN (INV_X2)
+                                         is_less_osize_vector[0] (net)
+                  0.02    0.00    3.20 ^ _458_/A (OAI21_X1)
+     1    2.76    0.02    0.02    3.22 v _458_/ZN (OAI21_X1)
+                                         _157_ (net)
+                  0.02    0.00    3.22 v _459_/B1 (AOI21_X1)
+     2  331.32    0.93    0.90    4.13 ^ _459_/ZN (AOI21_X1)
+                                         mask_result_valid[14] (net)
+                  2.45    1.76    5.88 ^ _461_/A3 (NOR3_X1)
+     1  105.43    1.49    1.98    7.86 v _461_/ZN (NOR3_X1)
+                                         mask_merge_qual[14] (net)
+                  1.52    0.25    8.11 v mask_merge_qual[14] (out)
+                                  8.11   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -8.11   data arrival time
+-----------------------------------------------------------------------------
+                                  3.89   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: vtype[5] (input port clocked by clk)
+Endpoint: mask_merge_qual[14] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+    18   40.61    0.00    0.00    3.00 v vtype[5] (in)
+                                         vtype[5] (net)
+                  0.01    0.01    3.01 v _284_/A3 (OR3_X1)
+     9   15.81    0.03    0.11    3.12 v _284_/ZN (OR3_X1)
+                                         _015_ (net)
+                  0.03    0.00    3.12 v _287_/A1 (AND2_X1)
+     3   11.02    0.01    0.05    3.17 v _287_/ZN (AND2_X1)
+                                         is_greater_osize_vector[1] (net)
+                  0.01    0.00    3.17 v _288_/A (INV_X2)
+     8   15.11    0.02    0.03    3.20 ^ _288_/ZN (INV_X2)
+                                         is_less_osize_vector[0] (net)
+                  0.02    0.00    3.20 ^ _458_/A (OAI21_X1)
+     1    2.76    0.02    0.02    3.22 v _458_/ZN (OAI21_X1)
+                                         _157_ (net)
+                  0.02    0.00    3.22 v _459_/B1 (AOI21_X1)
+     2  331.32    0.93    0.90    4.13 ^ _459_/ZN (AOI21_X1)
+                                         mask_result_valid[14] (net)
+                  2.45    1.76    5.88 ^ _461_/A3 (NOR3_X1)
+     1  105.43    1.49    1.98    7.86 v _461_/ZN (NOR3_X1)
+                                         mask_merge_qual[14] (net)
+                  1.52    0.25    8.11 v mask_merge_qual[14] (out)
+                                  8.11   data arrival time
+
+                  0.00   15.00   15.00   clock clk (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                         -3.00   12.00   output external delay
+                                 12.00   data required time
+-----------------------------------------------------------------------------
+                                 12.00   data required time
+                                 -8.11   data arrival time
+-----------------------------------------------------------------------------
+                                  3.89   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          1.96e-05   1.31e-04   1.59e-05   1.66e-04 100.0%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.96e-05   1.31e-04   1.59e-05   1.66e-04 100.0%
+                          11.8%      78.6%       9.6%

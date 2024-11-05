@@ -1,0 +1,35 @@
+
+21. Printing statistics.
+
+=== riscv_v_csr_ctrl ===
+
+   Number of wires:                225
+   Number of wire bits:            484
+   Number of public wires:          44
+   Number of public wire bits:     303
+   Number of ports:                 44
+   Number of port bits:            303
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                271
+     AND3x1_ASAP7_75t_R             37
+     AO21x1_ASAP7_75t_R              7
+     AO21x2_ASAP7_75t_R             30
+     AO22x1_ASAP7_75t_R             37
+     BUFx2_ASAP7_75t_R              16
+     BUFx3_ASAP7_75t_R               4
+     BUFx4f_ASAP7_75t_R              2
+     BUFx6f_ASAP7_75t_R              5
+     DFFASRHQNx1_ASAP7_75t_R        49
+     INVx1_ASAP7_75t_R              50
+     INVx3_ASAP7_75t_R               1
+     NAND2x1_ASAP7_75t_R            18
+     NAND2x2_ASAP7_75t_R             1
+     OA211x2_ASAP7_75t_R            12
+     TIEHIx1_ASAP7_75t_R             1
+     TIELOx1_ASAP7_75t_R             1
+
+   Chip area for module '\riscv_v_csr_ctrl': 38.287080
+     of which used for sequential elements: 18.574920 (48.51%)
+

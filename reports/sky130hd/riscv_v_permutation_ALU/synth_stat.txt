@@ -1,0 +1,33 @@
+
+17. Printing statistics.
+
+=== riscv_v_permutation_ALU ===
+
+   Number of wires:                 62
+   Number of wire bits:            562
+   Number of public wires:           8
+   Number of public wire bits:     508
+   Number of ports:                  8
+   Number of port bits:            508
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                230
+     sky130_fd_sc_hd__a22oi_2        1
+     sky130_fd_sc_hd__and2_1       128
+     sky130_fd_sc_hd__buf_2          6
+     sky130_fd_sc_hd__buf_4         16
+     sky130_fd_sc_hd__clkbuf_1      18
+     sky130_fd_sc_hd__clkinv_1       1
+     sky130_fd_sc_hd__nand2_1       24
+     sky130_fd_sc_hd__nand3_1        1
+     sky130_fd_sc_hd__nor3_2         1
+     sky130_fd_sc_hd__nor4_2         1
+     sky130_fd_sc_hd__o21ai_0        7
+     sky130_fd_sc_hd__o22ai_1       17
+     sky130_fd_sc_hd__o311a_1        8
+     sky130_fd_sc_hd__or3_1          1
+
+   Chip area for module '\riscv_v_permutation_ALU': 1380.073600
+     of which used for sequential elements: 0.000000 (0.00%)
+

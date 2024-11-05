@@ -1,0 +1,81 @@
+
+17. Printing statistics.
+
+=== riscv_v_shifter ===
+
+   Number of wires:               4705
+   Number of wire bits:           5158
+   Number of public wires:           8
+   Number of public wire bits:     461
+   Number of ports:                  8
+   Number of port bits:            461
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4825
+     AND2_X1                       199
+     AND2_X2                         3
+     AND3_X1                        59
+     AND4_X1                         6
+     AND4_X2                         2
+     AOI211_X2                      25
+     AOI211_X4                       2
+     AOI21_X1                      422
+     AOI21_X2                       16
+     AOI21_X4                        1
+     AOI221_X1                     133
+     AOI221_X2                      21
+     AOI221_X4                       3
+     AOI222_X1                       8
+     AOI222_X2                       2
+     AOI22_X1                      146
+     AOI22_X2                        9
+     AOI22_X4                        1
+     BUF_X1                        144
+     BUF_X16                         7
+     BUF_X2                        137
+     BUF_X4                         60
+     BUF_X8                         22
+     CLKBUF_X1                      15
+     CLKBUF_X2                       1
+     INV_X1                        100
+     INV_X4                          1
+     MUX2_X1                       837
+     MUX2_X2                        19
+     NAND2_X1                      585
+     NAND2_X2                        7
+     NAND3_X1                      160
+     NAND3_X2                        4
+     NAND4_X1                       38
+     NAND4_X2                        1
+     NOR2_X1                       451
+     NOR2_X2                        14
+     NOR2_X4                         1
+     NOR3_X1                       129
+     NOR3_X2                         1
+     NOR3_X4                         3
+     NOR4_X1                        27
+     NOR4_X2                         6
+     NOR4_X4                         2
+     OAI211_X2                      36
+     OAI21_X1                      359
+     OAI21_X2                       18
+     OAI21_X4                        3
+     OAI221_X1                     191
+     OAI221_X2                       3
+     OAI222_X1                       4
+     OAI22_X1                      126
+     OAI22_X2                       11
+     OAI22_X4                        2
+     OAI33_X1                       25
+     OR2_X1                        144
+     OR2_X2                          4
+     OR3_X1                         41
+     OR3_X2                          8
+     OR3_X4                          1
+     OR4_X1                         13
+     OR4_X2                          6
+
+   Chip area for module '\riscv_v_shifter': 6193.012000
+     of which used for sequential elements: 0.000000 (0.00%)
+

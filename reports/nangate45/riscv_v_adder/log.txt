@@ -1,0 +1,2591 @@
+/home/ubuntu/mbucio/tools/openROAD/flow/util/preprocessLib.py -i /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib -o objects/nangate45/riscv_v_adder/base/lib/NangateOpenCellLibrary_typical.lib
+Opening file for replace: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+Commented 0 lines containing "original_pin"
+Replaced malformed functions 0
+Writing replaced file: objects/nangate45/riscv_v_adder/base/lib/NangateOpenCellLibrary_typical.lib
+mkdir -p results/nangate45/riscv_v_adder/base/
+echo 30.0 > results/nangate45/riscv_v_adder/base/clock_period.txt
+mkdir -p ./results/nangate45/riscv_v_adder/base ./logs/nangate45/riscv_v_adder/base ./reports/nangate45/riscv_v_adder/base ./objects/nangate45/riscv_v_adder/base
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_canonicalize.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_adder/base/1_1_yosys_canonicalize.log
+1. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_7EB58.v
+2. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_1F582_5645A.v
+3. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_96DA9_C2B4E.v
+4. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_300B3_9090A.v
+5. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_969A4_CCEB1.v
+6. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_63257_B3D37.v
+7. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_A4EAF_A7C6B.v
+8. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_C3F9D_39151.v
+9. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_E6BB0_71521.v
+10. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_EA379.v
+11. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_EE621_F935D.v
+12. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_300C0.v
+13. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_A8A75.v
+14. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_stage_C9449.v
+15. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_ctrl.v
+16. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_csr_ctrl.v
+17. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_csr.v
+18. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_rf_ctrl.v
+19. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_rf.v
+20. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_decode.v
+21. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_memory.v
+22. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_reduct_src.v
+23. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_and.v
+24. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_and.v
+25. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_or.v
+26. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_or.v
+27. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bitwise_xor.v
+28. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bw_xor.v
+29. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/shifter.v
+30. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_shifter.v
+31. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_logic_ALU.v
+32. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/full_adder.v
+33. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/half_adder.v
+34. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/ripple_carry_adder.v
+35. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/behavioral_adder.v
+36. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/adder_nbit.v
+37. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v
+38. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_twos_comp_sel.v
+39. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/multiplier_2bit.v
+40. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_2bits.v
+41. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_4bits.v
+42. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_8bits.v
+43. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_16bits.v
+44. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_32bits.v
+45. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_64bits.v
+46. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/vedic_mul_unsigned_128bits.v
+47. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_mul.v
+48. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_extend.v
+49. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_arithmetic_ALU.v
+50. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_permutation_ALU.v
+51. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_exe_alu.v
+52. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_decode_element.v
+53. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_bypass.v
+54. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_swizzle.v
+55. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v_execute.v
+56. Executing Verilog-2005 frontend: ./designs/src/riscv_v_adder/convert_to_v/riscv_v.v
+57. Executing Liberty frontend: ./objects/nangate45/riscv_v_adder/base/lib/NangateOpenCellLibrary_typical.lib
+58. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_adder/base/clock_period.txt
+Setting clock period to 30.0
+59. Executing HIERARCHY pass (managing design hierarchy).
+60. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_adder'.
+Warning: Replacing memory \result_set_greater_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:295
+Warning: Replacing memory \result_set_less_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:294
+Warning: Replacing memory \result_set_nequal_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:293
+Warning: Replacing memory \result_set_equal_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:303, ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:292
+Warning: Replacing memory \zf_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:270
+Warning: Replacing memory \flags_mask_osize with list of registers. See ./designs/src/riscv_v_adder/convert_to_v/riscv_v_adder.v:229
+60.1. Analyzing design hierarchy..
+60.2. Executing AST frontend in derive mode using pre-parsed AST for module `\adder_nbit'.
+60.3. Executing AST frontend in derive mode using pre-parsed AST for module `\riscv_v_reduct_src'.
+60.4. Analyzing design hierarchy..
+60.5. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder'.
+60.6. Analyzing design hierarchy..
+60.7. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+60.8. Analyzing design hierarchy..
+60.9. Analyzing design hierarchy..
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module riscv_v_reduct_src because it contains processes (run 'proc' command first).
+Warning: Ignoring module riscv_v_adder because it contains processes (run 'proc' command first).
+62. Executing RTLIL backend.
+Warnings: 8 unique messages, 8 total
+End of script. Logfile hash: 8801c1ee02, CPU: user 0.42s system 0.02s, MEM: 44.00 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 39% 1x hierarchy (0 sec), 31% 2x read_liberty (0 sec), ...
+Elapsed time: 0:00.65[h:]min:sec. CPU time: user 0.52 sys 0.03 (84%). Peak memory: 46080KB.
+mkdir -p ./results/nangate45/riscv_v_adder/base ./logs/nangate45/riscv_v_adder/base ./reports/nangate45/riscv_v_adder/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_adder/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth_hier_report.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_adder/base/1_1_yosys_hier_report.log
+End of script. Logfile hash: da39a3ee5e, CPU: user 0.00s system 0.00s, MEM: 11.12 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: no commands executed
+Elapsed time: 0:00.01[h:]min:sec. CPU time: user 0.00 sys 0.00 (41%). Peak memory: 12928KB.
+mkdir -p ./results/nangate45/riscv_v_adder/base ./logs/nangate45/riscv_v_adder/base ./reports/nangate45/riscv_v_adder/base ./objects/nangate45/riscv_v_adder/base
+(export VERILOG_FILES=./results/nangate45/riscv_v_adder/base/1_synth.rtlil; \
+env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/yosys -v 3 -c /home/ubuntu/mbucio/tools/openROAD/flow/scripts/synth.tcl) 2>&1 | tee /home/ubuntu/mbucio/tools/openROAD/flow/logs/nangate45/riscv_v_adder/base/1_1_yosys.log
+1. Executing RTLIL frontend.
+2. Executing Liberty frontend: ./objects/nangate45/riscv_v_adder/base/lib/NangateOpenCellLibrary_typical.lib
+3. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_clkgate.v
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/nangate45/riscv_v_adder/base/clock_period.txt
+Setting clock period to 30.0
+synth -top riscv_v_adder -run :fine -flatten -extra-map /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+4. Executing SYNTH pass.
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+4.1.1. Analyzing design hierarchy..
+4.1.2. Analyzing design hierarchy..
+4.2. Executing PROC pass (convert processes to netlists).
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+4.3. Executing FLATTEN pass (flatten design).
+4.4. Executing OPT_EXPR pass (perform const folding).
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.6. Executing CHECK pass (checking for obvious problems).
+4.7. Executing OPT pass (performing simple optimizations).
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+4.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.8. Executing OPT_EXPR pass (perform const folding).
+4.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+4.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.7.12. Executing OPT_MERGE pass (detect identical cells).
+4.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+4.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.7.15. Executing OPT_EXPR pass (perform const folding).
+4.7.16. Finished OPT passes. (There is nothing left to do.)
+4.8. Executing FSM pass (extract and optimize FSM).
+4.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+4.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+4.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+4.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+4.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+4.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+4.9. Executing OPT pass (performing simple optimizations).
+4.9.1. Executing OPT_EXPR pass (perform const folding).
+4.9.2. Executing OPT_MERGE pass (detect identical cells).
+4.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.9.5. Executing OPT_MERGE pass (detect identical cells).
+4.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.9.8. Executing OPT_EXPR pass (perform const folding).
+4.9.9. Finished OPT passes. (There is nothing left to do.)
+4.10. Executing WREDUCE pass (reducing word size of cells).
+4.11. Executing PEEPOPT pass (run peephole optimizers).
+4.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.13. Executing ALUMACC pass (create $alu and $macc cells).
+4.14. Executing SHARE pass (SAT-based resource sharing).
+4.15. Executing OPT pass (performing simple optimizations).
+4.15.1. Executing OPT_EXPR pass (perform const folding).
+4.15.2. Executing OPT_MERGE pass (detect identical cells).
+4.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+4.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+4.15.5. Executing OPT_MERGE pass (detect identical cells).
+4.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+4.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.15.8. Executing OPT_EXPR pass (perform const folding).
+4.15.9. Finished OPT passes. (There is nothing left to do.)
+4.16. Executing MEMORY pass.
+4.16.1. Executing OPT_MEM pass (optimize memories).
+4.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+4.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+4.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+4.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+4.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+4.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+4.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+4.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+4.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+5. Executing SYNTH pass.
+5.1. Executing OPT pass (performing simple optimizations).
+5.1.1. Executing OPT_EXPR pass (perform const folding).
+5.1.2. Executing OPT_MERGE pass (detect identical cells).
+5.1.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.1.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.1.5. Finished fast OPT passes.
+5.2. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+5.3. Executing OPT pass (performing simple optimizations).
+5.3.1. Executing OPT_EXPR pass (perform const folding).
+5.3.2. Executing OPT_MERGE pass (detect identical cells).
+5.3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+5.3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+5.3.5. Executing OPT_MERGE pass (detect identical cells).
+5.3.6. Executing OPT_SHARE pass.
+5.3.7. Executing OPT_DFF pass (perform DFF optimizations).
+5.3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.3.9. Executing OPT_EXPR pass (perform const folding).
+5.3.10. Finished OPT passes. (There is nothing left to do.)
+5.4. Executing TECHMAP pass (map to technology primitives).
+5.4.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/tools/install/yosys/bin/../share/yosys/techmap.v
+5.4.2. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/common/lcu_kogge_stone.v
+5.4.3. Continuing TECHMAP pass.
+5.5. Executing OPT pass (performing simple optimizations).
+5.5.1. Executing OPT_EXPR pass (perform const folding).
+5.5.2. Executing OPT_MERGE pass (detect identical cells).
+5.5.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.5.5. Finished fast OPT passes.
+5.6. Executing ABC pass (technology mapping using ABC).
+5.6.1. Extracting gate netlist of module `\riscv_v_adder' to `<abc-temp-dir>/input.blif'..
+5.7. Executing OPT pass (performing simple optimizations).
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+5.7.3. Executing OPT_DFF pass (perform DFF optimizations).
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+5.7.5. Finished fast OPT passes.
+5.8. Executing HIERARCHY pass (managing design hierarchy).
+5.8.1. Analyzing design hierarchy..
+5.8.2. Analyzing design hierarchy..
+5.9. Printing statistics.
+5.10. Executing CHECK pass (checking for obvious problems).
+6. Executing OPT pass (performing simple optimizations).
+6.1. Executing OPT_EXPR pass (perform const folding).
+6.2. Executing OPT_MERGE pass (detect identical cells).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.5. Executing OPT_MERGE pass (detect identical cells).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.8. Executing OPT_EXPR pass (perform const folding).
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.12. Executing OPT_MERGE pass (detect identical cells).
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.15. Executing OPT_EXPR pass (perform const folding).
+6.16. Finished OPT passes. (There is nothing left to do.)
+7. Executing TECHMAP pass (map to technology primitives).
+7.1. Executing Verilog-2005 frontend: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/cells_latch.v
+7.2. Continuing TECHMAP pass.
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+9. Executing OPT pass (performing simple optimizations).
+9.1. Executing OPT_EXPR pass (perform const folding).
+9.2. Executing OPT_MERGE pass (detect identical cells).
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.5. Executing OPT_MERGE pass (detect identical cells).
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.8. Executing OPT_EXPR pass (perform const folding).
+9.9. Finished OPT passes. (There is nothing left to do.)
+abc -script /home/ubuntu/mbucio/tools/openROAD/flow/scripts/abc_speed.script -liberty ./objects/nangate45/riscv_v_adder/base/lib/NangateOpenCellLibrary_typical.lib -constr ./objects/nangate45/riscv_v_adder/base/abc.constr -dont_use TAPCELL_X1 -dont_use FILLCELL_X1 -dont_use AOI211_X1 -dont_use OAI211_X1 -D 30.0
+10. Executing ABC pass (technology mapping using ABC).
+10.1. Extracting gate netlist of module `\riscv_v_adder' to `<abc-temp-dir>/input.blif'..
+10.1.1. Executing ABC.
+10.1.2. Re-integrating ABC results.
+11. Executing SETUNDEF pass (replace undef values with defined constants).
+12. Executing SPLITNETS pass (splitting up multi-bit signals).
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+14. Executing HILOMAP pass (mapping to constant drivers).
+15. Executing INSBUF pass (insert buffer cells for connected wires).
+16. Executing CHECK pass (checking for obvious problems).
+17. Printing statistics.
+18. Executing Verilog backend.
+exec cp ./designs/nangate45/riscv_v_adder/constraint.sdc ./results/nangate45/riscv_v_adder/base/1_synth.sdc
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: 8944e55732, CPU: user 3.43s system 0.06s, MEM: 51.84 MB peak
+Yosys 0.46 (git sha1 e97731b9d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 86% 2x abc (20 sec), 3% 18x opt_clean (0 sec), ...
+Elapsed time: 0:31.18[h:]min:sec. CPU time: user 23.59 sys 0.14 (76%). Peak memory: 53600KB.
+mkdir -p ./results/nangate45/riscv_v_adder/base ./logs/nangate45/riscv_v_adder/base ./reports/nangate45/riscv_v_adder/base
+cp ./results/nangate45/riscv_v_adder/base/1_1_yosys.v ./results/nangate45/riscv_v_adder/base/1_synth.v
+OpenROAD v2.0-16316-gf9cfd9383 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+mkdir -p ./objects/nangate45/riscv_v_adder/base
+Running floorplan.tcl, stage 2_1_floorplan
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: /home/ubuntu/mbucio/tools/openROAD/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 6974
+[WARNING IFP-0028] Core area lower left (200.000, 200.000) snapped to (200.070, 200.200).
+[INFO IFP-0001] Added 2714 rows of 19999 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO RSZ-0026] Removed 499 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 7794 u^2 0% utilization.
+Elapsed time: 0:04.36[h:]min:sec. CPU time: user 3.17 sys 0.07 (74%). Peak memory: 149824KB.
+Running io_placement_random.tcl, stage 2_2_floorplan_io
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+place_pins -hor_layers metal5 -ver_layers metal6 -random
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+Elapsed time: 0:00.85[h:]min:sec. CPU time: user 0.53 sys 0.06 (70%). Peak memory: 131912KB.
+Running tdms_place.tcl, stage 2_3_floorplan_tdms
+exec cp ./results/nangate45/riscv_v_adder/base/2_2_floorplan_io.odb ./results/nangate45/riscv_v_adder/base/2_3_floorplan_tdms.odb
+Elapsed time: 0:00.41[h:]min:sec. CPU time: user 0.19 sys 0.05 (60%). Peak memory: 100284KB.
+Running macro_place.tcl, stage 2_4_floorplan_macro
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+No macros found: Skipping macro_placement
+Elapsed time: 0:01.15[h:]min:sec. CPU time: user 0.54 sys 0.06 (53%). Peak memory: 130368KB.
+Running tapcell.tcl, stage 2_5_floorplan_tapcell
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO TAP-0004] Inserted 5428 endcaps.
+[INFO TAP-0005] Inserted 42098 tapcells.
+Elapsed time: 0:01.11[h:]min:sec. CPU time: user 0.71 sys 0.08 (71%). Peak memory: 146884KB.
+Running pdn.tcl, stage 2_6_floorplan_pdn
+[WARNING STA-0347] current_design for other than top cell not supported.
+[WARNING STA-0366] port 'clk' not found.
+[INFO PDN-0001] Inserting grid: grid
+Elapsed time: 0:10.46[h:]min:sec. CPU time: user 7.51 sys 0.15 (73%). Peak memory: 221336KB.
+cp ./results/nangate45/riscv_v_adder/base/2_6_floorplan_pdn.odb ./results/nangate45/riscv_v_adder/base/2_floorplan.odb
+Running global_place_skip_io.tcl, stage 3_1_place_gp_skip_io
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             54001
+[INFO GPL-0007] NumPlaceInstances:         6475
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6837
+[INFO GPL-0011] NumPins:                  24791
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        7794.332 um^2
+[INFO GPL-0019] Util:                     0.054 %
+[INFO GPL-0020] StdInstsArea:          7794.332 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  12346903
+[INFO GPL-0032] FillerInit:NumGNets:       6837
+[INFO GPL-0033] FillerInit:NumGPins:      24791
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        1.204 um^2
+[INFO GPL-0025] IdealBinArea:             1.204 um^2
+[INFO GPL-0026] IdealBinCnt:           11993906
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             54001
+[INFO GPL-0007] NumPlaceInstances:         6475
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6837
+[INFO GPL-0011] NumPins:                  24253
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        7794.332 um^2
+[INFO GPL-0019] Util:                     0.054 %
+[INFO GPL-0020] StdInstsArea:          7794.332 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  11236331
+[INFO GPL-0032] FillerInit:NumGNets:       6837
+[INFO GPL-0033] FillerInit:NumGPins:      24253
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        1.204 um^2
+[INFO GPL-0025] IdealBinArea:             1.323 um^2
+[INFO GPL-0026] IdealBinCnt:           10915102
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[NesterovSolve] Iter:    1 overflow: 0.996 HPWL: 11914322
+[NesterovSolve] Iter:   10 overflow: 0.997 HPWL: 4786116
+[NesterovSolve] Iter:   20 overflow: 0.997 HPWL: 4734072
+[NesterovSolve] Iter:   30 overflow: 0.997 HPWL: 4726177
+[NesterovSolve] Iter:   40 overflow: 0.997 HPWL: 4724962
+[NesterovSolve] Iter:   50 overflow: 0.997 HPWL: 4724664
+[NesterovSolve] Iter:   60 overflow: 0.997 HPWL: 4724458
+[NesterovSolve] Iter:   70 overflow: 0.997 HPWL: 4724059
+[NesterovSolve] Iter:   80 overflow: 0.997 HPWL: 4724156
+[NesterovSolve] Iter:   90 overflow: 0.997 HPWL: 4724588
+[NesterovSolve] Iter:  100 overflow: 0.997 HPWL: 4726087
+[NesterovSolve] Iter:  110 overflow: 0.997 HPWL: 4729442
+[NesterovSolve] Iter:  120 overflow: 0.997 HPWL: 4736234
+[NesterovSolve] Iter:  130 overflow: 0.997 HPWL: 4748388
+[NesterovSolve] Iter:  140 overflow: 0.997 HPWL: 4770959
+[NesterovSolve] Iter:  150 overflow: 0.997 HPWL: 4815546
+[NesterovSolve] Iter:  160 overflow: 0.996 HPWL: 4911216
+[NesterovSolve] Iter:  170 overflow: 0.995 HPWL: 5181611
+[NesterovSolve] Iter:  180 overflow: 0.992 HPWL: 6155097
+[NesterovSolve] Iter:  190 overflow: 0.990 HPWL: 8802153
+[NesterovSolve] Iter:  200 overflow: 0.985 HPWL: 12964781
+[NesterovSolve] Iter:  210 overflow: 0.979 HPWL: 16799189
+[NesterovSolve] Iter:  220 overflow: 0.971 HPWL: 20882876
+[NesterovSolve] Iter:  230 overflow: 0.959 HPWL: 26359615
+[NesterovSolve] Iter:  240 overflow: 0.943 HPWL: 31101399
+[NesterovSolve] Iter:  250 overflow: 0.922 HPWL: 35879729
+[NesterovSolve] Iter:  260 overflow: 0.896 HPWL: 43927753
+[NesterovSolve] Iter:  270 overflow: 0.868 HPWL: 51446183
+[NesterovSolve] Iter:  280 overflow: 0.830 HPWL: 55620876
+[NesterovSolve] Iter:  290 overflow: 0.786 HPWL: 65182331
+[NesterovSolve] Iter:  300 overflow: 0.743 HPWL: 69466141
+[NesterovSolve] Iter:  310 overflow: 0.698 HPWL: 75633902
+[NesterovSolve] Iter:  320 overflow: 0.645 HPWL: 84602326
+[NesterovSolve] Iter:  330 overflow: 0.593 HPWL: 89520573
+[NesterovSolve] Iter:  340 overflow: 0.536 HPWL: 94603450
+[NesterovSolve] Iter:  350 overflow: 0.477 HPWL: 98928161
+[NesterovSolve] Iter:  360 overflow: 0.418 HPWL: 103010372
+[NesterovSolve] Iter:  370 overflow: 0.366 HPWL: 106723208
+[NesterovSolve] Iter:  380 overflow: 0.322 HPWL: 109445266
+[NesterovSolve] Iter:  390 overflow: 0.290 HPWL: 112070663
+[NesterovSolve] Iter:  400 overflow: 0.253 HPWL: 115573296
+[NesterovSolve] Iter:  410 overflow: 0.224 HPWL: 119683896
+[NesterovSolve] Iter:  420 overflow: 0.187 HPWL: 126135478
+[NesterovSolve] Iter:  430 overflow: 0.149 HPWL: 134564835
+[NesterovSolve] Iter:  440 overflow: 0.151 HPWL: 119646866
+[NesterovSolve] Iter:  450 overflow: 0.135 HPWL: 114765883
+[NesterovSolve] Iter:  460 overflow: 0.119 HPWL: 112132043
+[NesterovSolve] Iter:  470 overflow: 0.102 HPWL: 110806427
+[NesterovSolve] Finished with Overflow: 0.099928
+Elapsed time: 1:14:40[h:]min:sec. CPU time: user 4315.45 sys 5.81 (96%). Peak memory: 3413156KB.
+Running io_placement.tcl, stage 3_2_place_iop
+place_pins -hor_layers metal5 -ver_layers metal6
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots           28564
+[INFO PPL-0002] Number of I/O             538
+[INFO PPL-0003] Number of I/O w/sink      503
+[INFO PPL-0004] Number of I/O w/o sink    35
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0006] Slots increase factor     0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 962071.12 um.
+Elapsed time: 0:00.79[h:]min:sec. CPU time: user 0.69 sys 0.10 (100%). Peak memory: 206812KB.
+Running global_place.tcl, stage 3_3_place_gp
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             54001
+[INFO GPL-0007] NumPlaceInstances:         6475
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6837
+[INFO GPL-0011] NumPins:                  24791
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        7794.332 um^2
+[INFO GPL-0019] Util:                     0.054 %
+[INFO GPL-0020] StdInstsArea:          7794.332 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:  12346903
+[INFO GPL-0032] FillerInit:NumGNets:       6837
+[INFO GPL-0033] FillerInit:NumGPins:      24791
+[INFO GPL-0023] TargetDensity:            1.000
+[INFO GPL-0024] AvrgPlaceInstArea:        1.204 um^2
+[INFO GPL-0025] IdealBinArea:             1.204 um^2
+[INFO GPL-0026] IdealBinCnt:           11993906
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+global_placement -density 0.9100540330598597 -pad_left 0 -pad_right 0 -routability_driven -timing_driven
+[INFO GPL-0002] DBU: 2000
+[INFO GPL-0003] SiteSize: (  0.190  1.400 ) um
+[INFO GPL-0004] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0006] NumInstances:             54001
+[INFO GPL-0007] NumPlaceInstances:         6475
+[INFO GPL-0008] NumFixedInstances:        47526
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   6837
+[INFO GPL-0011] NumPins:                  24791
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4000.000 4000.000 ) um
+[INFO GPL-0013] CoreBBox: ( 200.070 200.200 ) ( 3999.880 3999.800 ) um
+[INFO GPL-0016] CoreArea:            14437758.076 um^2
+[INFO GPL-0017] NonPlaceInstsArea:    12641.916 um^2
+[INFO GPL-0018] PlaceInstsArea:        7794.332 um^2
+[INFO GPL-0019] Util:                     0.054 %
+[INFO GPL-0020] StdInstsArea:          7794.332 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00000009 HPWL: 2060231507
+[InitialPlace]  Iter: 2 CG residual: 0.00000049 HPWL: 1978642105
+[InitialPlace]  Iter: 3 CG residual: 0.00000038 HPWL: 1973744697
+[InitialPlace]  Iter: 4 CG residual: 0.00000191 HPWL: 1970613135
+[InitialPlace]  Iter: 5 CG residual: 0.00001110 HPWL: 1966532608
+[InitialPlace]  Iter: 6 CG residual: 0.00002186 HPWL: 1960570520
+[InitialPlace]  Iter: 7 CG residual: 0.00001057 HPWL: 1952067300
+[InitialPlace]  Iter: 8 CG residual: 0.00016056 HPWL: 1940223379
+[InitialPlace]  Iter: 9 CG residual: 0.00076500 HPWL: 1924053462
+[InitialPlace]  Iter: 10 CG residual: 0.00244607 HPWL: 1902953848
+[InitialPlace]  Iter: 11 CG residual: 0.00306430 HPWL: 1876653832
+[InitialPlace]  Iter: 12 CG residual: 0.00371870 HPWL: 1845100139
+[InitialPlace]  Iter: 13 CG residual: 0.01164375 HPWL: 1809784230
+[InitialPlace]  Iter: 14 CG residual: 0.01492322 HPWL: 1776884773
+[InitialPlace]  Iter: 15 CG residual: 0.01020133 HPWL: 1745344937
+[InitialPlace]  Iter: 16 CG residual: 0.01333306 HPWL: 1718656105
+[InitialPlace]  Iter: 17 CG residual: 0.00840583 HPWL: 1694838025
+[InitialPlace]  Iter: 18 CG residual: 0.00298770 HPWL: 1674169787
+[InitialPlace]  Iter: 19 CG residual: 0.00211414 HPWL: 1656897447
+[InitialPlace]  Iter: 20 CG residual: 0.00056195 HPWL: 1643462103
+[INFO GPL-0031] FillerInit:NumGCells:  11236331
+[INFO GPL-0032] FillerInit:NumGNets:       6837
+[INFO GPL-0033] FillerInit:NumGPins:      24791
+[INFO GPL-0023] TargetDensity:            0.910
+[INFO GPL-0024] AvrgPlaceInstArea:        1.204 um^2
+[INFO GPL-0025] IdealBinArea:             1.323 um^2
+[INFO GPL-0026] IdealBinCnt:           10915102
+[INFO GPL-0027] TotalBinArea:        14437758.076 um^2
+[INFO GPL-0028] BinCnt:      2048   2048
+[INFO GPL-0029] BinSize: (  1.855  1.855 )
+[INFO GPL-0030] NumBins: 4194304
+[NesterovSolve] Iter:    1 overflow: 0.896 HPWL: 1656670421
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 6.72e-09
+[INFO GPL-0103] Timing-driven: weighted 663 nets.
+[NesterovSolve] Iter:   10 overflow: 0.782 HPWL: 1684327245
+[NesterovSolve] Iter:   20 overflow: 0.733 HPWL: 1672404436
+[NesterovSolve] Iter:   30 overflow: 0.720 HPWL: 1664894355
+[NesterovSolve] Iter:   40 overflow: 0.723 HPWL: 1663183171
+[NesterovSolve] Iter:   50 overflow: 0.726 HPWL: 1662010361
+[NesterovSolve] Iter:   60 overflow: 0.731 HPWL: 1660885067
+[NesterovSolve] Iter:   70 overflow: 0.736 HPWL: 1658987446
+[NesterovSolve] Iter:   80 overflow: 0.744 HPWL: 1655012449
+[NesterovSolve] Iter:   90 overflow: 0.756 HPWL: 1650249738
+[NesterovSolve] Iter:  100 overflow: 0.768 HPWL: 1646726514
+[NesterovSolve] Iter:  110 overflow: 0.773 HPWL: 1645759546
+[NesterovSolve] Iter:  120 overflow: 0.773 HPWL: 1646921504
+[NesterovSolve] Iter:  130 overflow: 0.768 HPWL: 1648418570
+[NesterovSolve] Iter:  140 overflow: 0.762 HPWL: 1649494889
+[NesterovSolve] Iter:  150 overflow: 0.758 HPWL: 1650975303
+[NesterovSolve] Iter:  160 overflow: 0.753 HPWL: 1651966984
+[NesterovSolve] Iter:  170 overflow: 0.749 HPWL: 1650102154
+[NesterovSolve] Iter:  180 overflow: 0.751 HPWL: 1650879533
+[NesterovSolve] Iter:  190 overflow: 0.753 HPWL: 1650054716
+[NesterovSolve] Iter:  200 overflow: 0.752 HPWL: 1649194901
+[NesterovSolve] Iter:  210 overflow: 0.751 HPWL: 1649778210
+[NesterovSolve] Iter:  220 overflow: 0.742 HPWL: 1654184637
+[NesterovSolve] Iter:  230 overflow: 0.733 HPWL: 1655354626
+[NesterovSolve] Iter:  240 overflow: 0.724 HPWL: 1651939568
+[NesterovSolve] Iter:  250 overflow: 0.707 HPWL: 1644970581
+[NesterovSolve] Iter:  260 overflow: 0.682 HPWL: 1651646234
+[NesterovSolve] Iter:  270 overflow: 0.663 HPWL: 1651285997
+[NesterovSolve] Iter:  280 overflow: 0.632 HPWL: 1647553034
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 6.87e-09
+[INFO GPL-0103] Timing-driven: weighted 649 nets.
+[NesterovSolve] Iter:  290 overflow: 0.602 HPWL: 1645570688
+[NesterovSolve] Snapshot saved at iter = 291
+[NesterovSolve] Iter:  300 overflow: 0.551 HPWL: 1654813913
+[NesterovSolve] Iter:  310 overflow: 0.507 HPWL: 1652988710
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 7.07e-09
+[INFO GPL-0103] Timing-driven: weighted 659 nets.
+[NesterovSolve] Iter:  320 overflow: 0.464 HPWL: 1651325031
+[NesterovSolve] Iter:  330 overflow: 0.415 HPWL: 1652241208
+[NesterovSolve] Iter:  340 overflow: 0.358 HPWL: 1653890481
+[NesterovSolve] Iter:  350 overflow: 0.318 HPWL: 1655403848
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 4200 4200 ) DBU
+[INFO GPL-0038] TileCnt:    1904 1904
+[INFO GPL-0040] NumTiles: 3625216
+[INFO GPL-0081] TotalRouteOverflow: 1.940140962600708
+[INFO GPL-0082] OverflowTileCnt: 34
+[INFO GPL-0083] 0.5%RC: 0.49438536711830017
+[INFO GPL-0084] 1.0%RC: 0.47517446525931517
+[INFO GPL-0085] 2.0%RC: 0.463396332792295
+[INFO GPL-0086] 5.0%RC: 0.4410967369773257
+[INFO GPL-0087] FinalRC: 0.48477992
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  360 overflow: 0.285 HPWL: 1657394756
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 7.16e-09
+[INFO GPL-0103] Timing-driven: weighted 646 nets.
+[NesterovSolve] Iter:  370 overflow: 0.247 HPWL: 1661256939
+[NesterovSolve] Iter:  380 overflow: 0.217 HPWL: 1665357080
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 7.01e-09
+[INFO GPL-0103] Timing-driven: weighted 649 nets.
+[NesterovSolve] Iter:  390 overflow: 0.180 HPWL: 1671861870
+[NesterovSolve] Iter:  400 overflow: 0.145 HPWL: 1680329723
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack 7.06e-09
+[INFO GPL-0103] Timing-driven: weighted 643 nets.
+[NesterovSolve] Iter:  410 overflow: 0.143 HPWL: 1668543126
+[NesterovSolve] Iter:  420 overflow: 0.129 HPWL: 1664855418
+[NesterovSolve] Iter:  430 overflow: 0.115 HPWL: 1659959491
+[NesterovSolve] Iter:  440 overflow: 0.101 HPWL: 1657518875
+[NesterovSolve] Finished with Overflow: 0.099655
+Report metrics stage 5, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 20436 u^2 0% utilization.
+Elapsed time: 55:48.74[h:]min:sec. CPU time: user 3759.85 sys 5.13 (112%). Peak memory: 6317304KB.
+Running resize.tcl, stage 3_4_place_resized
+Perform port buffering...
+[INFO RSZ-0027] Inserted 327 input buffers.
+[INFO RSZ-0028] Inserted 176 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 640um.
+[INFO RSZ-0034] Found 1358 slew violations.
+[INFO RSZ-0036] Found 114 capacitance violations.
+[INFO RSZ-0037] Found 204 long wires.
+[INFO RSZ-0038] Inserted 1460 buffers in 1510 nets.
+[INFO RSZ-0039] Resized 2704 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+Floating nets: 
+Report metrics stage 3, resizer...
+No registers in design
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 39673 u^2 0% utilization.
+Instance count before 54001, after 55964
+Pin count before 24253, after 28179
+Elapsed time: 0:06.04[h:]min:sec. CPU time: user 5.87 sys 0.17 (100%). Peak memory: 355096KB.
+Running detail_place.tcl, stage 3_5_place_dp
+Placement Analysis
+---------------------------------
+total displacement     116001.2 u
+average displacement        2.1 u
+max displacement           70.6 u
+original HPWL          832645.9 u
+legalized HPWL         989578.6 u
+delta HPWL                   19 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 55964 cells, 538 terminals, 8800 edges, 28717 pins, and 0 blockages.
+[INFO DPO-0109] Network stats: inst 56502, edges 8800, pins 28717
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 14000 2800 units.
+[INFO DPO-0320] Collected 48064 fixed cells.
+[INFO DPO-0318] Collected 8438 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (400140, 400400) - (7999380, 7999600)
+[INFO DPO-0310] Assigned 8438 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 1.979437e+09.
+[INFO DPO-0302] End of matching; objective is 1.975200e+09, improvement is 0.21 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 1.971089e+09.
+[INFO DPO-0307] End of global swaps; objective is 1.971089e+09, improvement is 0.21 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 1.970665e+09.
+[INFO DPO-0309] End of vertical swaps; objective is 1.970665e+09, improvement is 0.02 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 1.947465e+09.
+[INFO DPO-0304] Pass   2 of reordering; objective is 1.938966e+09.
+[INFO DPO-0305] End of reordering; objective is 1.938966e+09, improvement is 1.61 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 168760 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 168760, swaps 26767, moves 11891 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.938019e+09, Scratch cost 1.932072e+09, Incremental cost 1.932072e+09, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.932072e+09.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.31 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.306880 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 4275 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 3696 cell flips.
+[INFO DPO-0384] End of flipping; objective is 1.917063e+09, improvement is 0.83 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           989578.6 u
+Final HPWL              958186.9 u
+Delta HPWL                  -3.2 %
+
+[INFO DPL-0020] Mirrored 655 instances
+[INFO DPL-0021] HPWL before          958186.9 u
+[INFO DPL-0022] HPWL after           958089.9 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+Report metrics stage 3, detailed place...
+No registers in design
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 39673 u^2 0% utilization.
+Elapsed time: 0:32.31[h:]min:sec. CPU time: user 27.91 sys 4.39 (99%). Peak memory: 8009456KB.
+cp ./results/nangate45/riscv_v_adder/base/3_5_place_dp.odb ./results/nangate45/riscv_v_adder/base/3_place.odb
+cp ./results/nangate45/riscv_v_adder/base/2_floorplan.sdc ./results/nangate45/riscv_v_adder/base/3_place.sdc
+Running cts.tcl, stage 4_1_cts
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[WARNING STA-0450] virtual clock clk can not be propagated.
+[INFO RSZ-0058] Using max wire length 640um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          958089.9 u
+legalized HPWL         966436.7 u
+delta HPWL                    1 %
+
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          966436.7 u
+legalized HPWL         966436.7 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+No registers in design
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 39673 u^2 0% utilization.
+Elapsed time: 0:23.09[h:]min:sec. CPU time: user 20.18 sys 2.91 (99%). Peak memory: 8079436KB.
+cp ./results/nangate45/riscv_v_adder/base/4_1_cts.odb ./results/nangate45/riscv_v_adder/base/4_cts.odb
+Running global_route.tcl, stage 5_1_grt
+global_route -congestion_report_file ./reports/nangate45/riscv_v_adder/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 328
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical     39892608      25249755          36.71%
+metal3     Horizontal   54399184      32623129          40.03%
+metal4     Vertical     25387936      14173612          44.17%
+metal5     Horizontal   25387936      14500860          42.88%
+metal6     Vertical     25387936      14488552          42.93%
+metal7     Horizontal    7254240       3235649          55.40%
+metal8     Vertical      7254240       3625215          50.03%
+metal9     Horizontal    3627120       3621409          0.16%
+metal10    Vertical      3627120       3621409          0.16%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0103] Extra Run for hard benchmark.
+[INFO GRT-0197] Via related to pin nodes: 76653
+[INFO GRT-0198] Via related Steiner nodes: 4935
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 154285
+[INFO GRT-0112] Final usage 3D: 1051595
+[ERROR GRT-0119] Routing congestion too high. Check the congestion heatmap in the GUI and load ./reports/nangate45/riscv_v_adder/base/congestion.rpt in the DRC viewer.
+Error: global_route.tcl, 122 GRT-0119
+Command exited with non-zero status 1
+Elapsed time: 11:38.26[h:]min:sec. CPU time: user 696.28 sys 1.97 (99%). Peak memory: 2985232KB.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Completing 70% with 11002 violations.
+    elapsed time = 00:22:10, memory = 15761.36 (MB).
+    Completing 80% with 10678 violations.
+    elapsed time = 00:28:39, memory = 15020.43 (MB).
+    Completing 90% with 10678 violations.
+    elapsed time = 00:29:18, memory = 15788.71 (MB).
+    Completing 100% with 10401 violations.
+    elapsed time = 00:38:55, memory = 15085.60 (MB).
+[INFO DRT-0199]   Number of violations = 10607.
+Viol/Layer          M1     V1     M2     V2     M3     V3     M4     V4     M5     V5     M6     V6     V7     M8     M9
+Corner Spacing       0      0      0      0      0      0      2      0      0      0      0      0      0      0      0
+Cut Spacing          0      0      0      0      0      0      0      0      0      0      0      0      1      0      0
+CutSpcTbl            0      0      0      0      0    257      0    130      0     13      0     17      0      0      0
+EOL                  0      0    829      0    110      0    180      0     23      0      1      0      0      0      0
+Metal Spacing      610      0    189      0   1350      0    152      0     12      0      1      0      0      6      2
+Min Step             0      0      0      0      0      0      0      0      0      0      0      0      0     70      1
+NS Metal             4      0      0      0      0      0      0      0      0      0      0      0      0      0      0
+Recheck             14      0    110      0     88      0     13      0      0      0      0      0      0      0      0
+Short              177      2    408      2    277      3    182      0     15      1      3      0      0      1      0
+eolKeepOut           0      0   4032      0    380      0    831      0     97      0     11      0      0      0      0
+[INFO DRT-0267] cpu time = 03:56:59, elapsed time = 00:39:05, memory = 14773.48 (MB), peak = 17058.77 (MB)
+Total wire length = 1224442 um.
+Total wire length on LAYER M1 = 2109 um.
+Total wire length on LAYER M2 = 166153 um.
+Total wire length on LAYER M3 = 348000 um.
+Total wire length on LAYER M4 = 282495 um.
+Total wire length on LAYER M5 = 189685 um.
+Total wire length on LAYER M6 = 100124 um.
+Total wire length on LAYER M7 = 75532 um.
+Total wire length on LAYER M8 = 43527 um.
+Total wire length on LAYER M9 = 16814 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2320249.
+Up-via summary (total 2320249):
+
+------------------
+ Active          0
+     M1     722334
+     M2    1064811
+     M3     341819
+     M4     123008
+     M5      39790
+     M6      19419
+     M7       7324
+     M8       1744
+     M9          0
+------------------
+           2320249
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 10607 violations.
+    elapsed time = 00:00:00, memory = 14773.48 (MB).
+    Completing 20% with 9408 violations.
+    elapsed time = 00:01:56, memory = 15693.93 (MB).
+    Completing 30% with 7877 violations.
+    elapsed time = 00:03:22, memory = 14773.78 (MB).
+    Completing 40% with 7877 violations.
+    elapsed time = 00:03:34, memory = 15531.01 (MB).
+    Completing 50% with 6777 violations.
+    elapsed time = 00:06:33, memory = 14773.73 (MB).
+    Completing 60% with 5231 violations.
+    elapsed time = 00:06:39, memory = 14773.73 (MB).
+    Completing 70% with 4013 violations.
+    elapsed time = 00:08:37, memory = 15689.54 (MB).
+    Completing 80% with 2627 violations.
+    elapsed time = 00:10:03, memory = 14773.60 (MB).
+    Completing 90% with 2627 violations.
+    elapsed time = 00:10:16, memory = 15551.86 (MB).
+    Completing 100% with 366 violations.
+    elapsed time = 00:13:03, memory = 14773.84 (MB).
+[INFO DRT-0199]   Number of violations = 367.
+Viol/Layer          M1     M2     V2     M3     V3     M4     V4     M5     M8
+CutSpcTbl            0      0      0      0     12      0      8      0      0
+EOL                  0     15      0      5      0      3      0      0      0
+Metal Spacing        9      7      0     60      0     20      0      4      0
+Min Step             0      0      0      0      0      0      0      0      1
+Recheck              0      1      0      0      0      0      0      0      0
+Short                4     28      1     38      0      6      0      7      0
+eolKeepOut           0     90      0     18      0     24      0      6      0
+[INFO DRT-0267] cpu time = 01:27:36, elapsed time = 00:13:07, memory = 14660.23 (MB), peak = 17058.77 (MB)
+Total wire length = 1224931 um.
+Total wire length on LAYER M1 = 2012 um.
+Total wire length on LAYER M2 = 163190 um.
+Total wire length on LAYER M3 = 346174 um.
+Total wire length on LAYER M4 = 284688 um.
+Total wire length on LAYER M5 = 191797 um.
+Total wire length on LAYER M6 = 100792 um.
+Total wire length on LAYER M7 = 75551 um.
+Total wire length on LAYER M8 = 43869 um.
+Total wire length on LAYER M9 = 16853 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322582.
+Up-via summary (total 2322582):
+
+------------------
+ Active          0
+     M1     720749
+     M2    1056954
+     M3     347369
+     M4     126928
+     M5      41278
+     M6      19858
+     M7       7664
+     M8       1782
+     M9          0
+------------------
+           2322582
+
+
+[INFO DRT-0195] Start 4th optimization iteration.
+    Completing 10% with 367 violations.
+    elapsed time = 00:00:00, memory = 14660.23 (MB).
+    Completing 20% with 309 violations.
+    elapsed time = 00:00:13, memory = 14659.99 (MB).
+    Completing 30% with 284 violations.
+    elapsed time = 00:00:21, memory = 14660.04 (MB).
+    Completing 40% with 284 violations.
+    elapsed time = 00:00:21, memory = 14660.04 (MB).
+    Completing 50% with 228 violations.
+    elapsed time = 00:00:54, memory = 14659.87 (MB).
+    Completing 60% with 212 violations.
+    elapsed time = 00:00:54, memory = 14659.87 (MB).
+    Completing 70% with 186 violations.
+    elapsed time = 00:01:05, memory = 15617.58 (MB).
+    Completing 80% with 149 violations.
+    elapsed time = 00:01:14, memory = 14659.98 (MB).
+    Completing 90% with 149 violations.
+    elapsed time = 00:01:14, memory = 14659.98 (MB).
+    Completing 100% with 60 violations.
+    elapsed time = 00:01:43, memory = 14660.07 (MB).
+[INFO DRT-0199]   Number of violations = 61.
+Viol/Layer          M1     M2     M3     M4     V4     M5
+CutSpcTbl            0      0      0      0      8      0
+EOL                  0      1      0      1      0      0
+Metal Spacing        0      0      2      7      0      4
+Recheck              0      1      0      0      0      0
+Short                1      8      2      0      0      7
+eolKeepOut           0      3      3     10      0      3
+[INFO DRT-0267] cpu time = 00:08:56, elapsed time = 00:01:44, memory = 14656.77 (MB), peak = 17058.77 (MB)
+Total wire length = 1224952 um.
+Total wire length on LAYER M1 = 2008 um.
+Total wire length on LAYER M2 = 163110 um.
+Total wire length on LAYER M3 = 346105 um.
+Total wire length on LAYER M4 = 284712 um.
+Total wire length on LAYER M5 = 191880 um.
+Total wire length on LAYER M6 = 100828 um.
+Total wire length on LAYER M7 = 75557 um.
+Total wire length on LAYER M8 = 43897 um.
+Total wire length on LAYER M9 = 16853 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322740.
+Up-via summary (total 2322740):
+
+------------------
+ Active          0
+     M1     720679
+     M2    1056691
+     M3     347459
+     M4     127136
+     M5      41400
+     M6      19899
+     M7       7692
+     M8       1784
+     M9          0
+------------------
+           2322740
+
+
+[INFO DRT-0195] Start 5th optimization iteration.
+    Completing 10% with 61 violations.
+    elapsed time = 00:00:00, memory = 14656.77 (MB).
+    Completing 20% with 60 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 30% with 60 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 40% with 60 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 50% with 57 violations.
+    elapsed time = 00:00:07, memory = 14656.79 (MB).
+    Completing 60% with 57 violations.
+    elapsed time = 00:00:07, memory = 14656.79 (MB).
+    Completing 70% with 53 violations.
+    elapsed time = 00:00:10, memory = 14656.79 (MB).
+    Completing 80% with 53 violations.
+    elapsed time = 00:00:12, memory = 14656.73 (MB).
+    Completing 90% with 53 violations.
+    elapsed time = 00:00:12, memory = 14656.73 (MB).
+    Completing 100% with 41 violations.
+    elapsed time = 00:00:29, memory = 14656.57 (MB).
+[INFO DRT-0199]   Number of violations = 41.
+Viol/Layer          M2     M4     V4     M5
+CutSpcTbl            0      0      8      0
+EOL                  0      1      0      0
+Metal Spacing        0      7      0      4
+Short                1      0      0      7
+eolKeepOut           0     10      0      3
+[INFO DRT-0267] cpu time = 00:01:15, elapsed time = 00:00:29, memory = 14656.57 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163106 um.
+Total wire length on LAYER M3 = 346101 um.
+Total wire length on LAYER M4 = 284717 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322761.
+Up-via summary (total 2322761):
+
+------------------
+ Active          0
+     M1     720671
+     M2    1056682
+     M3     347474
+     M4     127159
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322761
+
+
+[INFO DRT-0195] Start 6th optimization iteration.
+    Completing 10% with 41 violations.
+    elapsed time = 00:00:00, memory = 14656.57 (MB).
+    Completing 20% with 41 violations.
+    elapsed time = 00:00:00, memory = 14656.57 (MB).
+    Completing 30% with 41 violations.
+    elapsed time = 00:00:00, memory = 14656.57 (MB).
+    Completing 40% with 41 violations.
+    elapsed time = 00:00:00, memory = 14656.57 (MB).
+    Completing 50% with 41 violations.
+    elapsed time = 00:00:00, memory = 14656.57 (MB).
+    Completing 60% with 41 violations.
+    elapsed time = 00:00:00, memory = 14656.57 (MB).
+    Completing 70% with 29 violations.
+    elapsed time = 00:00:01, memory = 14656.57 (MB).
+    Completing 80% with 29 violations.
+    elapsed time = 00:00:01, memory = 14656.57 (MB).
+    Completing 90% with 29 violations.
+    elapsed time = 00:00:01, memory = 14656.57 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:08, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:12, elapsed time = 00:00:08, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 7th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 8th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 9th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:08, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 10th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:10, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163103 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 11th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:04, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:10, elapsed time = 00:00:04, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 12th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:04, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:13, elapsed time = 00:00:05, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284719 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41404
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 13th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:02, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284718 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322755.
+Up-via summary (total 2322755):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41406
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322755
+
+
+[INFO DRT-0195] Start 14th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163104 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284718 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322755.
+Up-via summary (total 2322755):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056675
+     M3     347478
+     M4     127156
+     M5      41406
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322755
+
+
+[INFO DRT-0195] Start 15th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 28 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 28 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 28.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      6      0
+Metal Spacing        5      0      4
+Short                0      0      6
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163103 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284718 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322753.
+Up-via summary (total 2322753):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056673
+     M3     347478
+     M4     127156
+     M5      41406
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322753
+
+
+[INFO DRT-0195] Start 16th optimization iteration.
+    Completing 10% with 28 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 24 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 24 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 24 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 24 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 24 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 24 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 24 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 24 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 24 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 24.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      4      0
+Metal Spacing        4      0      4
+Short                0      0      5
+eolKeepOut           4      0      3
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2007 um.
+Total wire length on LAYER M2 = 163103 um.
+Total wire length on LAYER M3 = 346100 um.
+Total wire length on LAYER M4 = 284718 um.
+Total wire length on LAYER M5 = 191889 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322751.
+Up-via summary (total 2322751):
+
+------------------
+ Active          0
+     M1     720669
+     M2    1056673
+     M3     347476
+     M4     127156
+     M5      41406
+     M6      19894
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322751
+
+
+[INFO DRT-0195] Start 17th optimization iteration.
+    Completing 10% with 24 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 60% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 70% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 20.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      3      0
+Metal Spacing        3      0      4
+Short                0      0      5
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:02, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224957 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346097 um.
+Total wire length on LAYER M4 = 284737 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322745.
+Up-via summary (total 2322745):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056675
+     M3     347476
+     M4     127154
+     M5      41408
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322745
+
+
+[INFO DRT-0195] Start 18th optimization iteration.
+    Completing 10% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 20 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 20 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 20.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      3      0
+Metal Spacing        3      0      4
+Short                0      0      5
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:09, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224957 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346097 um.
+Total wire length on LAYER M4 = 284737 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322745.
+Up-via summary (total 2322745):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056675
+     M3     347476
+     M4     127154
+     M5      41408
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322745
+
+
+[INFO DRT-0195] Start 19th optimization iteration.
+    Completing 10% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 20 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 60% with 20 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 70% with 20 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 20 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 20 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 20 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 20.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      3      0
+Metal Spacing        3      0      4
+Short                0      0      5
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:09, elapsed time = 00:00:04, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224957 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346097 um.
+Total wire length on LAYER M4 = 284737 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322745.
+Up-via summary (total 2322745):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056675
+     M3     347476
+     M4     127154
+     M5      41408
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322745
+
+
+[INFO DRT-0195] Start 20th optimization iteration.
+    Completing 10% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 20 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 14 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 60% with 14 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 70% with 14 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 14 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 14 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 14 violations.
+    elapsed time = 00:00:04, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 14.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        2      0      4
+Short                0      0      2
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:11, elapsed time = 00:00:05, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224957 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346098 um.
+Total wire length on LAYER M4 = 284738 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100826 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322745.
+Up-via summary (total 2322745):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347476
+     M4     127154
+     M5      41406
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322745
+
+
+[INFO DRT-0195] Start 21st optimization iteration.
+    Completing 10% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 60% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 70% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 14.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        2      0      4
+Short                0      0      2
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:01, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346098 um.
+Total wire length on LAYER M4 = 284739 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100826 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322749.
+Up-via summary (total 2322749):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347478
+     M4     127154
+     M5      41408
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322749
+
+
+[INFO DRT-0195] Start 22nd optimization iteration.
+    Completing 10% with 14 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 60% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 70% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 13.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        2      0      3
+Short                0      0      2
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:02, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346098 um.
+Total wire length on LAYER M4 = 284739 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100826 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322751.
+Up-via summary (total 2322751):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056673
+     M3     347478
+     M4     127156
+     M5      41410
+     M6      19898
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322751
+
+
+[INFO DRT-0195] Start 23rd optimization iteration.
+    Completing 10% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+    Completing 80% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+    Completing 100% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 13.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        2      0      3
+Short                0      0      2
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346098 um.
+Total wire length on LAYER M4 = 284739 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100826 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322751.
+Up-via summary (total 2322751):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056673
+     M3     347478
+     M4     127156
+     M5      41410
+     M6      19898
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322751
+
+
+[INFO DRT-0195] Start 24th optimization iteration.
+    Completing 10% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 13 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+    Completing 80% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+    Completing 100% with 13 violations.
+    elapsed time = 00:00:03, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 13.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        2      0      3
+Short                0      0      2
+eolKeepOut           3      0      2
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:03, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346098 um.
+Total wire length on LAYER M4 = 284739 um.
+Total wire length on LAYER M5 = 191891 um.
+Total wire length on LAYER M6 = 100826 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322751.
+Up-via summary (total 2322751):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056673
+     M3     347478
+     M4     127156
+     M5      41410
+     M6      19898
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322751
+
+
+[INFO DRT-0195] Start 25th optimization iteration.
+    Completing 10% with 13 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 30% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 40% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 50% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 16 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 16.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      2      0
+Metal Spacing        3      0      3
+Short                0      0      2
+eolKeepOut           4      0      2
+[INFO DRT-0267] cpu time = 00:00:04, elapsed time = 00:00:01, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346099 um.
+Total wire length on LAYER M4 = 284739 um.
+Total wire length on LAYER M5 = 191890 um.
+Total wire length on LAYER M6 = 100826 um.
+Total wire length on LAYER M7 = 75559 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322757.
+Up-via summary (total 2322757):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056675
+     M3     347480
+     M4     127158
+     M5      41410
+     M6      19898
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322757
+
+
+[INFO DRT-0195] Start 26th optimization iteration.
+    Completing 10% with 16 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 16 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 16 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 16 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 14 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 5.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        1      0      0
+Short                0      0      1
+eolKeepOut           1      0      1
+[INFO DRT-0267] cpu time = 00:00:05, elapsed time = 00:00:02, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346099 um.
+Total wire length on LAYER M4 = 284738 um.
+Total wire length on LAYER M5 = 191890 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322755.
+Up-via summary (total 2322755):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347478
+     M4     127158
+     M5      41410
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322755
+
+
+[INFO DRT-0195] Start 27th optimization iteration.
+    Completing 10% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 5 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 60% with 5 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 80% with 5 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 90% with 5 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+    Completing 100% with 5 violations.
+    elapsed time = 00:00:01, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 5.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        1      0      0
+Short                0      0      1
+eolKeepOut           1      0      1
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:02, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346099 um.
+Total wire length on LAYER M4 = 284738 um.
+Total wire length on LAYER M5 = 191890 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322755.
+Up-via summary (total 2322755):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347478
+     M4     127158
+     M5      41410
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322755
+
+
+[INFO DRT-0195] Start 28th optimization iteration.
+    Completing 10% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 60% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 70% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 80% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 90% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+    Completing 100% with 5 violations.
+    elapsed time = 00:00:02, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 5.
+Viol/Layer          M4     V4     M5
+CutSpcTbl            0      1      0
+Metal Spacing        1      0      0
+Short                0      0      1
+eolKeepOut           1      0      1
+[INFO DRT-0267] cpu time = 00:00:03, elapsed time = 00:00:02, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224959 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346099 um.
+Total wire length on LAYER M4 = 284738 um.
+Total wire length on LAYER M5 = 191890 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322755.
+Up-via summary (total 2322755):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347478
+     M4     127158
+     M5      41410
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322755
+
+
+[INFO DRT-0195] Start 29th optimization iteration.
+    Completing 10% with 5 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 30% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 40% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 50% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 60% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 70% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 14656.67 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:00, memory = 14656.67 (MB), peak = 17058.77 (MB)
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346099 um.
+Total wire length on LAYER M4 = 284738 um.
+Total wire length on LAYER M5 = 191890 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322757.
+Up-via summary (total 2322757):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347478
+     M4     127158
+     M5      41412
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322757
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 1224958 um.
+Total wire length on LAYER M1 = 2006 um.
+Total wire length on LAYER M2 = 163084 um.
+Total wire length on LAYER M3 = 346099 um.
+Total wire length on LAYER M4 = 284738 um.
+Total wire length on LAYER M5 = 191890 um.
+Total wire length on LAYER M6 = 100827 um.
+Total wire length on LAYER M7 = 75558 um.
+Total wire length on LAYER M8 = 43899 um.
+Total wire length on LAYER M9 = 16852 um.
+Total wire length on LAYER Pad = 0 um.
+Total number of vias = 2322757.
+Up-via summary (total 2322757):
+
+------------------
+ Active          0
+     M1     720659
+     M2    1056677
+     M3     347478
+     M4     127158
+     M5      41412
+     M6      19896
+     M7       7693
+     M8       1784
+     M9          0
+------------------
+           2322757
+
+
+[INFO DRT-0267] cpu time = 13:50:17, elapsed time = 02:15:46, memory = 14656.67 (MB), peak = 17058.77 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Elapsed time: 2:28:02[h:]min:sec. CPU time: user 53501.99 sys 511.52 (608%). Peak memory: 17468184KB.
+Running fillcell.tcl, stage 5_3_fillcell
+filler_placement FILLERxp5_ASAP7_75t_R FILLER_ASAP7_75t_R DECAPx1_ASAP7_75t_R DECAPx2_ASAP7_75t_R DECAPx4_ASAP7_75t_R DECAPx6_ASAP7_75t_R DECAPx10_ASAP7_75t_R
+[INFO DPL-0001] Placed 168017 filler instances.
+Elapsed time: 0:12.66[h:]min:sec. CPU time: user 6.18 sys 0.89 (55%). Peak memory: 1165860KB.
+cp ./results/asap7/riscv_v/base/5_3_fillcell.odb ./results/asap7/riscv_v/base/5_route.odb
+cp ./results/asap7/riscv_v/base/4_cts.sdc ./results/asap7/riscv_v/base/5_route.sdc
+Running density_fill.tcl, stage 6_1_fill
+exec cp ./results/asap7/riscv_v/base/5_route.odb ./results/asap7/riscv_v/base/6_1_fill.odb
+Elapsed time: 0:08.25[h:]min:sec. CPU time: user 3.13 sys 0.75 (47%). Peak memory: 733776KB.
+cp ./results/asap7/riscv_v/base/5_route.sdc ./results/asap7/riscv_v/base/6_1_fill.sdc
+Running final_report.tcl, stage 6_report
+Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation riscv_v (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 1751011 rc segments
+[INFO RCX-0439] Coupling Cap extraction riscv_v ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 7% of 1974139 wires extracted
+[INFO RCX-0442] 18% of 1974139 wires extracted
+[INFO RCX-0442] 32% of 1974139 wires extracted
+[INFO RCX-0442] 44% of 1974139 wires extracted
+[INFO RCX-0442] 54% of 1974139 wires extracted
+[INFO RCX-0442] 60% of 1974139 wires extracted
+[INFO RCX-0442] 71% of 1974139 wires extracted
+[INFO RCX-0442] 82% of 1974139 wires extracted
+[INFO RCX-0442] 92% of 1974139 wires extracted
+[INFO RCX-0442] 100% of 1974139 wires extracted
+[INFO RCX-0045] Extract 192674 nets, 1943613 rsegs, 1943613 caps, 3197935 ccs
+[INFO RCX-0042] 100000 nets finished
+[INFO RCX-0443] 192674 nets finished
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VDD
+Corner           : default
+Supply voltage   : 7.70e-01 V
+Worstcase voltage: 7.55e-01 V
+Average voltage  : 7.62e-01 V
+Average IR drop  : 7.69e-03 V
+Worstcase IR drop: 1.53e-02 V
+Percentage drop  : 1.99 %
+######################################
+[INFO PSM-0040] All shapes on net VSS are connected.
+[INFO PSM-0073] Using bump pattern with x-pitch 140.0000um, y-pitch 140.0000um, and size 70.0000um with an reduction factor of 3x.
+########## IR report #################
+Net              : VSS
+Corner           : default
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 1.54e-02 V
+Average voltage  : 7.72e-03 V
+Average IR drop  : 7.72e-03 V
+Worstcase IR drop: 1.54e-02 V
+Percentage drop  : 1.99 %
+######################################
+Cell type report:                       Count       Area
+  Fill cell                            168017   16043.64
+  Tap cell                               4448     129.70
+  Tie cell                                144       6.30
+  Buffer                                    1       0.07
+  Clock buffer                            309     118.74
+  Timing Repair Buffer                   4048    1202.43
+  Inverter                              10899     538.41
+  Clock inverter                          115      14.71
+  Sequential cell                        4863    1500.84
+  Multi-Input combinational cell       172377   20397.57
+  Total                                365221   39952.41
+Report metrics stage 6, finish...
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 23909 u^2 60% utilization.
+Elapsed time: 18:59.61[h:]min:sec. CPU time: user 1089.19 sys 4.16 (95%). Peak memory: 4748176KB.
+cp ./results/asap7/riscv_v/base/5_route.sdc ./results/asap7/riscv_v/base/6_final.sdc
+(env time -f 'Elapsed time: %E[h:]min:sec. CPU time: user %U sys %S (%P). Peak memory: %MKB.' stdbuf -o L /usr/bin/klayout -zz -rd design_name=riscv_v \
+        -rd in_def=./results/asap7/riscv_v/base/6_final.def \
+        -rd in_files="/home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/gds/asap7sc7p5t_28_R_220121a.gds  " \
+        -rd seal_file="" \
+        -rd out_file=./results/asap7/riscv_v/base/6_1_merged.gds \
+        -rd tech_file=./objects/asap7/riscv_v/base/klayout.lyt \
+        -rd layer_map= \
+        -r /home/ubuntu/mbucio/tools/openROAD/flow/util/def2stream.py) 2>&1 | tee ./logs/asap7/riscv_v/base/6_1_merge.log
+[INFO] Reporting cells prior to loading DEF ...
+[INFO] Reading DEF ...
+[INFO] Clearing cells...
+[INFO] Merging GDS/OAS files...
+	/home/ubuntu/mbucio/tools/openROAD/flow/platforms/asap7/gds/asap7sc7p5t_28_R_220121a.gds
+[INFO] Copying toplevel cell 'riscv_v'
+[INFO] Checking for missing cell from GDS/OAS...
+[INFO] Found GDS_ALLOW_EMPTY variable.
+[INFO] All LEF cells have matching GDS/OAS cells
+[INFO] Checking for orphan cell in the final layout...
+[INFO] No orphan cells
+[INFO] Writing out GDS/OAS './results/asap7/riscv_v/base/6_1_merged.gds'
+Elapsed time: 0:20.18[h:]min:sec. CPU time: user 19.07 sys 1.09 (99%). Peak memory: 1899808KB.
+cp results/asap7/riscv_v/base/6_1_merged.gds results/asap7/riscv_v/base/6_final.gds
+./logs/asap7/riscv_v/base
+Log                            Elapsed seconds Peak Memory/MB
+1_1_yosys                                 2412          21809
+1_1_yosys_canonicalize                       1             83
+1_1_yosys_hier_report                        0             12
+2_1_floorplan                              110           1038
+2_2_floorplan_io                             2            496
+2_3_floorplan_tdms                           0             97
+2_4_floorplan_macro                          2            492
+2_5_floorplan_tapcell                        2            385
+2_6_floorplan_pdn                            4            506
+3_1_place_gp_skip_io                        94            803
+3_2_place_iop                                2            504
+3_3_place_gp                              1138           2620
+3_4_place_resized                          239           1335
+3_5_place_dp                               279           1469
+4_1_cts                                   3338           1893
+5_1_grt                                   3216           3437
+5_2_route                                 8882          17058
+5_3_fillcell                                12           1138
+6_1_fill                                     8            716
+6_1_merge                                   20           1855
+6_report                                  1139           4636
+Total                                    20900          21809
